@@ -38,6 +38,13 @@ Plug 'pbrisbin/vim-mkdir'
 Plug 'rhysd/clever-f.vim'
 Plug 'brooth/far.vim'
 
+" Smart selection of the closest text object
+Plug 'terryma/vim-expand-region'
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-line'
+Plug 'kana/vim-textobj-entire'
+Plug 'kana/vim-textobj-indent'
+
 call plug#end()
 
 
@@ -51,6 +58,29 @@ let g:coc_global_extensions = [
       \  'coc-html',
       \  'coc-css',
       \ ]
+
+" vim-expand-region
+let g:expand_region_text_objects = {
+      \ 'iw' : 0,
+      \ 'iW' : 0,
+      \ 'i"' : 0,
+      \ 'i''': 0,
+      \ 'i)' : 1,
+      \ 'i]' : 1,
+      \ 'ib' : 1,
+      \ 'iB' : 1,
+      \ 'il' : 0,
+      \ 'ip' : 0,
+      \ 'ie' : 0,
+      \ 'a]' : 1,
+      \ 'ab' : 1,
+      \ 'aB' : 1,
+      \ 'ii' : 0,
+      \ 'ai' : 0
+      \ }
+
+map ) <Plug>(expand_region_expand)
+map ( <Plug>(expand_region_shrink)
 
 " git-messenger
 let g:git_messenger_always_into_popup = v:true
