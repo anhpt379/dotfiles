@@ -35,8 +35,9 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'pbrisbin/vim-mkdir'
-Plug 'rhysd/clever-f.vim'
+" Plug 'rhysd/clever-f.vim'
 Plug 'brooth/far.vim'
+Plug 'justinmk/vim-sneak'
 
 " Smart selection of the closest text object
 Plug 'terryma/vim-expand-region'
@@ -82,11 +83,17 @@ let g:expand_region_text_objects = {
 map ) <Plug>(expand_region_expand)
 map ( <Plug>(expand_region_shrink)
 
+" sneak
+let g:sneak#s_next = 1
+let g:sneak#label = 1
+map f <Plug>Sneak_s
+map F <Plug>Sneak_S
+
 " git-messenger
 let g:git_messenger_always_into_popup = v:true
 
 " clever-f
-let g:clever_f_smart_case = 1
+" let g:clever_f_smart_case = 1
 
 filetype plugin indent on
 
@@ -410,8 +417,8 @@ omap if <Plug>(coc-funcobj-i)
 omap af <Plug>(coc-funcobj-a)
 
 " Use <TAB> for select selections ranges, needs server support, like: coc-tsserver, coc-python
-nmap <silent> <TAB> <Plug>(coc-range-select)
-xmap <silent> <TAB> <Plug>(coc-range-select)
+" nmap <silent> <TAB> <Plug>(coc-range-select)
+" xmap <silent> <TAB> <Plug>(coc-range-select)
 
 " Use `:Format` to format current buffer
 command! -nargs=0 Format :call CocAction('format')
