@@ -27,7 +27,7 @@ Plug 'mengelbrecht/lightline-bufferline'
 Plug 'mhinz/vim-startify'
 Plug 'rhysd/git-messenger.vim'
 Plug 'lifepillar/vim-cheat40'
-Plug 'jeffkreeftmeijer/vim-numbertoggle'
+" Plug 'jeffkreeftmeijer/vim-numbertoggle'
 
 " Improving editing experience
 Plug 'machakann/vim-sandwich'
@@ -142,13 +142,11 @@ endfunction
 
 " I don't use recording, don't judge me
 map q <Nop>
-inoremap jk <ESC>
-vnoremap <M-/> <Esc>/\%V
+" vnoremap <M-/> <Esc>/\%V
 nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
-nnoremap <ESC><ESC> :nohlsearch<CR>
 
 " Duplicate everything selected
 vmap D y'>p
@@ -532,14 +530,14 @@ nnoremap <leader>w :w<CR>
 " Insert mode: Ctrl-S
 inoremap <C-S> <Esc>:w<CR>i
 
-"move lines around
-nnoremap K :m-2<CR>==
-nnoremap J :m+<CR>==
-xnoremap K :m-2<CR>gv=gv
-xnoremap J :m'>+<CR>gv=gv
+" Move lines around
+nnoremap <C-k> :m-2<CR>==
+nnoremap <C-j> :m+<CR>==
+xnoremap <C-k> :m-2<CR>gv=gv
+xnoremap <C-j> :m'>+<CR>gv=gv
 
-nnoremap H V<
-nnoremap L V>
+nnoremap <C-h> V<
+nnoremap <C-l> V>
 
 " Automatically jump to end of text you pasted
 vnoremap <silent> y y`]
@@ -573,15 +571,40 @@ set lazyredraw
 set regexpengine=1
 
 
-" incr/dec
+" Increase / decrease number easily
 nnoremap - <C-x>
 nnoremap _ <C-x>
 nnoremap + <C-a>
 
 " Make double-<Esc> clear search highlights
-nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR><Esc>
+nnoremap <ESC><ESC> :nohlsearch<CR>
 
 " Visual linewise up and down by default
 noremap j gj
 noremap k gk
+
+" Moving around faster
+nnoremap J 5j
+nnoremap K 5k
+vnoremap J 5j
+vnoremap K 5k
+
+nnoremap H b
+nnoremap L w
+vnoremap H b
+vnoremap L w
+
+" Keep your cursor centered vertically on the screen
+set scrolloff=999
+
+" Easier to exit INSERT mode
+inoremap jj <ESC>
+inoremap jk <ESC>
+inoremap kj <ESC>
+inoremap kk <ESC>
+inoremap hh <ESC>
+inoremap ll <ESC>
+
+" Select the last changed/pasted text
+nnoremap gp `[v`]
 
