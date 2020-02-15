@@ -597,13 +597,13 @@ vnoremap L w
 " Keep your cursor centered vertically on the screen
 set scrolloff=999
 
-" Easier to exit INSERT mode
-inoremap jj <ESC>
-inoremap jk <ESC>
-inoremap kj <ESC>
-inoremap kk <ESC>
-inoremap hh <ESC>
-inoremap ll <ESC>
+" " Easier to exit INSERT mode
+" inoremap jj <ESC>
+" inoremap jk <ESC>
+" inoremap kj <ESC>
+" inoremap kk <ESC>
+" inoremap hh <ESC>
+" inoremap ll <ESC>
 
 " Select the last changed/pasted text
 nnoremap gp `[v`]
