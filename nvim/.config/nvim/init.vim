@@ -27,7 +27,6 @@ Plug 'mengelbrecht/lightline-bufferline'
 Plug 'mhinz/vim-startify'
 Plug 'rhysd/git-messenger.vim'
 Plug 'lifepillar/vim-cheat40'
-" Plug 'jeffkreeftmeijer/vim-numbertoggle'
 
 " Improving editing experience
 Plug 'machakann/vim-sandwich'
@@ -117,7 +116,7 @@ set ttyfast
 set laststatus=2
 set ttimeout
 set ttimeoutlen=10
-set termguicolors
+set termguicolors    " enable 24bit true color
 set colorcolumn=80
 set noshowmode
 set number
@@ -140,8 +139,6 @@ function! s:markdown_mode_setup()
   CocDisable
 endfunction
 
-" I don't use recording, don't judge me
-map q <Nop>
 " vnoremap <M-/> <Esc>/\%V
 nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
@@ -482,7 +479,7 @@ noremap <leader>l :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
 noremap <leader>s :<C-U><C-R>=printf("Leaderf! rg -e ")<CR>
 
 
-" === Vista === "
+" VISTA
 
 " How each level is indented and what to prepend.
 let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
@@ -501,9 +498,9 @@ let g:vista_executive_for = {
   \ }
 
 
-"============================================================================ "
-" ===                             KEY MAPPINGS                             === "
-" ============================================================================ "
+
+" KEY MAPPINGS
+
 
 " <leader>n - Toggle NERDTree on/off
 nmap <leader>n :NERDTreeToggle<CR>
@@ -549,7 +546,6 @@ nnoremap <silent> p p`]
 nnoremap <CR> G
 nnoremap <BS> gg
 
-
 "tab to switch to next open buffer
 nnoremap <Tab> :bnext<CR>
 "Shift + Tab to switch to previous open buffer
@@ -570,7 +566,6 @@ let g:far#source = 'rgnvim'
 set lazyredraw
 set regexpengine=1
 
-
 " Increase / decrease number easily
 nnoremap - <C-x>
 nnoremap _ <C-x>
@@ -579,7 +574,7 @@ nnoremap + <C-a>
 " Make double-<Esc> clear search highlights
 nnoremap <ESC><ESC> :nohlsearch<CR>
 
-" Visual linewise up and down by default
+" Navigate properly when lines are wrapped
 noremap j gj
 noremap k gk
 
@@ -596,14 +591,6 @@ vnoremap L w
 
 " Keep your cursor centered vertically on the screen
 set scrolloff=999
-
-" " Easier to exit INSERT mode
-" inoremap jj <ESC>
-" inoremap jk <ESC>
-" inoremap kj <ESC>
-" inoremap kk <ESC>
-" inoremap hh <ESC>
-" inoremap ll <ESC>
 
 " Select the last changed/pasted text
 nnoremap gp `[v`]
