@@ -34,7 +34,6 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'pbrisbin/vim-mkdir'
-" Plug 'rhysd/clever-f.vim'
 Plug 'brooth/far.vim'
 Plug 'justinmk/vim-sneak'
 
@@ -91,9 +90,7 @@ map F <Plug>Sneak_S
 " git-messenger
 let g:git_messenger_always_into_popup = v:true
 
-" clever-f
-" let g:clever_f_smart_case = 1
-
+" load filetype-specific indent files
 filetype plugin indent on
 
 set guifont=Meslo_Nerd_Font:14
@@ -498,7 +495,6 @@ let g:vista_executive_for = {
   \ }
 
 
-
 " KEY MAPPINGS
 
 
@@ -578,16 +574,16 @@ nnoremap <ESC><ESC> :nohlsearch<CR>
 noremap j gj
 noremap k gk
 
-" Moving around faster
-nnoremap J 5j
-nnoremap K 5k
-vnoremap J 5j
-vnoremap K 5k
+" " Moving around faster
+" nnoremap J 5j
+" nnoremap K 5k
+" vnoremap J 5j
+" vnoremap K 5k
 
-nnoremap H b
-nnoremap L w
-vnoremap H b
-vnoremap L w
+" nnoremap H b
+" nnoremap L w
+" vnoremap H b
+" vnoremap L w
 
 " Keep your cursor centered vertically on the screen
 set scrolloff=999
