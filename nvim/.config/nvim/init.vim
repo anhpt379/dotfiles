@@ -185,23 +185,12 @@ set winblend=0
 
 " === NerdTree === "
 
-" Remove bookmarks and help text from NERDTree
 let NERDTreeMinimalUI = 1
-
 let NERDTreeDirArrows = 1
-
-" Show hidden files
 let NERDTreeShowHidden=1
-
-" Automatically close NERDTree after a file has been opened
 let NERDTreeQuitOnOpen=1
-
-" Hide unwanted files
 let NERDTreeIgnore=['\.DS_Store', '\~$', '\.swp', '\.git', '__pycache__', '\.pyc$']
-
-" Automatically delete the buffer of the file you just deleted with NerdTree
 let NERDTreeAutoDeleteBuffer = 1
-
 let g:NERDSpaceDelims = 1
 
 map mm <Plug>NERDCommenterToggle
@@ -209,6 +198,8 @@ map mm <Plug>NERDCommenterToggle
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
+
+nmap <leader>n :NERDTreeToggle<CR>
 
 " Floating Term
 let s:float_term_border_win = 0
@@ -262,7 +253,10 @@ endfunction
 " Key binding
 let mapleader=' '
 
-nnoremap <Leader><Leader>r :so ~/.config/nvim/init.vim<CR>
+nnoremap <Leader>cr :so ~/.config/nvim/init.vim<CR>
+nnoremap <Leader>pi :PlugInstall<CR>
+nnoremap <Leader>pu :PlugUpdate<CR>
+nnoremap <Leader>pc :PlugClean<CR>
 
 " Open terminal
 nnoremap <Leader>at :call FloatTerm()<CR>
@@ -434,7 +428,7 @@ highlight VertSplit guifg=#212C32
 highlight WildMenu guibg=NONE guifg=#87bb7c
 highlight CursorLineNr guibg=NONE
 
-" LeaderF popup
+" LeaderF
 highlight def Lf_hl_popup_prompt guifg=#ffcd4a guibg=NONE
 highlight def Lf_hl_popup_spin guifg=#e6e666 guibg=NONE
 highlight def Lf_hl_popup_inputMode guifg=#005f60 guibg=#FFFFFF
@@ -448,9 +442,6 @@ highlight def Lf_hl_popup_cwd guifg=#FFFFFF guibg=#585858
 highlight def Lf_hl_popup_lineInfo guifg=#C9C9C9 guibg=#585858
 highlight def Lf_hl_popup_total guifg=#545454 guibg=#D0D0D0
 
-" === LeaderF === "
-
-" don't show the help in normal mode
 let g:Lf_HideHelp = 1
 let g:Lf_IgnoreCurrentBufferName = 0
 
@@ -458,7 +449,6 @@ let g:Lf_DefaultMode = 'NameOnly'
 let g:Lf_WorkingDirectoryMode = 'Ac'
 let g:Lf_RecurseSubmodules = 1
 
-" popup mode
 let g:Lf_WindowPosition = 'popup'
 let g:Lf_PreviewInPopup = 0
 let g:Lf_StlSeparator = { 'left': "", 'right': "" }
@@ -470,11 +460,10 @@ noremap <leader>b :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
 noremap <leader>r :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
 noremap <leader>t :<C-U><C-R>=printf("Leaderf bufTag %s", "")<CR><CR>
 noremap <leader>l :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
-
 noremap <leader>s :<C-U><C-R>=printf("Leaderf! rg -e ")<CR>
 
 
-" VISTA
+" vista
 
 " How each level is indented and what to prepend.
 let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
@@ -495,10 +484,6 @@ let g:vista_executive_for = {
 
 " KEY MAPPINGS
 
-
-" <leader>n - Toggle NERDTree on/off
-nmap <leader>n :NERDTreeToggle<CR>
-
 " Use U as redo
 nnoremap U <C-R>
 
@@ -516,9 +501,7 @@ map Q :qa!<CR>
 nnoremap q :bd<CR>
 
 " Saving quicker
-" Normal mode
 nnoremap <leader>w :w<CR>
-" Insert mode: Ctrl-S
 inoremap <C-S> <Esc>:w<CR>i
 
 " Move lines around
@@ -540,9 +523,8 @@ nnoremap <silent> p p`]
 nnoremap <CR> G
 nnoremap <BS> gg
 
-"tab to switch to next open buffer
+" Tab to switch between open buffers
 nnoremap <Tab> :bnext<CR>
-"Shift + Tab to switch to previous open buffer
 nnoremap <S-Tab> :bprevious<CR>
 
 " Keep visual selection when indenting/outdenting
@@ -571,17 +553,6 @@ nnoremap <ESC><ESC> :nohlsearch<CR>
 " Navigate properly when lines are wrapped
 noremap j gj
 noremap k gk
-
-" " Moving around faster
-" nnoremap J 5j
-" nnoremap K 5k
-" vnoremap J 5j
-" vnoremap K 5k
-
-" nnoremap H b
-" nnoremap L w
-" vnoremap H b
-" vnoremap L w
 
 " Keep your cursor centered vertically on the screen
 set scrolloff=999
