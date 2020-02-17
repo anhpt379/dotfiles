@@ -142,9 +142,6 @@ nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
-" Duplicate everything selected
-vmap D y'>p
-
 set background=dark
 let g:quantum_italics=1
 colorscheme quantum
