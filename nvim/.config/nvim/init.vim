@@ -548,11 +548,6 @@ let g:far#source = 'rgnvim'
 set lazyredraw
 set regexpengine=1
 
-" Increase / decrease number easily
-nnoremap - <C-x>
-nnoremap _ <C-x>
-nnoremap + <C-a>
-
 " Make double-<Esc> clear search highlights
 nnoremap <ESC><ESC> :nohlsearch<CR>
 
