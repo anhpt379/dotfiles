@@ -481,6 +481,12 @@ let g:vista_executive_for = {
   \ 'py': 'vim_lsp'
   \ }
 
+" Hybrid line numbers
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu | set rnu   | endif
+  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu | set nornu | endif
+augroup END
 
 " KEY MAPPINGS
 
