@@ -36,6 +36,7 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'pbrisbin/vim-mkdir'
 Plug 'brooth/far.vim'
 Plug 'justinmk/vim-sneak'
+Plug 'farmergreg/vim-lastplace'
 
 " Smart selection of the closest text object
 Plug 'terryma/vim-expand-region'
