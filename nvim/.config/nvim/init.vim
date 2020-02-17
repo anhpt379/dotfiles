@@ -560,8 +560,13 @@ nnoremap <ESC><ESC> :nohlsearch<CR>
 noremap j gj
 noremap k gk
 
-" Keep your cursor centered vertically on the screen
-set scrolloff=999
+" Start scrolling n lines before horizontal border of window.
+set scrolloff=5
+
+" Start scrolling n chars before end of screen.
+set sidescrolloff=7
+set sidescroll=1
+
 
 " Select the last changed/pasted text
 nnoremap gp `[v`]
