@@ -38,6 +38,7 @@ Plug 'brooth/far.vim'
 Plug 'farmergreg/vim-lastplace'
 Plug 'lambdalisue/suda.vim'
 Plug 'rhysd/clever-f.vim'
+Plug 'taku-o/vim-toggletaku-o/vim-toggle'
 
 " Smart selection of the closest text object
 Plug 'terryma/vim-expand-region'
