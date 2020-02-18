@@ -60,7 +60,9 @@ let g:coc_global_extensions = [
       \  'coc-markdownlint',
       \  'coc-yaml',
       \  'coc-docker',
-      \  'coc-sh'
+      \  'coc-sh',
+      \  'coc-word',
+      \  'coc-emoji'
       \ ]
 
 " vim-expand-region
