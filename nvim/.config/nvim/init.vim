@@ -127,7 +127,6 @@ set number
 set ttyfast
 set timeout timeoutlen=1000 ttimeoutlen=10
 
-
 " Tweak for Markdown mode
 autocmd FileType markdown call s:markdown_mode_setup()
 function! s:markdown_mode_setup()
@@ -571,3 +570,6 @@ inoremap <C-l> <Right>
 " Open/close NERDTree
 nmap <leader>n :NERDTreeToggle<CR>
 
+" Split line (sister to [J]oin lines)
+" The normal use of S is covered by cc, so don't worry about shadowing
+nnoremap S i<CR><ESC>
