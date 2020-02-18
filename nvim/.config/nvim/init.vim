@@ -496,7 +496,6 @@ noremap <leader>e :enew<CR>
 
 " Git
 noremap <leader>gs :Gstatus<CR>
-noremap <leader>gp :Gpush<CR>
 noremap <leader>gl :GV<CR>
 
 " Allow close a buffer, save and quit via single keypress
