@@ -37,6 +37,7 @@ Plug 'pbrisbin/vim-mkdir'
 Plug 'brooth/far.vim'
 Plug 'farmergreg/vim-lastplace'
 Plug '907th/vim-auto-save'
+Plug 'lambdalisue/suda.vim'
 
 " Smart selection of the closest text object
 Plug 'terryma/vim-expand-region'
@@ -556,3 +557,7 @@ set sidescroll=1
 
 " Quick record a macro
 noremap <leader>qq qq
+
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+" `:w !sudo tee % > /dev/null` trick does not work on neovim
+command W w suda://%
