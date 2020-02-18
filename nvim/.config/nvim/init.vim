@@ -35,7 +35,6 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'pbrisbin/vim-mkdir'
 Plug 'brooth/far.vim'
-" Plug 'justinmk/vim-sneak'
 Plug 'farmergreg/vim-lastplace'
 
 " Smart selection of the closest text object
@@ -81,12 +80,6 @@ let g:expand_region_text_objects = {
 
 map ) <Plug>(expand_region_expand)
 map ( <Plug>(expand_region_shrink)
-
-" " sneak
-" let g:sneak#s_next = 1
-" let g:sneak#label = 1
-" map f <Plug>Sneak_s
-" map F <Plug>Sneak_S
 
 " git-messenger
 let g:git_messenger_always_into_popup = v:true
