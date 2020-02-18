@@ -116,14 +116,15 @@ let g:is_posix = 1
 set noswapfile
 set nojoinspaces
 set nowrap
-set ttyfast
 set laststatus=2
-set ttimeout
-set ttimeoutlen=10
 set termguicolors    " enable 24bit true color
 set colorcolumn=80
 set noshowmode
 set number
+
+" Make the keyboard faaaaaaast
+set ttyfast
+set timeout timeoutlen=1000 ttimeoutlen=10
 
 " === Search === "
 " ignore case when searching
