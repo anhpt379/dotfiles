@@ -508,14 +508,11 @@ nnoremap q :bd<CR>
 nnoremap <C-S> :w<CR>
 inoremap <C-S> <Esc>:w<CR>i
 
-" Move lines around
-nnoremap <C-k> :m-2<CR>==
-nnoremap <C-j> :m+<CR>==
-xnoremap <C-k> :m-2<CR>gv=gv
-xnoremap <C-j> :m'>+<CR>gv=gv
-
-nnoremap <C-h> V<
-nnoremap <C-l> V>
+" Easier split navigations
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 " Automatically jump to end of text you pasted
 vnoremap <silent> y y`]
