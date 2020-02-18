@@ -489,6 +489,7 @@ noremap <leader>e :enew<CR>
 
 " Git
 noremap gs :Gstatus<CR>
+noremap gp :Gpush<CR>
 
 " Allow close a buffer, save and quit via single keypress
 noremap Q :qa!<CR>
@@ -550,9 +551,6 @@ set scrolloff=5
 " Start scrolling n chars before end of screen.
 set sidescrolloff=7
 set sidescroll=1
-
-" Select the last changed/pasted text
-nnoremap gp `[v`]
 
 " Quick record a macro
 noremap <leader>qq qq
