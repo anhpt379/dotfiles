@@ -186,8 +186,6 @@ let NERDTreeIgnore=['\.DS_Store', '\~$', '\.swp', '\.git', '__pycache__', '\.pyc
 let NERDTreeAutoDeleteBuffer = 1
 let g:NERDSpaceDelims = 1
 
-noremap mm <Plug>NERDCommenterToggle
-
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
