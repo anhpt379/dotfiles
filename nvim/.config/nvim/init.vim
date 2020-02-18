@@ -36,7 +36,6 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'pbrisbin/vim-mkdir'
 Plug 'brooth/far.vim'
 Plug 'farmergreg/vim-lastplace'
-Plug '907th/vim-auto-save'
 Plug 'lambdalisue/suda.vim'
 
 " Smart selection of the closest text object
@@ -48,7 +47,6 @@ Plug 'kana/vim-textobj-indent'
 
 call plug#end()
 
-let g:auto_save = 1
 let g:coc_global_extensions = [
       \  'coc-pairs',
       \  'coc-highlight',
@@ -504,7 +502,7 @@ noremap Q :qa!<CR>
 nnoremap q :bd<CR>
 
 " Saving quicker
-nnoremap <leader>w :w<CR>
+nnoremap <C-S> :w<CR>
 inoremap <C-S> <Esc>:w<CR>i
 
 " Move lines around
