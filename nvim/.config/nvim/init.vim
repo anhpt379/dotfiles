@@ -63,7 +63,8 @@ let g:coc_global_extensions = [
       \  'coc-docker',
       \  'coc-sh',
       \  'coc-word',
-      \  'coc-emoji'
+      \  'coc-emoji',
+      \  'coc-snippets'
       \ ]
 
 " More natural split opening
