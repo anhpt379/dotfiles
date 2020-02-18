@@ -78,8 +78,8 @@ let g:expand_region_text_objects = {
       \ 'ai' : 0
       \ }
 
-map ) <Plug>(expand_region_expand)
-map ( <Plug>(expand_region_shrink)
+noremap ) <Plug>(expand_region_expand)
+noremap ( <Plug>(expand_region_shrink)
 
 " git-messenger
 let g:git_messenger_always_into_popup = v:true
@@ -186,7 +186,7 @@ let NERDTreeIgnore=['\.DS_Store', '\~$', '\.swp', '\.git', '__pycache__', '\.pyc
 let NERDTreeAutoDeleteBuffer = 1
 let g:NERDSpaceDelims = 1
 
-map mm <Plug>NERDCommenterToggle
+noremap mm <Plug>NERDCommenterToggle
 
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
@@ -493,7 +493,7 @@ noremap <leader>e :enew<CR>
 noremap gs :Gstatus<CR>
 
 " Allow close a buffer, save and quit via single keypress
-map Q :qa!<CR>
+noremap Q :qa!<CR>
 
 nnoremap q :bd<CR>
 
