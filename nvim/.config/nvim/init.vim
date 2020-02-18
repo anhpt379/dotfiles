@@ -66,6 +66,10 @@ let g:coc_global_extensions = [
       \  'coc-emoji'
       \ ]
 
+" More natural split opening
+set splitbelow
+set splitright
+
 " vim-expand-region
 let g:expand_region_text_objects = {
       \ 'iw' : 0,
