@@ -3,23 +3,5 @@
   "suggest.minTriggerInputLength": 2,
   "suggest.maxCompleteItemCount": 10,
   "git.addGBlameToVirtualText": true,
-  "diagnostic.refreshOnInsertMode": true,
-  "languageserver": {
-    "efm": {
-      "command": "efm-langserver",
-      "args": [],
-      "filetypes": ["vim", "eruby", "markdown", "yaml"]
-    },
-    "bash": {
-      "command": "bash-language-server",
-      "args": ["start"],
-      "filetypes": ["sh"],
-      "ignoredRootPaths": ["~"]
-    },
-    "dockerfile": {
-      "command": "docker-langserver",
-      "filetypes": ["dockerfile"],
-      "args": ["--stdio"]
-    }
-  }
+  "diagnostic.refreshOnInsertMode": true
 }
