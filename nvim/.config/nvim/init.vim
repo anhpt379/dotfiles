@@ -40,6 +40,7 @@ Plug 'lambdalisue/suda.vim'
 Plug 'rhysd/clever-f.vim'
 Plug 'taku-o/vim-toggle'
 Plug 'tpope/vim-unimpaired'
+Plug 'sjl/gundo.vim'
 
 " Smart selection of the closest text object
 Plug 'terryma/vim-expand-region'
@@ -574,3 +575,11 @@ nmap <leader>n :NERDTreeToggle<CR>
 " Split line (sister to [J]oin lines)
 " The normal use of S is covered by cc, so don't worry about shadowing
 nnoremap S i<CR><ESC>
+
+" gundo
+let g:gundo_prefer_python3 = 1
+let g:gundo_width = 80
+let g:gundo_preview_height = 30
+let g:gundo_right = 1
+nnoremap <leader>gu :GundoToggle<CR>
+
