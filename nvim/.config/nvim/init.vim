@@ -489,9 +489,9 @@ nnoremap U <C-R>
 noremap <leader>e :enew<CR>
 
 " Git
-noremap gs :Gstatus<CR>
-noremap gp :Gpush<CR>
-noremap gl :GV<CR>
+noremap <leader>gs :Gstatus<CR>
+noremap <leader>gp :Gpush<CR>
+noremap <leader>gl :GV<CR>
 
 " Allow close a buffer, save and quit via single keypress
 noremap Q :qa!<CR>
