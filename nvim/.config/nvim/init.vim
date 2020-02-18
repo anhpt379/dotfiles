@@ -66,9 +66,13 @@ let g:coc_global_extensions = [
       \  'coc-docker',
       \  'coc-sh',
       \  'coc-word',
+      \  'coc-dictionary',
       \  'coc-emoji',
       \  'coc-snippets'
       \ ]
+
+" coc-dictionary
+set dictionary+=/usr/share/dict/words
 
 " More natural split opening
 set splitbelow
