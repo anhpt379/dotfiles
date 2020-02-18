@@ -490,9 +490,7 @@ nnoremap U <C-R>
 noremap <leader>e :enew<CR>
 
 " Git
-noremap <leader>gb :Gblame<CR>
-noremap <leader>ga :Gwrite<CR>
-noremap <leader>gc :Gcommit<CR>
+noremap gs :Gstatus<CR>
 
 " Allow close a buffer, save and quit via single keypress
 map Q :qa!<CR>
