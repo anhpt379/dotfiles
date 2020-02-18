@@ -129,7 +129,6 @@ function! s:markdown_mode_setup()
   set nonumber
   set textwidth=80
   set formatoptions+=t
-  CocDisable
 endfunction
 
 " vnoremap <M-/> <Esc>/\%V
