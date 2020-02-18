@@ -58,6 +58,11 @@ let g:coc_global_extensions = [
       \  'coc-json',
       \  'coc-html',
       \  'coc-css',
+      \  'coc-fish',
+      \  'coc-markdownlint',
+      \  'coc-yaml',
+      \  'coc-docker',
+      \  'coc-sh'
       \ ]
 
 " vim-expand-region
