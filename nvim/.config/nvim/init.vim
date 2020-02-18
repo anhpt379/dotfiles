@@ -500,7 +500,7 @@ nnoremap U <C-R>
 noremap <leader>e :enew<CR>
 
 " Git
-noremap <leader>gs :Gstatus<CR>
+noremap <leader>gs :vertical Gstatus<CR>
 noremap <leader>gl :GV<CR>
 
 " Allow close a buffer, save and quit via single keypress
