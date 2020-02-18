@@ -36,6 +36,7 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'pbrisbin/vim-mkdir'
 Plug 'brooth/far.vim'
 Plug 'farmergreg/vim-lastplace'
+Plug '907th/vim-auto-save'
 
 " Smart selection of the closest text object
 Plug 'terryma/vim-expand-region'
@@ -46,7 +47,7 @@ Plug 'kana/vim-textobj-indent'
 
 call plug#end()
 
-
+let g:auto_save = 1
 let g:coc_global_extensions = [
       \  'coc-pairs',
       \  'coc-highlight',
@@ -490,6 +491,7 @@ noremap <leader>e :enew<CR>
 " Git
 noremap gs :Gstatus<CR>
 noremap gp :Gpush<CR>
+noremap gl :GV<CR>
 
 " Allow close a buffer, save and quit via single keypress
 noremap Q :qa!<CR>
