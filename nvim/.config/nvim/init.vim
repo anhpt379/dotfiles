@@ -37,6 +37,7 @@ Plug 'pbrisbin/vim-mkdir'
 Plug 'brooth/far.vim'
 Plug 'farmergreg/vim-lastplace'
 Plug 'lambdalisue/suda.vim'
+Plug 'rhysd/clever-f.vim'
 
 " Smart selection of the closest text object
 Plug 'terryma/vim-expand-region'
