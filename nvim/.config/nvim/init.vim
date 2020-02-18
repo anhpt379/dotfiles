@@ -202,7 +202,6 @@ map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
 
-nmap <leader>n :NERDTreeToggle<CR>
 
 " Floating Term
 let s:float_term_border_win = 0
@@ -573,3 +572,7 @@ inoremap <C-k> <Up>
 inoremap <C-j> <Down>
 inoremap <C-h> <Left>
 inoremap <C-l> <Right>
+
+" Open/close NERDTree
+nmap <leader>n :NERDTreeToggle<CR>
+
