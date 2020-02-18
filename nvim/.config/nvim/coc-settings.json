@@ -1,5 +1,6 @@
 {
-  "coc.preferences.noselect": false,
+  "suggest.noselect": false,
+  "suggest.maxCompleteItemCount": 10,
   "git.addGBlameToVirtualText": true,
   "diagnostic.refreshOnInsertMode": true,
   "languageserver": {
