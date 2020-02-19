@@ -1,9 +1,9 @@
-# Anh's dotfiles
+# My dotfiles
 
-Make sure you have [GNU stow](https://www.gnu.org/software/stow/) installed:
+Install dependencies:
 
 ```bash
-brew install stow
+brew install stow yarn neovim git
 ```
 
 Then:
@@ -24,6 +24,9 @@ stow nvim
 # Install git config
 stow git
 
-# Uninstall git config
-stow -D git
+# Install vim-plug
+curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
 ```
+

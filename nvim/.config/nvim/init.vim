@@ -14,7 +14,7 @@ Plug 'junegunn/gv.vim'
 Plug 'editorconfig/editorconfig-vim'
 
 " LSP support
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'anhpt379/coc.nvim', { 'do': 'yarn install --frozen-lockfile' } 
 
 " Fancy UI stuff
 Plug 'scrooloose/nerdtree'

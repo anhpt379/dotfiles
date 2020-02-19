@@ -3,6 +3,7 @@
   "suggest.minTriggerInputLength": 2,
   "suggest.maxCompleteItemCount": 10,
   "suggest.numberSelect": true,
+  "suggest.defaultSortMethod": "none",
   "coc.source.word.priority": 2,
   "git.addGBlameToVirtualText": true,
   "diagnostic.refreshOnInsertMode": true
