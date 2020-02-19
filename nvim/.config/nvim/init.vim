@@ -65,7 +65,6 @@ let g:coc_global_extensions = [
       \  'coc-yaml',
       \  'coc-docker',
       \  'coc-sh',
-      \  'coc-word',
       \  'coc-dictionary',
       \  'coc-emoji',
       \  'coc-snippets',
