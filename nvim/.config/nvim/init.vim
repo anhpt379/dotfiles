@@ -68,7 +68,8 @@ let g:coc_global_extensions = [
       \  'coc-word',
       \  'coc-dictionary',
       \  'coc-emoji',
-      \  'coc-snippets'
+      \  'coc-snippets',
+      \  'coc-yank'
       \ ]
 
 " coc-dictionary
@@ -587,3 +588,5 @@ let g:gundo_preview_height = 30
 let g:gundo_right = 1
 nnoremap <leader>gu :GundoToggle<CR>
 
+" coc-yank
+nnoremap <silent> <space>y  :<C-u>CocList --normal yank<CR>
