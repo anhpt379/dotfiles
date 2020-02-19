@@ -72,7 +72,7 @@ let g:coc_global_extensions = [
       \ ]
 
 " coc-dictionary
-set dictionary+=/usr/share/dict/words
+set dictionary+=~/.config/nvim/dictionaries/hacker_news.txt
 
 " More natural split opening
 set splitbelow
