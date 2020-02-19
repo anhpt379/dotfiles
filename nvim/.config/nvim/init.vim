@@ -14,7 +14,7 @@ Plug 'junegunn/gv.vim'
 Plug 'editorconfig/editorconfig-vim'
 
 " LSP support
-Plug 'anhpt379/coc.nvim', { 'do': 'yarn install --frozen-lockfile' } 
+Plug 'anhpt379/coc.nvim', { 'do': 'yarn install --frozen-lockfile' }
 
 " Fancy UI stuff
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -41,6 +41,9 @@ Plug 'rhysd/clever-f.vim'
 Plug 'taku-o/vim-toggle'
 Plug 'tpope/vim-unimpaired'
 Plug 'sjl/gundo.vim'
+
+" Time tracking
+Plug 'wakatime/vim-wakatime'
 
 " Smart selection of the closest text object
 Plug 'terryma/vim-expand-region'
