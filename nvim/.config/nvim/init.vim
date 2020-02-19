@@ -17,7 +17,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'anhpt379/coc.nvim', { 'do': 'yarn install --frozen-lockfile' } 
 
 " Fancy UI stuff
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'itchyny/lightline.vim'
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
