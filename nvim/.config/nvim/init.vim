@@ -37,9 +37,9 @@ Plug 'brooth/far.vim'
 Plug 'farmergreg/vim-lastplace'
 Plug 'lambdalisue/suda.vim'
 Plug 'rhysd/clever-f.vim'
-Plug 'taku-o/vim-toggle'
 Plug 'tpope/vim-unimpaired'
 Plug 'machakann/vim-highlightedyank'
+Plug 'zef/vim-cycle'
 
 " Time tracking
 Plug 'wakatime/vim-wakatime'
@@ -74,6 +74,24 @@ let g:coc_global_extensions = [
 
 " coc-dictionary
 set dictionary+=~/.config/nvim/dictionaries/hacker_news.txt
+
+" vim-cycle
+au Vimenter * call AddCycleGroup(['True', 'False'])
+au VimEnter * call AddCycleGroup(['Yes', 'No'])
+au VimEnter * call AddCycleGroup(['yes', 'no'])
+au VimEnter * call AddCycleGroup(['set', 'get'])
+au VimEnter * call AddCycleGroup(['from', 'to'])
+au VimEnter * call AddCycleGroup(['push', 'pop'])
+au VimEnter * call AddCycleGroup(['prev', 'next'])
+au VimEnter * call AddCycleGroup(['start', 'end'])
+au VimEnter * call AddCycleGroup(['light', 'dark'])
+au VimEnter * call AddCycleGroup(['open', 'close'])
+au VimEnter * call AddCycleGroup(['read', 'write'])
+au VimEnter * call AddCycleGroup(['internal', 'external'])
+au VimEnter * call AddCycleGroup(['subscribe', 'unsubscribe'])
+au VimEnter * call AddCycleGroup(['pico', 'nano', 'micro', 'mili', 'kilo', 'mega', 'giga', 'tera', 'peta'])
+au VimEnter * call AddCycleGroup(['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'])
+au VimEnter * call AddCycleGroup(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'])
 
 " far.vim
 let g:far#source = 'rgnvim'
