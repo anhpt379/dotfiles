@@ -143,9 +143,12 @@ set nojoinspaces
 set nowrap
 set laststatus=2
 set termguicolors    " enable 24bit true color
-set colorcolumn=80
 set noshowmode
 set number
+
+" Make it obvious where 80 characters is
+set textwidth=80
+set colorcolumn=+1
 
 " Make the keyboard faaaaaaast
 set ttyfast
