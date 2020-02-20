@@ -572,3 +572,8 @@ nmap <Leader>n :NERDTreeToggle<CR>
 " The normal use of S is covered by cc, so don't worry about shadowing
 nnoremap S i<CR><ESC>
 
+" No magic search mode by default
+nnoremap / /\V
+vnoremap / /\V
+nnoremap ? ?\V
+vnoremap ? ?\V
