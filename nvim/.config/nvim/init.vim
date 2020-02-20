@@ -505,10 +505,13 @@ noremap <leader>e :enew<CR>
 noremap <leader>gs :vertical Gstatus<CR>
 noremap <leader>gl :GV<CR>
 
-" Allow close a buffer, save and quit via single keypress
-noremap Q :qa!<CR>
+" Remap recording macro key to `2` (`q` will be using as 'quit' to close the
+" current buffer)
+nnoremap 2 q
 
+" Allow close a buffer and quit vim with a single keypress
 nnoremap q :bd<CR>
+nnoremap Q :qa!<CR>
 
 " Saving quicker
 nnoremap <C-S> :w<CR>
@@ -557,9 +560,6 @@ set scrolloff=5
 " Start scrolling n chars before end of screen.
 set sidescrolloff=7
 set sidescroll=1
-
-" Quick record a macro
-noremap <leader>qq qq
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 " `:w !sudo tee % > /dev/null` trick does not work on neovim
