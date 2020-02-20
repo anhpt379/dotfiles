@@ -520,9 +520,9 @@ noremap ga :vertical Gcommit -v --amend<CR>
 " Use U as redo
 nnoremap U <C-R>
 
-" Remap recording macro key to `2` (`q` will be using as 'quit' to close the
+" Remap recording macro key to `\` (`q` will be using as 'quit' to close the
 " current buffer)
-nnoremap 2 q
+nnoremap \ q
 
 " Allow close a buffer and quit vim with a single keypress
 nnoremap q :bd<CR>
