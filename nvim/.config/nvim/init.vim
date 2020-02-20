@@ -76,9 +76,8 @@ let g:coc_global_extensions = [
 " coc-dictionary
 set dictionary+=~/.config/nvim/dictionaries/hacker_news.txt
 
-" More natural split opening
-set splitbelow
-set splitright
+" far.vim
+let g:far#source = 'rgnvim'
 
 " vim-expand-region
 let g:expand_region_text_objects = {
@@ -102,6 +101,10 @@ let g:expand_region_text_objects = {
 
 noremap ) <Plug>(expand_region_expand)
 noremap ( <Plug>(expand_region_shrink)
+
+" More natural split opening
+set splitbelow
+set splitright
 
 " load filetype-specific indent files
 filetype plugin indent on
@@ -485,13 +488,6 @@ augroup numbertoggle
   autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu | set nornu | endif
 augroup END
 
-" KEY MAPPINGS
-
-" Use U as redo
-nnoremap U <C-R>
-
-" New file
-noremap <Leader>e :enew<CR>
 
 " Git
 let g:git_messenger_always_into_popup = v:true
@@ -503,6 +499,9 @@ noremap gp :Gpush<CR>
 noremap gw :Gwrite<CR>
 noremap gc :vertical Gcommit -v<CR>
 noremap ga :vertical Gcommit -v --amend<CR>
+
+" Use U as redo
+nnoremap U <C-R>
 
 " Remap recording macro key to `2` (`q` will be using as 'quit' to close the
 " current buffer)
@@ -538,9 +537,6 @@ vmap > >gv
 " Y yanks until EOL, more like D and C
 " yy still yanks the whole line
 nnoremap Y y$
-
-" far.vim
-let g:far#source = 'rgnvim'
 
 " Improve scrolling performance
 set lazyredraw
