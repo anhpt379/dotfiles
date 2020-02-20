@@ -264,10 +264,7 @@ nnoremap <Leader>pu :PlugUpdate<CR>
 nnoremap <Leader>pc :PlugClean<CR>
 
 " Open terminal
-nnoremap <Leader>at :call FloatTerm()<CR>
-
-" Open tig, yes TIG, A FLOATING TIGGGG!!!!!!
-nnoremap <Leader>ag :call FloatTerm('"tig"')<CR>
+nnoremap <Leader>t :call FloatTerm()<CR>
 
 " Turn off whitespaces compare and folding in vimdiff
 set splitright
@@ -463,7 +460,6 @@ let g:Lf_ShortcutF = "<Leader>f"
 
 noremap <Leader>b :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
 noremap <Leader>r :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
-noremap <Leader>t :<C-U><C-R>=printf("Leaderf bufTag %s", "")<CR><CR>
 noremap <Leader>l :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
 noremap <Leader>s :<C-U><C-R>=printf("Leaderf! rg -e ")<CR>
 
