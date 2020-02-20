@@ -33,3 +33,6 @@
 [help]
   autocorrect = 5
 
+[commit]
+  template = ~/.gitmessage
+
