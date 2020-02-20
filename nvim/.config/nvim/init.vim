@@ -525,11 +525,6 @@ vnoremap <silent> y y`]
 vnoremap <silent> p p`]
 nnoremap <silent> p p`]
 
-" * Hit Enter to go to end of file.
-" * Hit Backspace to go to beginning of file.
-nnoremap <CR> G
-nnoremap <BS> gg
-
 " Tab to switch between open buffers
 nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprevious<CR>
