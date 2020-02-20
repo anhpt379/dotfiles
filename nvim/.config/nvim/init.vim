@@ -104,9 +104,6 @@ let g:expand_region_text_objects = {
 noremap ) <Plug>(expand_region_expand)
 noremap ( <Plug>(expand_region_shrink)
 
-" git-messenger
-let g:git_messenger_always_into_popup = v:true
-
 " load filetype-specific indent files
 filetype plugin indent on
 
@@ -498,8 +495,15 @@ nnoremap U <C-R>
 noremap <Leader>e :enew<CR>
 
 " Git
-noremap <Leader>gs :vertical Gstatus<CR>
-noremap <Leader>gl :GV<CR>
+let g:git_messenger_always_into_popup = v:true
+let g:git_messenger_no_default_mappings = v:true
+noremap gm <Plug>(git-messenger)
+noremap gs :vertical Gstatus<CR>
+noremap gl :GV<CR>
+noremap gp :Gpush<CR>
+noremap gw :Gwrite<CR>
+noremap gc :vertical Gcommit -v<CR>
+noremap ga :vertical Gcommit -v --amend<CR>
 
 " Remap recording macro key to `2` (`q` will be using as 'quit' to close the
 " current buffer)
