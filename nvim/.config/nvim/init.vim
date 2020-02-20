@@ -40,7 +40,6 @@ Plug 'lambdalisue/suda.vim'
 Plug 'rhysd/clever-f.vim'
 Plug 'taku-o/vim-toggle'
 Plug 'tpope/vim-unimpaired'
-Plug 'sjl/gundo.vim'
 
 " Time tracking
 Plug 'wakatime/vim-wakatime'
@@ -577,13 +576,6 @@ nmap <Leader>n :NERDTreeToggle<CR>
 " Split line (sister to [J]oin lines)
 " The normal use of S is covered by cc, so don't worry about shadowing
 nnoremap S i<CR><ESC>
-
-" gundo
-let g:gundo_prefer_python3 = 1
-let g:gundo_width = 80
-let g:gundo_preview_height = 30
-let g:gundo_right = 1
-nnoremap <Leader>gu :GundoToggle<CR>
 
 " coc-yank
 nnoremap <silent> <Space>y  :<C-u>CocList --normal yank<CR>
