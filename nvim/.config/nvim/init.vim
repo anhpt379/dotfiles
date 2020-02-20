@@ -595,3 +595,7 @@ nnoremap / /\V
 vnoremap / /\V
 nnoremap ? ?\V
 vnoremap ? ?\V
+
+" Use == for formatting the current paragraph (or visual selection)
+vnoremap == gw
+nnoremap == gwap
