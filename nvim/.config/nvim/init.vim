@@ -599,3 +599,17 @@ vnoremap ? ?\V
 " Use == for formatting the current paragraph (or visual selection)
 vnoremap == gw
 nnoremap == gwap
+
+" make p in Visual mode replace the selected text with the yank register
+vnoremap p <Esc>:let current_reg = @"<CR>gvdi<C-R>=current_reg<CR><Esc>
+
+" Since I never use the ; key anyway, this is a real optimization for almost
+" all Vim commands, as I don't have to press the Shift key to form chords to
+" enter ex mode.
+nnoremap ; :
+
+" Use <Leader>dd to delete a line without adding it to the
+" yanked stack (also, in visual mode)
+nnoremap <silent> <Leader>d "_d
+vnoremap <silent> <Leader>d "_d
+
