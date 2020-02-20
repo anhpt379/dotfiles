@@ -355,8 +355,8 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " inoremap <expr> <CR> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Navigate diagnostics
-nmap <silent> <leader>[ <Plug>(coc-diagnostic-prev)
-nmap <silent> <leader>] <Plug>(coc-diagnostic-next)
+nmap <silent> <Leader>[ <Plug>(coc-diagnostic-prev)
+nmap <silent> <Leader>] <Plug>(coc-diagnostic-next)
 
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
@@ -376,11 +376,11 @@ endfunction
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Remap for rename current word
-" nmap <leader>rn <Plug>(coc-rename)
+" nmap <Leader>rn <Plug>(coc-rename)
 
 " Remap for format selected region
-" xmap <leader>f  <Plug>(coc-format-selected)
-" nmap <leader>f  <Plug>(coc-format-selected)
+" xmap <Leader>f  <Plug>(coc-format-selected)
+" nmap <Leader>f  <Plug>(coc-format-selected)
 
 augroup mygroup
   autocmd!
@@ -390,14 +390,14 @@ augroup mygroup
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
-" Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
-xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
+" Remap for do codeAction of selected region, ex: `<Leader>aap` for current paragraph
+xmap <Leader>a  <Plug>(coc-codeaction-selected)
+nmap <Leader>a  <Plug>(coc-codeaction-selected)
 
 " Remap for do codeAction of current line
-nmap <leader>ac  <Plug>(coc-codeaction)
+nmap <Leader>ac  <Plug>(coc-codeaction)
 " Fix autofix problem of current line
-nmap <leader>qf  <Plug>(coc-fix-current)
+nmap <Leader>qf  <Plug>(coc-fix-current)
 
 " Create mappings for function text object, requires document symbols feature of languageserver.
 xmap if <Plug>(coc-funcobj-i)
@@ -459,13 +459,13 @@ let g:Lf_PreviewInPopup = 0
 let g:Lf_StlSeparator = { 'left': "", 'right': "" }
 let g:Lf_PreviewResult = {'Function': 0, 'BufTag': 0 }
 
-let g:Lf_ShortcutF = "<leader>f"
+let g:Lf_ShortcutF = "<Leader>f"
 
-noremap <leader>b :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
-noremap <leader>r :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
-noremap <leader>t :<C-U><C-R>=printf("Leaderf bufTag %s", "")<CR><CR>
-noremap <leader>l :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
-noremap <leader>s :<C-U><C-R>=printf("Leaderf! rg -e ")<CR>
+noremap <Leader>b :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
+noremap <Leader>r :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
+noremap <Leader>t :<C-U><C-R>=printf("Leaderf bufTag %s", "")<CR><CR>
+noremap <Leader>l :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
+noremap <Leader>s :<C-U><C-R>=printf("Leaderf! rg -e ")<CR>
 
 
 " vista
@@ -499,11 +499,11 @@ augroup END
 nnoremap U <C-R>
 
 " New file
-noremap <leader>e :enew<CR>
+noremap <Leader>e :enew<CR>
 
 " Git
-noremap <leader>gs :vertical Gstatus<CR>
-noremap <leader>gl :GV<CR>
+noremap <Leader>gs :vertical Gstatus<CR>
+noremap <Leader>gl :GV<CR>
 
 " Remap recording macro key to `2` (`q` will be using as 'quit' to close the
 " current buffer)
@@ -572,7 +572,7 @@ inoremap <C-h> <Left>
 inoremap <C-l> <Right>
 
 " Open/close NERDTree
-nmap <leader>n :NERDTreeToggle<CR>
+nmap <Leader>n :NERDTreeToggle<CR>
 
 " Split line (sister to [J]oin lines)
 " The normal use of S is covered by cc, so don't worry about shadowing
@@ -583,7 +583,7 @@ let g:gundo_prefer_python3 = 1
 let g:gundo_width = 80
 let g:gundo_preview_height = 30
 let g:gundo_right = 1
-nnoremap <leader>gu :GundoToggle<CR>
+nnoremap <Leader>gu :GundoToggle<CR>
 
 " coc-yank
-nnoremap <silent> <space>y  :<C-u>CocList --normal yank<CR>
+nnoremap <silent> <Space>y  :<C-u>CocList --normal yank<CR>
