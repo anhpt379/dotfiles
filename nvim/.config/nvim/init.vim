@@ -207,19 +207,49 @@ endif
 set pumblend=0
 set winblend=0
 
-" === NerdTree === "
+
+" NerdTree {{{
 
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
-let NERDTreeShowHidden=1
-let NERDTreeQuitOnOpen=1
-let NERDTreeIgnore=['\.DS_Store', '\~$', '\.swp', '\.git', '__pycache__', '\.pyc$']
+let NERDTreeShowFiles = 1
+let NERDTreeShowHidden = 1
+let NERDTreeQuitOnOpen = 1
+
+let NERDTreeIgnore = ['\.DS_Store', '\~$', '\.swp', '\.git', '__pycache__', '\.pyc$']
+
 let NERDTreeAutoDeleteBuffer = 1
+
+" Highlight the selected entry in the tree
+let NERDTreeHighlightCursorline=1
+
+" Use a single click to fold/unfold directory and a double click to open file
+let NERDTreeMouseMode=2
+
 let g:NERDSpaceDelims = 1
 
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
+" }}}
+
+
+" incsearch.vim {{{
+
+" No magic search mode by default
+map /  <Plug>(incsearch-forward)\V
+map ?  <Plug>(incsearch-backward)\V
+map g/ <Plug>(incsearch-stay)\V
+
+map n  <Plug>(incsearch-nohl-n)
+map N  <Plug>(incsearch-nohl-N)
+map *  <Plug>(incsearch-nohl-*)
+map #  <Plug>(incsearch-nohl-#)
+map g* <Plug>(incsearch-nohl-g*)
+map g# <Plug>(incsearch-nohl-g#)
+
+" Auto turn off `hlsearch` after the cursor move
+set hlsearch
+let g:incsearch#auto_nohlsearch = 1
+
+" }}}
 
 
 " Floating Term
@@ -271,7 +301,7 @@ function! FloatTerm(...)
   autocmd TermClose * ++once :bd! | call nvim_win_close(s:float_term_border_win, v:true)
 endfunction
 
-" Key binding
+" Change the leader from \ to <Space>
 let mapleader=' '
 
 nnoremap <Leader>cr :so ~/.config/nvim/init.vim<CR>
@@ -290,6 +320,8 @@ set diffopt+=vertical
 
 set clipboard=unnamed
 
+" lightline {{{
+
 let g:lightline = {
   \ 'active': {
   \   'left': [ [ 'mode', 'paste' ],
@@ -301,7 +333,7 @@ let g:lightline = {
   \ },
   \ }
 
-" === lightline-bufferline === "
+" Show vim tab line even if only one file is open
 set showtabline=2
 
 nmap <Leader>1 <Plug>lightline#bufferline#go(1)
@@ -328,7 +360,11 @@ let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}
 let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
 let g:lightline.component_type   = {'buffers': 'tabsel'}
 
-" === coc.vim === "
+" }}}
+
+
+" Coc.vim {{{
+
 " if hidden is not set, TextEdit might fail.
 set hidden
 
@@ -434,6 +470,8 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 " Add status line support, for integration with other plugin, checkout `:h coc-status`
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
+" }}}
+
 
 set termguicolors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
@@ -480,7 +518,7 @@ noremap <Leader>l :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
 noremap <Leader>g :<C-U><C-R>=printf("Leaderf! rg -e ")<CR>
 
 
-" vista
+" Vista {{{
 
 " How each level is indented and what to prepend.
 let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
@@ -497,6 +535,9 @@ let g:vista_executive_for = {
   \ 'php': 'vim_lsp',
   \ 'py': 'vim_lsp'
   \ }
+
+" }}}
+
 
 " Hybrid line numbers
 augroup numbertoggle
@@ -559,9 +600,6 @@ nnoremap Y y$
 set lazyredraw
 set regexpengine=1
 
-" Make double-<Esc> clear search highlights
-nnoremap <ESC><ESC> :nohlsearch<CR>
-
 " Navigate properly when lines are wrapped
 noremap j gj
 noremap k gk
@@ -589,12 +627,6 @@ nmap <Leader>n :NERDTreeToggle<CR>
 " Split line (sister to [J]oin lines)
 " The normal use of S is covered by cc, so don't worry about shadowing
 nnoremap S i<CR><ESC>
-
-" No magic search mode by default
-nnoremap / /\V
-vnoremap / /\V
-nnoremap ? ?\V
-vnoremap ? ?\V
 
 " Use == for formatting the current paragraph (or visual selection)
 vnoremap == gw
