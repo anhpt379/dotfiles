@@ -491,7 +491,7 @@ augroup END
 " Git
 let g:git_messenger_always_into_popup = v:true
 let g:git_messenger_no_default_mappings = v:true
-noremap gm <Plug>(git-messenger)
+noremap gm :GitMessenger<CR>
 noremap gs :vertical Gstatus<CR>
 noremap gl :GV<CR>
 noremap gp :Gpush<CR>
