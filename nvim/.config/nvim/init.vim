@@ -613,7 +613,7 @@ set sidescroll=1
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 " `:w !sudo tee % > /dev/null` trick does not work on neovim
-command W w suda://%
+command! W w suda://%
 
 " Insert mode navigational keys
 inoremap <C-k> <Up>
