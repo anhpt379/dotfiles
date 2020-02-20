@@ -613,3 +613,7 @@ nnoremap ; :
 nnoremap <silent> <Leader>d "_d
 vnoremap <silent> <Leader>d "_d
 
+" Quick folding with `-`
+nnoremap - za
+vnoremap - za
+
