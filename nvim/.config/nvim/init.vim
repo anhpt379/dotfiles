@@ -40,6 +40,7 @@ Plug 'lambdalisue/suda.vim'
 Plug 'rhysd/clever-f.vim'
 Plug 'taku-o/vim-toggle'
 Plug 'tpope/vim-unimpaired'
+Plug 'machakann/vim-highlightedyank'
 
 " Time tracking
 Plug 'wakatime/vim-wakatime'
@@ -69,8 +70,7 @@ let g:coc_global_extensions = [
       \  'coc-sh',
       \  'coc-dictionary',
       \  'coc-emoji',
-      \  'coc-snippets',
-      \  'coc-yank'
+      \  'coc-snippets'
       \ ]
 
 " coc-dictionary
@@ -577,5 +577,3 @@ nmap <Leader>n :NERDTreeToggle<CR>
 " The normal use of S is covered by cc, so don't worry about shadowing
 nnoremap S i<CR><ESC>
 
-" coc-yank
-nnoremap <silent> <Space>y  :<C-u>CocList --normal yank<CR>
