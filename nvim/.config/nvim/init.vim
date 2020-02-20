@@ -555,7 +555,6 @@ let g:git_messenger_no_default_mappings = v:true
 noremap gm :GitMessenger<CR>
 noremap gs :vertical Gstatus<CR>
 noremap gl :GV<CR>
-noremap gp :Gpush<CR>
 noremap gw :Gwrite<CR>
 noremap gc :vertical Gcommit -v<CR>
 noremap ga :vertical Gcommit -v --amend<CR>
