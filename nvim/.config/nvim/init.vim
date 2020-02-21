@@ -629,9 +629,9 @@ nmap <Leader>n :NERDTreeToggle<CR>
 " The normal use of S is covered by cc, so don't worry about shadowing
 nnoremap S i<CR><ESC>
 
-" Use == for formatting the current paragraph (or visual selection)
-vnoremap == gw
-nnoremap == gwap
+" Use `=` for formatting the current paragraph (or visual selection)
+vnoremap = gw
+nnoremap = gwap
 
 " make p in Visual mode replace the selected text with the yank register
 vnoremap p <Esc>:let current_reg = @"<CR>gvdi<C-R>=current_reg<CR><Esc>
