@@ -519,6 +519,13 @@ noremap <Leader>r :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
 noremap <Leader>l :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
 noremap <Leader>g :<C-U><C-R>=printf("Leaderf! rg -e ")<CR>
 
+let g:Lf_CommandMap = {
+  \ '<C-j>': ['<Tab>', '<C-j>'],
+  \ '<C-k>': ['<S-Tab>', '<C-k>'],
+  \ '<Left>': ['<C-h>'],
+  \ '<Right>': ['<C-l>']
+  \ }
+
 
 " Vista {{{
 
