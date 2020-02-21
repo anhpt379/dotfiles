@@ -217,8 +217,7 @@ let NERDTreeDirArrows = 1
 let NERDTreeShowFiles = 1
 let NERDTreeShowHidden = 1
 let NERDTreeQuitOnOpen = 1
-
-let NERDTreeIgnore = ['\.DS_Store', '\~$', '\.swp', '\.git', '__pycache__', '\.pyc$']
+let NERDTreeIgnore = ['\.DS_Store', '\~$', '\.swp', '\.git$', '__pycache__', '\.pyc$']
 
 let NERDTreeAutoDeleteBuffer = 1
 
