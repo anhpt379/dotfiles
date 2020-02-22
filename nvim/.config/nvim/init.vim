@@ -525,6 +525,9 @@ let g:Lf_CommandMap = {
   \ '<Right>': ['<C-l>']
   \ }
 
+let g:Lf_NormalMap = {
+  \ 'Rg': [["<ESC>", ':exec g:Lf_py "rgExplManager.quit()"<CR>']]
+  \ }
 
 " Vista {{{
 
