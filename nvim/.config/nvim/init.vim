@@ -40,6 +40,7 @@ Plug 'rhysd/clever-f.vim'
 Plug 'tpope/vim-unimpaired'
 Plug 'machakann/vim-highlightedyank'
 Plug 'zef/vim-cycle'
+Plug 'mhinz/vim-sayonara', { 'on': 'Sayonara' }
 
 " Time tracking
 Plug 'wakatime/vim-wakatime'
@@ -581,8 +582,7 @@ nnoremap U <C-R>
 nnoremap \ q
 
 " Allow close a buffer and quit vim with a single keypress
-nnoremap q :bd<CR>
-nnoremap Q :qa!<CR>
+nnoremap q :Sayonara<CR>
 
 " Saving quicker
 nnoremap <C-S> :w<CR>
