@@ -529,6 +529,11 @@ let g:Lf_NormalMap = {
   \ 'Rg': [["<ESC>", ':exec g:Lf_py "rgExplManager.quit()"<CR>']]
   \ }
 
+let g:Lf_RgConfig = [
+  \ "--glob=!.git/*",
+  \ "--hidden"
+  \ ]
+
 " Vista {{{
 
 " How each level is indented and what to prepend.
