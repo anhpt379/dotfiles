@@ -123,14 +123,10 @@ noremap ( <Plug>(expand_region_shrink)
 set splitbelow
 set splitright
 
-" load filetype-specific indent files
-filetype plugin indent on
 
 set guifont=Meslo_Nerd_Font:14
 
-set encoding=UTF-8
 set mouse=a   " enable mouse for all mode
-set wildoptions=pum
 set pumblend=20
 set cursorline
 
@@ -142,7 +138,6 @@ let g:is_posix = 1
 set noswapfile
 set nojoinspaces
 set nowrap
-set laststatus=2
 set termguicolors    " enable 24bit true color
 set noshowmode
 set number
@@ -152,8 +147,7 @@ set textwidth=80
 set colorcolumn=+1
 
 " Make the keyboard faaaaaaast
-set ttyfast
-set timeout timeoutlen=1000 ttimeoutlen=10
+set ttimeoutlen=5
 
 " Tweak for Markdown mode
 autocmd FileType markdown call s:markdown_mode_setup()
@@ -170,18 +164,12 @@ nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
-set background=dark
 let g:quantum_italics=1
 colorscheme quantum
-
-if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
-	syntax on
-endif
 
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:·
 set list
 
-set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
 
 set tabstop=2
@@ -190,21 +178,12 @@ set shiftwidth=2
 set shiftround
 set expandtab     " Insert spaces when TAB is pressed
 
-set autoindent
 set smartindent
 
-set autoread
 set autowrite     " Automatically :write before running commands
 
 " Persistent undo
-if has('persistent_undo') && isdirectory(expand('~').'/.config/nvim/undo')
-  silent !mkdir ~/.config/nvim/undo > /dev/null 2>&1
-
-  set undofile
-  set undodir=~/.config/nvim/undo
-  set undolevels=1000
-  set undoreload=10000
-endif
+set undofile
 
 " No transparent floating windows
 set pumblend=0
@@ -248,7 +227,6 @@ map g* <Plug>(incsearch-nohl-g*)
 map g# <Plug>(incsearch-nohl-g#)
 
 " Auto turn off `hlsearch` after the cursor move
-set hlsearch
 let g:incsearch#auto_nohlsearch = 1
 
 " }}}
@@ -475,10 +453,6 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 " }}}
 
 
-set termguicolors
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-
 " Some custom style
 highlight Normal guibg=NONE
 highlight NonText guifg=#354751
@@ -624,7 +598,6 @@ set scrolloff=5
 
 " Start scrolling n chars before end of screen.
 set sidescrolloff=7
-set sidescroll=1
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 " `:w !sudo tee % > /dev/null` trick does not work on neovim
