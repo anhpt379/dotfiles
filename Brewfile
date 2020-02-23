@@ -28,6 +28,7 @@ cask 'hiddenbar'
 cask 'docker'
 cask 'google-chrome'
 cask 'imageoptim'
+cask 'qbserve'
 cask 'telegram-desktop'
 cask 'the-unarchiver'
 
