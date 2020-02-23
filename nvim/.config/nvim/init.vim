@@ -30,7 +30,7 @@ Plug 'lifepillar/vim-cheat40'
 
 " Improving editing experience
 Plug 'machakann/vim-sandwich'
-Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-commentary'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'brooth/far.vim'
 Plug 'farmergreg/vim-lastplace'
@@ -632,4 +632,8 @@ vnoremap <silent> <Leader>d "_d
 " Quick folding with `-`
 nnoremap - za
 vnoremap - za
+
+" Comment stuff out
+nnoremap <Leader>/ :Commentary<CR>
+vnoremap <Leader>/ :Commentary<CR>
 
