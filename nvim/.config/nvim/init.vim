@@ -30,7 +30,6 @@ Plug 'lifepillar/vim-cheat40'
 
 " Improving editing experience
 Plug 'machakann/vim-sandwich'
-Plug 'haya14busa/incsearch.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'brooth/far.vim'
@@ -212,24 +211,15 @@ let g:NERDSpaceDelims = 1
 " }}}
 
 
-" incsearch.vim {{{
-
 " No magic search mode by default
-map /  <Plug>(incsearch-forward)\V
-map ?  <Plug>(incsearch-backward)\V
-map g/ <Plug>(incsearch-stay)\V
+map / /\V
+map ? ?\V
 
-map n  <Plug>(incsearch-nohl-n)
-map N  <Plug>(incsearch-nohl-N)
-map *  <Plug>(incsearch-nohl-*)
-map #  <Plug>(incsearch-nohl-#)
-map g* <Plug>(incsearch-nohl-g*)
-map g# <Plug>(incsearch-nohl-g#)
+" Clear search highlighting by pressing <Esc><Esc>
+nnoremap <Esc><Esc> :<C-u>nohlsearch<CR>
 
-" Auto turn off `hlsearch` after the cursor move
-let g:incsearch#auto_nohlsearch = 1
-
-" }}}
+" Live substitution
+set inccommand=nosplit
 
 
 " Floating Term
