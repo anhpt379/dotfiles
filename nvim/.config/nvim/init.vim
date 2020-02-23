@@ -211,10 +211,6 @@ let g:NERDSpaceDelims = 1
 " }}}
 
 
-" No magic search mode by default
-map / /\V
-map ? ?\V
-
 " Clear search highlighting by pressing <Esc><Esc>
 nnoremap <Esc><Esc> :<C-u>nohlsearch<CR>
 
