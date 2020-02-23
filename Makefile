@@ -3,10 +3,11 @@ CLI_TOOLS := $(xcode-select --install 2>&1 | grep installed;)
 
 
 stow:
-	stow wakatime
 	stow git
 	stow nvim
 	stow tmux
+	stow fish
+	stow wakatime
 
 
 install:
