@@ -279,6 +279,9 @@ nnoremap <Leader>pc :PlugClean<CR>
 " Open terminal
 nnoremap <Leader>t :call FloatTerm()<CR>
 
+" Close terminal with ESC
+tnoremap <Esc> <C-d>
+
 " Turn off whitespaces compare and folding in vimdiff
 set splitright
 silent! set splitvertical
