@@ -1,4 +1,5 @@
 nvim/.config/nvim/autoload/*
 nvim/.config/nvim/colors/*
 nvim/.config/nvim/plugged/*
+nvim/.config/nvim/undo/*
 Brewfile.lock.json
