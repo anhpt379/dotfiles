@@ -40,6 +40,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'machakann/vim-highlightedyank'
 Plug 'zef/vim-cycle'
 Plug 'mhinz/vim-sayonara', { 'on': 'Sayonara' }
+Plug 'tpope/vim-repeat'
 
 " Time tracking
 Plug 'wakatime/vim-wakatime'
