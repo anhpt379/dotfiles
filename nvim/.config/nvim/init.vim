@@ -212,12 +212,18 @@ let g:NERDSpaceDelims = 1
 " }}}
 
 
+" Searching and substitution {{{
+
+set ignorecase
+set smartcase
+
 " Clear search highlighting by pressing <Esc><Esc>
 nnoremap <Esc><Esc> :<C-u>nohlsearch<CR>
 
 " Live substitution
-set inccommand=nosplit
+set inccommand=split
 
+" }}}
 
 " Floating Term
 let s:float_term_border_win = 0
