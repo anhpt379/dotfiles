@@ -176,7 +176,7 @@ set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 set shiftround
-set expandtab     " Insert spaces when TAB is pressed
+set expandtab     " Insert spaces when Tab is pressed
 
 set smartindent
 
@@ -285,7 +285,7 @@ nnoremap <Leader>pc :PlugClean<CR>
 " Open terminal
 nnoremap <Leader>t :call FloatTerm()<CR>
 
-" Close terminal with ESC
+" Close terminal with Esc
 tnoremap <Esc> <C-d>
 
 " Turn off whitespaces compare and folding in vimdiff
@@ -359,11 +359,11 @@ set signcolumn=yes
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-inoremap <silent><expr> <TAB>
+inoremap <silent><expr> <Tab>
       \ pumvisible() ? coc#_select_confirm() :
-      \ <SID>check_back_space() ? "\<TAB>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
       \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -497,7 +497,7 @@ let g:Lf_CommandMap = {
   \ }
 
 let g:Lf_NormalMap = {
-  \ 'Rg': [["<ESC>", ':exec g:Lf_py "rgExplManager.quit()"<CR>']]
+  \ 'Rg': [["<Esc>", ':exec g:Lf_py "rgExplManager.quit()"<CR>']]
   \ }
 
 let g:Lf_RgConfig = [
@@ -610,7 +610,7 @@ nmap <Leader>n :NERDTreeToggle<CR>
 
 " Split line (sister to [J]oin lines)
 " The normal use of S is covered by cc, so don't worry about shadowing
-nnoremap S i<CR><ESC>
+nnoremap S i<CR><Esc>
 
 " Use `=` for formatting the current paragraph (or visual selection)
 vnoremap = gw
