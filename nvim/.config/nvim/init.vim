@@ -619,9 +619,9 @@ nmap <Leader>n :NERDTreeToggle<CR>
 " The normal use of S is covered by cc, so don't worry about shadowing
 nnoremap S i<CR><Esc>
 
-" Use `=` for formatting the current paragraph (or visual selection)
-vnoremap = gw
-nnoremap = gwap
+" Use `==` for formatting the current line (or visual selection)
+vnoremap == gw
+nnoremap == Vgw
 
 " Since I never use the ; key anyway, this is a real optimization for almost
 " all Vim commands, as I don't have to press the Shift key to form chords to
