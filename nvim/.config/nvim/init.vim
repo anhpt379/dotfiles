@@ -41,6 +41,7 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'zef/vim-cycle'
 Plug 'mhinz/vim-sayonara', { 'on': 'Sayonara' }
 Plug 'tpope/vim-repeat'
+Plug 'vim-scripts/YankRing.vim'
 
 " Time tracking
 Plug 'wakatime/vim-wakatime'
@@ -622,18 +623,23 @@ nnoremap S i<CR><Esc>
 vnoremap = gw
 nnoremap = gwap
 
-" make p in Visual mode replace the selected text with the yank register
-vnoremap p <Esc>:let current_reg = @"<CR>gvdi<C-R>=current_reg<CR><Esc>
-
 " Since I never use the ; key anyway, this is a real optimization for almost
 " all Vim commands, as I don't have to press the Shift key to form chords to
 " enter ex mode.
 nnoremap ; :
 
-" Use <Leader>dd to delete a line without adding it to the
-" yanked stack (also, in visual mode)
-nnoremap <silent> <Leader>d "_d
-vnoremap <silent> <Leader>d "_d
+" These are to cancel the default behavior of d, D, c, C to put the text they
+" delete in the default register.
+" Note that this means e.g. "ad won't copy the text into register a anymore.
+" You have to explicitly yank it.
+nnoremap d "_d
+vnoremap d "_d
+nnoremap D "_D
+vnoremap D "_D
+nnoremap c "_c
+vnoremap c "_c
+nnoremap C "_C
+vnoremap C "_C
 
 " Quick folding with `-`
 nnoremap - za
