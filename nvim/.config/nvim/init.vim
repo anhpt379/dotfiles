@@ -21,12 +21,12 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'itchyny/lightline.vim'
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
-Plug 'tyrannicaltoucan/vim-quantum'
 Plug 'liuchengxu/vista.vim'
 Plug 'mengelbrecht/lightline-bufferline'
 Plug 'mhinz/vim-startify'
 Plug 'rhysd/git-messenger.vim'
 Plug 'lifepillar/vim-cheat40'
+Plug 'gf3/molotov'
 
 " Improving editing experience
 Plug 'machakann/vim-sandwich'
@@ -165,8 +165,8 @@ nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
-let g:quantum_italics=1
-colorscheme quantum
+set background=dark
+colorscheme molotov
 
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:·
 set list
@@ -454,11 +454,8 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 
 " Some custom style
-highlight Normal guibg=NONE
-highlight NonText guifg=#354751
-highlight VertSplit guifg=#212C32
+highlight NonText guifg=#545454
 highlight WildMenu guibg=NONE guifg=#87bb7c
-highlight CursorLineNr guibg=NONE
 
 " LeaderF
 highlight def Lf_hl_popup_prompt guifg=#ffcd4a guibg=NONE
