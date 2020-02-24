@@ -26,7 +26,7 @@ Plug 'mengelbrecht/lightline-bufferline'
 Plug 'mhinz/vim-startify'
 Plug 'rhysd/git-messenger.vim'
 Plug 'lifepillar/vim-cheat40'
-Plug 'gf3/molotov'
+Plug 'sonph/onehalf', {'rtp': 'vim/'}
 
 " Improving editing experience
 Plug 'machakann/vim-sandwich'
@@ -165,10 +165,9 @@ nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
-set background=dark
-colorscheme molotov
+colorscheme onehalfdark
 
-set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:·
+set listchars=eol:¬,tab:→\ ,trail:~,extends:»,precedes:«,space:·
 set list
 
 set whichwrap+=<,>,h,l
@@ -454,8 +453,11 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 
 " Some custom style
-highlight NonText guifg=#545454
+highlight Normal guibg=NONE
+highlight NonText guifg=#354751
+highlight VertSplit guifg=#212C32 guibg=#212C32
 highlight WildMenu guibg=NONE guifg=#87bb7c
+highlight CursorLineNr guibg=NONE
 
 " LeaderF
 highlight def Lf_hl_popup_prompt guifg=#ffcd4a guibg=NONE
