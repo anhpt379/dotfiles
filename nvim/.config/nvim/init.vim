@@ -554,6 +554,9 @@ nnoremap U <C-R>
 " current buffer)
 nnoremap \ q
 
+" Record into register 'q', playback with 'Q'
+nnoremap Q @q
+
 " Allow close a buffer and quit vim with a single keypress
 nnoremap q :Sayonara<CR>
 
