@@ -17,7 +17,6 @@ else
 endif
 
 ifndef BREW
-	echo "Homebrew isn't installed... installing..."
 	/usr/bin/ruby -e "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" \
 else
 endif
@@ -28,11 +27,6 @@ endif
 	curl -L https://get.oh-my.fish > install
 	fish install --yes --path=~/.local/share/omf --config=~/.config/omf
 
-
 	curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	nvim +PlugInstall +qall
-
-ifeq ($(wildcard ~/.tmux/plugins/tpm/.),)
-	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-endif
 
