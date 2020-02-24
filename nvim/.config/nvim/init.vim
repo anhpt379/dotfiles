@@ -365,6 +365,9 @@ inoremap <silent><expr> <Tab>
       \ coc#refresh()
 inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<C-h>"
 
+" Don't exit INSERT mode when pressing Esc to close auto-completion popup
+inoremap <expr> <Esc> pumvisible() ? "\<C-e>" : "\<Esc>"
+
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
