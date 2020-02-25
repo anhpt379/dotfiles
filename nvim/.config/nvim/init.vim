@@ -632,3 +632,5 @@ vnoremap - za
 nnoremap <Leader>/ :Commentary<CR>
 vnoremap <Leader>/ :Commentary<CR>
 
+" Join lines and restore cursor location (J)
+nnoremap J mjJ`j
