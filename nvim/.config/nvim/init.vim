@@ -46,7 +46,7 @@ Plug 'tpope/vim-repeat'
 Plug 'wakatime/vim-wakatime'
 
 " Smart selection of the closest text object
-Plug 'terryma/vim-expand-region'
+Plug 'landock/vim-expand-region'
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-line'
 Plug 'kana/vim-textobj-entire'
@@ -116,8 +116,8 @@ let g:expand_region_text_objects = {
       \ 'ai' : 0
       \ }
 
-noremap ) <Plug>(expand_region_expand)
-noremap ( <Plug>(expand_region_shrink)
+map ) <Plug>(expand_region_expand)
+map ( <Plug>(expand_region_shrink)
 
 " More natural split opening
 set splitbelow
@@ -276,10 +276,8 @@ endfunction
 " Change the leader from \ to <Space>
 let mapleader=' '
 
-nnoremap <Leader>cr :so ~/.config/nvim/init.vim<CR>
-nnoremap <Leader>pi :PlugInstall<CR>
-nnoremap <Leader>pu :PlugUpdate<CR>
-nnoremap <Leader>pc :PlugClean<CR>
+" Quickly reload nvim config & plugins by pressing `re`
+nnoremap re :w<CR>:source ~/.config/nvim/init.vim<CR>:PlugClean<CR>:PlugInstall<CR>:PlugUpdate<CR>
 
 " Open terminal
 nnoremap <Leader>t :call FloatTerm()<CR>
