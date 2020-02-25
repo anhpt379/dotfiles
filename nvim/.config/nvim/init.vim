@@ -298,6 +298,7 @@ set clipboard=unnamed
 " lightline {{{
 
 let g:lightline = {
+  \ 'colorscheme': 'onehalfdark',
   \ 'active': {
   \   'left': [ [ 'mode', 'paste' ],
   \             [ 'gitbranch', 'readonly', 'cocstatus', 'modified' ] ]
@@ -452,27 +453,13 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 
 " Some custom style
-highlight Normal guibg=NONE
 highlight NonText guifg=#354751
-highlight VertSplit guifg=#212C32 guibg=#212C32
-highlight WildMenu guibg=NONE guifg=#87bb7c
-highlight CursorLineNr guibg=NONE
 
 " LeaderF
-highlight def Lf_hl_popup_prompt guifg=#ffcd4a guibg=NONE
-highlight def Lf_hl_popup_spin guifg=#e6e666 guibg=NONE
-highlight def Lf_hl_popup_inputMode guifg=#005f60 guibg=#FFFFFF
-highlight def Lf_hl_popup_normalMode guifg=#085b0b guibg=#b0dd2c
-highlight def Lf_hl_popup_category guifg=#FFFFFF guibg=#1488ad
-highlight def Lf_hl_popup_fullPathMode guifg=#7c0308 guibg=#fd8724
-highlight def Lf_hl_popup_regexMode guifg=#FFFFFF guibg=#FF2929
-highlight def Lf_hl_popup_fuzzyMode guifg=#004747 guibg=#FFFFFF
-highlight def Lf_hl_popup_nameOnlyMode guifg=#000000 guibg=#7FECAD
-highlight def Lf_hl_popup_cwd guifg=#FFFFFF guibg=#585858
-highlight def Lf_hl_popup_lineInfo guifg=#C9C9C9 guibg=#585858
-highlight def Lf_hl_popup_total guifg=#545454 guibg=#D0D0D0
+highlight def Lf_hl_popup_window guibg=#313640
 
 let g:Lf_HideHelp = 1
+let g:Lf_PopupShowStatusline = 0
 let g:Lf_IgnoreCurrentBufferName = 0
 
 let g:Lf_DefaultMode = 'NameOnly'
