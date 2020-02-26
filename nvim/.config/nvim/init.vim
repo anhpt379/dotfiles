@@ -218,8 +218,8 @@ let g:NERDSpaceDelims = 1
 set ignorecase
 set smartcase
 
-" Clear search highlighting by pressing <Esc><Esc>
-nnoremap <Esc><Esc> :<C-u>nohlsearch<CR>
+" Clear search highlighting by pressing Enter
+nnoremap <CR> :<C-u>nohlsearch<CR>
 
 " Live substitution
 set inccommand=split
@@ -510,6 +510,8 @@ noremap gw :Gwrite<CR>
 noremap gc :vertical Gcommit -v<CR>
 noremap ga :vertical Gcommit -v --amend<CR>
 
+" Close git-messenger popup with <Esc>
+autocmd FileType gitmessengerpopup nmap <buffer> <Esc> q
 " }}}
 
 " Use U as redo
