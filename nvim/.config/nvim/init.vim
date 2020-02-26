@@ -1,6 +1,6 @@
 call plug#begin()
 
-"Defaults everyone can agree on
+" Defaults everyone can agree on
 Plug 'tpope/vim-sensible'
 
 " Changes Vim working directory to project root
@@ -20,29 +20,29 @@ Plug 'anhpt379/coc.nvim', { 'do': 'yarn install --frozen-lockfile' }
 " Fancy UI stuff
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'itchyny/lightline.vim'
-Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 Plug 'liuchengxu/vista.vim'
+Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+Plug 'itchyny/lightline.vim'
 Plug 'mengelbrecht/lightline-bufferline'
 Plug 'mhinz/vim-startify'
-Plug 'lifepillar/vim-cheat40'
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'voldikss/vim-floaterm'
+Plug 'lifepillar/vim-cheat40'
 
 " Improving editing experience
+Plug 'wellle/targets.vim'
+Plug 'tpope/vim-repeat'
+Plug 'zef/vim-cycle'
 Plug 'machakann/vim-sandwich'
 Plug 'tpope/vim-commentary'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'brooth/far.vim'
 Plug 'farmergreg/vim-lastplace'
 Plug 'lambdalisue/suda.vim'
-Plug 'rhysd/clever-f.vim'
 Plug 'tpope/vim-unimpaired'
+Plug 'rhysd/clever-f.vim'
 Plug 'machakann/vim-highlightedyank'
-Plug 'zef/vim-cycle'
 Plug 'mhinz/vim-sayonara', { 'on': 'Sayonara' }
-Plug 'tpope/vim-repeat'
-Plug 'wellle/targets.vim'
 
 " Time tracking
 Plug 'wakatime/vim-wakatime'
@@ -78,22 +78,22 @@ let g:coc_global_extensions = [
 set dictionary+=~/.config/nvim/dictionaries/hacker_news.txt
 
 " vim-cycle
-au Vimenter * call AddCycleGroup(['True', 'False'])
-au VimEnter * call AddCycleGroup(['Yes', 'No'])
-au VimEnter * call AddCycleGroup(['yes', 'no'])
-au VimEnter * call AddCycleGroup(['set', 'get'])
-au VimEnter * call AddCycleGroup(['from', 'to'])
-au VimEnter * call AddCycleGroup(['push', 'pop'])
-au VimEnter * call AddCycleGroup(['prev', 'next'])
-au VimEnter * call AddCycleGroup(['start', 'end'])
-au VimEnter * call AddCycleGroup(['light', 'dark'])
-au VimEnter * call AddCycleGroup(['open', 'close'])
-au VimEnter * call AddCycleGroup(['read', 'write'])
-au VimEnter * call AddCycleGroup(['internal', 'external'])
-au VimEnter * call AddCycleGroup(['subscribe', 'unsubscribe'])
-au VimEnter * call AddCycleGroup(['pico', 'nano', 'micro', 'mili', 'kilo', 'mega', 'giga', 'tera', 'peta'])
-au VimEnter * call AddCycleGroup(['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'])
-au VimEnter * call AddCycleGroup(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'])
+autocmd Vimenter * call AddCycleGroup(['True', 'False'])
+autocmd VimEnter * call AddCycleGroup(['Yes', 'No'])
+autocmd VimEnter * call AddCycleGroup(['yes', 'no'])
+autocmd VimEnter * call AddCycleGroup(['set', 'get'])
+autocmd VimEnter * call AddCycleGroup(['from', 'to'])
+autocmd VimEnter * call AddCycleGroup(['push', 'pop'])
+autocmd VimEnter * call AddCycleGroup(['prev', 'next'])
+autocmd VimEnter * call AddCycleGroup(['start', 'end'])
+autocmd VimEnter * call AddCycleGroup(['light', 'dark'])
+autocmd VimEnter * call AddCycleGroup(['open', 'close'])
+autocmd VimEnter * call AddCycleGroup(['read', 'write'])
+autocmd VimEnter * call AddCycleGroup(['internal', 'external'])
+autocmd VimEnter * call AddCycleGroup(['subscribe', 'unsubscribe'])
+autocmd VimEnter * call AddCycleGroup(['pico', 'nano', 'micro', 'mili', 'kilo', 'mega', 'giga', 'tera', 'peta'])
+autocmd VimEnter * call AddCycleGroup(['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'])
+autocmd VimEnter * call AddCycleGroup(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'])
 
 " far.vim
 let g:far#source = 'rgnvim'
@@ -186,10 +186,6 @@ set autowrite     " Automatically :write before running commands
 " Persistent undo
 set undofile
 
-" No transparent floating windows
-set pumblend=0
-set winblend=0
-
 
 " NerdTree {{{
 
@@ -198,7 +194,14 @@ let NERDTreeDirArrows = 1
 let NERDTreeShowFiles = 1
 let NERDTreeShowHidden = 1
 let NERDTreeQuitOnOpen = 1
-let NERDTreeIgnore = ['\.DS_Store', '\~$', '\.swp', '\.git$', '__pycache__', '\.pyc$']
+let NERDTreeIgnore = [
+  \ '\.DS_Store',
+  \ '\~$',
+  \ '\.swp',
+  \ '\.git$',
+  \ '__pycache__',
+  \ '\.pyc$'
+  \ ]
 
 let NERDTreeAutoDeleteBuffer = 1
 
@@ -233,14 +236,13 @@ let mapleader=' '
 nnoremap re :w<CR>:source ~/.config/nvim/init.vim<CR>:PlugClean<CR>:PlugInstall<CR>:PlugUpdate<CR>
 
 " Floating terminal {{{
-
-autocmd User Startified setlocal buflisted
-
 let g:floaterm_open_in_root = v:true
 let g:floaterm_position = 'center'
 
 highlight FloatermNF guibg=dark
 highlight FloatermBorderNF guibg=dark
+
+autocmd User Startified setlocal buflisted
 
 " Open a floating terminal with <Leader>t
 nnoremap <Leader>t :FloatermToggle<CR>
@@ -258,7 +260,7 @@ set diffopt+=vertical
 
 set clipboard=unnamed
 
-" lightline {{{
+" Lightline {{{
 
 let g:lightline = {
   \ 'colorscheme': 'onehalfdark',
@@ -292,8 +294,9 @@ let g:lightline#bufferline#unnamed      = '[No Name]'
 let g:lightline#bufferline#filename_modifer = ':t'
 
 let g:lightline#bufferline#number_map = {
-\ 0: '⁰', 1: '¹', 2: '²', 3: '³', 4: '⁴',
-\ 5: '⁵', 6: '⁶', 7: '⁷', 8: '⁸', 9: '⁹'}
+  \ 0: '⁰', 1: '¹', 2: '²', 3: '³', 4: '⁴',
+  \ 5: '⁵', 6: '⁶', 7: '⁷', 8: '⁸', 9: '⁹'
+  \ }
 
 let g:lightline.tabline          = {'left': [['buffers']], 'right': []}
 let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
@@ -302,26 +305,27 @@ let g:lightline.component_type   = {'buffers': 'tabsel'}
 " }}}
 
 
-" Coc.vim {{{
+" Coc {{{
 
-" if hidden is not set, TextEdit might fail.
+" If hidden is not set, TextEdit might fail
 set hidden
 
 " Some servers have issues with backup files, see #649
 set nobackup
 set nowritebackup
 
-" You will have bad experience for diagnostic messages when it's default 4000.
+" You will have bad experience for diagnostic messages when it's default 4000
 set updatetime=300
 
-" don't give |ins-completion-menu| messages.
+" Don't give |ins-completion-menu| messages
 set shortmess+=c
 
-" always show signcolumns
+" Always show signcolumns
 set signcolumn=yes
 
-" Use tab for trigger completion with characters ahead and navigate.
-" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+" Use tab for trigger completion with characters ahead and navigate
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other
+" plugin
 inoremap <silent><expr> <Tab>
       \ pumvisible() ? coc#_select_confirm() :
       \ <SID>check_back_space() ? "\<Tab>" :
@@ -336,11 +340,12 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-" Use <c-space> to trigger completion.
+" Use <c-space> to trigger completion
 inoremap <silent><expr> <c-space> coc#refresh()
 
-" Use <CR> to confirm completion, `<C-g>u` means break undo chain at current position.
-" Coc only does snippet and additional edit on confirm.
+" Use <CR> to confirm completion, `<C-g>u` means break undo chain at current
+" position
+" Coc only does snippet and additional edit on confirm
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " Or use `complete_info` if your vim support it, like:
 " inoremap <expr> <CR> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
@@ -375,13 +380,14 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 
 augroup mygroup
   autocmd!
-  " Setup formatexpr specified filetype(s).
+  " Setup formatexpr specified filetype(s)
   autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
   " Update signature help on jump placeholder
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
-" Remap for do codeAction of selected region, ex: `<Leader>aap` for current paragraph
+" Remap for do codeAction of selected region, ex: `<Leader>aap` for current
+" paragraph
 xmap <Leader>a  <Plug>(coc-codeaction-selected)
 nmap <Leader>a  <Plug>(coc-codeaction-selected)
 
@@ -390,7 +396,8 @@ nmap <Leader>ac  <Plug>(coc-codeaction)
 " Fix autofix problem of current line
 nmap <Leader>qf  <Plug>(coc-fix-current)
 
-" Create mappings for function text object, requires document symbols feature of languageserver.
+" Create mappings for function text object, requires document symbols feature of
+" languageserver
 xmap if <Plug>(coc-funcobj-i)
 xmap af <Plug>(coc-funcobj-a)
 omap if <Plug>(coc-funcobj-i)
@@ -409,8 +416,13 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 " use `:OR` for organize import of current buffer
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
-" Add status line support, for integration with other plugin, checkout `:h coc-status`
+" Add status line support, for integration with other plugin, checkout `:h
+" coc-status`
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
+" No transparent auto-completion popup
+set pumblend=0
+set winblend=0
 
 " }}}
 
@@ -467,16 +479,16 @@ let g:Lf_RgConfig = [
 
 " Vista {{{
 
-" How each level is indented and what to prepend.
+" How each level is indented and what to prepend
 let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
 
-" Executive used when opening vista sidebar without specifying it.
-" See all the avaliable executives via `:echo g:vista#executives`.
+" Executive used when opening vista sidebar without specifying it
+" See all the avaliable executives via `:echo g:vista#executives`
 let g:vista_default_executive = 'ctags'
 
 " Set the executive for some filetypes explicitly. Use the explicit executive
 " instead of the default one for these filetypes when using `:Vista` without
-" specifying the executive.
+" specifying the executive
 let g:vista_executive_for = {
   \ 'cpp': 'vim_lsp',
   \ 'php': 'vim_lsp',
@@ -512,6 +524,7 @@ noremap ga :vertical Gcommit -v --amend<CR>
 
 " Close git-messenger popup with <Esc>
 autocmd FileType gitmessengerpopup nmap <buffer> <Esc> q
+
 " }}}
 
 " Use U as redo
@@ -562,13 +575,13 @@ set regexpengine=1
 noremap j gj
 noremap k gk
 
-" Start scrolling n lines before horizontal border of window.
+" Start scrolling n lines before horizontal border of window
 set scrolloff=5
 
-" Start scrolling n chars before end of screen.
+" Start scrolling n chars before end of screen
 set sidescrolloff=7
 
-" Allow saving of files as sudo when I forgot to start vim using sudo.
+" Allow saving of files as sudo when I forgot to start vim using sudo
 " `:w !sudo tee % > /dev/null` trick does not work on neovim
 command! W w suda://%
 
@@ -591,13 +604,13 @@ nnoremap == Vgw
 
 " Since I never use the ; key anyway, this is a real optimization for almost
 " all Vim commands, as I don't have to press the Shift key to form chords to
-" enter ex mode.
+" enter ex mode
 nnoremap ; :
 
 " These are to cancel the default behavior of d, D, c, C to put the text they
-" delete in the default register.
-" Note that this means e.g. "ad won't copy the text into register a anymore.
-" You have to explicitly yank it.
+" delete in the default register
+" Note that this means e.g. "ad won't copy the text into register a anymore,
+" you have to explicitly yank it
 nnoremap d "_d
 vnoremap d "_d
 nnoremap D "_D
