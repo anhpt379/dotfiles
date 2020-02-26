@@ -419,7 +419,15 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 highlight NonText guifg=#354751
 
 " LeaderF
-highlight def Lf_hl_popup_window guibg=#313640
+highlight Lf_hl_popup_window guibg=#313640
+highlight Lf_hl_cursorline guifg=#e5c07b
+highlight Lf_hl_match guifg=#98c379
+highlight Lf_hl_popup_prompt guifg=#ffcd4a
+highlight Lf_hl_popup_inputText guibg=#4D5565
+highlight Lf_hl_matchRefine guifg=#c678dd
+highlight Lf_hl_popup_total guifg=#282c34 guibg=#dcdfe4
+highlight Lf_hl_popup_lineInfo guifg=#dcdfe4 guibg=#5D6779
+highlight Lf_hl_rgHighlight guibg=#e5c07b guifg=#282c34
 
 let g:Lf_HideHelp = 1
 let g:Lf_PopupShowStatusline = 0
@@ -490,7 +498,7 @@ augroup END
 let g:git_messenger_always_into_popup = v:true
 let g:git_messenger_no_default_mappings = v:true
 
-highlight gitmessengerPopupNormal guibg=#4D5565
+highlight gitmessengerPopupNormal guibg=#313640
 highlight link gitmessengerHeader Identifier
 highlight link gitmessengerHash Number
 highlight link gitmessengerHistory Constant
