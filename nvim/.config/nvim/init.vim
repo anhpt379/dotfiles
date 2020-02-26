@@ -9,6 +9,7 @@ Plug 'airblade/vim-rooter'
 " Some Git stuff
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
+Plug 'rhysd/git-messenger.vim'
 
 " EditorConfig
 Plug 'editorconfig/editorconfig-vim'
@@ -24,7 +25,6 @@ Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 Plug 'liuchengxu/vista.vim'
 Plug 'mengelbrecht/lightline-bufferline'
 Plug 'mhinz/vim-startify'
-Plug 'rhysd/git-messenger.vim'
 Plug 'lifepillar/vim-cheat40'
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'voldikss/vim-floaterm'
@@ -486,15 +486,23 @@ augroup numbertoggle
 augroup END
 
 
-" Git
+" Git {{{
 let g:git_messenger_always_into_popup = v:true
 let g:git_messenger_no_default_mappings = v:true
+
+highlight gitmessengerPopupNormal guibg=#4D5565
+highlight link gitmessengerHeader Identifier
+highlight link gitmessengerHash Number
+highlight link gitmessengerHistory Constant
+
 noremap gm :GitMessenger<CR>
 noremap gs :vertical Gstatus<CR>
 noremap gl :GV<CR>
 noremap gw :Gwrite<CR>
 noremap gc :vertical Gcommit -v<CR>
 noremap ga :vertical Gcommit -v --amend<CR>
+
+" }}}
 
 " Use U as redo
 nnoremap U <C-R>
