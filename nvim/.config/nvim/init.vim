@@ -270,6 +270,9 @@ set diffopt+=vertical
 
 set clipboard=unnamed
 
+" Fix quotes are hidden in JSON files
+set conceallevel=0
+
 " Lightline {{{
 
 let g:lightline = {
@@ -443,9 +446,11 @@ set winblend=0
 
 " Some custom style
 highlight NonText guifg=#354751
+highlight LineNr guibg=NONE
+highlight CursorLineNr guibg=#313640
 
 " LeaderF
-highlight Lf_hl_popup_window guibg=#313640
+highlight Lf_hl_popup_window guibg=#3F4653
 highlight Lf_hl_cursorline guifg=#e5c07b
 highlight Lf_hl_match guifg=#98c379
 highlight Lf_hl_popup_prompt guifg=#ffcd4a
@@ -524,7 +529,7 @@ augroup end
 let g:git_messenger_always_into_popup = v:true
 let g:git_messenger_no_default_mappings = v:true
 
-highlight gitmessengerPopupNormal guibg=#313640
+highlight gitmessengerPopupNormal guibg=#3F4653
 highlight link gitmessengerHeader Identifier
 highlight link gitmessengerHash Number
 highlight link gitmessengerHistory Constant
