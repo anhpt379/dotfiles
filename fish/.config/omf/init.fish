@@ -15,3 +15,4 @@ set -x GOROOT /usr/local/opt/go/libexec
 set -x GOPATH $HOME/.go
 set -gx PATH $PATH $HOME/.krew/bin
 
+set -gx PATH $HOME/Library/Python/3.7/bin/ $PATH
