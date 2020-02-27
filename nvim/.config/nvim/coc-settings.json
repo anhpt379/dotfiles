@@ -5,11 +5,24 @@
   "suggest.numberSelect": true,
   "suggest.defaultSortMethod": "none",
   "git.addGBlameToVirtualText": true,
+  "diagnostic.errorSign": "✖",
+  "diagnostic.warningSign": "⬥",
+  "diagnostic.infoSign": "‣",
   "diagnostic.refreshOnInsertMode": true,
   "diagnostic-languageserver.filetypes": {
     "vim": "vint",
     "email": "languagetool",
     "markdown": [ "write-good", "markdownlint" ],
     "sh": "shellcheck"
-  }
+  },
+  "diagnostic-languageserver.linters":{
+   "vint": {
+      "command": "vint",
+      "debounce": 100,
+      "args": ["--enable-neovim", "-" ],
+      "offsetLine": 0,
+      "offsetColumn": 0,
+      "sourceName": "vint"
+   }
+	}
 }
