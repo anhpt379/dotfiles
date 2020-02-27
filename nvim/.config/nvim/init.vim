@@ -1,3 +1,5 @@
+scriptencoding utf-8
+
 call plug#begin()
 
 " Defaults everyone can agree on
@@ -79,22 +81,24 @@ let g:coc_global_extensions = [
 set dictionary+=~/.config/nvim/dictionaries/hacker_news.txt
 
 " vim-cycle
-autocmd Vimenter * call AddCycleGroup(['True', 'False'])
-autocmd VimEnter * call AddCycleGroup(['Yes', 'No'])
-autocmd VimEnter * call AddCycleGroup(['yes', 'no'])
-autocmd VimEnter * call AddCycleGroup(['set', 'get'])
-autocmd VimEnter * call AddCycleGroup(['from', 'to'])
-autocmd VimEnter * call AddCycleGroup(['push', 'pop'])
-autocmd VimEnter * call AddCycleGroup(['prev', 'next'])
-autocmd VimEnter * call AddCycleGroup(['start', 'end'])
-autocmd VimEnter * call AddCycleGroup(['light', 'dark'])
-autocmd VimEnter * call AddCycleGroup(['open', 'close'])
-autocmd VimEnter * call AddCycleGroup(['read', 'write'])
-autocmd VimEnter * call AddCycleGroup(['internal', 'external'])
-autocmd VimEnter * call AddCycleGroup(['subscribe', 'unsubscribe'])
-autocmd VimEnter * call AddCycleGroup(['pico', 'nano', 'micro', 'mili', 'kilo', 'mega', 'giga', 'tera', 'peta'])
-autocmd VimEnter * call AddCycleGroup(['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'])
-autocmd VimEnter * call AddCycleGroup(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'])
+augroup cycle-group
+  autocmd Vimenter * call AddCycleGroup(['True', 'False'])
+  autocmd VimEnter * call AddCycleGroup(['Yes', 'No'])
+  autocmd VimEnter * call AddCycleGroup(['yes', 'no'])
+  autocmd VimEnter * call AddCycleGroup(['set', 'get'])
+  autocmd VimEnter * call AddCycleGroup(['from', 'to'])
+  autocmd VimEnter * call AddCycleGroup(['push', 'pop'])
+  autocmd VimEnter * call AddCycleGroup(['prev', 'next'])
+  autocmd VimEnter * call AddCycleGroup(['start', 'end'])
+  autocmd VimEnter * call AddCycleGroup(['light', 'dark'])
+  autocmd VimEnter * call AddCycleGroup(['open', 'close'])
+  autocmd VimEnter * call AddCycleGroup(['read', 'write'])
+  autocmd VimEnter * call AddCycleGroup(['internal', 'external'])
+  autocmd VimEnter * call AddCycleGroup(['subscribe', 'unsubscribe'])
+  autocmd VimEnter * call AddCycleGroup(['pico', 'nano', 'micro', 'mili', 'kilo', 'mega', 'giga', 'tera', 'peta'])
+  autocmd VimEnter * call AddCycleGroup(['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'])
+  autocmd VimEnter * call AddCycleGroup(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'])
+augroup end
 
 " far.vim
 let g:far#source = 'rgnvim'
@@ -153,10 +157,12 @@ set colorcolumn=+1
 set ttimeoutlen=5
 
 " Tweak for Markdown mode
-autocmd FileType markdown call s:markdown_mode_setup()
+augroup markdown
+  autocmd FileType markdown call s:markdown_mode_setup()
+augroup end
+
 function! s:markdown_mode_setup()
   set wrap
-  set nonumber
   set textwidth=80
   set formatoptions+=t
 endfunction
@@ -243,7 +249,9 @@ let g:floaterm_position = 'center'
 highlight FloatermNF guibg=dark
 highlight FloatermBorderNF guibg=dark
 
-autocmd User Startified setlocal buflisted
+augroup floaterm-startify-fix
+  autocmd User Startified setlocal buflisted
+augroup end
 
 " Open a floating terminal with <Leader>t
 nnoremap <Leader>t :FloatermToggle<CR>
@@ -373,9 +381,6 @@ function! s:show_documentation()
   endif
 endfunction
 
-" Highlight symbol under cursor on CursorHold
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
 " Remap for rename current word
 " nmap <Leader>rn <Plug>(coc-rename)
 
@@ -383,12 +388,15 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 " xmap <Leader>f  <Plug>(coc-format-selected)
 " nmap <Leader>f  <Plug>(coc-format-selected)
 
-augroup mygroup
+augroup coc
   autocmd!
   " Setup formatexpr specified filetype(s)
   autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
   " Update signature help on jump placeholder
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+
+  " Highlight symbol under cursor on CursorHold
+  autocmd CursorHold * silent call CocActionAsync('highlight')
 augroup end
 
 " Remap for do codeAction of selected region, ex: `<Leader>aap` for current
@@ -456,10 +464,10 @@ let g:Lf_RecurseSubmodules = 1
 
 let g:Lf_WindowPosition = 'popup'
 let g:Lf_PreviewInPopup = 0
-let g:Lf_StlSeparator = { 'left': "", 'right': "" }
+let g:Lf_StlSeparator = { 'left': '', 'right': '' }
 let g:Lf_PreviewResult = {'Function': 0, 'BufTag': 0 }
 
-let g:Lf_ShortcutF = "<Leader>f"
+let g:Lf_ShortcutF = '<Leader>f'
 
 noremap <Leader>b :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
 noremap <Leader>r :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
@@ -474,18 +482,18 @@ let g:Lf_CommandMap = {
   \ }
 
 let g:Lf_NormalMap = {
-  \ 'Rg': [["<Esc>", ':exec g:Lf_py "rgExplManager.quit()"<CR>']]
+  \ 'Rg': [['<Esc>', ':exec g:Lf_py "rgExplManager.quit()"<CR>']]
   \ }
 
 let g:Lf_RgConfig = [
-  \ "--glob=!.git/*",
-  \ "--hidden"
+  \ '--glob=!.git/*',
+  \ '--hidden'
   \ ]
 
 " Vista {{{
 
 " How each level is indented and what to prepend
-let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
+let g:vista_icon_indent = ['╰─▸ ', '├─▸ ']
 
 " Executive used when opening vista sidebar without specifying it
 " See all the avaliable executives via `:echo g:vista#executives`
@@ -504,11 +512,11 @@ let g:vista_executive_for = {
 
 
 " Hybrid line numbers
-augroup numbertoggle
+augroup number-toggle
   autocmd!
   autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu | set rnu   | endif
   autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu | set nornu | endif
-augroup END
+augroup end
 
 
 " Git {{{
@@ -528,7 +536,9 @@ noremap gc :vertical Gcommit -v<CR>
 noremap ga :vertical Gcommit -v --amend<CR>
 
 " Close git-messenger popup with <Esc>
-autocmd FileType gitmessengerpopup nmap <buffer> <Esc> q
+augroup git-messenger
+  autocmd FileType gitmessengerpopup nmap <buffer> <Esc> q
+augroup end
 
 " }}}
 
