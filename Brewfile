@@ -22,6 +22,8 @@ brew "telnet"
 brew "tmux"
 brew "trash"
 brew "youtube-dl"
+brew "languagetool"
+brew "shellcheck"
 
 # Apps
 cask '1password'

@@ -71,7 +71,8 @@ let g:coc_global_extensions = [
       \  'coc-docker',
       \  'coc-sh',
       \  'coc-dictionary',
-      \  'coc-emoji'
+      \  'coc-emoji',
+      \  'coc-diagnostic'
       \ ]
 
 " coc-dictionary

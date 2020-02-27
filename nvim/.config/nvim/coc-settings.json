@@ -5,5 +5,11 @@
   "suggest.numberSelect": true,
   "suggest.defaultSortMethod": "none",
   "git.addGBlameToVirtualText": true,
-  "diagnostic.refreshOnInsertMode": true
+  "diagnostic.refreshOnInsertMode": true,
+  "diagnostic-languageserver.filetypes": {
+    "vim": "vint",
+    "email": "languagetool",
+    "markdown": [ "write-good", "markdownlint" ],
+    "sh": "shellcheck"
+  }
 }
