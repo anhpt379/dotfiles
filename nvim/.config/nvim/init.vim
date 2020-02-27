@@ -308,6 +308,10 @@ let g:lightline.component_type   = {'buffers': 'tabsel'}
 
 " Coc {{{
 
+highlight CocFloating guibg=#4D5565
+highlight CocErrorHighlight guifg=#e06c75
+highlight CocWarningHighlight guifg=#e5c07b
+
 " If hidden is not set, TextEdit might fail
 set hidden
 
