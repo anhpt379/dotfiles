@@ -26,6 +26,7 @@ Plug 'chr4/nginx.vim'
 Plug 'glench/vim-jinja2-syntax'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'rodjek/vim-puppet'
+Plug 'pearofducks/ansible-vim'
 
 " Fancy UI stuff
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -88,6 +89,9 @@ let g:coc_global_extensions = [
 
 " coc-dictionary
 set dictionary+=~/.config/nvim/dictionaries/hacker_news.txt
+
+" ansible-vim
+let g:ansible_attribute_highlight = "ab"
 
 " vim-cycle
 augroup cycle-group
