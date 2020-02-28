@@ -5,9 +5,9 @@
   "suggest.numberSelect": true,
   "suggest.defaultSortMethod": "none",
   "git.addGBlameToVirtualText": true,
-  "diagnostic.errorSign": "✖",
-  "diagnostic.warningSign": "⬥",
-  "diagnostic.infoSign": "‣",
+  "diagnostic.errorSign": "×",
+  "diagnostic.warningSign": "!",
+  "diagnostic.infoSign": "i",
   "diagnostic.refreshOnInsertMode": true,
   "diagnostic-languageserver.filetypes": {
     "vim": "vint",

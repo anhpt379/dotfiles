@@ -455,6 +455,11 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 set pumblend=0
 set winblend=0
 
+" Custom coc error/warning/info sign
+let g:coc_status_error_sign = '❌ '
+let g:coc_status_warning_sign = '⚠️  '
+let g:coc_status_info_sign = 'ℹ️  '
+
 " }}}
 
 
