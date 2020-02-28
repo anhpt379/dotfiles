@@ -27,6 +27,7 @@ Plug 'glench/vim-jinja2-syntax'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'rodjek/vim-puppet'
 Plug 'pearofducks/ansible-vim'
+Plug 'cespare/vim-toml'
 
 " Fancy UI stuff
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
