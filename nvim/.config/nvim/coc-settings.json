@@ -15,14 +15,23 @@
     "markdown": [ "write-good", "markdownlint" ],
     "sh": "shellcheck"
   },
-  "diagnostic-languageserver.linters":{
-   "vint": {
+  "diagnostic-languageserver.linters": {
+    "vint": {
       "command": "vint",
       "debounce": 100,
-      "args": ["--enable-neovim", "-" ],
+      "args": ["--enable-neovim", "-"],
       "offsetLine": 0,
       "offsetColumn": 0,
-      "sourceName": "vint"
-   }
+      "sourceName": "vint",
+      "formatLines": 1,
+      "formatPattern": [
+        "[^:]+:(\\d+):(\\d+):\\s*(.*)(\\r|\\n)*$",
+        {
+          "line": 1,
+          "column": 2,
+          "message": 3
+        }
+      ]
+    }
 	}
 }

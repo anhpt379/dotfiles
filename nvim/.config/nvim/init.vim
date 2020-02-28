@@ -93,7 +93,7 @@ let g:coc_global_extensions = [
 set dictionary+=~/.config/nvim/dictionaries/hacker_news.txt
 
 " ansible-vim
-let g:ansible_attribute_highlight = "ab"
+let g:ansible_attribute_highlight = 'ab'
 
 " vim-cycle
 augroup cycle-group
