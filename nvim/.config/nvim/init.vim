@@ -20,6 +20,9 @@ Plug 'editorconfig/editorconfig-vim'
 " LSP support
 Plug 'anhpt379/coc.nvim', { 'do': 'yarn install --frozen-lockfile' }
 
+" Syntax highlighting
+Plug 'gisphm/vim-gitignore'
+
 " Fancy UI stuff
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin'
