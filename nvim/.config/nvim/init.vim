@@ -28,6 +28,7 @@ Plug 'ekalinin/Dockerfile.vim'
 Plug 'rodjek/vim-puppet'
 Plug 'pearofducks/ansible-vim'
 Plug 'cespare/vim-toml'
+Plug 'mechatroner/rainbow_csv'
 
 " Fancy UI stuff
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
