@@ -12,6 +12,7 @@ Plug 'airblade/vim-rooter'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
 Plug 'rhysd/git-messenger.vim'
+Plug 'itchyny/vim-gitbranch'
 
 " EditorConfig
 Plug 'editorconfig/editorconfig-vim'
