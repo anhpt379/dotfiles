@@ -24,6 +24,7 @@ brew "trash"
 brew "youtube-dl"
 brew "languagetool"
 brew "shellcheck"
+brew "wget"
 
 # Apps
 cask '1password'
