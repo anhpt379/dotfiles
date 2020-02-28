@@ -25,6 +25,7 @@ Plug 'gisphm/vim-gitignore'
 Plug 'chr4/nginx.vim'
 Plug 'glench/vim-jinja2-syntax'
 Plug 'ekalinin/Dockerfile.vim'
+Plug 'rodjek/vim-puppet'
 
 " Fancy UI stuff
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
