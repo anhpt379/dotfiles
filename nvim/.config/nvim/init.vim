@@ -24,6 +24,7 @@ Plug 'anhpt379/coc.nvim', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'gisphm/vim-gitignore'
 Plug 'chr4/nginx.vim'
 Plug 'glench/vim-jinja2-syntax'
+Plug 'ekalinin/Dockerfile.vim'
 
 " Fancy UI stuff
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
