@@ -41,6 +41,7 @@ Plug 'mhinz/vim-startify'
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'voldikss/vim-floaterm'
 Plug 'lifepillar/vim-cheat40'
+Plug 'atimholt/spiffy_foldtext'
 
 " Improving editing experience
 Plug 'wellle/targets.vim'
