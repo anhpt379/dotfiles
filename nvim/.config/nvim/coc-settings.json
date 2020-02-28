@@ -13,7 +13,8 @@
     "vim": "vint",
     "email": "languagetool",
     "markdown": [ "write-good", "markdownlint" ],
-    "sh": "shellcheck"
+    "sh": "shellcheck",
+    "Dockerfile": "hadolint"
   },
   "diagnostic-languageserver.linters": {
     "vint": {
@@ -32,6 +33,51 @@
           "message": 3
         }
       ]
+    },
+    "shellcheck": {
+      "command": "shellcheck",
+      "debounce": 100,
+      "args": [
+        "--format",
+        "json",
+        "-"
+      ],
+      "sourceName": "shellcheck",
+      "parseJson": {
+        "line": "line",
+        "column": "column",
+        "endLine": "endLine",
+        "endColumn": "endColumn",
+        "message": "${message} [${code}]",
+        "security": "level"
+      },
+      "securities": {
+        "error": "error",
+        "warning": "warning",
+        "info": "info",
+        "style": "hint"
+      }
+    },
+    "hadolint": {
+      "command": "hadolint",
+      "sourceName": "hadolint",
+      "args": [
+        "-f",
+        "json",
+        "-"
+      ],
+      "parseJson": {
+        "line": "line",
+        "column": "column",
+        "security": "level",
+        "message": "${message} [${code}]"
+      },
+      "securities": {
+        "error": "error",
+        "warning": "warning",
+        "info": "info",
+        "style": "hint"
+      }
     }
 	}
 }
