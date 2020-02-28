@@ -22,6 +22,7 @@ Plug 'anhpt379/coc.nvim', { 'do': 'yarn install --frozen-lockfile' }
 
 " Syntax highlighting
 Plug 'gisphm/vim-gitignore'
+Plug 'chr4/nginx.vim'
 
 " Fancy UI stuff
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
