@@ -23,6 +23,7 @@ Plug 'anhpt379/coc.nvim', { 'do': 'yarn install --frozen-lockfile' }
 " Syntax highlighting
 Plug 'gisphm/vim-gitignore'
 Plug 'chr4/nginx.vim'
+Plug 'glench/vim-jinja2-syntax'
 
 " Fancy UI stuff
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -245,7 +246,7 @@ set inccommand=split
 let mapleader=' '
 
 " Quickly reload nvim config & plugins by pressing `re`
-nnoremap re :w<CR>:source ~/.config/nvim/init.vim<CR>:PlugClean<CR>:PlugInstall<CR>:PlugUpdate<CR>
+nnoremap re :w<CR>:source %<CR>:PlugClean<CR>:PlugInstall<CR>
 
 " Floating terminal {{{
 let g:floaterm_open_in_root = v:true
