@@ -271,8 +271,8 @@ set diffopt+=vertical
 
 set clipboard=unnamed
 
-" Fix quotes are hidden in JSON files
-set conceallevel=0
+" JSON quote concealing
+set conceallevel=2
 
 " Lightline {{{
 
