@@ -43,6 +43,7 @@ Plug 'voldikss/vim-floaterm'
 Plug 'lifepillar/vim-cheat40'
 Plug 'atimholt/spiffy_foldtext'
 Plug 'pseewald/vim-anyfold'
+Plug 'nathanaelkane/vim-indent-guides'
 
 " Improving editing experience
 Plug 'wellle/targets.vim'
@@ -690,4 +691,10 @@ function LargeFile()
   augroup end
 endfunction
 " }}}
+
+" Indent guides
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :highlight IndentGuidesOdd  guibg=#333843 guifg=#354751
+autocmd VimEnter,Colorscheme * :highlight IndentGuidesEven guibg=#393F4A guifg=#354751
 
