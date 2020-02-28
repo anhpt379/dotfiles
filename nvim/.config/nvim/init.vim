@@ -42,6 +42,7 @@ Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'voldikss/vim-floaterm'
 Plug 'lifepillar/vim-cheat40'
 Plug 'atimholt/spiffy_foldtext'
+Plug 'pseewald/vim-anyfold'
 
 " Improving editing experience
 Plug 'wellle/targets.vim'
@@ -667,3 +668,26 @@ vnoremap <Leader>/ :Commentary<CR>
 
 " Join lines and restore cursor location (J)
 nnoremap J mjJ`j
+
+" Any-fold {{{
+let g:anyfold_fold_display = 0
+let g:anyfold_fold_comments = 1
+highlight Folded term=NONE cterm=NONE
+
+" Activate anyfold by default
+augroup anyfold
+  autocmd!
+  autocmd Filetype * AnyFoldActivate
+augroup end
+
+" Disable anyfold for large files
+let g:LargeFile = 1000000    " file is large if size greater than 1MB
+autocmd BufReadPre,BufRead * let f=getfsize(expand("<afile>")) | if f > g:LargeFile || f == -2 | call LargeFile() | endif
+function LargeFile()
+  augroup anyfold
+    autocmd!    " remove AnyFoldActivate
+    autocmd Filetype * setlocal foldmethod=indent   " fall back to indent folding
+  augroup end
+endfunction
+" }}}
+
