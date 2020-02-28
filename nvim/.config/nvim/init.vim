@@ -194,10 +194,9 @@ set autowrite     " Automatically :write before running commands
 
 " Persistent undo
 set undofile
-
+set undodir=~/.config/nvim/undo
 
 " NerdTree {{{
-
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 let NERDTreeShowFiles = 1
@@ -397,6 +396,7 @@ augroup coc
   autocmd!
   " Setup formatexpr specified filetype(s)
   autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+
   " Update signature help on jump placeholder
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 
