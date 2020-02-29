@@ -519,6 +519,7 @@ let g:Lf_RgConfig = [
   \ ]
 
 " Vista {{{
+let g:vista_icon_indent = ["└ ", "├ "]
 let g:vista_default_executive = 'coc'
 let g:vista_sidebar_position = 'vertical topleft'
 let g:vista_echo_cursor_strategy = 'scroll'
