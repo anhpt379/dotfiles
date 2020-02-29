@@ -1,36 +1,41 @@
-tap "homebrew/bundle"
-tap "homebrew/cask"
-tap "homebrew/cask-fonts"
-tap "homebrew/core"
-tap "universal-ctags/universal-ctags"
+tap 'homebrew/bundle'
+tap 'homebrew/cask'
+tap 'homebrew/cask-fonts'
+tap 'homebrew/cask-versions'
+tap 'homebrew/core'
+tap 'universal-ctags/universal-ctags'
 
-brew "autoconf"
-brew "bash"
-brew "coreutils"
-brew "https://raw.githubusercontent.com/cloudflare/homebrew-cloudflare/master/curl.rb", args: ["HEAD", "build-from-source"]
-brew "exa"
-brew "fd"
-brew "fish"
-brew "gawk"
-brew "git"
-brew "hadolint"
-brew "kubernetes-cli"
-brew "kubectx"
-brew "neovim"
-brew "node"
-brew "openssl"
-brew "ripgrep"
-brew "stow"
-brew "telnet"
-brew "tmux"
-brew "trash"
-brew "youtube-dl"
-brew "languagetool"
-brew "shellcheck"
-brew "wget"
-brew "libxml2"
-brew "universal-ctags/universal-ctags/universal-ctags", args: ["with-jansson",
-"HEAD"]
+brew 'autoconf'
+brew 'bash'
+brew 'coreutils'
+brew 'https://raw.githubusercontent.com/cloudflare/homebrew-cloudflare/master/curl.rb', args: ['HEAD', 'build-from-source']
+brew 'exa'
+brew 'fd'
+brew 'fish'
+brew 'ffmpeg'
+brew 'gawk'
+brew 'git'
+brew 'hadolint'
+brew 'imagemagick'
+brew 'kubernetes-cli'
+brew 'kubectx'
+brew 'neovim'
+brew 'node'
+brew 'mas'
+brew 'openssl'
+brew 'pwgen'
+brew 'ripgrep'
+brew 'rsync'
+brew 'stow'
+brew 'telnet'
+brew 'tmux'
+brew 'trash'
+brew 'youtube-dl'
+brew 'languagetool'
+brew 'shellcheck'
+brew 'wget'
+brew 'libxml2'
+brew 'universal-ctags/universal-ctags/universal-ctags', args: ['with-jansson', 'HEAD']
 
 # Apps
 cask '1password'
@@ -60,3 +65,4 @@ mas 'Be Focus', id: 961632517
 mas 'Amphetamine', id: 937984704
 mas 'Fantastical', id: 975937182
 mas 'Spark', id: 1176895641
+
