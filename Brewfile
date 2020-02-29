@@ -50,6 +50,9 @@ cask 'quicklook-json'
 cask 'quicklook-csv'
 cask 'qlstephen'
 
+# Fonts
+cask 'font-meslo-nerd-font'
+
 # Mac App Store
 mas 'Keynote', id: 409183694
 mas 'Numbers', id: 409203825
