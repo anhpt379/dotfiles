@@ -2,6 +2,8 @@ tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 tap "homebrew/core"
+tap "universal-ctags/universal-ctags"
+
 brew "autoconf"
 brew "bash"
 brew "coreutils"
@@ -26,6 +28,9 @@ brew "youtube-dl"
 brew "languagetool"
 brew "shellcheck"
 brew "wget"
+brew "libxml2"
+brew "universal-ctags/universal-ctags/universal-ctags", args: ["with-jansson",
+"HEAD"]
 
 # Apps
 cask '1password'

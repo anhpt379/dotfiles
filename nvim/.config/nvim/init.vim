@@ -519,22 +519,32 @@ let g:Lf_RgConfig = [
   \ ]
 
 " Vista {{{
+let g:vista_default_executive = 'coc'
+let g:vista_sidebar_position = 'vertical topleft'
+let g:vista_echo_cursor_strategy = 'scroll'
+let g:vista_cursor_delay = 1
+let g:vista_close_on_jump = 1
+let g:vista_disable_statusline = 1
 
-" How each level is indented and what to prepend
-let g:vista_icon_indent = ['╰─▸ ', '├─▸ ']
+" Ensure you have installed some decent font to show these pretty symbols, then
+" you can enable icon for the kind.
+let g:vista#renderer#enable_icon = 1
 
-" Executive used when opening vista sidebar without specifying it
-" See all the avaliable executives via `:echo g:vista#executives`
-let g:vista_default_executive = 'ctags'
-
-" Set the executive for some filetypes explicitly. Use the explicit executive
-" instead of the default one for these filetypes when using `:Vista` without
-" specifying the executive
-let g:vista_executive_for = {
-  \ 'cpp': 'vim_lsp',
-  \ 'php': 'vim_lsp',
-  \ 'py': 'vim_lsp'
+" The default icons can't be suitable for all the filetypes, you can extend it
+" as you wish.
+let g:vista#renderer#icons = {
+  \  "function": "\uf794",
+  \  "variable": "\uf71b",
   \ }
+
+" Preview markdown TOC (table of contents) with Remarkable
+" npm install --save markdown-toc
+let g:vista_executive_for = {
+  \  'markdown': 'toc',
+  \ }
+
+" Toggle Vista view window
+nnoremap <Leader>v :Vista!!<CR>
 
 " }}}
 
