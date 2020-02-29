@@ -7,7 +7,7 @@ tap "universal-ctags/universal-ctags"
 brew "autoconf"
 brew "bash"
 brew "coreutils"
-brew "curl"
+brew "https://raw.githubusercontent.com/cloudflare/homebrew-cloudflare/master/curl.rb", args: ["HEAD", "build-from-source"]
 brew "exa"
 brew "fd"
 brew "fish"
