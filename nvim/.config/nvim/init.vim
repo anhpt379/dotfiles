@@ -29,6 +29,13 @@ Plug 'rodjek/vim-puppet'
 Plug 'pearofducks/ansible-vim'
 Plug 'cespare/vim-toml'
 Plug 'mechatroner/rainbow_csv'
+Plug 'ericpruitt/tmux.vim'
+Plug 'georgewitteman/vim-fish'
+Plug 'CH-DanReif/haproxy.vim'
+Plug 'towolf/vim-helm'
+Plug 'MTDL9/vim-log-highlighting'
+Plug 'wgwoods/vim-systemd-syntax'
+Plug 'Guzzii/python-syntax'
 
 " Fancy UI stuff
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
