@@ -602,7 +602,7 @@ nnoremap \ q
 nnoremap Q @q
 
 " Allow close a buffer and quit vim with a single keypress
-nnoremap q :Sayonara<CR>
+nnoremap q :Sayonara<CR><CR>
 
 " Saving quicker
 nnoremap <C-S> :w<CR>
