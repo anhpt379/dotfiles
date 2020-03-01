@@ -18,7 +18,7 @@ Plug 'itchyny/vim-gitbranch'
 Plug 'editorconfig/editorconfig-vim'
 
 " LSP support
-Plug 'anhpt379/coc.nvim', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'anhpt379/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 
 " Syntax highlighting
 Plug 'gisphm/vim-gitignore'
@@ -39,10 +39,10 @@ Plug 'Guzzii/python-syntax'
 Plug 'vim-ruby/vim-ruby'
 
 " Fancy UI stuff
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'liuchengxu/vista.vim'
-Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+Plug 'Yggdroot/LeaderF', {'do': './install.sh'}
 Plug 'itchyny/lightline.vim'
 Plug 'mengelbrecht/lightline-bufferline'
 Plug 'mhinz/vim-startify'
@@ -66,7 +66,7 @@ Plug 'lambdalisue/suda.vim'
 Plug 'tpope/vim-unimpaired'
 Plug 'rhysd/clever-f.vim'
 Plug 'machakann/vim-highlightedyank'
-Plug 'mhinz/vim-sayonara', { 'on': 'Sayonara' }
+Plug 'mhinz/vim-sayonara', {'on': 'Sayonara'}
 Plug 'junegunn/vim-easy-align'
 
 " Time tracking
@@ -502,8 +502,8 @@ let g:Lf_RecurseSubmodules = 1
 
 let g:Lf_WindowPosition = 'popup'
 let g:Lf_PreviewInPopup = 0
-let g:Lf_StlSeparator = { 'left': '', 'right': '' }
-let g:Lf_PreviewResult = {'Function': 0, 'BufTag': 0 }
+let g:Lf_StlSeparator = {'left': '', 'right': ''}
+let g:Lf_PreviewResult = {'Function': 0, 'BufTag': 0}
 
 let g:Lf_ShortcutF = '<Leader>f'
 
