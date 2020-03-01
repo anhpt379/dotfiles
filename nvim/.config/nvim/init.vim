@@ -82,25 +82,25 @@ Plug 'kana/vim-textobj-indent'
 call plug#end()
 
 let g:coc_global_extensions = [
-      \  'coc-pairs',
-      \  'coc-highlight',
-      \  'coc-prettier',
-      \  'coc-git',
-      \  'coc-python',
-      \  'coc-json',
-      \  'coc-html',
-      \  'coc-css',
-      \  'coc-fish',
-      \  'coc-markdownlint',
-      \  'coc-yaml',
-      \  'coc-docker',
-      \  'coc-sh',
-      \  'coc-dictionary',
-      \  'coc-emoji',
-      \  'coc-diagnostic',
-      \  'coc-vimlsp',
-      \  'coc-solargraph'
-      \ ]
+  \ 'coc-pairs',
+  \ 'coc-highlight',
+  \ 'coc-prettier',
+  \ 'coc-git',
+  \ 'coc-python',
+  \ 'coc-json',
+  \ 'coc-html',
+  \ 'coc-css',
+  \ 'coc-fish',
+  \ 'coc-markdownlint',
+  \ 'coc-yaml',
+  \ 'coc-docker',
+  \ 'coc-sh',
+  \ 'coc-dictionary',
+  \ 'coc-emoji',
+  \ 'coc-diagnostic',
+  \ 'coc-vimlsp',
+  \ 'coc-solargraph'
+  \ ]
 
 " coc-dictionary
 set dictionary+=~/.config/nvim/dictionaries/hacker_news.txt
@@ -133,23 +133,23 @@ let g:far#source = 'rgnvim'
 
 " vim-expand-region
 let g:expand_region_text_objects = {
-      \ 'iw' : 0,
-      \ 'iW' : 0,
-      \ 'i"' : 0,
-      \ 'i''': 0,
-      \ 'i)' : 1,
-      \ 'i]' : 1,
-      \ 'ib' : 1,
-      \ 'iB' : 1,
-      \ 'il' : 0,
-      \ 'ip' : 0,
-      \ 'ie' : 0,
-      \ 'a]' : 1,
-      \ 'ab' : 1,
-      \ 'aB' : 1,
-      \ 'ii' : 0,
-      \ 'ai' : 0
-      \ }
+  \ 'iw' : 0,
+  \ 'iW' : 0,
+  \ 'i"' : 0,
+  \ 'i''': 0,
+  \ 'i)' : 1,
+  \ 'i]' : 1,
+  \ 'ib' : 1,
+  \ 'iB' : 1,
+  \ 'il' : 0,
+  \ 'ip' : 0,
+  \ 'ie' : 0,
+  \ 'a]' : 1,
+  \ 'ab' : 1,
+  \ 'aB' : 1,
+  \ 'ii' : 0,
+  \ 'ai' : 0
+  \ }
 
 map ) <Plug>(expand_region_expand)
 map ( <Plug>(expand_region_shrink)
@@ -271,7 +271,7 @@ nnoremap re :w<CR>:source %<CR>:PlugClean<CR>:PlugInstall<CR>
 
 " Floating terminal {{{
 let g:floaterm_open_in_root = v:true
-let g:floaterm_position = 'center'
+let g:floaterm_position     = 'center'
 
 highlight FloatermNF guibg=dark
 highlight FloatermBorderNF guibg=dark
@@ -304,8 +304,10 @@ set conceallevel=2
 let g:lightline = {
   \ 'colorscheme': 'onehalfdark',
   \ 'active': {
-  \   'left': [ [ 'mode', 'paste' ],
-  \             [ 'gitbranch', 'readonly', 'cocstatus', 'modified' ] ]
+  \   'left': [
+  \     ['mode', 'paste'],
+  \     ['gitbranch', 'readonly', 'cocstatus', 'modified']
+  \   ]
   \ },
   \ 'component_function': {
   \   'gitbranch': 'gitbranch#name',
@@ -327,9 +329,9 @@ nmap <Leader>8 <Plug>lightline#bufferline#go(8)
 nmap <Leader>9 <Plug>lightline#bufferline#go(9)
 nmap <Leader>0 <Plug>lightline#bufferline#go(10)
 
-let g:lightline#bufferline#show_number  = 2
-let g:lightline#bufferline#shorten_path = 0
-let g:lightline#bufferline#unnamed      = '[No Name]'
+let g:lightline#bufferline#show_number      = 2
+let g:lightline#bufferline#shorten_path     = 0
+let g:lightline#bufferline#unnamed          = '[No Name]'
 let g:lightline#bufferline#filename_modifer = ':t'
 
 let g:lightline#bufferline#number_map = {
@@ -370,9 +372,9 @@ set signcolumn=yes
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other
 " plugin
 inoremap <silent><expr> <Tab>
-      \ pumvisible() ? coc#_select_confirm() :
-      \ <SID>check_back_space() ? "\<Tab>" :
-      \ coc#refresh()
+  \ pumvisible() ? coc#_select_confirm() :
+  \ <SID>check_back_space() ? "\<Tab>" :
+  \ coc#refresh()
 inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 " Don't exit INSERT mode when pressing Esc to close auto-completion popup
@@ -415,8 +417,8 @@ endfunction
 " nmap <Leader>rn <Plug>(coc-rename)
 
 " Remap for format selected region
-" xmap <Leader>f  <Plug>(coc-format-selected)
-" nmap <Leader>f  <Plug>(coc-format-selected)
+" xmap <Leader>f <Plug>(coc-format-selected)
+" nmap <Leader>f <Plug>(coc-format-selected)
 
 augroup coc
   autocmd!
@@ -432,13 +434,13 @@ augroup end
 
 " Remap for do codeAction of selected region, ex: `<Leader>aap` for current
 " paragraph
-xmap <Leader>a  <Plug>(coc-codeaction-selected)
-nmap <Leader>a  <Plug>(coc-codeaction-selected)
+xmap <Leader>a <Plug>(coc-codeaction-selected)
+nmap <Leader>a <Plug>(coc-codeaction-selected)
 
 " Remap for do codeAction of current line
-nmap <Leader>ac  <Plug>(coc-codeaction)
+nmap <Leader>ac <Plug>(coc-codeaction)
 " Fix autofix problem of current line
-nmap <Leader>qf  <Plug>(coc-fix-current)
+nmap <Leader>qf <Plug>(coc-fix-current)
 
 " Create mappings for function text object, requires document symbols feature of
 " languageserver
@@ -455,10 +457,10 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 command! -nargs=0 Format :call CocAction('format')
 
 " Use `:Fold` to fold current buffer
-command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+command! -nargs=? Fold   :call CocAction('fold', <f-args>)
 
 " use `:OR` for organize import of current buffer
-command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+command! -nargs=0 OR     :call CocAction('runCommand', 'editor.action.organizeImport')
 
 " Add status line support, for integration with other plugin, checkout `:h
 " coc-status`
@@ -469,9 +471,9 @@ set pumblend=0
 set winblend=0
 
 " Custom coc error/warning/info sign
-let g:coc_status_error_sign = '❌ '
+let g:coc_status_error_sign   = '❌ '
 let g:coc_status_warning_sign = '⚠️  '
-let g:coc_status_info_sign = 'ℹ️  '
+let g:coc_status_info_sign    = 'ℹ️  '
 
 " }}}
 
@@ -544,14 +546,14 @@ let g:vista#renderer#enable_icon = 1
 " The default icons can't be suitable for all the filetypes, you can extend it
 " as you wish.
 let g:vista#renderer#icons = {
-  \  'function': '\uf794',
-  \  'variable': '\uf71b',
+  \ 'function': '\uf794',
+  \ 'variable': '\uf71b',
   \ }
 
 " Preview markdown TOC (table of contents) with Remarkable
 " npm install --save markdown-toc
 let g:vista_executive_for = {
-  \  'markdown': 'toc',
+  \ 'markdown': 'toc',
   \ }
 
 " Toggle Vista view window
