@@ -528,7 +528,7 @@ let g:Lf_RgConfig = [
   \ ]
 
 " Vista {{{
-let g:vista_icon_indent = ["└ ", "├ "]
+let g:vista_icon_indent = ['└ ', '├ ']
 let g:vista_default_executive = 'coc'
 let g:vista_sidebar_position = 'vertical topleft'
 let g:vista_echo_cursor_strategy = 'scroll'
@@ -543,8 +543,8 @@ let g:vista#renderer#enable_icon = 1
 " The default icons can't be suitable for all the filetypes, you can extend it
 " as you wish.
 let g:vista#renderer#icons = {
-  \  "function": "\uf794",
-  \  "variable": "\uf71b",
+  \  'function': '\uf794',
+  \  'variable': '\uf71b',
   \ }
 
 " Preview markdown TOC (table of contents) with Remarkable
@@ -703,18 +703,26 @@ augroup end
 
 " Disable anyfold for large files
 let g:LargeFile = 1000000    " file is large if size greater than 1MB
-autocmd BufReadPre,BufRead * let f=getfsize(expand("<afile>")) | if f > g:LargeFile || f == -2 | call LargeFile() | endif
-function LargeFile()
-  augroup anyfold
-    autocmd!    " remove AnyFoldActivate
-    autocmd Filetype * setlocal foldmethod=indent   " fall back to indent folding
-  augroup end
-endfunction
+augroup largefile
+  autocmd BufReadPre,BufRead * let f=getfsize(expand("<afile>")) | if f > g:LargeFile || f == -2 | call LargeFile() | endif
+  function LargeFile()
+    augroup anyfold
+      autocmd!    " remove AnyFoldActivate
+      autocmd Filetype * setlocal foldmethod=indent   " fall back to indent folding
+    augroup end
+  endfunction
+augroup end
 " }}}
 
 " Indent guides
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_auto_colors = 0
-autocmd VimEnter,Colorscheme * :highlight IndentGuidesOdd  guibg=#333843 guifg=#354751
-autocmd VimEnter,Colorscheme * :highlight IndentGuidesEven guibg=#393F4A guifg=#354751
+augroup indent-guides-colors
+  autocmd VimEnter,Colorscheme * :highlight IndentGuidesOdd  guibg=#333843 guifg=#354751
+  autocmd VimEnter,Colorscheme * :highlight IndentGuidesEven guibg=#393F4A guifg=#354751
+augroup end
 
+" Disable continuation of comments to the next line in Vim
+augroup format-options
+  autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
+augroup end
