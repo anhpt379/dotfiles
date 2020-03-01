@@ -82,7 +82,6 @@ Plug 'kana/vim-textobj-indent'
 call plug#end()
 
 let g:coc_global_extensions = [
-  \ 'coc-pairs',
   \ 'coc-highlight',
   \ 'coc-prettier',
   \ 'coc-git',
@@ -730,3 +729,4 @@ augroup end
 augroup format-options
   autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
 augroup end
+
