@@ -52,7 +52,7 @@
       ]
     },
     "vint": {
-      "command": "vint",
+      "command": "/Users/anh/Library/Python/3.7/bin/vint",
       "debounce": 100,
       "args": ["--enable-neovim", "-"],
       "offsetLine": 0,
