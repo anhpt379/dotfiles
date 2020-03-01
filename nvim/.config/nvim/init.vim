@@ -36,6 +36,7 @@ Plug 'towolf/vim-helm'
 Plug 'MTDL9/vim-log-highlighting'
 Plug 'wgwoods/vim-systemd-syntax'
 Plug 'Guzzii/python-syntax'
+Plug 'vim-ruby/vim-ruby'
 
 " Fancy UI stuff
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -96,7 +97,8 @@ let g:coc_global_extensions = [
       \  'coc-dictionary',
       \  'coc-emoji',
       \  'coc-diagnostic',
-      \  'coc-vimlsp'
+      \  'coc-vimlsp',
+      \  'coc-solargraph'
       \ ]
 
 " coc-dictionary
