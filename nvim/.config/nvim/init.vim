@@ -67,6 +67,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'rhysd/clever-f.vim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'mhinz/vim-sayonara', { 'on': 'Sayonara' }
+Plug 'junegunn/vim-easy-align'
 
 " Time tracking
 Plug 'wakatime/vim-wakatime'
