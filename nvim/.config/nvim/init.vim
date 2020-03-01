@@ -66,7 +66,7 @@ Plug 'lambdalisue/suda.vim'
 Plug 'tpope/vim-unimpaired'
 Plug 'rhysd/clever-f.vim'
 Plug 'machakann/vim-highlightedyank'
-Plug 'mhinz/vim-sayonara', {'on': 'Sayonara'}
+Plug 'filipekiss/vim-sayonara', {'on': 'Sayonara'}
 Plug 'junegunn/vim-easy-align'
 
 " Time tracking
@@ -593,8 +593,9 @@ augroup end
 
 " }}}
 
-" Use U as redo
-nnoremap U <C-R>
+" Sayonara
+let g:sayonara_startify = 1
+nnoremap q :Sayonara<CR>
 
 " Remap recording macro key to `\` (`q` will be using as 'quit' to close the
 " current buffer)
@@ -603,8 +604,8 @@ nnoremap \ q
 " Record into register 'q', playback with 'Q'
 nnoremap Q @q
 
-" Allow close a buffer and quit vim with a single keypress
-nnoremap q :Sayonara<CR><CR>
+" Use U as redo
+nnoremap U <C-R>
 
 " Saving quicker
 nnoremap <C-S> :w<CR>
