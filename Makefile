@@ -21,6 +21,7 @@ ifndef BREW
 else
 endif
 
+	bash .macos
 	brew bundle
 	make stow
 
