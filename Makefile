@@ -24,9 +24,14 @@ endif
 	brew bundle
 	make stow
 
-	curl -L https://get.oh-my.fish > install
-	fish install --yes --path=~/.local/share/omf --config=~/.config/omf
+	pip3 install --user -r requirements.txt
 
+	mkdir -p ~/.config/nvim/autoload/
 	curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	nvim +PlugInstall +qall
+	nvim -c "PlugInstall" -c "call coc#util#install()" -c "qall"
 
+	@if [ ! -d "$$HOME/.local/share/omf" ]; then \
+		curl -L https://get.oh-my.fish > /tmp/install; \
+		fish /tmp/install --yes --path=~/.local/share/omf --config=~/.config/omf; \
+		rm -f /tmp/install; \
+	fi
