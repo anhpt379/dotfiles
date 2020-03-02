@@ -204,7 +204,7 @@ nnoremap <Down> :echoe "Use j"<CR>
 colorscheme onehalfdark
 
 set listchars=eol:¬,tab:→\ ,trail:~,extends:»,precedes:«,space:·
-set list
+set nolist
 
 set whichwrap+=<,>,h,l
 
