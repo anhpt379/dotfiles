@@ -518,7 +518,7 @@
 	<key>LoadPrefsFromCustomFolder</key>
 	<true/>
 	<key>NSNavLastRootDirectory</key>
-	<string>~/dotfiles/iterm2</string>
+	<string>~/iterm2-logs</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
 	<string>{799, 448}</string>
 	<key>NSQuotedKeystrokeBinding</key>
@@ -563,11 +563,11 @@
 		<integer>1</integer>
 	</dict>
 	<key>NSWindow Frame NSNavPanelAutosaveName</key>
-	<string>336 321 799 448 0 0 1440 877 </string>
+	<string>344 321 799 448 0 0 1440 877 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>426 363 620 392 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>260 264 650 453 0 0 1440 877 </string>
+	<string>68 367 650 453 0 0 1440 877 </string>
 	<key>NeverWarnAboutShortLivedSessions_76647A11-C359-431D-916D-B3150F7955EF</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_76647A11-C359-431D-916D-B3150F7955EF_selection</key>
@@ -1246,7 +1246,7 @@
 				<real>0.38039215686299999</real>
 			</dict>
 			<key>Log Directory</key>
-			<string>/Users/anh.phamtuan/Workspace/iterm2-logs</string>
+			<string>/Users/panh/iterm2-logs</string>
 			<key>Mouse Reporting</key>
 			<true/>
 			<key>Name</key>
@@ -1581,6 +1581,10 @@
 		<string>3.3.9</string>
 		<string>3.3.10beta1</string>
 	</array>
+	<key>NoSyncBFPRecents</key>
+	<array>
+		<string>MesloLGS Nerd Font</string>
+	</array>
 	<key>NoSyncFrame_SharedPreferences</key>
 	<dict>
 		<key>screenFrame</key>
@@ -1591,7 +1595,7 @@
 	<key>NoSyncInstallationId</key>
 	<string>C5E01D95-5169-4504-81EF-EE5B9538E453</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>3</integer>
+	<integer>5</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -2081,7 +2085,7 @@
 				<key>isTerminal</key>
 				<true/>
 				<key>name</key>
-				<string>currentSession</string>
+				<string>currentSession.terminalWindowName</string>
 				<key>nonterminalContext</key>
 				<integer>0</integer>
 			</dict>
@@ -2138,6 +2142,14 @@
 				<true/>
 				<key>name</key>
 				<string>iterm2.localhostName</string>
+				<key>nonterminalContext</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>isTerminal</key>
+				<true/>
+				<key>name</key>
+				<string>currentSession.jobPid</string>
 				<key>nonterminalContext</key>
 				<integer>0</integer>
 			</dict>
@@ -2263,19 +2275,19 @@
 			</dict>
 			<dict>
 				<key>isTerminal</key>
+				<true/>
+				<key>name</key>
+				<string>currentSession</string>
+				<key>nonterminalContext</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>isTerminal</key>
 				<false/>
 				<key>name</key>
 				<string>currentSession</string>
 				<key>nonterminalContext</key>
 				<integer>1</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>currentSession.terminalWindowName</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
 			</dict>
 		</array>
 		<key>4</key>
