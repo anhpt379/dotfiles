@@ -52,6 +52,7 @@ Plug 'lifepillar/vim-cheat40'
 Plug 'atimholt/spiffy_foldtext'
 Plug 'pseewald/vim-anyfold'
 Plug 'nathanaelkane/vim-indent-guides'
+Plug 'norcalli/nvim-colorizer.lua'
 
 " Improving editing experience
 Plug 'wellle/targets.vim'
@@ -83,7 +84,6 @@ Plug 'kana/vim-textobj-indent'
 call plug#end()
 
 let g:coc_global_extensions = [
-  \ 'coc-highlight',
   \ 'coc-prettier',
   \ 'coc-git',
   \ 'coc-python',
@@ -761,4 +761,7 @@ let g:pear_tree_timeout = 60
 let g:pear_tree_map_special_keys = 1
 
 " }}}
+
+" Colorizer
+lua require'colorizer'.setup()
 
