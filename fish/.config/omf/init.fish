@@ -6,10 +6,7 @@ balias kc 'kubectx'
 
 balias g 'git'
 balias l 'exa -la'
-
-balias kf 'sudo kubefwd services'
-
-balias vim 'nvim'
+balias v 'nvim'
 
 set -x GOROOT /usr/local/opt/go/libexec
 set -x GOPATH $HOME/.go
