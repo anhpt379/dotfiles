@@ -12,9 +12,9 @@
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --all
 
 [pager]
-  log = diff-highlight | less
-  show = diff-highlight | less
-  diff = diff-highlight | less
+  log = `brew --prefix git`/share/git-core/contrib/diff-highlight/diff-highlight | less
+  show = `brew --prefix git`/share/git-core/contrib/diff-highlight/diff-highlight | less
+  diff = `brew --prefix git`/share/git-core/contrib/diff-highlight/diff-highlight | less
 
 [color "diff"]
   commit = green
