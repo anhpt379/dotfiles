@@ -7,6 +7,8 @@ balias kc 'kubectx'
 balias g 'git'
 balias l 'exa -la'
 balias v 'nvim'
+balias d 'docker'
+balias dc 'docker-compose'
 
 set -x GOROOT /usr/local/opt/go/libexec
 set -x GOPATH $HOME/.go
