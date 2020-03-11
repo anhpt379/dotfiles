@@ -47,6 +47,8 @@ cask 'iterm2'
 cask 'qbserve'
 cask 'telegram-desktop'
 cask 'the-unarchiver'
+cask 'workplace-chat'
+cask 'vagrant'
 
 # Quicklook
 cask 'qlcolorcode'
