@@ -67,7 +67,6 @@ Plug 'lambdalisue/suda.vim'
 Plug 'tpope/vim-unimpaired'
 Plug 'rhysd/clever-f.vim'
 Plug 'machakann/vim-highlightedyank'
-Plug 'filipekiss/vim-sayonara', {'on': 'Sayonara'}
 Plug 'junegunn/vim-easy-align'
 Plug 'cohama/lexima.vim'
 
@@ -593,10 +592,6 @@ augroup end
 
 " }}}
 
-" Sayonara
-let g:sayonara_startify = 1
-nnoremap q :Sayonara<CR>
-
 " Remap recording macro key to `\` (`q` will be using as 'quit' to close the
 " current buffer)
 nnoremap \ q
@@ -739,3 +734,24 @@ let g:lexima_enable_basic_rules = 0
 
 " Sandwich
 runtime macros/sandwich/keymap/surround.vim
+
+" Close buffer / vim with a single keypress {{{
+function! CloseOnLast()
+    let cnt = 0
+
+    for i in range(0, bufnr("$"))
+        if buflisted(i)
+            let cnt += 1
+        endif
+    endfor
+
+    if cnt <= 1
+        q!
+    else
+        bd!
+    endif
+ endfunction
+
+ nnoremap q :call CloseOnLast()<CR>
+
+ " }}}
