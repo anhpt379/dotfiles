@@ -69,6 +69,7 @@ Plug 'rhysd/clever-f.vim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'filipekiss/vim-sayonara', {'on': 'Sayonara'}
 Plug 'junegunn/vim-easy-align'
+Plug 'cohama/lexima.vim'
 
 " Time tracking
 Plug 'wakatime/vim-wakatime'
@@ -732,4 +733,7 @@ augroup end
 
 " Colorizer
 lua require'colorizer'.setup()
+
+" Lexima
+let g:lexima_enable_basic_rules = 0
 
