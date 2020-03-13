@@ -737,3 +737,5 @@ lua require'colorizer'.setup()
 " Lexima
 let g:lexima_enable_basic_rules = 0
 
+" Sandwich
+runtime macros/sandwich/keymap/surround.vim
