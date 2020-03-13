@@ -56,6 +56,7 @@ Plug 'norcalli/nvim-colorizer.lua'
 
 " Improving editing experience
 Plug 'wellle/targets.vim'
+Plug 'michaeljsmith/vim-indent-object'
 Plug 'tpope/vim-repeat'
 Plug 'zef/vim-cycle'
 Plug 'machakann/vim-sandwich'
@@ -72,13 +73,6 @@ Plug 'cohama/lexima.vim'
 
 " Time tracking
 Plug 'wakatime/vim-wakatime'
-
-" Smart selection of the closest text object
-Plug 'landock/vim-expand-region'
-Plug 'kana/vim-textobj-user'
-Plug 'kana/vim-textobj-line'
-Plug 'kana/vim-textobj-entire'
-Plug 'kana/vim-textobj-indent'
 
 call plug#end()
 
@@ -129,29 +123,6 @@ augroup end
 
 " far.vim
 let g:far#source = 'rgnvim'
-
-" vim-expand-region
-let g:expand_region_text_objects = {
-  \ 'iw' : 0,
-  \ 'iW' : 0,
-  \ 'i"' : 0,
-  \ 'i''': 0,
-  \ 'i)' : 1,
-  \ 'i]' : 1,
-  \ 'ib' : 1,
-  \ 'iB' : 1,
-  \ 'il' : 0,
-  \ 'ip' : 0,
-  \ 'ie' : 0,
-  \ 'a]' : 1,
-  \ 'ab' : 1,
-  \ 'aB' : 1,
-  \ 'ii' : 0,
-  \ 'ai' : 0
-  \ }
-
-map ) <Plug>(expand_region_expand)
-map ( <Plug>(expand_region_shrink)
 
 " More natural split opening
 set splitbelow
