@@ -300,9 +300,9 @@ nmap <Leader>9 <Plug>lightline#bufferline#go(9)
 nmap <Leader>0 <Plug>lightline#bufferline#go(10)
 
 let g:lightline#bufferline#show_number      = 2
-let g:lightline#bufferline#shorten_path     = 0
+let g:lightline#bufferline#shorten_path     = 1
 let g:lightline#bufferline#unnamed          = '[No Name]'
-let g:lightline#bufferline#filename_modifer = ':t'
+let g:lightline#bufferline#filename_modifier = ':t'
 
 let g:lightline#bufferline#number_map = {
   \ 0: '⁰', 1: '¹', 2: '²', 3: '³', 4: '⁴',
