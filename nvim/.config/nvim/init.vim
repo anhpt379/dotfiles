@@ -482,7 +482,7 @@ let g:Lf_ShortcutF = '<Leader>f'
 noremap <Leader>b :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
 noremap <Leader>r :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
 noremap <Leader>l :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
-noremap <Leader>g :<C-U><C-R>=printf("Leaderf! rg -e ")<CR>
+noremap <Leader>g :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", expand("<cword>"))<CR>
 
 let g:Lf_CommandMap = {
   \ '<C-j>': ['<Tab>', '<C-j>'],
