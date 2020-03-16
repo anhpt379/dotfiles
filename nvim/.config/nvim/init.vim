@@ -551,7 +551,7 @@ highlight link gitmessengerHistory Constant
 
 noremap gm :GitMessenger<CR>
 noremap gs :vertical Gstatus<CR>
-noremap gl :GV<CR>
+noremap gl :GV -500<CR>
 noremap gw :Gwrite<CR>
 noremap gc :vertical Gcommit -v<CR>
 noremap ga :vertical Gcommit -v --amend<CR>
