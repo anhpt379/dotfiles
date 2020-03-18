@@ -117,8 +117,8 @@
   "languageserver": {
     "puppet": {
       "command": "ruby",
-      "args": ["/Users/anh/Documents/Workspace/puppet-editor-services/puppet-languageserver", "--stdio"],
-      "cwd": "/Users/anh/Documents/Workspace/puppet-editor-services",
+      "args": ["/Users/panh/Workspace/puppet-editor-services/puppet-languageserver", "--stdio"],
+      "cwd": "/Users/panh/Workspace/puppet-editor-services",
       "filetypes": ["puppet"],
       "rootPatterns": [".git/", "metadata.json"]
     }
