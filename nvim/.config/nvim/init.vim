@@ -103,8 +103,7 @@ let g:ansible_attribute_highlight = 'ab'
 
 " vim-cycle
 augroup cycle-group
-  autocmd Vimenter * call AddCycleGroup(['True', 'False'])
-  autocmd VimEnter * call AddCycleGroup(['Yes', 'No'])
+  autocmd Vimenter * call AddCycleGroup(['python'], ['True', 'False'])
   autocmd VimEnter * call AddCycleGroup(['yes', 'no'])
   autocmd VimEnter * call AddCycleGroup(['set', 'get'])
   autocmd VimEnter * call AddCycleGroup(['from', 'to'])
@@ -118,7 +117,6 @@ augroup cycle-group
   autocmd VimEnter * call AddCycleGroup(['subscribe', 'unsubscribe'])
   autocmd VimEnter * call AddCycleGroup(['pico', 'nano', 'micro', 'mili', 'kilo', 'mega', 'giga', 'tera', 'peta'])
   autocmd VimEnter * call AddCycleGroup(['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'])
-  autocmd VimEnter * call AddCycleGroup(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'])
 augroup end
 
 " far.vim
