@@ -58,6 +58,7 @@ Plug 'norcalli/nvim-colorizer.lua'
 Plug 'wellle/targets.vim'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'tpope/vim-repeat'
+Plug 'inkarkat/vim-visualrepeat'
 Plug 'machakann/vim-sandwich'
 Plug 'tpope/vim-commentary'
 Plug 'ntpeters/vim-better-whitespace'
@@ -69,7 +70,8 @@ Plug 'rhysd/clever-f.vim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'junegunn/vim-easy-align'
 Plug 'cohama/lexima.vim'
-Plug 'mjbrownie/swapit'
+Plug 'Konfekt/vim-CtrlXA'
+Plug 'tpope/vim-speeddating'
 
 " Time tracking
 Plug 'wakatime/vim-wakatime'
@@ -705,4 +707,8 @@ function! CloseOnLast()
 
  nnoremap q :call CloseOnLast()<CR>
 
- " }}}
+" }}}
+
+" vim-CtrlXA
+nmap <Plug>SpeedDatingFallbackUp   <Plug>(CtrlXA-CtrlA)
+nmap <Plug>SpeedDatingFallbackDown <Plug>(CtrlXA-CtrlX)
