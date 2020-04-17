@@ -712,3 +712,6 @@ function! CloseOnLast()
 " vim-CtrlXA
 nmap <Plug>SpeedDatingFallbackUp   <Plug>(CtrlXA-CtrlA)
 nmap <Plug>SpeedDatingFallbackDown <Plug>(CtrlXA-CtrlX)
+
+" search and replace selected text
+vnoremap <C-r> "hy:%s/<C-r>h//g<left><left>
