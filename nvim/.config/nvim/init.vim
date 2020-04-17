@@ -58,7 +58,6 @@ Plug 'norcalli/nvim-colorizer.lua'
 Plug 'wellle/targets.vim'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'tpope/vim-repeat'
-Plug 'zef/vim-cycle'
 Plug 'machakann/vim-sandwich'
 Plug 'tpope/vim-commentary'
 Plug 'ntpeters/vim-better-whitespace'
@@ -70,6 +69,7 @@ Plug 'rhysd/clever-f.vim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'junegunn/vim-easy-align'
 Plug 'cohama/lexima.vim'
+Plug 'mjbrownie/swapit'
 
 " Time tracking
 Plug 'wakatime/vim-wakatime'
@@ -100,24 +100,6 @@ set dictionary+=~/.config/nvim/dictionaries/hacker_news.txt
 
 " ansible-vim
 let g:ansible_attribute_highlight = 'ab'
-
-" vim-cycle
-augroup cycle-group
-  autocmd Vimenter * call AddCycleGroup(['python'], ['True', 'False'])
-  autocmd VimEnter * call AddCycleGroup(['yes', 'no'])
-  autocmd VimEnter * call AddCycleGroup(['set', 'get'])
-  autocmd VimEnter * call AddCycleGroup(['from', 'to'])
-  autocmd VimEnter * call AddCycleGroup(['push', 'pop'])
-  autocmd VimEnter * call AddCycleGroup(['prev', 'next'])
-  autocmd VimEnter * call AddCycleGroup(['start', 'end'])
-  autocmd VimEnter * call AddCycleGroup(['light', 'dark'])
-  autocmd VimEnter * call AddCycleGroup(['open', 'close'])
-  autocmd VimEnter * call AddCycleGroup(['read', 'write'])
-  autocmd VimEnter * call AddCycleGroup(['internal', 'external'])
-  autocmd VimEnter * call AddCycleGroup(['subscribe', 'unsubscribe'])
-  autocmd VimEnter * call AddCycleGroup(['pico', 'nano', 'micro', 'mili', 'kilo', 'mega', 'giga', 'tera', 'peta'])
-  autocmd VimEnter * call AddCycleGroup(['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'])
-augroup end
 
 " far.vim
 let g:far#source = 'rgnvim'
