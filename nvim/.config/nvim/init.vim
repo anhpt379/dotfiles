@@ -542,8 +542,8 @@ noremap gm :GitMessenger<CR>
 noremap gs :vertical Gstatus<CR>
 noremap gl :GV -500<CR>
 noremap gw :Gwrite<CR>
-noremap gc :vertical Gcommit -v<CR>
-noremap ga :vertical Gcommit -v --amend<CR>
+noremap gc :Gwrite<CR>:vertical Gcommit -v<CR>
+noremap ga :Gwrite<CR>:vertical Gcommit -v --amend<CR>
 
 " Close git-messenger popup with <Esc>
 augroup git-messenger
