@@ -613,7 +613,7 @@ nmap <Leader>n :NERDTreeToggle<CR>
 
 " Split line (sister to [J]oin lines)
 " The normal use of S is covered by cc, so don't worry about shadowing
-nnoremap S i<CR><Esc>
+nnoremap S r<CR>
 
 " Use `==` for formatting the current line (or visual selection)
 vnoremap == gw
