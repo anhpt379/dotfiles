@@ -545,6 +545,7 @@ noremap gl :GV -500<CR>
 noremap gw :Gwrite<CR>
 noremap gc :Gwrite<CR>:vertical Gcommit -v<CR>
 noremap ga :Gwrite<CR>:vertical Gcommit -v --amend<CR>
+command Gp Gpush origin HEAD --force-with-lease
 
 " Close git-messenger popup with <Esc>
 augroup git-messenger
@@ -764,5 +765,5 @@ let g:scratch_no_mappings = 1
 
 nmap <Leader>e <plug>(scratch-insert-reuse)
 
-" Custom syntax highlighting
+" Custom file extensions / syntax highlighting
 autocmd BufReadPost *.rules set filetype=yaml
