@@ -2,7 +2,7 @@
   "suggest.noselect": false,
   "suggest.minTriggerInputLength": 2,
   "suggest.maxCompleteItemCount": 10,
-  "suggest.numberSelect": true,
+  "suggest.numberSelect": false,
   "suggest.defaultSortMethod": "none",
   "git.addGBlameToVirtualText": true,
   "diagnostic.errorSign": "×",
