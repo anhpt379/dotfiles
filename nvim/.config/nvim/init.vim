@@ -642,6 +642,13 @@ vnoremap <Leader>/ :Commentary<CR>
 " Join lines and restore cursor location (J)
 nnoremap J mjJ`j
 
+" Search and replace selected text
+vnoremap <C-r> "hy:%s/<C-r>h//g<left><left>
+
+" Select the last pasted text with gp (similar to the standard gv which you can type to
+" select the last visually-selected text)
+nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
+
 " Any-fold {{{
 let g:anyfold_fold_display = 0
 let g:anyfold_fold_comments = 1
@@ -709,18 +716,35 @@ function! CloseOnLast()
 
 " }}}
 
-" vim-CtrlXA
+" Vim CtrlXA
 nmap <Plug>SpeedDatingFallbackUp   <Plug>(CtrlXA-CtrlA)
 nmap <Plug>SpeedDatingFallbackDown <Plug>(CtrlXA-CtrlX)
 
-" search and replace selected text
-vnoremap <C-r> "hy:%s/<C-r>h//g<left><left>
+" Vim startify
+nmap s :Startify<CR>
 
-" vim-startify
+let g:startify_change_to_dir = 0
+let g:startify_fortune_use_unicode = 1
+
+function! s:list_commits()
+  let git = 'git'
+  let commits = systemlist(git .' log --oneline | head -n10')
+  let git = 'G'. git[1:]
+  return map(commits, '{"line": matchstr(v:val, "\\s\\zs.*"), "cmd": "'. git .' show ". matchstr(v:val, "^\\x\\+") }')
+endfunction
+
 let g:startify_lists = [
-  \ { 'type': 'dir',       'header': ['MRU '. getcwd()] },
-  \ { 'type': 'files',     'header': ['MRU']            },
-  \ { 'type': 'sessions',  'header': ['Sessions']       },
-  \ { 'type': 'bookmarks', 'header': ['Bookmarks']      },
-  \ { 'type': 'commands',  'header': ['Commands']       },
+  \ { 'header': ['   MRU '. getcwd()], 'type': 'dir' },
+  \ { 'header': ['   Bookmarks'],      'type': 'bookmarks'},
+  \ { 'header': ['   Sessions'],       'type': 'sessions' },
+  \ { 'header': ['   Commits'],        'type': function('s:list_commits') },
   \ ]
+
+let g:startify_bookmarks = [
+  \ {'c': '~/dotfiles/nvim/.config/nvim/init.vim'},
+  \ {'b': '~/dotfiles/Brewfile'},
+  \ ]
+
+autocmd User Startified setlocal cursorline
+autocmd User Startified nmap <buffer> o <plug>(startify-open-buffers)
+
