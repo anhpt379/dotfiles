@@ -715,3 +715,12 @@ nmap <Plug>SpeedDatingFallbackDown <Plug>(CtrlXA-CtrlX)
 
 " search and replace selected text
 vnoremap <C-r> "hy:%s/<C-r>h//g<left><left>
+
+" vim-startify
+let g:startify_lists = [
+  \ { 'type': 'dir',       'header': ['MRU '. getcwd()] },
+  \ { 'type': 'files',     'header': ['MRU']            },
+  \ { 'type': 'sessions',  'header': ['Sessions']       },
+  \ { 'type': 'bookmarks', 'header': ['Bookmarks']      },
+  \ { 'type': 'commands',  'header': ['Commands']       },
+  \ ]
