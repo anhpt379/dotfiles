@@ -222,7 +222,7 @@ set inccommand=split
 let mapleader=' '
 
 " Quickly reload nvim config & update plugins by pressing `<Leader>u`
-nnoremap <Leader>u :w<CR>:source ~/dotfiles/nvim/.config/nvim/init.vim<CR>:PlugClean<CR>:PlugInstall<CR>:source ~/dotfiles/nvim/.config/nvim/init.vim<CR>:call CloseOnLast()<CR>
+nnoremap <Leader>u :w<CR>:source ~/dotfiles/nvim/.config/nvim/init.vim<CR>:PlugClean<CR>:PlugInstall<CR>:source ~/dotfiles/nvim/.config/nvim/init.vim<CR>
 
 " Floating terminal {{{
 let g:floaterm_open_in_root = v:true
@@ -660,7 +660,7 @@ nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 " Any-fold {{{
 let g:anyfold_fold_display = 0
 let g:anyfold_fold_comments = 1
-highlight Folded term=NONE cterm=NONE
+highlight Folded term=NONE cterm=NONE guibg=#333843
 
 " Activate anyfold by default
 augroup anyfold
@@ -763,3 +763,6 @@ let g:scratch_persistence_file = '/tmp/vim/scratch'
 let g:scratch_no_mappings = 1
 
 nmap <Leader>e <plug>(scratch-insert-reuse)
+
+" Custom syntax highlighting
+autocmd BufReadPost *.rules set filetype=yaml
