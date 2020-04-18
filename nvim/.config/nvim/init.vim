@@ -53,6 +53,7 @@ Plug 'atimholt/spiffy_foldtext'
 Plug 'pseewald/vim-anyfold'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'norcalli/nvim-colorizer.lua'
+Plug 'mtth/scratch.vim'
 
 " Improving editing experience
 Plug 'wellle/targets.vim'
@@ -754,3 +755,10 @@ let g:startify_bookmarks = [
 autocmd User Startified setlocal cursorline
 autocmd User Startified nmap <buffer> o <plug>(startify-open-buffers)
 
+" Scratch
+let g:scratch_filetype = 'markdown'
+let g:scratch_height = 15
+let g:scratch_persistence_file = '/tmp/vim/scratch'
+let g:scratch_no_mappings = 1
+
+nmap <Leader>e <plug>(scratch-insert-reuse)
