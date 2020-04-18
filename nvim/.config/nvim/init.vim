@@ -539,6 +539,7 @@ highlight link gitmessengerHash Number
 highlight link gitmessengerHistory Constant
 
 noremap gm :GitMessenger<CR>
+noremap gb :Gblame<CR>
 noremap gs :vertical Gstatus<CR>
 noremap gl :GV -500<CR>
 noremap gw :Gwrite<CR>
