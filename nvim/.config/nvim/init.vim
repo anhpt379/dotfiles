@@ -54,6 +54,7 @@ Plug 'pseewald/vim-anyfold'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'mtth/scratch.vim'
+Plug 'blueyed/vim-diminactive'
 
 " Improving editing experience
 Plug 'wellle/targets.vim'
