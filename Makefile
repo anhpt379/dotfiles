@@ -8,6 +8,7 @@ stow:
 	stow tmux
 	stow fish
 	stow wakatime
+	stow kitty
 
 
 install:
