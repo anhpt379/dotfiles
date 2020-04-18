@@ -1,6 +1,6 @@
 [user]
-  email = anhpt379@gmail.com
-  name = Anh
+	email = anh.pham@booking.com
+	name = Anh Pham
 
 [core]
   editor = nvim
