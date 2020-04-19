@@ -56,6 +56,8 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'mtth/scratch.vim'
 Plug 'blueyed/vim-diminactive'
+Plug 'ptzz/lf.vim'
+Plug 'rbgrouleff/bclose.vim'
 
 " Improving editing experience
 Plug 'wellle/targets.vim'
@@ -231,6 +233,13 @@ let mapleader=' '
 " Quickly reload nvim config & update plugins by pressing `<Leader>u`
 nnoremap <Leader>u :w<CR>:source ~/dotfiles/nvim/.config/nvim/init.vim<CR>:PlugClean<CR>:PlugInstall<CR>:source ~/dotfiles/nvim/.config/nvim/init.vim<CR>
 
+" lf.vim
+let g:lf_map_keys = 0
+
+let g:NERDTreeHijackNetrw = 0
+let g:lf_replace_netrw = 1
+let g:lf_command_override = "lf -command 'set hidden; cmd open $floaterm $f'"
+
 " Floating terminal {{{
 let g:floaterm_open_in_root = v:true
 let g:floaterm_position     = 'center'
@@ -242,12 +251,14 @@ augroup floaterm-startify-fix
   autocmd User Startified setlocal buflisted
 augroup end
 
+" Open lf in Floaterm
+nnoremap <Leader>l :FloatermNew lf -command 'set hidden; cmd open $floaterm $f'<CR>
+
 " Open a floating terminal with <Leader>t
 nnoremap <Leader>t :FloatermToggle<CR>
 
 " Toggle floating terminal with Esc
 tnoremap <Esc> <C-\><C-n>:FloatermToggle<CR>
-
 " }}}
 
 " Turn off whitespaces compare and folding in vimdiff
@@ -472,7 +483,6 @@ let g:Lf_ShortcutF = '<Leader>f'
 
 noremap <Leader>b :LeaderfBufferAll<CR>
 noremap <Leader>r :LeaderfMruCwd<CR>
-noremap <Leader>l :LeaderfLine<CR>
 noremap <Leader>g :Leaderf! rg --nowrap -F -e ""<Left>
 noremap <Leader>h :LeaderfRgRecall<CR>
 
