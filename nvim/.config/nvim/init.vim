@@ -481,9 +481,11 @@ let g:Lf_StlSeparator = {'left': '', 'right': ''}
 
 let g:Lf_ShortcutF = '<Leader>f'
 
+command! -bang -nargs=* -complete=file LeaderfRg exec printf("Leaderf<bang> rg --nowrap -F -e %s", escape('<args>', '\\'))
+
 noremap <Leader>b :LeaderfBufferAll<CR>
 noremap <Leader>r :LeaderfMruCwd<CR>
-noremap <Leader>g :Leaderf! rg --nowrap -F -e ""<Left>
+noremap <Leader>g :LeaderfRg<Space>
 noremap <Leader>h :LeaderfRgRecall<CR>
 
 let g:Lf_MruWildIgnore = {
