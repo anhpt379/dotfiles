@@ -76,6 +76,7 @@ Plug 'cohama/lexima.vim'
 Plug 'Konfekt/vim-CtrlXA'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-dispatch'
+Plug 'Asheq/close-buffers.vim'
 
 " Time tracking
 Plug 'wakatime/vim-wakatime'
@@ -747,7 +748,8 @@ function! CloseOnLast()
 
  nnoremap q :call CloseOnLast()<CR>
 
-" }}}
+" Quickly close several buffers at once
+nnoremap <silent> Q :Bdelete! menu<CR>
 
 " Vim CtrlXA
 nmap <Plug>SpeedDatingFallbackUp   <Plug>(CtrlXA-CtrlA)
