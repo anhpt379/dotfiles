@@ -686,7 +686,7 @@ nnoremap J mjJ`j
 
 " Faster search & replace with <C-r>
 map <nop> <Plug>(RepeatRedo)
-nnoremap <C-r> :%s/
+nnoremap <C-r> :%s/\V
 vnoremap <C-r> "hy:%s/<C-r>h//g<Left><Left>
 
 " Select the last pasted text with gp (similar to the standard gv which you can type to
@@ -803,3 +803,6 @@ nmap <Leader>e <plug>(scratch-insert-reuse)
 
 " Custom file extensions / syntax highlighting
 autocmd BufReadPost *.rules set filetype=yaml
+
+" No magic forward search by default
+map / /\V
