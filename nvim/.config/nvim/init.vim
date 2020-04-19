@@ -41,6 +41,7 @@ Plug 'vim-ruby/vim-ruby'
 " Fancy UI stuff
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'anhpt379/nerdtree-grep-plugin'
 Plug 'liuchengxu/vista.vim'
 Plug 'Yggdroot/LeaderF', {'do': './install.sh'}
 Plug 'itchyny/lightline.vim'
@@ -460,7 +461,7 @@ let g:Lf_WorkingDirectoryMode = 'Ac'
 let g:Lf_RecurseSubmodules = 1
 
 let g:Lf_WindowPosition = 'popup'
-let g:Lf_PreviewInPopup = 0
+let g:Lf_PreviewInPopup = 1
 let g:Lf_StlSeparator = {'left': '', 'right': ''}
 let g:Lf_PreviewResult = {'Function': 0, 'BufTag': 0}
 
@@ -469,7 +470,8 @@ let g:Lf_ShortcutF = '<Leader>f'
 noremap <Leader>b :LeaderfBufferAll<CR>
 noremap <Leader>r :LeaderfMruCwd<CR>
 noremap <Leader>l :LeaderfLine<CR>
-noremap <Leader>g :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR>
+noremap <Leader>g :Leaderf! rg -F -e ""<Left>
+noremap <Leader>p :LeaderfRgRecall<CR>
 
 let g:Lf_MruWildIgnore = {
   \ 'dir': ['.svn', '.git', '.hg']
@@ -490,6 +492,19 @@ let g:Lf_RgConfig = [
   \ '--glob=!.git/*',
   \ '--hidden'
   \ ]
+
+let g:Lf_PreviewResult = {
+  \ 'File': 0,
+  \ 'Buffer': 0,
+  \ 'Mru': 0,
+  \ 'Tag': 0,
+  \ 'BufTag': 0,
+  \ 'Function': 0,
+  \ 'Line': 1,
+  \ 'Colorscheme': 0,
+  \ 'Rg': 1,
+  \ 'Gtags': 0
+  \ }
 
 " Vista {{{
 let g:vista_icon_indent = ['└ ', '├ ']
