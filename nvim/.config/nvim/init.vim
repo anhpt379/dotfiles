@@ -456,7 +456,7 @@ highlight Lf_hl_popup_lineInfo guifg=#dcdfe4 guibg=#5D6779
 highlight Lf_hl_rgHighlight guibg=#e5c07b guifg=#282c34
 
 let g:Lf_HideHelp = 1
-let g:Lf_PopupShowStatusline = 0
+let g:Lf_PopupShowStatusline = 1
 let g:Lf_IgnoreCurrentBufferName = 0
 
 let g:Lf_DefaultMode = 'NameOnly'
@@ -466,7 +466,6 @@ let g:Lf_RecurseSubmodules = 1
 let g:Lf_WindowPosition = 'popup'
 let g:Lf_PreviewInPopup = 1
 let g:Lf_StlSeparator = {'left': '', 'right': ''}
-let g:Lf_PreviewResult = {'Function': 0, 'BufTag': 0}
 
 let g:Lf_ShortcutF = '<Leader>f'
 
@@ -474,7 +473,7 @@ noremap <Leader>b :LeaderfBufferAll<CR>
 noremap <Leader>r :LeaderfMruCwd<CR>
 noremap <Leader>l :LeaderfLine<CR>
 noremap <Leader>g :Leaderf! rg -F -e ""<Left>
-noremap <Leader>p :LeaderfRgRecall<CR>
+noremap <Leader>h :LeaderfRgRecall<CR>
 
 let g:Lf_MruWildIgnore = {
   \ 'dir': ['.svn', '.git', '.hg']
@@ -488,7 +487,10 @@ let g:Lf_CommandMap = {
   \ }
 
 let g:Lf_NormalMap = {
-  \ 'Rg': [['<Esc>', ':exec g:Lf_py "rgExplManager.quit()"<CR>']]
+  \ 'Rg': [
+  \     ['<Esc>', ':exec g:Lf_py "rgExplManager.quit()"<CR>'],
+  \     ['i', ':exec g:Lf_py "rgExplManager.input()"<CR>']
+  \   ]
   \ }
 
 let g:Lf_RgConfig = [
@@ -505,7 +507,7 @@ let g:Lf_PreviewResult = {
   \ 'Function': 0,
   \ 'Line': 1,
   \ 'Colorscheme': 0,
-  \ 'Rg': 1,
+  \ 'Rg': 0,
   \ 'Gtags': 0
   \ }
 
