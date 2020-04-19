@@ -481,7 +481,7 @@ let g:Lf_StlSeparator = {'left': '', 'right': ''}
 
 let g:Lf_ShortcutF = '<Leader>f'
 
-command! -bang -nargs=* -complete=file LeaderfRg exec printf("Leaderf<bang> rg --nowrap -F -e %s", escape('<args>', '\\'))
+command! -bang -nargs=* -complete=file LeaderfRg exec printf("Leaderf<bang> rg --nowrap --match-path --smart-case --fixed-strings %s", escape('<args>', '\\'))
 
 noremap <Leader>b :LeaderfBufferAll<CR>
 noremap <Leader>r :LeaderfMruCwd<CR>
