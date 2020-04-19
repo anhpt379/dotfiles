@@ -133,6 +133,9 @@ set termguicolors    " enable 24bit true color
 set noshowmode
 set number
 
+" Global replace by default
+set gdefault
+
 " Make it obvious where 80 characters is
 set textwidth=80
 set colorcolumn=+1
@@ -668,8 +671,10 @@ vnoremap <Leader>/ :Commentary<CR>
 " Join lines and restore cursor location (J)
 nnoremap J mjJ`j
 
-" Search and replace selected text
-vnoremap <C-r> "hy:%s/<C-r>h//g<left><left>
+" Faster search & replace with <C-r>
+map <nop> <Plug>(RepeatRedo)
+nnoremap <C-r> :%s/
+vnoremap <C-r> "hy:%s/<C-r>h//g<Left><Left>
 
 " Select the last pasted text with gp (similar to the standard gv which you can type to
 " select the last visually-selected text)
