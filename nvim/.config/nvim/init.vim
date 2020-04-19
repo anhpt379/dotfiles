@@ -472,7 +472,7 @@ let g:Lf_ShortcutF = '<Leader>f'
 noremap <Leader>b :LeaderfBufferAll<CR>
 noremap <Leader>r :LeaderfMruCwd<CR>
 noremap <Leader>l :LeaderfLine<CR>
-noremap <Leader>g :Leaderf! rg -F -e ""<Left>
+noremap <Leader>g :Leaderf! rg --nowrap -F -e ""<Left>
 noremap <Leader>h :LeaderfRgRecall<CR>
 
 let g:Lf_MruWildIgnore = {
