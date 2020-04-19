@@ -10,6 +10,8 @@ balias v 'nvim'
 balias d 'docker'
 balias dc 'docker-compose'
 
+balias j 'z'
+
 set -x GOROOT /usr/local/opt/go/libexec
 set -x GOPATH $HOME/.go
 set -gx PATH $PATH $HOME/.krew/bin
