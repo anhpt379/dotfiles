@@ -486,7 +486,7 @@ command! -bang -nargs=* -complete=file LeaderfRg exec printf("Leaderf<bang> rg -
 noremap <Leader>b :LeaderfBufferAll<CR>
 noremap <Leader>r :LeaderfMruCwd<CR>
 noremap <Leader>g :LeaderfRg<Space>
-noremap <Leader>h :LeaderfRgRecall<CR>
+noremap <Leader>h :Leaderf! rg --nowrap --match-path --smart-case --recall<CR>
 
 let g:Lf_MruWildIgnore = {
   \ 'dir': ['.svn', '.git', '.hg']
