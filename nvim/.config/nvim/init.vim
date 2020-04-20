@@ -72,7 +72,6 @@ Plug 'farmergreg/vim-lastplace'
 Plug 'lambdalisue/suda.vim'
 Plug 'tpope/vim-unimpaired'
 Plug 'rhysd/clever-f.vim'
-Plug 'machakann/vim-highlightedyank'
 Plug 'junegunn/vim-easy-align'
 Plug 'cohama/lexima.vim'
 Plug 'Konfekt/vim-CtrlXA'
@@ -102,7 +101,8 @@ let g:coc_global_extensions = [
   \ 'coc-emoji',
   \ 'coc-diagnostic',
   \ 'coc-vimlsp',
-  \ 'coc-solargraph'
+  \ 'coc-solargraph',
+  \ 'coc-yank'
   \ ]
 
 " coc-dictionary
@@ -816,3 +816,5 @@ nmap dw de
 nmap cw ce
 onoremap W :<C-U>normal! vWh<CR>
 
+" coc-yank
+noremap <Leader>p :CocList --normal yank<CR>
