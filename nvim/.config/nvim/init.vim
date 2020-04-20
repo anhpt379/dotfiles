@@ -79,6 +79,7 @@ Plug 'Konfekt/vim-CtrlXA'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-dispatch'
 Plug 'Asheq/close-buffers.vim'
+Plug 'chaoren/vim-wordmotion'
 
 " Time tracking
 Plug 'wakatime/vim-wakatime'
@@ -651,7 +652,7 @@ nmap <Leader>n :NERDTreeToggle<CR>
 
 " Split line (sister to [J]oin lines)
 " The normal use of S is covered by cc, so don't worry about shadowing
-nnoremap S r<CR>
+nnoremap S i<CR><ESC>:StripWhitespace<CR>
 
 " Use `==` for formatting the current line (or visual selection)
 vnoremap == gw
@@ -808,3 +809,10 @@ autocmd BufReadPost *.rules set filetype=yaml
 
 " No magic forward search by default
 map / /\V
+
+" Vim wordmotion
+let g:wordmotion_spaces = "_-./':,"
+nmap dw de
+nmap cw ce
+onoremap W :<C-U>normal! vWh<CR>
+
