@@ -605,10 +605,10 @@ nnoremap <C-S> :w<CR>
 inoremap <C-S> <Esc>:w<CR>i
 
 " Easier split navigations
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+nnoremap <Down>  <C-W><C-J>
+nnoremap <Up>    <C-W><C-K>
+nnoremap <Right> <C-W><C-L>
+nnoremap <Left>  <C-W><C-H>
 
 " Automatically jump to end of text you pasted
 vnoremap <silent> y y`]
