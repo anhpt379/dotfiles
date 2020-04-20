@@ -54,7 +54,8 @@ Plug 'atimholt/spiffy_foldtext'
 Plug 'pseewald/vim-anyfold'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'norcalli/nvim-colorizer.lua'
-Plug 'mtth/scratch.vim'
+Plug 'xolox/vim-notes'
+Plug 'xolox/vim-misc'
 Plug 'blueyed/vim-diminactive'
 Plug 'ptzz/lf.vim'
 Plug 'rbgrouleff/bclose.vim'
@@ -796,12 +797,6 @@ let g:startify_bookmarks = [
 autocmd User Startified setlocal cursorline
 autocmd User Startified nmap <buffer> o <plug>(startify-open-buffers)
 
-" Scratch
-let g:scratch_filetype = 'markdown'
-let g:scratch_height = 15
-let g:scratch_persistence_file = '/tmp/vim/scratch'
-let g:scratch_no_mappings = 1
-
 nmap <Leader>e <plug>(scratch-insert-reuse)
 
 " Custom file extensions / syntax highlighting
@@ -818,3 +813,7 @@ onoremap W :<C-U>normal! vWh<CR>
 
 " coc-yank
 noremap <Leader>p :CocList --normal yank<CR>
+
+" vim-notes
+let g:notes_directories = ['~/Documents/Notes']
+let g:notes_suffix = '.md'
