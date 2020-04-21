@@ -802,8 +802,9 @@ nmap <Leader>e <plug>(scratch-insert-reuse)
 " Custom file extensions / syntax highlighting
 autocmd BufReadPost *.rules set filetype=yaml
 
-" No magic forward search by default
+" No magic search by default
 map / /\V
+map ? ?\V
 
 " Vim wordmotion
 let g:wordmotion_spaces = "_-./':,"
