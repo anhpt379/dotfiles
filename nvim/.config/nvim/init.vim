@@ -233,7 +233,7 @@ set inccommand=split
 let mapleader=' '
 
 " Quickly reload nvim config & update plugins by pressing `<Leader>u`
-nnoremap <Leader>u :w<CR>:source ~/dotfiles/nvim/.config/nvim/init.vim<CR>:PlugClean<CR>:PlugInstall<CR>:source ~/dotfiles/nvim/.config/nvim/init.vim<CR>
+nnoremap <Leader>u :w<CR>:source ~/dotfiles/nvim/.config/nvim/init.vim<CR>:PlugClean<CR>:PlugInstall<CR>:source ~/dotfiles/nvim/.config/nvim/init.vim<CR>:PlugUpdate<CR>
 
 " lf.vim
 let g:lf_map_keys = 0
