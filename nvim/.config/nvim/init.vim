@@ -103,7 +103,8 @@ let g:coc_global_extensions = [
   \ 'coc-diagnostic',
   \ 'coc-vimlsp',
   \ 'coc-solargraph',
-  \ 'coc-yank'
+  \ 'coc-yank',
+  \ 'coc-marketplace'
   \ ]
 
 " coc-dictionary
