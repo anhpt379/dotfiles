@@ -616,6 +616,9 @@ vnoremap <silent> y y`]
 vnoremap <silent> p p`]
 nnoremap <silent> p p`]
 
+" Don't change the clipboard if paste over a visually selected text
+xnoremap p "_dP`]
+
 " Keep visual selection when indenting/outdenting
 vmap < <gv
 vmap > >gv
