@@ -811,8 +811,8 @@ map ? ?\V
 
 " Vim wordmotion
 let g:wordmotion_spaces = "_-./':,"
-nmap dw de
 nmap cw ce
+nmap cW cE
 onoremap W :<C-U>normal! vWh<CR>
 
 " coc-yank
