@@ -41,6 +41,7 @@ Plug 'vim-ruby/vim-ruby'
 " Fancy UI stuff
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'anhpt379/nerdtree-grep-plugin'
 Plug 'liuchengxu/vista.vim'
 Plug 'Yggdroot/LeaderF', {'do': './install.sh'}
@@ -59,6 +60,7 @@ Plug 'xolox/vim-misc'
 Plug 'blueyed/vim-diminactive'
 Plug 'ptzz/lf.vim'
 Plug 'rbgrouleff/bclose.vim'
+Plug 'ryanoasis/vim-devicons'
 
 " Improving editing experience
 Plug 'wellle/targets.vim'
@@ -120,8 +122,25 @@ let g:far#source = 'rgnvim'
 set splitbelow
 set splitright
 
+" Vim devicons {{{
+set guifont=MesloLGS_Nerd_Font:h14
 
-set guifont=Meslo_Nerd_Font:14
+let g:DevIconsEnableFoldersOpenClose = 1
+
+" Add 1 more space after icons in NERDTree
+let g:WebDevIconsNerdTreeBeforeGlyphPadding = ''
+let g:WebDevIconsNerdTreeAfterGlyphPadding = '  '
+
+" Keep folder icon color the same with text
+highlight! link NERDTreeFlags NERDTreeDir
+
+" Add 1 more space after icons in Startify screen
+let g:webdevicons_enable_startify = 0
+function! StartifyEntryFormat()
+  return 'WebDevIconsGetFileTypeSymbol(absolute_path) ."  ". entry_path'
+endfunction
+
+" }}}
 
 set mouse=a   " enable mouse for all mode
 set pumblend=20
