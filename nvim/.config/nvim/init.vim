@@ -61,6 +61,7 @@ Plug 'blueyed/vim-diminactive'
 Plug 'ptzz/lf.vim'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'ryanoasis/vim-devicons'
+Plug 'rhysd/conflict-marker.vim'
 
 " Improving editing experience
 Plug 'wellle/targets.vim'
@@ -845,3 +846,17 @@ noremap <Leader>p :CocList --normal yank<CR>
 " vim-notes
 let g:notes_directories = ['~/Documents/Notes']
 let g:notes_suffix = '.md'
+
+" Conflict-marker {{{
+let g:conflict_marker_highlight_group = ''
+
+" Include text after begin and end markers
+let g:conflict_marker_begin = '^<<<<<<< .*$'
+let g:conflict_marker_end   = '^>>>>>>> .*$'
+
+highlight ConflictMarkerBegin guibg=#2f7366
+highlight ConflictMarkerOurs guibg=#2e5049
+highlight ConflictMarkerSeparator guifg=#e5c07b
+highlight ConflictMarkerTheirs guibg=#344f69
+highlight ConflictMarkerEnd guibg=#2f628e
+" }}}
