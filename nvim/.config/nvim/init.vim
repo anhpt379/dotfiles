@@ -123,9 +123,7 @@ let g:far#source = 'rgnvim'
 set splitbelow
 set splitright
 
-" Vim devicons {{{
-set guifont=MesloLGS_Nerd_Font:h14
-
+" Vim Devicons {{{
 let g:DevIconsEnableFoldersOpenClose = 1
 
 " Add 1 more space after icons in NERDTree
@@ -140,7 +138,6 @@ let g:webdevicons_enable_startify = 0
 function! StartifyEntryFormat()
   return 'WebDevIconsGetFileTypeSymbol(absolute_path) ."  ". entry_path'
 endfunction
-
 " }}}
 
 set mouse=a   " enable mouse for all mode
