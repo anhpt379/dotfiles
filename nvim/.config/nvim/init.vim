@@ -716,7 +716,7 @@ vnoremap <Leader>/ :Commentary<CR>
 nnoremap J mjJ`j
 
 " Faster search & replace with <C-r>
-map <nop> <Plug>(RepeatRedo)
+map <C-u> <Plug>(RepeatRedo)
 nnoremap <C-r> :%s/\V
 vnoremap <C-r> "hy:%s/<C-r>h//g<Left><Left>
 
