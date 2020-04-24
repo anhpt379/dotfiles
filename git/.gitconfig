@@ -1,6 +1,6 @@
 [user]
-	email = anh.pham@booking.com
-	name = Anh Pham
+  email = anh.pham@booking.com
+  name = Anh Pham
 
 [core]
   editor = nvim
@@ -21,7 +21,7 @@
   diff = `brew --prefix git`/share/git-core/contrib/diff-highlight/diff-highlight | less
 
 [diff]
-	algorithm = histogram
+  algorithm = histogram
 
 [color "diff"]
   commit = green
@@ -47,4 +47,4 @@
   rebase = true
 
 [push]
-	default = current
+  default = current
