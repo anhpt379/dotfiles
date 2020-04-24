@@ -13,6 +13,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
 Plug 'rhysd/git-messenger.vim'
 Plug 'itchyny/vim-gitbranch'
+Plug 'ruanyl/vim-gh-line'
 
 " EditorConfig
 Plug 'editorconfig/editorconfig-vim'
@@ -863,3 +864,8 @@ let g:strip_whitelines_at_eof = 1
 nnoremap ]w :NextTrailingWhitespace<CR>
 nnoremap [w :PrevTrailingWhitespace<CR>
 
+" vim-gh-line
+let g:gh_gitlab_domain = "gitlab.booking.com"
+let g:gh_line_map_default = 0
+let g:gh_line_blame_map_default = 0
+let g:gh_line_map = 'go'
