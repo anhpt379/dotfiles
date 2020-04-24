@@ -9,6 +9,7 @@ stow:
 	stow fish
 	stow wakatime
 	stow kitty
+	stow tig
 
 
 install:

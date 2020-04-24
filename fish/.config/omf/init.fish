@@ -7,6 +7,8 @@ balias kc 'kubectx'
 balias ga 'git commit --amend'
 balias gc 'git commit'
 balias gs 'git status'
+balias gb 'git branch -v'
+balias gl 'tig'
 balias gpush 'git pushf'
 balias gpull 'git pull'
 
