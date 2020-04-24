@@ -4,9 +4,16 @@ balias kdf 'kubectl delete --force --grace-period=0'
 balias kn 'kubens'
 balias kc 'kubectx'
 
-balias g 'git'
-balias l 'exa -la'
-balias v 'nvim'
+balias ga 'git commit --amend'
+balias gc 'git commit'
+balias gs 'git status'
+balias gpush 'git pushf'
+balias gpull 'git pull'
+
+balias ls 'exa'
+balias la 'exa -a'
+balias ll 'exa -la'
+
 balias d 'docker'
 balias dc 'docker-compose'
 
