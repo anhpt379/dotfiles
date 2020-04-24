@@ -12,6 +12,7 @@
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --all
   amend = commit --amend
   merged = branch --merged
+  pushf = push --force-with-lease
   s = status
   b = branch -v
 
