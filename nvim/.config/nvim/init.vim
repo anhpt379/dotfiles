@@ -852,3 +852,14 @@ highlight ConflictMarkerSeparator guifg=#e5c07b
 highlight ConflictMarkerTheirs guibg=#344f69
 highlight ConflictMarkerEnd guibg=#2f628e
 " }}}
+
+" vim-better-whitespace
+let g:better_whitespace_filetypes_blacklist = [
+  \ 'fugitive',
+  \ 'diff', 'gitcommit', 'unite', 'qf', 'help'
+  \ ]
+let g:strip_whitelines_at_eof = 1
+
+nnoremap ]w :NextTrailingWhitespace<CR>
+nnoremap [w :PrevTrailingWhitespace<CR>
+
