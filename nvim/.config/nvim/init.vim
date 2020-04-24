@@ -855,14 +855,13 @@ highlight ConflictMarkerEnd guibg=#2f628e
 " }}}
 
 " vim-better-whitespace
-let g:better_whitespace_filetypes_blacklist = [
-  \ 'fugitive',
-  \ 'diff', 'gitcommit', 'unite', 'qf', 'help'
-  \ ]
+let g:strip_whitespace_on_save  = 0
 let g:strip_whitelines_at_eof = 1
 
 nnoremap ]w :NextTrailingWhitespace<CR>
 nnoremap [w :PrevTrailingWhitespace<CR>
+
+autocmd FileType fugitive DisableWhitespace
 
 " vim-gh-line
 let g:gh_gitlab_domain = "gitlab.booking.com"
