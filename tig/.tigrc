@@ -34,20 +34,6 @@ bind generic vg view-grep
 bind generic vp view-pager
 bind generic vh view-help
 
-bind generic o  none
-bind generic oo :toggle sort-order
-bind generic os :toggle sort-field
-bind generic on :toggle line-number
-bind generic od :toggle date
-bind generic oa :toggle author
-bind generic og :toggle line-graphics
-bind generic of :toggle file-name
-bind generic op :toggle ignore-space
-bind generic oi :toggle id
-bind generic ot :toggle commit-title-overflow
-bind generic oF :toggle file-filter
-bind generic or :toggle commit-title-refs
-
 bind generic @  none
 bind generic @j :/^@@
 bind generic @k :?^@@
@@ -67,12 +53,11 @@ bind generic cc !git commit
 bind generic ca !?@git commit --amend --no-edit
 
 bind generic K view-help
-bind generic <C-w><C-w> view-next
 
 bind generic o enter
+bind generic <C-j> next
+bind generic <C-k> previous
 
-# Open commit in a vertical split
 set vertical-split = yes
-
-# Relative timestamp
 set main-view-date = relative
+
