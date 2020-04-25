@@ -862,6 +862,7 @@ nnoremap ]w :NextTrailingWhitespace<CR>
 nnoremap [w :PrevTrailingWhitespace<CR>
 
 autocmd FileType fugitive DisableWhitespace
+autocmd FileType git DisableWhitespace
 
 " vim-gh-line
 let g:gh_gitlab_domain = "gitlab.booking.com"
