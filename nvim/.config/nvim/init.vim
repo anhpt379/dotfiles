@@ -146,6 +146,9 @@ function! StartifyEntryFormat()
 endfunction
 " }}}
 
+" Vertical bar cursor shape by default
+set guicursor=n-v-c-sm:ver25,i-ci-ve:ver25,r-cr-o:hor20
+
 set mouse=a   " enable mouse for all mode
 set pumblend=20
 set cursorline
@@ -868,3 +871,4 @@ let g:gh_line_map = 'go'
 " space indents are visually identified by the "┆" character,
 " while tabs are distinguished by "|"
 set listchars=tab:\|\ ,
+
