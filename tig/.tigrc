@@ -1,5 +1,6 @@
-# Vim-style keybindings for Tig
+# https://github.com/jonas/tig/blob/master/tigrc
 
+# Vim-style keybindings for Tig
 bind generic h scroll-left
 bind generic j move-down
 bind generic k move-up
@@ -58,6 +59,11 @@ bind generic o enter
 bind generic <C-j> next
 bind generic <C-k> previous
 
+# UI
 set vertical-split = yes
 set main-view-date = relative
+set line-graphics = utf-8
 
+color cursor black white
+color title-blur black green
+color title-focus black green bold
