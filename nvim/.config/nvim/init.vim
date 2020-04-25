@@ -54,7 +54,7 @@ Plug 'voldikss/vim-floaterm'
 Plug 'lifepillar/vim-cheat40'
 Plug 'atimholt/spiffy_foldtext'
 Plug 'pseewald/vim-anyfold'
-Plug 'nathanaelkane/vim-indent-guides'
+Plug 'thaerkh/vim-indentguides'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'xolox/vim-notes'
 Plug 'xolox/vim-misc'
@@ -185,9 +185,6 @@ nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
 colorscheme onehalfdark
-
-set listchars=eol:¬,tab:→\ ,trail:~,extends:»,precedes:«,space:·
-set list
 
 set whichwrap+=<,>,h,l
 
@@ -742,14 +739,6 @@ augroup end
 " augroup end
 " }}}
 
-" Indent guides
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_auto_colors = 0
-augroup indent-guides-colors
-  autocmd VimEnter,Colorscheme * :highlight IndentGuidesOdd  guibg=#333843 guifg=#354751
-  autocmd VimEnter,Colorscheme * :highlight IndentGuidesEven guibg=#393F4A guifg=#354751
-augroup end
-
 " Disable continuation of comments to the next line in Vim
 augroup format-options
   autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
@@ -869,3 +858,8 @@ let g:gh_gitlab_domain = "gitlab.booking.com"
 let g:gh_line_map_default = 0
 let g:gh_line_blame_map_default = 0
 let g:gh_line_map = 'go'
+
+" vim-indentguides
+" space indents are visually identified by the "┆" character,
+" while tabs are distinguished by "|"
+set listchars=tab:\|\ ,
