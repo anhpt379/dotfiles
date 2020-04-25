@@ -1,5 +1,10 @@
 scriptencoding utf-8
 
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+  silent execute "!curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+  autocmd VimEnter * PlugInstall | source $MYVIMRC
+endif
+
 call plug#begin()
 
 " Defaults everyone can agree on
