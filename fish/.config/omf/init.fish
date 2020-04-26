@@ -30,13 +30,13 @@ set -gx PATH $PATH $HOME/.krew/bin
 set -gx PATH $HOME/Library/Python/3.7/bin $PATH
 set -gx fish_user_paths "/usr/local/opt/curl/bin" $fish_user_paths
 
-# Base16 Eighties color scheme
+# Custom fish color scheme
 set -U fish_color_normal normal
-set -U fish_color_command 99cc99
+set -U fish_color_command 8bc269
 set -U fish_color_quote ffcc66
 set -U fish_color_redirection d3d0c8
 set -U fish_color_end cc99cc
-set -U fish_color_error f2777a
+set -U fish_color_error dd3c69
 set -U fish_color_param d3d0c8
 set -U fish_color_comment ffcc66
 set -U fish_color_match 6699cc

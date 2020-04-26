@@ -54,7 +54,6 @@ Plug 'Yggdroot/LeaderF', {'do': './install.sh'}
 Plug 'itchyny/lightline.vim'
 Plug 'mengelbrecht/lightline-bufferline'
 Plug 'mhinz/vim-startify'
-Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'voldikss/vim-floaterm'
 Plug 'lifepillar/vim-cheat40'
 Plug 'atimholt/spiffy_foldtext'
@@ -192,7 +191,7 @@ nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
-colorscheme onehalfdark
+colorscheme asciinema
 
 set whichwrap+=<,>,h,l
 
@@ -301,7 +300,7 @@ set conceallevel=2
 " Lightline {{{
 
 let g:lightline = {
-  \ 'colorscheme': 'onehalfdark',
+  \ 'colorscheme': 'asciinema',
   \ 'active': {
   \   'left': [
   \     ['mode', 'paste'],
