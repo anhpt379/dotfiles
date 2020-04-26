@@ -835,6 +835,7 @@ onoremap W :<C-U>normal! vWh<CR>
 
 " coc-yank
 noremap <Leader>p :CocList --normal yank<CR>
+highlight HighlightedyankRegion term=bold ctermbg=0 guibg=#e5c07b
 
 " vim-notes
 let g:notes_directories = ['~/Documents/Notes']
