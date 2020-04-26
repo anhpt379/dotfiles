@@ -883,3 +883,6 @@ set listchars=tab:\|\ ,
 let g:indentguides_concealcursor_unaltered = 1
 
 " }}}
+
+" vim-diminactive
+let g:diminactive_filetype_blacklist = []
