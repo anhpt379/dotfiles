@@ -58,7 +58,7 @@ Plug 'voldikss/vim-floaterm'
 Plug 'lifepillar/vim-cheat40'
 Plug 'atimholt/spiffy_foldtext'
 Plug 'pseewald/vim-anyfold'
-Plug 'thaerkh/vim-indentguides'
+Plug 'Nudin/vim-indentguides'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'xolox/vim-notes'
 Plug 'xolox/vim-misc'
@@ -871,8 +871,12 @@ let g:gh_line_map_default = 0
 let g:gh_line_blame_map_default = 0
 let g:gh_line_map = 'go'
 
-" vim-indentguides
+" vim-indentguides {{{
 " space indents are visually identified by the "┆" character,
 " while tabs are distinguished by "|"
 set listchars=tab:\|\ ,
 
+" Fix double quotes in json files went missing
+let g:indentguides_concealcursor_unaltered = 1
+
+" }}}
