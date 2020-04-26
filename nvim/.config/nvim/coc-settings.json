@@ -5,6 +5,7 @@
   "suggest.numberSelect": false,
   "suggest.defaultSortMethod": "none",
   "git.addGBlameToVirtualText": true,
+  "yank.highlight.enable": false,
   "diagnostic.errorSign": "×",
   "diagnostic.warningSign": "!",
   "diagnostic.infoSign": "i",

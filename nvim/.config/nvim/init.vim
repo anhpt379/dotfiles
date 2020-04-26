@@ -67,6 +67,7 @@ Plug 'ptzz/lf.vim'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'rhysd/conflict-marker.vim'
+Plug 'machakann/vim-highlightedyank'
 
 " Improving editing experience
 Plug 'wellle/targets.vim'
@@ -834,7 +835,10 @@ onoremap W :<C-U>normal! vWh<CR>
 
 " coc-yank
 noremap <Leader>p :CocList --normal yank<CR>
-highlight HighlightedyankRegion term=bold ctermbg=0 guibg=#e5c07b
+
+" vim-highlightedyank
+let g:highlightedyank_highlight_duration = 700
+highlight HighlightedyankRegion term=bold ctermbg=0 guibg=#e5c07b guifg=#ffffff
 
 " vim-notes
 let g:notes_directories = ['~/Documents/Notes']
