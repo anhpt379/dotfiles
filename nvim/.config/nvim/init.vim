@@ -236,6 +236,10 @@ let g:NERDSpaceDelims = 1
 
 let NERDTreeShowLineNumbers = 1
 autocmd FileType nerdtree setlocal relativenumber
+
+" Fix broken CursorLine highlighting nvim
+" https://github.com/neovim/neovim/issues/9019
+highlight NERDTreeFile ctermfg=14
 " }}}
 
 
