@@ -23,7 +23,7 @@ let s:gutter_bg   = { "gui": "#282c34", "cterm": "236" }
 let s:gutter_fg   = { "gui": "#919baa", "cterm": "247" }
 
 let s:cursor_line = { "gui": "#282c34", "cterm": "237" }
-let s:color_col   = { "gui": "#282c34", "cterm": "237" }
+let s:color_col   = { "gui": "#1E2125", "cterm": "237" }
 
 let s:selection   = { "gui": "#474e5d", "cterm": "239" }
 let s:vertsplit   = { "gui": "#313640", "cterm": "237" }
