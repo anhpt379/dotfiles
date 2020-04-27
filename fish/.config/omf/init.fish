@@ -32,12 +32,12 @@ set -gx fish_user_paths "/usr/local/opt/curl/bin" $fish_user_paths
 
 # Custom fish color scheme
 set -U fish_color_normal normal
-set -U fish_color_command f8f8f2 --bold
+set -U fish_color_command dcdfe4 --bold
 set -U fish_color_quote ffcc66
 set -U fish_color_redirection d3d0c8
 set -U fish_color_end cc99cc
 set -U fish_color_error dd3c69
-set -U fish_color_param cyan
+set -U fish_color_param dcdfe4
 set -U fish_color_comment ffcc66
 set -U fish_color_match 6699cc
 set -U fish_color_selection white --bold --background=brblack
