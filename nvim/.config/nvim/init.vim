@@ -192,7 +192,7 @@ nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
-colorscheme asciinema
+colorscheme aodark
 
 set whichwrap+=<,>,h,l
 
@@ -305,7 +305,7 @@ set conceallevel=2
 " Lightline {{{
 
 let g:lightline = {
-  \ 'colorscheme': 'asciinema',
+  \ 'colorscheme': 'aodark',
   \ 'active': {
   \   'left': [
   \     ['mode', 'paste'],
