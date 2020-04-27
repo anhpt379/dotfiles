@@ -21,6 +21,7 @@ balias ll 'exa -la'
 balias d 'docker'
 balias dc 'docker-compose'
 
+balias c 'clear'
 balias j 'z'
 
 set -x GOROOT /usr/local/opt/go/libexec
