@@ -886,3 +886,6 @@ let g:indentguides_concealcursor_unaltered = 1
 
 " vim-diminactive
 let g:diminactive_filetype_blacklist = []
+
+" https://www.reddit.com/r/vim/comments/g1lx7e/i_made_a_command_to_autoformat_shell_commands/
+command! -range FormatShellCmd <line1>!~/.config/nvim/bin/format_shell_cmd.py
