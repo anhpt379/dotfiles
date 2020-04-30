@@ -495,7 +495,7 @@ let g:Lf_HideHelp = 1
 let g:Lf_PopupShowStatusline = 0
 let g:Lf_IgnoreCurrentBufferName = 0
 
-let g:Lf_DefaultMode = 'NameOnly'
+let g:Lf_DefaultMode = 'FullPath'
 let g:Lf_WorkingDirectoryMode = 'Ac'
 let g:Lf_RecurseSubmodules = 1
 
@@ -544,7 +544,7 @@ let g:Lf_PreviewResult = {
   \ 'Function': 0,
   \ 'Line': 1,
   \ 'Colorscheme': 0,
-  \ 'Rg': 0,
+  \ 'Rg': 1,
   \ 'Gtags': 0
   \ }
 
