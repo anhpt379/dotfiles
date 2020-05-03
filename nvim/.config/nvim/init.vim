@@ -457,12 +457,13 @@ let g:fzf_layout = { 'window': 'enew' }
 let $FZF_DEFAULT_OPTS .= ' --inline-info --layout=reverse'
 let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --no-ignore --follow --glob "!.git"'
 
-noremap <Leader>f :GFiles<CR>
-
-command! -bang -nargs=* FzfFilesContain
+command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always --smart-case --files-with-matches --hidden --glob "!.git" '.shellescape(<q-args>), 1,
+  \   'rg --column --line-number --no-heading --color=always --smart-case --hidden --glob "!.git" '.shellescape(<q-args>), 1,
   \   fzf#vim#with_preview(), <bang>0)
+
+noremap <Leader>f :GFiles<CR>
+noremap <Leader>g :Rg<Space>
 
 " Vista {{{
 let g:vista_icon_indent = ['└ ', '├ ']
