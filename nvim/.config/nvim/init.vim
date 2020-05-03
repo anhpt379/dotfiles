@@ -782,6 +782,7 @@ nnoremap ]w :NextTrailingWhitespace<CR>
 nnoremap [w :PrevTrailingWhitespace<CR>
 
 autocmd FileType fugitive DisableWhitespace
+autocmd FileType far DisableWhitespace
 autocmd FileType git DisableWhitespace
 
 " vim-gh-line
