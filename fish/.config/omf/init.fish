@@ -29,6 +29,7 @@ set -x GOPATH $HOME/.go
 set -gx PATH $PATH $HOME/.krew/bin
 
 set -gx PATH $HOME/Library/Python/3.7/bin $PATH
+set -gx PATH $HOME/.cargo/bin $PATH
 set -gx fish_user_paths "/usr/local/opt/curl/bin" $fish_user_paths
 
 # Custom fish color scheme
