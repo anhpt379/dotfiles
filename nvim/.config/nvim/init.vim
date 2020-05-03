@@ -50,11 +50,11 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'anhpt379/nerdtree-grep-plugin'
 Plug 'liuchengxu/vista.vim'
-Plug 'Yggdroot/LeaderF', {'do': './install.sh'}
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'mengelbrecht/lightline-bufferline'
 Plug 'mhinz/vim-startify'
-Plug 'voldikss/vim-floaterm'
 Plug 'lifepillar/vim-cheat40'
 Plug 'atimholt/spiffy_foldtext'
 Plug 'pseewald/vim-anyfold'
@@ -63,7 +63,6 @@ Plug 'norcalli/nvim-colorizer.lua'
 Plug 'xolox/vim-notes'
 Plug 'xolox/vim-misc'
 Plug 'blueyed/vim-diminactive'
-Plug 'ptzz/lf.vim'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'rhysd/conflict-marker.vim'
@@ -263,34 +262,6 @@ let mapleader=' '
 " Quickly reload nvim config & update plugins by pressing `<Leader>u`
 nnoremap <Leader>u :w<CR>:source ~/dotfiles/nvim/.config/nvim/init.vim<CR>:PlugClean<CR>:PlugInstall<CR>:source ~/dotfiles/nvim/.config/nvim/init.vim<CR>:PlugUpdate<CR>
 
-" lf.vim
-let g:lf_map_keys = 0
-
-let g:NERDTreeHijackNetrw = 0
-let g:lf_replace_netrw = 1
-let g:lf_command_override = "lf -command 'set hidden; cmd open $floaterm $f'"
-
-" Floating terminal {{{
-let g:floaterm_open_in_root = v:true
-let g:floaterm_position     = 'center'
-
-highlight FloatermNF guibg=dark
-highlight FloatermBorderNF guibg=dark
-
-augroup floaterm-startify-fix
-  autocmd User Startified setlocal buflisted
-augroup end
-
-" Open lf in Floaterm
-nnoremap <Leader>l :FloatermNew lf -command 'set hidden; cmd open $floaterm $f'<CR>
-
-" Open a floating terminal with <Leader>t
-nnoremap <Leader>t :FloatermToggle<CR>
-
-" Toggle floating terminal with Esc
-tnoremap <Esc> <C-\><C-n>:FloatermToggle<CR>
-" }}}
-
 " Turn off whitespaces compare and folding in vimdiff
 set splitright
 silent! set splitvertical
@@ -480,73 +451,18 @@ set winblend=0
 highlight NonText guifg=#354751
 highlight LineNr guibg=NONE
 
-" LeaderF
-highlight Lf_hl_popup_window guibg=#1A1C1F
-highlight Lf_hl_cursorline guifg=#ddaf3c
-highlight Lf_hl_match guifg=#8bc269
-highlight Lf_hl_popup_prompt guifg=#ddaf3c
-highlight Lf_hl_popup_inputText guibg=#4D5565
-highlight Lf_hl_matchRefine guifg=#b954e1
-highlight Lf_hl_popup_total guifg=#282c34 guibg=#ffffff
-highlight Lf_hl_popup_lineInfo guifg=#ffffff guibg=#5D6779
-highlight Lf_hl_rgHighlight guibg=#e5c07b guifg=#282c34
+" Fzf
+let g:fzf_buffers_jump = 1
+let g:fzf_layout = { 'window': 'enew' }
+let $FZF_DEFAULT_OPTS .= ' --inline-info --layout=reverse'
+let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --no-ignore --follow --glob "!.git"'
 
-let g:Lf_HideHelp = 1
-let g:Lf_PopupShowStatusline = 0
-let g:Lf_IgnoreCurrentBufferName = 0
+noremap <Leader>f :GFiles<CR>
 
-let g:Lf_DefaultMode = 'FullPath'
-let g:Lf_WorkingDirectoryMode = 'Ac'
-let g:Lf_RecurseSubmodules = 1
-
-let g:Lf_WindowPosition = 'popup'
-let g:Lf_PreviewInPopup = 1
-let g:Lf_StlSeparator = {'left': '', 'right': ''}
-
-let g:Lf_ShortcutF = '<Leader>f'
-
-command! -bang -nargs=* -complete=file LeaderfRg exec printf("Leaderf<bang> rg --nowrap --match-path --smart-case --fixed-strings %s", escape('<args>', '\\'))
-
-noremap <Leader>b :LeaderfBufferAll<CR>
-noremap <Leader>r :LeaderfMruCwd<CR>
-noremap <Leader>g :LeaderfRg<Space>
-noremap <Leader>h :Leaderf! rg --nowrap --match-path --smart-case --recall<CR>
-
-let g:Lf_MruWildIgnore = {
-  \ 'dir': ['.svn', '.git', '.hg']
-  \ }
-
-let g:Lf_CommandMap = {
-  \ '<C-j>': ['<Tab>', '<C-j>'],
-  \ '<C-k>': ['<S-Tab>', '<C-k>'],
-  \ '<Left>': ['<C-h>'],
-  \ '<Right>': ['<C-l>']
-  \ }
-
-let g:Lf_NormalMap = {
-  \ 'Rg': [
-  \     ['<Esc>', ':exec g:Lf_py "rgExplManager.quit()"<CR>'],
-  \     ['i', ':exec g:Lf_py "rgExplManager.input()"<CR>']
-  \   ]
-  \ }
-
-let g:Lf_RgConfig = [
-  \ '--glob=!.git/*',
-  \ '--hidden'
-  \ ]
-
-let g:Lf_PreviewResult = {
-  \ 'File': 0,
-  \ 'Buffer': 0,
-  \ 'Mru': 0,
-  \ 'Tag': 0,
-  \ 'BufTag': 0,
-  \ 'Function': 0,
-  \ 'Line': 1,
-  \ 'Colorscheme': 0,
-  \ 'Rg': 1,
-  \ 'Gtags': 0
-  \ }
+command! -bang -nargs=* FzfFilesContain
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case --files-with-matches --hidden --glob "!.git" '.shellescape(<q-args>), 1,
+  \   fzf#vim#with_preview(), <bang>0)
 
 " Vista {{{
 let g:vista_icon_indent = ['└ ', '├ ']
