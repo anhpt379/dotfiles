@@ -790,6 +790,7 @@ let g:gh_gitlab_domain = "gitlab.booking.com"
 let g:gh_line_map_default = 0
 let g:gh_line_blame_map_default = 0
 let g:gh_line_map = 'go'
+let g:gh_repo_map = 'gr'
 
 " vim-indentguides {{{
 " space indents are visually identified by the "┆" character,
