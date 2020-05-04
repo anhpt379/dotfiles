@@ -461,7 +461,6 @@ let $FZF_DEFAULT_OPTS .= '
       \ --color=info:#696969,prompt:#55cabe,pointer:#de456b
       \ --color=marker:#c068df,spinner:#919baa,header:#8dc26c
       \ --inline-info --layout=reverse'
-let $BAT_THEME = 'OneHalfDark'
 
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(

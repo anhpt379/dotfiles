@@ -10,6 +10,7 @@ stow:
 	stow wakatime
 	stow kitty
 	stow tig
+	stow bat
 
 
 install:

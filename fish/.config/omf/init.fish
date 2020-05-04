@@ -18,6 +18,8 @@ balias ls 'exa'
 balias la 'exa -a'
 balias ll 'exa -la'
 
+balias cat 'bat'
+
 balias d 'docker'
 balias dc 'docker-compose'
 
@@ -33,8 +35,9 @@ set -gx PATH $HOME/.cargo/bin $PATH
 set -gx fish_user_paths '/usr/local/opt/curl/bin' $fish_user_paths
 
 # Fzf
-set -U FZF_FIND_FILE_COMMAND 'fd --type f --hidden --exclude ".git" \$dir'
 set -U FZF_COMPLETE 2
+set -U FZF_FIND_FILE_COMMAND 'fd --type f --hidden --exclude ".git" \$dir'
+set -U FZF_CD_COMMAND 'fd --type d --hidden --exclude ".git"'
 set -U FZF_PREVIEW_FILE_CMD 'bat --color=always --style=numbers --line-range :300'
 set -U FZF_PREVIEW_DIR_CMD 'exa -la'
 
