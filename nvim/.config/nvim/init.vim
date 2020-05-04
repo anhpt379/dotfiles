@@ -453,7 +453,7 @@ highlight LineNr guibg=NONE
 
 " Fzf {{{
 let g:fzf_buffers_jump = 1
-let g:fzf_layout = { 'window': 'enew' }
+let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.6 } }
 let $FZF_DEFAULT_COMMAND = 'fd --type f --hidden --exclude ".git"'
 let $FZF_DEFAULT_OPTS .= '
       \ --color=fg:#dcdfe4,bg:#1c1e23,hl:#e2b962
