@@ -39,7 +39,7 @@ set -U FZF_COMPLETE 2
 set -U FZF_FIND_FILE_COMMAND 'fd --type f --hidden --exclude ".git" . \$dir'
 set -U FZF_CD_COMMAND 'fd --type d --hidden --exclude ".git"'
 set -U FZF_PREVIEW_FILE_CMD 'bat --color=always --style=numbers --line-range :300'
-set -U FZF_PREVIEW_DIR_CMD 'exa -la'
+set -U FZF_PREVIEW_DIR_CMD 'exa -la --color=always'
 set -U FZF_DEFAULT_COMMAND 'fd --type f --hidden --exclude ".git"'
 set -U FZF_DEFAULT_OPTS '--no-multi --reverse --height=40% --info=default'
 set -U FZF_FIND_FILE_OPTS $FZF_DEFAULT_OPTS
