@@ -38,18 +38,34 @@ set -gx fish_user_paths '/usr/local/opt/curl/bin' $fish_user_paths
 
 # Fzf
 set -U FZF_COMPLETE 2
-set -U FZF_FIND_FILE_COMMAND 'fd --type f --hidden --exclude ".git" . \$dir'
-set -U FZF_CD_COMMAND 'fd --type d'
+set -U FZF_DEFAULT_COMMAND        'fd --type f --hidden --exclude ".git"'
+set -U FZF_FIND_FILE_COMMAND      'fd --type f --hidden --exclude ".git" . \$dir'
+set -U FZF_CD_COMMAND             'fd --type d --color=always'
 set -U FZF_CD_WITH_HIDDEN_COMMAND 'fd --type d --hidden --exclude ".git"'
-set -U FZF_PREVIEW_FILE_CMD 'bat --color=always --style=numbers --line-range :300'
-set -U FZF_PREVIEW_DIR_CMD 'exa -la --color=always --group-directories-first'
-set -U FZF_DEFAULT_COMMAND 'fd --type f --hidden --exclude ".git"'
-set -U FZF_DEFAULT_OPTS '--no-multi --reverse --height=40% --info=default'
-set -U FZF_FIND_FILE_OPTS $FZF_DEFAULT_OPTS
+set -U FZF_PREVIEW_FILE_CMD       'bat --color=always --style=numbers --line-range :300'
+set -U FZF_PREVIEW_DIR_CMD        'exa -la --color=always --group-directories-first'
+set -U FZF_CTRL_T_COMMAND         'fd --type f --hidden'
+set -U FZF_FIND_FILE_OPTS         $FZF_DEFAULT_OPTS
+
+set yellow '#ddaf3c'
+set red '#de456b'
+set magenta '#C068DF'
+set blue '#3BB0E0'
+set cyan '#55cabe'
+set green '#8dc26c'
+set white '#FFFFFF'
+set gray  '#919baa'
+set black '#1C1E23'
+
+set -gx FZF_DEFAULT_OPTS "
+  --color fg:-1,bg:-1,hl:$yellow,fg+:$white,bg+:$black,hl+:$yellow
+  --color info:$gray,prompt:$magenta,pointer:$blue,marker:$cyan,spinner:$gray
+  --no-multi --reverse --height=40% --info=default --ansi
+"
 
 function __fzf_search_current_dir --description "Search the current directory using fzf and fd. Insert the selected filenames into the commandline at the cursor."
     set files_selected (
-        fd --type f --hidden --follow --color=always --exclude=.git 2> /dev/null |
+        fd --type f --hidden --follow --exclude=.git 2> /dev/null |
         fzf --ansi --reverse --height=40%
     )
 
