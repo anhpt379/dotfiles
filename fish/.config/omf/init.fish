@@ -25,6 +25,7 @@ balias dc 'docker-compose'
 
 balias c 'clear'
 balias j 'z'
+balias f 'fzf --reverse --height=40%'
 
 set -x GOROOT /usr/local/opt/go/libexec
 set -x GOPATH $HOME/.go
