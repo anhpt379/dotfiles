@@ -46,6 +46,20 @@ set -U FZF_DEFAULT_COMMAND 'fd --type f --hidden --exclude ".git"'
 set -U FZF_DEFAULT_OPTS '--no-multi --reverse --height=40% --info=default'
 set -U FZF_FIND_FILE_OPTS $FZF_DEFAULT_OPTS
 
+function __fzf_search_current_dir --description "Search the current directory using fzf and fd. Insert the selected filenames into the commandline at the cursor."
+    set files_selected (
+        fd --type f --hidden --follow --color=always --exclude=.git 2> /dev/null |
+        fzf --ansi --reverse --height=40%
+    )
+
+    if test $status -eq 0
+        commandline --insert (echo $files_selected | xargs) # doesn't string escape so won't work with weird filenames
+        commandline --insert " "
+    end
+
+    commandline --function repaint
+end
+bind \cd '__fzf_search_current_dir'
 
 # Custom fish color scheme
 set -U fish_color_normal normal
