@@ -468,7 +468,7 @@ command! -bang -nargs=* Rg
   \   fzf#vim#with_preview(), <bang>0)
 
 noremap <Leader>g :Rg<Space>
-noremap <Leader>f :GFiles<CR>
+noremap <Leader>f :Files<CR>
 
 " }}}
 
