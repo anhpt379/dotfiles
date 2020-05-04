@@ -19,6 +19,7 @@ balias la 'exa -a'
 balias ll 'exa -la'
 
 balias cat 'bat'
+balias vim 'nvim'
 
 balias d 'docker'
 balias dc 'docker-compose'
