@@ -460,12 +460,15 @@ let $FZF_DEFAULT_OPTS .= '
       \ --color=fg+:#d0d0d0,bg+:#282c34,hl+:#ddaf3c
       \ --color=info:#696969,prompt:#55cabe,pointer:#de456b
       \ --color=marker:#c068df,spinner:#919baa,header:#8dc26c
-      \ --inline-info --layout=reverse'
+      \ '
 
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
   \   'rg --column --line-number --no-heading --color=always --smart-case --hidden --glob "!.git" '.shellescape(<q-args>), 1,
-  \   fzf#vim#with_preview(), <bang>0)
+  \   fzf#vim#with_preview({'options': ['--no-multi', '--layout=reverse']}), <bang>0)
+
+command! -bang -nargs=? -complete=dir Files
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--no-multi', '--layout=reverse']}), <bang>0)
 
 noremap <Leader>g :Rg<Space>
 noremap <Leader>f :Files<CR>
