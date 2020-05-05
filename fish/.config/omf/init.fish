@@ -19,7 +19,6 @@ balias la 'exa -a --group-directories-first'
 balias ll 'exa -la --group-directories-first'
 
 balias cat 'bat'
-balias vim 'nvim'
 
 balias d 'docker'
 balias dc 'docker-compose'
