@@ -454,23 +454,6 @@ highlight LineNr guibg=NONE
 " Fzf {{{
 let g:fzf_buffers_jump = 1
 let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.6 } }
-let $FZF_DEFAULT_COMMAND = 'fd --type f --hidden --exclude ".git"'
-
-" " Customize fzf colors to match your color scheme
-" let g:fzf_colors = {
-"   \ 'fg':      ['fg', 'Normal'],
-"   \ 'bg':      ['bg', 'Normal'],
-"   \ 'hl':      ['fg', 'String'],
-"   \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-"   \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-"   \ 'hl+':     ['fg', 'String'],
-"   \ 'info':    ['fg', 'PreProc'],
-"   \ 'prompt':  ['fg', 'Conditional'],
-"   \ 'pointer': ['fg', 'Exception'],
-"   \ 'marker':  ['fg', 'Keyword'],
-"   \ 'spinner': ['fg', 'Label'],
-"   \ 'header':  ['fg', 'Comment']
-"   \ }
 
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
