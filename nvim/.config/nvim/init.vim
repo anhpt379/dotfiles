@@ -87,7 +87,7 @@ Plug 'Konfekt/vim-CtrlXA'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-dispatch'
 Plug 'Asheq/close-buffers.vim'
-Plug 'chaoren/vim-wordmotion'
+Plug 'anhpt379/vim-wordmotion'
 
 " Time tracking
 Plug 'wakatime/vim-wakatime'
@@ -745,7 +745,7 @@ map / /\V
 map ? ?\V
 
 " Vim wordmotion
-let g:wordmotion_spaces = "_-./':,"
+let g:wordmotion_spaces = "_-#"
 nmap cw ce
 nmap cW cE
 onoremap W :<C-U>normal! vWh<CR>
