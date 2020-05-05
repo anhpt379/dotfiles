@@ -28,6 +28,9 @@ balias c 'clear'
 balias j 'z'
 balias f 'fzf'
 
+bind \cf accept-autosuggestion execute
+bind \cx execute
+
 set -x GOROOT /usr/local/opt/go/libexec
 set -x GOPATH $HOME/.go
 set -gx PATH $PATH $HOME/.krew/bin
