@@ -38,7 +38,7 @@ set -gx fish_user_paths '/usr/local/opt/curl/bin' $fish_user_paths
 
 # Fzf
 set -gx FZF_COMPLETE               0
-set -gx FZF_LEGACY_KEYBINDINGS     1
+set -gx FZF_LEGACY_KEYBINDINGS     0
 set -gx FZF_DEFAULT_COMMAND        'fd --type f --hidden --exclude ".git"'
 set -gx FZF_FIND_FILE_COMMAND      'fd --type f --hidden --exclude ".git" .'
 set -gx FZF_CD_COMMAND             'fd --type d --color=always'
