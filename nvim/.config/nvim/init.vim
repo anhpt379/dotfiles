@@ -326,6 +326,10 @@ highlight CocFloating guibg=#4D5565
 highlight CocErrorHighlight guifg=#e06c75
 highlight CocWarningHighlight guifg=#e5c07b
 
+let g:coc_status_error_sign   = ' '
+let g:coc_status_warning_sign = ' '
+let g:coc_status_info_sign    = ' '
+
 " If hidden is not set, TextEdit might fail
 set hidden
 
@@ -805,3 +809,4 @@ let g:diminactive_filetype_blacklist = []
 
 " https://www.reddit.com/r/vim/comments/g1lx7e/i_made_a_command_to_autoformat_shell_commands/
 command! -range FormatShellCmd <line1>!~/.config/nvim/bin/format_shell_cmd.py
+
