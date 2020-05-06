@@ -454,7 +454,8 @@ highlight LineNr guibg=NONE
 
 " Fzf {{{
 let g:fzf_buffers_jump = 1
-let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.6 } }
+" let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.6 } }
+let g:fzf_layout = { 'window': 'enew' }
 
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
