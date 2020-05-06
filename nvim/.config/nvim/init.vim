@@ -467,6 +467,8 @@ command! -bang -nargs=? -complete=dir Files
 
 noremap <Leader>g :Rg<Space>
 noremap <Leader>f :Files<CR>
+noremap <Leader>l :Lines<CR>
+noremap <Leader>c :Commits<CR>
 
 " }}}
 
