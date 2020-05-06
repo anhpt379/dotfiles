@@ -92,9 +92,6 @@ Plug 'anhpt379/vim-wordmotion'
 " Time tracking
 Plug 'wakatime/vim-wakatime'
 
-" Kitty integration
-Plug 'knubie/vim-kitty-navigator'
-
 call plug#end()
 
 let g:coc_global_extensions = [
