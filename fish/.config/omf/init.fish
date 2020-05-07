@@ -20,6 +20,7 @@ balias ll 'exa -la --group-directories-first'
 
 balias cat 'bat'
 balias ping 'prettyping --nolegend'
+balias ncdu 'ncdu -rr -x --exclude .git'
 
 balias d 'docker'
 balias dc 'docker-compose'
