@@ -46,8 +46,13 @@ bind \cf 'fzf_find'
 set -gx FZF_COMPLETE               0
 set -gx FZF_LEGACY_KEYBINDINGS     0
 set -gx FZF_DEFAULT_COMMAND        'fd --type f --hidden --exclude ".git"'
+set -gx FZF_FIND_FILE_COMMAND      "fd --type f --hidden --exclude '.git' . \$dir"
+set -gx FZF_OPEN_COMMAND           "fd --type f --hidden --exclude '.git' . \$dir"
+set -gx FZF_CD_COMMAND             "fd --type d --color=always . \$dir"
+set -gx FZF_CD_WITH_HIDDEN_COMMAND "fd --type d --hidden --exclude '.git' . \$dir"
 set -gx FZF_PREVIEW_FILE_CMD       'bat --color=always --style=numbers --line-range :300'
 set -gx FZF_PREVIEW_DIR_CMD        'exa --color=always --group-directories-first -la'
+set -gx FZF_FIND_FILE_OPTS         ''
 set -gx FZF_DEFAULT_OPTS           '--pointer=" >" --prompt="  " --color fg:#DCDFE4,bg:-1,hl:#8DC26C,fg+:#FFCC66,bg+:#1C1E23,hl+:#55CABE,info:#919BAA,prompt:#C068DF,pointer:#3BB0E0,marker:#55CABE,spinner:#919BAA --no-multi --reverse --height=40% --info=inline --bind=tab:down,btab:up,ctrl-f:page-down,ctrl-b:page-up'
 
 # Custom fish color scheme
