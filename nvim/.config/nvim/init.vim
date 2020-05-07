@@ -429,10 +429,10 @@ command! -bang -nargs=* Rg
 command! -bang -nargs=? -complete=dir Files
   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--no-multi', '--layout=reverse']}), <bang>0)
 
-noremap <Leader>g :Rg<Space>
-noremap <Leader>f :Files<CR>
-noremap <Leader>l :Lines<CR>
-noremap <Leader>c :Commits<CR>
+noremap <Leader>g :NERDTreeClose<CR>:Rg<Space>
+noremap <Leader>f :NERDTreeClose<CR>:Files<CR>
+noremap <Leader>l :NERDTreeClose<CR>:Lines<CR>
+noremap <Leader>c :NERDTreeClose<CR>:Commits<CR>
 
 " }}}
 
