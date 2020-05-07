@@ -429,10 +429,19 @@ command! -bang -nargs=* Rg
 command! -bang -nargs=? -complete=dir Files
   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--no-multi', '--layout=reverse']}), <bang>0)
 
-noremap <Leader>g :NERDTreeClose<CR>:Rg<Space>
-noremap <Leader>f :NERDTreeClose<CR>:Files<CR>
-noremap <Leader>l :NERDTreeClose<CR>:Lines<CR>
-noremap <Leader>c :NERDTreeClose<CR>:Commits<CR>
+
+function! CloseGstatus()
+	for l:winnr in range(1, winnr('$'))
+		if !empty(getwinvar(l:winnr, 'fugitive_status'))
+			execute l:winnr.'close'
+		endif
+	endfor
+endfunction
+
+noremap <Leader>g :call CloseGstatus()<CR>:NERDTreeClose<CR>:Rg<Space>
+noremap <Leader>f :call CloseGstatus()<CR>:NERDTreeClose<CR>:Files<CR>
+noremap <Leader>l :call CloseGstatus()<CR>:NERDTreeClose<CR>:Lines<CR>
+noremap <Leader>c :call CloseGstatus()<CR>:NERDTreeClose<CR>:Commits<CR>
 
 " }}}
 
