@@ -49,7 +49,7 @@ set -gx FZF_PREVIEW_FILE_CMD       'bat --color=always --style=numbers --line-ra
 set -gx FZF_PREVIEW_DIR_CMD        'exa --color=always --group-directories-first -la'
 set -gx FZF_CTRL_T_COMMAND         'fd --type f --hidden'
 set -gx FZF_FIND_FILE_OPTS         ''
-set -gx FZF_DEFAULT_OPTS           '--pointer=" >" --prompt="  " --color fg:#DCDFE4,bg:-1,hl:#55CABE,fg+:#FFFFFF,bg+:#1C1E23,hl+:#FFCC66,info:#919BAA,prompt:#C068DF,pointer:#3BB0E0,marker:#55CABE,spinner:#919BAA --no-multi --reverse --height=40% --info=inline --bind=tab:down,btab:up,ctrl-f:page-down,ctrl-b:page-up'
+set -gx FZF_DEFAULT_OPTS           '--pointer=" >" --prompt="  " --color fg:#DCDFE4,bg:-1,hl:#8DC26C,fg+:#FFCC66,bg+:#1C1E23,hl+:#55CABE,info:#919BAA,prompt:#C068DF,pointer:#3BB0E0,marker:#55CABE,spinner:#919BAA --no-multi --reverse --height=40% --info=inline --bind=tab:down,btab:up,ctrl-f:page-down,ctrl-b:page-up'
 
 # Custom fish color scheme
 set -U fish_color_normal normal
