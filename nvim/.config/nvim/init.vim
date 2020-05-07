@@ -221,7 +221,7 @@ set inccommand=split
 let mapleader=' '
 
 " Quickly reload nvim config & update plugins by pressing `<Leader>u`
-nnoremap <Leader>u :w<CR>:source ~/dotfiles/nvim/.config/nvim/init.vim<CR>:PlugClean<CR>:silent !PlugInstall<CR>:source ~/dotfiles/nvim/.config/nvim/init.vim<CR>:PlugUpdate<CR>
+nnoremap <Leader>u :w<CR>:source ~/dotfiles/nvim/.config/nvim/init.vim<CR>:PlugClean<CR>:silent! PlugInstall<CR>:source ~/dotfiles/nvim/.config/nvim/init.vim<CR>:PlugUpdate<CR>
 
 " Turn off whitespaces compare and folding in vimdiff
 set splitright
@@ -667,9 +667,9 @@ function! CloseOnLast()
     else
         bd!
     endif
- endfunction
+endfunction
 
- nnoremap q :call CloseOnLast()<CR>
+nnoremap q :silent! call CloseOnLast()<CR>
 
 " Quickly close several buffers at once
 nnoremap <silent> Q :Bdelete! menu<CR>
