@@ -820,3 +820,10 @@ endfunction
 nmap <Leader>n :call NerdTreeToggleFind()<CR>
 
 " }}}
+
+" Easier split navigations
+nnoremap <Down>  <C-W><C-J>
+nnoremap <Up>    <C-W><C-K>
+nnoremap <Right> <C-W><C-L>
+nnoremap <Left>  <C-W><C-H>
+
