@@ -746,7 +746,6 @@ map / /\V
 map ? ?\V
 
 " Vim wordmotion
-let g:wordmotion_spaces = "_-#"
 nmap cw ce
 nmap cW cE
 onoremap W :<C-U>normal! vWh<CR>
