@@ -12,6 +12,12 @@
   amend = commit --amend
   merged = branch --merged
   pushf = push --force-with-lease
+  undo = reset --soft HEAD^
+  prune = fetch --prune
+  stash-all = stash save --include-untracked
+
+[status]
+  showUntrackedFiles = all
 
 [pager]
   log = `brew --prefix git`/share/git-core/contrib/diff-highlight/diff-highlight | less
