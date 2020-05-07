@@ -1,4 +1,19 @@
-# My dotfiles
+# dotfiles
+
+## Installation
+
+Clone this repo and use [make](https://www.gnu.org/software/make/) or
+[stow](https://www.gnu.org/software/stow/) to install:
+
+```bash
+# Install everything
+$ make install
+
+# or install just a few components
+$ stow git
+$ stow vim
+$ stow kitty
+```
 
 ## Screenshots
 
@@ -10,20 +25,4 @@
 ![screenshot-6](screenshots/6.png)
 ![screenshot-7](screenshots/7.png)
 ![screenshot-8](screenshots/8.png)
-
-## Getting started
-
-```bash
-# Navigate to your home directory
-cd ~
-
-# Clone this repo
-git clone https://github.com/anhpt379/dotfiles.git
-
-# Enter the dotfiles directory
-cd dotfiles
-
-# Install everything
-make install
-```
 
