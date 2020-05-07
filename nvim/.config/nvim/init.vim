@@ -45,12 +45,12 @@ Plug 'Guzzii/python-syntax'
 Plug 'vim-ruby/vim-ruby'
 
 " Fancy UI stuff
-Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
+Plug 'scrooloose/nerdtree', {'on': ['NERDTree', 'NERDTreeFind', 'NERDTreeClose']}
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'anhpt379/nerdtree-grep-plugin'
 Plug 'liuchengxu/vista.vim'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf', {'do': {-> fzf#install()}}
 Plug 'junegunn/fzf.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'mengelbrecht/lightline-bufferline'
@@ -206,42 +206,7 @@ set autowrite     " Automatically :write before running commands
 set undofile
 set undodir=~/.config/nvim/undo
 
-" NerdTree {{{
-let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 1
-let NERDTreeShowFiles = 1
-let NERDTreeShowHidden = 1
-let NERDTreeQuitOnOpen = 1
-let NERDTreeIgnore = [
-  \ '\.DS_Store',
-  \ '\~$',
-  \ '\.swp',
-  \ '\.git$',
-  \ '__pycache__',
-  \ '\.pyc$'
-  \ ]
-
-let NERDTreeAutoDeleteBuffer = 1
-
-" Highlight the selected entry in the tree
-let NERDTreeHighlightCursorline=1
-
-" Use a single click to fold/unfold directory and a double click to open file
-let NERDTreeMouseMode=2
-
-let g:NERDSpaceDelims = 1
-
-let NERDTreeShowLineNumbers = 1
-autocmd FileType nerdtree setlocal relativenumber
-
-" Fix broken CursorLine highlighting nvim
-" https://github.com/neovim/neovim/issues/9019
-highlight NERDTreeFile ctermfg=14
-" }}}
-
-
 " Searching and substitution {{{
-
 set ignorecase
 set smartcase
 
@@ -250,7 +215,6 @@ nnoremap <CR> :<C-u>nohlsearch<CR>
 
 " Live substitution
 set inccommand=split
-
 " }}}
 
 " Change the leader from \ to <Space>
@@ -591,9 +555,6 @@ inoremap <C-j> <Down>
 inoremap <C-h> <Left>
 inoremap <C-l> <Right>
 
-" Open/close NERDTree
-nmap <Leader>n :NERDTreeToggle<CR>
-
 " Split line (sister to [J]oin lines)
 " The normal use of S is covered by cc, so don't worry about shadowing
 nnoremap S i<CR><ESC>:StripWhitespace<CR>
@@ -810,3 +771,52 @@ let g:diminactive_buftype_blacklist = []
 " https://www.reddit.com/r/vim/comments/g1lx7e/i_made_a_command_to_autoformat_shell_commands/
 command! -range FormatShellCmd <line1>!~/.config/nvim/bin/format_shell_cmd.py
 
+" NerdTree {{{
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+let NERDTreeShowFiles = 1
+let NERDTreeShowHidden = 1
+let NERDTreeQuitOnOpen = 1
+let NERDTreeIgnore = [
+  \ '\.DS_Store',
+  \ '\~$',
+  \ '\.swp',
+  \ '\.git$',
+  \ '__pycache__',
+  \ '\.pyc$'
+  \ ]
+
+let NERDTreeAutoDeleteBuffer = 1
+
+" Highlight the selected entry in the tree
+let NERDTreeHighlightCursorline=1
+
+" Use a single click to fold/unfold directory and a double click to open file
+let NERDTreeMouseMode=2
+
+let g:NERDSpaceDelims = 1
+
+let NERDTreeShowLineNumbers = 1
+autocmd FileType nerdtree setlocal relativenumber
+
+" Fix broken CursorLine highlighting nvim
+" https://github.com/neovim/neovim/issues/9019
+highlight NERDTreeFile ctermfg=14
+
+" Close vim if the only window left open is a NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" Jump to the current file on open
+function! NerdTreeToggleFind()
+    if exists("g:NERDTree") && g:NERDTree.IsOpen()
+        NERDTreeClose
+    elseif filereadable(expand('%'))
+        NERDTreeFind
+    else
+        NERDTree
+    endif
+endfunction
+
+nmap <Leader>n :call NerdTreeToggleFind()<CR>
+
+" }}}
