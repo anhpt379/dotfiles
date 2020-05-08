@@ -780,6 +780,9 @@ let g:diminactive_buftype_blacklist = []
 " https://www.reddit.com/r/vim/comments/g1lx7e/i_made_a_command_to_autoformat_shell_commands/
 command! -range FormatShellCmd <line1>!~/.config/nvim/bin/format_shell_cmd.py
 
+" Format json
+command! FormatJSON call CocAction('format')
+
 " NerdTree {{{
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
