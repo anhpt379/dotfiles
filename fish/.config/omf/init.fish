@@ -31,7 +31,7 @@ balias j 'z'
 balias f 'fzf'
 balias r 'ranger'
 
-bind \cf accept-autosuggestion execute
+bind \cM accept-autosuggestion execute
 bind \cx execute
 
 set -x GOROOT /usr/local/opt/go/libexec
