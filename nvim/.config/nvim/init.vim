@@ -428,6 +428,21 @@ command! -bang -nargs=* Rg
 command! -bang -nargs=? -complete=dir Files
   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--no-multi', '--layout=reverse']}), <bang>0)
 
+" Fzf + devicons
+function! Fzf_files_with_dev_icons(command)
+  let l:fzf_files_options = '--preview "bat --color=always --style=numbers {2..} | head -'.&lines.'"'
+
+  function! s:edit_devicon_prepended_file(item)
+    let l:file_path = a:item[4:-1]
+    execute 'silent e' l:file_path
+  endfunction
+
+  call fzf#run({
+    \ 'source': a:command.' | devicon-lookup',
+    \ 'sink':   function('s:edit_devicon_prepended_file'),
+    \ 'options': l:fzf_files_options
+    \ })
+endfunction
 
 function! CloseGstatus()
 	for l:winnr in range(1, winnr('$'))
@@ -438,7 +453,7 @@ function! CloseGstatus()
 endfunction
 
 noremap <Leader>g :call CloseGstatus()<CR>:NERDTreeClose<CR>:Rg<Space>
-noremap <Leader>f :call CloseGstatus()<CR>:NERDTreeClose<CR>:Files<CR>
+noremap <Leader>f :call CloseGstatus()<CR>:NERDTreeClose<CR>:call Fzf_files_with_dev_icons($FZF_DEFAULT_COMMAND)<CR>
 noremap <Leader>l :call CloseGstatus()<CR>:NERDTreeClose<CR>:Lines<CR>
 noremap <Leader>c :call CloseGstatus()<CR>:NERDTreeClose<CR>:Commits<CR>
 
