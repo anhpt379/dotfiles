@@ -4,13 +4,14 @@ CLI_TOOLS := $(xcode-select --install 2>&1 | grep installed;)
 
 stow:
 	stow git
+	stow tig
+	stow bat
 	stow nvim
 	stow tmux
 	stow fish
-	stow wakatime
 	stow kitty
-	stow tig
-	stow bat
+	stow wakatime
+	stow karabiner
 
 
 install:

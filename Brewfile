@@ -57,6 +57,7 @@ cask 'telegram-desktop'
 cask 'the-unarchiver'
 cask 'workplace-chat'
 cask 'vagrant'
+cask 'karabiner-elements'
 
 # Quicklook
 cask 'qlcolorcode'
