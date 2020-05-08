@@ -784,12 +784,12 @@ command! -range FormatShellCmd <line1>!~/.config/nvim/bin/format_shell_cmd.py
 command! FormatJSON call CocAction('format')
 
 " NerdTree {{{
-let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 1
-let NERDTreeShowFiles = 1
-let NERDTreeShowHidden = 1
-let NERDTreeQuitOnOpen = 1
-let NERDTreeIgnore = [
+let g:NERDTreeMinimalUI = 1
+let g:NERDTreeDirArrows = 1
+let g:NERDTreeShowFiles = 1
+let g:NERDTreeShowHidden = 1
+let g:NERDTreeQuitOnOpen = 1
+let g:NERDTreeIgnore = [
   \ '\.DS_Store',
   \ '\~$',
   \ '\.swp',
@@ -798,17 +798,17 @@ let NERDTreeIgnore = [
   \ '\.pyc$'
   \ ]
 
-let NERDTreeAutoDeleteBuffer = 1
+let g:NERDTreeAutoDeleteBuffer = 1
 
 " Highlight the selected entry in the tree
-let NERDTreeHighlightCursorline=1
+let g:NERDTreeHighlightCursorline=1
 
 " Use a single click to fold/unfold directory and a double click to open file
-let NERDTreeMouseMode=2
+let g:NERDTreeMouseMode=2
 
 let g:NERDSpaceDelims = 1
 
-let NERDTreeShowLineNumbers = 1
+let g:NERDTreeShowLineNumbers = 1
 autocmd FileType nerdtree setlocal relativenumber
 
 " Fix broken CursorLine highlighting nvim
