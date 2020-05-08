@@ -45,10 +45,6 @@ Plug 'Guzzii/python-syntax'
 Plug 'vim-ruby/vim-ruby'
 
 " Fancy UI stuff
-Plug 'scrooloose/nerdtree', {'on': ['NERDTree', 'NERDTreeFind', 'NERDTreeClose']}
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'anhpt379/nerdtree-grep-plugin'
 Plug 'liuchengxu/vista.vim'
 Plug 'junegunn/fzf', {'do': {-> fzf#install()}}
 Plug 'junegunn/fzf.vim'
@@ -66,6 +62,8 @@ Plug 'blueyed/vim-diminactive'
 Plug 'ryanoasis/vim-devicons'
 Plug 'rhysd/conflict-marker.vim'
 Plug 'machakann/vim-highlightedyank'
+Plug 'francoiscabrol/ranger.vim'
+Plug 'rbgrouleff/bclose.vim'
 
 " Improving editing experience
 Plug 'wellle/targets.vim'
@@ -129,13 +127,6 @@ set splitright
 
 " Vim Devicons {{{
 let g:DevIconsEnableFoldersOpenClose = 1
-
-" Add 1 more space after icons in NERDTree
-let g:WebDevIconsNerdTreeBeforeGlyphPadding = ''
-let g:WebDevIconsNerdTreeAfterGlyphPadding = '  '
-
-" Keep folder icon color the same with text
-highlight! link NERDTreeFlags NERDTreeDir
 
 " Add 1 more space after icons in Startify screen
 let g:webdevicons_enable_startify = 0
@@ -452,10 +443,10 @@ function! CloseGstatus()
 	endfor
 endfunction
 
-noremap <Leader>g :call CloseGstatus()<CR>:NERDTreeClose<CR>:Rg<Space>
-noremap <Leader>f :call CloseGstatus()<CR>:NERDTreeClose<CR>:call Fzf_files_with_dev_icons($FZF_DEFAULT_COMMAND)<CR>
-noremap <Leader>l :call CloseGstatus()<CR>:NERDTreeClose<CR>:Lines<CR>
-noremap <Leader>c :call CloseGstatus()<CR>:NERDTreeClose<CR>:Commits<CR>
+noremap <Leader>g :call CloseGstatus()<CR>:Rg<Space>
+noremap <Leader>f :call CloseGstatus()<CR>:call Fzf_files_with_dev_icons($FZF_DEFAULT_COMMAND)<CR>
+noremap <Leader>l :call CloseGstatus()<CR>:Lines<CR>
+noremap <Leader>c :call CloseGstatus()<CR>:Commits<CR>
 
 " }}}
 
@@ -510,11 +501,11 @@ highlight link gitmessengerHistory Constant
 
 noremap gm :GitMessenger<CR>
 noremap gb :Gblame<CR>
-noremap gs :NERDTreeClose<CR>:vertical Gstatus<CR>
+noremap gs :vertical Gstatus<CR>
 noremap gl :GV! -500<CR>
 noremap gw :Gwrite<CR>
-noremap gc :NERDTreeClose<CR>:Gwrite<CR>:vertical Gcommit -v<CR>
-noremap ga :NERDTreeClose<CR>:Gwrite<CR>:vertical Gcommit -v --amend<CR>
+noremap gc :Gwrite<CR>:vertical Gcommit -v<CR>
+noremap ga :Gwrite<CR>:vertical Gcommit -v --amend<CR>
 command! Gp Dispatch! git push origin HEAD --force-with-lease
 
 " Close git-messenger popup with <Esc>
@@ -797,59 +788,15 @@ command! -range FormatShellCmd <line1>!~/.config/nvim/bin/format_shell_cmd.py
 " Format json
 command! FormatJSON call CocAction('format')
 
-" NerdTree {{{
-let g:NERDTreeMinimalUI = 1
-let g:NERDTreeDirArrows = 1
-let g:NERDTreeShowFiles = 1
-let g:NERDTreeShowHidden = 1
-let g:NERDTreeQuitOnOpen = 1
-let g:NERDTreeIgnore = [
-  \ '\.DS_Store',
-  \ '\~$',
-  \ '\.swp',
-  \ '\.git$',
-  \ '__pycache__',
-  \ '\.pyc$'
-  \ ]
-
-let g:NERDTreeAutoDeleteBuffer = 1
-
-" Highlight the selected entry in the tree
-let g:NERDTreeHighlightCursorline=1
-
-" Use a single click to fold/unfold directory and a double click to open file
-let g:NERDTreeMouseMode=2
-
-let g:NERDSpaceDelims = 1
-
-let g:NERDTreeShowLineNumbers = 1
-autocmd FileType nerdtree setlocal relativenumber
-
-" Fix broken CursorLine highlighting nvim
-" https://github.com/neovim/neovim/issues/9019
-highlight NERDTreeFile ctermfg=14
-
-" Close vim if the only window left open is a NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-" Jump to the current file on open
-function! NerdTreeToggleFind()
-    if exists("g:NERDTree") && g:NERDTree.IsOpen()
-        NERDTreeClose
-    elseif filereadable(expand('%'))
-        NERDTreeFind
-    else
-        NERDTree
-    endif
-endfunction
-
-nmap <Leader>n :call NerdTreeToggleFind()<CR>
-
-" }}}
-
 " Easier split navigations
 nnoremap <Down>  <C-W><C-J>
 nnoremap <Up>    <C-W><C-K>
 nnoremap <Right> <C-W><C-L>
 nnoremap <Left>  <C-W><C-H>
 
+" Ranger
+let g:ranger_map_keys = 0
+let g:NERDTreeHijackNetrw = 0 " add this line if you use NERDTree
+let g:ranger_replace_netrw = 1 " open ranger when vim open a directory
+
+map <leader>r :Ranger<CR>
