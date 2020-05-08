@@ -1,20 +1,23 @@
-function fzf_find -d "List files and folders"
+function fzf_find -d "Find files and folders"
     set -l commandline (__fzf_parse_commandline)
     set -l dir $commandline[1]
     set -l fzf_query $commandline[2]
 
-    begin
-        eval "fd --hidden --exclude '.git' . $dir | "(__fzfcmd) "-m $FZF_DEFAULT_OPTS --query \"$fzf_query\"" | while read -l s; set results $results $s; end
-    end
+    set -l result (fd --hidden --exclude '.git' . $dir | devicon-lookup | fzf --expect=enter --bind=tab:accept --query "$fzf_query")
 
-    if test -z "$results"
+    if test -z "$result"
         commandline -f repaint
         return
     else
         commandline -t ""
     end
 
-    for result in $results
+    set -l key (echo $result | cut -d' ' -f1)
+    set -l result (echo $result | cut -d' ' -f3-)
+    if test "$key" = "enter"
+        commandline -it -- (string escape $result)
+        commandline -f execute
+    else
         commandline -it -- (string escape $result)
         commandline -it -- " "
     end
