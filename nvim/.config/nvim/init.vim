@@ -398,16 +398,16 @@ highlight NonText guifg=#354751
 highlight LineNr guibg=NONE
 
 " Fzf {{{
+let g:fzf_command_prefix = 'Fzf'
 let g:fzf_buffers_jump = 1
-" let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.6 } }
 let g:fzf_layout = { 'window': 'enew' }
 
-command! -bang -nargs=* Rg
+command! -bang -nargs=* FzfRg
   \ call fzf#vim#grep(
   \   'rg --column --line-number --no-heading --color=always --smart-case --hidden --glob "!.git" '.shellescape(<q-args>), 1,
   \   fzf#vim#with_preview({'options': ['--no-multi', '--layout=reverse']}), <bang>0)
 
-command! -bang -nargs=? -complete=dir Files
+command! -bang -nargs=? -complete=dir FzfFiles
   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--no-multi', '--layout=reverse']}), <bang>0)
 
 " Fzf + devicons
@@ -434,10 +434,10 @@ function! CloseGstatus()
 	endfor
 endfunction
 
-noremap <Leader>g :call CloseGstatus()<CR>:NERDTreeClose<CR>:Rg<Space>
+noremap <Leader>g :call CloseGstatus()<CR>:NERDTreeClose<CR>:FzfRg<Space>
 noremap <Leader>f :call CloseGstatus()<CR>:NERDTreeClose<CR>:call Fzf_files_with_dev_icons($FZF_DEFAULT_COMMAND)<CR>
-noremap <Leader>l :call CloseGstatus()<CR>:NERDTreeClose<CR>:Lines<CR>
-noremap <Leader>c :call CloseGstatus()<CR>:NERDTreeClose<CR>:Commits<CR>
+noremap <Leader>l :call CloseGstatus()<CR>:NERDTreeClose<CR>:FzfLines<CR>
+noremap <Leader>c :call CloseGstatus()<CR>:NERDTreeClose<CR>:FzfCommits<CR>
 
 " }}}
 
@@ -493,7 +493,7 @@ highlight link gitmessengerHistory Constant
 noremap gm :GitMessenger<CR>
 noremap gb :Gblame<CR>
 noremap gs :NERDTreeClose<CR>:vertical Gstatus<CR>
-noremap gl :NERDTreeClose<CR>:BCommits<CR>
+noremap gl :NERDTreeClose<CR>:FzfBCommits<CR>
 noremap gw :Gwrite<CR>
 noremap gc :NERDTreeClose<CR>:Gwrite<CR>:vertical Gcommit -v<CR>
 noremap ga :NERDTreeClose<CR>:Gwrite<CR>:vertical Gcommit -v --amend<CR>
