@@ -716,6 +716,8 @@ map ? ?\V
 nmap cw ce
 nmap cW cE
 onoremap W :<C-U>normal! vWh<CR>
+let g:wordmotion_spaces = '_-.#'
+
 
 " coc-yank
 noremap <Leader>p :CocList --normal yank<CR>
