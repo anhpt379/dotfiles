@@ -786,12 +786,14 @@ function! NerdTreeToggleFind()
         NERDTreeClose
     elseif filereadable(expand('%'))
         NERDTreeFind
+        NERDTreeRefreshRoot
     else
         NERDTree
     endif
 endfunction
 
 nmap <Leader>n :call NerdTreeToggleFind()<CR>
+
 " }}}
 
 " Vim Devicons {{{
@@ -809,6 +811,8 @@ augroup NERDTreeHideDirSlashes
 	autocmd!
 	autocmd FileType nerdtree syntax match NERDTreeDirSlash #/$# containedin=NERDTreeDir conceal contained
 augroup end
+
+" }}}
 
 " Easier split navigations
 nnoremap <Down>  <C-W><C-J>
