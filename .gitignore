@@ -3,4 +3,3 @@ nvim/.config/nvim/plugged/*
 nvim/.config/nvim/undo/*
 Brewfile.lock.json
 .DS_Store
-*.py[cod]
