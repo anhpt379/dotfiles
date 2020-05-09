@@ -48,7 +48,7 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'scrooloose/nerdtree', {'on': ['NERDTree', 'NERDTreeFind', 'NERDTreeClose']}
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'anhpt379/nerdtree-grep-plugin'
+" Plug 'anhpt379/nerdtree-grep-plugin'
 Plug 'liuchengxu/vista.vim'
 Plug 'junegunn/fzf', {'do': {-> fzf#install()}}
 Plug 'junegunn/fzf.vim'
@@ -126,23 +126,6 @@ let g:far#source = 'rgnvim'
 " More natural split opening
 set splitbelow
 set splitright
-
-" Vim Devicons {{{
-let g:DevIconsEnableFoldersOpenClose = 1
-
-" Add 1 more space after icons in NERDTree
-let g:WebDevIconsNerdTreeBeforeGlyphPadding = ''
-let g:WebDevIconsNerdTreeAfterGlyphPadding = '  '
-
-" Keep folder icon color the same with text
-highlight! link NERDTreeFlags NERDTreeDir
-
-" Add 1 more space after icons in Startify screen
-let g:webdevicons_enable_startify = 0
-function! StartifyEntryFormat()
-  return 'WebDevIconsGetFileTypeSymbol(absolute_path) ."  ". entry_path'
-endfunction
-" }}}
 
 set mouse=a   " enable mouse for all mode
 set pumblend=20
@@ -815,19 +798,19 @@ let g:NERDTreeIgnore = [
 let g:NERDTreeAutoDeleteBuffer = 1
 
 " Highlight the selected entry in the tree
-let g:NERDTreeHighlightCursorline=1
+let g:NERDTreeHighlightCursorline = 1
 
 " Use a single click to fold/unfold directory and a double click to open file
-let g:NERDTreeMouseMode=2
+let g:NERDTreeMouseMode = 2
 
 let g:NERDSpaceDelims = 1
 
 let g:NERDTreeShowLineNumbers = 1
-autocmd FileType nerdtree setlocal relativenumber
+" autocmd FileType nerdtree setlocal relativenumber
 
 " Fix broken CursorLine highlighting nvim
 " https://github.com/neovim/neovim/issues/9019
-highlight NERDTreeFile ctermfg=14
+" highlight NERDTreeFile ctermfg=14
 
 " Close vim if the only window left open is a NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
@@ -844,8 +827,23 @@ function! NerdTreeToggleFind()
 endfunction
 
 nmap <Leader>n :call NerdTreeToggleFind()<CR>
-
 " }}}
+
+" Vim Devicons {{{
+let g:DevIconsEnableFoldersOpenClose = 1
+
+augroup NERDTreeConcealBrackets
+  autocmd!
+  autocmd FileType nerdtree syntax match HideBracketsInNerdTree "\]" contained conceal containedin=ALL
+  autocmd FileType nerdtree syntax match HideBracketsInNerdTree "\[" contained conceal containedin=ALL
+  autocmd FileType nerdtree setlocal conceallevel=3
+  autocmd FileType nerdtree setlocal concealcursor=nvic
+augroup end
+
+augroup NERDTreeHideDirSlashes
+	autocmd!
+	autocmd FileType nerdtree syntax match NERDTreeDirSlash #/$# containedin=NERDTreeDir conceal contained
+augroup end
 
 " Easier split navigations
 nnoremap <Down>  <C-W><C-J>
