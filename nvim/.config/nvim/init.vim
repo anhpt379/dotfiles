@@ -52,12 +52,10 @@ Plug 'junegunn/fzf.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'mengelbrecht/lightline-bufferline'
 Plug 'mhinz/vim-startify'
-Plug 'lifepillar/vim-cheat40'
 Plug 'atimholt/spiffy_foldtext'
 Plug 'pseewald/vim-anyfold'
 Plug 'Nudin/vim-indentguides'
 Plug 'norcalli/nvim-colorizer.lua'
-Plug 'xolox/vim-notes'
 Plug 'xolox/vim-misc'
 Plug 'blueyed/vim-diminactive'
 Plug 'ryanoasis/vim-devicons'
@@ -691,10 +689,6 @@ noremap <Leader>p :CocList --normal yank<CR>
 " vim-highlightedyank
 let g:highlightedyank_highlight_duration = 700
 highlight HighlightedyankRegion term=bold ctermbg=0 guibg=#e5c07b guifg=#ffffff
-
-" vim-notes
-let g:notes_directories = ['~/Documents/Notes']
-let g:notes_suffix = '.md'
 
 " Conflict-marker {{{
 let g:conflict_marker_highlight_group = ''
