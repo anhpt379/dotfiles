@@ -15,7 +15,6 @@ Plug 'airblade/vim-rooter'
 
 " Some Git stuff
 Plug 'tpope/vim-fugitive'
-Plug 'junegunn/gv.vim'
 Plug 'rhysd/git-messenger.vim'
 Plug 'itchyny/vim-gitbranch'
 Plug 'ruanyl/vim-gh-line'
@@ -494,7 +493,7 @@ highlight link gitmessengerHistory Constant
 noremap gm :GitMessenger<CR>
 noremap gb :Gblame<CR>
 noremap gs :NERDTreeClose<CR>:vertical Gstatus<CR>
-noremap gl :GV! -500<CR>
+noremap gl :NERDTreeClose<CR>:BCommits<CR>
 noremap gw :Gwrite<CR>
 noremap gc :NERDTreeClose<CR>:Gwrite<CR>:vertical Gcommit -v<CR>
 noremap ga :NERDTreeClose<CR>:Gwrite<CR>:vertical Gcommit -v --amend<CR>
