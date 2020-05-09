@@ -719,6 +719,7 @@ nnoremap ]w :NextTrailingWhitespace<CR>
 nnoremap [w :PrevTrailingWhitespace<CR>
 
 autocmd FileType fugitive DisableWhitespace
+autocmd FileType startify DisableWhitespace
 autocmd FileType far DisableWhitespace
 autocmd FileType git DisableWhitespace
 
