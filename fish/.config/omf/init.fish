@@ -31,8 +31,8 @@ balias j 'z'
 balias f 'fzf'
 balias r 'ranger'
 
-bind \cf accept-autosuggestion execute
-bind \cx execute
+bind \ce accept-autosuggestion
+bind \cg accept-autosuggestion execute
 
 set -x GOROOT /usr/local/opt/go/libexec
 set -x GOPATH $HOME/.go
@@ -43,7 +43,7 @@ set -gx PATH $HOME/.cargo/bin $PATH
 set -gx fish_user_paths '/usr/local/opt/curl/bin' $fish_user_paths
 
 # Fzf
-bind \co 'fzf_find'
+bind \cf 'fzf_find'
 bind \cr 'fzf_history'
 
 set -gx FZF_DEFAULT_COMMAND        'fd --hidden --exclude ".git"'
