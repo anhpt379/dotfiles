@@ -48,7 +48,6 @@ Plug 'scrooloose/nerdtree', {'on': ['NERDTree', 'NERDTreeFind', 'NERDTreeClose']
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 " Plug 'anhpt379/nerdtree-grep-plugin'
-Plug 'liuchengxu/vista.vim'
 Plug 'junegunn/fzf', {'do': {-> fzf#install()}}
 Plug 'junegunn/fzf.vim'
 Plug 'itchyny/lightline.vim'
@@ -441,38 +440,6 @@ noremap <Leader>l :call CloseGstatus()<CR>:NERDTreeClose<CR>:FzfLines<CR>
 noremap <Leader>c :call CloseGstatus()<CR>:NERDTreeClose<CR>:FzfCommits<CR>
 
 " }}}
-
-" Vista {{{
-let g:vista_icon_indent = ['└ ', '├ ']
-let g:vista_default_executive = 'coc'
-let g:vista_sidebar_position = 'vertical topleft'
-let g:vista_echo_cursor_strategy = 'scroll'
-let g:vista_cursor_delay = 1
-let g:vista_close_on_jump = 1
-let g:vista_disable_statusline = 1
-
-" Ensure you have installed some decent font to show these pretty symbols, then
-" you can enable icon for the kind.
-let g:vista#renderer#enable_icon = 1
-
-" The default icons can't be suitable for all the filetypes, you can extend it
-" as you wish.
-let g:vista#renderer#icons = {
-  \ 'function': '\uf794',
-  \ 'variable': '\uf71b',
-  \ }
-
-" Preview markdown TOC (table of contents) with Remarkable
-" npm install --save markdown-toc
-let g:vista_executive_for = {
-  \ 'markdown': 'toc',
-  \ }
-
-" Toggle Vista view window
-nnoremap <Leader>v :Vista!!<CR>
-
-" }}}
-
 
 " Hybrid line numbers
 augroup number-toggle
