@@ -61,6 +61,7 @@ Plug 'blueyed/vim-diminactive'
 Plug 'ryanoasis/vim-devicons'
 Plug 'rhysd/conflict-marker.vim'
 Plug 'machakann/vim-highlightedyank'
+Plug 'breuckelen/vim-resize'
 
 " Improving editing experience
 Plug 'wellle/targets.vim'
@@ -825,3 +826,8 @@ nnoremap <Up>    <C-W><C-K>
 nnoremap <Right> <C-W><C-L>
 nnoremap <Left>  <C-W><C-H>
 
+" Resize split with Shift+Left/Right/Up/Down
+nnoremap <silent> <S-Left>  :CmdResizeLeft<CR>
+nnoremap <silent> <S-Down>  :CmdResizeDown<CR>
+nnoremap <silent> <S-Up>    :CmdResizeUp<CR>
+nnoremap <silent> <S-Right> :CmdResizeRight<CR>
