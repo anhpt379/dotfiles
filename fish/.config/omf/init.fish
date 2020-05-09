@@ -31,7 +31,7 @@ balias j 'z'
 balias f 'fzf'
 balias r 'ranger'
 
-bind \cM accept-autosuggestion execute
+bind \cf accept-autosuggestion execute
 bind \cx execute
 
 set -x GOROOT /usr/local/opt/go/libexec
@@ -43,18 +43,11 @@ set -gx PATH $HOME/.cargo/bin $PATH
 set -gx fish_user_paths '/usr/local/opt/curl/bin' $fish_user_paths
 
 # Fzf
-bind \cf 'fzf_find'
-set -gx FZF_COMPLETE               0
-set -gx FZF_LEGACY_KEYBINDINGS     0
-set -gx FZF_DEFAULT_COMMAND        'fd --type f --hidden --exclude ".git"'
-set -gx FZF_FIND_FILE_COMMAND      "fd --type f --hidden --exclude '.git' . \$dir"
-set -gx FZF_OPEN_COMMAND           "fd --type f --hidden --exclude '.git' . \$dir"
-set -gx FZF_CD_COMMAND             "fd --type d --color=always . \$dir"
-set -gx FZF_CD_WITH_HIDDEN_COMMAND "fd --type d --hidden --exclude '.git' . \$dir"
-set -gx FZF_PREVIEW_FILE_CMD       'bat --color=always --style=numbers --line-range :300'
-set -gx FZF_PREVIEW_DIR_CMD        'exa --color=always --group-directories-first -la'
-set -gx FZF_FIND_FILE_OPTS         ''
-set -gx FZF_DEFAULT_OPTS           '--pointer=" >" --prompt="  " --color fg:#DCDFE4,bg:-1,hl:#55CABE,fg+:#FFCC66,bg+:#1C1E23,hl+:#00bdbd,info:#919BAA,prompt:#C068DF,pointer:#3BB0E0,marker:#55CABE,spinner:#919BAA --no-multi --reverse --height=40% --info=inline --bind=tab:down,btab:up'
+bind \co 'fzf_find'
+bind \cr 'fzf_history'
+
+set -gx FZF_DEFAULT_COMMAND        'fd --hidden --exclude ".git"'
+set -gx FZF_DEFAULT_OPTS           '--pointer=" >" --prompt="  " --color fg:#DCDFE4,bg:-1,hl:#55CABE,fg+:#FFCC66,bg+:#1C1E23,hl+:#00bdbd,info:#919BAA,prompt:#C068DF,pointer:#3BB0E0,marker:#55CABE,spinner:#919BAA --no-multi --reverse --height=40% --info=inline --bind=tab:accept'
 
 # Custom fish color scheme
 set -U fish_color_normal normal
@@ -82,3 +75,4 @@ set -U fish_pager_color_completion normal
 set -U fish_pager_color_description B3A06D yellow
 set -U fish_pager_color_prefix white --bold --underline
 set -U fish_pager_color_progress brwhite --background=cyan
+
