@@ -223,9 +223,19 @@ let g:lightline = {
   \ },
   \ 'component_function': {
   \   'gitbranch': 'gitbranch#name',
-  \   'cocstatus': 'coc#status'
+  \   'cocstatus': 'coc#status',
+  \   'filetype': 'DevIconsFileType',
+  \   'fileformat': 'DevIconsFileFormat',
   \ },
   \ }
+
+function! DevIconsFileType()
+  return winwidth(0) > 70 ? (strlen(&filetype) ? WebDevIconsGetFileTypeSymbol() . ' ' . &filetype : 'no ft') : ''
+endfunction
+
+function! DevIconsFileFormat()
+  return winwidth(0) > 70 ? (WebDevIconsGetFileFormatSymbol() . ' ' . &fileformat) : ''
+endfunction
 
 " Show vim tab line even if only one file is open
 set showtabline=2
