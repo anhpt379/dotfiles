@@ -799,20 +799,16 @@ let g:NERDTreeIgnore = [
 
 let g:NERDTreeAutoDeleteBuffer = 1
 
-" Highlight the selected entry in the tree
-let g:NERDTreeHighlightCursorline = 1
-
 " Use a single click to fold/unfold directory and a double click to open file
 let g:NERDTreeMouseMode = 2
 
 let g:NERDSpaceDelims = 1
 
 let g:NERDTreeShowLineNumbers = 1
-" autocmd FileType nerdtree setlocal relativenumber
 
 " Fix broken CursorLine highlighting nvim
 " https://github.com/neovim/neovim/issues/9019
-" highlight NERDTreeFile ctermfg=14
+highlight NERDTreeFile ctermfg=14
 
 " Close vim if the only window left open is a NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
