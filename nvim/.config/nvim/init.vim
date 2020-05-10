@@ -841,3 +841,6 @@ let g:netrw_dirhistmax = 0
 " Disable :Gblame commit colors
 " (it's really hard to see the commit hashes when this option is on)
 let g:fugitive_dynamic_colors = 0
+
+" Use `conf` as the default syntax highlighting
+autocmd BufNewFile,BufRead * if expand('%:t') !~ '\.' | set syntax=conf | endif
