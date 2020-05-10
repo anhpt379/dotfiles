@@ -417,7 +417,7 @@ let g:fzf_commits_log_options = '-5000 --color=always --format="%C(auto)%h%d %C(
 
 command! -bang -nargs=* FzfRg
   \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always --smart-case --hidden --glob "!.git" 2>/dev/null'.<q-args>, 1,
+  \   'rg --column --line-number --no-heading --color=always --smart-case --hidden --glob "!.git" '.<q-args>.' || true', 1,
   \   fzf#vim#with_preview({'options': ['--no-multi', '--layout=reverse']}), <bang>0)
 
 command! -bang -nargs=? -complete=dir FzfFiles
