@@ -46,7 +46,7 @@ set -gx fish_user_paths '/usr/local/opt/curl/bin' $fish_user_paths
 bind \cf 'fzf_find'
 bind \cr 'fzf_history'
 
-set -gx FZF_DEFAULT_COMMAND        'fd --hidden --exclude ".git"'
+set -gx FZF_DEFAULT_COMMAND        'fd --hidden --type f --exclude ".git"'
 set -gx FZF_DEFAULT_OPTS           '--pointer=" >" --prompt="  " --color fg:#DCDFE4,bg:-1,hl:#55CABE,fg+:#FFCC66,bg+:#1C1E23,hl+:#00bdbd,info:#919BAA,prompt:#C068DF,pointer:#3BB0E0,marker:#55CABE,spinner:#919BAA --no-multi --reverse --height=40% --info=inline --bind=tab:accept,ctrl-j:ignore,ctrl-k:ignore'
 
 # Custom fish color scheme
