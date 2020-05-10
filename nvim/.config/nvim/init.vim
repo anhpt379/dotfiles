@@ -17,6 +17,7 @@ Plug 'airblade/vim-rooter'
 Plug 'tpope/vim-fugitive'
 Plug 'rhysd/git-messenger.vim'
 Plug 'ruanyl/vim-gh-line'
+Plug 'tommcdo/vim-fugitive-blame-ext'
 
 " EditorConfig
 Plug 'editorconfig/editorconfig-vim'
