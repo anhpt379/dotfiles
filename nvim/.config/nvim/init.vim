@@ -837,3 +837,7 @@ nnoremap <silent> <S-Right> :CmdResizeRight<CR>
 
 " Don't create .netrwhist file
 let g:netrw_dirhistmax = 0
+
+" Disable :Gblame commit colors
+" (it's really hard to see the commit hashes when this option is on)
+let g:fugitive_dynamic_colors = 0
