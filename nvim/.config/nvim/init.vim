@@ -465,7 +465,7 @@ augroup end
 let g:git_messenger_always_into_popup = v:true
 let g:git_messenger_no_default_mappings = v:true
 
-highlight gitmessengerPopupNormal guibg=#3F4653
+highlight gitmessengerPopupNormal guibg=#1C1E23
 highlight link gitmessengerHeader Identifier
 highlight link gitmessengerHash Number
 highlight link gitmessengerHistory Constant
