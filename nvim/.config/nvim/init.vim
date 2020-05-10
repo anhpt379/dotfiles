@@ -16,7 +16,6 @@ Plug 'airblade/vim-rooter'
 " Some Git stuff
 Plug 'tpope/vim-fugitive'
 Plug 'rhysd/git-messenger.vim'
-Plug 'itchyny/vim-gitbranch'
 Plug 'ruanyl/vim-gh-line'
 
 " EditorConfig
@@ -223,12 +222,16 @@ let g:lightline = {
   \   ]
   \ },
   \ 'component_function': {
-  \   'gitbranch': 'gitbranch#name',
+  \   'gitbranch': 'DevIconsFugitiveHead',
   \   'cocstatus': 'coc#status',
   \   'filetype': 'DevIconsFileType',
   \   'fileformat': 'DevIconsFileFormat',
   \ },
   \ }
+
+function! DevIconsFugitiveHead()
+  return ' ' . FugitiveHead()
+endfunction
 
 function! DevIconsFileType()
   return winwidth(0) > 70 ? (strlen(&filetype) ? WebDevIconsGetFileTypeSymbol() . ' ' . &filetype : 'no ft') : ''
