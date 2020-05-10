@@ -686,6 +686,10 @@ nmap <Leader>e <plug>(scratch-insert-reuse)
 
 " Custom file extensions / syntax highlighting
 autocmd BufReadPost *.rules set filetype=yaml
+autocmd BufReadPost *.eyaml set filetype=yaml
+
+" Use `conf` as the default syntax highlighting
+autocmd BufNewFile,BufRead * if expand('%:t') !~ '\.' | set syntax=conf | endif
 
 " No magic search by default
 map / /\V
@@ -842,5 +846,3 @@ let g:netrw_dirhistmax = 0
 " (it's really hard to see the commit hashes when this option is on)
 let g:fugitive_dynamic_colors = 0
 
-" Use `conf` as the default syntax highlighting
-autocmd BufNewFile,BufRead * if expand('%:t') !~ '\.' | set syntax=conf | endif
