@@ -689,9 +689,6 @@ nmap <Leader>e <plug>(scratch-insert-reuse)
 autocmd BufReadPost *.rules set filetype=yaml
 autocmd BufReadPost *.eyaml set filetype=yaml
 
-" Use `conf` as the default syntax highlighting
-autocmd BufNewFile,BufRead * if expand('%:t') !~ '\.' | set syntax=conf | endif
-
 " No magic search by default
 map / /\V
 map ? ?\V
