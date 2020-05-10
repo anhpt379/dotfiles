@@ -81,7 +81,7 @@ Plug 'Konfekt/vim-CtrlXA'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-dispatch'
 Plug 'Asheq/close-buffers.vim'
-Plug 'anhpt379/vim-wordmotion'
+Plug 'chaoren/vim-wordmotion'
 
 " Time tracking
 Plug 'wakatime/vim-wakatime'
@@ -695,7 +695,7 @@ map ? ?\V
 nmap cw ce
 nmap cW cE
 onoremap W :<C-U>normal! vWh<CR>
-let g:wordmotion_spaces = '_.#'
+let g:wordmotion_extra = ['[0-9a-fA-F]\{6}']   " hex colors
 
 
 " coc-yank
