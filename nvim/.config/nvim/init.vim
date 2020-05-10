@@ -831,3 +831,6 @@ nnoremap <silent> <S-Left>  :CmdResizeLeft<CR>
 nnoremap <silent> <S-Down>  :CmdResizeDown<CR>
 nnoremap <silent> <S-Up>    :CmdResizeUp<CR>
 nnoremap <silent> <S-Right> :CmdResizeRight<CR>
+
+" Don't create .netrwhist file
+let g:netrw_dirhistmax = 0
