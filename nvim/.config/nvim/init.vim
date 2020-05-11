@@ -77,7 +77,7 @@ Plug 'lambdalisue/suda.vim'
 Plug 'tpope/vim-unimpaired'
 Plug 'rhysd/clever-f.vim'
 Plug 'junegunn/vim-easy-align'
-Plug 'cohama/lexima.vim'
+" Plug 'cohama/lexima.vim'
 Plug 'Konfekt/vim-CtrlXA'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-dispatch'
@@ -303,32 +303,9 @@ set shortmess+=c
 " Always show signcolumns
 set signcolumn=yes
 
-" Use tab for trigger completion with characters ahead and navigate
-" Use command ':verbose imap <tab>' to make sure tab is not mapped by other
-" plugin
-inoremap <silent><expr> <Tab>
-  \ pumvisible() ? coc#_select_confirm() :
-  \ <SID>check_back_space() ? "\<Tab>" :
-  \ coc#refresh()
-inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<C-h>"
-
 " Don't exit INSERT mode when pressing Esc to close auto-completion popup
 inoremap <expr> <Esc> pumvisible() ? "\<C-e>" : "\<Esc>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" Use <c-space> to trigger completion
-inoremap <silent><expr> <c-space> coc#refresh()
-
-" Use <CR> to confirm completion, `<C-g>u` means break undo chain at current
-" position
-" Coc only does snippet and additional edit on confirm
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-" Or use `complete_info` if your vim support it, like:
-" inoremap <expr> <CR> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr> <CR>  pumvisible() ? "\<C-y>" : "\<CR>"
 
 " Navigate diagnostics
 nmap <silent> <Tab> <Plug>(coc-diagnostic-next)
@@ -383,10 +360,6 @@ xmap if <Plug>(coc-funcobj-i)
 xmap af <Plug>(coc-funcobj-a)
 omap if <Plug>(coc-funcobj-i)
 omap af <Plug>(coc-funcobj-a)
-
-" Use <Tab> and <S-Tab> to navigate the completion list
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " Use `:Format` to format current buffer
 command! -nargs=0 Format :call CocAction('format')
