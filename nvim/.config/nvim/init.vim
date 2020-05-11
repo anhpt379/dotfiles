@@ -837,7 +837,3 @@ let g:netrw_dirhistmax = 0
 " (it's really hard to see the commit hashes when this option is on)
 let g:fugitive_dynamic_colors = 0
 
-" Clever-f
-let g:clever_f_timeout_ms = 500
-let g:clever_f_repeat_last_char_inputs = []
-
