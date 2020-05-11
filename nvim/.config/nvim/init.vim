@@ -212,6 +212,9 @@ set clipboard=unnamed
 " JSON quote concealing
 set conceallevel=2
 
+" Disable auto wrap lines
+set formatoptions-=t
+
 " Lightline {{{
 
 let g:lightline = {
