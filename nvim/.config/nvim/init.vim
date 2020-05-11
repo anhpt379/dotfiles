@@ -188,8 +188,8 @@ set undodir=~/.config/nvim/undo
 set ignorecase
 set smartcase
 
-" Clear search highlighting by pressing Enter
-nnoremap <CR> :<C-u>nohlsearch<CR>
+" Clear search/clever-f highlighting by pressing Enter
+nnoremap <CR> :<C-u>nohlsearch<CR><Left><Right>
 
 " Live substitution
 set inccommand=split
@@ -839,4 +839,8 @@ let g:netrw_dirhistmax = 0
 " Disable :Gblame commit colors
 " (it's really hard to see the commit hashes when this option is on)
 let g:fugitive_dynamic_colors = 0
+
+" Clever-f
+let g:clever_f_timeout_ms = 500
+let g:clever_f_repeat_last_char_inputs = []
 
