@@ -567,10 +567,6 @@ vnoremap c "_c
 nnoremap C "_C
 vnoremap C "_C
 
-" Only put text in the default register when cut in visual mode
-nnoremap x "_x
-nnoremap X "_X
-
 " Quick folding with `-`
 nnoremap - za
 vnoremap - za
