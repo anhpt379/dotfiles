@@ -28,6 +28,11 @@ balias gclone   'git clone'
 balias gremote  'git remote'
 balias gbranch  'git branch'
 
+balias ..    'cd ..'
+balias ...   'cd ../..'
+balias ....  'cd ../../..'
+balias ..... 'cd ../../../..'
+
 balias ls 'exa --group-directories-first'
 balias la 'exa -a --group-directories-first'
 balias ll 'exa -la --group-directories-first'
