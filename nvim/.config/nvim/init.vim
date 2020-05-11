@@ -477,7 +477,6 @@ noremap gs :NERDTreeClose<CR>:vertical Gstatus<CR>
 noremap gl :NERDTreeClose<CR>:FzfBCommits<CR>
 noremap gw :Gwrite<CR>
 noremap gc :NERDTreeClose<CR>:Gwrite<CR>:vertical Gcommit -v<CR>
-noremap ga :NERDTreeClose<CR>:Gwrite<CR>:vertical Gcommit -v --amend<CR>
 command! Gp Dispatch! git push origin HEAD --force-with-lease
 
 " Close git-messenger popup with <Esc>
