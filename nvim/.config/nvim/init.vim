@@ -595,7 +595,7 @@ augroup end
 lua require'colorizer'.setup()
 
 " Lexima
-let g:lexima_enable_basic_rules = 0
+let g:lexima_enable_basic_rules = 1
 let g:lexima_map_escape = ''
 
 " Sandwich
