@@ -77,7 +77,7 @@ Plug 'lambdalisue/suda.vim'
 Plug 'tpope/vim-unimpaired'
 Plug 'rhysd/clever-f.vim'
 Plug 'junegunn/vim-easy-align'
-" Plug 'cohama/lexima.vim'
+Plug 'cohama/lexima.vim'
 Plug 'Konfekt/vim-CtrlXA'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-dispatch'
@@ -596,6 +596,7 @@ lua require'colorizer'.setup()
 
 " Lexima
 let g:lexima_enable_basic_rules = 0
+let g:lexima_map_escape = ''
 
 " Sandwich
 runtime macros/sandwich/keymap/surround.vim
