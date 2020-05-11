@@ -679,8 +679,6 @@ let g:startify_bookmarks = [
 autocmd User Startified setlocal cursorline
 autocmd User Startified nmap <buffer> o <plug>(startify-open-buffers)
 
-nmap <Leader>e <plug>(scratch-insert-reuse)
-
 " Custom file extensions / syntax highlighting
 autocmd BufReadPost *.rules set filetype=yaml
 autocmd BufReadPost *.eyaml set filetype=yaml
