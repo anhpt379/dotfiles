@@ -6,86 +6,88 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin()
+  " Profiler
+  Plug 'dstein64/vim-startuptime'
 
-" Defaults everyone can agree on
-Plug 'tpope/vim-sensible'
+  " Defaults everyone can agree on
+  Plug 'tpope/vim-sensible'
 
-" Changes Vim working directory to project root
-Plug 'airblade/vim-rooter'
+  " Changes Vim working directory to project root
+  Plug 'airblade/vim-rooter'
 
-" Some Git stuff
-Plug 'tpope/vim-fugitive'
-Plug 'rhysd/git-messenger.vim'
-Plug 'ruanyl/vim-gh-line'
-Plug 'tommcdo/vim-fugitive-blame-ext'
+  " Some Git stuff
+  Plug 'tpope/vim-fugitive'
+  Plug 'rhysd/git-messenger.vim'
+  Plug 'ruanyl/vim-gh-line'
+  Plug 'tommcdo/vim-fugitive-blame-ext'
 
-" EditorConfig
-Plug 'editorconfig/editorconfig-vim'
+  " EditorConfig
+  Plug 'editorconfig/editorconfig-vim'
 
-" LSP support
-Plug 'anhpt379/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+  " LSP support
+  Plug 'anhpt379/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 
-" Syntax highlighting
-Plug 'gisphm/vim-gitignore'
-Plug 'chr4/nginx.vim'
-Plug 'glench/vim-jinja2-syntax'
-Plug 'ekalinin/Dockerfile.vim'
-Plug 'rodjek/vim-puppet'
-Plug 'pearofducks/ansible-vim'
-Plug 'cespare/vim-toml'
-Plug 'mechatroner/rainbow_csv'
-Plug 'ericpruitt/tmux.vim'
-Plug 'georgewitteman/vim-fish'
-Plug 'CH-DanReif/haproxy.vim'
-Plug 'towolf/vim-helm'
-Plug 'MTDL9/vim-log-highlighting'
-Plug 'wgwoods/vim-systemd-syntax'
-Plug 'Guzzii/python-syntax'
-Plug 'vim-ruby/vim-ruby'
+  " Syntax highlighting
+  Plug 'gisphm/vim-gitignore'
+  Plug 'chr4/nginx.vim'
+  Plug 'glench/vim-jinja2-syntax'
+  Plug 'ekalinin/Dockerfile.vim'
+  Plug 'rodjek/vim-puppet'
+  Plug 'pearofducks/ansible-vim'
+  Plug 'cespare/vim-toml'
+  Plug 'mechatroner/rainbow_csv'
+  Plug 'ericpruitt/tmux.vim'
+  Plug 'georgewitteman/vim-fish'
+  Plug 'CH-DanReif/haproxy.vim'
+  Plug 'towolf/vim-helm'
+  Plug 'MTDL9/vim-log-highlighting'
+  Plug 'wgwoods/vim-systemd-syntax'
+  Plug 'Guzzii/python-syntax'
+  Plug 'vim-ruby/vim-ruby'
 
-" Fancy UI stuff
-Plug 'scrooloose/nerdtree', {'on': ['NERDTree', 'NERDTreeFind', 'NERDTreeClose']}
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'junegunn/fzf', {'do': {-> fzf#install()}}
-Plug 'junegunn/fzf.vim'
-Plug 'itchyny/lightline.vim'
-Plug 'mengelbrecht/lightline-bufferline'
-Plug 'mhinz/vim-startify'
-Plug 'atimholt/spiffy_foldtext'
-Plug 'pseewald/vim-anyfold'
-Plug 'Nudin/vim-indentguides'
-Plug 'norcalli/nvim-colorizer.lua'
-Plug 'xolox/vim-misc'
-Plug 'blueyed/vim-diminactive'
-Plug 'ryanoasis/vim-devicons'
-Plug 'rhysd/conflict-marker.vim'
-Plug 'machakann/vim-highlightedyank'
-Plug 'breuckelen/vim-resize'
+  " Fancy UI stuff
+  Plug 'scrooloose/nerdtree', {'on': ['NERDTree', 'NERDTreeFind', 'NERDTreeClose']}
+  Plug 'Xuyuanp/nerdtree-git-plugin'
+  Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+  Plug 'junegunn/fzf', {'do': {-> fzf#install()}}
+  Plug 'junegunn/fzf.vim'
+  Plug 'itchyny/lightline.vim'
+  Plug 'mengelbrecht/lightline-bufferline'
+  Plug 'mhinz/vim-startify'
+  Plug 'atimholt/spiffy_foldtext'
+  Plug 'pseewald/vim-anyfold'
+  Plug 'Nudin/vim-indentguides'
+  Plug 'norcalli/nvim-colorizer.lua'
+  Plug 'xolox/vim-misc'
+  Plug 'blueyed/vim-diminactive'
+  Plug 'ryanoasis/vim-devicons'
+  Plug 'rhysd/conflict-marker.vim'
+  Plug 'machakann/vim-highlightedyank'
+  Plug 'breuckelen/vim-resize'
 
-" Improving editing experience
-Plug 'wellle/targets.vim'
-Plug 'michaeljsmith/vim-indent-object'
-Plug 'tpope/vim-repeat'
-Plug 'inkarkat/vim-visualrepeat'
-Plug 'machakann/vim-sandwich'
-Plug 'tpope/vim-commentary'
-Plug 'ntpeters/vim-better-whitespace'
-Plug 'brooth/far.vim'
-Plug 'farmergreg/vim-lastplace'
-Plug 'lambdalisue/suda.vim'
-Plug 'tpope/vim-unimpaired'
-Plug 'rhysd/clever-f.vim'
-Plug 'junegunn/vim-easy-align'
-Plug 'cohama/lexima.vim'
-Plug 'Konfekt/vim-CtrlXA'
-Plug 'tpope/vim-speeddating'
-Plug 'tpope/vim-dispatch'
-Plug 'Asheq/close-buffers.vim'
-Plug 'chaoren/vim-wordmotion'
+  " Improving editing experience
+  Plug 'wellle/targets.vim'
+  Plug 'michaeljsmith/vim-indent-object'
+  Plug 'tpope/vim-repeat'
+  Plug 'inkarkat/vim-visualrepeat'
+  Plug 'machakann/vim-sandwich'
+  Plug 'tpope/vim-commentary'
+  Plug 'ntpeters/vim-better-whitespace'
+  Plug 'brooth/far.vim'
+  Plug 'farmergreg/vim-lastplace'
+  Plug 'lambdalisue/suda.vim'
+  Plug 'tpope/vim-unimpaired'
+  Plug 'rhysd/clever-f.vim'
+  Plug 'junegunn/vim-easy-align'
+  Plug 'cohama/lexima.vim'
+  Plug 'Konfekt/vim-CtrlXA'
+  Plug 'tpope/vim-speeddating'
+  Plug 'tpope/vim-dispatch'
+  Plug 'Asheq/close-buffers.vim'
+  Plug 'chaoren/vim-wordmotion'
 
-" Time tracking
-Plug 'wakatime/vim-wakatime'
+  " Time tracking
+  Plug 'wakatime/vim-wakatime'
 
 call plug#end()
 
@@ -632,18 +634,10 @@ nmap s :Startify<CR>
 let g:startify_change_to_dir = 0
 let g:startify_fortune_use_unicode = 1
 
-function! s:list_commits()
-  let git = 'git'
-  let commits = systemlist(git .' log --oneline | head -n10')
-  let git = 'G'. git[1:]
-  return map(commits, '{"line": matchstr(v:val, "\\s\\zs.*"), "cmd": "'. git .' show ". matchstr(v:val, "^\\x\\+") }')
-endfunction
-
 let g:startify_lists = [
   \ { 'header': ['   MRU '. getcwd()], 'type': 'dir' },
   \ { 'header': ['   Bookmarks'],      'type': 'bookmarks'},
   \ { 'header': ['   Sessions'],       'type': 'sessions' },
-  \ { 'header': ['   Commits'],        'type': function('s:list_commits') },
   \ ]
 
 let g:startify_bookmarks = [
