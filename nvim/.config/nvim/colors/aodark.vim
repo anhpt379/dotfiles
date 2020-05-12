@@ -56,7 +56,7 @@ call s:h('Cursor', s:bg, s:blue, '')
 call s:h('CursorColumn', '', s:cursor_line, '')
 call s:h('CursorLine', '', s:cursor_line, '')
 
-call s:h('LineNr', s:gutter_fg, s:gutter_bg, '')
+call s:h('LineNr', s:gutter_fg, '', '')
 call s:h('CursorLineNr', s:fg, '', '')
 
 call s:h('DiffAdd', s:green, '', '')
