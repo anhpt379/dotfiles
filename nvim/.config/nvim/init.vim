@@ -383,7 +383,6 @@ set winblend=0
 
 " Some custom style
 highlight NonText guifg=#354751
-highlight LineNr guibg=NONE
 
 " Fzf {{{
 let g:fzf_command_prefix = 'Fzf'
