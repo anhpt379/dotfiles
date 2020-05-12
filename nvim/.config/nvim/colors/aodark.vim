@@ -20,7 +20,7 @@ let s:bg          = s:black
 
 let s:comment_fg  = { 'gui': '#696969', 'cterm': '241' }
 let s:gutter_bg   = { 'gui': '#282c34', 'cterm': 'NONE' }
-let s:gutter_fg   = { 'gui': '#919baa', 'cterm': '247' }
+let s:gutter_fg   = { 'gui': '#474e5d', 'cterm': '247' }
 
 let s:cursor_line = { 'gui': '#282c34', 'cterm': '235' }
 let s:color_col   = { 'gui': '#282c34', 'cterm': '235' }
