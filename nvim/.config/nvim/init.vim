@@ -162,12 +162,6 @@ function! s:markdown_mode_setup()
   set formatoptions+=t
 endfunction
 
-" vnoremap <M-/> <Esc>/\%V
-nnoremap <Left> :echoe "Use h"<CR>
-nnoremap <Right> :echoe "Use l"<CR>
-nnoremap <Up> :echoe "Use k"<CR>
-nnoremap <Down> :echoe "Use j"<CR>
-
 colorscheme aodark
 
 set whichwrap+=<,>,h,l
@@ -807,3 +801,6 @@ let g:netrw_dirhistmax = 0
 " (it's really hard to see the commit hashes when this option is on)
 let g:fugitive_dynamic_colors = 0
 
+" Move word-by-word with option+left/right
+nmap <M-Right> w
+nmap <M-Left> b
