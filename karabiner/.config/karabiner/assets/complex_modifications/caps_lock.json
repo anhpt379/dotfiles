@@ -1,21 +1,20 @@
 {
-  "title": "Change Caps Lock to Esc and Control",
+  "title": "Change caps_lock to control/esc",
   "rules": [
     {
-      "description": "Post Esc if Caps is tapped, Control if held.",
+      "description": "Change caps_lock to control if pressed with other keys, to escape if pressed alone.",
       "manipulators": [
         {
           "type": "basic",
           "from": {
-            "key_code": "left_control",
+            "key_code": "caps_lock",
             "modifiers": {
               "optional": ["any"]
             }
           },
           "to": [
             {
-              "key_code": "left_control",
-              "lazy": true
+              "key_code": "left_control"
             }
           ],
           "to_if_alone": [
