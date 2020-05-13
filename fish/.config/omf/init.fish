@@ -49,16 +49,11 @@ balias j 'z'
 balias f 'fzf'
 
 # key bindings
-bind \cf accept-autosuggestion
 bind \cg accept-autosuggestion execute
 
 bind \ck kill-line            # (default)
 bind \cu backward-kill-line   # (default)
 bind \cw kill-word            # zsh-like ctrl+w
-bind \u222B backward-word     # option+b (vim 'b')
-bind \u2211 forward-word      # option+w (vim 'w')
-bind \u02D9 backward-char     # option+h (vim 'h')
-bind \u00AC forward-char      # option+l (vim 'l')
 bind \u00A2 end-of-line       # option+4 (vim '$')
 bind \u00A7 beginning-of-line # option+6 (vim '^')
 
@@ -71,7 +66,7 @@ set -gx PATH $HOME/.cargo/bin $PATH
 set -gx fish_user_paths '/usr/local/opt/curl/bin' $fish_user_paths
 
 # Fzf
-bind \co 'fzf_find'
+bind \cf 'fzf_find'
 bind \cr 'fzf_history'
 
 set -gx FZF_DEFAULT_COMMAND        'fd --hidden --type f --exclude ".git"'
