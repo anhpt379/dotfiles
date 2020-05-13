@@ -11,7 +11,7 @@ stow:
 	stow fish
 	stow kitty
 	stow wakatime
-	stow karabiner
+	cp -r karabiner/.config/karabiner ~/.config/
 
 
 install:
