@@ -54,12 +54,6 @@ balias f 'fzf'
 # key bindings
 bind \cg accept-autosuggestion execute
 
-bind \ck kill-line            # (default)
-bind \cu backward-kill-line   # (default)
-bind \cw kill-word            # zsh-like ctrl+w
-bind \u00A2 end-of-line       # option+4 (vim '$')
-bind \u00A7 beginning-of-line # option+6 (vim '^')
-
 set -x GOROOT /usr/local/opt/go/libexec
 set -x GOPATH $HOME/.go
 set -gx PATH $PATH $HOME/.krew/bin
