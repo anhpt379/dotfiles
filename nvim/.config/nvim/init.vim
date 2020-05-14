@@ -301,7 +301,10 @@ set signcolumn=yes
 
 " Don't exit INSERT mode when pressing Esc to close auto-completion popup
 inoremap <expr> <Esc> pumvisible() ? "\<C-e>" : "\<Esc>"
+
+" Accept completion with <CR> and <Tab>
 inoremap <expr> <CR>  pumvisible() ? "\<C-y>" : "\<CR>"
+inoremap <expr> <Tab> pumvisible() ? "\<C-y>" : "\<Tab>"
 
 " Navigate diagnostics
 nmap <silent> <Tab> <Plug>(coc-diagnostic-next)
