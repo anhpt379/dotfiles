@@ -37,6 +37,7 @@ balias ls 'exa --group-directories-first'
 balias la 'exa -a --group-directories-first'
 balias ll 'exa -la --group-directories-first'
 
+alias  vim 'nvim'
 balias cat 'bat'
 balias ping 'prettyping --nolegend'
 balias ncdu 'ncdu -rr -x --exclude .git'
