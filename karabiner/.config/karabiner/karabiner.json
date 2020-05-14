@@ -16,7 +16,7 @@
         },
         "rules": [
           {
-            "description": "Change caps_lock to control if pressed with other keys, to escape if pressed alone.",
+            "description": "Map caps_lock to control if pressed with other keys, to escape if pressed alone",
             "manipulators": [
               {
                 "from": {
@@ -40,7 +40,7 @@
             ]
           },
           {
-            "description": "Change control+h/j/k/l to arrow left/down/up/right",
+            "description": "Map control+h/j/k/l to arrow left/down/up/right",
             "manipulators": [
               {
                 "from": {
@@ -101,7 +101,7 @@
             ]
           },
           {
-            "description": "Change option+h/j/k/l to option+left/down/up/right",
+            "description": "Map option+h/j/k/l to option+left/down/up/right",
             "manipulators": [
               {
                 "from": {
@@ -166,7 +166,137 @@
             ]
           },
           {
-            "description": "Change ctrl+p/ctrl+n to arrow up/down",
+            "description": "Map ctrl+shift+h/j/k/l to shift+left/down/up/right",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "h",
+                  "modifiers": {
+                    "mandatory": ["control", "shift"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "left_arrow",
+                    "modifiers": ["shift"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "j",
+                  "modifiers": {
+                    "mandatory": ["control", "shift"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "down_arrow",
+                    "modifiers": ["shift"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "k",
+                  "modifiers": {
+                    "mandatory": ["control", "shift"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "up_arrow",
+                    "modifiers": ["shift"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "l",
+                  "modifiers": {
+                    "mandatory": ["control", "shift"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "right_arrow",
+                    "modifiers": ["shift"]
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Map shift+option+h/j/k/l to shift+option+left/down/up/right",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "h",
+                  "modifiers": {
+                    "mandatory": ["shift", "left_option"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "left_arrow",
+                    "modifiers": ["shift", "left_option"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "j",
+                  "modifiers": {
+                    "mandatory": ["shift", "left_option"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "down_arrow",
+                    "modifiers": ["shift", "left_option"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "k",
+                  "modifiers": {
+                    "mandatory": ["shift", "left_option"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "up_arrow",
+                    "modifiers": ["shift", "left_option"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "l",
+                  "modifiers": {
+                    "mandatory": ["shift", "left_option"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "right_arrow",
+                    "modifiers": ["shift", "left_option"]
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Map ctrl+p/ctrl+n to arrow up/down",
             "manipulators": [
               {
                 "from": {

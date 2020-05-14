@@ -1,8 +1,8 @@
 {
-  "title": "Vim style arrow keys",
+  "title": "Cursor movements with HJKL",
   "rules": [
     {
-      "description": "Change control+h/j/k/l to arrow left/down/up/right",
+      "description": "Map control+h/j/k/l to arrow left/down/up/right",
       "manipulators": [
         {
           "type": "basic",
@@ -63,7 +63,7 @@
       ]
     },
     {
-      "description": "Change option+h/j/k/l to option+left/down/up/right",
+      "description": "Map option+h/j/k/l to option+left/down/up/right",
       "manipulators": [
         {
           "type": "basic",

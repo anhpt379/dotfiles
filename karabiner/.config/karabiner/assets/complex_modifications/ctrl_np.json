@@ -2,7 +2,7 @@
   "title": "Change ctrl+p/ctrl+n to arrow up/down",
   "rules": [
     {
-      "description": "Change ctrl+p/ctrl+n to arrow up/down",
+      "description": "Map ctrl+p/ctrl+n to arrow up/down",
       "manipulators": [
         {
           "type": "basic",
