@@ -620,7 +620,7 @@ nmap <Plug>SpeedDatingFallbackUp   <Plug>(CtrlXA-CtrlA)
 nmap <Plug>SpeedDatingFallbackDown <Plug>(CtrlXA-CtrlX)
 
 " Vim startify
-nmap s :NERDTreeClose<CR>:Startify<CR>
+nmap <Leader>s :NERDTreeClose<CR>:Startify<CR>
 
 let g:startify_change_to_dir = 0
 let g:startify_fortune_use_unicode = 1
@@ -678,6 +678,7 @@ highlight ConflictMarkerEnd guibg=#2f628e
 " vim-better-whitespace
 let g:strip_whitespace_on_save  = 0
 let g:strip_whitelines_at_eof = 1
+let g:better_whitespace_operator = ''
 
 nnoremap ]w :NextTrailingWhitespace<CR>
 nnoremap [w :PrevTrailingWhitespace<CR>
