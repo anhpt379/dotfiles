@@ -58,6 +58,7 @@ cask 'the-unarchiver'
 cask 'workplace-chat'
 cask 'vagrant'
 cask 'karabiner-elements'
+cask 'macdown'
 
 # Quicklook
 cask 'qlcolorcode'
