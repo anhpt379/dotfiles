@@ -757,7 +757,6 @@ function! NerdTreeToggleFind()
         NERDTreeClose
     elseif filereadable(expand('%'))
         NERDTreeFind
-        NERDTreeRefreshRoot
     else
         NERDTree
     endif
