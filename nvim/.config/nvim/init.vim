@@ -391,9 +391,6 @@ command! -bang -nargs=* FzfRg
   \   'rg --column --line-number --no-heading --color=always --smart-case --hidden --glob "!.git" '.<q-args>.' || true', 1,
   \   fzf#vim#with_preview({'options': ['--no-multi', '--layout=reverse']}), <bang>0)
 
-command! -bang -nargs=? -complete=dir FzfFiles
-  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--no-multi', '--layout=reverse']}), <bang>0)
-
 " Fzf + devicons
 function! Fzf_files_with_dev_icons(command)
   let l:fzf_files_options = '--preview "bat --color=always --style=numbers {2..} | head -'.&lines.'"'
@@ -740,6 +737,9 @@ let g:NERDTreeMouseMode = 2
 let g:NERDSpaceDelims = 1
 
 let g:NERDTreeShowLineNumbers = 1
+
+" Fix can't open Gstatus by pressing `gs` in NERDTree window
+let g:NERDTreeMapOpenVSplit = ''
 
 " Fix broken CursorLine highlighting nvim
 " https://github.com/neovim/neovim/issues/9019
