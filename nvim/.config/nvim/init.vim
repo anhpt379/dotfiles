@@ -620,7 +620,7 @@ nmap <Plug>SpeedDatingFallbackUp   <Plug>(CtrlXA-CtrlA)
 nmap <Plug>SpeedDatingFallbackDown <Plug>(CtrlXA-CtrlX)
 
 " Vim startify
-nmap s :Startify<CR>
+nmap s :NERDTreeClose<CR>:Startify<CR>
 
 let g:startify_change_to_dir = 0
 let g:startify_fortune_use_unicode = 1
