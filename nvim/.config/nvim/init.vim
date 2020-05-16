@@ -521,7 +521,7 @@ nnoremap == Vgw
 " enter ex mode
 nnoremap ; :
 
-" These are to cancel the default behavior of d, D, c, C to put the text they
+" These are to cancel the default behavior of d, D, c, C, s to put the text they
 " delete in the default register
 " Note that this means e.g. "ad won't copy the text into register a anymore,
 " you have to explicitly yank it
@@ -533,6 +533,8 @@ nnoremap c "_c
 vnoremap c "_c
 nnoremap C "_C
 vnoremap C "_C
+nnoremap s "_s
+vnoremap s "_s
 
 " Quick folding with `-`
 nnoremap - za
