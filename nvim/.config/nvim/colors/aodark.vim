@@ -6,7 +6,7 @@ let g:colors_name='aodark'
 let colors_name='aodark'
 
 
-let s:black       = { 'gui': '#1C1E23', 'cterm': '233' }
+let s:black       = { 'gui': '#17171d', 'cterm': '233' }
 let s:red         = { 'gui': '#DE456B', 'cterm': '168' }
 let s:green       = { 'gui': '#8DC26C', 'cterm': '114' }
 let s:yellow      = { 'gui': '#E2B962', 'cterm': '180' }
@@ -19,14 +19,14 @@ let s:fg          = s:white
 let s:bg          = s:black
 
 let s:comment_fg  = { 'gui': '#696969', 'cterm': '241' }
-let s:gutter_bg   = { 'gui': '#282c34', 'cterm': 'NONE' }
-let s:gutter_fg   = { 'gui': '#474e5d', 'cterm': '247' }
+let s:gutter_bg   = { 'gui': '#282829', 'cterm': 'NONE' }
+let s:gutter_fg   = { 'gui': '#444444', 'cterm': '247' }
 
-let s:cursor_line = { 'gui': '#282c34', 'cterm': '235' }
-let s:color_col   = { 'gui': '#282c34', 'cterm': '235' }
+let s:cursor_line = { 'gui': '#252526', 'cterm': '235' }
+let s:color_col   = { 'gui': '#1f1f22', 'cterm': '235' }
 
-let s:selection   = { 'gui': '#474e5d', 'cterm': '237' }
-let s:vertsplit   = { 'gui': '#313640', 'cterm': '235' }
+let s:selection   = { 'gui': '#444444', 'cterm': '237' }
+let s:vertsplit   = { 'gui': '#17171d', 'cterm': '235' }
 
 
 function! s:h(group, fg, bg, attr)
@@ -210,9 +210,9 @@ hi link gitcommitUnmergedArrow gitcommitUnmergedFile
 
 " Lightline {{{
 
-let s:mono0 = [ '#282c34', 236 ]
-let s:mono1 = [ '#313640', 238 ]
-let s:mono2 = [ '#5d677a', 243 ]
+let s:mono0 = [ '#17171d', 236 ]
+let s:mono1 = [ '#262626', 238 ]
+let s:mono2 = [ '#555555', 243 ]
 let s:mono3 = [ '#dcdfe4', 255 ]
 
 let s:yellow = [ '#E2B962', 180 ]
