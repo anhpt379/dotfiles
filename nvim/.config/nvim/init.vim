@@ -795,3 +795,7 @@ function! ToggleHomeZero()
   endif
 endfunction
 nnoremap 0 :call ToggleHomeZero()<CR>
+
+" Easier change list jumps
+nnoremap cp g;
+nnoremap cn g,
