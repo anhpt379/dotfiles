@@ -125,7 +125,9 @@ let g:far#source = 'rgnvim'
 set splitbelow
 set splitright
 
-set mouse=a   " enable mouse for all mode
+" Enable mouse for all mode
+set mouse=a
+
 set pumblend=20
 set cursorline
 
@@ -137,7 +139,10 @@ let g:is_posix = 1
 set noswapfile
 set nojoinspaces
 set nowrap
-set termguicolors    " enable 24bit true color
+
+" Enable 24bit true color
+set termguicolors
+
 set noshowmode
 set number
 
@@ -170,11 +175,14 @@ set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 set shiftround
-set expandtab     " Insert spaces when Tab is pressed
 
 set smartindent
 
-set autowrite     " Automatically :write before running commands
+" Insert spaces when Tab is pressed
+set expandtab
+
+" Automatically :write before running commands
+set autowrite
 
 " Persistent undo
 set undofile
@@ -259,7 +267,6 @@ let g:lightline#bufferline#show_number      = 2
 let g:lightline#bufferline#shorten_path     = 1
 let g:lightline#bufferline#unnamed          = '[No Name]'
 let g:lightline#bufferline#enable_devicons  = 1
-" let g:lightline#bufferline#filename_modifier = ':t'
 
 let g:lightline#bufferline#number_map = {
   \ 0: '⁰', 1: '¹', 2: '²', 3: '³', 4: '⁴',
@@ -321,13 +328,6 @@ function! s:show_documentation()
   endif
 endfunction
 
-" Remap for rename current word
-" nmap <Leader>rn <Plug>(coc-rename)
-
-" Remap for format selected region
-" xmap <Leader>f <Plug>(coc-format-selected)
-" nmap <Leader>f <Plug>(coc-format-selected)
-
 augroup coc
   autocmd!
   " Setup formatexpr specified filetype(s)
@@ -376,8 +376,7 @@ set winblend=0
 
 " }}}
 
-
-" Hide non-text characters
+" Some custom style
 highlight NonText guifg=bg
 
 " Fzf {{{
@@ -419,7 +418,6 @@ noremap <Leader>g :call CloseGstatus()<CR>:NERDTreeClose<CR>:FzfRg<Space>
 noremap <Leader>f :call CloseGstatus()<CR>:NERDTreeClose<CR>:call Fzf_files_with_dev_icons($FZF_DEFAULT_COMMAND)<CR>
 noremap <Leader>l :call CloseGstatus()<CR>:NERDTreeClose<CR>:FzfLines<CR>
 noremap <Leader>c :call CloseGstatus()<CR>:NERDTreeClose<CR>:FzfCommits<CR>
-
 " }}}
 
 " Hybrid line numbers
@@ -429,12 +427,11 @@ augroup number-toggle
   autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu | set nornu | endif
 augroup end
 
-
 " Git {{{
 let g:git_messenger_always_into_popup = v:true
 let g:git_messenger_no_default_mappings = v:true
 
-highlight gitmessengerPopupNormal guibg=#1C1E23
+highlight gitmessengerPopupNormal guibg=#333333
 highlight link gitmessengerHeader Identifier
 highlight link gitmessengerHash Number
 highlight link gitmessengerHistory Constant
@@ -451,7 +448,6 @@ command! Gp Dispatch! git push origin HEAD --force-with-lease
 augroup git-messenger
   autocmd FileType gitmessengerpopup nmap <buffer> <Esc> q
 augroup end
-
 " }}}
 
 " Remap recording macro key to `\` (`q` will be using as 'quit' to close the
@@ -552,8 +548,8 @@ map <C-u> <Plug>(RepeatRedo)
 nnoremap <C-r> :%s/\V
 vnoremap <C-r> "hy:%s/<C-r>h//g<Left><Left>
 
-" Select the last pasted text with gp (similar to the standard gv which you can type to
-" select the last visually-selected text)
+" Select the last pasted text with gp (similar to the standard gv which you can
+" type to select the last visually-selected text)
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
 " Any-fold
@@ -603,11 +599,11 @@ nnoremap q :silent! call CloseOnLast()<CR>
 " Quickly close several buffers at once
 nnoremap <silent> Q :Bdelete! menu<CR>
 
-" Vim CtrlXA
+" CtrlXA
 nmap <Plug>SpeedDatingFallbackUp   <Plug>(CtrlXA-CtrlA)
 nmap <Plug>SpeedDatingFallbackDown <Plug>(CtrlXA-CtrlX)
 
-" Vim startify
+" Startify
 nmap <Leader>s :NERDTreeClose<CR>:Startify<CR>
 
 let g:startify_change_to_dir = 0
@@ -640,7 +636,6 @@ nmap cw ce
 nmap cW cE
 onoremap W :<C-U>normal! vWh<CR>
 let g:wordmotion_extra = ['[0-9a-fA-F]\{6}']   " hex colors
-
 
 " coc-yank
 noremap <Leader>p :CocList --normal yank<CR>
@@ -690,7 +685,6 @@ set listchars=tab:\|\ ,
 
 " Fix double quotes in json files went missing
 let g:indentguides_concealcursor_unaltered = 1
-
 " }}}
 
 " vim-diminactive
@@ -749,7 +743,6 @@ function! NerdTreeToggleFind()
 endfunction
 
 nmap <Leader>n :call NerdTreeToggleFind()<CR>
-
 " }}}
 
 " Vim Devicons {{{
@@ -767,7 +760,6 @@ augroup NERDTreeHideDirSlashes
 	autocmd!
 	autocmd FileType nerdtree syntax match NERDTreeDirSlash #/$# containedin=NERDTreeDir conceal contained
 augroup end
-
 " }}}
 
 " Easier split navigations
