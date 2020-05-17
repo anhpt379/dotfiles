@@ -784,3 +784,14 @@ let g:fugitive_dynamic_colors = 0
 " Move word-by-word with option+left/right
 nmap <M-Right> w
 nmap <M-Left> b
+
+" Press `0` repeatedly to toggle between `^` and `0`
+" (`0` is easier to reach than `^`)
+function! ToggleHomeZero()
+  let pos = getpos('.')
+  execute "normal! ^"
+  if pos == getpos('.')
+    execute "normal! 0"
+  endif
+endfunction
+nnoremap 0 :call ToggleHomeZero()<CR>
