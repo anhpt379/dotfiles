@@ -11,8 +11,8 @@ SELECT word, COUNT(*) c FROM (
   SELECT REGEXP_EXTRACT_ALL(text, r"[a-zA-Z-]+") words
   FROM `bigquery-public-data.hacker_news.full`
 ), UNNEST(words) word
-WHERE CHAR_LENGTH(word) > 2 
-  AND NOT ENDS_WITH(word, "-") 
+WHERE CHAR_LENGTH(word) > 2
+  AND NOT ENDS_WITH(word, "-")
   AND NOT STARTS_WITH(word, "-")
   AND CHAR_LENGTH(word) - CHAR_LENGTH(REGEXP_REPLACE(word, "-", "")) <= 1
 GROUP BY word
