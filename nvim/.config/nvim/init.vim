@@ -799,3 +799,7 @@ nnoremap 0 :call ToggleHomeZero()<CR>
 " Easier change list jumps
 nnoremap cp g;
 nnoremap cn g,
+
+" Switch between 2 buffers
+noremap <Leader><Tab> <C-^>
+
