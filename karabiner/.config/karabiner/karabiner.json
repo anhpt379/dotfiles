@@ -274,6 +274,60 @@
                 "type": "basic"
               }
             ]
+          },
+          {
+            "description": "Swap ; and :",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "semicolon",
+                  "modifiers": {
+                    "mandatory": ["shift"],
+                    "optional": ["caps_lock"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "semicolon"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "semicolon",
+                  "modifiers": {
+                    "optional": ["caps_lock"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "semicolon",
+                    "modifiers": ["left_shift"]
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Map right_shift to mission_control",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "right_shift",
+                  "modifiers": {
+                    "optional": ["any"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "mission_control"
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
           }
         ]
       },
@@ -384,14 +438,6 @@
       "simple_modifications": [
         {
           "from": {
-            "key_code": "up_arrow"
-          },
-          "to": {
-            "key_code": "vk_none"
-          }
-        },
-        {
-          "from": {
             "key_code": "down_arrow"
           },
           "to": {
@@ -409,6 +455,14 @@
         {
           "from": {
             "key_code": "right_arrow"
+          },
+          "to": {
+            "key_code": "vk_none"
+          }
+        },
+        {
+          "from": {
+            "key_code": "up_arrow"
           },
           "to": {
             "key_code": "vk_none"
