@@ -451,6 +451,10 @@ noremap gc :NERDTreeClose<CR>:Gwrite<CR>:vertical Gcommit -v<CR>
 
 augroup fugitive-push
   autocmd FileType fugitive nmap <buffer> p :silent! call CloseGstatus()<CR>:Dispatch! noti git push origin HEAD --force-with-lease<CR>
+
+  " Restore Gstatus <C-n/p> behavior, since we're mapping <C-n/p> to <Up>/<Down> in Karabiner
+  autocmd FileType fugitive nmap <buffer> <Up> <C-p>
+  autocmd FileType fugitive nmap <buffer> <Down> <C-n>
 augroup end
 
 augroup fugitive-status
