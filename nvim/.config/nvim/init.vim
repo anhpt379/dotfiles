@@ -727,6 +727,8 @@ let g:NERDSpaceDelims = 1
 
 let g:NERDTreeShowLineNumbers = 1
 
+let g:NERDTreeWinSize = 40
+
 " Fix broken CursorLine highlighting nvim
 " https://github.com/neovim/neovim/issues/9019
 highlight NERDTreeFile ctermfg=14
