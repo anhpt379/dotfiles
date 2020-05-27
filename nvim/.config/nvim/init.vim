@@ -444,7 +444,7 @@ highlight link gitmessengerHistory Constant
 
 noremap gm :GitMessenger<CR>
 noremap gb :Gblame<CR>
-noremap gs :NERDTreeClose<CR>:tab G<CR>
+noremap gs :NERDTreeClose<CR>:vertical Gstatus<CR>
 noremap gl :NERDTreeClose<CR>:FzfBCommits<CR>
 noremap gw :w<CR>:Gwrite<CR>
 noremap gc :NERDTreeClose<CR>:Gwrite<CR>:vertical Gcommit -v<CR>
