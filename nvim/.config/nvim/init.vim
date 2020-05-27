@@ -414,10 +414,10 @@ function! CloseGstatus()
 	endfor
 endfunction
 
-noremap <Leader>g :call CloseGstatus()<CR>:NERDTreeClose<CR>:FzfRg<Space>
-noremap <Leader>f :call CloseGstatus()<CR>:NERDTreeClose<CR>:call Fzf_files_with_dev_icons($FZF_DEFAULT_COMMAND)<CR>
-noremap <Leader>l :call CloseGstatus()<CR>:NERDTreeClose<CR>:FzfLines<CR>
-noremap <Leader>c :call CloseGstatus()<CR>:NERDTreeClose<CR>:FzfCommits<CR>
+noremap <Leader>g :silent! call CloseGstatus()<CR>:NERDTreeClose<CR>:FzfRg<Space>
+noremap <Leader>f :silent! call CloseGstatus()<CR>:NERDTreeClose<CR>:call Fzf_files_with_dev_icons($FZF_DEFAULT_COMMAND)<CR>
+noremap <Leader>l :silent! call CloseGstatus()<CR>:NERDTreeClose<CR>:FzfLines<CR>
+noremap <Leader>c :silent! call CloseGstatus()<CR>:NERDTreeClose<CR>:FzfCommits<CR>
 " }}}
 
 " Hybrid line numbers
