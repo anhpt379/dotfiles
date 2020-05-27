@@ -26,7 +26,7 @@ let s:cursor_line = { 'gui': '#252526', 'cterm': '235' }
 let s:color_col   = { 'gui': '#1f1f22', 'cterm': '235' }
 
 let s:selection   = { 'gui': '#444444', 'cterm': '237' }
-let s:vertsplit   = { 'gui': '#17171d', 'cterm': '235' }
+let s:vertsplit   = { 'gui': '#262626', 'cterm': '235' }
 
 
 function! s:h(group, fg, bg, attr)
