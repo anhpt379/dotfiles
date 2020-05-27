@@ -456,9 +456,9 @@ augroup fugitive-push
   autocmd FileType fugitive nmap <buffer> <Up> <C-p>
   autocmd FileType fugitive nmap <buffer> <Down> <C-n>
 
-  " Verbose git commit by default
-  autocmd FileType fugitive nmap <buffer> cc cvc
-  autocmd FileType fugitive nmap <buffer> ca cva
+  " Verbose and quiet git commit by default
+  autocmd FileType fugitive nmap <buffer> cc :vertical Git commit -v --quiet<CR>
+  autocmd FileType fugitive nmap <buffer> ca :vertical Git commit -v --amend --quiet<CR>
 augroup end
 
 augroup fugitive-status
