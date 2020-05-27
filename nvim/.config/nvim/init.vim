@@ -156,6 +156,12 @@ set colorcolumn=+1
 " Make the keyboard faaaaaaast
 set ttimeoutlen=5
 
+" Fix slow Gstatus
+" https://github.com/tpope/vim-fugitive/issues/1176
+" This also speeds up everything, vim becomes much faster after this change
+set shell=/usr/local/bin/bash\ --login
+set shellcmdflag=-c
+
 " Tweak for Markdown mode
 augroup markdown
   autocmd FileType markdown call s:markdown_mode_setup()
