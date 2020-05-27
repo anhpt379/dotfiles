@@ -592,24 +592,7 @@ let g:lexima_map_escape = ''
 runtime macros/sandwich/keymap/surround.vim
 
 " Close buffer with a single keypress {{{
-function! CloseBuffer()
-  let cnt = 0
-
-  for i in range(0, bufnr("$"))
-    if buflisted(i)
-      let cnt += 1
-    endif
-  endfor
-
-  if cnt <= 1
-    :bd!
-    :Startify
-  else
-    bd!
-  endif
-endfunction
-
-nnoremap q :silent! call CloseBuffer()<CR>
+nnoremap q :bd!<CR>
 
 " Quickly close several buffers at once
 nnoremap <silent> Q :Bdelete! menu<CR>
