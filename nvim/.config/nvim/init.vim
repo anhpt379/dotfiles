@@ -444,6 +444,11 @@ noremap gw :w<CR>:Gwrite<CR>
 noremap gc :NERDTreeClose<CR>:Gwrite<CR>:vertical Gcommit -v<CR>
 command! Gp Dispatch! git push origin HEAD --force-with-lease
 
+augroup fugitive
+  autocmd!
+  autocmd BufEnter COMMIT_EDITMSG startinsert
+augroup END
+
 " Close git-messenger popup with <Esc>
 augroup git-messenger
   autocmd FileType gitmessengerpopup nmap <buffer> <Esc> q
