@@ -10,10 +10,16 @@ let g:loaded_nerdtree_grep_menuitem = 1
 call NERDTreeAddMenuItem({
   \ 'text': '(g)rep directory',
   \ 'shortcut': 'g',
-  \ 'callback': 'NERDTreeRg'
+  \ 'callback': 'NERDTreeFzfRg'
   \ })
 
-function! NERDTreeRg()
+call NERDTreeAddMenuItem({
+  \ 'text': '(f)zf directory',
+  \ 'shortcut': 'f',
+  \ 'callback': 'NERDTreeFzfFiles'
+  \ })
+
+function! NERDTreeFzfRg()
   let dirnode = g:NERDTreeDirNode.GetSelected()
   echo dirnode.path.str()
 
@@ -26,5 +32,13 @@ function! NERDTreeRg()
   execute ':NERDTreeClose'
 
   execute ':FzfRg "' . pattern . '" ' . dirnode.path.str()
+endfunction
+
+function! NERDTreeFzfFiles()
+  let dirnode = g:NERDTreeDirNode.GetSelected()
+
+  execute ':NERDTreeClose'
+
+  execute ':FzfFiles ' . dirnode.path.str()
 endfunction
 
