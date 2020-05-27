@@ -721,9 +721,6 @@ let g:NERDSpaceDelims = 1
 
 let g:NERDTreeShowLineNumbers = 1
 
-" Fix can't open Gstatus by pressing `gs` in NERDTree window
-let g:NERDTreeMapOpenVSplit = ''
-
 " Fix broken CursorLine highlighting nvim
 " https://github.com/neovim/neovim/issues/9019
 highlight NERDTreeFile ctermfg=14
