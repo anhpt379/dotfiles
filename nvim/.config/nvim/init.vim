@@ -201,6 +201,10 @@ set smartcase
 " Clear search/clever-f highlighting by pressing Enter
 nnoremap <CR> :<C-u>nohlsearch<CR><Left><Right>
 
+augroup ClearNERDTreeHighlight
+  autocmd FileType nerdtree nnoremap <buffer> <CR> :<C-u>nohlsearch<CR>
+augroup end
+
 " Live substitution
 set inccommand=split
 " }}}
