@@ -450,7 +450,7 @@ noremap gw :w<CR>:Gwrite<CR>
 noremap gc :NERDTreeClose<CR>:Gwrite<CR>:vertical Gcommit -v<CR>
 
 augroup fugitive-push
-  autocmd FileType fugitive nmap <buffer> p :Dispatch! noti git push origin HEAD --force-with-lease<CR>
+  autocmd FileType fugitive nmap <buffer> p :silent! call CloseGstatus()<CR>:Dispatch! noti git push origin HEAD --force-with-lease<CR>
 augroup end
 
 augroup fugitive-status
