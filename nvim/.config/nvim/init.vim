@@ -458,6 +458,11 @@ augroup fugitive-status
   autocmd BufEnter COMMIT_EDITMSG startinsert
 augroup end
 
+" `cc` in Gstatus window open in vertial mode
+augroup fugitive-vertical
+  autocmd FileType fugitive wincmd H
+augroup end
+
 " Close git-messenger popup with <Esc>
 augroup git-messenger
   autocmd FileType gitmessengerpopup nmap <buffer> <Esc> q
