@@ -455,6 +455,10 @@ augroup fugitive-push
   " Restore Gstatus <C-n/p> behavior, since we're mapping <C-n/p> to <Up>/<Down> in Karabiner
   autocmd FileType fugitive nmap <buffer> <Up> <C-p>
   autocmd FileType fugitive nmap <buffer> <Down> <C-n>
+
+  " Verbose git commit by default
+  autocmd FileType fugitive nmap <buffer> cc cvc
+  autocmd FileType fugitive nmap <buffer> ca cva
 augroup end
 
 augroup fugitive-status
