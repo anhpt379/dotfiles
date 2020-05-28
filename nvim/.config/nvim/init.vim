@@ -63,6 +63,7 @@ call plug#begin()
   Plug 'breuckelen/vim-resize'
   Plug 'francoiscabrol/ranger.vim'
   Plug 'rbgrouleff/bclose.vim'
+  Plug 'roman/golden-ratio'
 
   " Improving editing experience
   Plug 'wellle/targets.vim'
