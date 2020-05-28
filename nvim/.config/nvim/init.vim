@@ -64,6 +64,8 @@ call plug#begin()
   Plug 'rhysd/conflict-marker.vim'
   Plug 'machakann/vim-highlightedyank'
   Plug 'breuckelen/vim-resize'
+  Plug 'francoiscabrol/ranger.vim'
+  Plug 'rbgrouleff/bclose.vim'
 
   " Improving editing experience
   Plug 'wellle/targets.vim'
@@ -807,3 +809,7 @@ nnoremap cn g,
 " Switch between 2 buffers
 noremap <Leader><Tab> <C-^>
 
+" Ranger
+let g:ranger_map_keys = 0
+let g:ranger_command_override = 'ranger --cmd "set show_hidden=true"'
+map <leader>r :Ranger<CR>
