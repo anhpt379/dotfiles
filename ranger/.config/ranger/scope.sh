@@ -178,7 +178,7 @@ handle_mime() {
                 exit 2
             fi
 
-            bat --color=always --line-range :300 "${FILE_PATH}" && exit 5
+            bat --color=always --style=plain --line-range :300 "${FILE_PATH}" && exit 5
 
             exit 2;;
 
