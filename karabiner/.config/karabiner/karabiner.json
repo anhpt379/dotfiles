@@ -243,6 +243,25 @@
             ]
           },
           {
+            "description": "Map right_shift to mission_control",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "right_shift",
+                  "modifiers": {
+                    "optional": ["any"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "mission_control"
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
             "description": "Map ctrl+p/ctrl+n to arrow up/down",
             "manipulators": [
               {
@@ -276,53 +295,19 @@
             ]
           },
           {
-            "description": "Swap ; and :",
+            "description": "Map ctrl+delete to delete_forward",
             "manipulators": [
               {
                 "from": {
-                  "key_code": "semicolon",
+                  "key_code": "delete_or_backspace",
                   "modifiers": {
-                    "mandatory": ["shift"],
-                    "optional": ["caps_lock"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "semicolon"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "from": {
-                  "key_code": "semicolon",
-                  "modifiers": {
-                    "optional": ["caps_lock"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "semicolon",
-                    "modifiers": ["left_shift"]
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "Map right_shift to mission_control",
-            "manipulators": [
-              {
-                "from": {
-                  "key_code": "right_shift",
-                  "modifiers": {
+                    "mandatory": ["control"],
                     "optional": ["any"]
                   }
                 },
                 "to": [
                   {
-                    "key_code": "mission_control"
+                    "key_code": "delete_forward"
                   }
                 ],
                 "type": "basic"
