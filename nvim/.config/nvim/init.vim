@@ -521,6 +521,9 @@ set sidescrolloff=7
 " `:w !sudo tee % > /dev/null` trick does not work on neovim
 command! W w suda://%
 
+" Copy path to clipboard
+command! CopyPath let @+=expand('%:p')
+
 " Insert mode navigational keys
 inoremap <C-k> <Up>
 inoremap <C-j> <Down>
