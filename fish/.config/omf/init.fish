@@ -63,6 +63,9 @@ set -gx PATH $HOME/Library/Python/3.7/bin $PATH
 set -gx PATH $HOME/.cargo/bin $PATH
 set -gx fish_user_paths '/usr/local/opt/curl/bin' $fish_user_paths
 
+# Hide the fish greeting
+set fish_greeting ""
+
 # Fzf
 bind \cf 'fzf_find'
 bind \cr 'fzf_history'
