@@ -397,7 +397,7 @@ let g:fzf_buffers_jump = 1
 let g:fzf_layout = { 'window': 'enew' }
 let g:fzf_commits_log_options = '-5000 --color=always --format="%C(auto)%h%d %C(blue)%aN%C(reset) %s (%cr)"'
 
-command! -bang -nargs=* FzfRg
+command! -complete=dir -bang -nargs=* FzfRg
   \ call fzf#vim#grep(
   \   'rg --column --line-number --no-heading --color=always --smart-case --hidden --glob "!.git" '.<q-args>.' || true', 1,
   \   fzf#vim#with_preview({'options': ['--no-multi', '--layout=reverse']}), <bang>0)
