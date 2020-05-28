@@ -443,7 +443,7 @@ highlight link gitmessengerHistory Constant
 
 noremap gm :GitMessenger<CR>
 noremap gb :Gblame<CR>
-noremap gs :vertical Gstatus<CR>
+noremap gs :tab Gstatus<CR>
 noremap gl :FzfBCommits<CR>
 noremap gw :w<CR>:Gwrite<CR>
 noremap gc :Gwrite<CR>:vertical Gcommit -v<CR>
@@ -452,8 +452,8 @@ augroup fugitive-push
   autocmd FileType fugitive nmap <buffer> p :silent! call CloseGstatus()<CR>:Dispatch! noti git push origin HEAD --force-with-lease<CR>
 
   " Verbose and quiet git commit by default
-  autocmd FileType fugitive nmap <buffer> cc :Git commit -v --quiet<CR>
-  autocmd FileType fugitive nmap <buffer> ca :Git commit -v --amend --quiet<CR>
+  autocmd FileType fugitive nmap <buffer> cc :vertical Git commit -v --quiet<CR>
+  autocmd FileType fugitive nmap <buffer> ca :vertical Git commit -v --amend --quiet<CR>
 augroup end
 
 " Close git-messenger popup with <Esc>
