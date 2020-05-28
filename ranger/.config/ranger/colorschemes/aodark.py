@@ -2,9 +2,9 @@ from ranger.gui.color import blue, cyan, green, magenta, red, yellow, default, n
 from ranger.gui.colorscheme import ColorScheme
 
 
-class Xoria256(ColorScheme):
+class Aodark(ColorScheme):
     progress_bar_color = blue
-    default_colors = (250, 234, normal)
+    default_colors = (253, normal, normal)
 
     def use(self, context):
         fg, bg, attr = self.default_colors
