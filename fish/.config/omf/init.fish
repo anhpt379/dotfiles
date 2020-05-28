@@ -51,6 +51,7 @@ balias dc 'docker-compose'
 balias c 'clear'
 balias j 'z'
 balias f 'fzf'
+balias r 'ranger'
 
 # key bindings
 bind \cg accept-autosuggestion execute
