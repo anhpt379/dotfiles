@@ -14,7 +14,7 @@ class fzf_select(Command):
         import subprocess
         import os.path
 
-        command="fd --hidden --type d --exclude '.git' . | fzf"
+        command="fd --hidden --exclude '.git' . | fzf"
 
         # if self.quantifier:
         #     # match only directories
