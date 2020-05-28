@@ -46,9 +46,6 @@ call plug#begin()
   Plug 'vim-ruby/vim-ruby'
 
   " Fancy UI stuff
-  Plug 'scrooloose/nerdtree', {'on': ['NERDTree', 'NERDTreeFind', 'NERDTreeClose']}
-  Plug 'Xuyuanp/nerdtree-git-plugin'
-  Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
   Plug 'junegunn/fzf', {'do': {-> fzf#install()}}
   Plug 'junegunn/fzf.vim'
   Plug 'itchyny/lightline.vim'
@@ -202,10 +199,6 @@ set smartcase
 
 " Clear search/clever-f highlighting by pressing Enter
 nnoremap <CR> :<C-u>nohlsearch<CR><Left><Right>
-
-augroup ClearNERDTreeHighlight
-  autocmd FileType nerdtree nnoremap <buffer> <CR> :<C-u>nohlsearch<CR>
-augroup end
 
 " Live substitution
 set inccommand=split
@@ -426,10 +419,10 @@ function! CloseGstatus()
 	endfor
 endfunction
 
-noremap <Leader>g :silent! call CloseGstatus()<CR>:NERDTreeClose<CR>:FzfRg<Space>
-noremap <Leader>f :silent! call CloseGstatus()<CR>:NERDTreeClose<CR>:call Fzf_files_with_dev_icons($FZF_DEFAULT_COMMAND)<CR>
-noremap <Leader>l :silent! call CloseGstatus()<CR>:NERDTreeClose<CR>:FzfLines<CR>
-noremap <Leader>c :silent! call CloseGstatus()<CR>:NERDTreeClose<CR>:FzfCommits<CR>
+noremap <Leader>g :silent! call CloseGstatus()<CR>:FzfRg<Space>
+noremap <Leader>f :silent! call CloseGstatus()<CR>:call Fzf_files_with_dev_icons($FZF_DEFAULT_COMMAND)<CR>
+noremap <Leader>l :silent! call CloseGstatus()<CR>:FzfLines<CR>
+noremap <Leader>c :silent! call CloseGstatus()<CR>:FzfCommits<CR>
 " }}}
 
 " Hybrid line numbers
@@ -450,10 +443,10 @@ highlight link gitmessengerHistory Constant
 
 noremap gm :GitMessenger<CR>
 noremap gb :Gblame<CR>
-noremap gs :NERDTreeClose<CR>:vertical Gstatus<CR>
-noremap gl :NERDTreeClose<CR>:FzfBCommits<CR>
+noremap gs :vertical Gstatus<CR>
+noremap gl :FzfBCommits<CR>
 noremap gw :w<CR>:Gwrite<CR>
-noremap gc :NERDTreeClose<CR>:Gwrite<CR>:vertical Gcommit -v<CR>
+noremap gc :Gwrite<CR>:vertical Gcommit -v<CR>
 
 augroup fugitive-push
   autocmd FileType fugitive nmap <buffer> p :silent! call CloseGstatus()<CR>:Dispatch! noti git push origin HEAD --force-with-lease<CR>
@@ -610,7 +603,7 @@ nmap <Plug>SpeedDatingFallbackUp   <Plug>(CtrlXA-CtrlA)
 nmap <Plug>SpeedDatingFallbackDown <Plug>(CtrlXA-CtrlX)
 
 " Startify
-nmap <Leader>s :NERDTreeClose<CR>:Startify<CR>
+nmap <Leader>s :Startify<CR>
 
 let g:startify_change_to_dir = 0
 let g:startify_fortune_use_unicode = 1
@@ -702,70 +695,6 @@ command! -range FormatShellCmd <line1>!~/.config/nvim/bin/format_shell_cmd.py
 
 " Format json
 command! FormatJSON call CocAction('format')
-
-" NerdTree {{{
-let g:NERDTreeMinimalUI = 1
-let g:NERDTreeDirArrows = 1
-let g:NERDTreeShowFiles = 1
-let g:NERDTreeShowHidden = 1
-let g:NERDTreeQuitOnOpen = 1
-let g:NERDTreeIgnore = [
-  \ '\.DS_Store',
-  \ '\~$',
-  \ '\.swp',
-  \ '\.git$',
-  \ '__pycache__',
-  \ '\.pyc$'
-  \ ]
-
-let g:NERDTreeAutoDeleteBuffer = 1
-
-" Use a single click to fold/unfold directory and a double click to open file
-let g:NERDTreeMouseMode = 2
-
-let g:NERDSpaceDelims = 1
-
-let g:NERDTreeShowLineNumbers = 1
-
-let g:NERDTreeWinSize = 40
-
-" Fix broken CursorLine highlighting nvim
-" https://github.com/neovim/neovim/issues/9019
-highlight NERDTreeFile ctermfg=14
-
-" Close vim if the only window left open is a NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-" Jump to the current file on open
-function! NerdTreeToggleFind()
-    if exists("g:NERDTree") && g:NERDTree.IsOpen()
-        NERDTreeClose
-    elseif filereadable(expand('%'))
-        NERDTreeFind
-    else
-        NERDTree
-    endif
-endfunction
-
-nmap <Leader>n :call NerdTreeToggleFind()<CR>
-" }}}
-
-" Vim Devicons {{{
-let g:DevIconsEnableFoldersOpenClose = 1
-
-augroup NERDTreeConcealBrackets
-  autocmd!
-  autocmd FileType nerdtree syntax match HideBracketsInNerdTree "\]" contained conceal containedin=ALL
-  autocmd FileType nerdtree syntax match HideBracketsInNerdTree "\[" contained conceal containedin=ALL
-  autocmd FileType nerdtree setlocal conceallevel=3
-  autocmd FileType nerdtree setlocal concealcursor=nvic
-augroup end
-
-augroup NERDTreeHideDirSlashes
-	autocmd!
-	autocmd FileType nerdtree syntax match NERDTreeDirSlash #/$# containedin=NERDTreeDir conceal contained
-augroup end
-" }}}
 
 " Easier split navigations
 nnoremap <Down>  <C-W><C-J>
