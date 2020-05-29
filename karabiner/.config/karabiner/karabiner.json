@@ -243,25 +243,6 @@
             ]
           },
           {
-            "description": "Map right_shift to mission_control",
-            "manipulators": [
-              {
-                "from": {
-                  "key_code": "right_shift",
-                  "modifiers": {
-                    "optional": ["any"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "mission_control"
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
             "description": "Map ctrl+delete to delete_forward",
             "manipulators": [
               {
