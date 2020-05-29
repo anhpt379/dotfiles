@@ -47,7 +47,7 @@ call plug#begin()
 
   " Fancy UI stuff
   Plug 'junegunn/fzf', {'do': {-> fzf#install()}}
-  Plug 'junegunn/fzf.vim'
+  Plug 'anhpt379/fzf.vim'
   Plug 'itchyny/lightline.vim'
   Plug 'mengelbrecht/lightline-bufferline'
   Plug 'mhinz/vim-startify'
@@ -386,7 +386,7 @@ highlight NonText guifg=bg
 let g:fzf_command_prefix = 'Fzf'
 let g:fzf_buffers_jump = 1
 let g:fzf_layout = { 'window': 'enew' }
-let g:fzf_commits_log_options = '-5000 --no-merges --color=always --format="%C(auto)%h%d %C(blue)%aN%C(reset) %s (%cr)"'
+let g:fzf_commits_log_options = '-5000 --no-merges --color=always --format="%C(auto)%h%d %C(blue)%aN%C(reset) %s %C(#454545)(%cr)"'
 
 command! -complete=dir -bang -nargs=* FzfRg
   \ call fzf#vim#grep(
