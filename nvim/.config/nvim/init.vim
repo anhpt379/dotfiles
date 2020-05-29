@@ -118,9 +118,6 @@ set dictionary+=~/.config/nvim/dictionaries/hacker_news.txt
 " ansible-vim
 let g:ansible_attribute_highlight = 'ab'
 
-" far.vim
-let g:far#source = 'rgnvim'
-
 " More natural split opening
 set splitbelow
 set splitright
@@ -752,3 +749,22 @@ augroup BWCCreateDir
   autocmd!
   autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
 augroup end
+
+" Far.vim {{{
+let g:far#window_layout = 'tab'
+let g:far#preview_window_height = '15'
+let g:far#enable_undo = 1
+let g:far#default_file_mask = '*'
+let g:far#source = 'rgnvim'
+
+" Fix `q` quit far doesn't work properly
+let g:far#mapping = {
+  \ "quit" : ""
+  \ }
+
+" Far search and replace with dir completion
+command! -complete=dir -nargs=+ -range=-1 Fr
+    \   call Far(<count>,<line1>,<line2>,<q-args>)
+
+" }}}
+
