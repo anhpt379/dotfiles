@@ -528,11 +528,6 @@ nnoremap S i<CR><ESC>:StripWhitespace<CR>
 vnoremap == gw
 nnoremap == Vgw
 
-" Since I never use the ; key anyway, this is a real optimization for almost
-" all Vim commands, as I don't have to press the Shift key to form chords to
-" enter ex mode
-nnoremap ; :
-
 " These are to cancel the default behavior of d, D, c, C, s to put the text they
 " delete in the default register
 " Note that this means e.g. "ad won't copy the text into register a anymore,
