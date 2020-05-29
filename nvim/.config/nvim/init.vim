@@ -386,7 +386,7 @@ highlight NonText guifg=bg
 let g:fzf_command_prefix = 'Fzf'
 let g:fzf_buffers_jump = 1
 let g:fzf_layout = { 'window': 'enew' }
-let g:fzf_commits_log_options = '-5000 --color=always --format="%C(auto)%h%d %C(blue)%aN%C(reset) %s (%cr)"'
+let g:fzf_commits_log_options = '-5000 --no-merges --color=always --format="%C(auto)%h%d %C(blue)%aN%C(reset) %s (%cr)"'
 
 command! -complete=dir -bang -nargs=* FzfRg
   \ call fzf#vim#grep(
