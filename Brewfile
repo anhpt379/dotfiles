@@ -10,6 +10,7 @@ brew 'bash'
 brew 'bat'
 brew 'coreutils'
 brew 'https://raw.githubusercontent.com/cloudflare/homebrew-cloudflare/master/curl.rb', args: ['HEAD', 'build-from-source']
+brwe 'diff-so-fancy'
 brew 'exa'
 brew 'fd'
 brew 'fish'
