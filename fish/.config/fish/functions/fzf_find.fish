@@ -3,7 +3,7 @@ function fzf_find -d "Find files and folders"
     set -l dir $commandline[1]
     set -l fzf_query $commandline[2]
 
-    set -l result (fd --hidden --exclude '.git' . $dir | devicon-lookup | fzf --expect=enter --bind=tab:accept --query "$fzf_query")
+    set -l result (fd --hidden --exclude '.git' . $dir | devicon-lookup | fzf --expect=enter --header=":: Press Tab to accept suggestion, Enter to accept suggestion and run." --bind=tab:accept --query "$fzf_query")
 
     if test -z "$result"
         commandline -f repaint

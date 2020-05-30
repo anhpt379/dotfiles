@@ -395,7 +395,7 @@ command! -complete=dir -bang -nargs=* FzfRg
 
 " Fzf + devicons
 function! Fzf_files_with_dev_icons(command)
-  let l:fzf_files_options = '--expect=ctrl-v --header ":: Press CTRL-V to open in a vertical split, Enter to open in a new buffer" --preview "bat --color=always --style=numbers {2..} | head -'.&lines.'"'
+  let l:fzf_files_options = '--expect=ctrl-v --header ":: Press CTRL-V to open in a vertical split, Enter to open in a new buffer." --preview "bat --color=always --style=numbers {2..} | head -'.&lines.'"'
 
   function! s:edit_devicon_prepended_file(lines)
     if len(a:lines) < 2
