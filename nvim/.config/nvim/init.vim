@@ -453,6 +453,7 @@ augroup fugitive-personal-key-mappings
   " Verbose and quiet git commit by default
   autocmd FileType fugitive nmap <buffer> cc :vertical Git commit -v --quiet<CR>
   autocmd FileType fugitive nmap <buffer> ca :vertical Git commit -v --amend --quiet<CR>
+  autocmd FileType fugitive nmap <buffer> ce :Git commit --amend --no-edit --quiet<CR>
 
   " Easier to reach -= keys
   autocmd FileType fugitive map <buffer> <nowait> d =
