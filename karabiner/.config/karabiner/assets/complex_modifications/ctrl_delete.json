@@ -1,5 +1,5 @@
 {
-  "title": "Forward delete with Ctrl+Delete",
+  "title": "Forward delete with ctrl+delete",
   "rules": [
     {
       "description": "Map ctrl+delete to delete_forward",

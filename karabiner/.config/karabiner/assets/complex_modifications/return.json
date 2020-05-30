@@ -1,8 +1,8 @@
 {
-  "title": "Hold Enter to simulate Control key",
+  "title": "An additional control key",
   "rules": [
     {
-      "description": "Change Enter to Control if press and hold",
+      "description": "Map enter to control if pressed with other keys",
       "manipulators": [
         {
           "type": "basic",
@@ -16,7 +16,7 @@
           },
           "to": [
             {
-              "key_code": "left_control"
+              "key_code": "right_control"
             }
           ],
           "to_if_alone": [

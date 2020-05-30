@@ -16,6 +16,30 @@
         },
         "rules": [
           {
+            "description": "Map enter to control if pressed with other keys",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "return_or_enter",
+                  "modifiers": {
+                    "optional": ["any"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "right_control"
+                  }
+                ],
+                "to_if_alone": [
+                  {
+                    "key_code": "return_or_enter"
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
             "description": "Map caps_lock to control if pressed with other keys, to escape if pressed alone",
             "manipulators": [
               {
@@ -27,12 +51,65 @@
                 },
                 "to": [
                   {
-                    "key_code": "left_control"
+                    "key_code": "right_control"
                   }
                 ],
                 "to_if_alone": [
                   {
                     "key_code": "escape"
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Map ctrl+p/ctrl+n to arrow up/down",
+            "manipulators": [
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  }
+                ],
+                "from": {
+                  "key_code": "p",
+                  "modifiers": {
+                    "mandatory": ["control"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "up_arrow"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  }
+                ],
+                "from": {
+                  "key_code": "n",
+                  "modifiers": {
+                    "mandatory": ["control"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "down_arrow"
                   }
                 ],
                 "type": "basic"
@@ -46,7 +123,7 @@
                 "from": {
                   "key_code": "h",
                   "modifiers": {
-                    "mandatory": ["control"],
+                    "mandatory": ["right_control"],
                     "optional": ["any"]
                   }
                 },
@@ -61,7 +138,7 @@
                 "from": {
                   "key_code": "j",
                   "modifiers": {
-                    "mandatory": ["control"],
+                    "mandatory": ["right_control"],
                     "optional": ["any"]
                   }
                 },
@@ -76,7 +153,7 @@
                 "from": {
                   "key_code": "k",
                   "modifiers": {
-                    "mandatory": ["control"],
+                    "mandatory": ["right_control"],
                     "optional": ["any"]
                   }
                 },
@@ -91,7 +168,7 @@
                 "from": {
                   "key_code": "l",
                   "modifiers": {
-                    "mandatory": ["control"],
+                    "mandatory": ["right_control"],
                     "optional": ["any"]
                   }
                 },
@@ -174,7 +251,7 @@
             ]
           },
           {
-            "description": "Map cmd+h/j/k/l to fn+left/down/up/right (home/page_down/page_up/end)",
+            "description": "Map command+h/j/k/l to fn+left/down/up/right (home/page_down/page_up/end)",
             "manipulators": [
               {
                 "from": {
@@ -243,6 +320,42 @@
             ]
           },
           {
+            "description": "Map left_ctrl+h/l to delete and forward_delete",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "h",
+                  "modifiers": {
+                    "mandatory": ["left_control"],
+                    "optional": ["any"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "delete_or_backspace"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "l",
+                  "modifiers": {
+                    "mandatory": ["left_control"],
+                    "optional": ["any"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "delete_or_backspace",
+                    "modifiers": ["fn"]
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
             "description": "Map ctrl+delete to delete_forward",
             "manipulators": [
               {
@@ -256,59 +369,6 @@
                 "to": [
                   {
                     "key_code": "delete_forward"
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "Map ctrl+p/ctrl+n to arrow up/down",
-            "manipulators": [
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": [
-                      "^net\\.kovidgoyal\\.kitty$",
-                      "^com\\.apple\\.Terminal$",
-                      "^com\\.googlecode\\.iterm2$"
-                    ],
-                    "type": "frontmost_application_unless"
-                  }
-                ],
-                "from": {
-                  "key_code": "p",
-                  "modifiers": {
-                    "mandatory": ["control"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "up_arrow"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": [
-                      "^net\\.kovidgoyal\\.kitty$",
-                      "^com\\.apple\\.Terminal$",
-                      "^com\\.googlecode\\.iterm2$"
-                    ],
-                    "type": "frontmost_application_unless"
-                  }
-                ],
-                "from": {
-                  "key_code": "n",
-                  "modifiers": {
-                    "mandatory": ["control"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "down_arrow"
                   }
                 ],
                 "type": "basic"
@@ -344,30 +404,6 @@
                   {
                     "key_code": "semicolon",
                     "modifiers": ["left_shift"]
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "Change Enter to Control if press and hold",
-            "manipulators": [
-              {
-                "from": {
-                  "key_code": "return_or_enter",
-                  "modifiers": {
-                    "optional": ["any"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "left_control"
-                  }
-                ],
-                "to_if_alone": [
-                  {
-                    "key_code": "return_or_enter"
                   }
                 ],
                 "type": "basic"
