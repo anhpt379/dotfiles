@@ -394,7 +394,7 @@ command! -complete=dir -bang -nargs=* FzfRg
   \   fzf#vim#with_preview({'options': ['--no-multi', '--layout=reverse']}), <bang>0)
 
 " Fzf + devicons
-function! Fzf_files_with_dev_icons(command)
+function! FzfFilesDevicons()
   let l:fzf_files_options = '--expect=ctrl-v --header ":: Press CTRL-V to open in a vertical split, Enter to open in a new buffer." --preview "bat --color=always --style=numbers {2..} | head -'.&lines.'"'
 
   function! s:edit_devicon_prepended_file(lines)
@@ -412,14 +412,14 @@ function! Fzf_files_with_dev_icons(command)
   endfunction
 
   call fzf#run({
-    \ 'source': a:command.' | devicon-lookup',
+    \ 'source': $FZF_DEFAULT_COMMAND.' | devicon-lookup',
     \ 'sink*': function('s:edit_devicon_prepended_file'),
     \ 'options': l:fzf_files_options
     \ })
 endfunction
 
 noremap <Leader>g :FzfRg<Space>
-noremap <Leader>f :call Fzf_files_with_dev_icons($FZF_DEFAULT_COMMAND)<CR>
+noremap <Leader>f :call FzfFilesDevicons()<CR>
 noremap <Leader>l :FzfLines<CR>
 noremap <Leader>c :FzfCommits<CR>
 " }}}
