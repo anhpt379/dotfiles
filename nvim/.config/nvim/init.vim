@@ -625,6 +625,7 @@ nmap <Leader>s :Startify<CR>
 
 let g:startify_change_to_dir = 0
 let g:startify_fortune_use_unicode = 1
+let g:startify_enable_special = 0
 
 let g:startify_lists = [
   \ { 'header': ['   MRU '. getcwd()], 'type': 'dir' },
