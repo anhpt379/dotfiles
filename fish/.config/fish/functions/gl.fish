@@ -5,11 +5,11 @@ function gl --description "Git browse commits"
 
     set open_in_browser "$log_line_to_hash | xargs -I % sh -c 'open https://\$(git config remote.origin.url | sed \'s/^git@//\' | sed \'s/\.git\$//\' | sed \'s/:/\//\')/commit/%'"
 
-    git log --color=always --format='%C(auto)%h%d %s %C(green)%C(bold)%cr% C(blue)%an' | \
+    git log -5000 --no-merges --color=always --format="%C(auto)%h%d %C(reset)%s %C(#555555)(%aN - %cr)" | \
         fzf --no-sort --reverse --tiebreak=index --no-multi --ansi --height=100% \
             --preview="$view_commit" \
-            --header="ENTER to view, CTRL-C to copy hash, CTRL-O to open in browser, ESC to exit" \
+            --header="ENTER to view, CTRL-Y to copy hash, CTRL-O to open in browser, ESC to exit" \
             --bind "enter:execute:$view_commit" \
-            --bind "ctrl-c:execute-silent($copy_commit_hash)+abort" \
+            --bind "ctrl-y:execute-silent($copy_commit_hash)+abort" \
             --bind "ctrl-o:execute-silent($open_in_browser)+abort"
 end
