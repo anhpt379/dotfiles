@@ -395,16 +395,25 @@ command! -complete=dir -bang -nargs=* FzfRg
 
 " Fzf + devicons
 function! Fzf_files_with_dev_icons(command)
-  let l:fzf_files_options = '--preview "bat --color=always --style=numbers {2..} | head -'.&lines.'"'
+  let l:fzf_files_options = '--expect=ctrl-v --header ":: Press CTRL-V to open in a vertical split, Enter to open in a new buffer" --preview "bat --color=always --style=numbers {2..} | head -'.&lines.'"'
 
-  function! s:edit_devicon_prepended_file(item)
-    let l:file_path = a:item[4:-1]
-    execute 'silent e' l:file_path
+  function! s:edit_devicon_prepended_file(lines)
+    if len(a:lines) < 2
+      return
+    endif
+
+    let l:file_path = a:lines[1][4:-1]
+
+    if a:lines[0] == 'ctrl-v'
+      execute 'silent vsplit' l:file_path
+    else
+      execute 'silent e' l:file_path
+    endif
   endfunction
 
   call fzf#run({
     \ 'source': a:command.' | devicon-lookup',
-    \ 'sink':   function('s:edit_devicon_prepended_file'),
+    \ 'sink*': function('s:edit_devicon_prepended_file'),
     \ 'options': l:fzf_files_options
     \ })
 endfunction
