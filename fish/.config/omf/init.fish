@@ -6,7 +6,6 @@ balias kc 'kubectx'
 
 balias g        'git'
 balias gs       'git status'
-balias gl       'tig'
 balias push     'git push origin'
 balias pull     'git pull --rebase origin'
 balias fetch    'git fetch origin'
