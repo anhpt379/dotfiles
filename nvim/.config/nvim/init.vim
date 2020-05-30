@@ -446,12 +446,16 @@ noremap gl :FzfBCommits<CR>
 noremap gw :w<CR>:Gwrite<CR>
 noremap gc :Gwrite<CR>:vertical Gcommit -v<CR>
 
-augroup fugitive-push
+augroup fugitive-personal-key-mappings
   autocmd FileType fugitive nmap <buffer> p :silent! call CloseGstatus()<CR>:Dispatch! noti git push origin HEAD --force-with-lease<CR>
 
   " Verbose and quiet git commit by default
   autocmd FileType fugitive nmap <buffer> cc :vertical Git commit -v --quiet<CR>
   autocmd FileType fugitive nmap <buffer> ca :vertical Git commit -v --amend --quiet<CR>
+
+  " Easier to reach -= keys
+  autocmd FileType fugitive nmap <buffer> <nowait> d =
+  autocmd FileType fugitive nmap <buffer> <nowait> t -
 augroup end
 
 " Close git-messenger popup with <Esc>
