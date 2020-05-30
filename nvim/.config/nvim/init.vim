@@ -454,8 +454,8 @@ augroup fugitive-personal-key-mappings
   autocmd FileType fugitive nmap <buffer> ca :vertical Git commit -v --amend --quiet<CR>
 
   " Easier to reach -= keys
-  autocmd FileType fugitive nmap <buffer> <nowait> d =
-  autocmd FileType fugitive nmap <buffer> <nowait> t -
+  autocmd FileType fugitive map <buffer> <nowait> d =
+  autocmd FileType fugitive map <buffer> <nowait> t -
 augroup end
 
 " Close git-messenger popup with <Esc>
