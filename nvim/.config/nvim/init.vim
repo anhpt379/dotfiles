@@ -418,18 +418,10 @@ function! Fzf_files_with_dev_icons(command)
     \ })
 endfunction
 
-function! CloseGstatus()
-  for l:winnr in range(1, winnr('$'))
-    if !empty(getwinvar(l:winnr, 'fugitive_status'))
-      execute l:winnr.'close'
-    endif
-  endfor
-endfunction
-
-noremap <Leader>g :silent! call CloseGstatus()<CR>:FzfRg<Space>
-noremap <Leader>f :silent! call CloseGstatus()<CR>:call Fzf_files_with_dev_icons($FZF_DEFAULT_COMMAND)<CR>
-noremap <Leader>l :silent! call CloseGstatus()<CR>:FzfLines<CR>
-noremap <Leader>c :silent! call CloseGstatus()<CR>:FzfCommits<CR>
+noremap <Leader>g :FzfRg<Space>
+noremap <Leader>f :call Fzf_files_with_dev_icons($FZF_DEFAULT_COMMAND)<CR>
+noremap <Leader>l :FzfLines<CR>
+noremap <Leader>c :FzfCommits<CR>
 " }}}
 
 " Hybrid line numbers
@@ -456,7 +448,7 @@ noremap gw :w<CR>:Gwrite<CR>
 noremap gc :Gwrite<CR>:vertical Gcommit -v<CR>
 
 augroup fugitive-personal-key-mappings
-  autocmd FileType fugitive nmap <buffer> p :silent! call CloseGstatus()<CR>:Dispatch! noti git push origin HEAD --force-with-lease<CR>
+  autocmd FileType fugitive nmap <buffer> p :bd!<CR>:Dispatch! noti git push origin HEAD --force-with-lease<CR>
 
   " Verbose and quiet git commit by default
   autocmd FileType fugitive nmap <buffer> cc :vertical Git commit -v --quiet<CR>
