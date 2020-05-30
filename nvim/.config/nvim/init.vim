@@ -410,11 +410,11 @@ function! Fzf_files_with_dev_icons(command)
 endfunction
 
 function! CloseGstatus()
-	for l:winnr in range(1, winnr('$'))
-		if !empty(getwinvar(l:winnr, 'fugitive_status'))
-			execute l:winnr.'close'
-		endif
-	endfor
+  for l:winnr in range(1, winnr('$'))
+    if !empty(getwinvar(l:winnr, 'fugitive_status'))
+      execute l:winnr.'close'
+    endif
+  endfor
 endfunction
 
 noremap <Leader>g :silent! call CloseGstatus()<CR>:FzfRg<Space>
