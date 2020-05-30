@@ -569,10 +569,12 @@ let g:anyfold_fold_display = 0
 let g:anyfold_fold_comments = 1
 highlight Folded term=NONE cterm=NONE guibg=#333843
 
-augroup anyfold
-  autocmd!
-  autocmd Filetype * AnyFoldActivate
-augroup end
+function! ActiveAnyFold()
+  if &ft =~ 'fugitive\|startify'
+    return
+  endif
+  AnyFoldActivate
+endfun
 
 " Disable continuation of comments to the next line in Vim
 augroup format-options
@@ -679,10 +681,12 @@ let g:better_whitespace_operator = ''
 nnoremap ]w :NextTrailingWhitespace<CR>
 nnoremap [w :PrevTrailingWhitespace<CR>
 
-autocmd FileType fugitive DisableWhitespace
-autocmd FileType startify DisableWhitespace
-autocmd FileType far DisableWhitespace
-autocmd FileType git DisableWhitespace
+function! DisableWhitespace()
+  if &ft =~ 'fugitive\|startify\|far\|git'
+    DisableWhitespace
+  endif
+endfunction
+autocmd FileType * call DisableWhitespace()
 
 " vim-gh-line
 let g:gh_gitlab_domain = "gitlab.booking.com"
