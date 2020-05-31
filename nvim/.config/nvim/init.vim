@@ -418,8 +418,17 @@ function! FzfFilesDevicons()
     \ })
 endfunction
 
-noremap <Leader>g :FzfRg<Space>
-noremap <Leader>f :call FzfFilesDevicons()<CR>
+function! s:close_gstatus()
+  for l:winnr in range(1, winnr('$'))
+    if !empty(getwinvar(l:winnr, 'fugitive_status'))
+      execute l:winnr.'close'
+    endif
+  endfor
+endfunction
+command! GstatusClose call s:close_gstatus()
+
+noremap <Leader>g :GstatusClose<CR>:FzfRg<Space>
+noremap <Leader>f :GstatusClose<CR>:call FzfFilesDevicons()<CR>
 noremap <Leader>l :FzfLines<CR>
 " }}}
 
