@@ -758,8 +758,8 @@ endfunction
 nnoremap 0 :call ToggleHomeZero()<CR>
 
 " Easier change list jumps
-nnoremap cp g;
-nnoremap cn g,
+nnoremap <Leader>o g;
+nnoremap <Leader>i g,
 
 " Switch between 2 buffers
 noremap <Leader><Tab> <C-^>
