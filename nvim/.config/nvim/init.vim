@@ -460,6 +460,11 @@ augroup fugitive-personal-key-mappings
   autocmd FileType fugitive map <buffer> <nowait> t -
 augroup end
 
+augroup fugitive-auto-insert
+  autocmd!
+  autocmd BufEnter COMMIT_EDITMSG startinsert
+augroup end
+
 " Close git-messenger popup with <Esc>
 augroup git-messenger
   autocmd FileType gitmessengerpopup nmap <buffer> <Esc> q
