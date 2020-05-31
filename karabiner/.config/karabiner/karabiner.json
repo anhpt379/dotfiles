@@ -483,6 +483,14 @@
       "simple_modifications": [
         {
           "from": {
+            "key_code": "up_arrow"
+          },
+          "to": {
+            "key_code": "vk_none"
+          }
+        },
+        {
+          "from": {
             "key_code": "down_arrow"
           },
           "to": {
@@ -507,10 +515,10 @@
         },
         {
           "from": {
-            "key_code": "up_arrow"
+            "key_code": "right_command"
           },
           "to": {
-            "key_code": "vk_none"
+            "key_code": "right_shift"
           }
         },
         {
@@ -523,10 +531,10 @@
         },
         {
           "from": {
-            "key_code": "right_command"
+            "key_code": "delete_or_backspace"
           },
           "to": {
-            "key_code": "right_shift"
+            "key_code": "vk_none"
           }
         }
       ],
