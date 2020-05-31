@@ -12,10 +12,11 @@ function gl --description "Git browse commits"
       --format="%C(auto)%h %C(reset)%s %C(#555555)%b(%aN - %cr)" \
       | tr '\n' ' ' \
       | sed -E 's/[a-f0-9]{7,}+/\\n&/2g' \
-      | fzf --no-sort --reverse --tiebreak=index --no-multi --ansi --height=100% \
+      | fzf --reverse --tiebreak=index --no-multi --ansi --height=100% \
             --preview="$preview_commit" \
-            --header="ENTER to view, CTRL-Y to copy hash, CTRL-O to open in browser, ESC to exit" \
-            --bind "enter:execute:$view_commit" \
-            --bind "ctrl-y:execute-silent($copy_commit_hash)+abort" \
-            --bind "ctrl-o:execute-silent($open_in_browser)+abort"
+            --header="CTRL-S to toggle sort, CTRL-Y to copy hash, CTRL-O to open in browser" \
+            --bind="enter:execute:$view_commit" \
+            --bind="ctrl-y:execute-silent($copy_commit_hash)+abort" \
+            --bind="ctrl-o:execute-silent($open_in_browser)+abort" \
+            --bind="ctrl-s:toggle-sort"
 end
