@@ -14,7 +14,7 @@ function gl --description "Git browse commits"
       | sed -E 's/[a-f0-9]{7,}+/\\n&/2g' \
       | fzf --reverse --tiebreak=index --no-multi --ansi --height=100% \
             --preview="$preview_commit" \
-            --header="CTRL-S to toggle sort, CTRL-Y to copy hash, CTRL-O to open in browser" \
+            --header=" CTRL-S to toggle sort, CTRL-Y to copy hash, CTRL-O to open in browser" \
             --bind="enter:execute:$view_commit" \
             --bind="ctrl-y:execute-silent($copy_commit_hash)+abort" \
             --bind="ctrl-o:execute-silent($open_in_browser)+abort" \
