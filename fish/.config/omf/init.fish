@@ -62,6 +62,7 @@ set -gx PATH $PATH $HOME/.krew/bin
 
 set -gx PATH $HOME/Library/Python/3.7/bin $PATH
 set -gx PATH $HOME/.cargo/bin $PATH
+set -gx PATH '/usr/local/opt/gnu-sed/libexec/gnubin' $PATH
 set -gx fish_user_paths '/usr/local/opt/curl/bin' $fish_user_paths
 
 # Hide the fish greeting
