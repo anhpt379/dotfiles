@@ -451,6 +451,7 @@ augroup fugitive-personal-key-mappings
   autocmd FileType fugitive nmap <buffer> p :bd!<CR>:Dispatch! noti git push origin HEAD --force-with-lease<CR>
 
   " Verbose and quiet git commit by default
+  autocmd FileType fugitive nmap <buffer> C :vertical Git commit -v --quiet<CR>
   autocmd FileType fugitive nmap <buffer> cc :vertical Git commit -v --quiet<CR>
   autocmd FileType fugitive nmap <buffer> ca :vertical Git commit -v --amend --quiet<CR>
   autocmd FileType fugitive nmap <buffer> ce :Git commit --amend --no-edit --quiet<CR>
