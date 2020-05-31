@@ -320,42 +320,6 @@
             ]
           },
           {
-            "description": "Map left_ctrl+h/l to delete and forward_delete",
-            "manipulators": [
-              {
-                "from": {
-                  "key_code": "h",
-                  "modifiers": {
-                    "mandatory": ["left_control"],
-                    "optional": ["any"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "delete_or_backspace"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "from": {
-                  "key_code": "l",
-                  "modifiers": {
-                    "mandatory": ["left_control"],
-                    "optional": ["any"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "delete_or_backspace",
-                    "modifiers": ["fn"]
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
             "description": "Map ctrl+delete to delete_forward",
             "manipulators": [
               {
@@ -547,6 +511,22 @@
           },
           "to": {
             "key_code": "vk_none"
+          }
+        },
+        {
+          "from": {
+            "key_code": "right_shift"
+          },
+          "to": {
+            "key_code": "delete_or_backspace"
+          }
+        },
+        {
+          "from": {
+            "key_code": "right_command"
+          },
+          "to": {
+            "key_code": "right_shift"
           }
         }
       ],
