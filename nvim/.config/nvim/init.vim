@@ -421,7 +421,6 @@ endfunction
 noremap <Leader>g :FzfRg<Space>
 noremap <Leader>f :call FzfFilesDevicons()<CR>
 noremap <Leader>l :FzfLines<CR>
-noremap <Leader>c :FzfCommits<CR>
 " }}}
 
 " Hybrid line numbers
@@ -444,6 +443,7 @@ noremap gm :GitMessenger<CR>
 noremap gb :Gblame<CR>
 noremap gs :tab Gstatus<CR>gg4j
 noremap gl :FzfBCommits<CR>
+noremap gL :FzfCommits<CR>
 noremap gw :w<CR>:Gwrite<CR>
 noremap gc :Gwrite<CR>:vertical Gcommit -v<CR>
 
