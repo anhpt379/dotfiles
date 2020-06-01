@@ -32,3 +32,24 @@ class fzf_select(Command):
                 self.fm.cd(fzf_file)
             else:
                 self.fm.select_file(fzf_file)
+
+
+class add_file(Command):
+    def execute(self):
+        import subprocess
+        import os.path
+
+        fname = self.arg(1)
+
+        os.makedirs(os.path.dirname(fname))
+
+        if os.path.exists(fname):
+            os.utime(fname, None)
+        else:
+            open(fname, 'a').close()
+
+        self.fm.select_file(fname)
+
+    def tab(self, tabnum):
+        return self._tab_directory_content()
+
