@@ -470,7 +470,7 @@ augroup fugitive-personal-key-mappings
 
   " Easier to reach -= keys
   autocmd FileType fugitive map <buffer> <nowait> d =
-  autocmd FileType fugitive map <buffer> <nowait> t -
+  autocmd FileType fugitive map <buffer> <nowait> a -
 augroup end
 
 augroup fugitive-auto-insert
