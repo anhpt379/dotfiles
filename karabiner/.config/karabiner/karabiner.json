@@ -117,13 +117,13 @@
             ]
           },
           {
-            "description": "Map right_control+h/j/k/l to arrow left/down/up/right",
+            "description": "Map control+h/j/k/l to arrow left/down/up/right",
             "manipulators": [
               {
                 "from": {
                   "key_code": "h",
                   "modifiers": {
-                    "mandatory": ["right_control"],
+                    "mandatory": ["control"],
                     "optional": ["shift"]
                   }
                 },
@@ -138,7 +138,7 @@
                 "from": {
                   "key_code": "j",
                   "modifiers": {
-                    "mandatory": ["right_control"],
+                    "mandatory": ["control"],
                     "optional": ["shift"]
                   }
                 },
@@ -153,7 +153,7 @@
                 "from": {
                   "key_code": "k",
                   "modifiers": {
-                    "mandatory": ["right_control"],
+                    "mandatory": ["control"],
                     "optional": ["shift"]
                   }
                 },
@@ -168,7 +168,7 @@
                 "from": {
                   "key_code": "l",
                   "modifiers": {
-                    "mandatory": ["right_control"],
+                    "mandatory": ["control"],
                     "optional": ["shift"]
                   }
                 },
@@ -251,13 +251,13 @@
             ]
           },
           {
-            "description": "Map left_control+h/j/k/l to fn+left/down/up/right (home/page_down/page_up/end)",
+            "description": "Map command+h/j/k/l to fn+left/down/up/right (home/page_down/page_up/end)",
             "manipulators": [
               {
                 "from": {
                   "key_code": "h",
                   "modifiers": {
-                    "mandatory": ["left_control"],
+                    "mandatory": ["command"],
                     "optional": ["shift"]
                   }
                 },
@@ -273,7 +273,7 @@
                 "from": {
                   "key_code": "j",
                   "modifiers": {
-                    "mandatory": ["left_control"],
+                    "mandatory": ["command"],
                     "optional": ["shift"]
                   }
                 },
@@ -289,7 +289,7 @@
                 "from": {
                   "key_code": "k",
                   "modifiers": {
-                    "mandatory": ["left_control"],
+                    "mandatory": ["command"],
                     "optional": ["shift"]
                   }
                 },
@@ -305,7 +305,7 @@
                 "from": {
                   "key_code": "l",
                   "modifiers": {
-                    "mandatory": ["left_control"],
+                    "mandatory": ["command"],
                     "optional": ["shift"]
                   }
                 },
@@ -320,97 +320,19 @@
             ]
           },
           {
-            "description": "Map command+h/l to character-level delete and delete_forward",
+            "description": "Map control+delete to delete_forward",
             "manipulators": [
               {
                 "from": {
-                  "key_code": "h",
+                  "key_code": "delete_or_backspace",
                   "modifiers": {
-                    "mandatory": ["command"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "delete_or_backspace"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "from": {
-                  "key_code": "l",
-                  "modifiers": {
-                    "mandatory": ["command"]
+                    "mandatory": ["control"],
+                    "optional": ["any"]
                   }
                 },
                 "to": [
                   {
                     "key_code": "delete_forward"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "from": {
-                  "key_code": "h",
-                  "modifiers": {
-                    "mandatory": ["command", "shift"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "delete_or_backspace",
-                    "modifiers": ["option"]
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "from": {
-                  "key_code": "l",
-                  "modifiers": {
-                    "mandatory": ["command", "shift"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "delete_forward",
-                    "modifiers": ["option"]
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "Map command+right_control+h/l to word-level delete and delete_forward",
-            "manipulators": [
-              {
-                "from": {
-                  "key_code": "h",
-                  "modifiers": {
-                    "mandatory": ["command", "right_control"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "delete_or_backspace",
-                    "modifiers": ["option"]
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "from": {
-                  "key_code": "l",
-                  "modifiers": {
-                    "mandatory": ["command", "right_control"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "delete_forward",
-                    "modifiers": ["option"]
                   }
                 ],
                 "type": "basic"
@@ -551,6 +473,22 @@
         {
           "from": {
             "key_code": "right_arrow"
+          },
+          "to": {
+            "key_code": "vk_none"
+          }
+        },
+        {
+          "from": {
+            "key_code": "right_command"
+          },
+          "to": {
+            "key_code": "delete_or_backspace"
+          }
+        },
+        {
+          "from": {
+            "key_code": "delete_or_backspace"
           },
           "to": {
             "key_code": "vk_none"
