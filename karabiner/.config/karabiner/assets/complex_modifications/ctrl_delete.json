@@ -1,8 +1,8 @@
 {
-  "title": "Forward delete with ctrl+delete",
+  "title": "Forward delete with control+delete",
   "rules": [
     {
-      "description": "Map ctrl+delete to delete_forward",
+      "description": "Map control+delete to delete_forward",
       "manipulators": [
         {
           "type": "basic",

@@ -1,8 +1,8 @@
 {
-  "title": "Change ctrl+p/ctrl+n to arrow up/down",
+  "title": "Change control+p/control+n to arrow up/down",
   "rules": [
     {
-      "description": "Map ctrl+p/ctrl+n to arrow up/down",
+      "description": "Map control+p/control+n to arrow up/down",
       "manipulators": [
         {
           "type": "basic",

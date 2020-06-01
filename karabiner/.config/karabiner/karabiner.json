@@ -64,7 +64,7 @@
             ]
           },
           {
-            "description": "Map ctrl+p/ctrl+n to arrow up/down",
+            "description": "Map control+p/control+n to arrow up/down",
             "manipulators": [
               {
                 "conditions": [
@@ -320,7 +320,7 @@
             ]
           },
           {
-            "description": "Map ctrl+delete to delete_forward",
+            "description": "Map control+delete to delete_forward",
             "manipulators": [
               {
                 "from": {
