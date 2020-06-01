@@ -465,6 +465,9 @@ augroup fugitive-personal-key-mappings
   autocmd FileType fugitive nmap <buffer> ca :vertical Git commit -v --amend --quiet<CR>
   autocmd FileType fugitive nmap <buffer> ce :Git commit --amend --no-edit --quiet<CR>
 
+  " gw in gitcommit to save and close
+  autocmd FileType gitcommit nmap <buffer> gw :x<CR>
+
   " Easier to reach -= keys
   autocmd FileType fugitive map <buffer> <nowait> d =
   autocmd FileType fugitive map <buffer> <nowait> t -
