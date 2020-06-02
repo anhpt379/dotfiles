@@ -9,6 +9,6 @@ if [[ -d $path ]]; then
   exa --color always -la --group-directories-first "$path"
 elif [[ -f $path ]]; then
   # preview file contents with `bat`
-  bat --color always --paging never "$path"
+  bat --color always --paging never --line-range :300 "$path"
 fi
 
