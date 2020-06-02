@@ -493,6 +493,14 @@
           "to": {
             "key_code": "vk_none"
           }
+        },
+        {
+          "from": {
+            "key_code": "right_option"
+          },
+          "to": {
+            "key_code": "delete_or_backspace"
+          }
         }
       ],
       "virtual_hid_keyboard": {
