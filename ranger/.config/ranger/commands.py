@@ -14,8 +14,10 @@ class fzf_select(Command):
         import subprocess
         import os.path
 
-        current_path = os.path.basename(self.fm.thisfile.path)
-        command="fd --no-ignore --hidden --exclude '.git' . " + current_path + " | fzf --height=100%"
+        # current_path = os.path.basename(self.fm.thisfile.path)
+        # command="fd --no-ignore --hidden --exclude '.git' . " + current_path + " | fzf --height=100%"
+
+        command="fd --no-ignore --hidden --exclude '.git' . | fzf --height=100%"
 
         # if self.quantifier:
         #     # match only directories
@@ -72,8 +74,7 @@ class fzf_ripgrep(Command):
         import os.path
         from ranger.container.file import File
 
-        current_path = self.fm.thisfile.path
-        command="rg --smart-case --hidden --glob '!.git' '%s' %s | fzf | awk -F':' '{print $1}'" % (search_string, current_path)
+        command="rg --smart-case --hidden --glob '!.git' '%s' | fzf | awk -F':' '{print $1}'" % (search_string)
         fzf = self.fm.execute_command(command, universal_newlines=True, stdout=subprocess.PIPE)
         stdout, stderr = fzf.communicate()
         if fzf.returncode == 0:
