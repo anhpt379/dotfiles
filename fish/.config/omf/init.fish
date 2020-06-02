@@ -54,7 +54,7 @@ balias r 'ranger'
 balias v 'vim'
 
 # key bindings
-bind \cg accept-autosuggestion execute
+bind \ce accept-autosuggestion execute
 
 set -x GOROOT /usr/local/opt/go/libexec
 set -x GOPATH $HOME/.go
