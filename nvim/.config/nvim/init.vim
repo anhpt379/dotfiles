@@ -622,8 +622,7 @@ function! CloseBuffer()
   endfor
 
   if cnt <= 1
-    bd!
-    Startify
+    q!
   else
     bd!
   endif
