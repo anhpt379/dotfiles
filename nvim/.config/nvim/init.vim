@@ -61,7 +61,7 @@ call plug#begin()
   Plug 'rhysd/conflict-marker.vim'
   Plug 'machakann/vim-highlightedyank'
   Plug 'breuckelen/vim-resize'
-  Plug 'francoiscabrol/ranger.vim'
+  Plug 'ptzz/lf.vim'
   Plug 'rbgrouleff/bclose.vim'
   Plug 'roman/golden-ratio'
 
@@ -429,7 +429,6 @@ command! GstatusClose call s:close_gstatus()
 
 noremap <Leader>g :GstatusClose<CR>:FzfRg<Space>
 noremap <Leader>f :GstatusClose<CR>:call FzfFilesDevicons()<CR>
-noremap <Leader>l :FzfLines<CR>
 " }}}
 
 " Hybrid line numbers
@@ -775,10 +774,6 @@ nnoremap <Leader>i g,
 " Switch between 2 buffers
 noremap <Leader><Tab> <C-^>
 
-" Ranger
-let g:ranger_map_keys = 0
-map <leader>r :Ranger<CR>
-
 " Auto create dirs on save
 function s:MkNonExDir(file, buf)
   if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'
@@ -812,3 +807,6 @@ command! -complete=dir -nargs=+ -range=-1 Fr
 
 " }}}
 
+" Lf.vim
+let g:lf_map_keys = 0
+map <Leader>l :Lf<CR>

@@ -1,0 +1,119 @@
+# vim: set ft=conf
+
+set shell "bash"
+set shellopts '-eu'
+set ifs "\n"
+set scrolloff 5
+
+set drawbox on
+set dircounts on
+set hidden on
+set incsearch on
+
+set color256 on
+set icons on
+
+set ignorecase off
+
+set promptfmt "\033[34;1m%w/\033[0m\033[1m%f\033[0m"
+
+set previewer ~/.config/lf/preview.sh
+
+# Fzf integration
+cmd fzf_jump ${{
+  res="$(fd --no-ignore --hidden --exclude '.git' . | fzf --height=100% --reverse --header='Jump to location')"
+  if [ -f "$res" ]; then
+    cmd="select"
+  elif [ -d "$res" ]; then
+    cmd="cd"
+  fi
+  lf -remote "send $id $cmd \"$res\""
+}}
+map <c-f> :fzf_jump
+
+# define a custom 'open' command
+cmd open ${{
+    case $(file --mime-type $f -b) in
+        text/*) nvim $fx;;
+        */json) nvim $fx;;
+        *) for f in $fx; do qlmanage -p $f > /dev/null 2> /dev/null & disown; done;;
+    esac
+}}
+
+# extract the current file with the right command
+cmd extract ${{
+  set -f
+  case $f in
+    *.tar.bz|*.tar.bz2|*.tbz|*.tbz2) tar xjvf $f;;
+    *.tar.gz|*.tgz) tar xzvf $f;;
+    *.tar.xz|*.txz) tar xJvf $f;;
+    *.zip) unzip $f;;
+    *.rar) unrar x $f;;
+    *.7z) 7z x $f;;
+  esac
+}}
+
+# compress current file or selected files with tar and gunzip
+cmd tar ${{
+  set -f
+  mkdir $1
+  cp -r $fx $1
+  tar czf $1.tar.gz $1
+  rm -rf $1
+}}
+
+# compress current file or selected files with zip
+cmd zip ${{
+  set -f
+  mkdir $1
+  cp -r $fx $1
+  zip -r $1.zip $1
+  rm -rf $1
+}}
+
+# copy the path of the highlighted file
+cmd copy_path ${{
+  echo "$f" | tr -d '\n' | pbcopy
+}}
+
+# NERDTree-like add file
+cmd add_file %{{
+  for file_name in "$@"
+  do
+    mkdir -p "$(dirname $file_name)"
+    touch $file_name
+  done
+
+  echo "File created: $@"
+
+  lf -remote "send $id select \"$file_name\""
+}}
+
+cmd move_to %{{
+  for file_name in "$@"
+  do
+    mkdir -p "$(dirname $file_name)"
+    mv $f $file_name
+  done
+
+  echo "File moved: $@"
+
+  lf -remote "send $id select \"$file_name\""
+}}
+
+# open the lfrc, and source after saving
+cmd edit_config :{{
+  $$EDITOR ~/.config/lf/lfrc
+  source ~/.config/lf/lfrc
+}}
+
+# Basic Functions
+map <esc> unselect; clear
+map . set hidden!
+map d delete
+map y copy_path
+map o open $fx
+map <enter> open $fx
+map m push :move_to<space>
+map r push :rename<space>
+map a push :add_file<space>
