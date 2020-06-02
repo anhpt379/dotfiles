@@ -14,7 +14,8 @@ class fzf_select(Command):
         import subprocess
         import os.path
 
-        command="fd --no-ignore --hidden --exclude '.git' . | fzf"
+        current_path = os.path.basename(self.fm.thisfile.path)
+        command="fd --no-ignore --hidden --exclude '.git' . " + current_path + " | fzf --height=100%"
 
         # if self.quantifier:
         #     # match only directories
