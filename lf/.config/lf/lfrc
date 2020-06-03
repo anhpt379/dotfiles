@@ -74,6 +74,8 @@ cmd zip ${{
 # copy the path of the highlighted file
 cmd copy_path ${{
   echo "$f" | tr -d '\n' | pbcopy
+
+  echo "Path copied: $f"
 }}
 
 # NERDTree-like add file
