@@ -33,11 +33,11 @@ map <c-f> :fzf_jump
 
 # define a custom 'open' command
 cmd open ${{
-    case $(file --mime-type $f -b) in
-        text/*) nvim $fx;;
-        */json) nvim $fx;;
-        *) for f in $fx; do qlmanage -p $f > /dev/null 2> /dev/null & disown; done;;
-    esac
+  case $(file --mime-type $f -b) in
+    text/*) nvim $fx;;
+    */json) nvim $fx;;
+    *) for f in $fx; do qlmanage -p $f > /dev/null 2> /dev/null & disown; done;;
+  esac
 }}
 
 # extract the current file with the right command
