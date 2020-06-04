@@ -64,6 +64,7 @@ call plug#begin()
   Plug 'ptzz/lf.vim'
   Plug 'rbgrouleff/bclose.vim'
   Plug 'roman/golden-ratio'
+  Plug 'pechorin/any-jump.vim'
 
   " Improving editing experience
   Plug 'wellle/targets.vim'
@@ -811,3 +812,4 @@ command! -complete=dir -nargs=+ -range=-1 Fr
 let g:lf_map_keys = 0
 let g:lf_replace_netrw = 1
 map <Leader>l :Lf<CR>
+
