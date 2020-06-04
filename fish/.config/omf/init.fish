@@ -53,7 +53,7 @@ balias f 'fzf'
 balias v 'vim'
 
 # key bindings
-bind \cx accept-autosuggestion execute
+bind \cg accept-autosuggestion execute
 
 set -x GOROOT /usr/local/opt/go/libexec
 set -x GOPATH $HOME/.go
