@@ -2,14 +2,14 @@
   "title": "Cursor movements with HJKL",
   "rules": [
     {
-      "description": "Map control+h/j/k/l to arrow left/down/up/right",
+      "description": "Map command+h/j/k/l to arrow left/down/up/right",
       "manipulators": [
         {
           "type": "basic",
           "from": {
             "key_code": "h",
             "modifiers": {
-              "mandatory": ["control"],
+              "mandatory": ["command"],
               "optional": ["shift"]
             }
           },
@@ -24,7 +24,7 @@
           "from": {
             "key_code": "j",
             "modifiers": {
-              "mandatory": ["control"],
+              "mandatory": ["command"],
               "optional": ["shift"]
             }
           },
@@ -39,7 +39,7 @@
           "from": {
             "key_code": "k",
             "modifiers": {
-              "mandatory": ["control"],
+              "mandatory": ["command"],
               "optional": ["shift"]
             }
           },
@@ -54,7 +54,7 @@
           "from": {
             "key_code": "l",
             "modifiers": {
-              "mandatory": ["control"],
+              "mandatory": ["command"],
               "optional": ["shift"]
             }
           },
@@ -136,14 +136,14 @@
       ]
     },
     {
-      "description": "Map command+h/j/k/l to fn+left/down/up/right (home/page_down/page_up/end)",
+      "description": "Map control+h/j/k/l to fn+left/down/up/right (home/page_down/page_up/end)",
       "manipulators": [
         {
           "type": "basic",
           "from": {
             "key_code": "h",
             "modifiers": {
-              "mandatory": ["command"],
+              "mandatory": ["control"],
               "optional": ["shift"]
             }
           },
@@ -159,7 +159,7 @@
           "from": {
             "key_code": "j",
             "modifiers": {
-              "mandatory": ["command"],
+              "mandatory": ["control"],
               "optional": ["shift"]
             }
           },
@@ -175,7 +175,7 @@
           "from": {
             "key_code": "k",
             "modifiers": {
-              "mandatory": ["command"],
+              "mandatory": ["control"],
               "optional": ["shift"]
             }
           },
@@ -191,7 +191,7 @@
           "from": {
             "key_code": "l",
             "modifiers": {
-              "mandatory": ["command"],
+              "mandatory": ["control"],
               "optional": ["shift"]
             }
           },

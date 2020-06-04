@@ -42,16 +42,16 @@ Below is the adjusted keyboard layout that I'm using:
 
 ### Navigation
 
-When pressed together with `CapsLock`, `Option` or `Command`, `HJKL` will
+When pressed together with `Command`, `Option` or `CapsLock`, `HJKL` will
 become arrow keys (Left/Down/Up/Right):
 
-- `CapsLock` + `H/J/K/L` will perform character-level cursor movements.
+- `Command` + `H/J/K/L` will perform character-level cursor movements.
   - Hold down an additional `Shift` key to select text.
 
 - `Option` + `H/J/K/L` will perform word-level cursor movements.
   - Hold down an additional `Shift` key to select text.
 
-- `Command` + `H/J/K/L` will perform page-level cursor movements.
+- `Control` + `H/J/K/L` will perform page-level cursor movements.
   - Hold down an additional `Shift` key to select text.
 
 - `CapsLock` + `N/P` to go down and up.
