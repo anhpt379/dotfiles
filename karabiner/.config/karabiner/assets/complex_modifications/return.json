@@ -26,12 +26,12 @@
       ]
     },
     {
-      "description": "Open Chrome/Kitty/Notes with Enter+C/K/N",
+      "description": "Open Chrome/Kitty/Notes with Enter+1/2/3",
       "manipulators": [
         {
           "type": "basic",
           "from": {
-            "key_code": "c",
+            "key_code": "1",
             "modifiers": {
               "mandatory": ["right_control"]
             }
@@ -45,7 +45,7 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "k",
+            "key_code": "2",
             "modifiers": {
               "mandatory": ["right_control"]
             }
@@ -59,7 +59,7 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "n",
+            "key_code": "3",
             "modifiers": {
               "mandatory": ["right_control"]
             }
