@@ -815,3 +815,7 @@ let g:lf_map_keys = 0
 let g:lf_replace_netrw = 1
 map <Leader>l :Lf<CR>
 
+" Clever-f
+let g:clever_f_ignore_case = 0
+let g:clever_f_smart_case = 0
+let g:clever_f_fix_key_direction = 1
