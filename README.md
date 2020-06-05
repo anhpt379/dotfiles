@@ -32,7 +32,7 @@ Below is the adjusted keyboard layout that I'm using:
 
 - `caps_lock` is `control` on held, `esc` on tapped
 - `return` is `control` on held, `enter` on tapped
-- `right_command` and `right_option` is `delete`
+- `right_command` and `right_option` is `delete` and `forward_delete`
 
 [![layout](karabiner/apple_keyboard.png)][1]
 
