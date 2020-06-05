@@ -87,6 +87,7 @@ call plug#begin()
   Plug 'tpope/vim-dispatch'
   Plug 'Asheq/close-buffers.vim'
   Plug 'chaoren/vim-wordmotion', { 'commit': '4c8c4ca0165bc45ec269d1aa300afc36edee0a55' }
+  Plug 'romainl/vim-cool'
 
   " Time tracking
   Plug 'wakatime/vim-wakatime'
