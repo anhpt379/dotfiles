@@ -78,44 +78,79 @@ cmd copy_path ${{
   echo "Path copied: $f"
 }}
 
-# NERDTree-like add file
-cmd add_file %{{
-  for file_name in "$@"
-  do
-    mkdir -p "$(dirname $file_name)"
-    touch $file_name
-  done
-
-  echo "File created: $@"
-
-  lf -remote "send $id select \"$file_name\""
+# NERDTree-like add file/dir
+cmd new %{{
+  path=$1
+  if [[ "$path" =~ '/'$ ]]; then
+    mkdir -p $path
+    lf -remote "send reload"
+    lf -remote "send cd $path"
+  else
+    mkdir -p "$(dirname $path)"
+    touch $path
+    lf -remote "send reload"
+    lf -remote "send select $path"
+  fi
 }}
 
-cmd move_to %{{
-  for file_name in "$@"
-  do
-    mkdir -p "$(dirname $file_name)"
-    mv $f $file_name
-  done
+# Move file
+cmd move_to ${{
+  current_file=$f
+  path=$1
+  mkdir -p "$(dirname $path)"
+  mv $f $path
 
-  echo "File moved: $@"
-
-  lf -remote "send $id select \"$file_name\""
+  lf -remote "send reload"
+  if [[ "$path" =~ '/'$ ]]; then
+    lf -remote "send select $path/$(basename $current_file)"
+  else
+    lf -remote "send select $path"
+  fi
 }}
 
-# open the lfrc, and source after saving
-cmd edit_config :{{
-  $$EDITOR ~/.config/lf/lfrc
-  source ~/.config/lf/lfrc
+cmd move_confirm ${{
+  lf -remote "send push :move_to<space>$f"
+}}
+
+# Copy file
+cmd copy_to ${{
+  current_file=$f
+  path=$1
+  mkdir -p "$(dirname $path)"
+  cp $f $path
+
+  lf -remote "send reload"
+  if [[ "$path" =~ '/'$ ]]; then
+    lf -remote "send select $path/$(basename $current_file)"
+  else
+    lf -remote "send select $path"
+  fi
+}}
+
+cmd copy_confirm ${{
+  lf -remote "send push :move_to<space>$f"
+}}
+
+# Trash files
+cmd trash ${{
+  for filename in "$@"; do
+    trash $filename
+  done
+}}
+
+cmd trash_confirm ${{
+  files=$(echo $fx | sed 's/ /<space>/g')
+  lf -remote "send push :trash<space>$files"
 }}
 
 # Basic Functions
 map <esc> unselect; clear
+map <enter> open $fx
 map . set hidden!
-map d delete
+map d trash_confirm
+map m move_confirm
+map c copy_confirm
+map a push :new<space>
 map y copy_path
 map o open $fx
-map <enter> open $fx
-map m push :move_to<space>
-map r push :rename<space>
-map a push :add_file<space>
+map r :rename; cmd-word-back; cmd-left
