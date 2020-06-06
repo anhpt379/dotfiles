@@ -1,3 +1,4 @@
+# vim set ft=conf
 tap 'homebrew/bundle'
 tap 'homebrew/cask'
 tap 'homebrew/cask-fonts'
