@@ -79,6 +79,13 @@ cmd copy_path %{{
   echo "Path copied: $f"
 }}
 
+cmd copy_name %{{
+  name=$(basename "$f")
+  name="${name%.*}"
+  echo $name | pbcopy
+  echo "Name copied: $name"
+}}
+
 # NERDTree-like add file/dir
 cmd new %{{
   path=$1
@@ -124,7 +131,8 @@ map d delete
 map x cut
 map c copy
 map a push :new<space>
-map y copy_path
+map y copy_name
+map Y copy_path
 map o reveal
 map r :rename; cmd-word-back; cmd-left
 map gh go_home
