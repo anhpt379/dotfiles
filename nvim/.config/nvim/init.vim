@@ -823,3 +823,7 @@ let g:clever_f_fix_key_direction = 1
 " Make diffing better: https://vimways.org/2018/the-power-of-diff/
 set diffopt+=algorithm:patience
 set diffopt+=indent-heuristic
+
+" Jump to start and end of line using the home row keys
+map H ^
+map L $
