@@ -143,6 +143,12 @@ cmd trash_confirm ${{
   lf -remote "send push :trash<space>$files"
 }}
 
+# Go to project root
+cmd go_home %{{
+  dir=$(git rev-parse --show-toplevel)
+  lf -remote "send cd $dir"
+}}
+
 # Basic Functions
 map <esc> unselect; clear
 map <enter> open $fx
@@ -154,3 +160,4 @@ map a push :new<space>
 map y copy_path
 map o open $fx
 map r :rename; cmd-word-back; cmd-left
+map gh go_home
