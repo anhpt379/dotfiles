@@ -21,23 +21,25 @@ set previewer ~/.config/lf/preview.sh
 
 # Fzf integration
 cmd fzf_jump ${{
-  res="$(fd --no-ignore --hidden --exclude '.git' . | fzf --height=100% --reverse --header='Jump to location')"
+  dir=""
+  if [ -d "$f" ]; then
+    dir="$f"
+  fi
+
+  res="$(fd --color=always --no-ignore --hidden --exclude '.git' . $dir | fzf --ansi --height=100% --reverse --header='Jump to location')"
+
   if [ -f "$res" ]; then
     cmd="select"
   elif [ -d "$res" ]; then
     cmd="cd"
   fi
+
   lf -remote "send $id $cmd \"$res\""
 }}
-map <c-f> :fzf_jump
 
-# define a custom 'open' command
-cmd open ${{
-  case $(file --mime-type $f -b) in
-    text/*) nvim $fx;;
-    */json) nvim $fx;;
-    *) for f in $fx; do qlmanage -p $f > /dev/null 2> /dev/null & disown; done;;
-  esac
+# Reveal file/dir in Finder
+cmd reveal %{{
+  open -R $f
 }}
 
 # extract the current file with the right command
@@ -72,9 +74,8 @@ cmd zip ${{
 }}
 
 # copy the path of the highlighted file
-cmd copy_path ${{
+cmd copy_path %{{
   echo "$f" | tr -d '\n' | pbcopy
-
   echo "Path copied: $f"
 }}
 
@@ -93,54 +94,20 @@ cmd new %{{
   fi
 }}
 
-# Move file
-cmd move_to ${{
-  current_file=$f
-  path=$1
-  mkdir -p "$(dirname $path)"
-  mv $f $path
-
-  lf -remote "send reload"
-  if [[ "$path" =~ '/'$ ]]; then
-    lf -remote "send select $path/$(basename $current_file)"
+# Delete files
+cmd delete %{{
+  set -f
+  files=$(echo $fx)
+  printf " Delete $files? [y/n] "
+  read ans
+  if [ $ans = "y" ]; then
+    for f in $fx; do
+      trash $f
+    done
+    echo "File deleted: $files"
   else
-    lf -remote "send select $path"
+    echo ""
   fi
-}}
-
-cmd move_confirm ${{
-  lf -remote "send push :move_to<space>$f"
-}}
-
-# Copy file
-cmd copy_to ${{
-  current_file=$f
-  path=$1
-  mkdir -p "$(dirname $path)"
-  cp $f $path
-
-  lf -remote "send reload"
-  if [[ "$path" =~ '/'$ ]]; then
-    lf -remote "send select $path/$(basename $current_file)"
-  else
-    lf -remote "send select $path"
-  fi
-}}
-
-cmd copy_confirm ${{
-  lf -remote "send push :move_to<space>$f"
-}}
-
-# Trash files
-cmd trash ${{
-  for filename in "$@"; do
-    trash $filename
-  done
-}}
-
-cmd trash_confirm ${{
-  files=$(echo $fx | sed 's/ /<space>/g')
-  lf -remote "send push :trash<space>$files"
 }}
 
 # Go to project root
@@ -153,11 +120,12 @@ cmd go_home %{{
 map <esc> unselect; clear
 map <enter> open $fx
 map . set hidden!
-map d trash_confirm
-map m move_confirm
-map c copy_confirm
+map d delete
+map x cut
+map c copy
 map a push :new<space>
 map y copy_path
-map o open $fx
+map o reveal
 map r :rename; cmd-word-back; cmd-left
 map gh go_home
+map <c-f> :fzf_jump
