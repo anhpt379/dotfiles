@@ -819,3 +819,7 @@ map <Leader>l :Lf<CR>
 let g:clever_f_ignore_case = 0
 let g:clever_f_smart_case = 0
 let g:clever_f_fix_key_direction = 1
+
+" Make diffing better: https://vimways.org/2018/the-power-of-diff/
+set diffopt+=algorithm:patience
+set diffopt+=indent-heuristic
