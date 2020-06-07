@@ -23,6 +23,9 @@
   show = diff-so-fancy | less --tabs=4 --pattern '^(Author|added|deleted|modified):'
   diff = diff-so-fancy | less --tabs=4 --pattern '^(Author|added|deleted|modified):'
 
+[interactive]
+  diffFilter = (echo && diff-so-fancy)
+
 [diff]
   algorithm = histogram
 
