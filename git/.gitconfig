@@ -20,8 +20,8 @@
   showUntrackedFiles = all
 
 [pager]
-  show = diff-so-fancy | less --tabs=4 -RFXS --pattern '^(Author|added|deleted|modified):'
-  diff = diff-so-fancy | less --tabs=4 -RFXS --pattern '^(Author|added|deleted|modified):'
+  show = diff-so-fancy | less --tabs=4 --pattern '^(Author|added|deleted|modified):'
+  diff = diff-so-fancy | less --tabs=4 --pattern '^(Author|added|deleted|modified):'
 
 [diff]
   algorithm = histogram

@@ -64,6 +64,13 @@ set -gx PATH $HOME/.cargo/bin $PATH
 set -gx PATH '/usr/local/opt/gnu-sed/libexec/gnubin' $PATH
 set -gx fish_user_paths '/usr/local/opt/curl/bin' $fish_user_paths
 
+# Fix trackpad scrolling doesn't work in diff-so-fancy
+# Need to remove the `X` flag from less options, but can't do it via .gitconfig,
+# since git set the default to `FRX` if we don't set `LESS` environment variable
+# https://github.com/so-fancy/diff-so-fancy/issues/246
+# https://github.com/git/git/blob/v2.7.1/Documentation/config.txt#L646-L648
+set -gx LESS 'RFS'
+
 # Hide the fish greeting
 set fish_greeting ""
 
