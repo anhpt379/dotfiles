@@ -137,3 +137,4 @@ map o reveal
 map r :rename; cmd-word-back; cmd-left
 map gh go_home
 map <c-f> :fzf_jump
+map t :set sortby time; set info time; set reverse
