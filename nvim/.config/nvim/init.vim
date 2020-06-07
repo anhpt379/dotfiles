@@ -453,8 +453,8 @@ highlight link gitmessengerHistory Constant
 noremap gm :GitMessenger<CR>
 noremap gb :Gblame<CR>
 noremap gs :tab Gstatus<CR>gg4j
-noremap gl :FzfBCommits<CR>
-noremap gL :FzfCommits<CR>
+noremap gl :FzfCommits<CR>
+noremap gL :FzfBCommits<CR>
 noremap gw :w<CR>:Gwrite<CR>
 noremap gc :Gwrite<CR>:vertical Gcommit -v<CR>
 
