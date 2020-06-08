@@ -383,7 +383,7 @@ set winblend=0
 " }}}
 
 " Some custom style
-highlight NonText guifg=bg
+highlight NonText guifg=#555555
 
 " Fzf {{{
 let g:fzf_command_prefix = 'Fzf'
