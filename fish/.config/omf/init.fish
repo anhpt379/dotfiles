@@ -51,6 +51,7 @@ balias c 'clear'
 balias j 'z'
 balias f 'fzf'
 balias v 'vim'
+balias l 'lf'
 
 # key bindings
 bind \cg accept-autosuggestion execute
