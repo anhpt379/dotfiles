@@ -47,6 +47,7 @@ brew 'tokei'
 brew 'trash'
 brew 'universal-ctags/universal-ctags/universal-ctags', args: ['with-jansson', 'HEAD']
 brew 'wget'
+brew 'yarn'
 brew 'youtube-dl'
 brwe 'diff-so-fancy'
 
