@@ -45,6 +45,7 @@ balias ncdu 'ncdu -rr -x --exclude .git'
 # https://sw.kovidgoyal.net/kitty/faq.html#i-get-errors-about-the-terminal-being-unknown-or-opening-the-terminal-failing-when-sshing-into-a-different-computer
 balias ssh 'kitty +kitten ssh'
 
+balias k 'kubectl'
 balias d 'docker'
 balias dc 'docker-compose'
 
@@ -65,6 +66,8 @@ set -gx PATH $HOME/Library/Python/3.7/bin $PATH
 set -gx PATH $HOME/.cargo/bin $PATH
 set -gx PATH '/usr/local/opt/gnu-sed/libexec/gnubin' $PATH
 set -gx fish_user_paths '/usr/local/opt/curl/bin' $fish_user_paths
+
+set -gx KUBE_EDITOR 'vim'
 
 # Fix trackpad scrolling doesn't work in diff-so-fancy
 # Need to remove the `X` flag from less options, but can't do it via .gitconfig,
