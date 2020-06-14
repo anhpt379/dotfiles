@@ -54,7 +54,7 @@ call plug#begin()
   Plug 'mhinz/vim-startify'
   Plug 'atimholt/spiffy_foldtext'
   Plug 'pseewald/vim-anyfold'
-  Plug 'Nudin/vim-indentguides'
+  Plug 'Yggdroot/indentLine'
   Plug 'norcalli/nvim-colorizer.lua'
   Plug 'xolox/vim-misc'
   Plug 'blueyed/vim-diminactive'
@@ -717,13 +717,16 @@ let g:gh_line_blame_map_default = 0
 let g:gh_line_map = 'go'
 let g:gh_repo_map = 'gr'
 
-" vim-indentguides {{{
-" space indents are visually identified by the "┆" character,
-" while tabs are distinguished by "|"
-set listchars=tab:\|\ ,
+" vim indentline {{{
+set listchars=tab:→\ ,extends:»,precedes:«
+set list
+
+let g:indentLine_char = '┊'
 
 " Fix double quotes in json files went missing
-let g:indentguides_concealcursor_unaltered = 1
+autocmd InsertEnter *.json setlocal concealcursor=
+autocmd InsertLeave *.json setlocal concealcursor=inc
+
 " }}}
 
 " vim-diminactive
