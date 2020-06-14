@@ -6,26 +6,26 @@ let g:colors_name='aodark'
 let colors_name='aodark'
 
 
-let s:black       = { 'gui': '#17171d', 'cterm': '233' }
-let s:red         = { 'gui': '#DE456B', 'cterm': '168' }
-let s:green       = { 'gui': '#8DC26C', 'cterm': '114' }
-let s:yellow      = { 'gui': '#E2B962', 'cterm': '180' }
-let s:blue        = { 'gui': '#3BB0E0', 'cterm': '38'  }
-let s:purple      = { 'gui': '#C068DF', 'cterm': '176' }
-let s:cyan        = { 'gui': '#55CABE', 'cterm': '73'  }
-let s:white       = { 'gui': '#F1F1F1', 'cterm': '188' }
+let s:black       = { 'gui': '#17171d', 'cterm': '0' }
+let s:red         = { 'gui': '#DE456B', 'cterm': '9' }
+let s:green       = { 'gui': '#8DC26C', 'cterm': '10' }
+let s:yellow      = { 'gui': '#E2B962', 'cterm': '11' }
+let s:blue        = { 'gui': '#3BB0E0', 'cterm': '12'  }
+let s:purple      = { 'gui': '#C068DF', 'cterm': '13' }
+let s:cyan        = { 'gui': '#55CABE', 'cterm': '14'  }
+let s:white       = { 'gui': '#F1F1F1', 'cterm': '15' }
 
 let s:fg          = s:white
 let s:bg          = s:black
 
 let s:comment_fg  = { 'gui': '#696969', 'cterm': '241' }
 let s:gutter_bg   = { 'gui': '#282829', 'cterm': 'NONE' }
-let s:gutter_fg   = { 'gui': '#444444', 'cterm': '247' }
+let s:gutter_fg   = { 'gui': '#444444', 'cterm': '238' }
 
 let s:cursor_line = { 'gui': '#252526', 'cterm': '235' }
-let s:color_col   = { 'gui': '#1f1f22', 'cterm': '235' }
+let s:color_col   = { 'gui': '#1f1f22', 'cterm': '234' }
 
-let s:selection   = { 'gui': '#444444', 'cterm': '237' }
+let s:selection   = { 'gui': '#444444', 'cterm': '238' }
 let s:vertsplit   = { 'gui': '#262626', 'cterm': '235' }
 
 
