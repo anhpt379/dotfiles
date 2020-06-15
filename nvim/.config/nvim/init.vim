@@ -727,6 +727,11 @@ let g:indentLine_char = '┊'
 autocmd InsertEnter *.json setlocal concealcursor=
 autocmd InsertLeave *.json setlocal concealcursor=inc
 
+" Hide fzf status line
+autocmd! FileType fzf
+autocmd  FileType fzf set laststatus=0 noshowmode noruler |
+  \ autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+
 " }}}
 
 " vim-diminactive
