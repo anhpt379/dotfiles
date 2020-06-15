@@ -830,3 +830,8 @@ set diffopt+=indent-heuristic
 " Jump to start and end of line using the home row keys
 map H ^
 map L $
+
+" A faster way to toggle line number
+map [n :set nonumber<CR>:set norelativenumber<CR>
+map ]n :set number<CR>:set relativenumber<CR>
+
