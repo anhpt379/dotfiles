@@ -79,6 +79,9 @@ set -gx LESS 'RFS'
 # Hide the fish greeting
 set fish_greeting ""
 
+# Delete big word with Ctrl+Delete
+bind \cH backward-kill-bigword
+
 # Fzf
 bind \cf 'fzf_find'
 bind \cr 'fzf_history'
