@@ -669,8 +669,6 @@ map / /\V
 map ? ?\V
 
 " Vim wordmotion
-nmap cw ce
-nmap cW cE
 onoremap W :<C-U>normal! vWh<CR>
 let g:wordmotion_extra = ['[0-9a-fA-F]\{6}']   " hex colors
 
