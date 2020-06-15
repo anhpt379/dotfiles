@@ -82,6 +82,9 @@ set fish_greeting ""
 # Delete big word with Ctrl+Delete
 bind \cH backward-kill-bigword
 
+# Edit current command in vim
+bind \ce edit_command_buffer
+
 # Fzf
 bind \cf 'fzf_find'
 bind \cr 'fzf_history'
