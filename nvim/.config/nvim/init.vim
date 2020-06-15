@@ -679,7 +679,7 @@ noremap <Leader>p :CocList --normal yank<CR>
 
 " vim-highlightedyank
 let g:highlightedyank_highlight_duration = 700
-highlight HighlightedyankRegion term=bold ctermbg=0 guibg=#e5c07b guifg=#ffffff
+highlight HighlightedyankRegion term=bold ctermbg=11 ctermfg=15 guibg=#e5c07b guifg=#ffffff
 
 " Conflict-marker {{{
 let g:conflict_marker_highlight_group = ''
