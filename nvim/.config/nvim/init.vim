@@ -182,8 +182,6 @@ set softtabstop=2
 set shiftwidth=2
 set shiftround
 
-set smartindent
-
 " Insert spaces when Tab is pressed
 set expandtab
 
