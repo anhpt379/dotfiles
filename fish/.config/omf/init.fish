@@ -86,6 +86,10 @@ bind \cH backward-kill-bigword
 bind \e\[3\;5~ kill-bigword
 bind \e\[3\;3~ kill-word
 
+# Use pageup/pagedown to jump between big words
+bind \e\[5~ forward-bigword
+bind \e\[6~ backward-bigword
+
 # Edit current command in vim
 bind \ce edit_command_buffer
 
