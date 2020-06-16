@@ -185,7 +185,7 @@ highlight link gitmessengerHistory Constant
 
 " Fix colors in neovim terminal buffers
 if has('nvim')
-  let g:terminal_color_0 = s:black.gui
+  let g:terminal_color_0 = s:comment_fg.gui
   let g:terminal_color_1 = s:red.gui
   let g:terminal_color_2 = s:green.gui
   let g:terminal_color_3 = s:yellow.gui
