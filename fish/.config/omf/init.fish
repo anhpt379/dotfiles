@@ -82,6 +82,10 @@ set fish_greeting ""
 # Delete big word with Ctrl+Delete
 bind \cH backward-kill-bigword
 
+# Make reverse word delete work (using ctrl/option+forward_delete)
+bind \e\[3\;5~ kill-bigword
+bind \e\[3\;3~ kill-word
+
 # Edit current command in vim
 bind \ce edit_command_buffer
 
