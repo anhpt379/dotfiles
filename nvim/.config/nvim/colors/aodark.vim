@@ -5,29 +5,29 @@ syntax reset
 let g:colors_name='aodark'
 let colors_name='aodark'
 
-
-let s:black       = { 'gui': '#17171d', 'cterm': '0' }
-let s:red         = { 'gui': '#DE456B', 'cterm': '9' }
+let s:black       = { 'gui': '#17171d', 'cterm': '0'  }
+let s:red         = { 'gui': '#DE456B', 'cterm': '9'  }
 let s:green       = { 'gui': '#8DC26C', 'cterm': '10' }
 let s:yellow      = { 'gui': '#E2B962', 'cterm': '11' }
-let s:blue        = { 'gui': '#3BB0E0', 'cterm': '12'  }
+let s:blue        = { 'gui': '#3BB0E0', 'cterm': '12' }
 let s:purple      = { 'gui': '#C068DF', 'cterm': '13' }
-let s:cyan        = { 'gui': '#55CABE', 'cterm': '14'  }
+let s:cyan        = { 'gui': '#55CABE', 'cterm': '14' }
 let s:white       = { 'gui': '#F1F1F1', 'cterm': '15' }
 
 let s:fg          = s:white
 let s:bg          = s:black
 
-let s:comment_fg  = { 'gui': '#696969', 'cterm': '241' }
+let s:comment_fg  = { 'gui': '#696969', 'cterm': '241'  }
 let s:gutter_bg   = { 'gui': '#282829', 'cterm': 'NONE' }
-let s:gutter_fg   = { 'gui': '#444444', 'cterm': '238' }
+let s:gutter_fg   = { 'gui': '#444444', 'cterm': '238'  }
 
-let s:cursor_line = { 'gui': '#252526', 'cterm': '235' }
-let s:color_col   = { 'gui': '#1f1f22', 'cterm': '234' }
+let s:cursor_line = { 'gui': '#252526', 'cterm': '235'  }
+let s:color_col   = { 'gui': '#1f1f22', 'cterm': '234'  }
 
-let s:selection   = { 'gui': '#444444', 'cterm': '238' }
-let s:vertsplit   = { 'gui': '#262626', 'cterm': '235' }
+let s:selection   = { 'gui': '#444444', 'cterm': '238'  }
+let s:vertsplit   = { 'gui': '#262626', 'cterm': '235'  }
 
+let s:non_text    = { 'gui': '#555555', 'cterm': '59'   }
 
 function! s:h(group, fg, bg, attr)
   if type(a:fg) == type({})
@@ -47,10 +47,9 @@ function! s:h(group, fg, bg, attr)
   endif
 endfun
 
-
-" User interface colors {
+" User interface colors
 call s:h('Normal', s:fg, s:bg, '')
-call s:h('NonText', s:fg, '', '')
+call s:h('NonText', s:non_text, '', '')
 
 call s:h('Cursor', s:bg, s:blue, '')
 call s:h('CursorColumn', '', s:cursor_line, '')
@@ -104,10 +103,8 @@ call s:h('MatchParen', s:blue, '', 'underline')
 call s:h('SpecialKey', s:fg, '', '')
 call s:h('Title', s:yellow, '', '')
 call s:h('WildMenu', s:fg, '', '')
-" }
 
-
-" Syntax colors {
+" Syntax colors
 call s:h('Comment', s:comment_fg, '', '')
 call s:h('Constant', s:purple, '', '')
 call s:h('String', s:yellow, '', '')
@@ -148,22 +145,18 @@ call s:h('Underlined', s:fg, '', '')
 call s:h('Ignore', s:fg, '', '')
 call s:h('Error', s:red, s:gutter_bg, '')
 call s:h('Todo', s:purple, '', '')
-" }
 
-
-" Plugins {
 " GitGutter
 call s:h('GitGutterAdd', s:green, s:gutter_bg, '')
 call s:h('GitGutterDelete', s:red, s:gutter_bg, '')
 call s:h('GitGutterChange', s:yellow, s:gutter_bg, '')
 call s:h('GitGutterChangeDelete', s:red, s:gutter_bg, '')
+
 " Fugitive
 call s:h('diffAdded', s:green, '', '')
 call s:h('diffRemoved', s:red, '', '')
-" }
 
-
-" Git {
+" Git
 call s:h('gitcommitComment', s:comment_fg, '', '')
 call s:h('gitcommitUnmerged', s:red, '', '')
 call s:h('gitcommitOnBranch', s:fg, '', '')
@@ -176,40 +169,43 @@ call s:h('gitcommitDiscardedFile', s:red, '', '')
 call s:h('gitcommitSelectedFile', s:green, '', '')
 call s:h('gitcommitUnmergedFile', s:yellow, '', '')
 call s:h('gitcommitFile', s:fg, '', '')
-hi link gitcommitNoBranch gitcommitBranch
-hi link gitcommitUntracked gitcommitComment
-hi link gitcommitDiscarded gitcommitComment
-hi link gitcommitSelected gitcommitComment
-hi link gitcommitDiscardedArrow gitcommitDiscardedFile
-hi link gitcommitSelectedArrow gitcommitSelectedFile
-hi link gitcommitUnmergedArrow gitcommitUnmergedFile
-" }
 
-" Fix colors in neovim terminal buffers {
-  if has('nvim')
-    let g:terminal_color_0 = s:black.gui
-    let g:terminal_color_1 = s:red.gui
-    let g:terminal_color_2 = s:green.gui
-    let g:terminal_color_3 = s:yellow.gui
-    let g:terminal_color_4 = s:blue.gui
-    let g:terminal_color_5 = s:purple.gui
-    let g:terminal_color_6 = s:cyan.gui
-    let g:terminal_color_7 = s:white.gui
-    let g:terminal_color_8 = s:black.gui
-    let g:terminal_color_9 = s:red.gui
-    let g:terminal_color_10 = s:green.gui
-    let g:terminal_color_11 = s:yellow.gui
-    let g:terminal_color_12 = s:blue.gui
-    let g:terminal_color_13 = s:purple.gui
-    let g:terminal_color_14 = s:cyan.gui
-    let g:terminal_color_15 = s:white.gui
-    let g:terminal_color_background = s:bg.gui
-    let g:terminal_color_foreground = s:fg.gui
-  endif
-" }
+highlight link gitcommitNoBranch gitcommitBranch
+highlight link gitcommitUntracked gitcommitComment
+highlight link gitcommitDiscarded gitcommitComment
+highlight link gitcommitSelected gitcommitComment
+highlight link gitcommitDiscardedArrow gitcommitDiscardedFile
+highlight link gitcommitSelectedArrow gitcommitSelectedFile
+highlight link gitcommitUnmergedArrow gitcommitUnmergedFile
 
-" Lightline {{{
+highlight gitmessengerPopupNormal guibg=#333333
+highlight link gitmessengerHeader Identifier
+highlight link gitmessengerHash Number
+highlight link gitmessengerHistory Constant
 
+" Fix colors in neovim terminal buffers
+if has('nvim')
+  let g:terminal_color_0 = s:black.gui
+  let g:terminal_color_1 = s:red.gui
+  let g:terminal_color_2 = s:green.gui
+  let g:terminal_color_3 = s:yellow.gui
+  let g:terminal_color_4 = s:blue.gui
+  let g:terminal_color_5 = s:purple.gui
+  let g:terminal_color_6 = s:cyan.gui
+  let g:terminal_color_7 = s:white.gui
+  let g:terminal_color_8 = s:black.gui
+  let g:terminal_color_9 = s:red.gui
+  let g:terminal_color_10 = s:green.gui
+  let g:terminal_color_11 = s:yellow.gui
+  let g:terminal_color_12 = s:blue.gui
+  let g:terminal_color_13 = s:purple.gui
+  let g:terminal_color_14 = s:cyan.gui
+  let g:terminal_color_15 = s:white.gui
+  let g:terminal_color_background = s:bg.gui
+  let g:terminal_color_foreground = s:fg.gui
+endif
+
+" Lightline
 let s:mono0 = [ '#17171d', 236 ]
 let s:mono1 = [ '#262626', 238 ]
 let s:mono2 = [ '#555555', 243 ]
@@ -246,5 +242,21 @@ let s:p.tabline.right = [ [ s:mono0, s:mono3 ] ]
 
 let g:lightline#colorscheme#aodark#palette = lightline#colorscheme#flatten(s:p)
 
-" }}}
+" Anyfold
+highlight Folded term=NONE cterm=NONE guibg=#333843
+
+" Highlightedyank
+highlight HighlightedyankRegion term=bold ctermbg=11 ctermfg=15 guibg=#e5c07b guifg=#ffffff
+
+" Conflict maker
+highlight ConflictMarkerBegin guibg=#2f7366
+highlight ConflictMarkerOurs guibg=#2e5049
+highlight ConflictMarkerSeparator guifg=#e5c07b
+highlight ConflictMarkerTheirs guibg=#344f69
+highlight ConflictMarkerEnd guibg=#2f628e
+
+" Coc.nvim
+highlight CocFloating guibg=#4D5565
+highlight CocErrorHighlight guifg=#e06c75
+highlight CocWarningHighlight guifg=#e5c07b
 

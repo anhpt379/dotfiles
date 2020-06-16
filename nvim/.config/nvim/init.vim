@@ -285,11 +285,6 @@ let g:lightline.component_type   = {'buffers': 'tabsel'}
 
 
 " Coc {{{
-
-highlight CocFloating guibg=#4D5565
-highlight CocErrorHighlight guifg=#e06c75
-highlight CocWarningHighlight guifg=#e5c07b
-
 let g:coc_status_error_sign   = ' '
 let g:coc_status_warning_sign = ' '
 let g:coc_status_info_sign    = ' '
@@ -380,9 +375,6 @@ set winblend=0
 
 " }}}
 
-" Some custom style
-highlight NonText guifg=#555555
-
 " Fzf {{{
 let g:fzf_command_prefix = 'Fzf'
 let g:fzf_buffers_jump = 1
@@ -442,11 +434,6 @@ augroup end
 " Git {{{
 let g:git_messenger_always_into_popup = v:true
 let g:git_messenger_no_default_mappings = v:true
-
-highlight gitmessengerPopupNormal guibg=#333333
-highlight link gitmessengerHeader Identifier
-highlight link gitmessengerHash Number
-highlight link gitmessengerHistory Constant
 
 noremap gm :GitMessenger<CR>
 noremap gb :Gblame<CR>
@@ -587,7 +574,6 @@ nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 " Any-fold
 let g:anyfold_fold_display = 0
 let g:anyfold_fold_comments = 1
-highlight Folded term=NONE cterm=NONE guibg=#333843
 
 function! ActiveAnyFold()
   if &ft =~ 'fugitive\|startify'
@@ -675,7 +661,6 @@ noremap <Leader>p :CocList --normal yank<CR>
 
 " vim-highlightedyank
 let g:highlightedyank_highlight_duration = 700
-highlight HighlightedyankRegion term=bold ctermbg=11 ctermfg=15 guibg=#e5c07b guifg=#ffffff
 
 " Conflict-marker {{{
 let g:conflict_marker_highlight_group = ''
@@ -684,11 +669,6 @@ let g:conflict_marker_highlight_group = ''
 let g:conflict_marker_begin = '^<<<<<<< .*$'
 let g:conflict_marker_end   = '^>>>>>>> .*$'
 
-highlight ConflictMarkerBegin guibg=#2f7366
-highlight ConflictMarkerOurs guibg=#2e5049
-highlight ConflictMarkerSeparator guifg=#e5c07b
-highlight ConflictMarkerTheirs guibg=#344f69
-highlight ConflictMarkerEnd guibg=#2f628e
 " }}}
 
 " vim-better-whitespace
