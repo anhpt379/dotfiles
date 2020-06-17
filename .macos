@@ -167,6 +167,9 @@ defaults write com.apple.dock mru-spaces -bool false
 # Make Dock icons of hidden applications translucent
 defaults write com.apple.dock showhidden -bool true
 
+# Hide recent apps in Dock
+defaults write com.apple.dock show-recents -bool false
+
 # Hot corners
 # Possible values:
 #  0: no-op
