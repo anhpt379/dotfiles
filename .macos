@@ -170,6 +170,12 @@ defaults write com.apple.dock showhidden -bool true
 # Hide recent apps in Dock
 defaults write com.apple.dock show-recents -bool false
 
+# Fix text in Notification Center is too dark in Dark Mode
+defaults write com.apple.notificationcenterui NSRequiresAquaSystemAppearance -bool No
+
+# Reduce transparency
+defaults write com.apple.universalaccess reduceTransparency 1
+
 # Hot corners
 # Possible values:
 #  0: no-op
