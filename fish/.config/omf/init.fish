@@ -48,6 +48,7 @@ balias ssh 'kitty +kitten ssh'
 balias k 'kubectl'
 balias d 'docker'
 balias dc 'docker-compose'
+balias m 'minikube'
 
 balias c 'clear'
 balias j 'z'

@@ -51,6 +51,11 @@ brew 'wget'
 brew 'yarn'
 brew 'youtube-dl'
 brwe 'diff-so-fancy'
+brew 'hyperkit'
+brew 'minikube'
+brew 'helm'
+brew 'kubectl'
+brew 'watch'
 
 # Apps
 cask '1password'
