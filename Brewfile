@@ -56,6 +56,7 @@ brew 'minikube'
 brew 'helm'
 brew 'kubectl'
 brew 'watch'
+brew 'txn2/tap/kubefwd'
 
 # Apps
 cask '1password'
