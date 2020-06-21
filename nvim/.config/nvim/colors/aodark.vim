@@ -29,7 +29,7 @@ let s:vertsplit   = { 'gui': '#262626', 'cterm': '235'  }
 
 let s:non_text    = { 'gui': '#555555', 'cterm': '59'   }
 let s:search      = { 'gui': '#FFCC66', 'cterm': '11'   }
-let s:incsearch   = { 'gui': '#FAB955', 'cterm': '11'   }
+let s:incsearch   = { 'gui': '#FAB955', 'cterm': '214'  }
 let s:punctuation = { 'gui': '#C9C9C9', 'cterm': '251'  }
 
 function! s:h(group, fg, bg, attr)
