@@ -67,6 +67,7 @@ call plug#begin()
   Plug 'roman/golden-ratio'
   Plug 'pechorin/any-jump.vim'
   Plug 'psliwka/vim-smoothie'
+  Plug 'dominikduda/vim_current_word'
 
   " Improving editing experience
   Plug 'wellle/targets.vim'
@@ -842,4 +843,9 @@ nmap ? <Plug>(searchhi-?)\V
 
 vmap / <Plug>(searchhi-v-/)\V
 vmap ? <Plug>(searchhi-v-?)\V
+
+" Highlight the word under cursor
+let g:vim_current_word#highlight_delay = 0
+highlight link CurrentWord CursorLine
+highlight link CurrentWordTwins CursorLine
 
