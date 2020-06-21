@@ -80,7 +80,7 @@ call plug#begin()
   Plug 'brooth/far.vim'
   Plug 'farmergreg/vim-lastplace'
   Plug 'lambdalisue/suda.vim'
-  Plug 'tpope/vim-unimpaired'
+  Plug 'anhpt379/vim-unimpaired'
   Plug 'rhysd/clever-f.vim'
   Plug 'junegunn/vim-easy-align'
   Plug 'cohama/lexima.vim'
