@@ -66,7 +66,6 @@ call plug#begin()
   Plug 'rbgrouleff/bclose.vim'
   Plug 'roman/golden-ratio'
   Plug 'pechorin/any-jump.vim'
-  Plug 'psliwka/vim-smoothie'
   Plug 'dominikduda/vim_current_word'
 
   " Improving editing experience
