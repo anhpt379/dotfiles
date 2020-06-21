@@ -196,8 +196,9 @@ set undodir=~/.config/nvim/undo
 set ignorecase
 set smartcase
 
-" Clear search/clever-f highlighting by pressing Enter
-nnoremap <CR> :<C-u>nohlsearch<CR><Left><Right>
+" Clear search/clever-f highlighting by pressing Enter/Esc
+nnoremap <CR>  :<C-u>nohlsearch<CR><Left><Right>
+nnoremap <Esc> :<C-u>nohlsearch<CR><Left><Right>
 
 " Live substitution
 set inccommand=split
