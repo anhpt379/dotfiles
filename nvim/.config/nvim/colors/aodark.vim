@@ -28,6 +28,8 @@ let s:selection   = { 'gui': '#444444', 'cterm': '238'  }
 let s:vertsplit   = { 'gui': '#262626', 'cterm': '235'  }
 
 let s:non_text    = { 'gui': '#555555', 'cterm': '59'   }
+let s:search      = { 'gui': '#FFCC66', 'cterm': '11'   }
+let s:incsearch   = { 'gui': '#FAB955', 'cterm': '11'   }
 
 function! s:h(group, fg, bg, attr)
   if type(a:fg) == type({})
@@ -63,8 +65,8 @@ call s:h('DiffChange', s:yellow, '', '')
 call s:h('DiffDelete', s:red, '', '')
 call s:h('DiffText', s:blue, '', '')
 
-call s:h('IncSearch', s:bg, s:yellow, '')
-call s:h('Search', s:bg, s:yellow, '')
+call s:h('IncSearch', s:bg, s:incsearch, '')
+call s:h('Search', s:bg, s:search, '')
 
 call s:h('ErrorMsg', s:fg, '', '')
 call s:h('ModeMsg', s:fg, '', '')
