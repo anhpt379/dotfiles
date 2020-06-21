@@ -1,4 +1,4 @@
-# vim: set ft=conf
+# vim: ft=conf
 
 set shell "bash"
 set shellopts '-eu'
