@@ -69,7 +69,7 @@ call plug#begin()
   Plug 'dominikduda/vim_current_word'
 
   " Improving editing experience
-  Plug 'wellle/targets.vim'
+  Plug 'anhpt379/targets.vim'
   Plug 'michaeljsmith/vim-indent-object'
   Plug 'tpope/vim-repeat'
   Plug 'inkarkat/vim-visualrepeat'
