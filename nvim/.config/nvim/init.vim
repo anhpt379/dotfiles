@@ -66,6 +66,7 @@ call plug#begin()
   Plug 'rbgrouleff/bclose.vim'
   Plug 'roman/golden-ratio'
   Plug 'pechorin/any-jump.vim'
+  Plug 'psliwka/vim-smoothie'
 
   " Improving editing experience
   Plug 'wellle/targets.vim'
@@ -840,3 +841,4 @@ nmap ? <Plug>(searchhi-?)\V
 
 vmap / <Plug>(searchhi-v-/)\V
 vmap ? <Plug>(searchhi-v-?)\V
+
