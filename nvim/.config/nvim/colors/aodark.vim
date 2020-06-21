@@ -30,6 +30,7 @@ let s:vertsplit   = { 'gui': '#262626', 'cterm': '235'  }
 let s:non_text    = { 'gui': '#555555', 'cterm': '59'   }
 let s:search      = { 'gui': '#FFCC66', 'cterm': '11'   }
 let s:incsearch   = { 'gui': '#FAB955', 'cterm': '11'   }
+let s:punctuation = { 'gui': '#C9C9C9', 'cterm': '251'  }
 
 function! s:h(group, fg, bg, attr)
   if type(a:fg) == type({})
@@ -122,7 +123,7 @@ call s:h('Statement', s:cyan, '', '')
 call s:h('Conditional', s:cyan, '', '')
 call s:h('Repeat', s:cyan, '', '')
 call s:h('Label', s:cyan, '', '')
-call s:h('Operator', s:fg, '', '')
+call s:h('Operator', s:punctuation, '', '')
 call s:h('Keyword', s:red, '', '')
 call s:h('Exception', s:cyan, '', '')
 
@@ -140,7 +141,7 @@ call s:h('Typedef', s:yellow, '', '')
 call s:h('Special', s:red, '', '')
 call s:h('SpecialChar', s:fg, '', '')
 call s:h('Tag', s:fg, '', '')
-call s:h('Delimiter', s:fg, '', '')
+call s:h('Delimiter', s:punctuation, '', '')
 call s:h('SpecialComment', s:fg, '', '')
 call s:h('Debug', s:fg, '', '')
 call s:h('Underlined', s:fg, '', '')
