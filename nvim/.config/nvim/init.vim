@@ -615,7 +615,7 @@ function! CloseBuffer()
   endif
 endfunction
 
-nnoremap q :silent! call CloseBuffer()<CR>
+map q :<C-U>silent! call CloseBuffer()<CR>
 
 " Quickly close several buffers at once
 nnoremap <silent> Q :Bdelete! menu<CR>
