@@ -197,8 +197,8 @@ set ignorecase
 set smartcase
 
 " Clear search/clever-f highlighting by pressing Enter/Esc
-nnoremap <CR>  :<C-u>nohlsearch<CR><Left><Right>
-nnoremap <Esc> :<C-u>nohlsearch<CR><Left><Right>
+nnoremap <CR>  :nohlsearch<CR><Left><Right>
+nnoremap <Esc> :nohlsearch<CR><Left><Right>
 
 " Live substitution
 set inccommand=split
@@ -311,7 +311,7 @@ inoremap <expr> <CR>  pumvisible() ? "\<C-y>" : "\<CR>"
 inoremap <expr> <Tab> pumvisible() ? "\<C-y>" : "\<Tab>"
 
 " Navigate diagnostics
-nmap <silent> <Tab> <Plug>(coc-diagnostic-next)
+nmap <silent> <Tab>   <Plug>(coc-diagnostic-next)
 nmap <silent> <S-Tab> <Plug>(coc-diagnostic-prev)
 
 " Remap keys for gotos
@@ -615,7 +615,7 @@ function! CloseBuffer()
   endif
 endfunction
 
-map q :<C-U>silent! call CloseBuffer()<CR>
+map q :<C-u>silent! call CloseBuffer()<CR>
 
 " Quickly close several buffers at once
 nnoremap <silent> Q :Bdelete! menu<CR>
@@ -791,7 +791,7 @@ command! -complete=dir -nargs=+ -range=-1 Fr
 " Lf.vim
 let g:lf_map_keys = 0
 let g:lf_replace_netrw = 1
-map <Leader>l :Lf<CR>
+map <Leader>l :<C-u>Lf<CR>
 
 " Clever-f
 let g:clever_f_ignore_case = 0
@@ -808,8 +808,8 @@ map H ^
 map L $
 
 " A faster way to toggle line number
-map [n :set nonumber<CR>:set norelativenumber<CR>
-map ]n :set number<CR>:set relativenumber<CR>
+map [n :<C-u>set nonumber<CR>:set norelativenumber<CR>
+map ]n :<C-u>set number<CR>:set relativenumber<CR>
 
 " Vim searchhi
 nmap n <Plug>(searchhi-n)
