@@ -435,9 +435,13 @@ augroup end
 " Git {{{
 let g:git_messenger_always_into_popup = v:true
 let g:git_messenger_no_default_mappings = v:true
+let g:git_messenger_include_diff = 'current'
+
+" Don't blame people for changing whitespaces or moving code
+let g:git_messenger_extra_blame_args = '-w -M'
 
 noremap gm :GitMessenger<CR>
-noremap gb :Gblame<CR>
+noremap gb :Gblame -w -M<CR>
 noremap gs :tab Gstatus<CR>gg4j
 noremap gl :FzfCommits<CR>
 noremap gL :FzfBCommits<CR>
