@@ -440,6 +440,9 @@ let g:git_messenger_include_diff = 'current'
 " Don't blame people for changing whitespaces or moving code
 let g:git_messenger_extra_blame_args = '-w -M'
 
+" Don't show colorcolumn in git-messenger popup
+autocmd FileType gitmessengerpopup set textwidth&
+
 noremap gm :GitMessenger<CR>
 noremap gb :Gblame -w -M<CR>
 noremap gs :tab Gstatus<CR>gg4j
