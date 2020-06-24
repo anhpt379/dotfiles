@@ -81,7 +81,6 @@ call plug#begin()
   Plug 'rhysd/clever-f.vim'
   Plug 'junegunn/vim-easy-align'
   Plug 'cohama/lexima.vim'
-  Plug 'Konfekt/vim-CtrlXA'
   Plug 'tpope/vim-speeddating'
   Plug 'tpope/vim-dispatch'
   Plug 'Asheq/close-buffers.vim'
@@ -626,10 +625,6 @@ map q :<C-u>silent! call CloseBuffer()<CR>
 
 " Quickly close several buffers at once
 nnoremap <silent> Q :Bdelete! menu<CR>
-
-" CtrlXA
-nmap <Plug>SpeedDatingFallbackUp   <Plug>(CtrlXA-CtrlA)
-nmap <Plug>SpeedDatingFallbackDown <Plug>(CtrlXA-CtrlX)
 
 " Startify
 nmap <Leader>s :Startify<CR>
