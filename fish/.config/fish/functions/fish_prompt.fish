@@ -51,4 +51,7 @@ function fish_prompt
   end
 
   echo -n -s " "
+
+  # Reset cursor shape to beam
+  printf '\033[6 q'
 end
