@@ -56,7 +56,6 @@ call plug#begin()
   Plug 'pseewald/vim-anyfold'
   Plug 'Yggdroot/indentLine'
   Plug 'norcalli/nvim-colorizer.lua'
-  Plug 'xolox/vim-misc'
   Plug 'blueyed/vim-diminactive'
   Plug 'ryanoasis/vim-devicons'
   Plug 'rhysd/conflict-marker.vim'
