@@ -436,6 +436,7 @@ augroup end
 let g:git_messenger_always_into_popup = v:true
 let g:git_messenger_no_default_mappings = v:true
 let g:git_messenger_include_diff = 'current'
+let g:git_messenger_max_popup_width = 120
 
 " Don't blame people for changing whitespaces or moving code
 let g:git_messenger_extra_blame_args = '-w -M'
