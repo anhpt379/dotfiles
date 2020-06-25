@@ -83,6 +83,7 @@ call plug#begin()
   Plug 'qxxxb/vim-searchhi'
   Plug 'nvim-treesitter/nvim-treesitter'
   Plug 'unblevable/quick-scope'
+  Plug 'kana/vim-smartword'
 
   " Time tracking
   Plug 'wakatime/vim-wakatime'
@@ -852,3 +853,9 @@ let g:qs_max_chars = 120
 
 highlight QuickScopePrimary guifg='#55cabe'
 highlight QuickScopeSecondary guifg='#3bb0e0'
+
+" Vim smartword
+map w  <Plug>(smartword-w)
+map b  <Plug>(smartword-b)
+map e  <Plug>(smartword-e)
+map ge  <Plug>(smartword-ge)
