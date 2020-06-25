@@ -442,8 +442,8 @@ noremap gb :Gblame -w -M<CR>
 noremap gs :tab Gstatus<CR>gg4j
 noremap gl :FzfCommits<CR>
 noremap gL :FzfBCommits<CR>
-noremap gw :silent! Gwrite<CR>:w<CR>
 noremap gc :Gwrite<CR>:vertical Gcommit -v<CR>
+noremap <expr> gw &modified ? ':silent! Gwrite<CR>:update<CR>' : ''
 
 augroup fugitive-personal-key-mappings
   autocmd FileType fugitive nmap <buffer> p :bd!<CR>:Dispatch! noti git push origin HEAD --force-with-lease<CR>
@@ -482,10 +482,6 @@ nnoremap Q @q
 
 " Use U as redo
 nnoremap U <C-R>
-
-" Saving quicker
-nnoremap <C-S> :w<CR>
-inoremap <C-S> <Esc>:w<CR>i
 
 " Automatically jump to end of text you pasted
 vnoremap <silent> y y`]
