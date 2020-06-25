@@ -49,7 +49,6 @@ call plug#begin()
   Plug 'itchyny/lightline.vim'
   Plug 'mengelbrecht/lightline-bufferline'
   Plug 'mhinz/vim-startify'
-  Plug 'atimholt/spiffy_foldtext'
   Plug 'Yggdroot/indentLine'
   Plug 'norcalli/nvim-colorizer.lua'
   Plug 'blueyed/vim-diminactive'
@@ -123,9 +122,6 @@ set mouse=a
 
 set pumblend=20
 set cursorline
-
-set foldmethod=indent
-set foldlevel=99
 
 let g:is_posix = 1
 

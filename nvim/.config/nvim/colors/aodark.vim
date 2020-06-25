@@ -208,8 +208,8 @@ if has('nvim')
   let g:terminal_color_foreground = s:fg.gui
 endif
 
-" Anyfold
-highlight Folded term=NONE cterm=NONE guibg=#333843
+" Folded highlighting
+highlight Folded term=bold gui=bold cterm=NONE guifg=#696969
 
 " Highlightedyank
 highlight HighlightedyankRegion term=bold ctermbg=11 ctermfg=15 guibg=#e5c07b guifg=#ffffff
