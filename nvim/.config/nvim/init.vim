@@ -53,7 +53,7 @@ call plug#begin()
   Plug 'mengelbrecht/lightline-bufferline'
   Plug 'mhinz/vim-startify'
   Plug 'atimholt/spiffy_foldtext'
-  Plug 'pseewald/vim-anyfold'
+  " Plug 'pseewald/vim-anyfold'
   Plug 'Yggdroot/indentLine'
   Plug 'norcalli/nvim-colorizer.lua'
   Plug 'blueyed/vim-diminactive'
@@ -580,15 +580,15 @@ vnoremap <C-r> "hy:%s/<C-r>h//g<Left><Left>
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
 " Any-fold
-let g:anyfold_fold_display = 0
-let g:anyfold_fold_comments = 1
+" let g:anyfold_fold_display = 0
+" let g:anyfold_fold_comments = 1
 
-function! ActiveAnyFold()
-  if &ft =~ 'fugitive\|startify'
-    return
-  endif
-  AnyFoldActivate
-endfun
+" function! ActiveAnyFold()
+"   if &ft =~ 'fugitive\|startify'
+"     return
+"   endif
+"   AnyFoldActivate
+" endfun
 
 " Disable continuation of comments to the next line in Vim
 augroup format-options
@@ -866,3 +866,4 @@ require'nvim-treesitter.configs'.setup {
     ensure_installed = 'all'              -- one of 'all', 'language', or a list of languages
 }
 EOF
+set foldmethod=expr foldexpr=nvim_treesitter#foldexpr()
