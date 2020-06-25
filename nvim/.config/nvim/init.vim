@@ -53,7 +53,6 @@ call plug#begin()
   Plug 'mengelbrecht/lightline-bufferline'
   Plug 'mhinz/vim-startify'
   Plug 'atimholt/spiffy_foldtext'
-  " Plug 'pseewald/vim-anyfold'
   Plug 'Yggdroot/indentLine'
   Plug 'norcalli/nvim-colorizer.lua'
   Plug 'blueyed/vim-diminactive'
@@ -578,17 +577,6 @@ vnoremap <C-r> "hy:%s/<C-r>h//g<Left><Left>
 " Select the last pasted text with gp (similar to the standard gv which you can
 " type to select the last visually-selected text)
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
-
-" Any-fold
-" let g:anyfold_fold_display = 0
-" let g:anyfold_fold_comments = 1
-
-" function! ActiveAnyFold()
-"   if &ft =~ 'fugitive\|startify'
-"     return
-"   endif
-"   AnyFoldActivate
-" endfun
 
 " Disable continuation of comments to the next line in Vim
 augroup format-options
