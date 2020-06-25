@@ -35,7 +35,6 @@ call plug#begin()
   Plug 'ekalinin/Dockerfile.vim'
   Plug 'rodjek/vim-puppet'
   Plug 'pearofducks/ansible-vim'
-  Plug 'cespare/vim-toml'
   Plug 'mechatroner/rainbow_csv'
   Plug 'ericpruitt/tmux.vim'
   Plug 'georgewitteman/vim-fish'
@@ -43,8 +42,6 @@ call plug#begin()
   Plug 'towolf/vim-helm'
   Plug 'MTDL9/vim-log-highlighting'
   Plug 'wgwoods/vim-systemd-syntax'
-  Plug 'Guzzii/python-syntax'
-  Plug 'vim-ruby/vim-ruby'
 
   " Fancy UI stuff
   Plug 'junegunn/fzf', {'do': {-> fzf#install()}}
