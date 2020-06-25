@@ -709,10 +709,10 @@ autocmd  FileType fzf set laststatus=0 noshowmode noruler |
 
 function! DisableIndentLines()
   if &ft =~ 'fzf\|startify'
-    DisableWhitespace
+    IndentLinesDisable
   endif
 endfunction
-autocmd FileType * :IndentLinesDisable
+autocmd FileType * call DisableIndentLines()
 " }}}
 
 " vim-diminactive
