@@ -857,4 +857,4 @@ highlight QuickScopeSecondary guifg='#3bb0e0' ctermfg=12 ctermbg=235
 map w  <Plug>(smartword-w)
 map b  <Plug>(smartword-b)
 map e  <Plug>(smartword-e)
-map ge  <Plug>(smartword-ge)
+map ge <Plug>(smartword-ge)
