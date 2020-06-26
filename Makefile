@@ -3,13 +3,17 @@ CLI_TOOLS := $(xcode-select --install 2>&1 | grep installed;)
 
 
 stow:
-	stow git
-	stow tig
 	stow bat
-	stow nvim
-	stow tmux
 	stow fish
+	stow fzf
+	stow git
+	stow inputrc
 	stow kitty
+	stow lf
+	stow nvim
+	stow ssh
+	stow tig
+	stow tmux
 	stow wakatime
 	cp -r karabiner/.config/karabiner ~/.config/
 
