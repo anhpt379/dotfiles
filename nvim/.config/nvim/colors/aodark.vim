@@ -226,3 +226,5 @@ highlight CocFloating guibg=#4D5565
 highlight CocErrorHighlight guifg=#e06c75
 highlight CocWarningHighlight guifg=#e5c07b
 
+" Clever-f
+highlight CleverFDirect guifg=#ffb300 gui=bold

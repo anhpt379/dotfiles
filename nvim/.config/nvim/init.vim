@@ -82,7 +82,6 @@ call plug#begin()
   Plug 'romainl/vim-cool'
   Plug 'qxxxb/vim-searchhi'
   Plug 'nvim-treesitter/nvim-treesitter'
-  Plug 'unblevable/quick-scope'
   Plug 'kana/vim-smartword'
 
   " Time tracking
@@ -781,6 +780,7 @@ map <Leader>l :<C-u>Lf<CR>
 let g:clever_f_ignore_case = 0
 let g:clever_f_smart_case = 0
 let g:clever_f_fix_key_direction = 0
+let g:clever_f_mark_direct = 1
 let g:clever_f_mark_char_color = 'Search'
 
 " Make diffing better: https://vimways.org/2018/the-power-of-diff/
@@ -846,12 +846,6 @@ set foldmethod=expr foldexpr=nvim_treesitter#foldexpr()
 
 set foldlevel=99
 set nofoldenable
-
-" Vim quick-scope
-let g:qs_max_chars = 120
-
-highlight QuickScopePrimary   guifg='#55cabe' ctermfg=14 ctermbg=235
-highlight QuickScopeSecondary guifg='#3bb0e0' ctermfg=12 ctermbg=235
 
 " Vim smartword
 map w  <Plug>(smartword-w)
