@@ -101,7 +101,6 @@ let g:coc_global_extensions = [
   \ 'coc-docker',
   \ 'coc-sh',
   \ 'coc-dictionary',
-  \ 'coc-emoji',
   \ 'coc-diagnostic',
   \ 'coc-vimlsp',
   \ 'coc-solargraph',
