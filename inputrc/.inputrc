@@ -1,0 +1,11 @@
+# option+left/right to jump word by word
+"\e[1;3C": forward-word
+"\e[1;3D": backward-word
+
+# option+forward_delete
+"\e[3;3~": kill-word
+
+# control+delete/forward_delete
+"\C-h": unix-word-rubout
+"\e[3;5~": kill-word
+
