@@ -850,8 +850,8 @@ set nofoldenable
 " Vim quick-scope
 let g:qs_max_chars = 120
 
-highlight QuickScopePrimary guifg='#55cabe'
-highlight QuickScopeSecondary guifg='#3bb0e0'
+highlight QuickScopePrimary   guifg='#55cabe' ctermfg=14 ctermbg=235
+highlight QuickScopeSecondary guifg='#3bb0e0' ctermfg=12 ctermbg=235
 
 " Vim smartword
 map w  <Plug>(smartword-w)
