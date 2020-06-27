@@ -20,6 +20,7 @@ brew 'gawk'
 brew 'git'
 brew 'gnu-sed'
 brew 'hadolint'
+brew 'httpie'
 brew 'https://raw.githubusercontent.com/cloudflare/homebrew-cloudflare/master/curl.rb', args: ['HEAD', 'build-from-source']
 brew 'imagemagick'
 brew 'ipython'
