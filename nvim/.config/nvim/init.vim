@@ -197,7 +197,12 @@ set inccommand=split
 let mapleader=' '
 
 " Quickly reload nvim config & update plugins by pressing `<Leader>u`
-nnoremap <Leader>u :w<CR>:source ~/dotfiles/nvim/.config/nvim/init.vim<CR>:PlugClean<CR>:silent !PlugInstall<CR>:source ~/dotfiles/nvim/.config/nvim/init.vim<CR>:PlugUpdate<CR>
+nnoremap <Leader>u :silent! w<CR>
+                 \ :source ~/dotfiles/nvim/.config/nvim/init.vim<CR>
+                 \ :PlugClean<CR>
+                 \ :silent !PlugInstall<CR>
+                 \ :source ~/dotfiles/nvim/.config/nvim/init.vim<CR>
+                 \ :PlugUpdate<CR>
 
 " Turn off whitespaces compare and folding in vimdiff
 set splitright
@@ -236,11 +241,14 @@ function! DevIconsFugitiveHead()
 endfunction
 
 function! DevIconsFileType()
-  return winwidth(0) > 70 ? (strlen(&filetype) ? WebDevIconsGetFileTypeSymbol() . ' ' . &filetype : 'no ft') : ''
+  return winwidth(0) > 70 ?
+        \ (strlen(&filetype) ?
+        \  WebDevIconsGetFileTypeSymbol() . ' ' . &filetype : 'no ft') : ''
 endfunction
 
 function! DevIconsFileFormat()
-  return winwidth(0) > 70 ? (WebDevIconsGetFileFormatSymbol() . ' ' . &fileformat) : ''
+  return winwidth(0) > 70 ?
+        \ (WebDevIconsGetFileFormatSymbol() . ' ' . &fileformat) : ''
 endfunction
 
 " Show vim tab line even if only one file is open
@@ -339,8 +347,8 @@ nmap <Leader>ac <Plug>(coc-codeaction)
 " Fix autofix problem of current line
 nmap <Leader>qf <Plug>(coc-fix-current)
 
-" Create mappings for function text object, requires document symbols feature of
-" languageserver
+" Create mappings for function text object, requires document symbols feature
+" of languageserver
 xmap if <Plug>(coc-funcobj-i)
 xmap af <Plug>(coc-funcobj-a)
 omap if <Plug>(coc-funcobj-i)
@@ -369,16 +377,25 @@ set winblend=0
 let g:fzf_command_prefix = 'Fzf'
 let g:fzf_buffers_jump = 1
 let g:fzf_layout = { 'window': 'enew' }
-let g:fzf_commits_log_options = '-5000 --no-merges --color=always --format="%C(auto)%h%d %C(reset)%s %C(#555555)(%aN - %cr)"'
+let g:fzf_commits_log_options = '
+  \ -5000 --no-merges --color=always
+  \ --format="%C(auto)%h%d %C(reset)%s %C(#555555)(%aN - %cr)"
+  \ '
 
 command! -complete=dir -bang -nargs=* FzfRg
   \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always --smart-case --hidden --glob "!.git" '.<q-args>.' || true', 1,
-  \   fzf#vim#with_preview({'options': ['--no-multi', '--layout=reverse']}), <bang>0)
+  \   'rg --column --line-number --no-heading --color=always
+  \       --smart-case --hidden --glob "!.git" '.<q-args>.' || true', 1,
+  \   fzf#vim#with_preview({'options': ['--no-multi', '--layout=reverse']}),
+  \   <bang>0)
 
 " Fzf + devicons
 function! FzfFilesDevicons()
-  let l:fzf_files_options = '--expect=ctrl-v --header ":: Press CTRL-V to open in a vertical split, Enter to open in a new buffer." --preview "bat --color=always --style=numbers {2..} | head -'.&lines.'"'
+  let l:fzf_files_options = '
+    \ --expect=ctrl-v
+    \ --header
+    \   ":: Press CTRL-V to open in a vertical split, Enter to open in a new buffer."
+    \ --preview "bat --color=always --style=numbers {2..} | head -'.&lines.'"'
 
   function! s:edit_devicon_prepended_file(lines)
     if len(a:lines) < 2
@@ -442,7 +459,8 @@ noremap gc :Gwrite<CR>:vertical Gcommit -v<CR>
 noremap <expr> gw &modified ? ':silent! Gwrite<CR>:update<CR>' : ''
 
 augroup fugitive-personal-key-mappings
-  autocmd FileType fugitive nmap <buffer> p :bd!<CR>:Dispatch! noti git push origin HEAD --force-with-lease<CR>
+  autocmd FileType fugitive nmap <buffer> p :bd!<CR>
+        \ :Dispatch! noti git push origin HEAD --force-with-lease<CR>
 
   " Verbose and quiet git commit by default
   autocmd FileType fugitive nmap <buffer> C :vertical Git commit -v --quiet<CR>
@@ -530,10 +548,10 @@ nnoremap S i<CR><ESC>:StripWhitespace<CR>
 vnoremap == gw
 nnoremap == Vgw
 
-" These are to cancel the default behavior of d, D, c, C, s to put the text they
-" delete in the default register
+" These are to cancel the default behavior of d, D, c, C, s to put the text
+" they delete in the default register.
 " Note that this means e.g. "ad won't copy the text into register a anymore,
-" you have to explicitly yank it
+" you have to explicitly yank it.
 nnoremap d "_d
 vnoremap d "_d
 nnoremap D "_D
@@ -781,7 +799,6 @@ let g:clever_f_ignore_case = 0
 let g:clever_f_smart_case = 0
 let g:clever_f_fix_key_direction = 0
 let g:clever_f_mark_direct = 1
-" let g:clever_f_mark_char_color = 'Search'
 
 " Make diffing better: https://vimways.org/2018/the-power-of-diff/
 set diffopt+=algorithm:patience
@@ -826,20 +843,20 @@ vmap ? <Plug>(searchhi-v-?)\V
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
     highlight = {
-        enable = true,                    -- false will disable the whole extension
-        disable = { },                    -- list of language that will be disabled
+        enable = true,                -- false will disable the whole extension
+        disable = { },                -- list of language that will be disabled
     },
     incremental_selection = {
         enable = true,
         disable = { },
-        keymaps = {                       -- mappings for incremental selection (visual mappings)
-          init_selection = 'gnn',         -- maps in normal mode to init the node/scope selection
-          node_incremental = "grn",       -- increment to the upper named parent
-          scope_incremental = "grc",      -- increment to the upper scope (as defined in locals.scm)
-          node_decremental = "grm",       -- decrement to the previous node
+        keymaps = {                   -- mappings for incremental selection (visual mappings)
+          init_selection = 'gnn',     -- maps in normal mode to init the node/scope selection
+          node_incremental = "grn",   -- increment to the upper named parent
+          scope_incremental = "grc",  -- increment to the upper scope (as defined in locals.scm)
+          node_decremental = "grm",   -- decrement to the previous node
         }
     },
-    ensure_installed = 'all'              -- one of 'all', 'language', or a list of languages
+    ensure_installed = 'all'          -- one of 'all', 'language', or a list of languages
 }
 EOF
 set foldmethod=expr foldexpr=nvim_treesitter#foldexpr()
