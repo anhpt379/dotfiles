@@ -123,8 +123,17 @@ cmd go_home %{{
   lf -remote "send cd $dir"
 }}
 
+# Smarter ESC key
+cmd escape %{{
+  if [ -z "$fs" ]; then
+    lf -remote "send quit"
+  else
+    lf -remote "send unselect"
+  fi
+}}
+
 # Basic Functions
-map <esc> unselect; clear
+map <esc> escape
 map <enter> open $fx
 map . set hidden!
 map d delete
