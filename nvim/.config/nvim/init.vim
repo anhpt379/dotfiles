@@ -781,7 +781,7 @@ let g:clever_f_ignore_case = 0
 let g:clever_f_smart_case = 0
 let g:clever_f_fix_key_direction = 0
 let g:clever_f_mark_direct = 1
-let g:clever_f_mark_char_color = 'Search'
+" let g:clever_f_mark_char_color = 'Search'
 
 " Make diffing better: https://vimways.org/2018/the-power-of-diff/
 set diffopt+=algorithm:patience

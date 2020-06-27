@@ -227,4 +227,5 @@ highlight CocErrorHighlight guifg=#e06c75
 highlight CocWarningHighlight guifg=#e5c07b
 
 " Clever-f
-highlight CleverFDirect guifg=#ffb300 gui=bold ctermfg=11 ctermbg=235 cterm=bold
+highlight CleverFDefaultLabel guifg=#ffb300 gui=bold,underline ctermfg=11 ctermbg=235 cterm=bold,underline
+highlight CleverFDirect       guifg=#ffb300 gui=bold           ctermfg=11 ctermbg=235 cterm=bold
