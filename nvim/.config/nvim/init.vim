@@ -83,6 +83,7 @@ call plug#begin()
   Plug 'qxxxb/vim-searchhi'
   Plug 'nvim-treesitter/nvim-treesitter'
   Plug 'kana/vim-smartword'
+  Plug 'inkarkat/vim-EnhancedJumps' | Plug 'inkarkat/vim-ingo-library'
 
   " Time tracking
   Plug 'wakatime/vim-wakatime'
@@ -869,3 +870,6 @@ map w  <Plug>(smartword-w)
 map b  <Plug>(smartword-b)
 map e  <Plug>(smartword-e)
 map ge <Plug>(smartword-ge)
+
+" Vim enhanced jumps
+let g:EnhancedJumps_CaptureJumpMessages = 0
