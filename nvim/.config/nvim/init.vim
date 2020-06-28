@@ -749,6 +749,10 @@ function! ToggleHomeZero()
 endfunction
 nnoremap 0 :call ToggleHomeZero()<CR>
 
+" Jump to start and end of line using the home row keys
+map H :call ToggleHomeZero()<CR>
+map L $
+
 " Easier change list jumps
 nnoremap <Leader>o g;
 nnoremap <Leader>i g,
@@ -803,10 +807,6 @@ let g:clever_f_mark_direct = 1
 " Make diffing better: https://vimways.org/2018/the-power-of-diff/
 set diffopt+=algorithm:patience
 set diffopt+=indent-heuristic
-
-" Jump to start and end of line using the home row keys
-map H ^
-map L $
 
 " A faster way to toggle line number
 map [n :<C-u>set nonumber<CR>:set norelativenumber<CR>
