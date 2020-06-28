@@ -305,8 +305,8 @@ set shortmess+=c
 set signcolumn=yes
 
 " Accept completion with <CR> and <Tab>
-inoremap <expr> <CR>  pumvisible() ? "\<C-y>" : "\<CR>"
-inoremap <expr> <Tab> pumvisible() ? "\<C-y>" : "\<Tab>"
+inoremap <expr> <CR>  pumvisible() ? '\<C-y>' : '\<CR>'
+inoremap <expr> <Tab> pumvisible() ? '\<C-y>' : '\<Tab>'
 
 " Navigate diagnostics
 nmap <silent> <Tab>   <Plug>(coc-diagnostic-next)
@@ -396,7 +396,8 @@ function! FzfFilesDevicons()
     \ --expect=ctrl-v
     \ --header
     \   ":: Press CTRL-V to open in a vertical split, Enter to open in a new buffer."
-    \ --preview "bat --color=always --style=numbers {2..} | head -'.&lines.'"'
+    \ --preview "bat --color=always --style=numbers {2..} | head -'.&lines.'"
+    \ '
 
   function! s:edit_devicon_prepended_file(lines)
     if len(a:lines) < 2
@@ -603,7 +604,7 @@ runtime macros/sandwich/keymap/surround.vim
 function! CloseBuffer()
   let cnt = 0
 
-  for i in range(0, bufnr("$"))
+  for i in range(0, bufnr('$'))
     if buflisted(i)
       let cnt += 1
     endif
@@ -681,7 +682,7 @@ endfunction
 autocmd FileType * call DisableWhitespace()
 
 " vim-gh-line
-let g:gh_gitlab_domain = "gitlab.booking.com"
+let g:gh_gitlab_domain = 'gitlab.booking.com'
 let g:gh_line_map_default = 0
 let g:gh_line_blame_map_default = 0
 let g:gh_line_map = 'go'
@@ -743,9 +744,9 @@ let g:fugitive_dynamic_colors = 0
 " (`0` is easier to reach than `^`)
 function! ToggleHomeZero()
   let pos = getpos('.')
-  execute "normal! ^"
+  execute 'normal! ^'
   if pos == getpos('.')
-    execute "normal! 0"
+    execute 'normal! 0'
   endif
 endfunction
 nnoremap 0 :call ToggleHomeZero()<CR>
@@ -787,12 +788,12 @@ let g:far#source = 'rgnvim'
 
 " Fix `q` quit far doesn't work properly
 let g:far#mapping = {
-  \ "quit" : ""
+  \ 'quit' : ''
   \ }
 
 " Far search and replace with dir completion
 command! -complete=dir -nargs=+ -range=-1 Fr
-    \   call Far(<count>,<line1>,<line2>,<q-args>)
+  \ call Far(<count>,<line1>,<line2>,<q-args>)
 
 " }}}
 
@@ -845,21 +846,21 @@ vmap ? <Plug>(searchhi-v-?)\V
 " Tree-sitter
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
-    highlight = {
-        enable = true,                -- false will disable the whole extension
-        disable = { },                -- list of language that will be disabled
-    },
-    incremental_selection = {
-        enable = true,
-        disable = { },
-        keymaps = {                   -- mappings for incremental selection (visual mappings)
-          init_selection = 'gnn',     -- maps in normal mode to init the node/scope selection
-          node_incremental = "grn",   -- increment to the upper named parent
-          scope_incremental = "grc",  -- increment to the upper scope (as defined in locals.scm)
-          node_decremental = "grm",   -- decrement to the previous node
-        }
-    },
-    ensure_installed = 'all'          -- one of 'all', 'language', or a list of languages
+  highlight = {
+    enable = true,                -- false will disable the whole extension
+    disable = { },                -- list of language that will be disabled
+  },
+  incremental_selection = {
+    enable = true,
+    disable = { },
+    keymaps = {                   -- mappings for incremental selection (visual mappings)
+      init_selection = 'gnn',     -- maps in normal mode to init the node/scope selection
+      node_incremental = 'grn',   -- increment to the upper named parent
+      scope_incremental = 'grc',  -- increment to the upper scope (as defined in locals.scm)
+      node_decremental = 'grm',   -- decrement to the previous node
+    }
+  },
+  ensure_installed = 'all'        -- one of 'all', 'language', or a list of languages
 }
 EOF
 set foldmethod=expr foldexpr=nvim_treesitter#foldexpr()
