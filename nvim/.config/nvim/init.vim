@@ -753,6 +753,8 @@ nnoremap 0 :call ToggleHomeZero()<CR>
 " Jump to start and end of line using the home row keys
 map H :call ToggleHomeZero()<CR>
 map L $
+map <Home> :call ToggleHomeZero()<CR>
+map <End>  $
 
 " Easier change list jumps
 nnoremap <Leader>o g;
