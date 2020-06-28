@@ -60,6 +60,7 @@ brew 'watch'
 brew 'wget'
 brew 'yarn'
 brew 'youtube-dl'
+
 # Apps
 cask '1password'
 cask 'docker'
@@ -77,13 +78,6 @@ cask 'telegram-desktop'
 cask 'the-unarchiver'
 cask 'vagrant'
 cask 'workplace-chat'
-
-# Quicklook
-cask 'qlcolorcode'
-cask 'qlmarkdown'
-cask 'qlstephen'
-cask 'quicklook-csv'
-cask 'quicklook-json'
 
 # Fonts
 cask 'font-meslo-nerd-font'
