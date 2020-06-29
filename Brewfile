@@ -43,6 +43,7 @@ brew 'neovim', args: ['HEAD']
 brew 'node'
 brew 'noti'
 brew 'openssl'
+brwe 'prettier'
 brew 'pwgen'
 brew 'python3'
 brew 'ripgrep'

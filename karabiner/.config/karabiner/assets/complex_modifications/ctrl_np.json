@@ -9,7 +9,9 @@
           "from": {
             "key_code": "p",
             "modifiers": {
-              "mandatory": ["left_control"]
+              "mandatory": [
+                "left_control"
+              ]
             }
           },
           "to": [
@@ -33,7 +35,9 @@
           "from": {
             "key_code": "n",
             "modifiers": {
-              "mandatory": ["left_control"]
+              "mandatory": [
+                "left_control"
+              ]
             }
           },
           "to": [

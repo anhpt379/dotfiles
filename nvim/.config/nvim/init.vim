@@ -84,6 +84,7 @@ call plug#begin()
   Plug 'nvim-treesitter/nvim-treesitter'
   Plug 'kana/vim-smartword'
   Plug 'inkarkat/vim-EnhancedJumps' | Plug 'inkarkat/vim-ingo-library'
+  Plug 'sbdchd/neoformat'
 
   " Time tracking
   Plug 'wakatime/vim-wakatime'
@@ -354,15 +355,6 @@ xmap if <Plug>(coc-funcobj-i)
 xmap af <Plug>(coc-funcobj-a)
 omap if <Plug>(coc-funcobj-i)
 omap af <Plug>(coc-funcobj-a)
-
-" Use `:Format` to format current buffer
-command! -nargs=0 Format :call CocAction('format')
-
-" Use `:Fold` to fold current buffer
-command! -nargs=? Fold   :call CocAction('fold', <f-args>)
-
-" use `:OR` for organize import of current buffer
-command! -nargs=0 OR     :call CocAction('runCommand', 'editor.action.organizeImport')
 
 " Add status line support, for integration with other plugin, checkout `:h
 " coc-status`
@@ -724,9 +716,6 @@ let g:diminactive_buftype_blacklist = []
 " https://www.reddit.com/r/vim/comments/g1lx7e/i_made_a_command_to_autoformat_shell_commands/
 command! -range FormatShellCmd <line1>!~/.config/nvim/bin/format_shell_cmd.py
 
-" Format json
-command! FormatJSON call CocAction('format')
-
 " Easier split navigations
 nnoremap <Down>  <C-W><C-J>
 nnoremap <Up>    <C-W><C-K>
@@ -883,3 +872,9 @@ map ge <Plug>(smartword-ge)
 " Vim enhanced jumps
 let g:EnhancedJumps_CaptureJumpMessages = 0
 
+" Neoformat
+let g:neoformat_basic_format_align = 1
+let g:neoformat_basic_format_retab = 1
+let g:neoformat_basic_format_trim  = 1
+
+command! FormatCode silent! Neoformat

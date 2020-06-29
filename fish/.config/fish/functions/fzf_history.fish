@@ -12,4 +12,3 @@ function fzf_history -d "Show command history"
     end
     commandline -f repaint
 end
-
