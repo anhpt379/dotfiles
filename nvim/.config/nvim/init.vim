@@ -559,9 +559,7 @@ vnoremap s "_s
 
 " Make <BS>/<Del> act like X/x, but don't mess up the default register
 nnoremap <BS>  "_X
-vnoremap <BS>  "_X
 nnoremap <Del> "_x
-vnoremap <Del> "_x
 
 " Quick folding with `-`
 nnoremap - za
