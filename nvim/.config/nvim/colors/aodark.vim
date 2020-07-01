@@ -196,7 +196,7 @@ if has('nvim')
   let g:terminal_color_5 = s:purple.gui
   let g:terminal_color_6 = s:cyan.gui
   let g:terminal_color_7 = s:white.gui
-  let g:terminal_color_8 = s:black.gui
+  let g:terminal_color_8 = s:comment_fg.gui
   let g:terminal_color_9 = s:red.gui
   let g:terminal_color_10 = s:green.gui
   let g:terminal_color_11 = s:yellow.gui
