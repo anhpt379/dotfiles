@@ -71,6 +71,8 @@ set -gx fish_user_paths '/usr/local/opt/curl/bin' $fish_user_paths
 
 set -gx KUBE_EDITOR 'vim'
 
+set -gx MANPAGER "nvim -c 'set ft=man | set showtabline=1 | set laststatus=0' -"
+
 # Fix trackpad scrolling doesn't work in diff-so-fancy
 # Need to remove the `X` flag from less options, but can't do it via .gitconfig,
 # since git set the default to `FRX` if we don't set `LESS` environment variable

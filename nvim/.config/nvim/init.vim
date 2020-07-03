@@ -671,7 +671,7 @@ nnoremap ]w :NextTrailingWhitespace<CR>
 nnoremap [w :PrevTrailingWhitespace<CR>
 
 function! DisableWhitespace()
-  if &ft =~ 'fugitive\|startify\|far\|git'
+  if &ft =~ 'fugitive\|startify\|far\|git\|man'
     DisableWhitespace
   endif
 endfunction
@@ -700,7 +700,7 @@ autocmd  FileType fzf set laststatus=0 noshowmode noruler |
   \ autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 
 function! DisableIndentLines()
-  if &ft =~ 'fzf\|startify'
+  if &ft =~ 'fzf\|startify\|man'
     IndentLinesDisable
   endif
 endfunction
