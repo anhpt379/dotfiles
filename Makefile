@@ -35,6 +35,12 @@ endif
 
 	pip3 install --user -r requirements.txt
 	cargo install devicon-lookup
+	gem install --user-install \
+		puppet-lint \
+		puppet-lint-strict_indent-check \
+		puppet-lint-trailing_comma-check \
+		puppet-lint-trailing_newline-check \
+		solargraph
 	curl -fLo /usr/local/bin/prettyping https://github.com/denilsonsa/prettyping/raw/master/prettyping && chmod +x /usr/local/bin/prettyping
 
 	mkdir -p ~/.config/nvim/autoload/
