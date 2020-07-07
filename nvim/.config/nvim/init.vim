@@ -307,7 +307,6 @@ set signcolumn=yes
 
 " Accept completion with <CR> and <Tab>
 inoremap <expr> <CR>  pumvisible() ? '\<C-y>' : '\<CR>'
-inoremap <expr> <Tab> pumvisible() ? '\<C-y>' : '\<Tab>'
 
 " Navigate diagnostics
 nmap <silent> <Tab>   <Plug>(coc-diagnostic-next)
