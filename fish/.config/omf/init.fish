@@ -1,8 +1,7 @@
 balias k kubectl
 balias kd 'kubectl describe'
 balias kdf 'kubectl delete --force --grace-period=0'
-balias kn 'kubens'
-balias kc 'kubectx'
+balias kn 'kubectl config set-context --current --namespace'
 
 balias g        'git'
 balias gs       'git status'
