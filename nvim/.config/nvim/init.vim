@@ -83,7 +83,6 @@ call plug#begin()
   Plug 'qxxxb/vim-searchhi'
   Plug 'nvim-treesitter/nvim-treesitter'
   Plug 'kana/vim-smartword'
-  Plug 'inkarkat/vim-EnhancedJumps' | Plug 'inkarkat/vim-ingo-library'
   Plug 'sbdchd/neoformat'
 
   " Time tracking
@@ -861,9 +860,6 @@ map w  <Plug>(smartword-w)
 map b  <Plug>(smartword-b)
 map e  <Plug>(smartword-e)
 map ge <Plug>(smartword-ge)
-
-" Vim enhanced jumps
-let g:EnhancedJumps_CaptureJumpMessages = 0
 
 " Neoformat
 let g:neoformat_basic_format_align = 1
