@@ -84,6 +84,7 @@ call plug#begin()
   Plug 'nvim-treesitter/nvim-treesitter'
   Plug 'kana/vim-smartword'
   Plug 'sbdchd/neoformat'
+  Plug 'pseewald/vim-anyfold'
 
   " Time tracking
   Plug 'wakatime/vim-wakatime'
@@ -850,7 +851,18 @@ require'nvim-treesitter.configs'.setup {
   ensure_installed = 'all'        -- one of 'all', 'language', or a list of languages
 }
 EOF
-set foldmethod=expr foldexpr=nvim_treesitter#foldexpr()
+
+ " Any-fold
+let g:anyfold_fold_display = 0
+let g:anyfold_fold_comments = 1
+
+function! ActiveAnyFold()
+  if &ft =~ 'fugitive\|startify'
+    return
+  endif
+  AnyFoldActivate
+endfunction
+autocmd FileType * call ActiveAnyFold()
 
 set foldlevel=99
 set nofoldenable
