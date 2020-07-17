@@ -5,7 +5,7 @@ syntax reset
 let g:colors_name='aodark'
 let colors_name='aodark'
 
-let s:black       = { 'gui': '#0e0e0e', 'cterm': '0'  }
+let s:black       = { 'gui': '#101011', 'cterm': '0'  }
 let s:red         = { 'gui': '#DE456B', 'cterm': '9'  }
 let s:green       = { 'gui': '#8DC26C', 'cterm': '10' }
 let s:yellow      = { 'gui': '#E2B962', 'cterm': '11' }
