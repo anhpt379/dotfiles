@@ -6,6 +6,7 @@
   "suggest.defaultSortMethod": "none",
   "git.addGBlameToVirtualText": true,
   "yank.highlight.enable": false,
+  "yank.enableCompletion": false,
   "diagnostic.errorSign": "×",
   "diagnostic.warningSign": "!",
   "diagnostic.infoSign": "i",
