@@ -46,6 +46,7 @@ call plug#begin()
   " Fancy UI stuff
   Plug 'junegunn/fzf', {'do': {-> fzf#install()}}
   Plug 'anhpt379/fzf.vim'
+  Plug 'anhpt379/fzf-checkout.vim'
   Plug 'itchyny/lightline.vim'
   Plug 'mengelbrecht/lightline-bufferline'
   Plug 'mhinz/vim-startify'
@@ -866,3 +867,11 @@ let g:neoformat_basic_format_retab = 1
 let g:neoformat_basic_format_trim  = 1
 
 command! FormatCode silent! Neoformat
+
+" Fzf checkout
+noremap co :FzfGCheckout<CR>
+
+let g:fzf_checkout_execute = 'bang'
+let g:fzf_checkout_create_key = 'ctrl-c'  " git checkout -b branch
+let g:fzf_checkout_track_key = 'ctrl-s'
+let g:fzf_checkout_delete_key = 'ctrl-d'
