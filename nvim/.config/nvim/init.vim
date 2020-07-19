@@ -17,7 +17,7 @@ call plug#begin()
   Plug 'airblade/vim-rooter'
 
   " Some Git stuff
-  Plug 'tpope/vim-fugitive'
+  Plug 'anhpt379/vim-fugitive'
   Plug 'rhysd/git-messenger.vim'
   Plug 'ruanyl/vim-gh-line'
   Plug 'tommcdo/vim-fugitive-blame-ext'
