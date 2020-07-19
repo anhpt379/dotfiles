@@ -436,7 +436,6 @@ noremap gb :Gblame -w -M<CR>
 noremap gs :tab Gstatus<CR>gg4j
 noremap gl :FzfCommits<CR>
 noremap gL :FzfBCommits<CR>
-noremap gc :Gwrite<CR>:vertical Gcommit -v<CR>
 noremap <expr> gw &modified ? ':silent! Gwrite<CR>:update<CR>' : ''
 
 augroup fugitive-personal-key-mappings
