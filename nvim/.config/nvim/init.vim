@@ -443,6 +443,8 @@ augroup fugitive-personal-key-mappings
   autocmd FileType fugitive nmap <buffer> p :bd!<CR>
         \ :Dispatch! noti git push origin HEAD --force-with-lease<CR>
 
+  autocmd FileType fugitive nmap <buffer> b :FzfGCheckout<CR>
+
   " Verbose and quiet git commit by default
   autocmd FileType fugitive nmap <buffer> C :vertical Git commit -v --quiet<CR>
   autocmd FileType fugitive nmap <buffer> cc :vertical Git commit -v --quiet<CR>
@@ -619,7 +621,7 @@ let g:startify_lists = [
   \ ]
 
 let g:startify_bookmarks = [
-  \ {'v': '~/dotfiles/nvim/.config/nvim/init.vim'},
+  \ {'c': '~/dotfiles/nvim/.config/nvim/init.vim'},
   \ {'b': '~/dotfiles/Brewfile'},
   \ ]
 
@@ -869,8 +871,6 @@ let g:neoformat_basic_format_trim  = 1
 command! FormatCode silent! Neoformat
 
 " Fzf checkout
-noremap co :FzfGCheckout<CR>
-
 let g:fzf_checkout_execute = 'bang'
 let g:fzf_checkout_create_key = 'ctrl-c'  " git checkout -b branch
 let g:fzf_checkout_track_key = 'ctrl-s'
