@@ -13,7 +13,7 @@ function gl --description "Git browse commits"
         --color=always \
         --format="%C(auto)%h %C(reset)%s %C(#555555)%b(%aN - %cr)" \
         | tr '\n' ' ' \
-        | sed -E 's/[a-f0-9]{7,}+/\\n&/2g' \
+        | sed -E 's/\\x1b\\[32m[a-f0-9]{7,}+/\\n&/2g' \
         | fzf --no-mouse --reverse --tiebreak=index --no-multi --ansi --height=100% \
         --preview="$preview_commit" \
         --header=" CTRL-S to toggle sort, CTRL-Y to copy hash, CTRL-O to open in browser" \
