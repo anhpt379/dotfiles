@@ -20,7 +20,6 @@ call plug#begin()
   Plug 'anhpt379/vim-fugitive'
   Plug 'rhysd/git-messenger.vim'
   Plug 'ruanyl/vim-gh-line'
-  Plug 'tommcdo/vim-fugitive-blame-ext'
 
   " EditorConfig
   Plug 'editorconfig/editorconfig-vim'
