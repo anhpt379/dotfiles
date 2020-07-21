@@ -547,9 +547,9 @@ vnoremap C "_C
 nnoremap s "_s
 vnoremap s "_s
 
-" Make <BS>/<Del> act like X/x, but don't mess up the default register
-nnoremap <BS>  "_X
-nnoremap <Del> "_x
+" Disable <BS>/<Del> in NORMAL mode
+nnoremap <BS>  <nop>
+nnoremap <Del> <nop>
 
 " Quick folding with `-`
 nnoremap - za
