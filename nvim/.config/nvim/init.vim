@@ -81,7 +81,6 @@ call plug#begin()
   Plug 'tpope/vim-speeddating'
   Plug 'tpope/vim-dispatch'
   Plug 'Asheq/close-buffers.vim'
-  Plug 'romainl/vim-cool'
   Plug 'qxxxb/vim-searchhi'
   Plug 'nvim-treesitter/nvim-treesitter'
   Plug 'kana/vim-smartword'
