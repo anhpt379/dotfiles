@@ -87,6 +87,7 @@ call plug#begin()
   Plug 'sbdchd/neoformat'
   Plug 'pseewald/vim-anyfold'
   Plug 'tpope/vim-sleuth'
+  Plug 'itchyny/vim-parenmatch'
 
   " Time tracking
   Plug 'wakatime/vim-wakatime'
@@ -876,3 +877,6 @@ let g:fzf_checkout_execute = 'bang'
 let g:fzf_checkout_create_key = 'ctrl-c'  " git checkout -b branch
 let g:fzf_checkout_track_key = 'ctrl-s'
 let g:fzf_checkout_delete_key = 'ctrl-d'
+
+" Vim parenmatch
+let g:loaded_matchparen = 1
