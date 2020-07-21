@@ -86,6 +86,7 @@ call plug#begin()
   Plug 'kana/vim-smartword'
   Plug 'sbdchd/neoformat'
   Plug 'pseewald/vim-anyfold'
+  Plug 'tpope/vim-sleuth'
 
   " Time tracking
   Plug 'wakatime/vim-wakatime'
