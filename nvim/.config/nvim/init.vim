@@ -86,6 +86,7 @@ call plug#begin()
   Plug 'pseewald/vim-anyfold'
   Plug 'tpope/vim-sleuth'
   Plug 'itchyny/vim-parenmatch'
+  Plug 'Vimjas/vim-python-pep8-indent'
 
   " Time tracking
   Plug 'wakatime/vim-wakatime'
