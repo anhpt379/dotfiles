@@ -42,6 +42,7 @@ call plug#begin()
   Plug 'MTDL9/vim-log-highlighting'
   Plug 'wgwoods/vim-systemd-syntax'
   Plug 'raimon49/requirements.txt.vim'
+  Plug 'hashivim/vim-terraform'
 
   " Fancy UI stuff
   Plug 'junegunn/fzf', {'do': {-> fzf#install()}}
