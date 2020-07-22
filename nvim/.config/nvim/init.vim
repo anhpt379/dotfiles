@@ -90,6 +90,7 @@ call plug#begin()
   Plug 'tpope/vim-sleuth'
   Plug 'itchyny/vim-parenmatch'
   Plug 'Vimjas/vim-python-pep8-indent'
+  Plug 'kana/vim-niceblock'
 
   " Time tracking
   Plug 'wakatime/vim-wakatime'
@@ -871,3 +872,8 @@ let g:loaded_matchparen = 1
 " context.vim
 let g:context_nvim_no_redraw = 1
 let g:context_presenter = 'nvim-float'
+
+" Vim niceblock
+silent! xmap <unique> I  <Plug>(niceblock-I)
+silent! xmap <unique> gI  <Plug>(niceblock-gI)
+silent! xmap <unique> A  <Plug>(niceblock-A)
