@@ -4,6 +4,7 @@
 
 [core]
   editor = nvim
+  commitGraph = true
 
 [color]
   ui = true
@@ -49,3 +50,5 @@
 [push]
   default = current
 
+[gc]
+  writeCommitGraph = true
