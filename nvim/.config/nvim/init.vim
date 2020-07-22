@@ -82,6 +82,7 @@ call plug#begin()
   Plug 'Asheq/close-buffers.vim'
   Plug 'qxxxb/vim-searchhi'
   Plug 'kana/vim-smartword'
+  Plug 'inkarkat/vim-EnhancedJumps' | Plug 'inkarkat/vim-ingo-library'
   Plug 'sbdchd/neoformat'
   Plug 'pseewald/vim-anyfold'
   Plug 'tpope/vim-sleuth'
@@ -310,8 +311,8 @@ set signcolumn=yes
 inoremap <expr> <CR>  pumvisible() ? '\<C-y>' : '\<CR>'
 
 " Navigate diagnostics
-nmap <silent> <Tab>   <Plug>(coc-diagnostic-next)
-nmap <silent> <S-Tab> <Plug>(coc-diagnostic-prev)
+nmap <silent> [d <Plug>(coc-diagnostic-prev)
+nmap <silent> ]d <Plug>(coc-diagnostic-next)
 
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
@@ -842,6 +843,12 @@ map w  <Plug>(smartword-w)
 map b  <Plug>(smartword-b)
 map e  <Plug>(smartword-e)
 map ge <Plug>(smartword-ge)
+
+" <C-o> <C-i> to jump within the same file only
+let g:EnhancedJumps_CaptureJumpMessages = 0
+let g:EnhancedJumps_no_mappings = 1
+map <C-o> <Plug>EnhancedJumpsLocalOlder
+map <C-i> <Plug>EnhancedJumpsLocalNewer
 
 " Neoformat
 let g:neoformat_basic_format_align = 1
