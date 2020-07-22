@@ -357,7 +357,7 @@ set winblend=0
 " Fzf {{{
 let g:fzf_command_prefix = 'Fzf'
 let g:fzf_buffers_jump = 1
-let g:fzf_layout = { 'window': 'enew' }
+let g:fzf_layout = {'window': 'enew'}
 let g:fzf_commits_log_options = '
   \ -5000 --no-merges --color=always
   \ --format="%C(auto)%h %C(reset)%s %C(#555555)%b(%aN - %cr)"
@@ -616,9 +616,9 @@ let g:startify_fortune_use_unicode = 1
 let g:startify_enable_special = 0
 
 let g:startify_lists = [
-  \ { 'header': ['   MRU '. getcwd()], 'type': 'dir' },
-  \ { 'header': ['   Bookmarks'],      'type': 'bookmarks'},
-  \ { 'header': ['   Sessions'],       'type': 'sessions' },
+  \ {'header': ['   MRU '. getcwd()], 'type': 'dir'},
+  \ {'header': ['   Bookmarks'],      'type': 'bookmarks'},
+  \ {'header': ['   Sessions'],       'type': 'sessions'},
   \ ]
 
 let g:startify_bookmarks = [
