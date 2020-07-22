@@ -93,8 +93,8 @@ bind \e\[3\;3~ kill-word
 bind \e\[5~ forward-bigword
 bind \e\[6~ backward-bigword
 
-# Edit current command in vim
-bind \ce edit_command_buffer
+# Edit and run the current command in vim
+bind \ce edit_and_run_command_buffer
 
 # Fzf
 bind \cf 'fzf_find'
