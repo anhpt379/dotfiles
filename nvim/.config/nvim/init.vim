@@ -872,6 +872,8 @@ let g:loaded_matchparen = 1
 " context.vim
 let g:context_nvim_no_redraw = 1
 let g:context_presenter = 'nvim-float'
+let g:context_border_char = '='
+let g:context_highlight_tag = 'Comment'
 
 " Vim niceblock
 silent! xmap <unique> I  <Plug>(niceblock-I)
