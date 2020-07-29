@@ -90,7 +90,6 @@ call plug#begin()
   Plug 'itchyny/vim-parenmatch'
   Plug 'Vimjas/vim-python-pep8-indent'
   Plug 'kana/vim-niceblock'
-  Plug 'airblade/vim-matchquote'
 
   " Time tracking
   Plug 'wakatime/vim-wakatime'
