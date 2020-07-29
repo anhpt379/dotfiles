@@ -62,7 +62,6 @@ call plug#begin()
   Plug 'rbgrouleff/bclose.vim'
   Plug 'roman/golden-ratio'
   Plug 'pechorin/any-jump.vim'
-  Plug 'wellle/context.vim'
 
   " Improving editing experience
   Plug 'anhpt379/targets.vim'
@@ -869,12 +868,6 @@ let g:fzf_checkout_delete_key = 'ctrl-d'
 
 " Vim parenmatch
 let g:loaded_matchparen = 1
-
-" context.vim
-let g:context_nvim_no_redraw = 1
-let g:context_presenter = 'nvim-float'
-let g:context_border_char = '='
-let g:context_highlight_tag = 'Comment'
 
 " Vim niceblock
 silent! xmap <unique> I  <Plug>(niceblock-I)
