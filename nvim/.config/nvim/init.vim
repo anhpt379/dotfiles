@@ -603,6 +603,7 @@ function! CloseBuffer()
     q!
   else
     bd!
+    blast
   endif
 endfunction
 
