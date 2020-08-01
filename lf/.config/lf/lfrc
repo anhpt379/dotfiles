@@ -135,17 +135,19 @@ cmd escape %{{
 }}
 
 # Basic Functions
-map <esc> escape
+map <esc>   escape
 map <enter> open $fx
-map . set hidden!
-map d delete
-map x cut
-map c copy
-map a push :new<space>
-map y copy_name
-map Y copy_path
-map o reveal
-map r :rename; cmd-word-back; cmd-left
-map gh go_home
-map <c-f> :fzf_jump
-map t :set sortby time; set info time; set reverse
+map .       set hidden!
+map d       delete
+map x       cut
+map y       copy
+map Y       copy_path
+map a       push :new<space>
+map o       reveal
+map r       :rename; cmd-word-back; cmd-left
+map gh      go_home
+map <c-f>   :fzf_jump
+map t       :set sortby time; set info time; set reverse
+map <space> :toggle
+map v       :toggle
+map V       :toggle
