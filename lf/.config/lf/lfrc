@@ -104,9 +104,11 @@ cmd new %{{
 # Delete files
 cmd delete %{{
   set -f
-  files=$(echo $fx)
+  files=$(echo $fx | tr ' ' '\n' | awk -F/ '{ print $NF }' | tr '\n' ' ' | xargs)
+
   printf " Delete $files? [y/n] "
   read ans
+
   if [ $ans = "y" ]; then
     for f in $fx; do
       trash $f
