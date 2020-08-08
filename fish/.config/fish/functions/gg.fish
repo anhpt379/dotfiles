@@ -9,7 +9,7 @@ function gg --description "Git grep"
     set open_in_browser "$log_line_to_hash | xargs -I % sh -c 'open https://\$(git config remote.origin.url | sed \'s/^git@//\' | sed \'s/\.git\$//\' | sed \'s/:/\//\')/commit/%'"
 
     git log -5000 \
-        -S$argv \
+        -i -S$argv \
         --no-merges \
         --color=always \
         --format="%C(auto)%h %C(reset)%s %C(#555555)%b(%aN - %cr)" \
