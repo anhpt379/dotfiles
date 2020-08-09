@@ -787,6 +787,7 @@ command! -complete=dir -nargs=+ -range=-1 Fr
 " Lf.vim
 let g:lf_map_keys = 0
 let g:lf_replace_netrw = 1
+autocmd TermEnter * set norelativenumber | set nonumber | set signcolumn=no | IndentLinesDisable
 map <Leader>l :<C-u>Lf<CR>
 
 " Clever-f
@@ -797,7 +798,7 @@ let g:clever_f_mark_direct = 1
 
 " Make diffing better: https://vimways.org/2018/the-power-of-diff/
 set diffopt+=algorithm:patience
-set diffopt+=indent-heuristic
+" set diffopt+=indent-heuristic
 
 " A faster way to toggle line number
 map [n :<C-u>set nonumber<CR>:set norelativenumber<CR>
