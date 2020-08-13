@@ -791,6 +791,7 @@ command! -complete=dir -nargs=+ -range=-1 Fr
 let g:lf_map_keys = 0
 let g:lf_replace_netrw = 1
 autocmd TermEnter * set norelativenumber | set nonumber | set signcolumn=no | IndentLinesDisable
+autocmd TermLeave * set relativenumber   | set number   | set signcolumn=yes
 map <Leader>l :<C-u>Lf<CR>
 
 " Clever-f
