@@ -883,6 +883,12 @@ silent! xmap <unique> I  <Plug>(niceblock-I)
 silent! xmap <unique> gI  <Plug>(niceblock-gI)
 silent! xmap <unique> A  <Plug>(niceblock-A)
 
+" Vim puppet
+augroup puppet
+  " Disable auto wrap long lines
+  autocmd FileType puppet set formatexpr=
+augroup end
+
 " Use Option+H/L to move around in vim command line
 cnoremap <M-b> <S-Left>
 cnoremap <M-f> <S-Right>
