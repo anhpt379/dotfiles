@@ -882,3 +882,7 @@ let g:loaded_matchparen = 1
 silent! xmap <unique> I  <Plug>(niceblock-I)
 silent! xmap <unique> gI  <Plug>(niceblock-gI)
 silent! xmap <unique> A  <Plug>(niceblock-A)
+
+" Use Option+H/L to move around in vim command line
+cnoremap <M-b> <S-Left>
+cnoremap <M-f> <S-Right>
