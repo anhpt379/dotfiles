@@ -243,7 +243,11 @@ let g:lightline = {
   \ }
 
 function! DevIconsFugitiveHead()
-  return ' ' . FugitiveHead()
+  let branch = FugitiveHead()
+  if empty(branch)
+    return ''
+  endif
+  return ' ' . branch
 endfunction
 
 function! DevIconsFileType()
