@@ -492,6 +492,10 @@ nnoremap Q @q
 " Use U as redo
 nnoremap U <C-R>
 
+" Use Ctrl+C as the ESC key
+" Since ESC has 300ms delay due to Karabiner, so using Ctrl+C will be faster
+imap <C-c> <Esc>
+
 " Automatically jump to end of text you pasted
 vnoremap <silent> y y`]
 vnoremap <silent> p p`]

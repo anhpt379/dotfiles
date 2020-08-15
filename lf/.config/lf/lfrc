@@ -136,6 +136,7 @@ cmd escape %{{
 
 # Basic Functions
 map <esc>   escape
+map <c-c>   escape
 map <enter> open $fx
 map .       set hidden!
 map d       delete
