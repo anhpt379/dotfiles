@@ -11,7 +11,7 @@ function gl --description "Git log"
     set argv_count (count $argv)
     set cmd_name $_
 
-    if [ $cmd_name = 'gl' ]
+    if [ $cmd_name = "gl" ]
         if [ $argv_count -eq 1 ]
             set args "-- $argv[1]"
         end
@@ -28,8 +28,8 @@ function gl --description "Git log"
                     --format='%C(auto)%h %C(reset)%s %C(#555555)%b(%aN - %cr)' \
                     $args"
     eval $git_cmd \
-        | tr '\n' ' ' \
-        | sed -E 's/\\x1b\\[32m[a-f0-9]{7,}+/\\n&/2g' \
+        | tr "\n" " " \
+        | sed -E "s/\\x1b\\[32m[a-f0-9]{7,}+/\\n&/2g" \
         | fzf --no-mouse --reverse --tiebreak=index --no-multi --ansi --height=100% \
         --preview="$preview_commit" \
         --header=" CTRL-S to toggle sort, CTRL-Y to copy hash, CTRL-O to open in browser" \
