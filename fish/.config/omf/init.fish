@@ -5,6 +5,7 @@ balias kn 'kubectl config set-context --current --namespace'
 
 balias g        'git'
 balias gs       'git status'
+balias gg       'gl'
 balias push     'git push origin'
 balias pull     'git pull --rebase origin'
 balias fetch    'git fetch origin'
