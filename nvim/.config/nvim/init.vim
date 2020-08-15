@@ -47,7 +47,6 @@ call plug#begin()
   " Fancy UI stuff
   Plug 'junegunn/fzf', {'do': {-> fzf#install()}}
   Plug 'anhpt379/fzf.vim'
-  Plug 'anhpt379/fzf-checkout.vim'
   Plug 'itchyny/lightline.vim'
   Plug 'mengelbrecht/lightline-bufferline'
   Plug 'mhinz/vim-startify'
@@ -450,7 +449,6 @@ augroup fugitive-personal-key-mappings
   autocmd FileType fugitive nmap <buffer> p :bd!<CR>
         \ :Dispatch! noti git push origin HEAD --force-with-lease<CR>
 
-  autocmd FileType fugitive nmap <buffer> b :FzfGCheckout<CR>
   autocmd FileType fugitive nmap <buffer> l :FzfCommits<CR>
 
   " Verbose and quiet git commit by default
@@ -868,12 +866,6 @@ let g:neoformat_basic_format_retab = 1
 let g:neoformat_basic_format_trim  = 1
 
 command! FormatCode silent! Neoformat
-
-" Fzf checkout
-let g:fzf_checkout_execute = 'bang'
-let g:fzf_checkout_create_key = 'ctrl-c'  " git checkout -b branch
-let g:fzf_checkout_track_key = 'ctrl-s'
-let g:fzf_checkout_delete_key = 'ctrl-d'
 
 " Vim parenmatch
 let g:loaded_matchparen = 1
