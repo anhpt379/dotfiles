@@ -1,5 +1,5 @@
 function gl --description "fzf git log"
-    git rev-parse HEAD || return
+    git rev-parse HEAD >/dev/null || return
 
     set log_line_to_hash "echo {} | grep -o '[a-f0-9]\{7\}' | head -1"
     set view_commit "git show --color=always ($log_line_to_hash)"
