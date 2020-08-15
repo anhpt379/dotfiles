@@ -464,6 +464,9 @@ augroup fugitive-personal-key-mappings
   autocmd FileType fugitive map <buffer> <nowait> d =
   autocmd FileType fugitive map <buffer> <nowait> a -
 
+  " x is easier to type than X
+  autocmd FileType fugitive map <buffer> <nowait> x X
+
   " Left padding
   autocmd FileType fugitive set signcolumn=yes | set number | set relativenumber
 augroup end
