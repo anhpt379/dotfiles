@@ -1,5 +1,5 @@
 function gl --description "fzf git log"
-    git rev-parse HEAD >/dev/null || return
+    git rev-parse HEAD >/dev/null; or return
 
     set log_line_to_hash "echo {} | grep -o '[a-f0-9]\{7\}' | head -1"
     set view_commit "git show --color=always ($log_line_to_hash)"
@@ -24,7 +24,7 @@ function gl --description "fzf git log"
     set git_cmd "git log -5000 \
                     --no-merges \
                     --color=always \
-                    --format='%C(auto)%h %C(reset)%s %C(#555555)%b(%aN - %cr)' \
+                    --format='%C(green)%h %C(reset)%s %C(#555555)%b(%aN - %cr)' \
                     $args"
     eval $git_cmd \
         | tr "\n" " " \

@@ -1,5 +1,5 @@
 function gb --description 'Fuzzy-find and checkout a branch'
-    git rev-parse HEAD >/dev/null || return
+    git rev-parse HEAD >/dev/null; or return
 
     set branch_name "echo -n {} | sed 's/.* //'"
     set preview_cmd "git log -n 50 \
