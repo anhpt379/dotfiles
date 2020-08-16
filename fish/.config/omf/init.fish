@@ -52,8 +52,11 @@ balias m 'minikube'
 balias c 'clear'
 balias j 'z'
 balias f 'fzf'
-balias v 'vim'
 balias l 'lf'
+
+balias v   'echo "Using nvim instead..."; sleep 1; nvim'
+balias vim 'echo "Using nvim instead..."; sleep 1; nvim'
+balias nv  'nvim'
 
 # key bindings
 bind \cg accept-autosuggestion execute
