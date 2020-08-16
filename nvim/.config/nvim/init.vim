@@ -458,6 +458,9 @@ augroup fugitive-personal-key-mappings
   " gw in gitcommit to save and close
   autocmd FileType gitcommit nmap <buffer> gw :x<CR>
 
+  " Open diff in a new buffer by default
+  autocmd FileType fugitive map <buffer> <nowait> <CR> O
+
   " Easier to reach -= keys
   autocmd FileType fugitive map <buffer> <nowait> d =
   autocmd FileType fugitive map <buffer> <nowait> a -
