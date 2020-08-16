@@ -497,6 +497,12 @@ nnoremap U <C-R>
 " Since ESC has 300ms delay due to Karabiner, so using Ctrl+C will be faster
 imap <C-c> <Esc>
 
+" Swap w/W and e/E
+noremap w W
+noremap W w
+noremap e E
+noremap E e
+
 " Automatically jump to end of text you pasted
 vnoremap <silent> y y`]
 vnoremap <silent> p p`]
@@ -857,10 +863,10 @@ set foldlevel=99
 set nofoldenable
 
 " Vim smartword
-map w  <Plug>(smartword-w)
-map b  <Plug>(smartword-b)
-map e  <Plug>(smartword-e)
-map ge <Plug>(smartword-ge)
+map W  <Plug>(smartword-w)
+map B  <Plug>(smartword-b)
+map E  <Plug>(smartword-e)
+map gE <Plug>(smartword-ge)
 
 " <C-o> <C-i> to jump within the same file only
 let g:EnhancedJumps_CaptureJumpMessages = 0
