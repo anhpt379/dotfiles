@@ -417,8 +417,7 @@ noremap gL :FzfBCommits<CR>
 noremap <expr> gw &modified ? ':silent! Gwrite<CR>:update<CR>' : ''
 
 augroup fugitive-personal-key-mappings
-  autocmd FileType fugitive nmap <buffer> p :bd!<CR>
-        \ :Dispatch! noti git push origin HEAD --force-with-lease<CR>
+  autocmd FileType fugitive nmap <buffer> p :bd!<CR>:Dispatch! noti git push origin HEAD --force-with-lease<CR>
 
   " Verbose and quiet git commit by default
   autocmd FileType fugitive nmap <buffer> C :vertical Git commit -v --quiet<CR>
