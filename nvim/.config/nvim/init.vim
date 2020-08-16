@@ -367,7 +367,7 @@ let g:fzf_buffers_jump = 1
 let g:fzf_layout = {'window': 'enew'}
 let g:fzf_commits_log_options = '
   \ -5000 --no-merges --color=always
-  \ --format="%C(auto)%h %C(reset)%s %C(#555555)%b(%aN - %cr)"
+  \ --format="%C(green)%h %C(reset)%s %C(#555555)%b(%aN - %cr)"
   \ '
 
 command! -complete=dir -bang -nargs=* FzfRg
