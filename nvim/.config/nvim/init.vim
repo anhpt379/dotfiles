@@ -47,6 +47,7 @@ call plug#begin()
   " Fancy UI stuff
   Plug 'junegunn/fzf', {'do': {-> fzf#install()}}
   Plug 'anhpt379/fzf.vim'
+  Plug 'anhpt379/fzf-filemru'
   Plug 'itchyny/lightline.vim'
   Plug 'mengelbrecht/lightline-bufferline'
   Plug 'mhinz/vim-startify'
@@ -376,36 +377,6 @@ command! -complete=dir -bang -nargs=* FzfRg
   \   fzf#vim#with_preview({'options': ['--no-multi', '--layout=reverse']}),
   \   <bang>0)
 
-" Fzf + devicons
-function! FzfFilesDevicons()
-  let l:fzf_files_options = '
-    \ --expect=ctrl-v
-    \ --header
-    \   ":: Press CTRL-V to open in a vertical split, Enter to open in a new buffer."
-    \ --preview "bat --color=always --style=numbers {2..} | head -'.&lines.'"
-    \ '
-
-  function! s:edit_devicon_prepended_file(lines)
-    if len(a:lines) < 2
-      return
-    endif
-
-    let l:file_path = a:lines[1][4:-1]
-
-    if a:lines[0] == 'ctrl-v'
-      execute 'silent vsplit' l:file_path
-    else
-      execute 'silent e' l:file_path
-    endif
-  endfunction
-
-  call fzf#run({
-    \ 'source': $FZF_DEFAULT_COMMAND.' | devicon-lookup',
-    \ 'sink*': function('s:edit_devicon_prepended_file'),
-    \ 'options': l:fzf_files_options
-    \ })
-endfunction
-
 function! s:close_gstatus()
   for l:winnr in range(1, winnr('$'))
     if !empty(getwinvar(l:winnr, 'fugitive_status'))
@@ -416,7 +387,7 @@ endfunction
 command! GstatusClose call s:close_gstatus()
 
 noremap <Leader>g :GstatusClose<CR>:FzfRg<Space>
-noremap <Leader>f :GstatusClose<CR>:call FzfFilesDevicons()<CR>
+noremap <Leader>f :GstatusClose<CR>:FilesMru --tiebreak=end<CR>
 " }}}
 
 " Hybrid line numbers
@@ -908,3 +879,9 @@ augroup end
 " Use Option+H/L to move around in vim command line
 cnoremap <M-b> <S-Left>
 cnoremap <M-f> <S-Right>
+
+" Fzf-mru
+augroup update_mru_on_file_open
+  autocmd!
+  autocmd BufWinEnter * UpdateMru
+augroup END
