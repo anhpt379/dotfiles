@@ -12,13 +12,13 @@ function gl --description "fzf git log"
 
     if [ $cmd_name = "gl" ]
         if [ $argv_count -eq 1 ]
-            set args "-- $argv[1]"
+            set args "-- '$argv[1]'"
         end
     else
         if [ $argv_count -eq 1 ]
-            set args "-i -S$argv[1]"
+            set args "-i -S'$argv[1]'"
         else if [ $argv_count -eq 2 ]
-            set args "-i -S$argv[1] -- $argv[2]"
+            set args "-i -S'$argv[1]' -- '$argv[2]'"
         end
     end
     set git_cmd "git log -5000 \
