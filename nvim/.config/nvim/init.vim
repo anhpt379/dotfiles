@@ -467,11 +467,9 @@ nnoremap U <C-R>
 " Since ESC has 300ms delay due to Karabiner, so using Ctrl+C will be faster
 imap <C-c> <Esc>
 
-" Swap w/W and e/E
+" Swap w/W
 noremap w W
 noremap W w
-noremap e E
-noremap E e
 
 " Automatically jump to end of text you pasted
 vnoremap <silent> y y`]
