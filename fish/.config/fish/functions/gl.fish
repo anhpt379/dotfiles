@@ -31,10 +31,9 @@ function gl --description "fzf git log"
         | sed -E "s/\\x1b\\[32m[a-f0-9]{7,}+/\\n&/2g" \
         | fzf --no-mouse --reverse --tiebreak=index --no-multi --ansi --height=100% \
         --preview="$preview_commit" \
-        --header=" CTRL-S to toggle sort, CTRL-Y to copy hash, CTRL-O to open in browser, CTRL-P to push" \
+        --header=" CTRL-S to toggle sort, CTRL-Y to copy hash, CTRL-O to open in browser" \
         --bind="enter:execute/$view_commit/+abort" \
         --bind="ctrl-y:execute-silent/$copy_commit_hash/+abort" \
         --bind="ctrl-o:execute-silent/$open_in_browser/+abort" \
-        --bind="ctrl-p:execute/git push --force-with-lease/+abort" \
         --bind="ctrl-s:toggle-sort"
 end
