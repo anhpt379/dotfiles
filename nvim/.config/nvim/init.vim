@@ -82,7 +82,6 @@ call plug#begin()
   Plug 'tpope/vim-dispatch'
   Plug 'Asheq/close-buffers.vim'
   Plug 'qxxxb/vim-searchhi'
-  Plug 'kana/vim-smartword'
   Plug 'inkarkat/vim-EnhancedJumps' | Plug 'inkarkat/vim-ingo-library'
   Plug 'sbdchd/neoformat'
   Plug 'pseewald/vim-anyfold'
@@ -470,10 +469,6 @@ nnoremap U <C-R>
 " Since ESC has 300ms delay due to Karabiner, so using Ctrl+C will be faster
 imap <C-c> <Esc>
 
-" Swap w/W
-noremap w W
-noremap W w
-
 " Automatically jump to end of text you pasted
 vnoremap <silent> y y`]
 vnoremap <silent> p p`]
@@ -824,12 +819,6 @@ autocmd FileType * call ActiveAnyFold()
 
 set foldlevel=99
 set nofoldenable
-
-" Vim smartword
-map W  <Plug>(smartword-w)
-map B  <Plug>(smartword-b)
-map E  <Plug>(smartword-e)
-map gE <Plug>(smartword-ge)
 
 " <C-o> <C-i> to jump within the same file only
 let g:EnhancedJumps_CaptureJumpMessages = 0
