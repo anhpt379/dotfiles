@@ -96,6 +96,9 @@ call plug#begin()
 
 call plug#end()
 
+" Open vim-plug in a new buffer
+let g:plug_window = 'enew'
+
 let g:coc_global_extensions = [
   \ 'coc-git',
   \ 'coc-python',
