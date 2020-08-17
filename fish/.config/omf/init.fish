@@ -40,9 +40,6 @@ balias cat 'bat'
 balias ping 'prettyping --nolegend'
 balias ncdu 'ncdu -rr -x --exclude .git'
 
-# https://sw.kovidgoyal.net/kitty/faq.html#i-get-errors-about-the-terminal-being-unknown-or-opening-the-terminal-failing-when-sshing-into-a-different-computer
-balias ssh 'kitty +kitten ssh'
-
 balias k 'kubectl'
 balias d 'docker'
 balias dc 'docker-compose'
