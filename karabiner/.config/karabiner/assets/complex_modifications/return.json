@@ -28,7 +28,7 @@
       ]
     },
     {
-      "description": "Open Chrome/Kitty/Slack/Notes with Enter+1/2/3/4",
+      "description": "Open Chrome/Notes/Slack/Kitty with Enter+1/2/3/4",
       "manipulators": [
         {
           "type": "basic",
@@ -58,7 +58,7 @@
           },
           "to": [
             {
-              "shell_command": "open -a 'Kitty.app'"
+              "shell_command": "open -a 'Notes.app'"
             }
           ]
         },
@@ -90,7 +90,7 @@
           },
           "to": [
             {
-              "shell_command": "open -a 'Notes.app'"
+              "shell_command": "open -a 'Kitty.app'"
             }
           ]
         }
