@@ -50,9 +50,9 @@ balias j 'z'
 balias f 'fzf'
 balias l 'lf'
 
-balias v   'echo "Using nvim instead..."; sleep 1; nvim'
-balias vim 'echo "Using nvim instead..."; sleep 1; nvim'
-balias nv  'nvim'
+alias v   'echo "Using nvim instead..."; sleep 1; nvim'
+alias vim 'echo "Using nvim instead..."; sleep 1; nvim'
+alias nv  'nvim'
 
 # key bindings
 bind \cg accept-autosuggestion execute
