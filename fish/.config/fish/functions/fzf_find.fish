@@ -1,9 +1,16 @@
 function fzf_find -d "Find files and folders"
+    set -l cmd (commandline -p)
+    if string match -q "cd*" $cmd
+        set type "d"
+    else
+        set type "f"
+    end
+
     set -l commandline (__fzf_parse_commandline)
     set -l dir $commandline[1]
     set -l fzf_query $commandline[2]
 
-    set -l result (fd --no-ignore --hidden --exclude '.git' . $dir | devicon-lookup | fzf --expect=enter --header=":: Press TAB to accept suggestion, ENTER to accept suggestion and run." --bind=tab:accept --preview="~/.config/fzf/preview.sh {}" --query "$fzf_query")
+    set -l result (fd --no-ignore --hidden --exclude '.git' --type $type . $dir | devicon-lookup | fzf --expect=enter --header=":: Press TAB to accept suggestion, ENTER to accept suggestion and run." --bind=tab:accept --preview="~/.config/fzf/preview.sh {}" --query "$fzf_query")
 
     if test -z "$result"
         commandline -f repaint
