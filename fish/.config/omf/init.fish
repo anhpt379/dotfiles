@@ -55,8 +55,8 @@ alias v   'echo "Using nvim instead..."; sleep 1; nvim'
 alias vim 'echo "Using nvim instead..."; sleep 1; nvim'
 alias nv  'nvim'
 
-# key bindings
-bind \cg accept-autosuggestion execute
+# Key bindings
+bind \cf accept-autosuggestion execute
 
 set -x GOROOT /usr/local/opt/go/libexec
 set -x GOPATH $HOME/.go
