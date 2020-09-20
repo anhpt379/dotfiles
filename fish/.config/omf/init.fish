@@ -56,7 +56,7 @@ alias vim 'echo "Using nvim instead..."; sleep 1; nvim'
 alias nv  'nvim'
 
 # Key bindings
-bind \cf accept-autosuggestion execute
+bind \cg accept-autosuggestion execute
 
 set -x GOROOT /usr/local/opt/go/libexec
 set -x GOPATH $HOME/.go
@@ -98,7 +98,6 @@ bind \ce edit_and_run_command_buffer
 # Fzf
 bind \cf 'fzf_find'
 bind \cr 'fzf_history'
-bind \t  'fzf_find'
 
 set -gx FZF_DEFAULT_COMMAND 'fd --hidden --type f --exclude ".git"'
 set -gx FZF_DEFAULT_OPTS    '--pointer=\' >\' --prompt=\'  \' --color fg:#DCDFE4,bg:-1,hl:#55CABE,fg+:#FFCC66,bg+:#1C1E23,hl+:#FFCC66,info:#919BAA,prompt:#C068DF,pointer:#3BB0E0,marker:#55CABE,spinner:#919BAA --no-multi --reverse --height=40% --info=inline --bind=tab:accept,ctrl-j:ignore,ctrl-k:ignore --bind=change:top --bind=ctrl-f:page-down,ctrl-b:page-up,home:top,end:page-down'
