@@ -6,7 +6,7 @@ function fzf_find -d "Find files and folders"
     set -l dir $commandline[1]
     set -l fzf_query $commandline[2]
 
-    set -l fd_command "fd --no-ignore --hidden --exclude '.git' . $dir"
+    set -l fd_command "fd --color=always --no-ignore --hidden --exclude '.git' . $dir"
 
     if test -n "$max_depth"
         set -a fd_command "--max-depth $max_depth"
@@ -19,7 +19,7 @@ function fzf_find -d "Find files and folders"
         set -a fd_command "--type d"
     end
 
-    set -l result (eval $fd_command | devicon-lookup | fzf +m -1 --tiebreak=$tiebreak --expect=enter --header=":: Press TAB to accept suggestion, ENTER to accept suggestion and run." --bind=tab:accept --preview="~/.config/fzf/preview.sh {}" --query "$fzf_query")
+    set -l result (eval $fd_command | devicon-lookup | fzf --ansi +m -1 --tiebreak=$tiebreak --expect=enter --header=":: Press TAB to accept suggestion, ENTER to accept suggestion and run." --bind=tab:accept --preview="~/.config/fzf/preview.sh {}" --query "$fzf_query")
 
     if test -z "$result"
         commandline -f repaint
