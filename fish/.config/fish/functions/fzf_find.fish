@@ -19,7 +19,7 @@ function fzf_find -d "Find files and folders"
         set -a fd_command "--type d"
     end
 
-    set -l result (eval $fd_command | devicon-lookup | fzf +i +m -1 --tiebreak=$tiebreak --expect=enter --header=":: Press TAB to accept suggestion, ENTER to accept suggestion and run." --bind=tab:accept --preview="~/.config/fzf/preview.sh {}" --query "$fzf_query")
+    set -l result (eval $fd_command | devicon-lookup | fzf +m -1 --tiebreak=$tiebreak --expect=enter --header=":: Press TAB to accept suggestion, ENTER to accept suggestion and run." --bind=tab:accept --preview="~/.config/fzf/preview.sh {}" --query "$fzf_query")
 
     if test -z "$result"
         commandline -f repaint
