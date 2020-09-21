@@ -51,8 +51,8 @@ balias f 'fzf'
 balias l 'lf'
 balias h 'tldr'
 
-alias v   'echo "Using nvim instead..."; sleep 1; nvim'
-alias vim 'echo "Using nvim instead..."; sleep 1; nvim'
+alias v   'echo "Using nvim instead..."; sleep 0.3; nvim'
+alias vim 'echo "Using nvim instead..."; sleep 0.3; nvim'
 alias nv  'nvim'
 
 # Key bindings
