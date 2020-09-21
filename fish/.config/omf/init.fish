@@ -120,7 +120,7 @@ set -U fish_color_operator 6699cc
 set -U fish_color_escape 66cccc
 set -U fish_color_cwd green
 set -U fish_color_cwd_root red
-set -U fish_color_valid_path --underline
+set -U fish_color_valid_path --bold
 set -U fish_color_autosuggestion 747369
 set -U fish_color_user brgreen
 set -U fish_color_host normal
