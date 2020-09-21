@@ -553,7 +553,7 @@ nnoremap J mjJ`j
 " Faster search & replace with <C-r>
 map <C-u> <Plug>(RepeatRedo)
 nnoremap <C-r> :%s/\V
-vnoremap <C-r> "hy:%s/<C-r>h//g<Left><Left>
+vnoremap <C-r> "hy:%s/<C-r>h//<Left>
 
 " Select the last pasted text with gp (similar to the standard gv which you can
 " type to select the last visually-selected text)
