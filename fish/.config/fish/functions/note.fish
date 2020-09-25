@@ -7,7 +7,8 @@ function note -d "Manage notes in ~/Workspace/notes"
             fd | devicon-lookup | \
             fzf --preview="bat --color=always --line-range :100 (echo {} | cut -d' ' -f2-)" \
                 --preview-window=right:90% \
-                --height=100%
+                --height=100% --print-query | \
+            tail -1
         ) | cut -d' ' -f2-
     )
     if string length -q -- "$file_to_open"
