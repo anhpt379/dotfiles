@@ -470,12 +470,12 @@ nnoremap U <C-R>
 imap <C-c> <Esc>
 
 " Automatically jump to end of text you pasted
-vnoremap <silent> y y`]
-vnoremap <silent> p p`]
-nnoremap <silent> p p`]
+vmap <silent> y y`]gp
+vmap <silent> p p`]gp
+nmap <silent> p p`]gp
 
 " Don't change the clipboard if paste over a visually selected text
-xnoremap p "_dP`]
+xmap p "_dP`]gp
 
 " Keep visual selection when indenting/outdenting
 vmap < <gv
