@@ -11,7 +11,7 @@ function fzf_find -d "Find files and folders"
 
     if test -n "$max_depth"
         set -a fd_command "--max-depth=$max_depth"
-        set tiebreak "end"
+        set tiebreak "begin"
     else
         set tiebreak "length"
     end
