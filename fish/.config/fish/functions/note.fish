@@ -3,14 +3,41 @@ function note -d "Manage notes in ~/Workspace/notes"
 
     cd ~/Workspace/notes/
     set file_to_open (
-        echo (
-            for i in *; preview=(head $i | awk '!/^ *#/ && NF' | head -1 | awk -v len=50 '{ if (length($0) > len) print substr($0, 1, len-3) "..."; else print; }') echo -e "$i \e[2m$preview\e[0m"; end | devicon-lookup | \
-            fzf --preview="bat --color=always --line-range :100 (echo {} | cut -d' ' -f2)" \
-                --preview-window=right:70% \
-                --height=100% --print-query --ansi | \
-            tail -1
-        ) | cut -d' ' -f2
+        python3 -c '
+import os
+
+files = os.listdir(".")
+files.sort()
+
+first_empty_file = None
+output = []
+for f in files:
+    data = open(f).read(100)
+    lines = [
+        line
+        for line in data.splitlines()
+        if line.strip() and "# vim" not in line
+    ]
+    if not lines:
+        if not first_empty_file:
+            first_empty_file = f
+            output.insert(0, f)
+        else:
+            output.append(f)
+        continue
+
+    preview = lines[0].lstrip("-#*").strip()
+    if len(preview) > 50:
+        preview = preview[:50] + "..."
+    output.append(f"{f} \033[2m{preview}\033[0m")
+
+print("\n".join(output))' | devicon-lookup | \
+        fzf --preview="bat --color=always --line-range :100 (echo {} | cut -d' ' -f2)" \
+            --preview-window=right:70% \
+            --height=100% --print-query --ansi | \
+        tail -1 | cut -d' ' -f2
     )
+
     if string length -q -- "$file_to_open"
         nvim $file_to_open
     end
