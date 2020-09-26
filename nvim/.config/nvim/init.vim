@@ -389,7 +389,7 @@ endfunction
 command! GstatusClose call s:close_gstatus()
 
 noremap <Leader>g :GstatusClose<CR>:FzfRg<Space>
-noremap <Leader>f :GstatusClose<CR>:FilesMru --tiebreak=end<CR>
+noremap <Leader>f :GstatusClose<CR>:FilesMru<CR>
 " }}}
 
 " Hybrid line numbers
