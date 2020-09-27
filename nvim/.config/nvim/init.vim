@@ -786,6 +786,8 @@ map [n :<C-u>set nonumber<CR>:set norelativenumber<CR>
 map ]n :<C-u>set number<CR>:set relativenumber<CR>
 
 " Vim searchhi
+map n <Plug>(searchhi-n)
+map N <Plug>(searchhi-N)
 map * <Plug>(asterisk-*)<Plug>(searchhi-update)
 map # <Plug>(asterisk-#)<Plug>(searchhi-update)
 map g* <Plug>(asterisk-g*)<Plug>(searchhi-update)
