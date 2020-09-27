@@ -30,7 +30,13 @@ else
 endif
 
 	bash .macos
+
 	brew bundle
+	brew autoupdate --start 86400
+	brew autoupdate --upgrade
+	brew autoupdate --cleanup
+	brew autoupdate --enable-notification
+
 	make stow
 
 	pip3 install --user -r requirements.txt
