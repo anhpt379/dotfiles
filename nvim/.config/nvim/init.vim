@@ -90,6 +90,7 @@ call plug#begin()
   Plug 'Vimjas/vim-python-pep8-indent'
   Plug 'kana/vim-niceblock'
   Plug 'haya14busa/vim-asterisk'
+  Plug 'google/vim-searchindex'
 
   " Time tracking
   Plug 'wakatime/vim-wakatime'
