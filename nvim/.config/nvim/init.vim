@@ -89,6 +89,7 @@ call plug#begin()
   Plug 'itchyny/vim-parenmatch'
   Plug 'Vimjas/vim-python-pep8-indent'
   Plug 'kana/vim-niceblock'
+  Plug 'haya14busa/vim-asterisk'
 
   " Time tracking
   Plug 'wakatime/vim-wakatime'
@@ -784,19 +785,15 @@ map [n :<C-u>set nonumber<CR>:set norelativenumber<CR>
 map ]n :<C-u>set number<CR>:set relativenumber<CR>
 
 " Vim searchhi
-nmap n <Plug>(searchhi-n)
-nmap N <Plug>(searchhi-N)
-nmap * <Plug>(searchhi-*)
-nmap g* <Plug>(searchhi-g*)
-nmap # <Plug>(searchhi-#)
-nmap g# <Plug>(searchhi-g#)
+map * <Plug>(asterisk-*)<Plug>(searchhi-update)
+map # <Plug>(asterisk-#)<Plug>(searchhi-update)
+map g* <Plug>(asterisk-g*)<Plug>(searchhi-update)
+map g# <Plug>(asterisk-g#)<Plug>(searchhi-update)
 
-vmap n <Plug>(searchhi-v-n)
-vmap N <Plug>(searchhi-v-N)
-vmap * <Plug>(searchhi-v-*)
-vmap g* <Plug>(searchhi-v-g*)
-vmap # <Plug>(searchhi-v-#)
-vmap g# <Plug>(searchhi-v-g#)
+map z* <Plug>(asterisk-z*)<Plug>(searchhi-update)
+map z# <Plug>(asterisk-z#)<Plug>(searchhi-update)
+map gz* <Plug>(asterisk-gz*)<Plug>(searchhi-update)
+map gz# <Plug>(asterisk-gz#)<Plug>(searchhi-update)
 
 let g:searchhi_clear_all_asap = 1
 
