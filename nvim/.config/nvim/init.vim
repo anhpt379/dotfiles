@@ -212,7 +212,7 @@ nnoremap <Leader>u :silent! w<CR>
                  \ :PlugClean<CR>
                  \ :silent !PlugInstall<CR>
                  \ :source ~/dotfiles/nvim/.config/nvim/init.vim<CR>
-                 \ :PlugUpdate<CR>
+                 \ :PlugUpdate --sync<CR>
                  \ :CocUpdate<CR>
 
 " Turn off whitespaces compare and folding in vimdiff
