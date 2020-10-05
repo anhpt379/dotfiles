@@ -52,6 +52,7 @@ call plug#begin()
   Plug 'mengelbrecht/lightline-bufferline'
   Plug 'mhinz/vim-startify'
   Plug 'Yggdroot/indentLine'
+  Plug 'chrisbra/Colorizer'
   Plug 'norcalli/nvim-colorizer.lua'
   Plug 'blueyed/vim-diminactive'
   Plug 'ryanoasis/vim-devicons'
@@ -62,6 +63,7 @@ call plug#begin()
   Plug 'rbgrouleff/bclose.vim'
   Plug 'roman/golden-ratio'
   Plug 'pechorin/any-jump.vim'
+  Plug 'powerman/vim-plugin-ansiesc'
 
   " Improving editing experience
   Plug 'anhpt379/targets.vim'
