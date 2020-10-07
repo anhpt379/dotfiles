@@ -394,7 +394,7 @@ endfunction
 command! GstatusClose call s:close_gstatus()
 
 noremap <Leader>g :GstatusClose<CR>:FzfRg<Space>
-noremap <Leader>f :GstatusClose<CR>:FilesMru<CR>
+noremap <Leader>f :GstatusClose<CR>:silent FilesMru<CR>
 noremap <Leader>t :GstatusClose<CR>:FzfFiletypes<CR>
 " }}}
 
