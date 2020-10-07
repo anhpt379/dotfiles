@@ -28,6 +28,31 @@
       ]
     },
     {
+      "description": "Accept suggestion & go to the url with CapsLock+G",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "g",
+            "modifiers": {
+              "mandatory": ["left_control"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "return_or_enter"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.google\\.Chrome$"]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "description": "Switch to previous tab with Enter+`",
       "manipulators": [
         {

@@ -548,6 +548,31 @@
                 "type": "basic"
               }
             ]
+          },
+          {
+            "description": "Accept suggestion & go to the url with CapsLock+G",
+            "manipulators": [
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": ["^com\\.google\\.Chrome$"],
+                    "type": "frontmost_application_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "g",
+                  "modifiers": {
+                    "mandatory": ["left_control"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "return_or_enter"
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
           }
         ]
       },
