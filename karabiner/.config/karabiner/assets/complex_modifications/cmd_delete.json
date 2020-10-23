@@ -2,7 +2,7 @@
   "title": "Command+delete shouldn't delete the whole line",
   "rules": [
     {
-      "description": "Map command+delete to option+delete",
+      "description": "Map ⌘⌫ to ⌥⌫",
       "manipulators": [
         {
           "type": "basic",
@@ -15,6 +15,26 @@
           "to": [
             {
               "key_code": "delete_or_backspace",
+              "modifiers": ["left_option"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Map ⌘⌦ to ⌥⌦",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "delete_forward",
+            "modifiers": {
+              "mandatory": ["left_command"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "delete_forward",
               "modifiers": ["left_option"]
             }
           ]
