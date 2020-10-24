@@ -101,7 +101,21 @@ bind \cr 'fzf_history'
 bind \t  'fzf_find 1'
 
 set -gx FZF_DEFAULT_COMMAND 'fd --hidden --type f --exclude ".git" -E "*.jp*g" -E "*.png"'
-set -gx FZF_DEFAULT_OPTS    '--pointer=\' >\' --prompt=\'  \' --color fg:#DCDFE4,bg:-1,hl:#55CABE,fg+:#FFCC66,bg+:#1C1E23,hl+:#FFCC66,info:#919BAA,prompt:#C068DF,pointer:#3BB0E0,marker:#55CABE,spinner:#919BAA --no-multi --reverse --height=40% --info=inline --bind=tab:accept,ctrl-j:ignore,ctrl-k:ignore --bind=change:top --bind=ctrl-f:page-down,ctrl-b:page-up,home:top,end:page-down'
+set -gx FZF_DEFAULT_OPTS    '
+  --pointer=" " --prompt="> "
+  --color=fg:#DCDFE4,bg:-1,hl:#DCDFE4
+  --color=fg+:#FFCC66,bg+:#262626,hl+:#FFCC66
+  --color=prompt:#f1f1f1,pointer:#f1f1f1
+  --color=info:#555555,spinner:#555555
+  --color=marker:#55CABE
+  --no-multi
+  --reverse
+  --info=hidden
+  --height=40%
+  --bind=tab:accept,ctrl-j:ignore,ctrl-k:ignore
+  --bind=change:top
+  --bind=ctrl-f:page-down,ctrl-b:page-up,home:top,end:page-down
+'
 
 # Custom fish color scheme
 set -U fish_color_normal normal

@@ -18,7 +18,7 @@ function gb --description 'Fuzzy-find and checkout a branch'
       | fzf --height=100% --preview-window=right:75% \
         --print-query \
         --preview="$preview_cmd" \
-        --header=" CTRL-Y to copy, CTRL-D to delete, ENTER to checkout" \
+        --header="(Press CTRL-Y to copy, CTRL-D to delete, ENTER to checkout)" \
         --bind="enter:execute/$checkout_branch/+abort" \
         --bind="ctrl-d:execute/$delete_branch/+abort" \
         --bind="ctrl-y:execute-silent/$copy_branch/+abort"

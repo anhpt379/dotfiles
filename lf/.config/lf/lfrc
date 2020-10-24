@@ -26,7 +26,7 @@ cmd fzf_jump ${{
     dir="$f"
   fi
 
-  res="$(fd --color=always --no-ignore --hidden --exclude '.git' . $dir | fzf --ansi --height=100% --reverse --header='Jump to location')"
+  res="$(fd --color=always --no-ignore --hidden --exclude '.git' . $dir | fzf --ansi --height=100% --reverse)"
 
   if [ -f "$res" ]; then
     cmd="select"

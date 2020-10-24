@@ -28,7 +28,7 @@ function fzf_find -d "Find files and folders"
         set fd_results (eval $fd_command)
     end
 
-    set -l result (printf "%s\n" $fd_results | devicon-lookup | fzf --ansi --exact +m -1 --tiebreak=$tiebreak --expect=enter --header=":: Press TAB to accept suggestion, ENTER to accept suggestion and run." --bind=tab:accept --preview="~/.config/fzf/preview.sh {}" --query "$fzf_query")
+    set -l result (printf "%s\n" $fd_results | devicon-lookup | fzf --ansi --exact +m -1 --tiebreak=$tiebreak --expect=enter --header="(Press TAB to accept, ENTER to accept and run)" --bind=tab:accept --preview="~/.config/fzf/preview.sh {}" --query "$fzf_query")
 
     if test -z "$result"
         commandline -f repaint
