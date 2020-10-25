@@ -282,10 +282,10 @@ nmap <Leader>8 <Plug>lightline#bufferline#go(8)
 nmap <Leader>9 <Plug>lightline#bufferline#go(9)
 nmap <Leader>0 <Plug>lightline#bufferline#go(10)
 
-let g:lightline#bufferline#show_number      = 2
-let g:lightline#bufferline#shorten_path     = 1
-let g:lightline#bufferline#unnamed          = '[No Name]'
-let g:lightline#bufferline#enable_devicons  = 1
+let g:lightline#bufferline#show_number     = 2
+let g:lightline#bufferline#shorten_path    = 1
+let g:lightline#bufferline#unnamed         = '[No Name]'
+let g:lightline#bufferline#enable_devicons = 1
 
 let g:lightline#bufferline#number_map = {
   \ 0: '⁰', 1: '¹', 2: '²', 3: '³', 4: '⁴',
@@ -321,7 +321,7 @@ set shortmess+=c
 set signcolumn=yes
 
 " Accept completion with <CR> and <Tab>
-inoremap <expr> <CR>  pumvisible() ? '\<C-y>' : '\<CR>'
+inoremap <expr> <CR> pumvisible() ? '\<C-y>' : '\<CR>'
 
 " Navigate diagnostics
 nmap <silent> <C-p> <Plug>(coc-diagnostic-prev)
@@ -428,7 +428,7 @@ augroup fugitive-personal-key-mappings
   autocmd FileType fugitive nmap <buffer> p :bd!<CR>:Dispatch! noti git push origin HEAD --force-with-lease<CR>
 
   " Verbose and quiet git commit by default
-  autocmd FileType fugitive nmap <buffer> C :vertical Git commit -v --quiet<CR>
+  autocmd FileType fugitive nmap <buffer> C  :vertical Git commit -v --quiet<CR>
   autocmd FileType fugitive nmap <buffer> cc :vertical Git commit -v --quiet<CR>
   autocmd FileType fugitive nmap <buffer> ca :vertical Git commit -v --amend --quiet<CR>
   autocmd FileType fugitive nmap <buffer> ce :Git commit --amend --no-edit --quiet<CR>
@@ -640,7 +640,7 @@ let g:conflict_marker_end   = '^>>>>>>> .*$'
 " }}}
 
 " vim-better-whitespace
-let g:strip_whitespace_on_save  = 0
+let g:strip_whitespace_on_save = 0
 let g:strip_whitelines_at_eof = 1
 let g:better_whitespace_operator = ''
 
@@ -791,15 +791,15 @@ map [n :<C-u>set nonumber<CR>:set norelativenumber<CR>
 map ]n :<C-u>set number<CR>:set relativenumber<CR>
 
 " Vim searchhi
-map n <Plug>(searchhi-n)
-map N <Plug>(searchhi-N)
-map * <Plug>(asterisk-*)<Plug>(searchhi-update)
-map # <Plug>(asterisk-#)<Plug>(searchhi-update)
-map g* <Plug>(asterisk-g*)<Plug>(searchhi-update)
-map g# <Plug>(asterisk-g#)<Plug>(searchhi-update)
+map n   <Plug>(searchhi-n)
+map N   <Plug>(searchhi-N)
+map *   <Plug>(asterisk-*)<Plug>(searchhi-update)
+map #   <Plug>(asterisk-#)<Plug>(searchhi-update)
+map g*  <Plug>(asterisk-g*)<Plug>(searchhi-update)
+map g#  <Plug>(asterisk-g#)<Plug>(searchhi-update)
 
-map z* <Plug>(asterisk-z*)<Plug>(searchhi-update)
-map z# <Plug>(asterisk-z#)<Plug>(searchhi-update)
+map z*  <Plug>(asterisk-z*)<Plug>(searchhi-update)
+map z#  <Plug>(asterisk-z#)<Plug>(searchhi-update)
 map gz* <Plug>(asterisk-gz*)<Plug>(searchhi-update)
 map gz# <Plug>(asterisk-gz#)<Plug>(searchhi-update)
 
@@ -844,7 +844,7 @@ let g:loaded_matchparen = 1
 
 " Vim niceblock
 silent! xmap <unique> I  <Plug>(niceblock-I)
-silent! xmap <unique> gI  <Plug>(niceblock-gI)
+silent! xmap <unique> gI <Plug>(niceblock-gI)
 silent! xmap <unique> A  <Plug>(niceblock-A)
 
 " Vim puppet
