@@ -13,9 +13,6 @@ call plug#begin()
   " Defaults everyone can agree on
   Plug 'tpope/vim-sensible'
 
-  " Changes Vim working directory to project root
-  Plug 'airblade/vim-rooter'
-
   " Some Git stuff
   Plug 'anhpt379/vim-fugitive'
   Plug 'rhysd/git-messenger.vim'
