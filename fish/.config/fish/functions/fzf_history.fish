@@ -1,5 +1,5 @@
 function fzf_history -d "Show command history"
-    set -l result (history -z | fzf --expect=enter --header="(Press TAB to accept, ENTER to accept and run)" --bind=tab:accept --read0 -q (commandline))
+    set -l result (history -z | fzf --tiebreak=index --expect=enter --header="(Press TAB to accept, ENTER to accept and run)" --bind=tab:accept --read0 -q (commandline))
 
     set -l key (echo $result | cut -d' ' -f1)
     set -l result (echo $result | cut -d' ' -f2-)
