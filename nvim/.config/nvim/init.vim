@@ -60,7 +60,6 @@ call plug#begin()
   Plug 'rbgrouleff/bclose.vim'
   Plug 'roman/golden-ratio'
   Plug 'pechorin/any-jump.vim'
-  Plug 'powerman/vim-plugin-ansiesc'
 
   " Improving editing experience
   Plug 'anhpt379/targets.vim'
