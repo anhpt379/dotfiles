@@ -606,8 +606,9 @@ let g:startify_lists = [
   \ ]
 
 let g:startify_bookmarks = [
-  \ {'c': '~/dotfiles/nvim/.config/nvim/init.vim'},
   \ {'b': '~/dotfiles/Brewfile'},
+  \ {'f': '~/dotfiles/fish/.config/omf/init.fish'},
+  \ {'v': '~/dotfiles/nvim/.config/nvim/init.vim'},
   \ ]
 
 autocmd User Startified setlocal cursorline
