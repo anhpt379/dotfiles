@@ -864,6 +864,11 @@ augroup end
 cnoremap <M-b> <S-Left>
 cnoremap <M-f> <S-Right>
 
+" Map Ctrl-Backspace to delete the previous word in insert mode
+set backspace=indent,eol,start
+noremap! <C-BS> <C-w>
+noremap! <C-h> <C-w>
+
 " Fzf-mru
 augroup update_mru_on_file_open
   autocmd!
