@@ -89,6 +89,7 @@ call plug#begin()
   Plug 'kana/vim-niceblock'
   Plug 'haya14busa/vim-asterisk'
   Plug 'google/vim-searchindex'
+  Plug 'nvim-treesitter/nvim-treesitter'
 
   " Time tracking
   Plug 'wakatime/vim-wakatime'
@@ -868,3 +869,6 @@ augroup update_mru_on_file_open
   autocmd!
   autocmd BufWinEnter * UpdateMru
 augroup END
+
+" Treesitter
+lua require'nvim-treesitter.configs'.setup{ ensure_installed='all', highlight={ enable=true } }
