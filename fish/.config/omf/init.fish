@@ -109,9 +109,9 @@ set -gx FZF_DEFAULT_OPTS    '
   --color=prompt:#f1f1f1,pointer:#f1f1f1
   --color=info:#555555,spinner:#555555
   --color=marker:#55CABE
+  --color=spinner:108
   --no-multi
   --reverse
-  --info=hidden
   --height=40%
   --bind=tab:accept,ctrl-j:ignore,ctrl-k:ignore
   --bind=change:top
