@@ -1,9 +1,9 @@
 #command
-  H  noaction j/\^((diff|commit|Date|From) )|((added|deleted|modified):)\n
-  h  left-scroll
-  l  right-scroll
-  i  toggle-option i
-  \e undo-hilite
+  H    noaction j/\^((diff|commit|Date|From) )|((added|deleted|modified):)\n
+  h    left-scroll
+  l    right-scroll
+  i    toggle-option i
+  \e\e undo-hilite
 
 #line-edit
   # Common mappings
