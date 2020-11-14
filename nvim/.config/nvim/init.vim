@@ -16,7 +16,7 @@ call plug#begin()
   " Some Git stuff
   Plug 'anhpt379/vim-fugitive'
   Plug 'rhysd/git-messenger.vim'
-  Plug 'ruanyl/vim-gh-line'
+  Plug 'dinhhuy258/vim-git-browse'
 
   " EditorConfig
   Plug 'editorconfig/editorconfig-vim'
@@ -653,13 +653,6 @@ function! DisableWhitespace()
 endfunction
 autocmd FileType * call DisableWhitespace()
 
-" vim-gh-line
-let g:gh_gitlab_domain = 'gitlab.booking.com'
-let g:gh_line_map_default = 0
-let g:gh_line_blame_map_default = 0
-let g:gh_line_map = 'go'
-let g:gh_repo_map = 'gr'
-
 " vim indentline {{{
 set listchars=tab:→\ ,extends:»,precedes:«
 set list
@@ -878,3 +871,10 @@ augroup END
 
 " Treesitter
 lua require'nvim-treesitter.configs'.setup{ ensure_installed='all', highlight={ enable=true } }
+
+" Vim-git-browse
+let g:vim_git_browse_use_default_keymap = 0
+nnoremap <silent> go :<C-u>call vim_git_browse#GitBrowse(v:false)<CR>
+xnoremap <silent> go :<C-u>call vim_git_browse#GitBrowse(v:true)<CR>
+nnoremap <silent> gM :<C-u>call vim_git_browse#GitPullRequest()<CR>
+nnoremap <silent> gN :<C-u>call vim_git_browse#GitCreatePullRequest()<CR>
