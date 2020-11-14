@@ -1,9 +1,9 @@
 #command
-  H noaction j/\^((diff|commit|Date|From) )|((added|deleted|modified):)\n
-  h left-scroll
-  l right-scroll
-  i toggle-option i
-  \e\e undo-hilite
+  H  noaction j/\^((diff|commit|Date|From) )|((added|deleted|modified):)\n
+  h  left-scroll
+  l  right-scroll
+  i  toggle-option i
+  \e undo-hilite
 
 #line-edit
   # Common mappings
@@ -27,9 +27,8 @@
   \e[3;5~ delete
   \e[3;3~ word-delete
 
-  # TODO: Ctrl/Option/Command+Backspace (?)
-  \e[3~   delete
-  ^W      word-backspace
-  ^H  word-backspace
+  # Ctrl+W to delete word
+  ^W   word-backspace
+
 
 
