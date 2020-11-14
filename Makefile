@@ -39,6 +39,7 @@ endif
 
 	make stow
 
+	lesskey less/lesskey
 	pip3 install --user -r requirements.txt
 	cargo install devicon-lookup
 	gem install --user-install \

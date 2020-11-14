@@ -1,0 +1,35 @@
+#command
+  H noaction j/\^((diff|commit|Date|From) )|((added|deleted|modified):)\n
+  h left-scroll
+  l right-scroll
+  i toggle-option i
+  \e\e undo-hilite
+
+#line-edit
+  # Common mappings
+  ^P   up
+  ^N   down
+  \e\e abort
+
+  # Make Ctrl/Option/Command+H/L (Left/Right) work
+  \eb  word-left   # Option+H
+  \ef  word-right  # Option+L
+  \e[1;5D left     # Arrow left
+  \e[1;5C right    # Arrow right
+
+  # Disable Ctrl/Option/Command+J/K (Down/Up)
+  \e[1;3A insert  # Arrow up
+  \e[1;3B insert  # Arrow down
+  \e[5~   insert  # (Page Up)
+  \e[6~   insert  # (Page Down)
+
+  # Ctrl/Option/Command+ForwardDelete
+  \e[3;5~ delete
+  \e[3;3~ word-delete
+
+  # TODO: Ctrl/Option/Command+Backspace (?)
+  \e[3~   delete
+  ^W      word-backspace
+  ^H  word-backspace
+
+
