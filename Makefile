@@ -9,6 +9,7 @@ stow:
 	stow git
 	stow inputrc
 	stow kitty
+	stow less
 	stow lf
 	stow nvim
 	stow ssh
@@ -39,7 +40,6 @@ endif
 
 	make stow
 
-	lesskey less/lesskey
 	pip3 install --user -r requirements.txt
 	cargo install devicon-lookup
 	gem install --user-install \
