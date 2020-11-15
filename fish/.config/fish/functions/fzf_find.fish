@@ -47,7 +47,7 @@ function fzf_find -d "Find files and folders"
         if test -d "$result"
             commandline -it -- "/"
         else
-            commandline -it -- " "
+            commandline -it -- ""
         end
     end
     commandline -f repaint
