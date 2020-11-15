@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+# Remove the devicon
 path=$(echo "$1" | awk '{ print $2 }')
 
 if [[ -d $path ]]; then
@@ -7,7 +8,8 @@ if [[ -d $path ]]; then
 
   # preview directory contents with `exa`
   exa --color always -la --group-directories-first "$path"
-elif [[ -f $path ]]; then
+else
   # preview file contents with `bat`
-  bat --color always --paging never --line-range :300 "$path"
+  bat --color=always "$path"
 fi
+
