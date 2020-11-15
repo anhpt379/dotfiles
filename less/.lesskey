@@ -29,6 +29,3 @@
 
   # Ctrl+W to delete word
   ^W   word-backspace
-
-
-

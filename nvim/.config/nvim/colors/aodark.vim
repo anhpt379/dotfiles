@@ -43,7 +43,7 @@ function! s:h(group, fg, bg, attr)
   else
     exec 'hi ' . a:group . ' guibg=NONE ctermbg=NONE'
   endif
-  if a:attr != ''
+  if a:attr !=# ''
     exec 'hi ' . a:group . ' gui=' . a:attr . ' cterm=' . a:attr
   else
     exec 'hi ' . a:group . ' gui=NONE cterm=NONE'

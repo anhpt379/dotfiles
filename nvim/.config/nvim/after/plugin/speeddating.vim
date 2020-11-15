@@ -30,7 +30,7 @@ function! KeywordIncrement(word, offset, increment)
   endfor
 endfunction
 
-let s:handler = {'regexp': '\<\%('.join(map(copy(s:cycles),'join(v:val,"\\|")'),'\|').'\)\>', 'increment': function("KeywordIncrement")}
+let s:handler = {'regexp': '\<\%('.join(map(copy(s:cycles),'join(v:val,"\\|")'),'\|').'\)\>', 'increment': function('KeywordIncrement')}
 let g:speeddating_handlers += [s:handler]
 
 " Make <C-a> <C-x> ignore the negative sign
@@ -38,4 +38,4 @@ function! IgnoringNegativeIncrement(string,offset,increment)
   return [a:string+a:increment,-1]
 endfunction
 
-let g:speeddating_handlers += [{'regexp': '\<\d\+\>', 'increment': function("IgnoringNegativeIncrement")}]
+let g:speeddating_handlers += [{'regexp': '\<\d\+\>', 'increment': function('IgnoringNegativeIncrement')}]

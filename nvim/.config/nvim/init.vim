@@ -3,7 +3,9 @@ scriptencoding utf-8
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
   silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+  augroup vim-plug
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+  augroup end
 endif
 
 call plug#begin()
@@ -207,13 +209,13 @@ let mapleader=' '
 
 " Quickly reload nvim config & update plugins by pressing `<Leader>u`
 nnoremap <Leader>u :silent! w<CR>
-                 \ :source ~/dotfiles/nvim/.config/nvim/init.vim<CR>
-                 \ :PlugClean<CR>
-                 \ :silent !PlugInstall<CR>
-                 \ :source ~/dotfiles/nvim/.config/nvim/init.vim<CR>
-                 \ :PlugUpdate --sync<CR>
-                 \ :CocUpdate<CR>
-                 \ :TSUpdate<CR>
+  \ :source ~/dotfiles/nvim/.config/nvim/init.vim<CR>
+  \ :PlugClean<CR>
+  \ :silent !PlugInstall<CR>
+  \ :source ~/dotfiles/nvim/.config/nvim/init.vim<CR>
+  \ :PlugUpdate --sync<CR>
+  \ :CocUpdate<CR>
+  \ :TSUpdate<CR>
 
 " Turn off whitespaces compare and folding in vimdiff
 set splitright
@@ -413,7 +415,9 @@ let g:git_messenger_max_popup_width = 120
 let g:git_messenger_extra_blame_args = '-w -M'
 
 " Don't show colorcolumn in git-messenger popup
-autocmd FileType gitmessengerpopup set textwidth&
+augroup gitmessenger
+  autocmd FileType gitmessengerpopup set textwidth&
+augroup end
 
 noremap gm :GitMessenger<CR>
 noremap gb :Gblame -w -M<CR>
@@ -612,12 +616,16 @@ let g:startify_bookmarks = [
   \ {'v': '~/dotfiles/nvim/.config/nvim/init.vim'},
   \ ]
 
-autocmd User Startified setlocal cursorline
-autocmd User Startified nmap <buffer> o <plug>(startify-open-buffers)
+augroup startified
+  autocmd User Startified setlocal cursorline
+  autocmd User Startified nmap <buffer> o <plug>(startify-open-buffers)
+augroup end
 
 " Custom file extensions / syntax highlighting
-autocmd BufReadPost *.rules set filetype=yaml
-autocmd BufReadPost *.eyaml set filetype=yaml
+augroup custom-file-extensions
+  autocmd BufReadPost *.rules set filetype=yaml
+  autocmd BufReadPost *.eyaml set filetype=yaml
+augroup end
 
 " No magic search by default
 map / /\V
@@ -647,11 +655,14 @@ nnoremap ]w :NextTrailingWhitespace<CR>
 nnoremap [w :PrevTrailingWhitespace<CR>
 
 function! DisableWhitespace()
-  if &ft =~ 'fugitive\|startify\|far\|git\|man'
+  if &ft =~# 'fugitive\|startify\|far\|git\|man'
     DisableWhitespace
   endif
 endfunction
-autocmd FileType * call DisableWhitespace()
+
+augroup DisableWhitespace
+  autocmd FileType * call DisableWhitespace()
+augroup end
 
 " vim indentline {{{
 set listchars=tab:→\ ,extends:»,precedes:«
@@ -660,20 +671,26 @@ set list
 let g:indentLine_char = '┊'
 
 " Fix double quotes in json files went missing
-autocmd InsertEnter *.json setlocal concealcursor=
-autocmd InsertLeave *.json setlocal concealcursor=inc
+augroup json
+  autocmd InsertEnter *.json setlocal concealcursor=
+  autocmd InsertLeave *.json setlocal concealcursor=inc
+augroup end
 
 " Hide fzf status line
-autocmd! FileType fzf
-autocmd  FileType fzf set laststatus=0 noshowmode noruler |
-  \ autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+augroup fzf
+  autocmd! FileType fzf
+  autocmd  FileType fzf set laststatus=0 noshowmode noruler |
+    \ autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+augroup end
 
 function! DisableIndentLines()
-  if &ft =~ 'fzf\|startify\|man'
+  if &ft =~# 'fzf\|startify\|man'
     IndentLinesDisable
   endif
 endfunction
-autocmd FileType * call DisableIndentLines()
+augroup indentlines
+  autocmd FileType * call DisableIndentLines()
+augroup end
 " }}}
 
 " vim-diminactive
@@ -803,17 +820,19 @@ nmap ? <Plug>(searchhi-?)\V
 vmap / <Plug>(searchhi-v-/)\V
 vmap ? <Plug>(searchhi-v-?)\V
 
- " Any-fold
+" Any-fold
 let g:anyfold_fold_display = 0
 let g:anyfold_fold_comments = 1
 
 function! ActiveAnyFold()
-  if &ft =~ 'fugitive\|startify'
+  if &ft =~# 'fugitive\|startify'
     return
   endif
   AnyFoldActivate
 endfunction
-autocmd FileType * call ActiveAnyFold()
+augroup anyfold
+  autocmd FileType * call ActiveAnyFold()
+augroup end
 
 set foldlevel=99
 set nofoldenable
