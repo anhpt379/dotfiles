@@ -414,9 +414,12 @@ let g:git_messenger_max_popup_width = 120
 " Don't blame people for changing whitespaces or moving code
 let g:git_messenger_extra_blame_args = '-w -M'
 
-" Don't show colorcolumn in git-messenger popup
 augroup gitmessenger
+" Don't show colorcolumn in git-messenger popup
   autocmd FileType gitmessengerpopup set textwidth&
+
+  " Close git-messenger popup with <Esc>
+  autocmd FileType gitmessengerpopup nmap <buffer> <Esc> q
 augroup end
 
 noremap gm :GitMessenger<CR>
@@ -455,11 +458,6 @@ augroup end
 augroup fugitive-auto-insert
   autocmd!
   autocmd BufEnter COMMIT_EDITMSG startinsert
-augroup end
-
-" Close git-messenger popup with <Esc>
-augroup git-messenger
-  autocmd FileType gitmessengerpopup nmap <buffer> <Esc> q
 augroup end
 " }}}
 
@@ -660,7 +658,7 @@ function! DisableWhitespace()
   endif
 endfunction
 
-augroup DisableWhitespace
+augroup disable-whitespace
   autocmd FileType * call DisableWhitespace()
 augroup end
 
@@ -688,6 +686,7 @@ function! DisableIndentLines()
     IndentLinesDisable
   endif
 endfunction
+
 augroup indentlines
   autocmd FileType * call DisableIndentLines()
 augroup end
@@ -758,7 +757,7 @@ function s:MkNonExDir(file, buf)
   endif
 endfunction
 
-augroup BWCCreateDir
+augroup auto-create-dir
   autocmd!
   autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
 augroup end
@@ -835,6 +834,7 @@ function! ActiveAnyFold()
   endif
   AnyFoldActivate
 endfunction
+
 augroup anyfold
   autocmd FileType * call ActiveAnyFold()
 augroup end
@@ -888,7 +888,7 @@ noremap! <C-BS> <C-w>
 noremap! <C-h> <C-w>
 
 " Fzf-mru
-augroup update_mru_on_file_open
+augroup update-mru-on-file-open
   autocmd!
   autocmd BufWinEnter * UpdateMru
 augroup END
