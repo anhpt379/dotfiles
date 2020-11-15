@@ -84,6 +84,7 @@ cask 'macdown'
 cask 'qbserve'
 cask 'telegram-desktop'
 cask 'the-unarchiver'
+cask 'unshaky'
 cask 'vagrant'
 cask 'workplace-chat'
 
