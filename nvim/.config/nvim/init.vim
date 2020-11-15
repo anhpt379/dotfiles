@@ -736,6 +736,11 @@ map L $
 map <Home> :call ToggleHomeZero()<CR>
 map <End>  $
 
+" Moving up/down faster with <C-k>/<C-j>
+" (<C-k>/<C-j> is PageUp/PageDown due to mappings in Karabiner)
+nnoremap <PageUp>   2k
+nnoremap <PageDown> 2j
+
 " Easier change list jumps
 nnoremap <Leader>o g;
 nnoremap <Leader>i g,
