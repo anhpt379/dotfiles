@@ -783,8 +783,8 @@ command! -complete=dir -nargs=+ -range=-1 Fr
 " Lf.vim
 let g:lf_map_keys = 0
 let g:lf_replace_netrw = 1
-autocmd TermEnter * set showtabline=0 | set norelativenumber | set nonumber | set signcolumn=no | IndentLinesDisable
-autocmd TermLeave * set showtabline=2 | set relativenumber   | set number   | set signcolumn=yes
+autocmd TermEnter * set showtabline=0 | set norelativenumber | set nonumber | set signcolumn=no  | set mouse-=a | IndentLinesDisable
+autocmd TermLeave * set showtabline=2 | set relativenumber   | set number   | set signcolumn=yes | set mouse+=a
 map <Leader>l :<C-u>Lf<CR>
 
 " Clever-f
