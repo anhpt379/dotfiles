@@ -18,7 +18,7 @@ call plug#begin()
   " Some Git stuff
   Plug 'anhpt379/vim-fugitive'
   Plug 'rhysd/git-messenger.vim'
-  Plug 'dinhhuy258/vim-git-browse'
+  Plug 'anhpt379/vim-git-browse'
 
   " EditorConfig
   Plug 'editorconfig/editorconfig-vim'
@@ -900,5 +900,4 @@ lua require'nvim-treesitter.configs'.setup{ ensure_installed='all', highlight={ 
 let g:vim_git_browse_use_default_keymap = 0
 nnoremap <silent> go :<C-u>call vim_git_browse#GitBrowse(v:false)<CR>
 xnoremap <silent> go :<C-u>call vim_git_browse#GitBrowse(v:true)<CR>
-nnoremap <silent> gM :<C-u>call vim_git_browse#GitPullRequest()<CR>
-nnoremap <silent> gN :<C-u>call vim_git_browse#GitCreatePullRequest()<CR>
+nnoremap <silent> gM :<C-u>call vim_git_browse#GitOpenPullRequest()<CR>
