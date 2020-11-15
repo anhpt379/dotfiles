@@ -1,0 +1,88 @@
+---
+name: Linter
+
+on:
+  push:
+
+jobs:
+  editorconfig:
+    name: EditorConfig
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: eclint
+        uses: tomtomsen/action-editorconfig-checker@0.2
+
+  linelint:
+    name: Line
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: linelint
+        uses: fernandrone/linelint@0.0.4
+
+  shell-linter:
+    name: Shell
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: shell-linter
+        uses: azohra/shell-linter@v0.4.0
+
+  json-linter:
+    name: JSON
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: json-linter
+        uses: limitusus/json-syntax-check@v1
+
+  yamllint:
+    name: YAML
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: yamllint
+        uses: ibiqlik/action-yamllint@v3.0.0
+
+  python-linter:
+    name: Python
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: python-linter
+        uses: piotrpawlaczek/python-blacken@release/stable
+
+  vint:
+    name: Vim
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: vint
+        uses: ludvighz/vint-action@v1
+        with:
+          path: nvim/.config/nvim/
+
+  markdown-lint:
+    name: Markdown
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: markdown-lint
+        uses: avto-dev/markdown-lint@v1.4.0

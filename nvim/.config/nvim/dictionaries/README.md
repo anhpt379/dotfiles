@@ -29,4 +29,3 @@ cat bq-results-<datetime>.csv | tail +2 | awk -F, '{ print $1 }' > hacker_news.t
 
 [1]: https://bigquery.cloud.google.com/table/bigquery-public-data:hacker_news.full?pli=1&tab=details
 [2]: https://console.cloud.google.com/bigquery?project=coc-dictionaries&authuser=1&p=coc-dictionaries&page=project
-
