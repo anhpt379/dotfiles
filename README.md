@@ -1,4 +1,6 @@
-# My dotfiles
+# Anh's dotfiles
+
+![Linter](https://github.com/anhpt379/dotfiles/workflows/Linter/badge.svg)
 
 ## Installation
 
