@@ -12,4 +12,3 @@ else
   # preview file contents with `bat`
   bat --color=always "$path"
 fi
-

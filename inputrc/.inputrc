@@ -8,4 +8,3 @@
 # control+delete/forward_delete
 "\C-h": unix-word-rubout
 "\e[3;5~": kill-word
-

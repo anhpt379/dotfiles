@@ -33,4 +33,3 @@ let s:p.tabline.middle = [ [ s:mono2, s:mono1] ]
 let s:p.tabline.right = [ [ s:mono0, s:mono3 ] ]
 
 let g:lightline#colorscheme#aodark#palette = lightline#colorscheme#flatten(s:p)
-
