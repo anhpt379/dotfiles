@@ -16,6 +16,7 @@
     "email": "languagetool",
     "markdown": ["markdownlint"],
     "gitcommit": ["languagetool"],
+    "text": ["languagetool"],
     "sh": "shellcheck",
     "Dockerfile": "hadolint"
   },
