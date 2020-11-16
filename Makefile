@@ -4,6 +4,7 @@ CLI_TOOLS := $(xcode-select --install 2>&1 | grep installed;)
 
 stow:
 	stow bat
+	stow curl
 	stow fish
 	stow fzf
 	stow git
