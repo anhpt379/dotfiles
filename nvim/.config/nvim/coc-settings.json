@@ -14,9 +14,9 @@
   "diagnostic-languageserver.filetypes": {
     "vim": "vint",
     "email": "languagetool",
-    "markdown": [
-      "write-good"
-    ],
+    "markdown": ["markdownlint", "languagetool"],
+    "gitcommit": ["languagetool"],
+    "text": ["languagetool"],
     "sh": "shellcheck",
     "Dockerfile": "hadolint"
   },
@@ -24,9 +24,7 @@
     "languagetool": {
       "command": "languagetool",
       "debounce": 200,
-      "args": [
-        "-"
-      ],
+      "args": ["-"],
       "offsetLine": 0,
       "offsetColumn": 0,
       "sourceName": "languagetool",
@@ -36,19 +34,14 @@
         {
           "line": 1,
           "column": 2,
-          "message": [
-            4,
-            3
-          ]
+          "message": [4, 3]
         }
       ]
     },
     "write-good": {
       "command": "write-good",
       "debounce": 100,
-      "args": [
-        "--text=%text"
-      ],
+      "args": ["--text=%text"],
       "offsetLine": 0,
       "offsetColumn": 1,
       "sourceName": "write-good",
@@ -65,10 +58,7 @@
     "vint": {
       "command": "/Users/anh/Library/Python/3.7/bin/vint",
       "debounce": 100,
-      "args": [
-        "--enable-neovim",
-        "-"
-      ],
+      "args": ["--enable-neovim", "-"],
       "offsetLine": 0,
       "offsetColumn": 0,
       "sourceName": "vint",
@@ -85,11 +75,7 @@
     "shellcheck": {
       "command": "shellcheck",
       "debounce": 100,
-      "args": [
-        "--format",
-        "json",
-        "-"
-      ],
+      "args": ["--format", "json", "-"],
       "sourceName": "shellcheck",
       "parseJson": {
         "line": "line",
@@ -109,11 +95,7 @@
     "hadolint": {
       "command": "hadolint",
       "sourceName": "hadolint",
-      "args": [
-        "-f",
-        "json",
-        "-"
-      ],
+      "args": ["-f", "json", "-"],
       "parseJson": {
         "line": "line",
         "column": "column",
@@ -137,13 +119,8 @@
         "--puppet-settings=--moduledir,/Users/panh/Workspace/puppet/puppet/modules"
       ],
       "cwd": "/Users/panh/Workspace/puppet-editor-services",
-      "filetypes": [
-        "puppet"
-      ],
-      "rootPatterns": [
-        ".git/",
-        "metadata.json"
-      ]
+      "filetypes": ["puppet"],
+      "rootPatterns": [".git/", "metadata.json"]
     }
   }
 }
