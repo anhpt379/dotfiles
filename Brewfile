@@ -65,6 +65,7 @@ brew 'tokei'
 brew 'trash'
 brew 'txn2/tap/kubefwd'
 brew 'universal-ctags/universal-ctags/universal-ctags', args: ['with-jansson', 'HEAD']
+brew 'vale'
 brew 'watch'
 brew 'wget'
 brew 'yarn'
