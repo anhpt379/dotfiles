@@ -14,29 +14,31 @@
   "diagnostic-languageserver.filetypes": {
     "vim": "vint",
     "email": "languagetool",
-    "markdown": ["markdownlint", "languagetool"],
+    "markdown": ["markdownlint"],
     "gitcommit": ["languagetool"],
-    "text": ["languagetool"],
     "sh": "shellcheck",
     "Dockerfile": "hadolint"
   },
   "diagnostic-languageserver.linters": {
     "languagetool": {
-      "command": "languagetool",
-      "debounce": 200,
+      "command": "/Users/panh/.config/nvim/bin/remote_languagetool.py",
+      "debounce": 500,
       "args": ["-"],
       "offsetLine": 0,
       "offsetColumn": 0,
-      "sourceName": "languagetool",
-      "formatLines": 2,
-      "formatPattern": [
-        "^\\d+?\\.\\)\\s+Line\\s+(\\d+),\\s+column\\s+(\\d+),\\s+([^\\n]+)\nMessage:\\s+(.*)(\\r|\\n)*$",
-        {
-          "line": 1,
-          "column": 2,
-          "message": [4, 3]
-        }
-      ]
+      "sourceName": "LT",
+      "parseJson": {
+        "line": "line",
+        "column": "column",
+        "message": "${message}",
+        "security": "level"
+      },
+      "securities": {
+        "error": "error",
+        "warning": "warning",
+        "info": "info",
+        "style": "hint"
+      }
     },
     "write-good": {
       "command": "write-good",
