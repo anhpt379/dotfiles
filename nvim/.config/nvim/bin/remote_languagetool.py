@@ -13,12 +13,15 @@ r = requests.post(
 
 matches = r.json().get("matches", [])
 for match in matches:
-    replacements = ", ".join([i["value"] for i in match["replacements"]])
+    offset = match["offset"]
+    length = match["length"]
+
+    replacements = " / ".join([i["value"] for i in match["replacements"]])
     if replacements:
-        match["message"] = match["message"] + "\nReplacements: " + replacements
+        word = text[offset : offset + length]
+        match["message"] = f"{match['message']}\n\"{word}\" -> {replacements}"
 
     # Convert from offset to line/column
-    offset = match["offset"]
     line = text[:offset].count("\n") + 1  # line number starts from 1
     column = 1
     for i in text[:offset][::-1]:
@@ -29,6 +32,9 @@ for match in matches:
     match["column"] = column
 
     # Show as warnings in coc-diagnostic
-    match["level"] = "warning"
+    if match["rule"]["issueType"] == "misspelling":
+        match["level"] = "error"
+    else:
+        match["level"] = "warning"
 
 print(json.dumps(matches))
