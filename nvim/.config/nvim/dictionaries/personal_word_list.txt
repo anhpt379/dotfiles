@@ -1,1 +1,3 @@
 coc-diagnostic
+postgres
+postgresql
