@@ -15,8 +15,8 @@
     "vim": "vint",
     "email": "languagetool",
     "markdown": ["markdownlint"],
-    "gitcommit": ["languagetool"],
-    "text": ["languagetool"],
+    "gitcommit": ["languagetool", "vale"],
+    "text": ["languagetool", "vale"],
     "sh": "shellcheck",
     "Dockerfile": "hadolint"
   },
@@ -39,6 +39,26 @@
         "warning": "warning",
         "info": "info",
         "style": "hint"
+      }
+    },
+    "vale": {
+      "command": "/Users/panh/.config/nvim/bin/vale.py",
+      "debounce": 100,
+      "args": [],
+      "offsetLine": 0,
+      "offsetColumn": 0,
+      "sourceName": "Vale",
+      "parseJson": {
+        "line": "line",
+        "column": "column",
+        "message": "${message}",
+        "security": "level"
+      },
+      "securities": {
+        "error": "error",
+        "warning": "warning",
+        "info": "info",
+        "suggestion": "hint"
       }
     },
     "write-good": {
