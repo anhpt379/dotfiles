@@ -7,10 +7,10 @@
   "git.addGBlameToVirtualText": true,
   "yank.highlight.enable": false,
   "yank.enableCompletion": false,
-  "diagnostic.errorSign": "‼️",
-  "diagnostic.warningSign": "⚠️",
-  "diagnostic.infoSign": "ℹ️",
-  "diagnostic.hintSign": "💬",
+  "diagnostic.errorSign": "×",
+  "diagnostic.warningSign": "!",
+  "diagnostic.infoSign": "i",
+  "diagnostic.hintSign": "➤",
   "diagnostic.refreshOnInsertMode": true,
   "diagnostic-languageserver.filetypes": {
     "vim": "vint",
@@ -24,7 +24,7 @@
   "diagnostic-languageserver.linters": {
     "languagetool": {
       "command": "/Users/panh/.config/nvim/bin/remote_languagetool.py",
-      "debounce": 300,
+      "debounce": 500,
       "args": ["-"],
       "offsetLine": 0,
       "offsetColumn": 0,
