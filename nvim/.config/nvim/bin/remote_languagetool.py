@@ -8,8 +8,12 @@ import requests
 language = "en-US"
 text = sys.stdin.read()
 
+# IDs of rules to be disabled, comma-separated
+disabled_rules = "DASH_RULE,WORD_CONTAINS_UNDERSCORE"
+
 r = requests.post(
-    "https://languagetool.org/api/v2/check", data={"text": text, "language": language}
+    "https://languagetool.org/api/v2/check",
+    data={"text": text, "language": language, "disabledRules": disabled_rules},
 )
 r.raise_for_status()
 
