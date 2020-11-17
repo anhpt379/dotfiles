@@ -398,13 +398,6 @@ noremap <Leader>f :GstatusClose<CR>:silent FilesMru<CR>
 noremap <Leader>t :GstatusClose<CR>:FzfFiletypes<CR>
 " }}}
 
-" Hybrid line numbers
-augroup number-toggle
-  autocmd!
-  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu | set rnu   | endif
-  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu | set nornu | endif
-augroup end
-
 " Git {{{
 let g:git_messenger_always_into_popup = v:true
 let g:git_messenger_no_default_mappings = v:true
@@ -450,9 +443,6 @@ augroup fugitive-personal-key-mappings
 
   " x is easier to type than X
   autocmd FileType fugitive map <buffer> <nowait> x X
-
-  " Left padding
-  autocmd FileType fugitive set signcolumn=yes | set number | set relativenumber
 augroup end
 
 augroup fugitive-auto-insert
@@ -783,8 +773,8 @@ command! -complete=dir -nargs=+ -range=-1 Fr
 " Lf.vim
 let g:lf_map_keys = 0
 let g:lf_replace_netrw = 1
-autocmd TermEnter * set showtabline=0 | set norelativenumber | set nonumber | set signcolumn=no  | set mouse-=a | IndentLinesDisable
-autocmd TermLeave * set showtabline=2 | set relativenumber   | set number   | set signcolumn=yes | set mouse+=a
+autocmd TermEnter * set showtabline=0 | set nonumber | set signcolumn=no  | set mouse-=a | IndentLinesDisable
+autocmd TermLeave * set showtabline=2 | set number   | set signcolumn=yes | set mouse+=a
 map <Leader>l :<C-u>Lf<CR>
 
 " Clever-f
@@ -800,8 +790,8 @@ set diffopt+=algorithm:patience
 " set diffopt+=indent-heuristic
 
 " A faster way to toggle line number
-map [n :<C-u>set nonumber<CR>:set norelativenumber<CR>
-map ]n :<C-u>set number<CR>:set relativenumber<CR>
+map [n :<C-u>set nonumber<CR>
+map ]n :<C-u>set number<CR>
 
 " Vim searchhi
 map n   <Plug>(searchhi-n)
