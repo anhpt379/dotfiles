@@ -33,9 +33,10 @@ balias ...   'cd ../..'
 balias ....  'cd ../../..'
 balias ..... 'cd ../../../..'
 
-balias ls 'exa --group-directories-first'
-balias la 'exa -a --group-directories-first'
-balias ll 'exa -la --group-directories-first'
+balias ls  'exa --group-directories-first'
+balias la  'exa --group-directories-first -a'
+balias ll  'exa --group-directories-first -l'
+balias lla 'exa --group-directories-first -la'
 
 balias cat 'bat'
 balias ping 'prettyping --nolegend'
