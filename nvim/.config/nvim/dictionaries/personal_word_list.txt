@@ -1,3 +1,6 @@
 coc-diagnostic
 postgres
 postgresql
+gitcommit
+coc
+languagetool

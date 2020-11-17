@@ -222,9 +222,13 @@ highlight ConflictMarkerTheirs guibg=#344f69
 highlight ConflictMarkerEnd guibg=#2f628e
 
 " Coc.nvim
-highlight CocFloating guibg=#4D5565
-highlight CocErrorHighlight guifg=#e06c75
-highlight CocWarningHighlight guifg=#e5c07b
+highlight CocFloating guibg=#282829
+highlight CocErrorHighlight guifg=#DE456B
+highlight CocWarningHighlight guifg=#E2B962
+highlight CocHintHighlight guifg=#ffffff gui=underline
+highlight CocHintSign guifg=#55CABE
+highlight link CocErrorSign CocErrorHighlight
+highlight link CocWarningSign CocWarningHighlight
 
 " Clever-f
 highlight CleverFDefaultLabel guifg=#ffb300 gui=bold,underline ctermfg=11 ctermbg=235 cterm=bold,underline

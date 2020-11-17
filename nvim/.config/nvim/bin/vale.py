@@ -24,7 +24,7 @@ try:
             "line": match["Line"],
             "column": match["Span"][0],
             "message": match["Message"] + "\n" + match["Link"],
-            "level": "suggestion",
+            "level": "hint",
         }
         errors.append(error)
 

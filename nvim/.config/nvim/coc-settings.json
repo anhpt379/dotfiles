@@ -10,7 +10,7 @@
   "diagnostic.errorSign": "×",
   "diagnostic.warningSign": "!",
   "diagnostic.infoSign": "i",
-  "diagnostic.hintSign": "➤",
+  "diagnostic.hintSign": "",
   "diagnostic.refreshOnInsertMode": true,
   "diagnostic-languageserver.filetypes": {
     "vim": "vint",
@@ -39,7 +39,7 @@
         "error": "error",
         "warning": "warning",
         "info": "info",
-        "style": "hint"
+        "hint": "hint"
       }
     },
     "vale": {
@@ -59,7 +59,7 @@
         "error": "error",
         "warning": "warning",
         "info": "info",
-        "suggestion": "hint"
+        "hint": "hint"
       }
     },
     "write-good": {
