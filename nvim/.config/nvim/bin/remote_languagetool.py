@@ -44,7 +44,7 @@ for match in matches:
     match["line"] = line
     match["column"] = column
 
-    match["level"] = "warning"
+    match["level"] = "hint"
     output.append(match)
 
 print(json.dumps(output))
