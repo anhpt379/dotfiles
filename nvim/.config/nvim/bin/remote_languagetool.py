@@ -17,11 +17,13 @@ pwl_path = os.path.dirname(__file__) + "/../dictionaries/personal_word_list.txt"
 personal_word_list = open(pwl_path).read().splitlines()
 
 matches = r.json().get("matches", [])
+output = []
 for match in matches:
     offset = match["offset"]
     length = match["length"]
+    type = match["rule"]["issueType"]
     word = text[offset : offset + length]
-    if word in personal_word_list:
+    if type == "misspelling" and word in personal_word_list:
         continue
 
     replacements = " / ".join([i["value"] for i in match["replacements"]])
@@ -38,10 +40,7 @@ for match in matches:
     match["line"] = line
     match["column"] = column
 
-    # Show as warnings in coc-diagnostic
-    if match["rule"]["issueType"] == "misspelling":
-        match["level"] = "error"
-    else:
-        match["level"] = "warning"
+    match["level"] = "warning"
+    output.append(match)
 
-print(json.dumps(matches))
+print(json.dumps(output))
