@@ -24,7 +24,7 @@
   "diagnostic-languageserver.linters": {
     "languagetool": {
       "command": "/Users/panh/.config/nvim/bin/remote_languagetool.py",
-      "debounce": 500,
+      "debounce": 300,
       "args": ["-"],
       "offsetLine": 0,
       "offsetColumn": 0,
