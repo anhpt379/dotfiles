@@ -9,7 +9,7 @@ import subprocess
 text = sys.stdin.read()
 fd, path = tempfile.mkstemp()
 try:
-    with os.fdopen(fd, 'w') as tmp:
+    with os.fdopen(fd, "w") as tmp:
         # do stuff with temp file
         tmp.write(text)
     command = f"vale --output=JSON --no-exit {path}"
@@ -21,10 +21,10 @@ try:
     errors = []
     for match in data[path]:
         error = {
-            'line': match['Line'],
-            'column': match['Span'][0],
-            'message': match['Message'] + '\n' + match['Link'],
-            'level': match['Severity'],
+            "line": match["Line"],
+            "column": match["Span"][0],
+            "message": match["Message"] + "\n" + match["Link"],
+            "level": "suggestion",
         }
         errors.append(error)
 
