@@ -16,3 +16,4 @@ MR
 MRs
 lucene
 Lucene
+fzf
