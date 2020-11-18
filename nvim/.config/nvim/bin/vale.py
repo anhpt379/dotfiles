@@ -20,10 +20,11 @@ try:
 
     errors = []
     for match in data[path]:
+        message = f"{match['Check']}\n{match['Message']}\n\n{match['Link']}"
         error = {
             "line": match["Line"],
             "column": match["Span"][0],
-            "message": match["Message"] + "\n" + match["Link"],
+            "message": message,
             "level": "hint",
         }
         errors.append(error)

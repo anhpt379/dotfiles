@@ -9,7 +9,9 @@ language = "en-US"
 text = sys.stdin.read()
 
 # IDs of rules to be disabled, comma-separated
-disabled_rules = "DASH_RULE,WORD_CONTAINS_UNDERSCORE,EN_QUOTES,COMMA_PARENTHESIS_WHITESPACE"
+disabled_rules = (
+    "DASH_RULE,WORD_CONTAINS_UNDERSCORE,EN_QUOTES,COMMA_PARENTHESIS_WHITESPACE"
+)
 
 r = requests.post(
     "https://languagetool.org/api/v2/check",
@@ -30,9 +32,12 @@ for match in matches:
     if type == "misspelling" and word in personal_word_list:
         continue
 
+    rule_id = match["rule"]["id"]
     replacements = " / ".join([i["value"] for i in match["replacements"]])
     if replacements:
-        match["message"] = f"{match['message']}\n\"{word}\" -> {replacements}"
+        match[
+            "message"
+        ] = f"{rule_id}\n{match['message']}\n\nSuggestion: \"{word}\" -> {replacements}"
 
     # Convert from offset to line/column
     line = text[:offset].count("\n") + 1  # line number starts from 1
