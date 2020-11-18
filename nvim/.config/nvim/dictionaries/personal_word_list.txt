@@ -6,3 +6,6 @@ coc
 languagetool
 lesskey
 NOT
+dotfiles
+repo
+karabiner

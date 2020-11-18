@@ -1,3 +1,1 @@
-dotfiles
-repo
-karabiner
+../../../../../../nvim/.config/nvim/dictionaries/personal_word_list.txt
