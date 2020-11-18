@@ -10,7 +10,6 @@ set dircounts on
 set hidden on
 set incsearch on
 
-set color256 on
 set icons on
 
 set ignorecase off
