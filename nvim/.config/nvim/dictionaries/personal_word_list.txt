@@ -5,3 +5,4 @@ gitcommit
 coc
 languagetool
 lesskey
+NOT
