@@ -103,6 +103,7 @@ bind \e\[6~ backward-bigword
 bind \ce edit_and_run_command_buffer
 
 # Fzf
+bind --erase \co
 bind \cf 'fzf_find'
 bind \cr 'fzf_history'
 bind \t  'fzf_find 1'
