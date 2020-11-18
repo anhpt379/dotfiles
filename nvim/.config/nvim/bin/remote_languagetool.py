@@ -10,7 +10,11 @@ text = sys.stdin.read()
 
 # IDs of rules to be disabled, comma-separated
 disabled_rules = (
-    "DASH_RULE,WORD_CONTAINS_UNDERSCORE,EN_QUOTES,COMMA_PARENTHESIS_WHITESPACE"
+    "COMMA_PARENTHESIS_WHITESPACE,"
+    "DASH_RULE,"
+    "EN_QUOTES,"
+    "LC_AFTER_PERIOD",
+    "WORD_CONTAINS_UNDERSCORE,"
 )
 
 r = requests.post(

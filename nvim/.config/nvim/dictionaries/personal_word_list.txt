@@ -1,6 +1,7 @@
 coc-diagnostic
 postgres
 postgresql
+mysql
 gitcommit
 coc
 languagetool
@@ -10,3 +11,8 @@ dotfiles
 repo
 karabiner
 cronjob
+CODEOWNERS
+MR
+MRs
+lucene
+Lucene
