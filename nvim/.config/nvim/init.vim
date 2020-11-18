@@ -327,6 +327,10 @@ inoremap <expr> <CR> pumvisible() ? '\<C-y>' : '\<CR>'
 nmap <silent> <C-p> <Plug>(coc-diagnostic-prev)
 nmap <silent> <C-n> <Plug>(coc-diagnostic-next)
 
+" Jump to next/prev diagnostic from INSERT mode also
+imap <silent> <C-n> <Esc><C-n>
+imap <silent> <C-p> <Esc><C-p>
+
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
 
@@ -891,3 +895,9 @@ let g:vim_git_browse_use_default_keymap = 0
 nnoremap <silent> go :<C-u>call vim_git_browse#GitBrowse(v:false)<CR>
 xnoremap <silent> go :<C-u>call vim_git_browse#GitBrowse(v:true)<CR>
 nnoremap <silent> gM :<C-u>call vim_git_browse#GitOpenPullRequest()<CR>
+
+" LanguageTool
+" Disable vim <C-n>/<C-p> complete in INSERT mode, since we have coc-dictionary
+" already
+imap <C-n> <Esc><C-n>
+imap <C-p> <Esc><C-p>
