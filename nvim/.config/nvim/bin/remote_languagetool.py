@@ -9,7 +9,7 @@ language = "en-US"
 text = sys.stdin.read()
 
 # IDs of rules to be disabled, comma-separated
-disabled_rules = "DASH_RULE,WORD_CONTAINS_UNDERSCORE"
+disabled_rules = "DASH_RULE,WORD_CONTAINS_UNDERSCORE,EN_QUOTES,COMMA_PARENTHESIS_WHITESPACE"
 
 r = requests.post(
     "https://languagetool.org/api/v2/check",

@@ -4,3 +4,4 @@ postgresql
 gitcommit
 coc
 languagetool
+lesskey
