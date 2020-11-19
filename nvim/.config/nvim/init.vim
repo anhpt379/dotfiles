@@ -18,7 +18,7 @@ call plug#begin()
   " Some Git stuff
   Plug 'anhpt379/vim-fugitive'
   Plug 'rhysd/git-messenger.vim'
-  Plug 'anhpt379/vim-git-browse'
+  Plug 'dinhhuy258/vim-git-browse'
 
   " EditorConfig
   Plug 'editorconfig/editorconfig-vim'
