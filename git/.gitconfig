@@ -21,9 +21,9 @@
   showUntrackedFiles = all
 
 [pager]
-  log  = diff-so-fancy | less --tabs=4 --pattern '^(commit|added|deleted|modified)'
-  show = diff-so-fancy | less --tabs=4 --pattern '^(commit|added|deleted|modified)'
-  diff = diff-so-fancy | less --tabs=4 --pattern '^(commit|added|deleted|modified)'
+  log  = diff-so-fancy | less --tabs=4
+  show = diff-so-fancy | less --tabs=4
+  diff = diff-so-fancy | less --tabs=4
 
 [interactive]
   diffFilter = (echo && diff-so-fancy)
