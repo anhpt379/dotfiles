@@ -1,8 +1,3 @@
-balias k kubectl
-balias kd 'kubectl describe'
-balias kdf 'kubectl delete --force --grace-period=0'
-balias kn 'kubectl config set-context --current --namespace'
-
 balias g        'git'
 balias gs       'git status'
 balias gg       'gl'
@@ -45,9 +40,13 @@ balias ncdu 'ncdu -rr -x --exclude .git'
 
 balias pwl 'nvim ~/.config/nvim/dictionaries/personal_word_list.txt'
 
-balias k 'kubectl'
 balias d 'docker'
 balias dc 'docker-compose'
+
+balias k 'kubectl'
+balias kd 'kubectl describe'
+balias kdf 'kubectl delete --force --grace-period=0'
+balias kn 'kubectl config set-context --current --namespace'
 
 balias b 'brew'
 balias c 'clear'
@@ -56,6 +55,7 @@ balias h 'tldr'
 balias j 'z'
 balias l 'll'
 balias m 'master'
+balias o 'openstack'
 
 alias v   'echo "Using nvim instead..."; sleep 0.3; nvim'
 alias vim 'echo "Using nvim instead..."; sleep 0.3; nvim'
