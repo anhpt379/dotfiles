@@ -53,3 +53,6 @@
 
 [gc]
   writeCommitGraph = true
+
+[advice]
+  statusHints = false
