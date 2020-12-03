@@ -55,3 +55,7 @@ become arrow keys (Left/Down/Up/Right):
   - Hold down an additional `Shift` key to select text.
 
 - `CapsLock` + `N/P` to go down and up.
+
+- `Command` + `<Left>/<Right>` to move between spaces
+
+- `Command` + `<Up>/<Down>` to maximize/almost-maximize a window
