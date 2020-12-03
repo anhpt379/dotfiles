@@ -397,6 +397,12 @@ defaults write com.apple.messageshelper.MessageController SOInputLineSettings -d
 defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "continuousSpellCheckingEnabled" -bool false
 
 ###############################################################################
+# Rectangle                                                                   #
+###############################################################################
+defaults write com.knollsoft.Rectangle almostMaximizeHeight -float 0.98
+defaults write com.knollsoft.Rectangle almostMaximizeWidth  -float 0.85
+
+###############################################################################
 # Kill affected applications                                                  #
 ###############################################################################
 
