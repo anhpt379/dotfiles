@@ -55,6 +55,7 @@ balias h 'tldr'
 balias j 'z'
 balias l 'll'
 balias m 'master'
+balias n 'note'
 balias o 'openstack'
 
 alias v   'echo "Using nvim instead..."; sleep 0.3; nvim'
