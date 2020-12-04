@@ -145,6 +145,11 @@
       "cwd": "/Users/panh/Workspace/puppet-editor-services",
       "filetypes": ["puppet"],
       "rootPatterns": [".git/", "metadata.json"]
+    },
+    "terraform": {
+      "command": "terraform-lsp",
+      "filetypes": ["terraform"],
+      "initializationOptions": {}
     }
   }
 }
