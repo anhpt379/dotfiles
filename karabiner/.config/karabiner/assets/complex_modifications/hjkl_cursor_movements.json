@@ -176,7 +176,7 @@
       ]
     },
     {
-      "description": "Map control+h/j/k/l to fn+left/down/up/right (home/page_down/page_up/end)",
+      "description": "Map left_control+h/j/k/l to fn+left/down/up/right (home/page_down/page_up/end)",
       "manipulators": [
         {
           "type": "basic",
@@ -184,7 +184,7 @@
             "key_code": "h",
             "modifiers": {
               "mandatory": [
-                "control"
+                "left_control"
               ],
               "optional": [
                 "shift"
@@ -206,7 +206,7 @@
             "key_code": "j",
             "modifiers": {
               "mandatory": [
-                "control"
+                "left_control"
               ],
               "optional": [
                 "shift"
@@ -228,7 +228,7 @@
             "key_code": "k",
             "modifiers": {
               "mandatory": [
-                "control"
+                "left_control"
               ],
               "optional": [
                 "shift"
@@ -250,7 +250,7 @@
             "key_code": "l",
             "modifiers": {
               "mandatory": [
-                "control"
+                "left_control"
               ],
               "optional": [
                 "shift"

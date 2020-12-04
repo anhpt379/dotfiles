@@ -28,12 +28,12 @@
       ]
     },
     {
-      "description": "Open Chrome/Notes/Slack/Kitty with Enter+1/2/3/4",
+      "description": "Open Chrome/Notes/Slack/Kitty with Enter+C/N/S/K",
       "manipulators": [
         {
           "type": "basic",
           "from": {
-            "key_code": "1",
+            "key_code": "c",
             "modifiers": {
               "mandatory": [
                 "right_control"
@@ -49,7 +49,7 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "2",
+            "key_code": "n",
             "modifiers": {
               "mandatory": [
                 "right_control"
@@ -65,7 +65,7 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "3",
+            "key_code": "s",
             "modifiers": {
               "mandatory": [
                 "right_control"
@@ -81,7 +81,7 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "4",
+            "key_code": "k",
             "modifiers": {
               "mandatory": [
                 "right_control"

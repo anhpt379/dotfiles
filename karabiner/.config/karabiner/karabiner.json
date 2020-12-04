@@ -198,13 +198,13 @@
             ]
           },
           {
-            "description": "Map control+h/j/k/l to fn+left/down/up/right (home/page_down/page_up/end)",
+            "description": "Map left_control+h/j/k/l to fn+left/down/up/right (home/page_down/page_up/end)",
             "manipulators": [
               {
                 "from": {
                   "key_code": "h",
                   "modifiers": {
-                    "mandatory": ["control"],
+                    "mandatory": ["left_control"],
                     "optional": ["shift"]
                   }
                 },
@@ -220,7 +220,7 @@
                 "from": {
                   "key_code": "j",
                   "modifiers": {
-                    "mandatory": ["control"],
+                    "mandatory": ["left_control"],
                     "optional": ["shift"]
                   }
                 },
@@ -236,7 +236,7 @@
                 "from": {
                   "key_code": "k",
                   "modifiers": {
-                    "mandatory": ["control"],
+                    "mandatory": ["left_control"],
                     "optional": ["shift"]
                   }
                 },
@@ -252,7 +252,7 @@
                 "from": {
                   "key_code": "l",
                   "modifiers": {
-                    "mandatory": ["control"],
+                    "mandatory": ["left_control"],
                     "optional": ["shift"]
                   }
                 },
@@ -386,67 +386,6 @@
             ]
           },
           {
-            "description": "Open Chrome/Notes/Slack/Kitty with Enter+1/2/3/4",
-            "manipulators": [
-              {
-                "from": {
-                  "key_code": "1",
-                  "modifiers": {
-                    "mandatory": ["right_control"]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "open -a 'Google Chrome.app'"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "from": {
-                  "key_code": "2",
-                  "modifiers": {
-                    "mandatory": ["right_control"]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "open -a 'Notes.app'"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "from": {
-                  "key_code": "3",
-                  "modifiers": {
-                    "mandatory": ["right_control"]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "open -a 'Slack.app'"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "from": {
-                  "key_code": "4",
-                  "modifiers": {
-                    "mandatory": ["right_control"]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "open -a 'Kitty.app'"
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
             "description": "Swap ; and :",
             "manipulators": [
               {
@@ -548,6 +487,67 @@
                 "to": [
                   {
                     "key_code": "return_or_enter"
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Open Chrome/Notes/Slack/Kitty with Enter+C/N/S/K",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "c",
+                  "modifiers": {
+                    "mandatory": ["right_control"]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "open -a 'Google Chrome.app'"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "n",
+                  "modifiers": {
+                    "mandatory": ["right_control"]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "open -a 'Notes.app'"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "s",
+                  "modifiers": {
+                    "mandatory": ["right_control"]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "open -a 'Slack.app'"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "k",
+                  "modifiers": {
+                    "mandatory": ["right_control"]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "open -a 'Kitty.app'"
                   }
                 ],
                 "type": "basic"
