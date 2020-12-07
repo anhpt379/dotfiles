@@ -88,6 +88,7 @@ cask 'telegram-desktop'
 cask 'the-unarchiver'
 cask 'unshaky'
 cask 'vagrant'
+cask 'virtualbox'
 cask 'workplace-chat'
 
 # Fonts
