@@ -91,7 +91,7 @@ call plug#begin()
   Plug 'kana/vim-niceblock'
   Plug 'haya14busa/vim-asterisk'
   Plug 'google/vim-searchindex'
-  Plug 'nvim-treesitter/nvim-treesitter', {'commit': '1f98c2e92810f02afcd7ce981beac5142e34ea87'}
+  Plug 'nvim-treesitter/nvim-treesitter', {'commit': 'a47c83d12d9ba835c7ec59b2d498078850e4703f'}
 
   " Time tracking
   Plug 'wakatime/vim-wakatime'
