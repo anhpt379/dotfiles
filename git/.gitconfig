@@ -45,6 +45,9 @@
 [commit]
   template = ~/.gitmessage
 
+[rebase]
+  autoStash = 1
+
 [pull]
   rebase = false
 
