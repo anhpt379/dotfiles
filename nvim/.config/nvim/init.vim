@@ -535,6 +535,16 @@ vnoremap C "_C
 nnoremap s "_s
 vnoremap s "_s
 
+" Don't use clipboard when deleting chars using x/X in NORMAL mode
+" (We still can cut in VISUAL mode with x/X)
+nnoremap x "_x
+nnoremap X "_X
+
+" Use [c ]c to swap chars instead of xp and Xp
+" This uses vim register a instead of the default one (system clipboard)
+map ]c v"ax"ap
+map [c hv"ax"aph
+
 " Disable <BS>/<Del> in NORMAL mode
 nnoremap <BS>  <nop>
 nnoremap <Del> <nop>
