@@ -44,7 +44,7 @@ call plug#begin()
   Plug 'hashivim/vim-terraform'
 
   " Fancy UI stuff
-  Plug 'junegunn/fzf', {'do': {-> fzf#install()}}
+  Plug 'anhpt379/fzf', {'do': {-> fzf#install()}}
   Plug 'anhpt379/fzf.vim'
   Plug 'anhpt379/fzf-filemru'
   Plug 'itchyny/lightline.vim'
