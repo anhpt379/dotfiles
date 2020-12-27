@@ -74,6 +74,7 @@ call plug#begin()
   Plug 'brooth/far.vim'
   Plug 'farmergreg/vim-lastplace'
   Plug 'lambdalisue/suda.vim'
+  Plug 'tpope/vim-eunuch'
   Plug 'anhpt379/vim-unimpaired'
   Plug 'rhysd/clever-f.vim'
   Plug 'junegunn/vim-easy-align'
@@ -499,10 +500,6 @@ set scrolloff=5
 " Start scrolling n chars before end of screen
 set sidescrolloff=7
 
-" Allow saving of files as sudo when I forgot to start vim using sudo
-" `:w !sudo tee % > /dev/null` trick does not work on neovim
-command! W w suda://%
-
 " Copy path to clipboard
 command! CopyPath let @+=expand('%:p')
 
@@ -910,3 +907,7 @@ nnoremap <silent> gM :<C-u>call vim_git_browse#GitOpenPullRequest()<CR>
 " already
 imap <C-n> <Esc><C-n>
 imap <C-p> <Esc><C-p>
+
+" Suda & vim-eunuch
+let g:suda_smart_edit = 1
+command! SudoWrite w suda://%
