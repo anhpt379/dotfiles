@@ -416,6 +416,9 @@ let g:git_messenger_popup_type = 'preview'
 let g:git_messenger_extra_blame_args = '-w -M'
 
 augroup gitmessenger
+  " Show line number in git-messenger popup
+  autocmd FileType gitmessengerpopup set number
+
   " Close git-messenger popup with <Esc>
   autocmd FileType gitmessengerpopup nmap <buffer> <Esc> q
 augroup end
