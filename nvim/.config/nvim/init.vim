@@ -17,7 +17,7 @@ call plug#begin()
 
   " Some Git stuff
   Plug 'anhpt379/vim-fugitive'
-  Plug 'rhysd/git-messenger.vim'
+  Plug 'anhpt379/git-messenger.vim'
   Plug 'dinhhuy258/vim-git-browse'
 
   " EditorConfig
@@ -407,15 +407,14 @@ noremap <Leader>t :GstatusClose<CR>:FzfFiletypes<CR>
 let g:git_messenger_always_into_popup = v:true
 let g:git_messenger_no_default_mappings = v:true
 let g:git_messenger_include_diff = 'current'
+let g:git_messenger_max_popup_height = 35
 let g:git_messenger_max_popup_width = 120
+let g:git_messenger_popup_type = 'preview'
 
 " Don't blame people for changing whitespaces or moving code
 let g:git_messenger_extra_blame_args = '-w -M'
 
 augroup gitmessenger
-" Don't show colorcolumn in git-messenger popup
-  autocmd FileType gitmessengerpopup set textwidth&
-
   " Close git-messenger popup with <Esc>
   autocmd FileType gitmessengerpopup nmap <buffer> <Esc> q
 augroup end

@@ -181,7 +181,7 @@ highlight link gitcommitDiscardedArrow gitcommitDiscardedFile
 highlight link gitcommitSelectedArrow gitcommitSelectedFile
 highlight link gitcommitUnmergedArrow gitcommitUnmergedFile
 
-highlight gitmessengerPopupNormal guibg=#333333
+highlight gitmessengerPopupNormal guibg=#101011 ctermbg=0
 highlight link gitmessengerHeader Identifier
 highlight link gitmessengerHash Number
 highlight link gitmessengerHistory Constant
