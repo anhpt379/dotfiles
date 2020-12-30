@@ -377,6 +377,7 @@ set winblend=0
 let g:fzf_command_prefix = 'Fzf'
 let g:fzf_buffers_jump = 1
 let g:fzf_layout = {'window': 'enew'}
+let g:fzf_preview_window = ['right:60%', 'ctrl-/']
 let g:fzf_commits_log_options = '
   \ -5000 --no-merges --color=always
   \ --format="%C(green)%h %C(reset)%s %C(#555555)%b(%aN - %cr)"
@@ -386,7 +387,7 @@ command! -complete=dir -bang -nargs=* FzfRg
   \ call fzf#vim#grep(
   \   'rg --column --line-number --no-heading --color=always
   \       --smart-case --hidden --glob "!.git" '.<q-args>.' || true', 1,
-  \   fzf#vim#with_preview({'options': ['--no-multi', '--layout=reverse']}),
+  \   fzf#vim#with_preview({'options': ['--no-multi', '--layout=reverse', '--preview-window=right:60%', '--bind=ctrl-/:toggle-preview']}),
   \   <bang>0)
 
 function! s:close_gstatus()
