@@ -27,7 +27,7 @@ function fzf_find -d "Find files and folders"
     set fd_results (eval $fd_command)
     if [ (count $fd_results) -eq $max_results ]
         echo ""
-        echo (set_color 3BB0E0) Showing the current dir only...(set_color normal)
+        echo (set_color 3BB0E0)Too many results. Showing the current dir only...(set_color normal)
         set -a fd_command "--max-depth=1"
         set fd_results (eval $fd_command)
     end
