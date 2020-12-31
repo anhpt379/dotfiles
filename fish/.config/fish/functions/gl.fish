@@ -25,7 +25,7 @@ function gl --description "fzf git log"
     set git_cmd "git log -5000 \
                     --no-merges \
                     --color=always \
-                    --format='%C(green)%h %C(reset)%s %C(#555555)%b(%aN - %cr)' \
+                    --format='%C(green)%h%C(red)%d%Creset %C(reset)%s %C(#555555)%b(%aN - %cr)' \
                     $args"
     eval $git_cmd \
         | tr "\n" " " \
