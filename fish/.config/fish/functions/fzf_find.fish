@@ -17,7 +17,7 @@ function fzf_find -d "Find files and folders"
             set tiebreak "end"
         end
     else
-        set tiebreak "length"
+        set tiebreak "end"
     end
 
     if string match -q "cd*" $cmd
