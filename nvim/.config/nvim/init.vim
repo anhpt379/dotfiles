@@ -386,7 +386,7 @@ let g:fzf_commits_log_options = '
 command! -complete=dir -bang -nargs=* FzfRg
   \ call fzf#vim#grep(
   \   'rg --column --line-number --no-heading --color=always
-  \       --smart-case --fixed-strings --hidden --glob "!.git" -- "'.<q-args>.'" || true', 1,
+  \       --smart-case --fixed-strings --hidden --glob "!.git" -- "'.escape(<q-args>, '$"').'" || true', 1,
   \   fzf#vim#with_preview({'options': ['--no-multi', '--layout=reverse', '--preview-window=right:60%', '--bind=ctrl-/:toggle-preview']}),
   \   <bang>0)
 
