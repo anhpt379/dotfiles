@@ -62,6 +62,7 @@ call plug#begin()
   Plug 'rbgrouleff/bclose.vim'
   Plug 'roman/golden-ratio'
   Plug 'pechorin/any-jump.vim'
+  Plug 'voldikss/vim-floaterm'
 
   " Improving editing experience
   Plug 'anhpt379/targets.vim'
@@ -424,7 +425,7 @@ augroup gitmessenger
 augroup end
 
 noremap gm :GitMessenger<CR>
-noremap gb :Gblame -w -M<CR>
+noremap gB :Gblame -w -M<CR>
 noremap gs :tab Gstatus<CR>gg4j
 noremap gl :FzfCommits<CR>
 noremap gL :FzfBCommits<CR>
@@ -916,3 +917,13 @@ imap <C-p> <Esc><C-p>
 " Suda & vim-eunuch
 let g:suda_smart_edit = 1
 command! SudoWrite w suda://%
+
+" Floaterm
+let g:floaterm_shell = '/usr/local/bin/fish'
+let g:floaterm_wintype = 'normal'
+let g:floaterm_autoclose = 1
+let g:floaterm_open_in_root = v:true
+
+autocmd User Startified setlocal buflisted
+
+nnoremap gb :FloatermNew gb<CR>
