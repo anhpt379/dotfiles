@@ -33,7 +33,7 @@ function gl --description "fzf git log"
         | fzf --no-mouse --reverse --tiebreak=index --no-multi --ansi --height=100% \
         --preview="$preview_commit" \
         --header="(Press CTRL-S to toggle sort, CTRL-Y to copy hash, CTRL-R to rebase, CTRL-O to open in browser)" \
-        --bind="enter:execute/$view_commit/+abort" \
+        --bind="enter:execute/$view_commit/" \
         --bind="ctrl-y:execute-silent/$copy_commit_hash/+abort" \
         --bind="ctrl-o:execute-silent/$open_in_browser/+abort" \
         --bind="ctrl-r:execute/$rebase_commit/+abort" \
