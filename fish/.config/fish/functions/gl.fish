@@ -38,5 +38,6 @@ function gl --description "fzf git log"
         --bind="ctrl-o:execute-silent/$open_in_browser/+abort" \
         --bind="ctrl-r:execute/$rebase_commit/+abort" \
         --bind="ctrl-]:execute/git push --force-with-lease/+abort" \
+        --bind="ctrl-/:toggle-preview" \
         --bind="ctrl-s:toggle-sort"
 end
