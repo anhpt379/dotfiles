@@ -37,5 +37,6 @@ function gl --description "fzf git log"
         --bind="ctrl-y:execute-silent/$copy_commit_hash/+abort" \
         --bind="ctrl-o:execute-silent/$open_in_browser/+abort" \
         --bind="ctrl-r:execute/$rebase_commit/+abort" \
+        --bind="ctrl-]:execute/git push --force-with-lease/+abort" \
         --bind="ctrl-s:toggle-sort"
 end
