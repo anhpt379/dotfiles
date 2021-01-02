@@ -25,10 +25,18 @@ function fish_prompt
   set -l directory_color  (set_color white --bold)
   set -l repository_color (set_color yellow)
 
-  if test $last_command_status -eq 0
-    echo -n -s $success_color $fish $normal_color
+  if string match -q -- "*.*" (hostname)
+    if test "$USER" = 'root'
+      echo -n -s $error_color $USER@(prompt_hostname)
+    else
+      echo -n -s $directory_color $USER@(prompt_hostname)
+    end
   else
-    echo -n -s $error_color $fish $normal_color
+    if test $last_command_status -eq 0
+      echo -n -s $success_color $fish $normal_color
+    else
+      echo -n -s $error_color $fish $normal_color
+    end
   end
 
   if git_is_repo

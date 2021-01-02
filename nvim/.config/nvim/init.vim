@@ -10,7 +10,9 @@ endif
 
 call plug#begin()
   " Profiler
-  Plug 'dstein64/vim-startuptime'
+  if has("mac")
+    Plug 'dstein64/vim-startuptime'
+  endif
 
   " Defaults everyone can agree on
   Plug 'tpope/vim-sensible'
@@ -24,7 +26,9 @@ call plug#begin()
   Plug 'editorconfig/editorconfig-vim'
 
   " LSP support
-  Plug 'anhpt379/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+  if has("mac")
+    Plug 'anhpt379/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+  endif
 
   " Syntax highlighting
   Plug 'gisphm/vim-gitignore'
@@ -44,11 +48,16 @@ call plug#begin()
   Plug 'hashivim/vim-terraform'
 
   " Fancy UI stuff
-  Plug 'anhpt379/fzf', {'do': {-> fzf#install()}}
+  if has("unix")
+    Plug '~/.local/bin/fzf'
+  end
+  Plug 'anhpt379/fzf'
   Plug 'anhpt379/fzf.vim'
   Plug 'anhpt379/fzf-filemru'
-  Plug 'itchyny/lightline.vim'
-  Plug 'mengelbrecht/lightline-bufferline'
+  if has("mac")
+    Plug 'itchyny/lightline.vim'
+    Plug 'mengelbrecht/lightline-bufferline'
+  endif
   Plug 'mhinz/vim-startify'
   Plug 'Yggdroot/indentLine'
   Plug 'chrisbra/Colorizer'
@@ -86,17 +95,23 @@ call plug#begin()
   Plug 'qxxxb/vim-searchhi'
   Plug 'inkarkat/vim-EnhancedJumps' | Plug 'inkarkat/vim-ingo-library'
   Plug 'sbdchd/neoformat'
-  Plug 'pseewald/vim-anyfold'
+  if has("mac")
+    Plug 'pseewald/vim-anyfold'
+  endif
   Plug 'tpope/vim-sleuth'
   Plug 'itchyny/vim-parenmatch'
   Plug 'Vimjas/vim-python-pep8-indent'
   Plug 'kana/vim-niceblock'
   Plug 'haya14busa/vim-asterisk'
   Plug 'google/vim-searchindex'
-  Plug 'nvim-treesitter/nvim-treesitter', {'commit': 'cafe733'}
+  if has("mac")
+    Plug 'nvim-treesitter/nvim-treesitter', {'commit': 'cafe733'}
+  endif
 
   " Time tracking
-  Plug 'wakatime/vim-wakatime'
+  if has("mac")
+    Plug 'wakatime/vim-wakatime'
+  endif
 
 call plug#end()
 
@@ -161,7 +176,7 @@ set ttimeoutlen=5
 " Fix slow Gstatus
 " https://github.com/tpope/vim-fugitive/issues/1176
 " This also speeds up everything, vim becomes much faster after this change
-set shell=/usr/local/bin/bash\ --login
+set shell=/bin/bash\ --login
 set shellcmdflag=-c
 
 " Tweak for Markdown mode
@@ -271,7 +286,11 @@ function! DevIconsFileFormat()
 endfunction
 
 " Show vim tab line even if only one file is open
-set showtabline=2
+if has("mac")
+  set showtabline=2
+else
+  set showtabline=1
+endif
 
 nmap <Leader>1 <Plug>lightline#bufferline#go(1)
 nmap <Leader>2 <Plug>lightline#bufferline#go(2)
@@ -366,7 +385,9 @@ omap af <Plug>(coc-funcobj-a)
 
 " Add status line support, for integration with other plugin, checkout `:h
 " coc-status`
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+if has("mac")
+  set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+endif
 
 " No transparent auto-completion popup
 set pumblend=0
@@ -796,7 +817,7 @@ command! -complete=dir -nargs=+ -range=-1 Fr
 let g:lf_map_keys = 0
 let g:lf_replace_netrw = 1
 autocmd TermEnter * set showtabline=0 | set nonumber | set signcolumn=no  | set mouse-=a | IndentLinesDisable
-autocmd TermLeave * set showtabline=2 | set number   | set signcolumn=yes | set mouse+=a
+autocmd TermLeave * if has("mac") | set showtabline=2 | else | set showtabline=1 | endif | set number   | set signcolumn=yes | set mouse+=a
 map <Leader>l :<C-u>Lf<CR>
 
 " Clever-f
@@ -836,22 +857,24 @@ vmap / <Plug>(searchhi-v-/)\V
 vmap ? <Plug>(searchhi-v-?)\V
 
 " Any-fold
-let g:anyfold_fold_display = 0
-let g:anyfold_fold_comments = 1
+if has("mac")
+  let g:anyfold_fold_display = 0
+  let g:anyfold_fold_comments = 1
 
-function! ActiveAnyFold()
-  if &ft =~# 'fugitive\|startify'
-    return
-  endif
-  AnyFoldActivate
-endfunction
+  function! ActiveAnyFold()
+    if &ft =~# 'fugitive\|startify'
+      return
+    endif
+    AnyFoldActivate
+  endfunction
 
-augroup anyfold
-  autocmd FileType * call ActiveAnyFold()
-augroup end
+  augroup anyfold
+    autocmd FileType * call ActiveAnyFold()
+  augroup end
 
-set foldlevel=99
-set nofoldenable
+  set foldlevel=99
+  set nofoldenable
+endif
 
 " <C-o> <C-i> to jump within the same file only
 let g:EnhancedJumps_CaptureJumpMessages = 0
@@ -905,7 +928,9 @@ augroup update-mru-on-file-open
 augroup END
 
 " Treesitter
-lua require'nvim-treesitter.configs'.setup{ ensure_installed='all', highlight={ enable=true } }
+if has("mac")
+  lua require'nvim-treesitter.configs'.setup{ ensure_installed='all', highlight={ enable=true } }
+endif
 
 " Vim-git-browse
 let g:vim_git_browse_use_default_keymap = 0
