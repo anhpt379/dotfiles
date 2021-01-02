@@ -10,5 +10,15 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
       command ssh -A ssh.booking.com
     end
 
+    # Sync dotfiles & binary files to remote
+    rsync -azvhP \
+      --stats \
+      --info=progress2 \
+      --no-inc-recursive \
+      --copy-links \
+      --keep-dirlinks \
+      --exclude-from="$HOME/.ssh/files/.rsyncignore" \
+      ~/.ssh/files/ $argv[1]:~/
+
     command ssh $argv
 end
