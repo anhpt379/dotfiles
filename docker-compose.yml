@@ -1,0 +1,9 @@
+version: "3"
+
+services:
+  dotfiles:
+    build: .
+    hostname: localhost
+    volumes:
+      - ./:/home/anh/dotfiles
+      - ../Workspace:/home/anh/Workspace
