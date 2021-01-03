@@ -26,3 +26,10 @@ alias sudo 'sudo -E'
 
 # Shorten title
 title (hostname | awk -F. '{ print $1 }')
+
+# Auto start tmux
+if not set -q TMUX
+  set -g TMUX tmux new-session -d -s panh
+  eval $TMUX
+  tmux attach-session -d -t panh
+end
