@@ -1,9 +1,7 @@
 package balias
 package bang-bang
-package brew
 package config
 package errno
-package spark
 package title
 theme default
 theme eclm
