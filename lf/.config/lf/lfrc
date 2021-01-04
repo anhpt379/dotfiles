@@ -147,6 +147,7 @@ map o       reveal
 map r       :rename
 map gh      go_home
 map <c-f>   :fzf_jump
+map s       :set info size
 map t       :set sortby time; set info time; set reverse
 map <space> :toggle
 map v       :toggle
