@@ -27,6 +27,9 @@ alias sudo 'sudo -E'
 # Shorten title
 title (hostname | awk -F. '{ print $1 }')
 
+# Fix <C-c> doesn't work in remote fish
+bind \cc 'commandline ""'
+
 # Auto start tmux
 if not set -q TMUX
   set -g TMUX tmux new-session -d -s panh
