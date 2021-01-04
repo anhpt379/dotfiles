@@ -93,9 +93,6 @@ call plug#begin()
   Plug 'qxxxb/vim-searchhi'
   Plug 'inkarkat/vim-EnhancedJumps' | Plug 'inkarkat/vim-ingo-library'
   Plug 'sbdchd/neoformat'
-  if has("mac")
-    Plug 'pseewald/vim-anyfold'
-  endif
   Plug 'tpope/vim-sleuth'
   Plug 'itchyny/vim-parenmatch'
   Plug 'Vimjas/vim-python-pep8-indent'
@@ -873,26 +870,6 @@ nmap ? <Plug>(searchhi-?)\V
 
 vmap / <Plug>(searchhi-v-/)\V
 vmap ? <Plug>(searchhi-v-?)\V
-
-" Any-fold
-if has("mac")
-  let g:anyfold_fold_display = 0
-  let g:anyfold_fold_comments = 1
-
-  function! ActiveAnyFold()
-    if &ft =~# 'fugitive\|startify'
-      return
-    endif
-    AnyFoldActivate
-  endfunction
-
-  augroup anyfold
-    autocmd FileType * call ActiveAnyFold()
-  augroup end
-
-  set foldlevel=99
-  set nofoldenable
-endif
 
 " <C-o> <C-i> to jump within the same file only
 let g:EnhancedJumps_CaptureJumpMessages = 0
