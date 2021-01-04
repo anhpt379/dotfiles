@@ -48,7 +48,7 @@ call plug#begin()
   Plug 'hashivim/vim-terraform'
 
   " Fancy UI stuff
-  if has("unix")
+  if !has("mac")
     Plug '~/.local/bin/fzf'
   end
   Plug 'anhpt379/fzf'
@@ -131,7 +131,6 @@ let g:coc_global_extensions = [
   \ 'coc-diagnostic',
   \ 'coc-vimlsp',
   \ 'coc-solargraph',
-  \ 'coc-yank',
   \ 'coc-marketplace'
   \ ]
 
@@ -176,7 +175,7 @@ set ttimeoutlen=5
 " Fix slow Gstatus
 " https://github.com/tpope/vim-fugitive/issues/1176
 " This also speeds up everything, vim becomes much faster after this change
-set shell=/bin/bash\ --login
+set shell=/bin/bash
 set shellcmdflag=-c
 
 " Tweak for Markdown mode
@@ -665,6 +664,22 @@ noremap <Leader>p :CocList --normal yank<CR>
 
 " vim-highlightedyank
 let g:highlightedyank_highlight_duration = 700
+
+if !has("mac")
+  " Copy remote text yank to local clipboard
+  augroup YankToLocalClipboard
+    autocmd TextYankPost * call system('nc 127.0.0.1 2224 --send-only', @0)
+  augroup END
+
+  " Automatically jump to end of text you pasted
+  vnoremap p :<C-u>set paste<CR>:let @a = system("nc 127.0.0.1 2225 --recv-only")<CR>"ap`]:set nopaste<CR>
+  nnoremap p :set paste<CR>:let @a = system("nc 127.0.0.1 2225 --recv-only")<CR>"ap`]:set nopaste<CR>
+  vnoremap P :<C-u>set paste<CR>:let @a = system("nc 127.0.0.1 2225 --recv-only")<CR>"aP`]:set nopaste<CR>
+  nnoremap P :set paste<CR>:let @a = system("nc 127.0.0.1 2225 --recv-only")<CR>"aP`]:set nopaste<CR>
+
+  " Don't change the clipboard if paste over a visually selected text
+  xnoremap p "_d:set paste<CR>:let @a = system("nc 127.0.0.1 2225 --recv-only")<CR>"aP`]:set nopaste<CR>
+endif
 
 " Conflict-marker {{{
 let g:conflict_marker_highlight_group = ''
