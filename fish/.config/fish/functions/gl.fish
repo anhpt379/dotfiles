@@ -26,7 +26,7 @@ function gl --description "fzf git log"
                     --no-merges \
                     --color=always \
                     --format='%C(green)%h%C(red)%d%Creset %C(reset)%s %C(#555555)%b(%aN - %cr)' \
-                    $args"
+                    $args 2>/dev/null"
     eval $git_cmd \
         | tr "\n" " " \
         | sed -E "s/\\x1b\\[32m[a-f0-9]{7,}+/\\n&/2g" \
