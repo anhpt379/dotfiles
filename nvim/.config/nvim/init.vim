@@ -10,9 +10,7 @@ endif
 
 call plug#begin()
   " Profiler
-  if has("mac")
-    Plug 'dstein64/vim-startuptime'
-  endif
+  Plug 'dstein64/vim-startuptime'
 
   " Defaults everyone can agree on
   Plug 'tpope/vim-sensible'
@@ -114,6 +112,11 @@ call plug#begin()
   endif
 
 call plug#end()
+
+
+" Vim-startuptime
+let g:startuptime_self = 1
+let g:startuptime_more_info_key_seq = '<Space>'
 
 " Open vim-plug in a new buffer
 let g:plug_window = 'enew'
