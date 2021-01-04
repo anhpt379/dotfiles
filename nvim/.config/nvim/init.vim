@@ -46,9 +46,6 @@ call plug#begin()
   Plug 'hashivim/vim-terraform'
 
   " Fancy UI stuff
-  if !has("mac")
-    Plug '~/.local/bin/fzf'
-  end
   Plug 'anhpt379/fzf'
   Plug 'anhpt379/fzf.vim'
   Plug 'anhpt379/fzf-filemru'
