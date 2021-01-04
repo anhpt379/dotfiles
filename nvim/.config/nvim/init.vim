@@ -381,7 +381,7 @@ omap af <Plug>(coc-funcobj-a)
 
 " Add status line support, for integration with other plugin, checkout `:h
 " coc-status`
-if has("mac")
+if exists('g:did_coc_loaded')
   set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 endif
 
@@ -920,7 +920,7 @@ augroup update-mru-on-file-open
 augroup END
 
 " Treesitter
-if has("mac")
+if exists('g:loaded_nvim_treesitter')
   lua require'nvim-treesitter.configs'.setup{ ensure_installed='all', highlight={ enable=true } }
 endif
 
