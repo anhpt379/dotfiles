@@ -4,12 +4,12 @@
 rm -rf .local
 
 # fish
-wget https://github.com/xxh/fish-portable/raw/master/result/fish-portable-musl-alpine-Linux-x86_64.tar.gz
-mkdir -p /tmp/fish
-tar -xzf fish-*.tar.gz -C /tmp/fish
-cp /tmp/fish/bin/fish .local/bin/
-rm -f fish-portable-musl-alpine-Linux-x86_64.tar.gz
-rm -rf /tmp/fish
+docker-compose build fish
+docker-compose run fish cp /usr/bin/fish /out/
+
+# rust apps
+docker-compose build cargo
+docker-compose run cargo cp /usr/local/cargo/bin/{bat,exa,devicon-lookup} /out/
 
 # nvim
 wget https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
@@ -22,15 +22,23 @@ tar zxvf fzf-0.24.4-linux_amd64.tar.gz
 mv fzf .local/bin/
 rm -f fzf-0.24.4-linux_amd64.tar.gz
 
+# lf
+wget https://github.com/gokcehan/lf/releases/download/r18/lf-linux-amd64.tar.gz
+tar zxvf lf-linux-amd64.tar.gz
+mv lf .local/bin/
+rm -f lf-linux-amd64.tar.gz
+
 # fd
 wget 'https://github.com/sharkdp/fd/releases/download/v8.2.1/fd-v8.2.1-x86_64-unknown-linux-musl.tar.gz'
 tar zxvf fd-*.tar.gz
 mv fd-*/fd .local/bin/
 rm -rf fd-*
 
-# devicon-lookup & exa
-docker-compose build dotfiles
-docker-compose run dotfiles fish
-docker cp <container_id>:/usr/local/cargo/bin/exa .local/bin/
-docker cp <container_id>:/usr/local/cargo/bin/devicon-lookup .local/bin/
+# diff-so-fancy
+git clone --depth=1 https://github.com/so-fancy/diff-so-fancy.git
+mkdir -p .local/bin/lib/
+cp diff-so-fancy/diff-so-fancy .local/bin/
+cp diff-so-fancy/lib/* .local/bin/lib/
+rm -rf diff-so-fancy
+
 ```
