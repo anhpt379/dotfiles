@@ -1,0 +1,1 @@
+/usr/local/etc/fish/config.fish
