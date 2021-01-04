@@ -9,24 +9,12 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin()
-  " Profiler
-  Plug 'dstein64/vim-startuptime'
 
   " Defaults everyone can agree on
   Plug 'tpope/vim-sensible'
 
-  " Some Git stuff
-  Plug 'anhpt379/vim-fugitive'
-  Plug 'anhpt379/git-messenger.vim'
-  Plug 'dinhhuy258/vim-git-browse'
-
   " EditorConfig
   Plug 'editorconfig/editorconfig-vim'
-
-  " LSP support
-  if has("mac")
-    Plug 'anhpt379/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
-  endif
 
   " Syntax highlighting
   Plug 'gisphm/vim-gitignore'
@@ -49,17 +37,11 @@ call plug#begin()
   Plug 'anhpt379/fzf'
   Plug 'anhpt379/fzf.vim'
   Plug 'anhpt379/fzf-filemru'
-  if has("mac")
-    Plug 'itchyny/lightline.vim'
-    Plug 'mengelbrecht/lightline-bufferline'
-  endif
-  Plug 'mhinz/vim-startify'
   Plug 'Yggdroot/indentLine'
   Plug 'chrisbra/Colorizer'
   Plug 'norcalli/nvim-colorizer.lua'
   Plug 'blueyed/vim-diminactive'
   Plug 'ryanoasis/vim-devicons'
-  Plug 'rhysd/conflict-marker.vim'
   Plug 'machakann/vim-highlightedyank'
   Plug 'breuckelen/vim-resize'
   Plug 'ptzz/lf.vim'
@@ -91,17 +73,28 @@ call plug#begin()
   Plug 'inkarkat/vim-EnhancedJumps' | Plug 'inkarkat/vim-ingo-library'
   Plug 'sbdchd/neoformat'
   Plug 'tpope/vim-sleuth'
-  Plug 'itchyny/vim-parenmatch'
   Plug 'Vimjas/vim-python-pep8-indent'
   Plug 'kana/vim-niceblock'
   Plug 'haya14busa/vim-asterisk'
   Plug 'google/vim-searchindex'
-  if has("mac")
-    Plug 'nvim-treesitter/nvim-treesitter', {'commit': 'cafe733'}
-  endif
 
-  " Time tracking
+  " Heavily loaded plugins
   if has("mac")
+    Plug 'dstein64/vim-startuptime'
+    Plug 'mhinz/vim-startify'
+    Plug 'itchyny/lightline.vim'
+    Plug 'mengelbrecht/lightline-bufferline'
+
+    Plug 'anhpt379/vim-fugitive'
+    Plug 'anhpt379/git-messenger.vim'
+    Plug 'dinhhuy258/vim-git-browse'
+
+    Plug 'anhpt379/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+    Plug 'nvim-treesitter/nvim-treesitter', {'commit': 'cafe733'}
+
+    Plug 'rhysd/conflict-marker.vim'
+    Plug 'itchyny/vim-parenmatch'
+
     Plug 'wakatime/vim-wakatime'
   endif
 
@@ -236,7 +229,9 @@ silent! set splitvertical
 set diffopt+=iwhite
 set diffopt+=vertical
 
-set clipboard=unnamed
+if has("mac")
+  set clipboard=unnamed
+endif
 
 " JSON quote concealing
 set conceallevel=2
@@ -282,36 +277,34 @@ function! DevIconsFileFormat()
 endfunction
 
 " Show vim tab line even if only one file is open
-if has("mac")
+if exists('g:loaded_lightline_bufferline')
   set showtabline=2
-else
-  set showtabline=1
+
+  nmap <Leader>1 <Plug>lightline#bufferline#go(1)
+  nmap <Leader>2 <Plug>lightline#bufferline#go(2)
+  nmap <Leader>3 <Plug>lightline#bufferline#go(3)
+  nmap <Leader>4 <Plug>lightline#bufferline#go(4)
+  nmap <Leader>5 <Plug>lightline#bufferline#go(5)
+  nmap <Leader>6 <Plug>lightline#bufferline#go(6)
+  nmap <Leader>7 <Plug>lightline#bufferline#go(7)
+  nmap <Leader>8 <Plug>lightline#bufferline#go(8)
+  nmap <Leader>9 <Plug>lightline#bufferline#go(9)
+  nmap <Leader>0 <Plug>lightline#bufferline#go(10)
+
+  let g:lightline#bufferline#show_number     = 2
+  let g:lightline#bufferline#shorten_path    = 1
+  let g:lightline#bufferline#unnamed         = '[No Name]'
+  let g:lightline#bufferline#enable_devicons = 1
+
+  let g:lightline#bufferline#number_map = {
+    \ 0: '⁰', 1: '¹', 2: '²', 3: '³', 4: '⁴',
+    \ 5: '⁵', 6: '⁶', 7: '⁷', 8: '⁸', 9: '⁹'
+    \ }
+
+  let g:lightline.tabline          = {'left': [['buffers']], 'right': []}
+  let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
+  let g:lightline.component_type   = {'buffers': 'tabsel'}
 endif
-
-nmap <Leader>1 <Plug>lightline#bufferline#go(1)
-nmap <Leader>2 <Plug>lightline#bufferline#go(2)
-nmap <Leader>3 <Plug>lightline#bufferline#go(3)
-nmap <Leader>4 <Plug>lightline#bufferline#go(4)
-nmap <Leader>5 <Plug>lightline#bufferline#go(5)
-nmap <Leader>6 <Plug>lightline#bufferline#go(6)
-nmap <Leader>7 <Plug>lightline#bufferline#go(7)
-nmap <Leader>8 <Plug>lightline#bufferline#go(8)
-nmap <Leader>9 <Plug>lightline#bufferline#go(9)
-nmap <Leader>0 <Plug>lightline#bufferline#go(10)
-
-let g:lightline#bufferline#show_number     = 2
-let g:lightline#bufferline#shorten_path    = 1
-let g:lightline#bufferline#unnamed         = '[No Name]'
-let g:lightline#bufferline#enable_devicons = 1
-
-let g:lightline#bufferline#number_map = {
-  \ 0: '⁰', 1: '¹', 2: '²', 3: '³', 4: '⁴',
-  \ 5: '⁵', 6: '⁶', 7: '⁷', 8: '⁸', 9: '⁹'
-  \ }
-
-let g:lightline.tabline          = {'left': [['buffers']], 'right': []}
-let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
-let g:lightline.component_type   = {'buffers': 'tabsel'}
 
 " }}}
 
@@ -828,8 +821,8 @@ command! -complete=dir -nargs=+ -range=-1 Fr
 " Lf.vim
 let g:lf_map_keys = 0
 let g:lf_replace_netrw = 1
-autocmd TermEnter * set showtabline=0 | set nonumber | set signcolumn=no  | set mouse-=a | IndentLinesDisable
-autocmd TermLeave * if has("mac") | set showtabline=2 | else | set showtabline=1 | endif | set number   | set signcolumn=yes | set mouse+=a
+autocmd TermEnter * if exists('g:loaded_lightline_bufferline') | set showtabline=0 | endif | set nonumber | set signcolumn=no  | set mouse-=a | IndentLinesDisable
+autocmd TermLeave * if exists('g:loaded_lightline_bufferline') | set showtabline=2 | endif | set number   | set signcolumn=yes | set mouse+=a
 map <Leader>l :<C-u>Lf<CR>
 
 " Clever-f
