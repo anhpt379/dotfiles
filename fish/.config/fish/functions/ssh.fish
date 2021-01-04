@@ -13,7 +13,7 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
     # Sync dotfiles & binary files to remote
     if not string match -q -- "git*" $argv[1]
       rsync -azvhP \
-        --stats \
+        --info=name0 \
         --info=progress2 \
         --no-inc-recursive \
         --compress-level=9 \
