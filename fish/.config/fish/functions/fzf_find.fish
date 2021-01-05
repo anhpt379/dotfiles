@@ -7,7 +7,7 @@ function fzf_find -d "Find files and folders"
     set -l dir $commandline[1]
     set -l fzf_query $commandline[2]
 
-    set -l fd_command "fd --color=always --max-results=$max_results --no-ignore --hidden --follow --exclude='.git' . $dir"
+    set -l fd_command "fd --color=always --max-results=$max_results --no-ignore --hidden --exclude='.git' . $dir"
 
     if test -n "$max_depth"
         set -a fd_command "--max-depth=$max_depth"
