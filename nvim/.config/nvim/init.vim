@@ -280,7 +280,7 @@ function! DevIconsFileFormat()
 endfunction
 
 " Show vim tab line even if only one file is open
-if exists('g:loaded_lightline_bufferline')
+if has("mac")
   set showtabline=2
 
   nmap <Leader>1 <Plug>lightline#bufferline#go(1)
@@ -824,8 +824,8 @@ command! -complete=dir -nargs=+ -range=-1 Fr
 " Lf.vim
 let g:lf_map_keys = 0
 let g:lf_replace_netrw = 1
-autocmd TermEnter * if exists('g:loaded_lightline_bufferline') | set showtabline=0 | endif | set nonumber | set signcolumn=no  | set mouse-=a | IndentLinesDisable
-autocmd TermLeave * if exists('g:loaded_lightline_bufferline') | set showtabline=2 | endif | set number   | set signcolumn=yes | set mouse+=a
+autocmd TermEnter * if has("mac") | set showtabline=0 | endif | set nonumber | set signcolumn=no  | set mouse-=a | IndentLinesDisable
+autocmd TermLeave * if has("mac") | set showtabline=2 | endif | set number   | set signcolumn=yes | set mouse+=a
 map <Leader>l :<C-u>Lf<CR>
 
 " Clever-f
