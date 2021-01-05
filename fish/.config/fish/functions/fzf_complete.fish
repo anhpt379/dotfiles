@@ -9,7 +9,7 @@ function fzf_complete
             complete -C "$cmdline"
         end \
         | string replace -r \t'(.*)$' \t(set_color $fish_pager_color_description)'$1'(set_color normal) \
-        | devicon-lookup \
+        | ~/.config/fzf/devicon-lookup.py \
         | fzf --delimiter=\t --select-1 --exit-0 --exact --ansi \
               --bind=tab:accept \
               --expect=enter \
