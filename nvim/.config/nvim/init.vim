@@ -146,6 +146,9 @@ set noswapfile
 set nojoinspaces
 set nowrap
 
+set foldlevel=90
+set nofoldenable
+
 " Enable 24bit true color
 set termguicolors
 
