@@ -124,8 +124,8 @@ set -gx FZF_DEFAULT_OPTS    '
   --preview-window=right:60%
   --bind=ctrl-/:toggle-preview
   --bind=tab:accept,ctrl-j:ignore,ctrl-k:ignore
-  --bind=change:top
-  --bind=ctrl-f:page-down,ctrl-b:page-up,home:top,end:page-down
+  --bind=change:first
+  --bind=ctrl-f:page-down,ctrl-b:page-up,home:first,end:last
 '
 
 # Custom fish color scheme
