@@ -12,7 +12,7 @@ else
   if file -bL --mime "$@" | grep 'charset=binary'; then
     # show file info if it's a binary file
     echo
-    ls -lha "$@"
+    exa -lha --color=always "$path"
   else
     # preview file contents with `bat`
     bat --color=always --line-range=:300 "$path"
