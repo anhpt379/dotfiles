@@ -109,7 +109,7 @@ bind \cf 'fzf_find'
 bind \cr 'fzf_history'
 bind \t  'fzf_find 1'
 
-set -gx FZF_DEFAULT_COMMAND 'fd --hidden --follow --type f --exclude ".git" -E "*.jp*g" -E "*.png"'
+set -gx FZF_DEFAULT_COMMAND 'fd --hidden --type f --exclude ".git" -E "*.jp*g" -E "*.png"'
 set -gx FZF_DEFAULT_OPTS    '
   --pointer=" " --prompt="> "
   --color=fg:#DCDFE4,bg:-1,hl:#DCDFE4
