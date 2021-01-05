@@ -27,9 +27,9 @@ function fish_prompt
 
   if string match -q -- "*.*" (hostname)
     if test "$USER" = 'root'
-      echo -n -s $error_color $USER@(prompt_hostname)
+      echo -n -s (set_color red --bold) $USER@(prompt_hostname)
     else
-      echo -n -s $directory_color $USER@(prompt_hostname)
+      echo -n -s (set_color white --bold) $USER@(prompt_hostname)
     end
   else
     if test $last_command_status -eq 0
