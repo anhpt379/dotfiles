@@ -17,10 +17,10 @@ chmod +x nvim.appimage
 mv nvim.appimage .local/bin/
 
 # fzf
-wget 'https://github.com/junegunn/fzf/releases/download/0.24.4/fzf-0.24.4-linux_amd64.tar.gz'
-tar zxvf fzf-0.24.4-linux_amd64.tar.gz
+wget 'https://github.com/junegunn/fzf/releases/download/0.25.0/fzf-0.25.0-linux_amd64.tar.gz'
+tar zxvf fzf-*-linux_amd64.tar.gz
 mv fzf .local/bin/
-rm -f fzf-0.24.4-linux_amd64.tar.gz
+rm -f fzf-*-linux_amd64.tar.gz
 
 # lf
 wget https://github.com/gokcehan/lf/releases/download/r18/lf-linux-amd64.tar.gz
@@ -30,9 +30,9 @@ rm -f lf-linux-amd64.tar.gz
 
 # fd
 wget 'https://github.com/sharkdp/fd/releases/download/v8.2.1/fd-v8.2.1-x86_64-unknown-linux-musl.tar.gz'
-tar zxvf fd-*.tar.gz
+tar zxvf fd-*-x86_64-unknown-linux-musl.tar.gz
 mv fd-*/fd .local/bin/
-rm -rf fd-*
+rm -rf fd-*-x86_64-unknown-linux-musl.tar.gz
 
 # diff-so-fancy
 git clone --depth=1 https://github.com/so-fancy/diff-so-fancy.git
