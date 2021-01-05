@@ -8,6 +8,7 @@ function fzf_complete
             complete -C "$cmdline." | grep -Fv '/./' | grep -Fv '/../' | grep -Fv './' | grep -Fv '../'
             complete -C "$cmdline"
         end \
+        | sort | uniq \
         | string replace -r \t'(.*)$' \t(set_color $fish_pager_color_description)'$1'(set_color normal) \
         | ~/.config/fzf/devicon-lookup.py \
         | fzf --delimiter=\t --select-1 --exit-0 --exact --ansi \
@@ -28,12 +29,12 @@ function fzf_complete
 
     if test "$result" = ""
         commandline -it -- " "
-        return
+        commandline -f repaint
     else
         commandline -rt -- "$result"
+        commandline -f repaint
         if test "$key" = enter
             commandline -f execute
         end
-        commandline -f repaint
     end
 end
