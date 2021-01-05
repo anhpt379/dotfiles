@@ -2,7 +2,7 @@
 
 if file -bL --mime "$@" | grep 'charset=binary'; then
   echo
-  ls -lha "$@"
+  exa -lha --color=always "$@"
 else
   bat --color=always --line-range=:300 "$@"
 fi
