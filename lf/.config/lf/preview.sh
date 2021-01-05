@@ -2,7 +2,7 @@
 
 if file -bL --mime "$@" | grep 'charset=binary'; then
   echo
-  dirname=$(dirname "$@")
+  dirname=$(dirname "$1")
   filename=$(basename "$@")
   cd "$dirname" && exa -lha --color=always "$filename"
 else
