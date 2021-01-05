@@ -9,6 +9,12 @@ if [[ -d $path ]]; then
   # preview directory contents with `exa`
   exa --color always -la --group-directories-first "$path"
 else
-  # preview file contents with `bat`
-  bat --color=always "$path"
+  if file -bL --mime "$@" | grep 'charset=binary'; then
+    # show file info if it's a binary file
+    echo
+    ls -lha "$@"
+  else
+    # preview file contents with `bat`
+    bat --color=always --line-range=:300 "$path"
+  fi
 fi
