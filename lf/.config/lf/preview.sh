@@ -2,7 +2,9 @@
 
 if file -bL --mime "$@" | grep 'charset=binary'; then
   echo
-  exa -lha --color=always "$@"
+  dirname=$(dirname "$@")
+  filename=$(basename "$@")
+  cd "$dirname" && exa -lha --color=always "$filename"
 else
   bat --color=always --line-range=:300 "$@"
 fi
