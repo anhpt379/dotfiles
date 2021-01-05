@@ -558,8 +558,8 @@ nnoremap X "_X
 
 " Use [c ]c to swap chars instead of xp and Xp
 " This uses vim register a instead of the default one (system clipboard)
-map ]c v"ax"ap
-map [c hv"ax"aph
+nnoremap ]c v"ax"ap
+nnoremap [c hv"ax"aph
 
 " Disable <BS>/<Del> in NORMAL mode
 nnoremap <BS>  <nop>
