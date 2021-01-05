@@ -2,3 +2,4 @@ git+https://github.com/Vimjas/vint.git#egg=vim-vint
 neovim
 neovim-remote
 jedi
+wakatime
