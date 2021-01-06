@@ -164,7 +164,9 @@ ex 
 .zsh             
 /                
 Brewfile         
+Desktop/         
 Dockerfile       
+Downloads/       
 LICENSE          
 Makefile         
 Makefile.ac      
