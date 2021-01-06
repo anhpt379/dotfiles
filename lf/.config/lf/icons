@@ -177,5 +177,6 @@ README.rst       
 README.txt       
 Rakefile         
 config           
+dotfiles/        .
 lfrc             
 requirements.txt 
