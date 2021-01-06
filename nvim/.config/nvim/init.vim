@@ -642,6 +642,10 @@ augroup startified
   autocmd User Startified nmap <buffer> o <plug>(startify-open-buffers)
 augroup end
 
+function! StartifyEntryFormat()
+  return "WebDevIconsGetFileTypeSymbol(absolute_path) . ' ' . entry_path"
+endfunction
+
 " Custom file extensions / syntax highlighting
 augroup custom-file-extensions
   autocmd BufReadPost *.rules set filetype=yaml
