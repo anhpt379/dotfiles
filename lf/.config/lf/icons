@@ -38,10 +38,10 @@ ex 
 *.cxx      
 *.d        
 *.dart     
-*.db       
+*.db       
 *.deb      
 *.diff     
-*.dump     
+*.dump     
 *.edn      
 *.eex      
 *.ejs      
@@ -74,9 +74,9 @@ ex 
 *.htpasswd 
 *.hxx      
 *.ico      
-*.img      
+*.img      
 *.ini      
-*.iso      
+*.iso      
 *.jar      
 *.java     
 *.jl       
@@ -124,7 +124,7 @@ ex 
 *.sh       
 *.slim     
 *.sln      
-*.sql      
+*.sql      
 *.styl     
 *.suo      
 *.t        
@@ -144,7 +144,7 @@ ex 
 *.yml      
 *.zip      
 
-.DS_Store        
+.DS_Store        
 .bash_profile    
 .bashrc          
 .curlrc          
