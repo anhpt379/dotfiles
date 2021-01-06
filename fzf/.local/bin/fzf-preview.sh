@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Remove the devicon
-path=$(echo "$1" | awk '{ print $2 }')
+path=$(echo "$1" | devicon remove)
 
 if [[ -d $path ]]; then
   echo "Directory: $(tput bold)$path"
