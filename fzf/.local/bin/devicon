@@ -2,179 +2,23 @@
 #! coding: utf-8
 # vim:sw=4:
 
+import os
 import sys
+from pathlib import Path
 from signal import signal, SIGPIPE, SIG_DFL
 
 # http://newbebweb.blogspot.com/2012/02/python-head-ioerror-errno-32-broken.html
 signal(SIGPIPE, SIG_DFL)
 
-default_icon = ""
-icons = {
-    ".7z": "",
-    ".DS_Store": "",
-    ".ai": "",
-    ".apk": "",
-    ".awk": "",
-    ".bash": "",
-    ".bash_profile": "",
-    ".bashrc": "",
-    ".bat": "",
-    ".bmp": "",
-    ".bz2": "",
-    ".c": "",
-    ".c++": "",
-    ".cc": "",
-    ".cer": "",
-    ".cfg": "",
-    ".clj": "",
-    ".cljc": "",
-    ".cljs": "",
-    ".coffee": "",
-    ".conf": "",
-    ".cp": "",
-    ".cpp": "",
-    ".crt": "",
-    ".csh": "",
-    ".css": "",
-    ".curlrc": "",
-    ".cxx": "",
-    ".d": "",
-    ".dart": "",
-    ".db": "",
-    ".deb": "",
-    ".diff": "",
-    ".dockerignore": "",
-    ".dump": "",
-    ".editorconfig": "",
-    ".edn": "",
-    ".eex": "",
-    ".ejs": "",
-    ".erb": "",
-    ".erl": "",
-    ".ex": "",
-    ".exe": "",
-    ".exs": "",
-    ".eyaml": "",
-    ".f#": "",
-    ".fish": "",
-    ".fs": "",
-    ".fsi": "",
-    ".fsscript": "",
-    ".fsx": "",
-    ".gem": "",
-    ".gif": "",
-    ".git": "",
-    ".git/": "",
-    ".gitattributes": "",
-    ".gitconfig": "",
-    ".github": "",
-    ".github/": "",
-    ".gitignore": "",
-    ".gitlab-ci.yml": "",
-    ".gitmessage": "",
-    ".go": "",
-    ".gpg": "",
-    ".gz": "",
-    ".gzip": "",
-    ".h": "",
-    ".hbs": "",
-    ".hpp": "",
-    ".hrl": "",
-    ".hs": "",
-    ".htaccess": "",
-    ".htm": "",
-    ".html": "",
-    ".htpasswd": "",
-    ".hxx": "",
-    ".ico": "",
-    ".img": "",
-    ".ini": "",
-    ".inputrc": "",
-    ".iso": "",
-    ".jar": "",
-    ".java": "",
-    ".jl": "",
-    ".jpeg": "",
-    ".jpg": "",
-    ".js": "",
-    ".json": "",
-    ".jsx": "",
-    ".key": "",
-    ".ksh": "",
-    ".less": "",
-    ".lhs": "",
-    ".lua": "",
-    ".macos": "",
-    ".markdown": "",
-    ".md": "",
-    ".ml": "λ",
-    ".mli": "λ",
-    ".mustache": "",
-    ".pem": "",
-    ".php": "",
-    ".pl": "",
-    ".plist": "",
-    ".pm": "",
-    ".png": "",
-    ".pp": "",
-    ".ps1": "",
-    ".psb": "",
-    ".psd": "",
-    ".pub": "",
-    ".py": "",
-    ".pyc": "",
-    ".pyd": "",
-    ".pyo": "",
-    ".rar": "",
-    ".rb": "",
-    ".rlib": "",
-    ".rmd": "",
-    ".rpm": "",
-    ".rs": "",
-    ".rss": "",
-    ".sass": "",
-    ".scala": "",
-    ".scss": "",
-    ".sh": "",
-    ".slim": "",
-    ".sln": "",
-    ".sql": "",
-    ".styl": "",
-    ".suo": "",
-    ".t": "",
-    ".tar": "",
-    ".tgz": "",
-    ".ts": "",
-    ".tsx": "",
-    ".ttf": "",
-    ".twig": "",
-    ".vi": "",
-    ".vim": "",
-    ".vimrc": "",
-    ".vue": "﵂",
-    ".xml": "",
-    ".xul": "",
-    ".xz": "",
-    ".yaml": "",
-    ".yml": "",
-    ".zip": "",
-    ".zsh": "",
-    "/": "",
-    "Brewfile": "",
-    "Dockerfile": "",
-    "LICENSE": "",
-    "Makefile": "",
-    "Makefile.ac": "",
-    "Makefile.in": "",
-    "README": "",
-    "README.md": "",
-    "README.rst": "",
-    "README.txt": "",
-    "Rakefile": "",
-    "config": "",
-    "lfrc": "",
-    "requirements.txt": "",
-}
+icons_file = Path.home() / ".config/lf/icons"
+icons = {}
+for line in open(icons_file):
+    line = line.strip()
+    if not line or line[0] == "#":
+        continue
+    else:
+        extension, icon = line.strip().split()
+        icons[extension.lstrip("*")] = icon
 
 for line in sys.stdin:
     line = line.strip()
@@ -185,7 +29,7 @@ for line in sys.stdin:
             print(line)
         else:
             icon, text = line.split(" ", 1)
-            if icon == default_icon or icon in icons.values():
+            if icon == icons.get("fi") or icon in icons.values():
                 print(text)
             else:
                 print(line)
@@ -202,5 +46,5 @@ for line in sys.stdin:
             extension = "." + line.rsplit(".", 1)[1]
             icon = icons.get(extension)
         if icon is None:
-            icon = default_icon
+            icon = icons.get("fi")
         print(f"{icon} {line}")
