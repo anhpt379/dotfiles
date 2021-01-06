@@ -11,7 +11,7 @@ function fzf_complete
         | sort | uniq \
         | string replace -r \t'(.*)$' \t(set_color $fish_pager_color_description)'$1'(set_color normal) \
         | devicon add \
-        | fzf --delimiter=\t --select-1 --exit-0 --exact --ansi \
+        | fzf --delimiter=\t --select-1 --exit-0 --ansi \
               --bind=tab:accept \
               --expect=enter \
               --tiebreak=begin \
