@@ -42,7 +42,6 @@ endif
 	make stow
 
 	pip3 install --user -r requirements.txt
-	cargo install devicon-lookup
 	gem install --user-install \
 		puppet-lint \
 		puppet-lint-strict_indent-check \

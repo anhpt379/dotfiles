@@ -16,7 +16,7 @@ set ignorecase off
 
 set promptfmt "\033[34;1m%w/\033[0m\033[1m%f\033[0m"
 
-set previewer ~/.config/lf/preview.sh
+set previewer ~/.local/bin/lf-preview.sh
 
 # Fzf integration
 cmd fzf_jump ${{
@@ -25,7 +25,7 @@ cmd fzf_jump ${{
     dir="$f"
   fi
 
-  res="$(fd --color=always --no-ignore --hidden --exclude '.git' . $dir | fzf --ansi --height=100% --reverse)"
+  res="$(fd --color=always --no-ignore --hidden --exclude '.git' . $dir | fzf --ansi --preview='~/.local/bin/fzf-preview.sh {}')"
 
   if [ -f "$res" ]; then
     cmd="select"

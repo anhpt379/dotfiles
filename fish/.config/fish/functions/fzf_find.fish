@@ -5,12 +5,12 @@ function fzf_find -d "Find files and folders"
 
     set result (
         fd --color=always --type=f --no-ignore --hidden --exclude='.git' . $dir \
-        | ~/.config/fzf/devicon-lookup.py \
+        | ~/.local/bin/devicon-lookup.py \
         | fzf --delimiter=\t --select-1 --exit-0 --exact --ansi \
               --bind=tab:accept \
               --expect=enter \
               --header="(Press TAB to accept, ENTER to accept and run)" \
-              --preview="~/.config/fzf/preview.sh {}" \
+              --preview="~/.local/bin/fzf-preview.sh {}" \
               --query "$fzf_query" \
     )
 

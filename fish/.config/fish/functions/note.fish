@@ -43,7 +43,7 @@ for f in files:
         preview = preview[:50] + "..."
     output.append(f"{f} \033[2m{preview}\033[0m")
 
-print("\n".join(output))' | devicon-lookup | \
+print("\n".join(output))' | ~/.local/bin/devicon-lookup.py | \
             fzf --preview="bat --color=always --line-range :100 (echo {} | cut -d' ' -f2)" \
                 --preview-window=right:70% \
                 --height=100% --print-query --ansi | \
