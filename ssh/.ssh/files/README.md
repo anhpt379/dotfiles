@@ -9,7 +9,7 @@ docker-compose run fish cp /usr/bin/fish /out/
 
 # rust apps
 docker-compose build cargo
-docker-compose run cargo cp /usr/local/cargo/bin/{bat,exa,devicon-lookup} /out/
+docker-compose run cargo cp /usr/local/cargo/bin/{bat,exa} /out/
 
 # nvim
 wget https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage

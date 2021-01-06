@@ -10,13 +10,13 @@ function fzf_complete
         end \
         | sort | uniq \
         | string replace -r \t'(.*)$' \t(set_color $fish_pager_color_description)'$1'(set_color normal) \
-        | ~/.config/fzf/devicon-lookup.py \
+        | ~/.local/bin/devicon-lookup.py \
         | fzf --delimiter=\t --select-1 --exit-0 --exact --ansi \
               --bind=tab:accept \
               --expect=enter \
               --tiebreak=begin \
               --header="(Press TAB to accept, ENTER to accept and run)" \
-              --preview="~/.config/fzf/preview.sh {}" \
+              --preview="~/.local/bin/fzf-preview.sh {}" \
               --query "$current_word" \
     )
 
@@ -28,7 +28,7 @@ function fzf_complete
     set result (string replace -r \t'.*' '' -- $result)
 
     if test "$result" = ""
-        commandline -it -- " "
+        commandline -it -- ""
         commandline -f repaint
     else
         commandline -rt -- "$result"
