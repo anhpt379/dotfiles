@@ -5,8 +5,8 @@ function fzf_find -d "Find files and folders"
 
     set result (
         fd --color=always --type=f --no-ignore --hidden --exclude='.git' . $dir \
-        | ~/.local/bin/devicon-lookup.py \
-        | fzf --delimiter=\t --select-1 --exit-0 --exact --ansi \
+        | devicon add \
+        | fzf --delimiter=\t --select-1 --exit-0 --ansi \
               --bind=tab:accept \
               --expect=enter \
               --header="(Press TAB to accept, ENTER to accept and run)" \
@@ -22,7 +22,7 @@ function fzf_find -d "Find files and folders"
     end
 
     set -l key (echo $result | cut -d' ' -f1)
-    set -l result (echo $result | cut -d' ' -f3-)
+    set -l result (echo $result | cut -d' ' -f2- | devicon remove)
     commandline -it -- (string escape $result)
     if test "$key" = "enter"
         commandline -f execute

@@ -10,7 +10,7 @@ function fzf_complete
         end \
         | sort | uniq \
         | string replace -r \t'(.*)$' \t(set_color $fish_pager_color_description)'$1'(set_color normal) \
-        | ~/.local/bin/devicon-lookup.py \
+        | devicon add \
         | fzf --delimiter=\t --select-1 --exit-0 --exact --ansi \
               --bind=tab:accept \
               --expect=enter \
@@ -22,7 +22,7 @@ function fzf_complete
 
     # Split key & result
     set key (echo $result | cut -d' ' -f1)
-    set result (echo $result | cut -d' ' -f3-)
+    set result (echo $result | devicon remove)
 
     # Remove description
     set result (string replace -r \t'.*' '' -- $result)
