@@ -9,8 +9,8 @@ function gb --description 'Fuzzy-find and checkout a branch'
                         --pretty='format:%C(auto,blue)%>(12,trunc)%ad %C(auto,yellow)%h %C(auto,green)%aN %C(auto,reset)%s%C(auto,red)% gD% D' \
                         (echo {} | sed 's/.* //')"
     set copy_branch "$branch_name | pbcopy"
-    set checkout_branch "git checkout ($branch_name)"
-    set delete_branch "git branch -d ($branch_name)"
+    set checkout_branch "git checkout `$branch_name`"
+    set delete_branch "git branch -d `$branch_name`"
 
     git branch --sort=-committerdate \
       | grep -v HEAD \
