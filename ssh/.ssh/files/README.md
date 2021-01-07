@@ -7,6 +7,10 @@ rm -rf .local
 docker-compose build fish
 docker-compose run fish cp /usr/bin/fish /out/
 
+# atop
+docker-compose build atop
+docker-compose run atop cp /usr/bin/atop /out/
+
 # rust apps
 docker-compose build cargo
 docker-compose run cargo cp /usr/local/cargo/bin/{bat,exa} /out/
