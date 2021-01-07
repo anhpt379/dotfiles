@@ -1,7 +1,7 @@
 function gl --description "fzf git log"
     git rev-parse HEAD >/dev/null; or return
 
-    set log_line_to_hash "echo {} | grep -o '[a-f0-9]\{7\}' | head -1"
+    set log_line_to_hash "echo {} | grep -o '^[a-f0-9]\{7,40\} ' | head -1"
     set view_commit "git show --color=always `$log_line_to_hash`"
     set rebase_commit "git rebase -i `$log_line_to_hash`"
     set preview_commit "git show --color=always `$log_line_to_hash` | diff-so-fancy | less --tabs=4 -RX"
@@ -29,6 +29,7 @@ function gl --description "fzf git log"
                     $args 2>/dev/null"
     eval $git_cmd \
         | tr "\n" " " \
+        | sed "s/`//g" \
         | sed -E "s/\\x1b\\[32m[a-f0-9]{7,}+/\\n&/2g" \
         | fzf --no-mouse --reverse --tiebreak=index --no-multi --ansi --height=100% \
         --preview="$preview_commit" \
