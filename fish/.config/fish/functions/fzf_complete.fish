@@ -22,7 +22,7 @@ function fzf_complete
 
     # Split key & result
     set key (echo $result | cut -d' ' -f1)
-    set result (echo $result | devicon remove)
+    set result (echo $result | cut -d' ' -f2- | devicon remove)
 
     # Remove description
     set result (string replace -r \t'.*' '' -- $result)
