@@ -1,8 +1,9 @@
+#!/bin/bash
+
 source ~/.bashrc
 
 export PATH=$HOME/.local/bin:$PATH
 
-# Use fish shell as default
-export SHELL=$HOME/.local/bin/fish
+# Open fish automatically after logging in to a server
 sleep 1
-exec $HOME/.local/bin/fish
+exec "$HOME"/.local/bin/fish
