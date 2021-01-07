@@ -117,7 +117,7 @@ bind \t  'fzf_complete'
 # Fix fzf couldn't preview matches that end with `\`. This happens in fish
 # only. Fzf uses the shell set in SHELL env to execute the preview command.
 # https://github.com/junegunn/fzf/blob/0.25.0/src/util/util_unix.go#L13
-set -gx SHELL 'bash'
+set -gx SHELL '/bin/bash'
 
 set -gx FZF_DEFAULT_COMMAND 'fd --hidden --type f --exclude ".git" -E "*.jp*g" -E "*.png"'
 set -gx FZF_DEFAULT_OPTS    '
