@@ -19,7 +19,7 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
         --compress-level=9 \
         --copy-links \
         --keep-dirlinks \
-        ~/.local/bin/ $argv[1]:~/.local/bin/
+        ~/.local/bin/ $argv[1]:~/.local/bin/ 2>/dev/null
 
       rsync -azvhP \
         --info=name0 \
@@ -29,7 +29,7 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
         --copy-links \
         --keep-dirlinks \
         --exclude-from="$HOME/.ssh/files/.rsyncignore" \
-        ~/.ssh/files/ $argv[1]:~/
+        ~/.ssh/files/ $argv[1]:~/ 2>/dev/null
     end
 
     command ssh $argv
