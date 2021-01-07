@@ -101,6 +101,10 @@ bind \e\[3\;3~ kill-word
 bind \e\[5~ forward-bigword
 bind \e\[6~ backward-bigword
 
+# Ctrl-D to exit immediately (the default behavior is `delete-or-exit`, which
+# is annoying since I can't exit the shell in the middle of typing a command)
+bind \cd 'exit'
+
 # Edit and run the current command in vim
 bind \ce edit_and_run_command_buffer
 
