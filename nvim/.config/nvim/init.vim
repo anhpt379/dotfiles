@@ -444,6 +444,7 @@ noremap gl :FzfCommits<CR>
 noremap gL :FzfBCommits<CR>
 noremap <expr> gw &modified ? ':silent! Gwrite<CR>:update<CR>' : ''
 
+command! Gundo silent! G undo
 command! Gstash silent! G stash
 command! Grebasecontinue silent! G rebase --continue
 command! Gmergecontinue silent! G merge --continue
