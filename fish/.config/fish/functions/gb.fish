@@ -7,7 +7,7 @@ function gb --description 'Fuzzy-find and checkout a branch'
                         --date=relative \
                         --abbrev=7 \
                         --pretty='format:%C(auto,blue)%>(12,trunc)%ad %C(auto,yellow)%h %C(auto,green)%aN %C(auto,reset)%s%C(auto,red)% gD% D' \
-                        `echo -n {} | sed 's/.* //'`"
+                        `echo -n {} | sed 's/.* //'` --"
     set result (
         git branch --sort=-committerdate \
             | grep -v HEAD \
