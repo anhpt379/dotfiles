@@ -667,7 +667,7 @@ if !has("mac")
   " Copy remote text yank to local clipboard
   augroup YankToLocalClipboard
     autocmd TextYankPost * call system('nc 127.0.0.1 2224 --send-only', @0)
-  augroup END
+  augroup end
 
   " Automatically jump to end of text you pasted
   vnoremap p :<C-u>set paste<CR>:let @a = system("nc 127.0.0.1 2225 --recv-only")<CR>"ap`]:set nopaste<CR>
@@ -918,7 +918,7 @@ noremap! <C-h> <C-w>
 augroup update-mru-on-file-open
   autocmd!
   autocmd BufWinEnter * UpdateMru
-augroup END
+augroup end
 
 " Treesitter
 if exists('g:loaded_nvim_treesitter')
