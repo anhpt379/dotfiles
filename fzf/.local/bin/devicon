@@ -20,9 +20,13 @@ for line in open(icons_file):
         extension, icon = line.strip().split()
         icons[extension.lstrip("*")] = icon
 
+should_add_devicon = True
 for line in sys.stdin:
     line = line.strip()
-    if not line or '\t' in line:
+    if not line:
+        print(line)
+    elif "\t" in line or line.startswith("--") or not should_add_devicon:
+        should_add_devicon = False
         print(line)
     elif len(sys.argv) == 2 and sys.argv[1] == "remove":
         if " " not in line:
