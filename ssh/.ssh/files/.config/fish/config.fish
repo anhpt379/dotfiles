@@ -14,7 +14,7 @@ end
 source ~/.config/omf/init.fish
 
 alias pp  'command sudo puppet agent -t'
-alias ppa 'command sudo puppet agent -t --environment=panh'
+alias ppa 'command sudo puppet agent -t --environment=(whoami)'
 
 alias tmux 'command tmux attach -t (whoami); or command tmux new -s (whoami)'
 
