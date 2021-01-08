@@ -4,13 +4,13 @@ function note -d "Manage notes in ~/Workspace/notes"
     cd ~/Workspace/notes/
 
     set cmd_name $_
-    if [ $cmd_name = "n" ]
-        echo -e "\n\n===============================================================================" >> zZz.txt
-        echo -n (date) >> zZz.txt
+    if [ $cmd_name = n ]
+        echo -e "\n\n===============================================================================" >>zZz.txt
+        echo -n (date) >>zZz.txt
         if [ (count $argv) -gt 0 ]
-          echo -n ": "$argv >> zZz.txt
+            echo -n ": "$argv >>zZz.txt
         end
-        echo -e "\n===============================================================================\n" >> zZz.txt
+        echo -e "\n===============================================================================\n" >>zZz.txt
         nvim "+normal Go" +startinsert zZz.txt
         exit 0
     else
