@@ -13,13 +13,13 @@ function gb --description 'Fuzzy-find and checkout a branch'
     set delete_branch "git branch -d `$branch_name`"
 
     git branch --sort=-committerdate \
-      | grep -v HEAD \
-      | string trim \
-      | fzf --height=100% --preview-window=right:75% \
-        --print-query \
-        --preview="$preview_cmd" \
-        --header="(Press CTRL-Y to copy, CTRL-D to delete, ENTER to checkout)" \
-        --bind="enter:execute/$checkout_branch/+abort" \
-        --bind="ctrl-d:execute/$delete_branch/+abort" \
-        --bind="ctrl-y:execute-silent/$copy_branch/+abort"
+        | grep -v HEAD \
+        | string trim \
+        | fzf --height=100% --preview-window=right:75% \
+              --print-query \
+              --preview="$preview_cmd" \
+              --header="(Press CTRL-Y to copy, CTRL-D to delete, ENTER to checkout)" \
+              --bind="enter:execute/$checkout_branch/+abort" \
+              --bind="ctrl-d:execute/$delete_branch/+abort" \
+              --bind="ctrl-y:execute-silent/$copy_branch/+abort"
 end

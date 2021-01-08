@@ -11,7 +11,7 @@ function gl --description "fzf git log"
     set argv_count (count $argv)
     set cmd_name $_
 
-    if [ $cmd_name = "gl" ]
+    if [ $cmd_name = gl ]
         if [ $argv_count -eq 1 ]
             set args "-- '$argv[1]'"
         end

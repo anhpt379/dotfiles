@@ -8,4 +8,3 @@ if file -bL --mime "$@" | grep 'charset=binary'; then
 else
   bat --color=always --line-range=:300 "$@"
 fi
-
