@@ -1,6 +1,5 @@
 package balias
 package bang-bang
-package config
 package errno
 package title
 theme default
