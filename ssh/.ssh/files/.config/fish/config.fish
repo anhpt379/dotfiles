@@ -16,7 +16,7 @@ source ~/.config/omf/init.fish
 alias pp  'command sudo puppet agent -t'
 alias ppa 'command sudo puppet agent -t --environment=panh'
 
-alias t 'tmux attach -t panh; or tmux new -s panh'
+alias tmux 'command tmux attach -t (whoami); or command tmux new -s (whoami)'
 
 alias pbcopy  'nc 127.0.0.1 2224 --send-only'
 alias pbpaste 'nc 127.0.0.1 2225 --recv-only'
@@ -32,7 +32,5 @@ bind \cc 'commandline ""'
 
 # Auto start tmux
 if not set -q TMUX
-  set -g TMUX tmux new-session -d -s panh
-  eval $TMUX
-  tmux attach-session -d -t panh
+    tmux
 end
