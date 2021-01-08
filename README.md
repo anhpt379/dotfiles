@@ -25,6 +25,9 @@ $ stow kitty
 ![screenshot-4](screenshots/4.png)
 ![screenshot-5](screenshots/5.png)
 ![screenshot-6](screenshots/6.png)
+![screenshot-6](screenshots/7.png)
+![screenshot-6](screenshots/8.png)
+![screenshot-6](screenshots/9.png)
 
 ## Keyboard layout
 
