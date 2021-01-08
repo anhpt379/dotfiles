@@ -60,7 +60,7 @@ call plug#begin()
   Plug 'ntpeters/vim-better-whitespace'
   Plug 'brooth/far.vim'
   Plug 'farmergreg/vim-lastplace'
-  Plug 'lambdalisue/suda.vim'
+  Plug 'paretje/suda.vim'
   Plug 'tpope/vim-eunuch'
   Plug 'anhpt379/vim-unimpaired'
   Plug 'rhysd/clever-f.vim'
@@ -939,6 +939,7 @@ imap <C-p> <Esc><C-p>
 
 " Suda & vim-eunuch
 let g:suda_smart_edit = 1
+let g:suda#try_without_password = !has('nvim')
 command! SudoWrite w suda://%
 
 " Floaterm
