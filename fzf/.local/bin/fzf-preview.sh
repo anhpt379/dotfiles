@@ -3,6 +3,10 @@
 # Remove the devicon
 path=$(echo "$1" | devicon remove)
 
+if echo "$path" | grep -P '\t'; then
+  exit 0
+fi
+
 if [[ -d $path ]]; then
   echo "Directory: $(tput bold)$path"
 

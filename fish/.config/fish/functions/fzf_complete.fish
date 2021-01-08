@@ -17,6 +17,7 @@ function fzf_complete
               --tiebreak=begin \
               --header="(Press TAB to accept, ENTER to accept and run)" \
               --preview="~/.local/bin/fzf-preview.sh {}" \
+              --preview-window=right:hidden \
               --query "$current_word" \
     )
 
