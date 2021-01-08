@@ -31,7 +31,11 @@ function fzf_complete
         commandline -it -- ""
         commandline -f repaint
     else
-        commandline -rt -- "$result"
+        if string match -q -- "*/" $result
+            commandline -rt -- "$result"
+        else
+            commandline -rt -- "$result "
+        end
         commandline -f repaint
         if test "$key" = enter
             commandline -f execute
