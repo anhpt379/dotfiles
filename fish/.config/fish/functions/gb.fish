@@ -7,19 +7,24 @@ function gb --description 'Fuzzy-find and checkout a branch'
                         --date=relative \
                         --abbrev=7 \
                         --pretty='format:%C(auto,blue)%>(12,trunc)%ad %C(auto,yellow)%h %C(auto,green)%aN %C(auto,reset)%s%C(auto,red)% gD% D' \
-                        (echo {} | sed 's/.* //')"
+                        `echo {} | sed 's/.* //'`"
     set copy_branch "$branch_name | pbcopy"
-    set checkout_branch "git checkout `$branch_name`"
+    set checkout_branch "echo -n {} | tail -1" # git checkout -b `$branch_name` || git checkout `$branch_name`"
     set delete_branch "git branch -d `$branch_name`"
 
-    git branch --sort=-committerdate \
-        | grep -v HEAD \
-        | string trim \
-        | fzf --height=100% --preview-window=right:75% \
-              --print-query \
-              --preview="$preview_cmd" \
-              --header="(Press CTRL-Y to copy, CTRL-D to delete, ENTER to checkout)" \
-              --bind="enter:execute/$checkout_branch/+abort" \
-              --bind="ctrl-d:execute/$delete_branch/+abort" \
-              --bind="ctrl-y:execute-silent/$copy_branch/+abort"
+    set branch ( \
+        git branch --sort=-committerdate \
+            | grep -v HEAD \
+            | string trim \
+            | fzf --height=100% --preview-window=right:75% \
+                --print-query \
+                --exact \
+                --preview="$preview_cmd" \
+                --header="(Press CTRL-Y to copy, CTRL-D to delete, ENTER to checkout)" \
+                --bind="ctrl-d:execute/$delete_branch/+abort" \
+                --bind="ctrl-y:execute-silent/$copy_branch/+abort"
+        )
+
+    set branch (echo $branch | sed 's/.* //')
+    git checkout -b $branch 2>/dev/null || git checkout $branch
 end
