@@ -1,30 +1,37 @@
 function gb --description 'Fuzzy-find and checkout a branch'
     git rev-parse HEAD >/dev/null; or return
 
-    set branch_name "echo -n {} | sed 's/.* //'"
+    set get_branch_name "echo -n {} | sed 's/.* //'"
     set preview_cmd "git log -n 50 \
                         --color=always \
                         --date=relative \
                         --abbrev=7 \
                         --pretty='format:%C(auto,blue)%>(12,trunc)%ad %C(auto,yellow)%h %C(auto,green)%aN %C(auto,reset)%s%C(auto,red)% gD% D' \
-                        `echo {} | sed 's/.* //'`"
-    set copy_branch "$branch_name | pbcopy"
-    set checkout_branch "echo -n {} | tail -1" # git checkout -b `$branch_name` || git checkout `$branch_name`"
-    set delete_branch "git branch -d `$branch_name`"
-
-    set branch ( \
+                        `echo -n {} | sed 's/.* //'`"
+    set result (
         git branch --sort=-committerdate \
             | grep -v HEAD \
             | string trim \
-            | fzf --height=100% --preview-window=right:75% \
-                --print-query \
-                --exact \
-                --preview="$preview_cmd" \
-                --header="(Press CTRL-Y to copy, CTRL-D to delete, ENTER to checkout)" \
-                --bind="ctrl-d:execute/$delete_branch/+abort" \
-                --bind="ctrl-y:execute-silent/$copy_branch/+abort"
+            | fzf --height=100% \
+                  --preview-window=right:75% \
+                  --exact \
+                  --print-query \
+                  --expect=ctrl-d \
+                  --preview="$preview_cmd" \
+                  --header="(Press CTRL-Y to copy, CTRL-D to delete, ENTER to checkout)" \
+                  --bind="ctrl-y:execute-silent/$get_branch_name | pbcopy/+abort"
         )
 
-    set branch (echo $branch | sed 's/.* //')
-    git checkout -b $branch 2>/dev/null || git checkout $branch
+    set key (echo $result | xargs | cut -d' ' -f1)
+    set branch_name (echo $result | xargs | cut -d' ' -f2- | sed 's/.* //')
+
+    if test "$key" = ctrl-d
+        if test (git branch --show-current) = "$branch_name"
+            git checkout master && git branch -d $branch_name
+        else
+            git branch -d $branch_name
+        end
+    else
+        git checkout (git show-ref --verify --quiet refs/heads/$branch_name || echo '-b') $branch_name
+    end
 end
