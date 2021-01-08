@@ -22,7 +22,6 @@ alias pbcopy  'nc 127.0.0.1 2224 --send-only'
 alias pbpaste 'nc 127.0.0.1 2225 --recv-only'
 
 alias root 'sudo -s -E'
-alias sudo 'sudo -E'
 
 # Shorten title
 title (hostname | awk -F. '{ print $1 }')
