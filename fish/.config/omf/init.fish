@@ -63,6 +63,12 @@ alias v   'echo "Using nvim instead..."; sleep 0.3; nvim'
 alias vim 'echo "Using nvim instead..."; sleep 0.3; nvim'
 alias nv  'nvim'
 
+globabbr G '| grep'
+globabbr H '| head'
+globabbr L '| less'
+globabbr T '| tail'
+globabbr V '| nvim -'
+
 # Key bindings
 bind \cg accept-autosuggestion execute
 
