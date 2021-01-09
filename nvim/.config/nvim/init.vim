@@ -422,6 +422,7 @@ noremap <Leader>g :GstatusClose<CR>:FzfRg<Space>
 noremap <Leader>f :GstatusClose<CR>:silent FilesMru<CR>
 noremap <Leader>t :GstatusClose<CR>:FzfFiletypes<CR>
 noremap <Leader><Tab> :GstatusClose<CR>:FzfBuffers<CR>
+noremap <Leader><Leader> :GstatusClose<CR>:FzfLines<CR>
 " }}}
 
 " Git {{{
