@@ -416,6 +416,7 @@ command! GstatusClose call s:close_gstatus()
 noremap <Leader>g :GstatusClose<CR>:FzfRg<Space>
 noremap <Leader>f :GstatusClose<CR>:silent FilesMru<CR>
 noremap <Leader>t :GstatusClose<CR>:FzfFiletypes<CR>
+noremap <Leader><Tab> :GstatusClose<CR>:FzfBuffers<CR>
 " }}}
 
 " Git {{{
@@ -789,9 +790,6 @@ nnoremap <PageDown> 2j
 " Easier change list jumps
 nnoremap <Leader>o g;
 nnoremap <Leader>i g,
-
-" Switch between 2 buffers
-noremap <Leader><Tab> <C-^>
 
 " Auto create dirs on save
 function s:MkNonExDir(file, buf)
