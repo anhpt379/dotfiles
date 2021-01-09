@@ -72,6 +72,7 @@ globabbr V '| nvim -'
 
 # Key bindings
 bind \cg accept-autosuggestion execute
+bind \cz undo
 
 set -x GOROOT /usr/local/opt/go/libexec
 set -x GOPATH $HOME/.go
