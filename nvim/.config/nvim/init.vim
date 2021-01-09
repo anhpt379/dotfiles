@@ -422,7 +422,6 @@ noremap <Leader>g :GstatusClose<CR>:FzfRg<Space>
 noremap <Leader>f :GstatusClose<CR>:silent FilesMru<CR>
 noremap <Leader>t :GstatusClose<CR>:FzfFiletypes<CR>
 noremap <Leader><Tab> :GstatusClose<CR>:FzfBuffers<CR>
-noremap <Leader><Leader> :GstatusClose<CR>:FzfLines<CR>
 " }}}
 
 " Git {{{
@@ -627,7 +626,7 @@ map q :<C-u>silent! call Goodbye()<CR>
 nnoremap <silent> Q :Bdelete! menu<CR>
 
 " Startify
-nmap <Leader>s :Startify<CR>
+nmap <Leader><Leader> :Startify<CR>
 
 let g:startify_change_to_dir = 0
 let g:startify_fortune_use_unicode = 1
