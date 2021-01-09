@@ -299,6 +299,8 @@ if has("mac")
   let g:lightline#bufferline#unnamed         = '[No Name]'
   let g:lightline#bufferline#enable_devicons = 1
   let g:lightline#bufferline#unicode_symbols = 1
+  let g:lightline#bufferline#modified        = ' '
+  let g:lightline#bufferline#read_only       = ' '
   let g:lightline#bufferline#clickable       = 1
 
   let g:lightline#bufferline#number_map = {
