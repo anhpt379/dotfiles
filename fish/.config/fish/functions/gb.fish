@@ -31,7 +31,7 @@ function gb --description 'Fuzzy-find and checkout a branch'
         else
             git branch -d $branch_name
         end
-    else
+    else if test -n "$branch_name"
         git checkout (git show-ref --verify --quiet refs/heads/$branch_name || echo '-b') $branch_name
     end
 end
