@@ -1,3 +1,3 @@
 function fish_title
-    status current-command
+    echo (status current-command) (prompt_pwd)
 end
