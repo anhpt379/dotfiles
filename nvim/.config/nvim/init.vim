@@ -293,6 +293,8 @@ if has("mac")
   nmap <Leader>8 <Plug>lightline#bufferline#go(8)
   nmap <Leader>9 <Plug>lightline#bufferline#go(9)
   nmap <Leader>0 <Plug>lightline#bufferline#go(10)
+  nmap <Leader><Tab>   :bnext<CR>
+  nmap <Leader><S-Tab> :bprevious<CR>
 
   let g:lightline#bufferline#show_number     = 2
   let g:lightline#bufferline#shorten_path    = 1
@@ -421,7 +423,6 @@ command! GstatusClose call s:close_gstatus()
 noremap <Leader>g :GstatusClose<CR>:FzfRg<Space>
 noremap <Leader>f :GstatusClose<CR>:silent FilesMru<CR>
 noremap <Leader>t :GstatusClose<CR>:FzfFiletypes<CR>
-noremap <Leader><Tab> :GstatusClose<CR>:FzfBuffers<CR>
 " }}}
 
 " Git {{{
