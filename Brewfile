@@ -77,6 +77,7 @@ brew 'youtube-dl'
 # Apps
 cask '1password'
 cask 'docker'
+cask 'font-fira-code'
 cask 'hiddenbar'
 cask 'imageoptim'
 cask 'iterm2'
