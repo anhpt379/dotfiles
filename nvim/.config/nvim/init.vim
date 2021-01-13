@@ -955,8 +955,3 @@ let g:floaterm_open_in_root = v:true
 autocmd User Startified setlocal buflisted
 
 nnoremap gb :FloatermNew gb<CR>
-
-" Auto reload vimrc
-augroup vimrc
-  autocmd! BufWritePost $MYVIMRC source % | echom "Reloaded " . $MYVIMRC | redraw
-augroup END
