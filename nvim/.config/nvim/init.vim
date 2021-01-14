@@ -451,11 +451,16 @@ noremap gl :FzfCommits<CR>
 noremap gL :FzfBCommits<CR>
 noremap <expr> gw &modified ? ':silent! Gwrite<CR>:update<CR>' : ''
 
-command! Gundo silent! G undo
-command! Gstash silent! G stash
-command! Grebasecontinue silent! G rebase --continue
-command! Gmergecontinue silent! G merge --continue
+command! Gundo               silent! G undo
+command! Gstash              silent! G stash
+command! Gco                 silent! G checkout
+command! Grebasecontinue     silent! G rebase --continue
+command! Grebaseabort        silent! G rebase --abort
+command! Gmergecontinue      silent! G merge --continue
+command! Gmergeabort         silent! G merge --abort
+command! Gcherrypick         silent! G cherry-pick
 command! Gcherrypickcontinue silent! G cherry-pick --continue
+command! Gcherrypickabort    silent! G cherry-pick --abort
 
 augroup fugitive-personal-key-mappings
   autocmd FileType fugitive nmap <buffer> p :bd!<CR>:Dispatch! noti git push origin HEAD --force-with-lease<CR>
