@@ -87,7 +87,6 @@ cask 'kitty'
 cask 'maccy'
 cask 'macdown'
 cask 'qbserve'
-cask 'qlstephen'
 cask 'rectangle'
 cask 'scalar'
 cask 'telegram-desktop'
@@ -96,6 +95,18 @@ cask 'unshaky'
 cask 'vagrant'
 cask 'virtualbox'
 cask 'workplace-chat'
+
+# QuickLook generators
+# If you run into issues with macOS not letting you run the plugin because it's
+# not signed by a verified developer you can follow these steps:
+#
+#   sudo xattr -cr ~/Library/QuickLook/*
+#   qlmanage -r
+#   qlmanage -r cache
+#   killall Finder
+#
+cask 'qlmarkdown'
+cask 'qlstephen'
 
 # Fonts
 cask 'font-meslo-nerd-font'
