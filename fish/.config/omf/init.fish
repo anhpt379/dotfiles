@@ -68,6 +68,8 @@ globabbr G '| grep'
 globabbr H '| head'
 globabbr L '| less'
 globabbr T '| tail'
+globabbr S '| sort'
+globabbr U '| uniq'
 globabbr V '| nvim -'
 
 # Key bindings
