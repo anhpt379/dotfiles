@@ -41,7 +41,18 @@ cmd reveal %{{
   open -R $f
 }}
 
-# extract the current file with the right command
+# Run chmod on a file
+cmd chmod+x %{{
+  chmod +x $f
+  lf -remote "send reload"
+}}
+
+cmd chmod-x %{{
+  chmod -x $f
+  lf -remote "send reload"
+}}
+
+# Extract the current file with the right command
 cmd extract ${{
   set -f
   case $f in
@@ -54,7 +65,7 @@ cmd extract ${{
   esac
 }}
 
-# compress current file or selected files with tar and gunzip
+# Compress current file or selected files with tar and gunzip
 cmd tar ${{
   set -f
   mkdir $1
@@ -72,7 +83,7 @@ cmd zip ${{
   rm -rf $1
 }}
 
-# copy the path of the highlighted file
+# Copy the path of the highlighted file
 cmd copy_path %{{
   echo "$f" | tr -d '\n' | pbcopy
   echo "Path copied: $f"
@@ -158,3 +169,5 @@ map s       :set info size
 map t       :set sortby time; set info time; set reverse
 map v       :toggle
 map V       :toggle
+map +       chmod+x
+map _       chmod-x
