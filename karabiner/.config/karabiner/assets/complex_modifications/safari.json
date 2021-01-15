@@ -1,8 +1,8 @@
 {
-  "title": "Chrome key bindings",
+  "title": "Safari key bindings",
   "rules": [
     {
-      "description": "Focus on Chrome address bar with Cmd+O",
+      "description": "Focus on the address bar with Cmd+O",
       "manipulators": [
         {
           "type": "basic",
@@ -21,7 +21,7 @@
           "conditions": [
             {
               "type": "frontmost_application_if",
-              "bundle_identifiers": ["^com\\.google\\.Chrome$"]
+              "bundle_identifiers": ["^com\\.apple\\.Safari$"]
             }
           ]
         }
@@ -46,7 +46,7 @@
           "conditions": [
             {
               "type": "frontmost_application_if",
-              "bundle_identifiers": ["^com\\.google\\.Chrome$"]
+              "bundle_identifiers": ["^com\\.apple\\.Safari$"]
             }
           ]
         }
@@ -72,7 +72,7 @@
           "conditions": [
             {
               "type": "frontmost_application_if",
-              "bundle_identifiers": ["^com\\.google\\.Chrome$"]
+              "bundle_identifiers": ["^com\\.apple\\.Safari$"]
             }
           ]
         }
