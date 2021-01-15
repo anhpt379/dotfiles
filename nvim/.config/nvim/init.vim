@@ -215,6 +215,7 @@ set inccommand=split
 
 " Change the leader from \ to <Space>
 let mapleader=' '
+noremap <Space> <Nop>
 
 " Quickly reload nvim config & update plugins by pressing `<Leader>u`
 nnoremap <Leader>u :silent! w<CR>
