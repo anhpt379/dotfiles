@@ -859,8 +859,8 @@ map [n :<C-u>set nonumber<CR>
 map ]n :<C-u>set number<CR>
 
 " Vim searchhi
-map n   <Plug>(searchhi-n)
-map N   <Plug>(searchhi-N)
+map n   <Plug>(searchhi-n)<Plug>SearchIndex
+map N   <Plug>(searchhi-N)<Plug>SearchIndex
 map *   <Plug>(asterisk-*)<Plug>(searchhi-update)
 map #   <Plug>(asterisk-#)<Plug>(searchhi-update)
 map g*  <Plug>(asterisk-g*)<Plug>(searchhi-update)
