@@ -15,25 +15,25 @@ jobs:
       - name: eclint
         uses: tomtomsen/action-editorconfig-checker@0.2
 
-  linelint:
-    name: Line
-    runs-on: ubuntu-latest
-    steps:
-      - name: checkout
-        uses: actions/checkout@v2
+  # linelint:
+  #   name: Line
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: checkout
+  #       uses: actions/checkout@v2
 
-      - name: linelint
-        uses: fernandrone/linelint@0.0.4
+  #     - name: linelint
+  #       uses: fernandrone/linelint@0.0.4
 
-  shell-linter:
-    name: Shell
-    runs-on: ubuntu-latest
-    steps:
-      - name: checkout
-        uses: actions/checkout@v2
+  # shell-linter:
+  #   name: Shell
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: checkout
+  #       uses: actions/checkout@v2
 
-      - name: shell-linter
-        uses: azohra/shell-linter@v0.4.0
+  #     - name: shell-linter
+  #       uses: azohra/shell-linter@v0.4.0
 
   json-linter:
     name: JSON
@@ -45,15 +45,15 @@ jobs:
       - name: json-linter
         uses: limitusus/json-syntax-check@v1
 
-  yamllint:
-    name: YAML
-    runs-on: ubuntu-latest
-    steps:
-      - name: checkout
-        uses: actions/checkout@v2
+  # yamllint:
+  #   name: YAML
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: checkout
+  #       uses: actions/checkout@v2
 
-      - name: yamllint
-        uses: ibiqlik/action-yamllint@v3.0.0
+  #     - name: yamllint
+  #       uses: ibiqlik/action-yamllint@v3.0.0
 
   python-linter:
     name: Python
