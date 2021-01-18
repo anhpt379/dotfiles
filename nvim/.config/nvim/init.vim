@@ -79,7 +79,7 @@ call plug#begin()
   Plug 'google/vim-searchindex'
 
   " Heavily loaded plugins
-  if has("mac")
+  if has('mac')
     Plug 'dstein64/vim-startuptime'
     Plug 'mhinz/vim-startify'
     Plug 'itchyny/lightline.vim'
@@ -233,7 +233,7 @@ silent! set splitvertical
 set diffopt+=iwhite
 set diffopt+=vertical
 
-if has("mac")
+if has('mac')
   set clipboard=unnamed
 endif
 
@@ -281,7 +281,7 @@ function! DevIconsFileFormat()
 endfunction
 
 " Show vim tab line even if only one file is open
-if has("mac")
+if has('mac')
   set showtabline=2
 
   nmap <Leader>1 <Plug>lightline#bufferline#go(1)
@@ -676,7 +676,7 @@ noremap <Leader>p :CocList --normal yank<CR>
 " vim-highlightedyank
 let g:highlightedyank_highlight_duration = 700
 
-if !has("mac")
+if !has('mac')
   " Copy remote text yank to local clipboard
   augroup YankToLocalClipboard
     autocmd TextYankPost * call system('nc 127.0.0.1 2224 --send-only', @0)
@@ -958,6 +958,8 @@ let g:floaterm_wintype = 'normal'
 let g:floaterm_autoclose = 1
 let g:floaterm_open_in_root = v:true
 
-autocmd User Startified setlocal buflisted
+augroup floaterm
+  autocmd User Startified setlocal buflisted
+augroup end
 
 nnoremap gb :FloatermNew gb<CR>
