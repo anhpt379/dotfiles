@@ -1,6 +1,7 @@
 # Anh's dotfiles
 
 ![Linter](https://github.com/anhpt379/dotfiles/workflows/Linter/badge.svg)
+![Platform](https://img.shields.io/badge/platform-macos-blue)
 
 ## Installation
 
