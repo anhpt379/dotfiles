@@ -77,6 +77,7 @@ brew 'youtube-dl'
 # Apps
 cask '1password'
 cask 'alt-tab'
+cask 'clock-bar'
 cask 'docker'
 cask 'font-fira-code'
 cask 'hiddenbar'
