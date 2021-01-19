@@ -462,6 +462,8 @@ command! Gmergeabort         silent! G merge --abort
 command! Gcherrypick         silent! G cherry-pick
 command! Gcherrypickcontinue silent! G cherry-pick --continue
 command! Gcherrypickabort    silent! G cherry-pick --abort
+command! Pull                silent! G pull --rebase origin master
+command! Master              silent! G checkout master
 
 augroup fugitive-personal-key-mappings
   autocmd FileType fugitive nmap <buffer> p :bd!<CR>:Dispatch! noti git push origin HEAD --force-with-lease<CR>
