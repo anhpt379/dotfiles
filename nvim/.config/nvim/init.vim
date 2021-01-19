@@ -690,6 +690,12 @@ if !has('mac')
 
   " Don't change the clipboard if paste over a visually selected text
   xnoremap p "_d:set paste<CR>:let @a = system("nc 127.0.0.1 2225 --recv-only")<CR>"aP`]:set nopaste<CR>
+
+  " Fix nvim on server x/X in VISUAL mode doesn't trigger TextYankPost
+  if !has('mac')
+    vnoremap x ygvx
+    vnoremap X ygvX
+  endif
 endif
 
 " Conflict-marker {{{
