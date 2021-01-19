@@ -33,9 +33,9 @@ function fzf_complete
         commandline -f repaint
     else
         if string match -q -- "*/" $result
-            commandline -rt -- (string escape $result)
+            commandline -rt -- (string replace --all " " "\\ " $result)
         else
-            commandline -rt -- (string escape $result)" "
+            commandline -rt -- (string replace --all " " "\\ " $result)" "
         end
         commandline -f repaint
         if test "$key" = enter
