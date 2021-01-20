@@ -27,9 +27,9 @@ function fish_prompt
 
     if string match -q -- "*.*" (hostname)
         if test "$USER" = root
-            echo -n -s (set_color red --bold) $USER@(prompt_hostname)
+            echo -n -s (set_color red --bold) [$USER@(prompt_hostname) " " $cwd]"#" $normal_color
         else
-            echo -n -s (set_color white --bold) $USER@(prompt_hostname)
+            echo -n -s (set_color white --bold) [$USER@(prompt_hostname) " " $cwd]"\$" $normal_color
         end
     else
         if test $last_command_status -eq 0
@@ -37,28 +37,28 @@ function fish_prompt
         else
             echo -n -s $error_color $fish $normal_color
         end
-    end
 
-    if git_is_repo
-        if test "$theme_short_path" = yes
-            set root_folder (command git rev-parse --show-toplevel 2> /dev/null)
-            set parent_root_folder (dirname $root_folder)
-            set cwd (echo $PWD | sed -e "s|$parent_root_folder/||")
-        end
+        if git_is_repo
+            if test "$theme_short_path" = yes
+                set root_folder (command git rev-parse --show-toplevel 2> /dev/null)
+                set parent_root_folder (dirname $root_folder)
+                set cwd (echo $PWD | sed -e "s|$parent_root_folder/||")
+            end
 
-        echo -n -s " " $directory_color $cwd $normal_color
-        echo -n -s " on " $repository_color (git_branch_name) $normal_color " "
+            echo -n -s " " $directory_color $cwd $normal_color
+            echo -n -s " on " $repository_color (git_branch_name) $normal_color " "
 
-        if git_is_touched
-            echo -n -s $dirty
+            if git_is_touched
+                echo -n -s $dirty
+            else
+                echo -n -s (git_ahead $ahead $behind $diverged $none)
+            end
         else
-            echo -n -s (git_ahead $ahead $behind $diverged $none)
+            echo -n -s " " $directory_color $cwd $normal_color
         end
-    else
-        echo -n -s " " $directory_color $cwd $normal_color
     end
 
-    echo -n -s " "
+    echo -n -s "$normal_color "
 
     # Reset cursor shape to beam
     printf '\033[6 q'

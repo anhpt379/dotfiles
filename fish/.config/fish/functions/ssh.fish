@@ -11,10 +11,8 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
     end
 
     # Sync dotfiles & binary files to remote
-    if not string match -q -- "git*" $argv[1]
-        if command ssh $argv[1] -- uptime &> /dev/null
-            echo "***************************************************************************"
-            echo "Uploading ~/.local/bin/"
+    if not string match -q -- "git*" $argv
+        if command ssh $argv -- uptime &> /dev/null
             rsync -azvhP \
                 --info=name0 \
                 --info=progress2 \
@@ -22,19 +20,9 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
                 --compress-level=9 \
                 --copy-links \
                 --keep-dirlinks \
-                ~/.local/bin/ $argv[1]:~/.local/bin/ 2>/dev/null
-            echo "***************************************************************************"
-            echo "Uploading ~/.ssh/files/"
-            rsync -azvhP \
-                --info=name0 \
-                --info=progress2 \
-                --no-inc-recursive \
-                --compress-level=9 \
-                --copy-links \
-                --keep-dirlinks \
-                --exclude-from="$HOME/.ssh/files/.rsyncignore" \
-                ~/.ssh/files/ $argv[1]:~/ 2>/dev/null
-            echo "***************************************************************************"
+                ~/.ssh/files/.bash* "$argv[1]":~/ 2>/dev/null
+
+            nohup ~/.config/fish/functions/rsync_dotfiles.sh $argv[1] > /tmp/.rsync-$argv[1].log &
         end
     end
 

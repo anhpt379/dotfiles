@@ -24,6 +24,7 @@ alias pbpaste 'nc 127.0.0.1 2225 --recv-only'
 alias root 'sudo -s -E fish'
 
 # Fix nvim `Cannot open undo file for writing` sometimes
+mkdir -p ~/.config/nvim/undo/
 sudo chown -R (whoami) ~/.config/nvim/undo/
 
 # Shorten title
