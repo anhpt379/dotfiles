@@ -45,4 +45,8 @@ cp diff-so-fancy/diff-so-fancy .local/bin/
 cp diff-so-fancy/lib/* .local/bin/lib/
 rm -rf diff-so-fancy
 
+# moar
+wget 'https://github.com/walles/moar/releases/download/1.2/moar-1.2-linux-386'
+mv moar-* .local/bin/moar
+chmod +x .local/bin/moar
 ```
