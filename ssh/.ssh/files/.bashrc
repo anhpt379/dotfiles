@@ -29,6 +29,9 @@ alias la='ls --color=yes --group-directories-first -A'
 alias ll='ls --color=yes --group-directories-first -lh'
 alias lla='ls --color=yes --group-directories-first -lhA'
 
+alias jc='sudo journalctl -u'
+alias sc='sudo systemctl'
+
 alias g='git'
 alias gs='git status'
 alias pp='command sudo -E puppet agent -t'

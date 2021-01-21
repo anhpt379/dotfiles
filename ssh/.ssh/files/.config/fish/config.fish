@@ -16,12 +16,16 @@ source ~/.config/omf/init.fish
 alias pp  'command sudo puppet agent -t'
 alias ppa 'command sudo puppet agent -t --environment=(whoami)'
 
+alias jc='sudo journalctl -u'
+alias sc='sudo systemctl'
+
 alias tmux 'command tmux attach -t (whoami); or command tmux new -s (whoami)'
 
 alias pbcopy  'nc 127.0.0.1 2224 --send-only'
 alias pbpaste 'nc 127.0.0.1 2225 --recv-only'
 
-alias root 'sudo -s -E fish'
+alias root 'sudo -E -s'
+alias sudo 'sudo -E'
 
 # Fix nvim `Cannot open undo file for writing` sometimes
 mkdir -p ~/.config/nvim/undo/
