@@ -49,7 +49,6 @@ endif
 		puppet-lint-trailing_newline-check \
 		solargraph
 	curl -fLo /usr/local/bin/prettyping https://github.com/denilsonsa/prettyping/raw/master/prettyping && chmod +x /usr/local/bin/prettyping
-	curl -fLo /usr/local/bin/moar https://github.com/walles/moar/releases/download/1.2/moar-1.2-darwin-amd64 && chmod +x /usr/local/bin/moar
 
 	mkdir -p ~/.config/nvim/autoload/
 	curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim

@@ -4,7 +4,7 @@ function gl --description "fzf git log"
     set log_line_to_hash "echo {} | grep -o '^[a-f0-9]\{7,40\} ' | head -1"
     set view_commit "git show --color=always `$log_line_to_hash`"
     set rebase_commit "git rebase -i `$log_line_to_hash`"
-    set preview_commit "git show --color=always `$log_line_to_hash` | diff-so-fancy | moar"
+    set preview_commit "git show --color=always `$log_line_to_hash` | diff-so-fancy | less --tabs=4 -RX"
     set copy_commit_hash "$log_line_to_hash | tr -d '\n' | pbcopy"
     set open_in_browser "$log_line_to_hash | xargs -I % sh -c 'open https://\$(git config remote.origin.url | sed \'s/^git@//\' | sed \'s/\.git\$//\' | sed \'s/:/\//\')/commit/%'"
 

@@ -43,7 +43,6 @@ else
 end
 
 balias cat 'bat'
-balias less 'moar'
 balias ping 'prettyping --nolegend'
 balias ncdu 'ncdu -rr -x --exclude .git'
 balias fd 'fd --hidden --exclude=".git"'
@@ -75,8 +74,7 @@ alias nv  'nvim'
 
 globabbr G '| grep'
 globabbr H '| head'
-globabbr M '| moar'
-globabbr L '| moar'
+globabbr L '| less'
 globabbr T '| tail'
 globabbr S '| sort'
 globabbr U '| uniq'
