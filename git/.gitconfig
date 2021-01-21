@@ -21,9 +21,9 @@
   showUntrackedFiles = all
 
 [pager]
-  log  = diff-so-fancy | moar
-  show = diff-so-fancy | moar
-  diff = diff-so-fancy | moar
+  log  = diff-so-fancy | less --tabs=4
+  show = diff-so-fancy | less --tabs=4
+  diff = diff-so-fancy | less --tabs=4
 
 [interactive]
   diffFilter = (echo && diff-so-fancy)
