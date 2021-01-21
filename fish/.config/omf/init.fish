@@ -30,10 +30,17 @@ balias ...   'cd ../..'
 balias ....  'cd ../../..'
 balias ..... 'cd ../../../..'
 
-balias ls  'exa --group-directories-first'
-balias la  'exa --group-directories-first -a'
-balias ll  'exa --group-directories-first -l'
-balias lla 'exa --group-directories-first -la'
+if [ (uname -s) = 'Darwin' ]
+    balias ls  'exa --group-directories-first'
+    balias la  'exa --group-directories-first -a'
+    balias ll  'exa --group-directories-first -l'
+    balias lla 'exa --group-directories-first -la'
+else
+    balias ls  'ls --color=yes --group-directories-first'
+    balias la  'ls --color=yes --group-directories-first -A'
+    balias ll  'ls --color=yes --group-directories-first -lh'
+    balias lla 'ls --color=yes --group-directories-first -lhA'
+end
 
 balias cat 'bat'
 balias less 'moar'
@@ -88,6 +95,7 @@ set -gx PATH $HOME/Library/Python/3.7/bin $PATH
 set -gx PATH $HOME/.cargo/bin $PATH
 set -gx PATH $HOME/go/bin $PATH
 set -gx PATH '/usr/local/opt/gnu-sed/libexec/gnubin' $PATH
+set -gx PATH '/usr/local/opt/coreutils/libexec/gnubin' $PATH
 set -gx fish_user_paths '/usr/local/opt/curl/bin' $fish_user_paths
 
 set -gx KUBE_EDITOR 'vim'
