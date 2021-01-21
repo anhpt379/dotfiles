@@ -1,10 +1,14 @@
-# option+left/right to jump word by word
+# Option+left/right to jump word by word
 "\e[1;3C": forward-word
 "\e[1;3D": backward-word
 
-# option+forward_delete
+# Option+forward_delete
 "\e[3;3~": kill-word
 
-# control+delete/forward_delete
+# Control+delete/forward_delete
 "\C-h": unix-word-rubout
 "\e[3;5~": kill-word
+
+# Fix not working home/end keys in CentOS 7.9
+"\e[1~": beginning-of-line
+"\e[4~": end-of-line
