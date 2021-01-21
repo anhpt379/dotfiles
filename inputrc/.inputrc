@@ -12,3 +12,9 @@
 # Fix not working home/end keys in CentOS 7.9
 "\e[1~": beginning-of-line
 "\e[4~": end-of-line
+
+# Press ESC twice to delete the current line
+"\e\e": kill-whole-line
+
+# Autocomplete with a single <Tab> press
+set show-all-if-ambiguous on
