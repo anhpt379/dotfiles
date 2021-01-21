@@ -12,7 +12,7 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
 
     # Sync dotfiles & binary files to remote
     if not string match -q -- "git*" $argv
-        if command ssh $argv -- uptime &> /dev/null
+        if command ssh $argv -- /bin/true &> /dev/null
             rsync -azvhP \
                 --info=name0 \
                 --info=progress2 \
