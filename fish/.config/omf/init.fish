@@ -43,6 +43,7 @@ else
 end
 
 balias cat 'bat'
+balias grep 'rg'
 balias ping 'prettyping --nolegend'
 balias ncdu 'ncdu -rr -x --exclude .git'
 balias fd 'fd --hidden --exclude=".git"'
