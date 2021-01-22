@@ -20,5 +20,8 @@
 # Press ESC twice to delete the current line
 "\e\e": kill-whole-line
 
+# Ctrl+D to exit bash immediately
+"\C-d": "\C-u\C-d"
+
 # Autocomplete with a single <Tab> press
 set show-all-if-ambiguous on
