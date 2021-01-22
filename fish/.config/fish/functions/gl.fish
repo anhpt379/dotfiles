@@ -5,8 +5,12 @@ function gl --description "fzf git log"
     set view_commit "git show --color=always `$log_line_to_hash`"
     set rebase_commit "git rebase -i `$log_line_to_hash`"
     set preview_commit "git show --color=always `$log_line_to_hash` | diff-so-fancy | less --tabs=4 -RX"
-    set copy_commit_hash "$log_line_to_hash | tr -d '\n' | pbcopy"
     set open_in_browser "$log_line_to_hash | xargs -I % sh -c 'open https://\$(git config remote.origin.url | sed \'s/^git@//\' | sed \'s/\.git\$//\' | sed \'s/:/\//\')/commit/%'"
+    if [ (uname -s) = 'Darwin' ]
+        set copy_commit_hash "$log_line_to_hash | tr -d '\n' | pbcopy"
+    else
+        set copy_commit_hash "$log_line_to_hash | tr -d '\n' | nc 127.0.0.1 2224 --send-only"
+    end
 
     set argv_count (count $argv)
     set cmd_name $_
