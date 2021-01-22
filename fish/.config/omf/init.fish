@@ -69,8 +69,8 @@ balias m 'master'
 balias n 'note'
 balias o 'openstack'
 
-alias v   'echo "Using nvim instead..."; sleep 0.3; nvim'
-alias vim 'echo "Using nvim instead..."; sleep 0.3; nvim'
+alias v   'nvim'
+alias vim 'nvim'
 alias nv  'nvim'
 
 globabbr G '| grep'
