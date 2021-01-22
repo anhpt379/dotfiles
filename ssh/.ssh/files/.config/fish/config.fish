@@ -29,7 +29,9 @@ alias sudo 'sudo -E'
 
 # Fix nvim `Cannot open undo file for writing` sometimes
 mkdir -p ~/.config/nvim/undo/
-sudo chown -R (whoami) ~/.config/nvim/undo/
+if command sudo -v 2>/dev/null
+    sudo chown -R (whoami) ~/.config/nvim/undo/
+end
 
 # Shorten title
 title (hostname | awk -F. '{ print $1 }')
