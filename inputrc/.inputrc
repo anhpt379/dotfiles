@@ -2,6 +2,10 @@
 "\e[1;3C": forward-word
 "\e[1;3D": backward-word
 
+# Page-up/page-down to move between whitespace-delimited words
+"\e[5~": shell-forward-word
+"\e[6~": shell-backward-word
+
 # Option+forward_delete
 "\e[3;3~": kill-word
 
