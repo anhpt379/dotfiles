@@ -18,14 +18,14 @@
   \e[1;5C right    # Arrow right
 
   # Disable Ctrl/Option/Command+J/K (Down/Up)
-  \e[1;3A insert  # Arrow up
-  \e[1;3B insert  # Arrow down
-  \e[5~   insert  # (Page Up)
-  \e[6~   insert  # (Page Down)
+  \e[1;3A insert   # Arrow up
+  \e[1;3B insert   # Arrow down
+  \e[5~   insert   # Page Up
+  \e[6~   insert   # Page Down
 
   # Ctrl/Option/Command+ForwardDelete
-  \e[3;5~ delete
-  \e[3;3~ word-delete
+  \e[3;5~ delete       # Ctrl+ForwardDelete
+  \e[3;3~ word-delete  # Option+ForwardDelete
 
   # Ctrl+W to delete word
   ^W   word-backspace
