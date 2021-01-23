@@ -111,10 +111,10 @@ set -gx LESS 'RM'
 # Hide the fish greeting
 set fish_greeting ""
 
-# Delete big word with Ctrl+Delete
+# Delete big word with Ctrl+Backspace
 bind \cH backward-kill-bigword
 
-# Make reverse word delete work (using ctrl/option+forward_delete)
+# Make reverse word delete work (using ctrl/option+delete)
 bind \e\[3\;5~ kill-bigword
 bind \e\[3\;3~ kill-word
 
