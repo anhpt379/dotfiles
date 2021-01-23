@@ -23,9 +23,9 @@
   \e[5~   insert   # Page Up
   \e[6~   insert   # Page Down
 
-  # Ctrl/Option/Command+ForwardDelete
-  \e[3;5~ delete       # Ctrl+ForwardDelete
-  \e[3;3~ word-delete  # Option+ForwardDelete
+  # Ctrl/Option/Command+Delete
+  \e[3;5~ delete       # Ctrl+Delete
+  \e[3;3~ word-delete  # Option+Delete
 
   # Ctrl+W to delete word
   ^W   word-backspace
