@@ -967,7 +967,7 @@ command! SudoWrite w suda://%
 
 " Floaterm
 let g:floaterm_shell = '/usr/local/bin/fish'
-let g:floaterm_wintype = 'normal'
+let g:floaterm_wintype = 'split'
 let g:floaterm_autoclose = 1
 let g:floaterm_open_in_root = v:true
 
