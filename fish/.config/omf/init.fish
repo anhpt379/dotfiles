@@ -139,7 +139,7 @@ bind \t  'fzf_complete'
 # https://github.com/junegunn/fzf/blob/0.25.0/src/util/util_unix.go#L13
 set -gx SHELL '/bin/bash'
 
-set -gx FZF_DEFAULT_COMMAND 'fd --hidden --type f --exclude ".git" -E "*.jp*g" -E "*.png"'
+set -gx FZF_DEFAULT_COMMAND 'fd --hidden --type f --color=never --exclude ".git" -E "*.jp*g" -E "*.png"'
 set -gx FZF_DEFAULT_OPTS    '
   --pointer=" " --prompt="> "
   --color=fg:#DCDFE4,bg:-1,hl:#DCDFE4
