@@ -77,6 +77,7 @@ call plug#begin()
   Plug 'kana/vim-niceblock'
   Plug 'haya14busa/vim-asterisk'
   Plug 'google/vim-searchindex'
+  Plug 'junegunn/vim-after-object'
 
   " Heavily loaded plugins
   if has('mac')
@@ -1025,3 +1026,6 @@ function! CopyWithRef()
 endfunction
 
 vnoremap gy :call CopyWithRef()<CR>
+
+" Vim-after-object: change/delete/select text *after* a character
+autocmd VimEnter * silent! call after_object#enable(['a', 'A'], '=', ':', '#', ' ', '|', '*')
