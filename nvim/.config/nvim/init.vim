@@ -455,16 +455,18 @@ noremap <expr> gw &modified ? ':silent! Gwrite<CR>:update<CR>' : ''
 
 command! Gundo               silent! G undo
 command! Gstash              silent! G stash
+command! Gstashpop           silent! G stash pop
 command! Gco                 silent! G checkout
 command! Grebasecontinue     silent! G rebase --continue
 command! Grebaseabort        silent! G rebase --abort
 command! Gmergecontinue      silent! G merge --continue
 command! Gmergeabort         silent! G merge --abort
-command! Gcherrypick         silent! G cherry-pick
 command! Gcherrypickcontinue silent! G cherry-pick --continue
 command! Gcherrypickabort    silent! G cherry-pick --abort
-command! Pull                silent! G pull --rebase origin master
-command! Master              silent! G checkout master
+
+nmap g[ :Dispatch! noti git pull --rebase origin master<CR>
+nmap g] :Dispatch! noti git push --force-with-lease origin HEAD<CR>
+nmap M  :Dispatch! noti 'git checkout master && git pull --rebase origin master'<CR>
 
 augroup fugitive-personal-key-mappings
   autocmd FileType fugitive nmap <buffer> p :bd!<CR>:Dispatch! noti git push origin HEAD --force-with-lease<CR>
