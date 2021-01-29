@@ -955,7 +955,7 @@ endif
 let g:vim_git_browse_use_default_keymap = 0
 nnoremap <silent> go :<C-u>call vim_git_browse#GitBrowse(v:false)<CR>
 xnoremap <silent> go :<C-u>call vim_git_browse#GitBrowse(v:true)<CR>
-nnoremap <silent> gM :<C-u>call vim_git_browse#GitOpenPullRequest()<CR>
+nnoremap <silent> g\ :<C-u>call vim_git_browse#GitOpenPullRequest()<CR>
 
 " LanguageTool
 " Disable vim <C-n>/<C-p> complete in INSERT mode, since we have coc-dictionary
