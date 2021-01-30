@@ -991,3 +991,6 @@ function! GoogleSearchImFeelingLucky()
   silent! exec "silent! !open \"http://www.google.com/search?sourceid=navclient&gfns=1&q=" . searchterm . "\" &"
 endfunction
 vnoremap gg "gy<Esc>:call GoogleSearchImFeelingLucky()<CR>
+
+" ENTER in VISUAL mode to start EasyAlign
+vmap <Enter> <Plug>(EasyAlign)
