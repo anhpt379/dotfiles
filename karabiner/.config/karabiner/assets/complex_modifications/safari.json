@@ -2,7 +2,7 @@
   "title": "Safari key bindings",
   "rules": [
     {
-      "description": "Focus on the address bar with Cmd+O",
+      "description": "Safari - Focus on the address bar with cmd+o",
       "manipulators": [
         {
           "type": "basic",
@@ -28,7 +28,7 @@
       ]
     },
     {
-      "description": "Accept suggestion & go to the url with CapsLock+G",
+      "description": "Safari - Accept suggestion & go to the url with capslock+g",
       "manipulators": [
         {
           "type": "basic",
@@ -53,14 +53,35 @@
       ]
     },
     {
-      "description": "Switch to previous tab with Enter+`",
+      "description": "Safari - Switch tabs with cmd+n/p",
       "manipulators": [
         {
           "type": "basic",
           "from": {
-            "key_code": "grave_accent_and_tilde",
+            "key_code": "n",
             "modifiers": {
-              "mandatory": ["right_control"]
+              "mandatory": ["left_command"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "tab",
+              "modifiers": ["left_control"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.apple\\.Safari$"]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "p",
+            "modifiers": {
+              "mandatory": ["left_command"]
             }
           },
           "to": [
