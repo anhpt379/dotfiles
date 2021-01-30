@@ -77,6 +77,7 @@ call plug#begin()
   Plug 'haya14busa/vim-asterisk'
   Plug 'google/vim-searchindex'
   Plug 'junegunn/vim-after-object'
+  Plug 'jeetsukumaran/vim-indentwise'
 
   " Heavily loaded plugins
   if has('mac')
@@ -1028,3 +1029,7 @@ vnoremap gy :call CopyWithRef()<CR>
 
 " Vim-after-object: change/delete/select text *after* a character
 autocmd VimEnter * silent! call after_object#enable(['a', 'A'], '=', ':', '#', ' ', '|', '*')
+
+" ]i and [i to go to next/previous indentation level
+nmap <silent> ]i <Plug>(IndentWiseNextGreaterIndent)
+nmap <silent> [i <Plug>(IndentWisePreviousLesserIndent)
