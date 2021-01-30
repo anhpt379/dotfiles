@@ -5,6 +5,7 @@
 [core]
   editor = nvim
   commitGraph = true
+  excludesFile = ~/.gitignore_global
 
 [color]
   ui = true
