@@ -467,6 +467,7 @@ nmap g[ :Dispatch! noti git pull --rebase origin master<CR>
 nmap g] :Dispatch! noti git push --force-with-lease origin HEAD<CR>
 nmap M  :Dispatch! noti 'git checkout master && git pull --rebase origin master'<CR>
 
+let fugitive_no_maps = 1
 augroup fugitive-personal-key-mappings
   autocmd FileType fugitive nmap <buffer> p :bd!<CR>:Dispatch! noti git push origin HEAD --force-with-lease<CR>
 
