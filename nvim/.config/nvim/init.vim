@@ -68,7 +68,6 @@ call plug#begin()
   Plug 'cohama/lexima.vim'
   Plug 'tpope/vim-speeddating'
   Plug 'tpope/vim-dispatch'
-  Plug 'Asheq/close-buffers.vim'
   Plug 'qxxxb/vim-searchhi'
   Plug 'inkarkat/vim-EnhancedJumps' | Plug 'inkarkat/vim-ingo-library'
   Plug 'sbdchd/neoformat'
@@ -501,9 +500,6 @@ augroup end
 " current buffer)
 nnoremap \ q
 
-" Record into register 'q', playback with 'Q'
-nnoremap Q @q
-
 " Use U as redo
 nnoremap U <C-R>
 
@@ -634,8 +630,8 @@ endfunction
 
 map q :<C-u>silent! call Goodbye()<CR>
 
-" Quickly close several buffers at once
-nnoremap <silent> Q :Bdelete! menu<CR>
+" Close all buffers without saving
+nnoremap <silent> Q :q<CR>
 
 " Startify
 nmap <Leader><Leader> :Startify<CR>
