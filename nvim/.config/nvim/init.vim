@@ -294,8 +294,8 @@ if has('mac')
   nmap <Leader>8 <Plug>lightline#bufferline#go(8)
   nmap <Leader>9 <Plug>lightline#bufferline#go(9)
   nmap <Leader>0 <Plug>lightline#bufferline#go(10)
-  nmap <Leader><Tab>   :bnext<CR>
-  nmap <Leader><S-Tab> :bprevious<CR>
+  nmap <C-n> :bnext<CR>
+  nmap <C-p> :bprevious<CR>
 
   let g:lightline#bufferline#show_number     = 2
   let g:lightline#bufferline#shorten_path    = 1
@@ -345,8 +345,8 @@ set signcolumn=yes
 inoremap <expr> <CR> pumvisible() ? '\<C-y>' : '\<CR>'
 
 " Navigate diagnostics
-nmap <silent> <C-p> <Plug>(coc-diagnostic-prev)
-nmap <silent> <C-n> <Plug>(coc-diagnostic-next)
+nmap <silent> <Tab> <Plug>(coc-diagnostic-prev)
+nmap <silent> <S-Tab> <Plug>(coc-diagnostic-next)
 
 " Jump to next/prev diagnostic from INSERT mode also
 imap <silent> <C-n> <Esc><C-n>
