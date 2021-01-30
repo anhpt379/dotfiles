@@ -870,17 +870,17 @@ map [n :<C-u>set nonumber<CR>
 map ]n :<C-u>set number<CR>
 
 " Vim searchhi
-map n   <Plug>(searchhi-n)<Plug>SearchIndex
-map N   <Plug>(searchhi-N)<Plug>SearchIndex
-map *   <Plug>(asterisk-*)<Plug>(searchhi-update)
-map #   <Plug>(asterisk-#)<Plug>(searchhi-update)
-map g*  <Plug>(asterisk-g*)<Plug>(searchhi-update)
-map g#  <Plug>(asterisk-g#)<Plug>(searchhi-update)
+map n   <Plug>(searchhi-n)zz<Plug>SearchIndex
+map N   <Plug>(searchhi-N)zz<Plug>SearchIndex
+map *   <Plug>(asterisk-*)zz<Plug>(searchhi-update)
+map #   <Plug>(asterisk-#)zz<Plug>(searchhi-update)
+map g*  <Plug>(asterisk-g*)zz<Plug>(searchhi-update)
+map g#  <Plug>(asterisk-g#)zz<Plug>(searchhi-update)
 
-map z*  <Plug>(asterisk-z*)<Plug>(searchhi-update)
-map z#  <Plug>(asterisk-z#)<Plug>(searchhi-update)
-map gz* <Plug>(asterisk-gz*)<Plug>(searchhi-update)
-map gz# <Plug>(asterisk-gz#)<Plug>(searchhi-update)
+map z*  <Plug>(asterisk-z*)zz<Plug>(searchhi-update)
+map z#  <Plug>(asterisk-z#)zz<Plug>(searchhi-update)
+map gz* <Plug>(asterisk-gz*)zz<Plug>(searchhi-update)
+map gz# <Plug>(asterisk-gz#)zz<Plug>(searchhi-update)
 
 let g:searchhi_clear_all_asap = 1
 
