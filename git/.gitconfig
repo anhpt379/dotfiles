@@ -48,7 +48,7 @@
   cleanup = scissors
 
 [rebase]
-  autoStash = 1
+  autoStash = true
 
 [pull]
   rebase = false
