@@ -1,8 +1,8 @@
 {
-  "title": "Safari key bindings",
+  "title": "Safari/Chrome key bindings",
   "rules": [
     {
-      "description": "Safari - Focus on the address bar with cmd+o",
+      "description": "Safari/Chrome - Focus on the address bar with cmd+o",
       "manipulators": [
         {
           "type": "basic",
@@ -21,14 +21,17 @@
           "conditions": [
             {
               "type": "frontmost_application_if",
-              "bundle_identifiers": ["^com\\.apple\\.Safari$"]
+              "bundle_identifiers": [
+                "^com\\.apple\\.Safari$",
+                "^com\\.google\\.Chrome$"
+              ]
             }
           ]
         }
       ]
     },
     {
-      "description": "Safari - Accept suggestion & go to the url with capslock+g",
+      "description": "Safari/Chrome - Accept suggestion & go to the url with capslock+g",
       "manipulators": [
         {
           "type": "basic",
@@ -46,14 +49,17 @@
           "conditions": [
             {
               "type": "frontmost_application_if",
-              "bundle_identifiers": ["^com\\.apple\\.Safari$"]
+              "bundle_identifiers": [
+                "^com\\.apple\\.Safari$",
+                "^com\\.google\\.Chrome$"
+              ]
             }
           ]
         }
       ]
     },
     {
-      "description": "Safari - Switch tabs with cmd+n/p",
+      "description": "Safari/Chrome - Switch tabs with cmd+n/p",
       "manipulators": [
         {
           "type": "basic",
@@ -72,7 +78,10 @@
           "conditions": [
             {
               "type": "frontmost_application_if",
-              "bundle_identifiers": ["^com\\.apple\\.Safari$"]
+              "bundle_identifiers": [
+                "^com\\.apple\\.Safari$",
+                "^com\\.google\\.Chrome$"
+              ]
             }
           ]
         },
@@ -93,7 +102,10 @@
           "conditions": [
             {
               "type": "frontmost_application_if",
-              "bundle_identifiers": ["^com\\.apple\\.Safari$"]
+              "bundle_identifiers": [
+                "^com\\.apple\\.Safari$",
+                "^com\\.google\\.Chrome$"
+              ]
             }
           ]
         }
