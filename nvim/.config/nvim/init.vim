@@ -979,7 +979,9 @@ augroup end
 nnoremap gb :FloatermNew gb<CR>
 
 " Vim-after-object: change/delete/select text *after* a character
-autocmd VimEnter * silent! call after_object#enable(['a', 'A'], '=', ':', '#', ' ', '|', '*')
+augroup vim-after-object
+  autocmd VimEnter * silent! call after_object#enable(['a', 'A'], '=', ':', '#', ' ', '|', '*')
+augroup end
 
 " ]i and [i to go to next/previous indentation level
 nmap <silent> ]i <Plug>(IndentWiseNextGreaterIndent)
@@ -987,8 +989,8 @@ nmap <silent> [i <Plug>(IndentWisePreviousLesserIndent)
 
 " gg in VISUAL mode to perform google I'm feeling lucky search on the selected text
 function! GoogleSearchImFeelingLucky()
-  let searchterm = getreg("g")
-  silent! exec "silent! !open \"http://www.google.com/search?sourceid=navclient&gfns=1&q=" . searchterm . "\" &"
+  let searchterm = getreg('g')
+  silent! exec 'silent! !open "http://www.google.com/search?sourceid=navclient&gfns=1&q=' . searchterm . '" &'
 endfunction
 vnoremap gg "gy<Esc>:call GoogleSearchImFeelingLucky()<CR>
 
