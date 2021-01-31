@@ -149,6 +149,7 @@ set -gx FZF_DEFAULT_OPTS    '
   --color=info:#555555,spinner:#555555
   --color=marker:#55CABE
   --color=spinner:108
+  --cycle
   --no-multi
   --reverse
   --height=40%
