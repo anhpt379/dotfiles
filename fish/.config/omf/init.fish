@@ -80,6 +80,7 @@ globabbr T '| tail'
 globabbr S '| sort'
 globabbr U '| uniq'
 globabbr V '| nvim -'
+globabbr W '| wc -l'
 
 # Key bindings
 bind \cg accept-autosuggestion execute
