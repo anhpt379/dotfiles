@@ -637,9 +637,11 @@ nnoremap <silent> Q :q<CR>
 " Startify
 nmap <Leader><Leader> :Startify<CR>
 
+set shada=!,'5000,<2500,s500,h
 let g:startify_change_to_dir = 0
 let g:startify_fortune_use_unicode = 1
 let g:startify_enable_special = 0
+let g:startify_update_oldfiles = 1
 
 let g:startify_lists = [
   \ {'header': ['   MRU '. getcwd()], 'type': 'dir'},
