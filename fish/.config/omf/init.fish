@@ -72,6 +72,7 @@ alias v   'nvim'
 alias vim 'nvim'
 alias nv  'nvim'
 
+globabbr C '| grcat conf.auto'
 globabbr G '| grep'
 globabbr H '| head'
 globabbr L '| less'
