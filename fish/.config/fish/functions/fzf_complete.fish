@@ -1,5 +1,5 @@
 function fzf_complete
-    set -l cmdline (commandline)
+    set -l cmdline (commandline --cut-at-cursor)
     set -l current_word (commandline -ct)
 
     # Color descriptions manually
