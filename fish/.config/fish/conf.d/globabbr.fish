@@ -6,6 +6,9 @@ function __fish_expand_globabbreviation
 
         if globabbreviations -q $token
             commandline -t (globabbreviations $token)
+            return 0
+        else
+            return 1
         end
 #    end
 end
