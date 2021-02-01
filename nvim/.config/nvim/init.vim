@@ -454,7 +454,6 @@ noremap <expr> gw &modified ? ':silent! Gwrite<CR>:update<CR>' : ''
 command! Gundo               silent! G undo
 command! Gstash              silent! G stash
 command! Gstashpop           silent! G stash pop
-command! Gco                 silent! G checkout
 command! Grebasecontinue     silent! G rebase --continue
 command! Grebaseabort        silent! G rebase --abort
 command! Gmergecontinue      silent! G merge --continue
