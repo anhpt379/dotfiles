@@ -468,7 +468,9 @@ nmap M  :Dispatch! noti 'git checkout master && git pull --rebase origin master'
 
 let fugitive_no_maps = 1
 augroup fugitive-personal-key-mappings
-  autocmd FileType fugitive nmap <buffer> p :bd!<CR>:Dispatch! noti git push origin HEAD --force-with-lease<CR>
+  autocmd FileType fugitive nmap <buffer> p :bd!<CR>
+        \ :Dispatch! noti git push origin HEAD --force-with-lease<CR>
+        \ :silent exec '!git rev-parse --short HEAD \| pbcopy'<CR>
 
   " Verbose and quiet git commit by default
   autocmd FileType fugitive nmap <buffer> C  :vertical Git commit --quiet --no-status<CR>
