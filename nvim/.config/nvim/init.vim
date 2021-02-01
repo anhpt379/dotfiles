@@ -463,7 +463,7 @@ command! Gcherrypickcontinue silent! G cherry-pick --continue
 command! Gcherrypickabort    silent! G cherry-pick --abort
 
 nmap g[ :Dispatch! noti git pull --rebase origin master<CR>
-nmap g] :Dispatch! noti git push --force-with-lease origin HEAD<CR>
+nmap g] :Dispatch! noti git push --force-with-lease origin HEAD<CR>:silent exec '!git rev-parse --short HEAD \| pbcopy'<CR>
 nmap M  :Dispatch! noti 'git checkout master && git pull --rebase origin master'<CR>
 
 let fugitive_no_maps = 1
