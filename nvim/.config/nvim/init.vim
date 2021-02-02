@@ -293,8 +293,8 @@ if has('mac')
   nmap <Leader>8 <Plug>lightline#bufferline#go(8)
   nmap <Leader>9 <Plug>lightline#bufferline#go(9)
   nmap <Leader>0 <Plug>lightline#bufferline#go(10)
-  nmap <C-n> :bnext<CR>
-  nmap <C-p> :bprevious<CR>
+  nmap <M-n> :bnext<CR>
+  nmap <M-p> :bprevious<CR>
 
   let g:lightline#bufferline#show_number     = 2
   let g:lightline#bufferline#shorten_path    = 1
@@ -466,7 +466,6 @@ nmap g[ :Dispatch! noti git pull --rebase origin master<CR>
 nmap g] :Dispatch! noti git push --force-with-lease origin HEAD<CR>:silent exec '!git rev-parse --short HEAD \| pbcopy'<CR>
 nmap M  :Dispatch! noti 'git checkout master && git pull --rebase origin master'<CR>
 
-let fugitive_no_maps = 1
 augroup fugitive-personal-key-mappings
   autocmd FileType fugitive nmap <buffer> p :bd!<CR>
         \ :Dispatch! noti git push origin HEAD --force-with-lease<CR>
