@@ -295,6 +295,9 @@ if has('mac')
   nmap <M-0> <Plug>lightline#bufferline#go(10)
   nmap <M-n> :bnext<CR>
   nmap <M-p> :bprevious<CR>
+  nmap <M-t> :enew<CR>
+  nmap <M-w> q
+  nmap <M-q> Q
 
   let g:lightline#bufferline#show_number     = 2
   let g:lightline#bufferline#shorten_path    = 1
