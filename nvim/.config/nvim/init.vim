@@ -997,3 +997,7 @@ vnoremap gg "gy<Esc>:call GoogleSearchImFeelingLucky()<CR>
 
 " ENTER in VISUAL mode to start EasyAlign
 vmap <Enter> <Plug>(EasyAlign)
+
+" Jump to next/previous paragraph with <C-n/p>
+nmap <C-n> }
+nmap <C-p> {
