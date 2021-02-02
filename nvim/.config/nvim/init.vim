@@ -293,6 +293,10 @@ if has('mac')
   nmap <Leader>8 <Plug>lightline#bufferline#go(8)
   nmap <Leader>9 <Plug>lightline#bufferline#go(9)
   nmap <Leader>0 <Plug>lightline#bufferline#go(10)
+  nmap <Leader>n :bnext<CR>
+  nmap <Leader>p :bprevious<CR>
+  nmap <Leader>w q
+  nmap <Leader>q Q
 
   nmap <M-1> <Plug>lightline#bufferline#go(1)
   nmap <M-2> <Plug>lightline#bufferline#go(2)
@@ -304,12 +308,11 @@ if has('mac')
   nmap <M-8> <Plug>lightline#bufferline#go(8)
   nmap <M-9> <Plug>lightline#bufferline#go(9)
   nmap <M-0> <Plug>lightline#bufferline#go(10)
-
   nmap <M-n> :bnext<CR>
   nmap <M-p> :bprevious<CR>
-  nmap <M-t> :enew<CR>
   nmap <M-w> q
   nmap <M-q> Q
+  nmap <M-t> :enew<CR>
 
   let g:lightline#bufferline#show_number     = 2
   let g:lightline#bufferline#shorten_path    = 1
@@ -687,9 +690,6 @@ augroup end
 " No magic search by default
 map / /\V
 map ? ?\V
-
-" coc-yank
-noremap <Leader>p :CocList --normal yank<CR>
 
 " vim-highlightedyank
 let g:highlightedyank_highlight_duration = 700
