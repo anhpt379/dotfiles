@@ -863,7 +863,7 @@ command! -complete=dir -nargs=+ -range=-1 Fr
 " Lf.vim
 let g:lf_map_keys = 0
 let g:lf_replace_netrw = 1
-autocmd TermEnter * if has("mac") | set showtabline=0 | endif | set nonumber | set signcolumn=no  | set mouse-=a | IndentLinesDisable
+autocmd TermOpen  * if has("mac") | set showtabline=0 | endif | set nonumber | set signcolumn=no  | set mouse-=a | IndentLinesDisable
 autocmd TermLeave * if has("mac") | set showtabline=2 | endif | set number   | set signcolumn=yes | set mouse+=a
 map <Leader>l :<C-u>Lf<CR>
 
