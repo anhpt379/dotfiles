@@ -422,6 +422,7 @@ command! GstatusClose call s:close_gstatus()
 
 noremap <M-Space> :GstatusClose<CR>:silent FilesMru<CR>
 noremap <Leader>g :GstatusClose<CR>:FzfRg<Space>
+noremap <Leader>l :GstatusClose<CR>:FzfLines<CR>
 noremap <Leader>t :GstatusClose<CR>:FzfFiletypes<CR>
 " }}}
 
@@ -851,7 +852,7 @@ let g:lf_map_keys = 0
 let g:lf_replace_netrw = 1
 autocmd TermEnter * if has("mac") | set showtabline=0 | endif | set nonumber | set signcolumn=no  | set mouse-=a | IndentLinesDisable
 autocmd TermLeave * if has("mac") | set showtabline=2 | endif | set number   | set signcolumn=yes | set mouse+=a
-map <Leader>l :<C-u>Lf<CR>
+map <Leader>f :<C-u>Lf<CR>
 
 " Clever-f
 let g:clever_f_ignore_case = 0
