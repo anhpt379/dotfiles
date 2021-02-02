@@ -423,8 +423,8 @@ function! s:close_gstatus()
 endfunction
 command! GstatusClose call s:close_gstatus()
 
-noremap <M-Space> :GstatusClose<CR>:silent FilesMru<CR>
 noremap <Leader>g :GstatusClose<CR>:FzfRg<Space>
+noremap <Leader>f :GstatusClose<CR>:silent FilesMru<CR>
 noremap <Leader>t :GstatusClose<CR>:FzfFiletypes<CR>
 " }}}
 
