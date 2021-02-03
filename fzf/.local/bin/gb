@@ -5,7 +5,7 @@ git rev-parse HEAD >/dev/null || exit 1
 get_branch_name="echo -n {} | sed 's/.* //'"
 copy_cmd="${get_branch_name} | pbcopy"
 preview_cmd="${get_branch_name} | \
-  xargs -I$ \
+  xargs -I $ \
     git log -n 50 \
       --color=always \
       --date=relative \
