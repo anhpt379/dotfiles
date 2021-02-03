@@ -11,41 +11,44 @@ open_in_browser="${get_commit_hash} | \
   xargs -I \# sh -c \"if git log origin/HEAD..HEAD --pretty=format:%h --no-patch | grep -q #; then echo 'This commit # is not in remote yet.'; else open https://\$(git config remote.origin.url | sed 's/^git@//' | sed 's/\.git$//' | sed 's/:/\//')/commit/#; fi\""
 
 if [ "$(uname -s)" = 'Darwin' ]; then
-    copy_commit_hash="${get_commit_hash} | tr -d '\n' | pbcopy"
+  copy_commit_hash="${get_commit_hash} | tr -d '\n' | pbcopy"
 else
-    copy_commit_hash="${get_commit_hash} | tr -d '\n' | nc 127.0.0.1 2224 --send-only"
+  copy_commit_hash="${get_commit_hash} | tr -d '\n' | nc 127.0.0.1 2224 --send-only"
 fi
 
 argv_count=$#
 cmd_name=$(basename "$0")
 
 if [ "${cmd_name}" = "gl" ]; then
-    if [ ${argv_count} -eq 1 ]; then
-        args="-- '$1'"
-    fi
+  if [ ${argv_count} -eq 1 ]; then
+    args="-- '$1'"
+  fi
 else
-    if [ ${argv_count} -eq 1 ]; then
-        args="-i -S'$1'"
-    elif [ ${argv_count} -eq 2 ]; then
-        args="-i -S'$1' -- '$2'"
-    fi
+  if [ ${argv_count} -eq 1 ]; then
+    args="-i -S'$1'"
+  elif [ ${argv_count} -eq 2 ]; then
+    args="-i -S'$1' -- '$2'"
+  fi
 fi
 git_cmd="git log -5000 \
-                --no-merges \
-                --color=always \
-                --format='%C(green)%h%C(red)%d%Creset %C(reset)%s %C(#555555)%b(%aN - %cr)' \
-                ${args} 2>/dev/null"
+                 --no-merges \
+                 --color=always \
+                 --format='%C(green)%h%C(red)%d%Creset %C(reset)%s %C(#555555)%b(%aN - %cr)' \
+                 ${args} 2>/dev/null"
+
+red="$(tput setaf 1)"
+reset="$(tput sgr0)"
 eval "${git_cmd}" |
-    tr "\n" " " |
-    sed "s/\`//g" |
-    sed -E "s/\\x1b\\[32m[a-f0-9]{7,}+/\\n&/2g" |
-    fzf --no-mouse --reverse --tiebreak=index --no-multi --ansi --height=100% \
-        --preview="$preview_commit" \
-        --header="(Press CTRL-S to toggle sort, CTRL-Y to copy hash, CTRL-R to rebase, CTRL-O to open in browser)" \
-        --bind="enter:execute/${view_commit}/" \
-        --bind="ctrl-y:execute-silent/${copy_commit_hash}/+abort" \
-        --bind="ctrl-o:execute/${open_in_browser}/+abort" \
-        --bind="ctrl-r:execute/${rebase_commit}/+abort" \
-        --bind="ctrl-]:execute/git push --force-with-lease/+abort" \
-        --bind="ctrl-/:toggle-preview" \
-        --bind="ctrl-s:toggle-sort"
+  tr "\n" " " |
+  sed "s/\`//g" |
+  sed -E "s/\\x1b\\[32m[a-f0-9]{7,}+/\\n&/2g" |
+  fzf --no-mouse --reverse --tiebreak=index --no-multi --ansi --height=100% \
+    --preview="${preview_commit}" \
+    --header="${red}CTRL-S${reset} to toggle sort, ${red}CTRL-Y${reset} to yank commit hash, ${red}CTRL-R${reset} to rebase -i,\n ${red}CTRL-O${reset} to open commit in browser" \
+    --bind="enter:execute/${view_commit}/" \
+    --bind="ctrl-y:execute-silent/${copy_commit_hash}/+abort" \
+    --bind="ctrl-o:execute/${open_in_browser}/+abort" \
+    --bind="ctrl-r:execute/${rebase_commit}/+abort" \
+    --bind="ctrl-]:execute/git push --force-with-lease/+abort" \
+    --bind="ctrl-/:toggle-preview" \
+    --bind="ctrl-s:toggle-sort"
