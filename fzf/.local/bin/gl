@@ -8,8 +8,7 @@ rebase_commit="${get_commit_hash} | xargs -I % git rebase -i %"
 preview_commit="${get_commit_hash} | \
   xargs -I % git show --color=always % | diff-so-fancy | less --tabs=4 -RX"
 open_in_browser="${get_commit_hash} | \
-  xargs -I % sh -c \
-    'open https://\$(git config remote.origin.url | sed \'s/^git@//\' | sed \'s/\.git\$//\' | sed \'s/:/\//\')/commit/%'"
+  xargs -I \# sh -c \"if git log origin/HEAD..HEAD --pretty=format:%h --no-patch | grep -q #; then echo 'This commit # is not in remote yet.'; else open https://\$(git config remote.origin.url | sed 's/^git@//' | sed 's/\.git$//' | sed 's/:/\//')/commit/#; fi\""
 
 if [ "$(uname -s)" = 'Darwin' ]; then
     copy_commit_hash="${get_commit_hash} | tr -d '\n' | pbcopy"
@@ -45,7 +44,7 @@ eval "${git_cmd}" |
         --header="(Press CTRL-S to toggle sort, CTRL-Y to copy hash, CTRL-R to rebase, CTRL-O to open in browser)" \
         --bind="enter:execute/${view_commit}/" \
         --bind="ctrl-y:execute-silent/${copy_commit_hash}/+abort" \
-        --bind="ctrl-o:execute-silent/${open_in_browser}/+abort" \
+        --bind="ctrl-o:execute/${open_in_browser}/+abort" \
         --bind="ctrl-r:execute/${rebase_commit}/+abort" \
         --bind="ctrl-]:execute/git push --force-with-lease/+abort" \
         --bind="ctrl-/:toggle-preview" \
