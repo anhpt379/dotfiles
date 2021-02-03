@@ -362,8 +362,8 @@ set signcolumn=yes
 inoremap <expr> <CR> pumvisible() ? '\<C-y>' : '\<CR>'
 
 " Navigate diagnostics
-nmap <silent> <Tab> <Plug>(coc-diagnostic-prev)
-nmap <silent> <S-Tab> <Plug>(coc-diagnostic-next)
+nmap <silent> <C-n> <Plug>(coc-diagnostic-next)
+nmap <silent> <C-p> <Plug>(coc-diagnostic-prev)
 
 " Jump to next/prev diagnostic from INSERT mode also
 imap <silent> <C-n> <Esc><C-n>
@@ -1010,7 +1010,3 @@ vnoremap gg "gy<Esc>:call GoogleSearchImFeelingLucky()<CR>
 
 " ENTER in VISUAL mode to start EasyAlign
 vmap <Enter> <Plug>(EasyAlign)
-
-" Jump to next/previous paragraph with <C-n/p>
-nmap <C-n> }
-nmap <C-p> {
