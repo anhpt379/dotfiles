@@ -1,0 +1,44 @@
+#!/bin/bash
+
+git rev-parse HEAD >/dev/null || exit 1
+
+get_branch_name="echo -n {} | sed 's/.* //'"
+copy_cmd="${get_branch_name} | pbcopy"
+preview_cmd="${get_branch_name} | \
+  xargs -I$ \
+    git log -n 50 \
+      --color=always \
+      --date=relative \
+      --abbrev=7 \
+      --pretty='format:%C(auto,blue)%>(12,trunc)%ad %C(auto,yellow)%h %C(auto,green)%aN %C(auto,reset)%s%C(auto,red)% gD% D' \
+      $ --"
+
+result=$(
+  git branch --sort=-committerdate |
+    grep -v HEAD |
+    fzf --height=100% \
+      --preview-window=right:75% \
+      --exact \
+      --print-query \
+      --expect=ctrl-d \
+      --preview="${preview_cmd}" \
+      --header="(Press CTRL-Y to copy, CTRL-D to delete, ENTER to checkout)" \
+      --bind="ctrl-y:execute-silent/${copy_cmd}/+abort"
+)
+
+key=$(echo "${result}" | xargs | cut -d' ' -f1)
+branch_name=$(echo "${result}" | xargs | cut -d' ' -f2- | sed 's/.* //')
+
+if [ "${key}" = "ctrl-d" ]; then
+  if [ "$(git branch --show-current)" = "${branch_name}" ]; then
+    git checkout master && git branch -d "${branch_name}"
+  else
+    git branch -d "${branch_name}"
+  fi
+elif [ -n "${branch_name}" ]; then
+  if git show-ref --verify --quiet refs/heads/"${branch_name}"; then
+    git checkout "${branch_name}"
+  else
+    git checkout -b "${branch_name}"
+  fi
+fi

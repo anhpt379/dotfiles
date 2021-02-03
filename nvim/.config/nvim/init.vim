@@ -982,7 +982,6 @@ let g:suda#try_without_password = !has('nvim')
 command! SudoWrite w suda://%
 
 " Floaterm
-let g:floaterm_shell = '/usr/local/bin/fish'
 let g:floaterm_wintype = 'split'
 let g:floaterm_autoclose = 1
 let g:floaterm_open_in_root = v:true
@@ -991,7 +990,7 @@ augroup floaterm
   autocmd User Startified setlocal buflisted
 augroup end
 
-nnoremap gb :FloatermNew gb<CR>
+nnoremap gb :FloatermNew! gb<CR>
 
 " Vim-after-object: change/delete/select text *after* a character
 augroup vim-after-object
