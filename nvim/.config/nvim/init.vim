@@ -88,7 +88,7 @@ call plug#begin()
 
     Plug 'anhpt379/vim-fugitive'
     Plug 'anhpt379/git-messenger.vim'
-    Plug 'dinhhuy258/vim-git-browse'
+    Plug 'anhpt379/vim-git-browse'
 
     Plug 'anhpt379/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
     Plug 'nvim-treesitter/nvim-treesitter', {'commit': 'f84c93c'}
@@ -966,8 +966,10 @@ endif
 
 " Vim-git-browse
 let g:vim_git_browse_use_default_keymap = 0
-nnoremap <silent> go :<C-u>call vim_git_browse#GitBrowse(v:false)<CR>
-xnoremap <silent> go :<C-u>call vim_git_browse#GitBrowse(v:true)<CR>
+nnoremap <silent> go :<C-u>call vim_git_browse#GitBrowse(v:false, 'master')<CR>
+xnoremap <silent> go :<C-u>call vim_git_browse#GitBrowse(v:true, 'master')<CR>
+nnoremap <silent> gO :<C-u>call vim_git_browse#GitBrowse(v:false)<CR>
+xnoremap <silent> gO :<C-u>call vim_git_browse#GitBrowse(v:true)<CR>
 nnoremap <silent> g\ :<C-u>call vim_git_browse#GitOpenPullRequest()<CR>
 
 " LanguageTool
