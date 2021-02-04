@@ -2,7 +2,7 @@
 
 git rev-parse HEAD >/dev/null || exit 1
 
-get_branch_name="echo -n {} | sed 's/.* //'"
+get_branch_name="echo -n {} | sed -E 's/ \*$//'"
 
 if [ "$(uname -s)" = 'Darwin' ]; then
   copy_cmd="${get_branch_name} | xargs | tr -d '\n' | pbcopy"
