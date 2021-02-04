@@ -26,7 +26,8 @@ result=$(
       --print-query \
       --expect=ctrl-d \
       --preview="${preview_cmd}" \
-      --header="${red}ENTER${reset} to checkout, ${red}CTRL-Y${reset} to yank, ${red}CTRL-D${reset} to delete branch" \
+      --header="${red}CTRL-/${reset} to toggle preview, ${red}CTRL-Y${reset} to yank, ${red}CTRL-D${reset} to delete branch" \
+      --bind="ctrl-/:toggle-preview" \
       --bind="ctrl-y:execute-silent/${copy_cmd}/+abort"
 )
 
