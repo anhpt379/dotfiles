@@ -11,9 +11,9 @@ open_in_browser="${get_commit_hash} | \
   xargs -I \# sh -c \"if git log origin/HEAD..HEAD --pretty=format:%h --no-patch | grep -q #; then echo 'This commit # is not in remote yet.'; else open https://\$(git config remote.origin.url | sed 's/^git@//' | sed 's/\.git$//' | sed 's/:/\//')/commit/#; fi\""
 
 if [ "$(uname -s)" = 'Darwin' ]; then
-  copy_commit_hash="${get_commit_hash} | tr -d '\n' | pbcopy"
+  copy_commit_hash="${get_commit_hash} | xargs | tr -d '\n' | pbcopy"
 else
-  copy_commit_hash="${get_commit_hash} | tr -d '\n' | nc 127.0.0.1 2224 --send-only"
+  copy_commit_hash="${get_commit_hash} | xargs | tr -d '\n' | nc 127.0.0.1 2224 --send-only"
 fi
 
 argv_count=$#
