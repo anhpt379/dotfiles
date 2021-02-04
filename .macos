@@ -405,8 +405,8 @@ defaults write com.apple.messageshelper.MessageController SOInputLineSettings -d
 ###############################################################################
 # Rectangle                                                                   #
 ###############################################################################
-defaults write com.knollsoft.Rectangle almostMaximizeHeight -float 0.98
-defaults write com.knollsoft.Rectangle almostMaximizeWidth  -float 0.85
+defaults write com.knollsoft.Rectangle almostMaximizeHeight -float 0.8
+defaults write com.knollsoft.Rectangle almostMaximizeWidth  -float 0.7
 
 ###############################################################################
 # Kill affected applications                                                  #
