@@ -220,6 +220,7 @@ noremap <Space> <Nop>
 
 " Quickly reload nvim config & update plugins by pressing `<Leader>u`
 nnoremap <Leader>u :source ~/.config/nvim/init.vim<CR>
+  \ :PlugUpgrade<CR>
   \ :PlugClean<CR>
   \ :silent !PlugInstall<CR>
   \ :PlugUpdate --sync<CR>
