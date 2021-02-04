@@ -2,14 +2,14 @@
   "title": "Safari/Chrome key bindings",
   "rules": [
     {
-      "description": "Safari/Chrome - Focus on the address bar with cmd+o",
+      "description": "Safari/Chrome - Focus on the address bar with CTRL+O",
       "manipulators": [
         {
           "type": "basic",
           "from": {
             "key_code": "o",
             "modifiers": {
-              "mandatory": ["left_command"]
+              "mandatory": ["left_control"]
             }
           },
           "to": [
@@ -31,7 +31,46 @@
       ]
     },
     {
-      "description": "Safari/Chrome - Accept suggestion & go to the url with capslock+g",
+      "description": "Safari/Chrome - Copy URL in the address bar with CTRL+Y",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "y",
+            "modifiers": {
+              "mandatory": ["left_control"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "l",
+              "modifiers": ["left_command"]
+            },
+            {
+              "key_code": "c",
+              "modifiers": ["left_command"]
+            },
+            {
+              "key_code": "escape"
+            },
+            {
+              "key_code": "escape"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Safari$",
+                "^com\\.google\\.Chrome$"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Safari/Chrome - Accept suggestion & go to the url with CAPSLOCK+G",
       "manipulators": [
         {
           "type": "basic",
@@ -59,7 +98,7 @@
       ]
     },
     {
-      "description": "Safari/Chrome - Switch tabs with cmd+n/p",
+      "description": "Safari/Chrome - Switch tabs with CMD+N/P",
       "manipulators": [
         {
           "type": "basic",
