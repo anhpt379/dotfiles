@@ -244,7 +244,7 @@
           },
           "to": [
             {
-              "key_code": "e",
+              "key_code": "down_arrow",
               "modifiers": ["left_control"]
             }
           ],
@@ -288,7 +288,7 @@
           },
           "to": [
             {
-              "key_code": "a",
+              "key_code": "up_arrow",
               "modifiers": ["left_control"]
             }
           ],
