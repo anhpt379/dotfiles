@@ -71,6 +71,16 @@ alias v   'nvim'
 alias vim 'nvim'
 alias nv  'nvim'
 
+alias update '\
+    brew upgrade;
+    fisher self-update;
+    fisher;
+    omf update;
+    pip3 install --upgrade pip;
+    brew upgrade neovim-nightly;
+    tldr --update;
+'
+
 globabbr C '| grcat conf.auto'
 globabbr G '| grep'
 globabbr H '| head'
