@@ -35,7 +35,7 @@ alias sc='sudo systemctl'
 alias g='git'
 alias gs='git status'
 alias pp='command sudo -E puppet agent -t'
-alias ppa='command sudo -E puppet agent -t --environment=$(whoami)'
+alias ppa='command sudo -E puppet agent -t --environment=$USER'
 
 alias pbcopy='nc 127.0.0.1 2224 --send-only'
 alias pbpaste='nc 127.0.0.1 2225 --recv-only'
