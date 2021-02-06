@@ -636,6 +636,7 @@ let g:lexima_map_escape = ''
 
 " Sandwich
 runtime macros/sandwich/keymap/surround.vim
+xmap a <Plug>(operator-sandwich-add)
 
 " Close buffer with a single keypress
 function! Goodbye()
@@ -692,7 +693,7 @@ augroup end
 map / /\V
 map ? ?\V
 
-" vim-highlightedyank
+" Vim-highlightedyank
 let g:highlightedyank_highlight_duration = 700
 
 if !has('mac')
@@ -726,7 +727,7 @@ let g:conflict_marker_end   = '^>>>>>>> .*$'
 
 " }}}
 
-" vim-better-whitespace
+" Vim-better-whitespace
 let g:strip_whitespace_on_save = 0
 let g:strip_whitelines_at_eof = 1
 let g:better_whitespace_operator = ''
@@ -744,7 +745,7 @@ augroup disable-whitespace
   autocmd FileType * call DisableWhitespace()
 augroup end
 
-" vim indentline {{{
+" Vim indentline {{{
 set listchars=tab:→\ ,extends:»,precedes:«
 set list
 
@@ -774,7 +775,7 @@ augroup indentlines
 augroup end
 " }}}
 
-" vim-diminactive
+" Vim-diminactive
 let g:diminactive_filetype_blacklist = []
 let g:diminactive_buftype_blacklist = []
 let g:diminactive_use_syntax = 1
