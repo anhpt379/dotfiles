@@ -226,6 +226,7 @@ nnoremap <Leader>u :source ~/.config/nvim/init.vim<CR>
   \ :PlugUpdate --sync<CR>
   \ :CocUpdate<CR>
   \ :TSUpdate<CR>
+  \ :PlugDiff<CR>
 
 " Turn off whitespaces compare and folding in vimdiff
 set splitright
