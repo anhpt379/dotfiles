@@ -2,6 +2,35 @@
   "title": "Safari/Chrome key bindings",
   "rules": [
     {
+      "description": "Safari/Chrome - Focus on the address bar with CMD+O",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "o",
+            "modifiers": {
+              "mandatory": ["left_command"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "l",
+              "modifiers": ["left_command"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Safari$",
+                "^com\\.google\\.Chrome$"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "description": "Safari/Chrome - Focus on the address bar with CTRL+O",
       "manipulators": [
         {
