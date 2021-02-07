@@ -91,7 +91,7 @@ call plug#begin()
     Plug 'anhpt379/vim-git-browse'
 
     Plug 'anhpt379/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
-    Plug 'nvim-treesitter/nvim-treesitter', {'commit': 'f84c93c'}
+    Plug 'nvim-treesitter/nvim-treesitter'
 
     Plug 'rhysd/conflict-marker.vim'
     Plug 'itchyny/vim-parenmatch'
