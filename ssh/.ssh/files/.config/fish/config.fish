@@ -39,6 +39,9 @@ title (hostname | awk -F. '{ print $1 }')
 # Fix <C-c> doesn't work in remote fish
 bind \cc 'commandline ""'
 
+# Fix git-deploy umask complaining
+umask 0002
+
 # Auto start tmux
 if not set -q TMUX
     tmux
