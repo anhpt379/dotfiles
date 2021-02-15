@@ -483,13 +483,13 @@ command! Gcherrypickcontinue silent! G cherry-pick --continue
 command! Gcherrypickabort    silent! G cherry-pick --abort
 
 nmap g[ :Dispatch! noti git pull --rebase origin master<CR>
-nmap g] :Dispatch! noti git push --force-with-lease origin HEAD<CR>:silent exec '!git rev-parse --short HEAD \| pbcopy'<CR>
+nmap g] :Dispatch! noti git push --force-with-lease origin HEAD<CR>:silent exec '!git rev-parse --short HEAD \| tr -d "\n" \| pbcopy'<CR>
 nmap M  :Dispatch! noti 'git checkout master && git pull --rebase origin master'<CR>
 
 augroup fugitive-personal-key-mappings
   autocmd FileType fugitive nmap <buffer> p :bd!<CR>
         \ :Dispatch! noti git push origin HEAD --force-with-lease<CR>
-        \ :silent exec '!git rev-parse --short HEAD \| pbcopy'<CR>
+        \ :silent exec '!git rev-parse --short HEAD \| tr -d "\n" \| pbcopy'<CR>
 
   " Verbose and quiet git commit by default
   autocmd FileType fugitive nmap <buffer> C  :vertical Git commit --quiet --no-status<CR>
