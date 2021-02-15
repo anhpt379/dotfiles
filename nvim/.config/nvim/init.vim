@@ -238,9 +238,6 @@ if has('mac')
   set clipboard=unnamed
 endif
 
-" JSON quote concealing
-set conceallevel=2
-
 " Disable auto wrap lines
 set formatoptions-=t
 
@@ -752,11 +749,9 @@ set list
 
 let g:indentLine_char = '┊'
 
-" Fix double quotes in json files went missing
-augroup json
-  autocmd InsertEnter *.json setlocal concealcursor=
-  autocmd InsertLeave *.json setlocal concealcursor=inc
-augroup end
+" Make indentline and JSON quote concealing work well together
+let g:indentLine_setConceal = 0
+set conceallevel=1
 
 " Hide fzf status line
 augroup fzf
