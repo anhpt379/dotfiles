@@ -49,7 +49,6 @@ call plug#begin()
   Plug 'roman/golden-ratio'
   Plug 'pechorin/any-jump.vim'
   Plug 'voldikss/vim-floaterm'
-  Plug 'semanser/vim-outdated-plugins'
 
   " Improving editing experience
   Plug 'anhpt379/targets.vim'
@@ -1017,6 +1016,3 @@ vnoremap <Leader><Leader> "gy<Esc>:call GoogleSearchImFeelingLucky()<CR>
 
 " ENTER in VISUAL mode to start EasyAlign
 vmap <Enter> <Plug>(EasyAlign)
-
-" Vim-outdated-plugins
-let g:outdated_plugins_silent_mode = 1
