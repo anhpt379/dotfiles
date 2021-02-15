@@ -45,7 +45,6 @@ call plug#begin()
   Plug 'machakann/vim-highlightedyank'
   Plug 'breuckelen/vim-resize'
   Plug 'ptzz/lf.vim'
-  Plug 'rbgrouleff/bclose.vim'
   Plug 'roman/golden-ratio'
   Plug 'pechorin/any-jump.vim'
   Plug 'voldikss/vim-floaterm'
