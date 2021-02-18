@@ -220,10 +220,10 @@ noremap <Space> <Nop>
 
 " Quickly reload nvim config & update plugins by pressing `<Leader>u`
 nnoremap <Leader>u :source ~/.config/nvim/init.vim<CR>
-  \ :PlugUpgrade<CR>
   \ :PlugClean<CR>
   \ :silent !PlugInstall<CR>
   \ :PlugUpdate --sync<CR>
+  \ :PlugUpgrade<CR>
   \ :CocUpdate<CR>
   \ :TSUpdate<CR>
   \ :PlugDiff<CR>
@@ -1011,3 +1011,8 @@ vnoremap <Leader><Leader> "gy<Esc>:call GoogleSearchImFeelingLucky()<CR>
 
 " ENTER in VISUAL mode to start EasyAlign
 vmap <Enter> <Plug>(EasyAlign)
+
+" R in vim-plug to restart vim
+augroup vim-plug
+  autocmd FileType vim-plug nmap <buffer> R :cquit<CR>
+augroup end
