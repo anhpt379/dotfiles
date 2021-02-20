@@ -33,9 +33,9 @@ function fish_prompt
         end
     else
         if test $last_command_status -eq 0
-            echo -n -s $success_color $fish $normal_color
+            echo -n -s (set_color -b cyan) $fish (set_color -b normal)
         else
-            echo -n -s $error_color $fish $normal_color
+            echo -n -s (set_color -b red) $fish (set_color -b normal)
         end
 
         if git_is_repo
