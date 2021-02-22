@@ -67,10 +67,10 @@ balias m 'master'
 balias n 'note'
 balias o 'openstack'
 
-alias v    'nvim || nvim'
-alias vim  'nvim || nvim'
-alias nv   'nvim || nvim'
-alias nvim 'nvim || nvim'
+alias v    'nvim $argv || nvim $argv'
+alias vim  'nvim $argv || nvim $argv'
+alias nv   'nvim $argv || nvim $argv'
+alias nvim 'nvim $argv || nvim $argv'
 
 alias update '\
     brew upgrade;
