@@ -24,7 +24,7 @@ alias tmux 'command tmux attach -t $USER; or command tmux new -s $USER'
 alias pbcopy 'nc 127.0.0.1 2224 --send-only'
 alias pbpaste 'nc 127.0.0.1 2225 --recv-only'
 
-alias root 'sudo -E -s'
+alias root 'sudo -E -s fish'
 alias sudo 'sudo -E'
 
 # Fix nvim `Cannot open undo file for writing` sometimes
