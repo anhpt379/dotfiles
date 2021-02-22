@@ -16,7 +16,7 @@ source ~/.config/omf/init.fish
 alias pp 'command sudo puppet agent -t'
 alias ppa 'command sudo puppet agent -t --environment=$USER'
 
-alias jc='sudo journalctl -u'
+alias jc='sudo journalctl'
 alias sc='sudo systemctl'
 
 alias tmux 'command tmux attach -t $USER; or command tmux new -s $USER'
