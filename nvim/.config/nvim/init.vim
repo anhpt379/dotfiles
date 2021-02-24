@@ -734,7 +734,7 @@ nnoremap ]w :NextTrailingWhitespace<CR>
 nnoremap [w :PrevTrailingWhitespace<CR>
 
 function! DisableWhitespace()
-  if &ft =~# 'fugitive\|startify\|far\|git\|man'
+  if &ft =~# 'fugitive\|startify\|far\|git\|man\|log'
     DisableWhitespace
   endif
 endfunction
@@ -761,7 +761,7 @@ augroup fzf
 augroup end
 
 function! DisableIndentLines()
-  if &ft =~# 'fzf\|startify\|man'
+  if &ft =~# 'fzf\|startify\|man\|log'
     IndentLinesDisable
   endif
 endfunction
