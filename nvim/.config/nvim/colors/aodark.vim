@@ -69,10 +69,10 @@ call s:h('DiffText', s:blue, '', '')
 call s:h('IncSearch', s:bg, s:incsearch, '')
 call s:h('Search', s:bg, s:search, '')
 
-call s:h('ErrorMsg', s:fg, '', '')
+call s:h('ErrorMsg', s:red, '', '')
 call s:h('ModeMsg', s:fg, '', '')
 call s:h('MoreMsg', s:fg, '', '')
-call s:h('WarningMsg', s:red, '', '')
+call s:h('WarningMsg', s:yellow, '', '')
 call s:h('Question', s:purple, '', '')
 
 call s:h('Pmenu', s:fg, s:gutter_bg   , '')
