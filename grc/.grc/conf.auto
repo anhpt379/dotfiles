@@ -74,7 +74,7 @@ colours=white bold
 
 -
 # Date
-regexp=(Fri)? \d{2,4}[-\/](\d{2}|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[-\/]\d{2,4}T?
+regexp=(Fri)? \d{2,4}[-\/]\b(\d{2}|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\b[-\/]\d{2,4}T?
 colours=blue
 
 -
@@ -84,7 +84,7 @@ colours=blue
 
 -
 # Date
-regexp=(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)( \d{1,2})?
+regexp=\b(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\b( \d{1,2})?
 colours=blue
 
 -
