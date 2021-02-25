@@ -124,9 +124,6 @@ set -gx MANPAGER "nvim -c 'set ft=man | set showtabline=1 | set laststatus=0' -"
 # https://github.com/git/git/blob/v2.7.1/Documentation/config.txt#L646-L648
 set -gx LESS 'RM'
 
-# Hide the fish greeting
-set fish_greeting ""
-
 # Delete big word with Ctrl+Backspace
 bind \cH backward-kill-bigword
 
