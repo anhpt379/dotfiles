@@ -16,9 +16,6 @@ source ~/.config/omf/init.fish
 alias pp 'command sudo puppet agent -t'
 alias ppa 'command sudo puppet agent -t --environment=$USER'
 
-alias jc='sudo journalctl'
-alias sc='sudo systemctl'
-
 alias tmux 'command tmux attach -t $USER; or command tmux new -s $USER'
 
 alias pbcopy 'nc 127.0.0.1 2224 --send-only'
@@ -26,6 +23,21 @@ alias pbpaste 'nc 127.0.0.1 2225 --recv-only'
 
 alias root 'sudo -E -s fish'
 alias sudo 'sudo -E'
+
+# Systemctl aliases
+alias sc='sudo systemctl'
+alias jc='sudo journalctl'
+alias start="sudo systemctl start"
+alias stop="sudo systemctl stop"
+alias restart="sudo systemctl restart"
+alias sstatus="sudo systemctl status"
+function log
+    if [ (count $argv) -eq 1 ]
+        sudo journalctl --no-pager --lines=10000 -u $argv | view
+    else
+        sudo journalctl --no-pager --lines=$argv[2] -u $argv[1] | view
+    end
+end
 
 # Fix nvim `Cannot open undo file for writing` sometimes
 mkdir -p ~/.config/nvim/undo/
