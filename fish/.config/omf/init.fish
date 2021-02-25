@@ -97,7 +97,7 @@ globabbr L '| less'
 globabbr T '| tail'
 globabbr S '| sort'
 globabbr U '| uniq'
-globabbr V '| nvim -'
+globabbr V '| view'
 globabbr W '| wc -l'
 
 # Key bindings
