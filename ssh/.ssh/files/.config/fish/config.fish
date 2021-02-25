@@ -29,7 +29,7 @@ alias sudo 'sudo -E'
 
 # Fix nvim `Cannot open undo file for writing` sometimes
 mkdir -p ~/.config/nvim/undo/
-if [ (find . \! -user $USER -print 2>/dev/null | wc -l) -gt 0 ]
+if [ (find . \! -mount -type f -user $USER -print 2>/dev/null | wc -l) -gt 0 ]
     sudo chown -R $USER ~/.config/nvim/undo/
 end
 
