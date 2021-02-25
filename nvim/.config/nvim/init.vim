@@ -811,10 +811,12 @@ endfunction
 nnoremap 0 :call ToggleHomeZero()<CR>
 
 " Jump to start and end of line using the home row keys
-map H :call ToggleHomeZero()<CR>
-map L $
 map <Home> :call ToggleHomeZero()<CR>
 map <End>  $
+
+" Move the view a half screenwidth left/right with H/L
+map H zH
+map L zL
 
 " Moving up/down faster with <C-k>/<C-j>
 " (<C-k>/<C-j> is PageUp/PageDown due to mappings in Karabiner)
