@@ -29,8 +29,13 @@ alias la='ls --color=yes --group-directories-first -A'
 alias ll='ls --color=yes --group-directories-first -lh'
 alias lla='ls --color=yes --group-directories-first -lhA'
 
-alias jc='sudo journalctl -u'
 alias sc='sudo systemctl'
+alias jc='sudo journalctl'
+alias start="sudo systemctl start"
+alias stop="sudo systemctl stop"
+alias restart="sudo systemctl restart"
+alias sstatus="sudo systemctl status"
+alias log="sudo journalctl --lines=10000 -u"
 
 alias g='git'
 alias gs='git status'
