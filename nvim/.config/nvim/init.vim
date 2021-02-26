@@ -649,7 +649,7 @@ endfunction
 map q :<C-u>silent! call Goodbye()<CR>
 
 " Close all buffers without saving
-nnoremap <silent> Q :q<CR>
+nnoremap <silent> Q :q!<CR>
 
 " Startify
 nmap <Leader>s :Startify<CR>
