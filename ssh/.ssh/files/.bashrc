@@ -34,7 +34,7 @@ alias jc='sudo journalctl'
 alias start="sudo systemctl start"
 alias stop="sudo systemctl stop"
 alias restart="sudo systemctl restart"
-alias sstatus="sudo systemctl status"
+alias info="sudo systemctl status"
 alias log="sudo journalctl --lines=10000 -u"
 
 alias g='git'

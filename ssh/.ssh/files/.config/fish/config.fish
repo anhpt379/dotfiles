@@ -30,7 +30,7 @@ alias jc='sudo journalctl'
 alias start="sudo systemctl start"
 alias stop="sudo systemctl stop"
 alias restart="sudo systemctl restart"
-alias sstatus="sudo systemctl status"
+alias info="sudo systemctl status"
 function log
     if [ (count $argv) -eq 1 ]
         sudo journalctl --no-pager --lines=10000 -u $argv | view
