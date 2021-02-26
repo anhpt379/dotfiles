@@ -49,5 +49,7 @@ alias pbpaste='nc 127.0.0.1 2225 --recv-only'
 alias root='sudo -E -s'
 alias sudo='sudo -E'
 
+alias view='vim +$'
+
 # Fix git-deploy umask complaining
 umask 0002
