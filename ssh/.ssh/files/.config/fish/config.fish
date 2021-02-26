@@ -14,10 +14,10 @@ end
 source ~/.config/omf/init.fish
 
 alias pp 'command sudo puppet agent -t'
-alias ppa 'command sudo puppet agent -t --environment=$USER'
+alias ppa 'command sudo puppet agent -t --environment=$BOOKING_USER'
 alias ppl 'view /var/log/puppet/puppetagent.log'
 
-alias tmux 'command tmux attach -t $USER; or command tmux new -s $USER'
+alias tmux 'command tmux attach -t $BOOKING_USER; or command tmux new -s $BOOKING_USER'
 
 alias pbcopy 'nc 127.0.0.1 2224 --send-only'
 alias pbpaste 'nc 127.0.0.1 2225 --recv-only'
@@ -42,8 +42,8 @@ end
 
 # Fix nvim `Cannot open undo file for writing` sometimes
 mkdir -p ~/.config/nvim/undo/
-if [ (find . \! -mount -type f -user $USER -print 2>/dev/null | wc -l) -gt 0 ]
-    sudo chown -R $USER ~/.config/nvim/undo/
+if [ (find . \! -mount -type f -user $BOOKING_USER -print 2>/dev/null | wc -l) -gt 0 ]
+    sudo chown -R $BOOKING_USER ~/.config/nvim/undo/
 end
 
 # Shorten title
