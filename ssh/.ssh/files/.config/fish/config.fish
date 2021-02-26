@@ -15,6 +15,7 @@ source ~/.config/omf/init.fish
 
 alias pp 'command sudo puppet agent -t'
 alias ppa 'command sudo puppet agent -t --environment=$USER'
+alias ppl 'view /var/log/puppet/puppetagent.log'
 
 alias tmux 'command tmux attach -t $USER; or command tmux new -s $USER'
 

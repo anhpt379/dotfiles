@@ -41,6 +41,7 @@ alias g='git'
 alias gs='git status'
 alias pp='command sudo -E puppet agent -t'
 alias ppa='command sudo -E puppet agent -t --environment=$USER'
+alias ppl='view /var/log/puppet/puppetagent.log'
 
 alias pbcopy='nc 127.0.0.1 2224 --send-only'
 alias pbpaste='nc 127.0.0.1 2225 --recv-only'
