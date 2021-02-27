@@ -17,12 +17,6 @@
               "key_code": "delete_or_backspace",
               "modifiers": ["left_option"]
             }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": ["^net\\.kovidgoyal\\.kitty$"]
-            }
           ]
         }
       ]
@@ -42,12 +36,6 @@
             {
               "key_code": "delete_forward",
               "modifiers": ["left_option"]
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": ["^net\\.kovidgoyal\\.kitty$"]
             }
           ]
         }
