@@ -16,21 +16,33 @@ else
   copy_commit_hash="${get_commit_hash} | xargs | tr -d '\n' | nc 127.0.0.1 2224 --send-only"
 fi
 
-argv_count=$#
 cmd_name=$(basename "$0")
+num_commits=5000
+args_count=0
+args_array=()
+for i in "$@"; do
+  if [[ $i == -* ]]; then
+    num_commits=$(echo "$i" | cut -c2-)
+  else
+    args_array+=("$i")
+    ((args_count++))
+  fi
+done
 
 if [ "${cmd_name}" = "gl" ]; then
-  if [ ${argv_count} -eq 1 ]; then
-    args="-- '$1'"
+  if [ "${args_count}" -eq 1 ]; then
+    args="-- '${args_array[0]}'"
   fi
+elif [ "${cmd_name}" = "gd" ]; then
+  args="-p --unified=0"
 else
-  if [ ${argv_count} -eq 1 ]; then
-    args="-i -S'$1'"
-  elif [ ${argv_count} -eq 2 ]; then
-    args="-i -S'$1' -- '$2'"
+  if [ "${args_count}" -eq 1 ]; then
+    args="-i -S'${args_array[0]}'"
+  elif [ "${args_count}" -eq 2 ]; then
+    args="-i -S'${args_array[0]}' -- '${args_array[1]}'"
   fi
 fi
-git_cmd="git log -5000 \
+git_cmd="git log -${num_commits} \
                  --no-merges \
                  --color=always \
                  --format='%C(green)%h%C(red)%d%Creset %C(reset)%s %C(#555555)%b(%aN - %cr)' \
@@ -42,7 +54,7 @@ eval "${git_cmd}" |
   tr "\n" " " |
   sed "s/\`//g" |
   sed -E "s/\\x1b\\[32m[a-f0-9]{7,}+/\\n&/2g" |
-  fzf --no-mouse --reverse --tiebreak=index --no-multi --ansi --height=100% \
+  fzf --no-mouse --reverse --tiebreak=index --no-multi --ansi --height=100% --exact \
     --preview="${preview_commit}" \
     --header="${red}CTRL-/${reset} to toggle preview, ${red}CTRL-S${reset} to toggle sort, ${red}CTRL-Y${reset} to yank commit hash, ${red}CTRL-R${reset} to rebase -i, ${red}CTRL-O${reset} to open commit in browser" \
     --bind="enter:execute/${view_commit}/" \

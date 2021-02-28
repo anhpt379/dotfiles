@@ -1,6 +1,5 @@
 balias g        'git'
 balias gs       'git status'
-balias gd       'git log --no-merges -p'
 balias push     'git push origin'
 balias fetch    'git fetch origin'
 balias reset    'git reset'
