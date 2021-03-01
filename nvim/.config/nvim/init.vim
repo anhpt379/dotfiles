@@ -58,7 +58,6 @@ call plug#begin()
   Plug 'machakann/vim-sandwich'
   Plug 'tpope/vim-commentary'
   Plug 'ntpeters/vim-better-whitespace'
-  Plug 'brooth/far.vim'
   Plug 'farmergreg/vim-lastplace'
   Plug 'paretje/suda.vim'
   Plug 'tpope/vim-eunuch'
@@ -78,6 +77,7 @@ call plug#begin()
   Plug 'google/vim-searchindex'
   Plug 'junegunn/vim-after-object'
   Plug 'jeetsukumaran/vim-indentwise'
+  Plug 'dyng/ctrlsf.vim'
 
   " Heavily loaded plugins
   if has('mac')
@@ -734,7 +734,7 @@ nnoremap ]w :NextTrailingWhitespace<CR>
 nnoremap [w :PrevTrailingWhitespace<CR>
 
 function! DisableWhitespace()
-  if &ft =~# 'fugitive\|startify\|far\|git\|man\|log'
+  if &ft =~# 'fugitive\|startify\|ctrlsf\|git\|man\|log'
     DisableWhitespace
   endif
 endfunction
@@ -841,24 +841,6 @@ augroup auto-create-dir
   autocmd!
   autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
 augroup end
-
-" Far.vim {{{
-let g:far#window_layout = 'tab'
-let g:far#preview_window_height = '15'
-let g:far#enable_undo = 1
-let g:far#default_file_mask = '*'
-let g:far#source = 'rgnvim'
-
-" Fix `q` quit far doesn't work properly
-let g:far#mapping = {
-  \ 'quit' : ''
-  \ }
-
-" Far search and replace with dir completion
-command! -complete=dir -nargs=+ -range=-1 Fr
-  \ call Far(<count>,<line1>,<line2>,<q-args>)
-
-" }}}
 
 " Lf.vim
 let g:lf_map_keys = 0
@@ -1018,3 +1000,39 @@ vmap <Enter> <Plug>(EasyAlign)
 augroup vim-plug
   autocmd FileType vim-plug nmap <buffer> R :cquit<CR>
 augroup end
+
+" CtrlSF
+nmap <C-s><C-f> :CtrlSF -- ""<Left>
+vmap <C-s><C-f> <Plug>CtrlSFVwordExec
+let g:ctrlsf_default_root = 'project'
+let g:ctrlsf_ignore_dir = ['.git']
+let g:ctrlsf_position = 'left'
+let g:ctrlsf_indent = 2
+let g:ctrlsf_auto_close = 0
+let g:ctrlsf_auto_focus = { "at" : "start" }
+let g:ctrlsf_auto_preview = 0
+let g:ctrlsf_winsize = '100%'
+let g:ctrlsf_backend = 'rg'
+let g:ctrlsf_extra_backend_args = {
+  \ 'rg': '--fixed-strings --hidden --glob "!.git"'
+  \ }
+let g:ctrlsf_mapping = {
+  \   "open"    : "",
+  \   "openb"   : "",
+  \   "split"   : "",
+  \   "vsplit"  : "",
+  \   "tab"     : "",
+  \   "tabb"    : "",
+  \   "popen"   : "",
+  \   "popenf"  : "",
+  \   "quit"    : "q",
+  \   "next"    : "n",
+  \   "prev"    : "N",
+  \   "pquit"   : "q",
+  \   "loclist" : "",
+  \   "chgmode" : "",
+  \   "stop"    : "<C-C>",
+  \ }
+func! CtrlSFAfterMainWindowInit()
+    silent! nnoremap <silent><buffer> <Enter> :call ctrlsf#JumpTo('open') \| call ctrlsf#win#FocusMainWindow()<CR>
+endf
