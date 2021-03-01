@@ -1036,3 +1036,18 @@ let g:ctrlsf_mapping = {
 func! CtrlSFAfterMainWindowInit()
     silent! nnoremap <silent><buffer> <Enter> :call ctrlsf#JumpTo('open') \| call ctrlsf#win#FocusMainWindow()<CR>
 endf
+
+" Fix gx doesn't open URL in macOS
+" https://github.com/vim/vim/issues/4738
+function! OpenURLUnderCursor()
+  let s:uri = matchstr(getline("."), '[a-z]*:\/\/[^ >,;()]*')
+  let s:uri = shellescape(s:uri, 1)
+  echom s:uri
+  if s:uri != ""
+    silent exec "!open '".s:uri."'"
+    :redraw!
+  else
+    echo "No URI found in line."
+  endif
+endfunction
+nnoremap gx :call OpenURLUnderCursor()<CR>
