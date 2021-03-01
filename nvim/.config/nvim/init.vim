@@ -1009,7 +1009,7 @@ let g:ctrlsf_ignore_dir = ['.git']
 let g:ctrlsf_position = 'left'
 let g:ctrlsf_indent = 2
 let g:ctrlsf_auto_close = 0
-let g:ctrlsf_auto_focus = { "at" : "start" }
+let g:ctrlsf_auto_focus = { 'at' : 'start' }
 let g:ctrlsf_auto_preview = 0
 let g:ctrlsf_winsize = '100%'
 let g:ctrlsf_backend = 'rg'
@@ -1017,21 +1017,21 @@ let g:ctrlsf_extra_backend_args = {
   \ 'rg': '--fixed-strings --hidden --glob "!.git"'
   \ }
 let g:ctrlsf_mapping = {
-  \   "open"    : "",
-  \   "openb"   : "",
-  \   "split"   : "",
-  \   "vsplit"  : "",
-  \   "tab"     : "",
-  \   "tabb"    : "",
-  \   "popen"   : "",
-  \   "popenf"  : "",
-  \   "quit"    : "q",
-  \   "next"    : "n",
-  \   "prev"    : "N",
-  \   "pquit"   : "q",
-  \   "loclist" : "",
-  \   "chgmode" : "",
-  \   "stop"    : "<C-C>",
+  \   'open'    : '',
+  \   'openb'   : '',
+  \   'split'   : '',
+  \   'vsplit'  : '',
+  \   'tab'     : '',
+  \   'tabb'    : '',
+  \   'popen'   : '',
+  \   'popenf'  : '',
+  \   'quit'    : 'q',
+  \   'next'    : 'n',
+  \   'prev'    : 'N',
+  \   'pquit'   : 'q',
+  \   'loclist' : '',
+  \   'chgmode' : '',
+  \   'stop'    : '<C-C>',
   \ }
 func! CtrlSFAfterMainWindowInit()
     silent! nnoremap <silent><buffer> <Enter> :call ctrlsf#JumpTo('open') \| call ctrlsf#win#FocusMainWindow()<CR>
@@ -1040,14 +1040,14 @@ endf
 " Fix gx doesn't open URL in macOS
 " https://github.com/vim/vim/issues/4738
 function! OpenURLUnderCursor()
-  let s:uri = matchstr(getline("."), '[a-z]*:\/\/[^ >,;()]*')
+  let s:uri = matchstr(getline('.'), '[a-z]*:\/\/[^ >,;()]*')
   let s:uri = shellescape(s:uri, 1)
   echom s:uri
-  if s:uri != ""
-    silent exec "!open '".s:uri."'"
+  if s:uri !=# ''
+    silent exec '!open "'.s:uri.'"'
     :redraw!
   else
-    echo "No URI found in line."
+    echo 'No URI found in line.'
   endif
 endfunction
 nnoremap gx :call OpenURLUnderCursor()<CR>
