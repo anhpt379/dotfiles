@@ -810,9 +810,9 @@ function! ToggleHomeZero()
 endfunction
 nnoremap 0 :call ToggleHomeZero()<CR>
 
-" Jump to start and end of line using the home row keys
-map <Home> :call ToggleHomeZero()<CR>
-map <End>  $
+" Jump to left/right split using <C-h/l> (Home/End)
+nnoremap <Home> <C-W><C-H>
+nnoremap <End>  <C-W><C-L>
 
 " Move the view a half screenwidth left/right with H/L
 map H zH
