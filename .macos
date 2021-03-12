@@ -22,6 +22,9 @@ defaults write -g NSRequiresAquaSystemAppearance -bool Yes
 # Automatically show & hide the menu bar
 defaults write NSGlobalDomain _HIHideMenuBar -bool true
 
+# Make the mouse pointer bigger
+defaults write com.apple.universalaccess mouseDriverCursorSize 1.5
+
 # Disable the sound effects on boot
 sudo nvram SystemAudioVolume=" "
 
