@@ -145,7 +145,7 @@ bind \ce edit_and_run_command_buffer
 bind --erase \co
 bind \cf 'fzf_find'
 bind \cr 'fzf_history'
-bind \t  '__fish_expand_globabbreviation || fzf_complete'
+# bind \t  '__fish_expand_globabbreviation || fzf_complete'
 
 # Fix fzf couldn't preview matches that end with `\`. This happens in fish
 # only. Fzf uses the shell set in SHELL env to execute the preview command.
