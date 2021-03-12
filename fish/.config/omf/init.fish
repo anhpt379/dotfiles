@@ -28,17 +28,10 @@ balias ...   'cd ../..'
 balias ....  'cd ../../..'
 balias ..... 'cd ../../../..'
 
-if [ (uname -s) = 'Darwin' ]
-    balias ls  'exa --group-directories-first'
-    balias la  'exa --group-directories-first -a'
-    balias ll  'exa --group-directories-first -l'
-    balias lla 'exa --group-directories-first -la'
-else
-    balias ls  'ls --color=yes --group-directories-first'
-    balias la  'ls --color=yes --group-directories-first -A'
-    balias ll  'ls --color=yes --group-directories-first -lh'
-    balias lla 'ls --color=yes --group-directories-first -lhA'
-end
+balias ls  'exa --group-directories-first'
+balias la  'exa --group-directories-first -a'
+balias ll  'exa --group-directories-first -l'
+balias lla 'exa --group-directories-first -la'
 
 balias cat 'bat'
 balias ping 'prettyping --nolegend'
