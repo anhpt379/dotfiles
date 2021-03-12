@@ -25,9 +25,9 @@ alias ....='cd ../../..'
 alias .....='cd ../../../..'
 
 alias ls='ls --color=yes --group-directories-first'
-alias la='ls --color=yes --group-directories-first -A'
-alias ll='ls --color=yes --group-directories-first -lh'
-alias lla='ls --color=yes --group-directories-first -lhA'
+alias la='command ls --color=yes --group-directories-first -A'
+alias ll='command ls --color=yes --group-directories-first -lh'
+alias lla='command ls --color=yes --group-directories-first -lhA'
 
 alias sc='sudo systemctl'
 alias jc='sudo journalctl'
