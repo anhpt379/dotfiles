@@ -10,20 +10,19 @@ function fzf_complete
         end \
         | sort | uniq \
         | string replace -r \t'(.*)$' \t(set_color $fish_pager_color_description)'$1'(set_color normal) \
-        | devicon add \
-        | fzf --delimiter=\t --select-1 --exit-0 --ansi --exact \
+        | fzf --delimiter=\t --select-1 --exit-0 --ansi \
               --bind=tab:accept \
               --expect=enter \
               --tiebreak=begin \
               --header="(Press TAB to accept, ENTER to accept and run)" \
               --preview="~/.local/bin/fzf-preview.sh {}" \
               --preview-window=right:hidden \
-              --query "$current_word" \
+              --query "^$current_word" \
     )
 
     # Split key & result
     set key (echo $result | cut -d' ' -f1)
-    set result (echo $result | cut -d' ' -f2- | devicon remove)
+    set result (echo $result | cut -d' ' -f2-)
 
     # Remove description
     set result (string replace -r \t'.*' '' -- $result)
