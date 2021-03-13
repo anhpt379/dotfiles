@@ -91,7 +91,7 @@ call plug#begin()
     Plug 'anhpt379/vim-git-browse'
 
     Plug 'anhpt379/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
-    Plug 'nvim-treesitter/nvim-treesitter'
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
     Plug 'rhysd/conflict-marker.vim'
     Plug 'itchyny/vim-parenmatch'
@@ -225,7 +225,6 @@ nnoremap <Leader>u :source ~/.config/nvim/init.vim<CR>
   \ :PlugUpdate --sync<CR>
   \ :PlugUpgrade<CR>
   \ :CocUpdate<CR>
-  \ :TSUpdate<CR>
   \ :PlugDiff<CR>
 
 " Turn off whitespaces compare and folding in vimdiff
@@ -942,9 +941,14 @@ augroup update-mru-on-file-open
 augroup end
 
 " Treesitter
-if exists('g:loaded_nvim_treesitter')
-  lua require'nvim-treesitter.configs'.setup{ ensure_installed='all', highlight={ enable=true } }
-endif
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained",
+  highlight = {
+    enable = true,
+  },
+}
+EOF
 
 " Vim-git-browse
 let g:vim_git_browse_use_default_keymap = 0
