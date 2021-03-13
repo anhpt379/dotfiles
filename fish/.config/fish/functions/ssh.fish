@@ -11,7 +11,7 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
     end
 
     # Sync dotfiles & binary files to remote
-    if not string match -q -- "git*" $argv
+    if begin not string match -q -- "git*" $argv; and not string match -q -- "t-*" $argv; and not string match -q -- "root@*" $argv; end
         if command ssh $argv -- /bin/true &> /dev/null
             rsync -azvhP \
                 --info=name0 \
