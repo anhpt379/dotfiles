@@ -941,6 +941,7 @@ augroup update-mru-on-file-open
 augroup end
 
 " Treesitter
+if has('mac')
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
   ensure_installed = "maintained",
@@ -949,6 +950,7 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 EOF
+endif
 
 " Vim-git-browse
 let g:vim_git_browse_use_default_keymap = 0
