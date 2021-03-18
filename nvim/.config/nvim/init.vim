@@ -958,7 +958,7 @@ nnoremap <silent> go :<C-u>call vim_git_browse#GitBrowse(v:false, 'master')<CR>
 xnoremap <silent> go :<C-u>call vim_git_browse#GitBrowse(v:true, 'master')<CR>
 nnoremap <silent> gO :<C-u>call vim_git_browse#GitBrowse(v:false)<CR>
 xnoremap <silent> gO :<C-u>call vim_git_browse#GitBrowse(v:true)<CR>
-nnoremap <silent> g\ :Dispatch! noti git push --force-with-lease origin HEAD<CR>:<C-u>call vim_git_browse#GitOpenPullRequest()<CR>
+nnoremap <silent> g\ :!git push --force-with-lease origin HEAD<CR>:<C-u>call vim_git_browse#GitOpenPullRequest()<CR>
 
 " LanguageTool
 " Disable vim <C-n>/<C-p> complete in INSERT mode, since we have coc-dictionary
