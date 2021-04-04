@@ -38,7 +38,6 @@ call plug#begin()
   Plug 'anhpt379/fzf'
   Plug 'anhpt379/fzf.vim'
   Plug 'anhpt379/fzf-filemru'
-  Plug 'Yggdroot/indentLine'
   Plug 'chrisbra/Colorizer'
   Plug 'norcalli/nvim-colorizer.lua'
   Plug 'blueyed/vim-diminactive'
@@ -49,6 +48,7 @@ call plug#begin()
   Plug 'roman/golden-ratio'
   Plug 'pechorin/any-jump.vim'
   Plug 'voldikss/vim-floaterm'
+  Plug 'lukas-reineke/indent-blankline.nvim', { 'branch': 'lua' }
 
   " Improving editing experience
   Plug 'anhpt379/targets.vim'
@@ -761,7 +761,7 @@ augroup end
 
 function! DisableIndentLines()
   if &ft =~# 'fzf\|startify\|man\|log'
-    IndentLinesDisable
+    IndentBlanklineDisable
   endif
 endfunction
 
@@ -844,7 +844,7 @@ augroup end
 " Lf.vim
 let g:lf_map_keys = 0
 let g:lf_replace_netrw = 1
-autocmd TermOpen  * if has("mac") | set showtabline=0 | endif | set nonumber | set signcolumn=no  | set mouse-=a | IndentLinesDisable
+autocmd TermOpen  * if has("mac") | set showtabline=0 | endif | set nonumber | set signcolumn=no  | set mouse-=a | IndentBlanklineDisable
 autocmd TermLeave * if has("mac") | set showtabline=2 | endif | set number   | set signcolumn=yes | set mouse+=a
 map <Leader>l :<C-u>Lf<CR>
 
@@ -1057,3 +1057,7 @@ function! OpenURLUnderCursor()
   endif
 endfunction
 nnoremap gx :call OpenURLUnderCursor()<CR>
+
+" Indent Blankline
+let g:indent_blankline_use_treesitter = v:true
+let g:indent_blankline_show_first_indent_level = v:true
