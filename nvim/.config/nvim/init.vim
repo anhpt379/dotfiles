@@ -512,10 +512,6 @@ augroup fugitive-auto-insert
 augroup end
 " }}}
 
-" Remap recording macro key to `\` (`q` will be using as 'quit' to close the
-" current buffer)
-nnoremap \ q
-
 " Use U as redo
 nnoremap U <C-R>
 
