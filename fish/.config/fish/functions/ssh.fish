@@ -20,7 +20,7 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
                 --compress-level=9 \
                 --copy-links \
                 --keep-dirlinks \
-                ~/.ssh/files/.bash* "$argv[1]":~/ 2>/dev/null
+                ~/.ssh/files/.*rc "$argv[1]":~/ 2>/dev/null
 
             nohup ~/.config/fish/functions/rsync_dotfiles.sh $argv[1] > /tmp/.rsync-$argv[1].log &
         end
