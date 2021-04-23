@@ -24,7 +24,7 @@ cmd fzf_jump ${{
     dir="$f"
   fi
 
-  res="$(fd --color=always --no-ignore --hidden --exclude '.git' . $dir | fzf --ansi --preview='~/.local/bin/fzf-preview.sh {}')"
+  res="$(fd --color=always --no-ignore --hidden --exclude '.git' . $dir | fzf --height=100% --ansi --preview='~/.local/bin/fzf-preview.sh {}')"
 
   if [ -f "$res" ]; then
     cmd="select"
