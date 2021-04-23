@@ -9,6 +9,7 @@ fi
 
 if [[ -d $path ]]; then
   echo "Directory: $(tput bold)$path"
+  echo
 
   # preview directory contents with `exa`
   exa --color always -la --group-directories-first "$path"
