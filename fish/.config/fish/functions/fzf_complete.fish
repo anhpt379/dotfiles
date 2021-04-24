@@ -15,7 +15,7 @@ function fzf_complete
               --expect=enter \
               --tiebreak=begin \
               --header="(Press TAB to accept, ENTER to accept and run)" \
-              --preview="~/.local/bin/fzf-preview.sh {}" \
+              --preview="$FZF_DEFAULT_PREVIEW_COMMAND" \
               --preview-window=right:hidden \
               --query "^$current_word" \
     )
