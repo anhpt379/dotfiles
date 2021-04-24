@@ -10,7 +10,7 @@ function fzf_find -d "Find files and folders"
               --bind=tab:accept \
               --expect=enter \
               --header="(Press TAB to accept, ENTER to accept and run)" \
-              --preview="~/.local/bin/fzf-preview.sh {}" \
+              --preview="$FZF_DEFAULT_PREVIEW_COMMAND" \
               --query "$fzf_query" \
     )
 
