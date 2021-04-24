@@ -14,7 +14,7 @@ if [[ -d $path ]]; then
   # preview directory contents with `exa`
   exa --color always -la --group-directories-first "$path"
 else
-  if file -bL --mime "$path" | grep 'charset=binary'; then
+  if file -bL --mime "$path" | grep -q 'charset=binary'; then
     # show file info if it's a binary file
     echo
     dirname=$(dirname "$path")
