@@ -841,7 +841,7 @@ augroup end
 let g:lf_map_keys = 0
 let g:lf_replace_netrw = 1
 autocmd TermOpen  * if has("mac") | set showtabline=0 | endif | set nonumber | set signcolumn=no  | set mouse-=a | IndentBlanklineDisable
-autocmd TermLeave * if has("mac") | set showtabline=2 | endif | set number   | set signcolumn=yes | set mouse+=a | bufdo e!
+autocmd TermLeave * if has("mac") | set showtabline=2 | endif | set number   | set signcolumn=yes | set mouse+=a | if len(filter(range(1, bufnr('$')), '! empty(bufname(v:val)) && buflisted(v:val)')) == 1 | bufdo e! | endif
 map <Leader>l :<C-u>Lf<CR>
 
 " Clever-f
