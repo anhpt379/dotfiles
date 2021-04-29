@@ -44,7 +44,7 @@ call plug#begin()
   Plug 'ryanoasis/vim-devicons'
   Plug 'machakann/vim-highlightedyank'
   Plug 'breuckelen/vim-resize'
-  Plug 'ptzz/lf.vim', {'commit': 'cf3a56e'} | Plug 'moll/vim-bbye'
+  Plug 'ptzz/lf.vim', {'tag': 'v1.2'} | Plug 'rbgrouleff/bclose.vim'
   Plug 'roman/golden-ratio'
   Plug 'pechorin/any-jump.vim'
   Plug 'voldikss/vim-floaterm'
