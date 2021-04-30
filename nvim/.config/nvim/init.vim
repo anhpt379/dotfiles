@@ -462,7 +462,7 @@ augroup end
 
 noremap gm :GitMessenger<CR>
 noremap gB :Gblame -w -M<CR>
-noremap gs :tab Gstatus<CR>gg4j
+noremap gs :tab Git<CR>gg4j
 noremap gl :FzfCommits<CR>
 noremap gL :FzfBCommits<CR>
 noremap <expr> gw &modified ? ':silent! Gwrite<CR>:update<CR>' : ''
