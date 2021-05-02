@@ -646,6 +646,10 @@ map q :<C-u>silent! call Goodbye()<CR>
 " Close all buffers without saving
 nnoremap <silent> Q :q!<CR>
 
+" Remap recording macro key to the delete key
+" (I mapped the delete key to F20 in Karabiner)
+nnoremap <F20> q
+
 " Startify
 nmap <Leader>s :Startify<CR>
 
