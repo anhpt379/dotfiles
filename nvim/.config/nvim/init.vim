@@ -1057,3 +1057,39 @@ nnoremap gx :call OpenURLUnderCursor()<CR>
 " Indent Blankline
 let g:indent_blankline_use_treesitter = v:true
 let g:indent_blankline_show_first_indent_level = v:true
+
+" Persist and provide a clearer message to explain what has happened when Vim
+" notices that the file you are editing was changed by another program (like
+" git, or another editor).
+augroup FCSHandler
+  au FileChangedShell * call FCSHandler(expand("<afile>:p"))
+augroup END
+
+function! FCSHandler(name)
+  let msg = 'File "'.a:name.'"'
+  let v:fcs_choice = ''
+  if v:fcs_reason == 'deleted'
+    let msg .= " no longer available"
+  elseif v:fcs_reason == 'time'
+    let msg .= ' timestamp changed'
+  elseif v:fcs_reason == 'mode'
+    let msg .= ' permissions changed'
+  elseif v:fcs_reason == 'changed'
+    let msg .= ' contents changed'
+    let v:fcs_choice = 'ask'
+  elseif v:fcs_reason == 'conflict'
+    let msg .= ' CONFLICT --'
+    let msg .= ' is modified, but'
+    let msg .= ' was changed outside Vim'
+    let v:fcs_choice = 'ask'
+    echohl Error
+  else  " unknown values (future Vim versions?)
+    let msg .= ' FileChangedShell reason='
+    let msg .= v:fcs_reason
+    let v:fcs_choice = 'ask'
+  endif
+  redraw!
+  echohl Error
+  echon msg
+  echohl None
+endfunction
