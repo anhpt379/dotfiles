@@ -611,9 +611,9 @@ map <C-u> <Plug>(RepeatRedo)
 nnoremap <C-r> :%s/<C-r><C-w>//<Left>
 vnoremap <C-r> "hy:%s/<C-r>h//<Left>
 
-" Select the last pasted text with gp (similar to the standard gv which you can
+" Select the last pasted text with vp (similar to the standard gv which you can
 " type to select the last visually-selected text)
-nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
+nnoremap <expr> vp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
 " Disable continuation of comments to the next line in Vim
 augroup format-options
@@ -958,6 +958,7 @@ nnoremap <silent> go :<C-u>call vim_git_browse#GitBrowse(v:false, 'master')<CR>
 xnoremap <silent> go :<C-u>call vim_git_browse#GitBrowse(v:true, 'master')<CR>
 nnoremap <silent> gO :<C-u>call vim_git_browse#GitBrowse(v:false)<CR>
 xnoremap <silent> gO :<C-u>call vim_git_browse#GitBrowse(v:true)<CR>
+nnoremap <silent> gp :<C-u>call vim_git_browse#GitOpenPipelines()<CR>
 nnoremap <silent> g\ :!git push --force-with-lease origin HEAD<CR>:<C-u>call vim_git_browse#GitOpenPullRequest()<CR>
 
 " LanguageTool
