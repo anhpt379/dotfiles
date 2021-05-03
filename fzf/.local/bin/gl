@@ -43,7 +43,6 @@ else
   fi
 fi
 git_cmd="git log -${num_commits} \
-                 --no-merges \
                  --color=always \
                  --format='%C(green)%h%C(red)%d%Creset %C(reset)%s %C(#555555)%b(%aN - %cr)' \
                  ${args} 2>/dev/null"
