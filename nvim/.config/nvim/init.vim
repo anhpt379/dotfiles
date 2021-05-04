@@ -87,7 +87,6 @@ call plug#begin()
     Plug 'mengelbrecht/lightline-bufferline'
 
     Plug 'anhpt379/vim-fugitive'
-    Plug 'anhpt379/git-messenger.vim'
     Plug 'anhpt379/vim-git-browse'
 
     Plug 'anhpt379/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
@@ -442,30 +441,11 @@ noremap <Leader>t :GstatusClose<CR>:FzfFiletypes<CR>
 " }}}
 
 " Git {{{
-let g:git_messenger_always_into_popup = v:true
-let g:git_messenger_no_default_mappings = v:true
-let g:git_messenger_include_diff = 'current'
-let g:git_messenger_max_popup_height = 35
-let g:git_messenger_max_popup_width = 120
-let g:git_messenger_popup_type = 'preview'
-
-" Don't blame people for changing whitespaces or moving code
-let g:git_messenger_extra_blame_args = '-w -M'
-
-augroup gitmessenger
-  " Show line number in git-messenger popup
-  autocmd FileType gitmessengerpopup set number
-
-  " Close git-messenger popup with <Esc>
-  autocmd FileType gitmessengerpopup nmap <buffer> <Esc> q
-augroup end
-
-noremap gm :GitMessenger<CR>
-noremap gB :Gblame -w -M<CR>
-noremap gs :tab Git<CR>gg4j
-noremap gl :FzfCommits<CR>
-noremap gL :FzfBCommits<CR>
-noremap <expr> gw &modified ? ':silent! Gwrite<CR>:update<CR>' : ''
+noremap  gs :tab Git<CR>gg4j
+nnoremap gl :FzfCommits<CR>
+nnoremap gL :FzfBCommits<CR>
+vnoremap gl :FzfLCommits<CR>
+noremap  <expr> gw &modified ? ':silent! Gwrite<CR>:update<CR>' : ''
 
 command! Gundo               silent! G undo
 command! Gstash              silent! G stash
@@ -959,7 +939,7 @@ xnoremap <silent> go :<C-u>call vim_git_browse#GitBrowse(v:true, 'master')<CR>
 nnoremap <silent> gO :<C-u>call vim_git_browse#GitBrowse(v:false)<CR>
 xnoremap <silent> gO :<C-u>call vim_git_browse#GitBrowse(v:true)<CR>
 nnoremap <silent> gp :<C-u>call vim_git_browse#GitOpenPipelines()<CR>
-nnoremap <silent> g\ :!git push --force-with-lease origin HEAD<CR>:<C-u>call vim_git_browse#GitOpenPullRequest()<CR>
+nnoremap <silent> gm :!git push --force-with-lease origin HEAD<CR>:<C-u>call vim_git_browse#GitOpenPullRequest()<CR>
 
 " LanguageTool
 " Disable vim <C-n>/<C-p> complete in INSERT mode, since we have coc-dictionary
