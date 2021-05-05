@@ -1041,22 +1041,22 @@ let g:indent_blankline_show_first_indent_level = v:true
 " notices that the file you are editing was changed by another program (like
 " git, or another editor).
 augroup FCSHandler
-  au FileChangedShell * call FCSHandler(expand("<afile>:p"))
+  au FileChangedShell * call FCSHandler(expand('<afile>:p'))
 augroup END
 
 function! FCSHandler(name)
   let msg = 'File "'.a:name.'"'
   let v:fcs_choice = ''
-  if v:fcs_reason == 'deleted'
-    let msg .= " no longer available"
-  elseif v:fcs_reason == 'time'
+  if v:fcs_reason ==# 'deleted'
+    let msg .= ' no longer available'
+  elseif v:fcs_reason ==# 'time'
     let msg .= ' timestamp changed'
-  elseif v:fcs_reason == 'mode'
+  elseif v:fcs_reason ==# 'mode'
     let msg .= ' permissions changed'
-  elseif v:fcs_reason == 'changed'
+  elseif v:fcs_reason ==# 'changed'
     let msg .= ' contents changed'
     let v:fcs_choice = 'ask'
-  elseif v:fcs_reason == 'conflict'
+  elseif v:fcs_reason ==# 'conflict'
     let msg .= ' CONFLICT --'
     let msg .= ' is modified, but'
     let msg .= ' was changed outside Vim'
