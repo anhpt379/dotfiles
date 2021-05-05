@@ -294,22 +294,7 @@ if has('mac')
   nmap <Leader>p :bprevious<CR>
   nmap <Leader>w q
   nmap <Leader>q Q
-
-  nmap <M-1> <Plug>lightline#bufferline#go(1)
-  nmap <M-2> <Plug>lightline#bufferline#go(2)
-  nmap <M-3> <Plug>lightline#bufferline#go(3)
-  nmap <M-4> <Plug>lightline#bufferline#go(4)
-  nmap <M-5> <Plug>lightline#bufferline#go(5)
-  nmap <M-6> <Plug>lightline#bufferline#go(6)
-  nmap <M-7> <Plug>lightline#bufferline#go(7)
-  nmap <M-8> <Plug>lightline#bufferline#go(8)
-  nmap <M-9> <Plug>lightline#bufferline#go(9)
-  nmap <M-0> <Plug>lightline#bufferline#go(10)
-  nmap <M-n> :bnext<CR>
-  nmap <M-p> :bprevious<CR>
-  nmap <M-w> q
-  nmap <M-q> Q
-  nmap <M-t> :enew<CR>
+  nmap <Leader>t :enew<CR>
 
   let g:lightline#bufferline#show_number     = 2
   let g:lightline#bufferline#shorten_path    = 1
@@ -437,7 +422,6 @@ command! GstatusClose call s:close_gstatus()
 
 noremap <Leader>g :GstatusClose<CR>:FzfRg<Space>
 noremap <Leader>f :GstatusClose<CR>:silent FilesMru<CR>
-noremap <Leader>t :GstatusClose<CR>:FzfFiletypes<CR>
 " }}}
 
 " Git {{{
