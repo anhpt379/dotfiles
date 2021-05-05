@@ -30,6 +30,40 @@ $ stow kitty
 ![screenshot-6](screenshots/8.png)
 ![screenshot-6](screenshots/9.png)
 
+## Key mappings
+
+### Vim
+
+- `q` close buffer
+- `Q` close all buffers
+- `<Space>-s` startify
+- `<Space>-f` fzf files (MRU)
+- `<Space>-g` ripgrep all files
+- `<Space>-n` next buffer
+- `<Space>-p` previous buffer
+- `<Space>-w` close buffer
+- `<Space>-t` new buffer
+- `<Space>-<1-9>` jump to buffer #number
+- `gs` git status
+  - `a/Va` stage/unstage
+  - `x/Vx` discard changes
+  - `d` show diff
+  - `p` git push
+  - `C` commit
+  - `ca` commit amend edit
+  - `ce` commit amend no edit
+- `gb` git branches
+- `g[` git pull --rebase origin master
+- `g]` git push origin HEAD --force-with-lease
+- `gl` git log (repo)
+- `gL` git log (current buffer)
+- `vgl` git log (line)
+- `gp` open github/gitlab pipelines in browser
+- `go` open github/gitlab link in browser
+- `gm` create/open MR
+- `gw` write buffer to disk
+- `M` switch to branch master
+
 ## Keyboard layout
 
 Below is the adjusted keyboard layout that I'm using:
