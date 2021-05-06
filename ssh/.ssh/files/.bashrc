@@ -62,8 +62,8 @@ alias restart="sudo systemctl restart"
 alias info="sudo systemctl status"
 alias log="sudo journalctl --lines=10000 -u"
 
-alias pp='command sudo -E puppet agent -t'
-alias ppa='command sudo -E puppet agent -t --environment=$BOOKING_USER'
+alias pp='command sudo puppet agent -t'
+alias ppa='command sudo puppet agent -t --environment=$BOOKING_USER'
 alias ppl='view /var/log/puppet/puppetagent.log'
 alias cmd='command'
 
