@@ -54,6 +54,9 @@ alias la='command ls --color=yes --group-directories-first -A'
 alias ll='command ls --color=yes --group-directories-first -lh'
 alias lla='command ls --color=yes --group-directories-first -lhA'
 
+alias c='clear'
+alias m='master'
+
 alias sc='sudo systemctl'
 alias jc='sudo journalctl'
 alias start="sudo systemctl start"
