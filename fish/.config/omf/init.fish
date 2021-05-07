@@ -63,7 +63,7 @@ alias v    'nvim $argv || nvim $argv'
 alias vim  'nvim $argv || nvim $argv'
 alias nv   'nvim $argv || nvim $argv'
 alias nvim 'nvim $argv || nvim $argv'
-alias view 'nvim -c "set ft=log" +\$'
+alias view 'nvim -c "set ft=log"'
 alias less 'nvim -c "set ft=log"'
 
 alias update '\
