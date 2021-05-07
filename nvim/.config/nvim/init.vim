@@ -733,15 +733,6 @@ augroup fzf
     \ autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 augroup end
 
-function! DisableIndentLines()
-  if &ft =~# 'fzf\|startify\|man\|log'
-    IndentBlanklineDisable
-  endif
-endfunction
-
-augroup indentlines
-  autocmd FileType * call DisableIndentLines()
-augroup end
 " }}}
 
 " Vim-diminactive
@@ -818,7 +809,7 @@ augroup end
 " Lf.vim
 let g:lf_map_keys = 0
 let g:lf_replace_netrw = 1
-autocmd TermOpen  * if has("mac") | set showtabline=0 | endif | set norelativenumber | set nonumber | set signcolumn=no  | set mouse-=a | IndentBlanklineDisable
+autocmd TermOpen  * if has("mac") | set showtabline=0 | endif | set norelativenumber | set nonumber | set signcolumn=no  | set mouse-=a
 autocmd TermLeave * if has("mac") | set showtabline=2 | endif | set relativenumber   | set number   | set signcolumn=yes | set mouse+=a
 map <Leader>l :<C-u>Lf<CR>
 
@@ -1036,6 +1027,8 @@ nnoremap gx :call OpenURLUnderCursor()<CR>
 " Indent Blankline
 let g:indent_blankline_use_treesitter = v:true
 let g:indent_blankline_show_first_indent_level = v:true
+let g:indent_blankline_buftype_exclude = ['terminal']
+let g:indent_blankline_filetype_exclude = ['fzf', 'startify', 'man', 'log']
 
 " Persist and provide a clearer message to explain what has happened when Vim
 " notices that the file you are editing was changed by another program (like
