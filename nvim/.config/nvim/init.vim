@@ -71,7 +71,6 @@ call plug#begin()
   Plug 'inkarkat/vim-EnhancedJumps' | Plug 'inkarkat/vim-ingo-library'
   Plug 'sbdchd/neoformat'
   Plug 'tpope/vim-sleuth'
-  Plug 'Vimjas/vim-python-pep8-indent'
   Plug 'kana/vim-niceblock'
   Plug 'haya14busa/vim-asterisk'
   Plug 'google/vim-searchindex'
