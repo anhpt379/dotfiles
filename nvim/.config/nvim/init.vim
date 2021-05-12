@@ -88,6 +88,8 @@ call plug#begin()
 
     Plug 'anhpt379/vim-fugitive'
     Plug 'anhpt379/vim-git-browse'
+    Plug 'tpope/vim-rhubarb'
+    Plug 'shumphrey/fugitive-gitlab.vim'
 
     Plug 'anhpt379/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -1065,3 +1067,6 @@ function! FCSHandler(name)
   echon msg
   echohl None
 endfunction
+
+" GBrowse
+let g:fugitive_gitlab_domains = ['https://gitlab.booking.com/']
