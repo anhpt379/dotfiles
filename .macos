@@ -25,6 +25,9 @@ defaults write NSGlobalDomain _HIHideMenuBar -bool true
 # Make the mouse pointer bigger
 defaults write com.apple.universalaccess mouseDriverCursorSize 1.5
 
+# Disable sound on Ctrl-/ (when show/hide fzf preview)
+defaults write com.apple.systemsound com.apple.sound.uiaudio.enabled -int 0
+
 # Disable the sound effects on boot
 sudo nvram SystemAudioVolume=" "
 
