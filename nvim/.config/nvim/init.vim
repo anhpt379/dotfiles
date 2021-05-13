@@ -64,7 +64,6 @@ call plug#begin()
   Plug 'anhpt379/vim-unimpaired'
   Plug 'rhysd/clever-f.vim'
   Plug 'junegunn/vim-easy-align'
-  Plug 'cohama/lexima.vim'
   Plug 'tpope/vim-speeddating'
   Plug 'tpope/vim-dispatch'
   Plug 'qxxxb/vim-searchhi'
@@ -77,6 +76,7 @@ call plug#begin()
   Plug 'junegunn/vim-after-object'
   Plug 'jeetsukumaran/vim-indentwise'
   Plug 'dyng/ctrlsf.vim'
+  Plug 'windwp/nvim-autopairs'
 
   " Heavily loaded plugins
   if has('mac')
@@ -598,9 +598,8 @@ augroup end
 " Colorizer
 lua require'colorizer'.setup()
 
-" Lexima
-let g:lexima_enable_basic_rules = 0
-let g:lexima_map_escape = ''
+" Autopairs
+lua require('nvim-autopairs').setup()
 
 " Sandwich
 runtime macros/sandwich/keymap/surround.vim
