@@ -112,17 +112,22 @@ let g:plug_window = 'enew'
 let g:coc_global_extensions = [
   \ 'coc-git',
   \ 'coc-pyright',
+  \ 'coc-perl',
+  \ 'coc-lua',
   \ 'coc-html',
   \ 'coc-css',
   \ 'coc-fish',
   \ 'coc-markdownlint',
   \ 'coc-docker',
   \ 'coc-sh',
+  \ 'coc-vimlsp',
+  \ 'coc-yaml',
+  \ 'coc-xml',
   \ 'coc-nextword',
+  \ 'coc-solargraph',
+  \ 'coc-gitignore',
   \ 'coc-dictionary',
   \ 'coc-diagnostic',
-  \ 'coc-vimlsp',
-  \ 'coc-solargraph',
   \ 'coc-marketplace'
   \ ]
 
