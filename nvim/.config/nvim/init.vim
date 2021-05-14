@@ -111,7 +111,7 @@ let g:plug_window = 'enew'
 
 let g:coc_global_extensions = [
   \ 'coc-git',
-  \ 'coc-python',
+  \ 'coc-pyright',
   \ 'coc-html',
   \ 'coc-css',
   \ 'coc-fish',
