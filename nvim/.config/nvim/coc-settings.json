@@ -7,6 +7,8 @@
   "git.addGBlameToVirtualText": true,
   "yank.highlight.enable": false,
   "yank.enableCompletion": false,
+  "nextword.count": 5,
+  "nextword.greedy": false,
   "diagnostic.errorSign": "×",
   "diagnostic.warningSign": "!",
   "diagnostic.infoSign": "i",

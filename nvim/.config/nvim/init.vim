@@ -118,6 +118,7 @@ let g:coc_global_extensions = [
   \ 'coc-markdownlint',
   \ 'coc-docker',
   \ 'coc-sh',
+  \ 'coc-nextword',
   \ 'coc-dictionary',
   \ 'coc-diagnostic',
   \ 'coc-vimlsp',
