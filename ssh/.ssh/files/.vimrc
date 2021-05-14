@@ -6,6 +6,8 @@ map gw :update<CR>
 
 set nowrap
 set cursorline
+set number
+set relativenumber
 
 " Move the view a half screenwidth left/right with H/L
 map H zH
