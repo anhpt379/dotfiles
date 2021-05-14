@@ -342,7 +342,7 @@ set shortmess+=c
 set signcolumn=yes
 
 " Accept completion with <CR> and <Tab>
-inoremap <expr> <CR> pumvisible() ? '\<C-y>' : '\<CR>'
+inoremap <expr> <CR> pumvisible() ? '<C-y>' : '<CR>'
 
 " Navigate diagnostics
 nmap <silent> <C-n> <Plug>(coc-diagnostic-next)
