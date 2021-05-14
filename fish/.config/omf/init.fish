@@ -110,6 +110,9 @@ set -gx PATH '/usr/local/opt/gnu-sed/libexec/gnubin' $PATH
 set -gx PATH '/usr/local/opt/grep/libexec/gnubin' $PATH
 set -gx PATH '/usr/local/opt/coreutils/libexec/gnubin' $PATH
 
+# https://github.com/high-moctane/nextword-data
+set -gx NEXTWORD_DATA_PATH $HOME/.config/nvim/dictionaries/nextword-data
+
 set -gx EDITOR 'nvim'
 set -gx KUBE_EDITOR 'vim'
 

@@ -42,6 +42,7 @@ endif
 	make stow
 
 	pip3 install --user -r requirements.txt
+	go get -u github.com/high-moctane/nextword
 	gem install --user-install \
 		puppet-lint \
 		puppet-lint-strict_indent-check \
