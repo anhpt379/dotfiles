@@ -92,6 +92,7 @@ call plug#begin()
 
     Plug 'anhpt379/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    Plug 'romgrk/nvim-treesitter-context'
 
     Plug 'rhysd/conflict-marker.vim'
     Plug 'itchyny/vim-parenmatch'
