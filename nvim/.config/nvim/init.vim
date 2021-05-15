@@ -363,25 +363,7 @@ imap <silent> <C-p> <Esc><C-p>
 nmap <silent> gd <Plug>(coc-definition)
 
 " Use K to show documentation in preview window
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-
-" Remap for do codeAction of selected region, ex: `<Leader>aap` for current
-" paragraph
-xmap <Leader>a <Plug>(coc-codeaction-selected)
-nmap <Leader>a <Plug>(coc-codeaction-selected)
-
-" Remap for do codeAction of current line
-nmap <Leader>ac <Plug>(coc-codeaction)
-" Fix autofix problem of current line
-nmap <Leader>qf <Plug>(coc-fix-current)
+nnoremap <silent> K :call CocAction('doHover')<CR>
 
 " Create mappings for function text object, requires document symbols feature
 " of languageserver
