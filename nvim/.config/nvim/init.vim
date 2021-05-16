@@ -77,6 +77,7 @@ call plug#begin()
   Plug 'jeetsukumaran/vim-indentwise'
   Plug 'dyng/ctrlsf.vim'
   Plug 'windwp/nvim-autopairs'
+  Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 
   " Heavily loaded plugins
   if has('mac')
@@ -594,6 +595,9 @@ lua require('nvim-autopairs').setup()
 
 " Autoclose and autorename HTML tags using treesitter
 lua require('nvim-ts-autotag').setup()
+
+" Correctly set `commentstring` in complex filetypes using treesitter
+lua require'nvim-treesitter.configs'.setup{context_commentstring={enable = true}}
 
 " Sandwich
 runtime macros/sandwich/keymap/surround.vim
