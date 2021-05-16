@@ -78,6 +78,7 @@ call plug#begin()
   Plug 'dyng/ctrlsf.vim'
   Plug 'windwp/nvim-autopairs'
   Plug 'JoosepAlviste/nvim-ts-context-commentstring'
+  Plug 'matze/vim-move'
 
   " Heavily loaded plugins
   if has('mac')
@@ -780,11 +781,6 @@ nnoremap <End>  <C-W><C-L>
 map H zH
 map L zL
 
-" Moving up/down faster with <C-k>/<C-j>
-" (<C-k>/<C-j> is PageUp/PageDown due to mappings in Karabiner)
-nnoremap <PageUp>   2k
-nnoremap <PageDown> 2j
-
 " Easier change list jumps
 nnoremap <Leader>o g;
 nnoremap <Leader>i g,
@@ -1066,3 +1062,14 @@ endfunction
 
 " GBrowse
 let g:fugitive_gitlab_domains = ['https://gitlab.booking.com/']
+
+" Vim-move
+" Moving text left/down/up//right faster with <C-hjkl>
+" (<C-hkjk> is Home/PageDown/PageUp/End due to mappings in Karabiner)
+let g:move_map_keys = 0
+let g:move_auto_indent = 1
+let g:move_past_end_of_line = 0
+vmap <PageUp> <Plug>MoveBlockUp
+vmap <PageDown> <Plug>MoveBlockDown
+vmap <Home> <Plug>MoveBlockLeft
+vmap <End> <Plug>MoveBlockRight
