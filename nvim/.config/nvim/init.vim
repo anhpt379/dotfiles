@@ -78,6 +78,7 @@ call plug#begin()
   Plug 'dyng/ctrlsf.vim'
   Plug 'windwp/nvim-autopairs'
   Plug 'matze/vim-move'
+  Plug 'anhpt379/nvim-cursorword'
 
   " Heavily loaded plugins
   if has('mac')
