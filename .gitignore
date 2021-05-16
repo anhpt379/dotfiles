@@ -1,7 +1,6 @@
 nvim/.config/nvim/autoload/plug.vim*
 nvim/.config/nvim/plugged/*
 nvim/.config/nvim/undo/*
-nvim/.config/nvim/dictionaries/nextword-data
 Brewfile.lock.json
 .DS_Store
 *.py[cod]
