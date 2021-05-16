@@ -56,7 +56,7 @@ call plug#begin()
   Plug 'tpope/vim-repeat'
   Plug 'inkarkat/vim-visualrepeat'
   Plug 'machakann/vim-sandwich'
-  Plug 'tpope/vim-commentary'
+  Plug 'tpope/vim-commentary' | Plug 'JoosepAlviste/nvim-ts-context-commentstring'
   Plug 'ntpeters/vim-better-whitespace'
   Plug 'farmergreg/vim-lastplace'
   Plug 'paretje/suda.vim'
@@ -77,7 +77,6 @@ call plug#begin()
   Plug 'jeetsukumaran/vim-indentwise'
   Plug 'dyng/ctrlsf.vim'
   Plug 'windwp/nvim-autopairs'
-  Plug 'JoosepAlviste/nvim-ts-context-commentstring'
   Plug 'matze/vim-move'
 
   " Heavily loaded plugins
