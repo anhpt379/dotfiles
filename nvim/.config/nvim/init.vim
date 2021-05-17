@@ -56,7 +56,7 @@ call plug#begin()
   Plug 'tpope/vim-repeat'
   Plug 'inkarkat/vim-visualrepeat'
   Plug 'machakann/vim-sandwich'
-  Plug 'tpope/vim-commentary' | Plug 'JoosepAlviste/nvim-ts-context-commentstring'
+  Plug 'tpope/vim-commentary'
   Plug 'ntpeters/vim-better-whitespace'
   Plug 'farmergreg/vim-lastplace'
   Plug 'paretje/suda.vim'
@@ -96,6 +96,7 @@ call plug#begin()
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'romgrk/nvim-treesitter-context'
     Plug 'windwp/nvim-ts-autotag'
+    Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 
     Plug 'rhysd/conflict-marker.vim'
     Plug 'itchyny/vim-parenmatch'
@@ -594,11 +595,13 @@ lua require'colorizer'.setup()
 " Autopairs
 lua require('nvim-autopairs').setup()
 
-" Autoclose and autorename HTML tags using treesitter
-lua require('nvim-ts-autotag').setup()
+if has('mac')
+  " Autoclose and autorename HTML tags using treesitter
+  lua require('nvim-ts-autotag').setup()
 
-" Correctly set `commentstring` in complex filetypes using treesitter
-lua require'nvim-treesitter.configs'.setup{context_commentstring={enable = true}}
+  " Correctly set `commentstring` in complex filetypes using treesitter
+  lua require'nvim-treesitter.configs'.setup{context_commentstring={enable = true}}
+endif
 
 " Sandwich
 runtime macros/sandwich/keymap/surround.vim
