@@ -64,6 +64,7 @@ call plug#begin()
   Plug 'anhpt379/vim-unimpaired'
   Plug 'rhysd/clever-f.vim'
   Plug 'junegunn/vim-easy-align'
+  Plug 'cohama/lexima.vim'
   Plug 'tpope/vim-speeddating'
   Plug 'tpope/vim-dispatch'
   Plug 'qxxxb/vim-searchhi'
@@ -76,7 +77,6 @@ call plug#begin()
   Plug 'junegunn/vim-after-object'
   Plug 'jeetsukumaran/vim-indentwise'
   Plug 'dyng/ctrlsf.vim'
-  Plug 'windwp/nvim-autopairs'
   Plug 'matze/vim-move'
   Plug 'anhpt379/nvim-cursorword'
 
@@ -592,8 +592,9 @@ augroup end
 " Colorizer
 lua require'colorizer'.setup()
 
-" Autopairs
-lua require('nvim-autopairs').setup()
+" Lexima
+let g:lexima_enable_basic_rules = 0
+let g:lexima_map_escape = ''
 
 if has('mac')
   " Autoclose and autorename HTML tags using treesitter
