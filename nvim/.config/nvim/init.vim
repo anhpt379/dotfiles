@@ -78,7 +78,6 @@ call plug#begin()
   Plug 'jeetsukumaran/vim-indentwise'
   Plug 'dyng/ctrlsf.vim'
   Plug 'matze/vim-move'
-  Plug 'anhpt379/nvim-cursorword'
 
   " Heavily loaded plugins
   if has('mac')
