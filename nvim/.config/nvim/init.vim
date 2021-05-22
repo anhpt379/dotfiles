@@ -35,7 +35,7 @@ call plug#begin()
   Plug 'VebbNix/lf-vim'
 
   " Fancy UI stuff
-  Plug 'anhpt379/fzf'
+  Plug 'anhpt379/fzf', {'commit': 'c330f2a'}
   Plug 'anhpt379/fzf.vim'
   Plug 'anhpt379/fzf-filemru'
   Plug 'chrisbra/Colorizer'
