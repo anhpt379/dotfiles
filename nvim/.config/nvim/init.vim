@@ -1076,3 +1076,7 @@ vmap <PageUp> <Plug>MoveBlockUp
 vmap <PageDown> <Plug>MoveBlockDown
 vmap <Home> <Plug>MoveBlockLeft
 vmap <End> <Plug>MoveBlockRight
+
+" Tree-sitter based folding
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
