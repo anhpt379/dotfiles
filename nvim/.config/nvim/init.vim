@@ -442,6 +442,9 @@ command! Gmergeabort         silent! G merge --abort
 command! Gcherrypickcontinue silent! G cherry-pick --continue
 command! Gcherrypickabort    silent! G cherry-pick --abort
 
+let g:dispatch_no_maps = 1
+map m vgl
+
 nmap g[ :Dispatch! noti git pull --rebase origin master<CR>
 nmap g] :Dispatch! noti git push --force-with-lease origin HEAD<CR>:silent exec '!git rev-parse --short HEAD \| tr -d "\n" \| pbcopy'<CR>
 nmap M  :Dispatch! noti 'git checkout master && git pull --rebase origin master'<CR>
