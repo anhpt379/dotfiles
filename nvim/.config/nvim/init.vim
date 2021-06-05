@@ -426,11 +426,10 @@ augroup number-toggle
 augroup end
 
 " Git {{{
-noremap  gs :tab Git<CR>gg4j
-nnoremap gl :FzfCommits<CR>
-nnoremap gL :FzfBCommits<CR>
-vnoremap gl :FzfLCommits<CR>
-noremap  <expr> gw &modified ? ':silent! Gwrite<CR>:update<CR>' : ''
+noremap gs :tab Git<CR>gg4j
+noremap gl :FzfCommits<CR>
+noremap gL :FzfBCommits<CR>
+noremap <expr> gw &modified ? ':silent! Gwrite<CR>:update<CR>' : ''
 
 command! Gundo               silent! G undo
 command! Gstash              silent! G stash
