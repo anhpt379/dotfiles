@@ -521,7 +521,7 @@ set scrolloff=5
 set sidescrolloff=7
 
 " Copy path to clipboard
-command! CopyPath let @+=expand('%:p')
+command! CopyPath let @+=fnamemodify(expand("%"), ":~:.")
 
 " Insert mode navigational keys
 inoremap <C-k> <Up>
