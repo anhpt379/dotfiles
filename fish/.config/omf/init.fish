@@ -64,7 +64,6 @@ alias vim  'nvim $argv || nvim $argv'
 alias nv   'nvim $argv || nvim $argv'
 alias nvim 'nvim $argv || nvim $argv'
 alias view 'nvim -c "set ft=log"'
-alias less 'nvim -c "set ft=log"'
 
 alias vgs  'nvim +"tab Git"'
 alias vgl  'nvim +"FzfCommits"'
