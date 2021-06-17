@@ -34,7 +34,7 @@ alias restart="sudo systemctl restart"
 alias info="sudo systemctl status"
 function log
     if [ (count $argv) -eq 1 ]
-        sudo journalctl --no-pager --lines=10000 -u $argv | view
+        sudo journalctl --no-pager --lines=1000 -u $argv | view
     else
         sudo journalctl --no-pager --lines=$argv[2] -u $argv[1] | view
     end
