@@ -65,9 +65,10 @@ alias nv   'nvim $argv || nvim $argv'
 alias nvim 'nvim $argv || nvim $argv'
 alias view 'nvim -c "set ft=log"'
 
-alias vgs  'nvim +"tab Git"'
-alias vgl  'nvim +"FzfCommits"'
-alias vlf  'nvim +"Lf"'
+alias nf   'nvim +"FilesMru"'
+alias ngs  'nvim +"tab Git"'
+alias ngl  'nvim +"FzfCommits"'
+alias nlf  'nvim +"Lf"'
 
 alias update '\
     brew upgrade;
