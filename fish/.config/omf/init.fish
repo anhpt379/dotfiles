@@ -170,6 +170,7 @@ set -gx FZF_DEFAULT_OPTS    '
   --height=40%
   --preview-window=right:60%
   --bind=ctrl-/:toggle-preview
+  --bind=ctrl-s:toggle-sort
   --bind=tab:accept,ctrl-j:ignore,ctrl-k:ignore
   --bind=change:first
   --bind=ctrl-f:preview-page-down,ctrl-b:preview-page-up
