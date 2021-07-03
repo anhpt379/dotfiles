@@ -48,7 +48,7 @@ call plug#begin()
   Plug 'roman/golden-ratio'
   Plug 'pechorin/any-jump.vim'
   Plug 'voldikss/vim-floaterm'
-  Plug 'lukas-reineke/indent-blankline.nvim', { 'branch': 'lua' }
+  Plug 'lukas-reineke/indent-blankline.nvim'
 
   " Improving editing experience
   Plug 'anhpt379/targets.vim'
