@@ -924,7 +924,7 @@ xnoremap <silent> go :<C-u>call vim_git_browse#GitBrowse(v:true, 'master')<CR>
 nnoremap <silent> gO :<C-u>call vim_git_browse#GitBrowse(v:false)<CR>
 xnoremap <silent> gO :<C-u>call vim_git_browse#GitBrowse(v:true)<CR>
 nnoremap <silent> gp :<C-u>call vim_git_browse#GitOpenPipelines()<CR>
-nnoremap <silent> gm :!git push --force-with-lease origin HEAD<CR>:<C-u>call vim_git_browse#GitOpenPullRequest()<CR>
+nnoremap <silent> gm :!if git branch -a \| grep remotes/ \| grep -q /$(git branch --show-current)$; test $? -eq 1; then git push --force-with-lease origin HEAD; fi<CR>:<C-u>call vim_git_browse#GitOpenPullRequest()<CR>
 
 " LanguageTool
 " Disable vim <C-n>/<C-p> complete in INSERT mode, since we have coc-dictionary
