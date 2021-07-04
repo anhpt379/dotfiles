@@ -1083,3 +1083,10 @@ vmap <End> <Plug>MoveBlockRight
 " Tree-sitter based folding
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
+
+" <C-hjkl> to jump 2 lines/chars at a time
+" Below we're using <PageUp/Down> <Home/End> due to the maps in Karabiner
+nmap <PageDown> 2j
+nmap <PageUp> 2k
+nmap <Home> 2h
+nmap <End> 2l
