@@ -59,12 +59,15 @@ balias m 'master'
 balias n 'note'
 balias o 'openstack'
 
-alias v    'nvim $argv || nvim $argv'
-alias vim  'nvim $argv || nvim $argv'
-alias nv   'nvim $argv || nvim $argv'
-alias nvim 'nvim $argv || nvim $argv'
 alias view 'nvim -c "set ft=log"'
 
+function nv
+    if count $argv > /dev/null
+        nvim $argv
+    else
+        nvim +FilesMru
+    end
+end
 alias nf   'nvim +"FilesMru"'
 alias ngs  'nvim +"tab Git"'
 alias ngl  'nvim +"FzfCommits"'
