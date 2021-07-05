@@ -768,16 +768,16 @@ let g:netrw_dirhistmax = 0
 " (it's really hard to see the commit hashes when this option is on)
 let g:fugitive_dynamic_colors = 0
 
-" " Press `0` repeatedly to toggle between `^` and `0`
-" " (`0` is easier to reach than `^`)
-" function! ToggleHomeZero()
-"   let pos = getpos('.')
-"   execute 'normal! ^'
-"   if pos == getpos('.')
-"     execute 'normal! 0'
-"   endif
-" endfunction
-" nnoremap 0 :call ToggleHomeZero()<CR>
+" Press `0` repeatedly to toggle between `^` and `0`
+" (`0` is easier to reach than `^`)
+function! ToggleHomeZero()
+  let pos = getpos('.')
+  execute 'normal! ^'
+  if pos == getpos('.')
+    execute 'normal! 0'
+  endif
+endfunction
+nnoremap 0 :call ToggleHomeZero()<CR>
 
 " Jump to left/right split using <C-h/l> (Home/End)
 nnoremap <Home> <C-W><C-H>
