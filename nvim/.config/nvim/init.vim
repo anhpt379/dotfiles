@@ -630,6 +630,7 @@ nnoremap <silent> Q :q!<CR>
 nnoremap <F20> q
 
 " Startify
+let g:startify_disable_at_vimenter = 1
 nmap <Leader>s :Startify<CR>
 
 set shada=!,'5000,<2500,s500,h
@@ -967,11 +968,6 @@ vnoremap <Leader><Leader> "gy<Esc>:call GoogleSearchImFeelingLucky()<CR>
 
 " ENTER in VISUAL mode to start EasyAlign
 vmap <Enter> <Plug>(EasyAlign)
-
-" R in vim-plug to restart vim
-augroup vim-plug
-  autocmd FileType vim-plug nmap <buffer> R :cquit<CR>
-augroup end
 
 " CtrlSF
 nmap <C-s><C-f> :CtrlSF -- ""<Left>
