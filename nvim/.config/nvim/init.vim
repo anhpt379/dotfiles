@@ -630,7 +630,7 @@ nnoremap <silent> Q :q!<CR>
 nnoremap <F20> q
 
 " Startify
-let g:startify_disable_at_vimenter = 1
+let g:startify_disable_at_vimenter = 0
 nmap <Leader>s :Startify<CR>
 
 set shada=!,'5000,<2500,s500,h
