@@ -61,13 +61,7 @@ balias o 'openstack'
 
 alias view 'nvim -c "set ft=log"'
 
-function nv
-    if count $argv > /dev/null
-        nvim $argv
-    else
-        nvim +FilesMru
-    end
-end
+alias nv   'nvim'
 alias nf   'nvim +"FilesMru"'
 alias ngs  'nvim +"tab Git"'
 alias ngl  'nvim +"FzfCommits"'
