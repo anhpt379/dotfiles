@@ -25,6 +25,8 @@ alias pbpaste 'nc 127.0.0.1 2225 --recv-only'
 alias root 'sudo -E -s fish'
 alias sudo 'sudo -E'
 
+alias vim 'nvim'
+
 # Systemctl aliases
 alias sc='sudo systemctl'
 alias jc='sudo journalctl'
