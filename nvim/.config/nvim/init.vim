@@ -1005,6 +1005,10 @@ func! CtrlSFAfterMainWindowInit()
     silent! nnoremap <silent><buffer> <Enter> :call ctrlsf#JumpTo('open') \| call ctrlsf#win#FocusMainWindow()<CR>
 endf
 
+augroup ctrlsf-key-mappings
+  autocmd FileType ctrlsf nmap <buffer> gw :w<CR>
+augroup end
+
 " Fix gx doesn't open URL in macOS
 " https://github.com/vim/vim/issues/4738
 function! OpenURLUnderCursor()
