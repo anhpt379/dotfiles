@@ -40,7 +40,6 @@ call plug#begin()
   Plug 'anhpt379/fzf-filemru'
   Plug 'chrisbra/Colorizer'
   Plug 'norcalli/nvim-colorizer.lua'
-  Plug 'blueyed/vim-diminactive'
   Plug 'ryanoasis/vim-devicons'
   Plug 'machakann/vim-highlightedyank'
   Plug 'breuckelen/vim-resize'
@@ -740,12 +739,6 @@ augroup fzf
 augroup end
 
 " }}}
-
-" Vim-diminactive
-let g:diminactive_filetype_blacklist = []
-let g:diminactive_buftype_blacklist = []
-let g:diminactive_use_syntax = 1
-let g:diminactive_use_colorcolumn = 0
 
 " https://www.reddit.com/r/vim/comments/g1lx7e/i_made_a_command_to_autoformat_shell_commands/
 command! -range FormatShellCmd <line1>!~/.config/nvim/bin/format_shell_cmd.py
