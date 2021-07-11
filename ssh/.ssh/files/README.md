@@ -16,7 +16,7 @@ docker-compose build cargo
 docker-compose run cargo cp /usr/local/cargo/bin/{bat,exa} /out/
 
 # nvim
-wget https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
+wget https://github.com/neovim/neovim/releases/download/v0.5.0/nvim.appimage
 chmod +x nvim.appimage
 mv nvim.appimage .local/bin/
 
