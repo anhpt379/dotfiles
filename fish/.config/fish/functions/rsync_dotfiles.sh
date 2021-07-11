@@ -3,7 +3,7 @@
 target=$1
 lock_file="/tmp/.rsync-${target}.lock"
 
-if [ ! -f "${lock_file}" ]; then
+if [ ! -f "${lock_file}" ] || [ "$(find "${lock_file}" -mtime +4h -print)" ]; then
     touch "${lock_file}"
 
     echo "***************************************************************************"
