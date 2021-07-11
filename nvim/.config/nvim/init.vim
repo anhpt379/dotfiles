@@ -387,6 +387,9 @@ set winblend=0
 
 " }}}
 
+" Bclose
+let g:bclose_no_plugin_maps = v:true
+
 " Fzf {{{
 let g:fzf_command_prefix = 'Fzf'
 let g:fzf_buffers_jump = 1
@@ -415,6 +418,7 @@ command! GstatusClose call s:close_gstatus()
 
 noremap <Leader>g :GstatusClose<CR>:FzfRg<Space>
 noremap <Leader>f :GstatusClose<CR>:silent FilesMru<CR>
+noremap <Leader>b :FzfBLines<CR>
 " }}}
 
 " Hybrid line numbers
