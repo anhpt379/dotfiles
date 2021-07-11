@@ -76,7 +76,7 @@ call plug#begin()
   Plug 'google/vim-searchindex'
   Plug 'junegunn/vim-after-object'
   Plug 'jeetsukumaran/vim-indentwise'
-  Plug 'dyng/ctrlsf.vim'
+  Plug 'anhpt379/ctrlsf.vim'
   Plug 'matze/vim-move'
 
   " Heavily loaded plugins
