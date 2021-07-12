@@ -34,13 +34,7 @@ alias start="sudo systemctl start"
 alias stop="sudo systemctl stop"
 alias restart="sudo systemctl restart"
 alias info="sudo systemctl status"
-function log
-    if [ (count $argv) -eq 1 ]
-        sudo journalctl --no-pager -u $argv | less +G
-    else
-        sudo journalctl --no-pager --lines=$argv[2] -u $argv[1] | less +G
-    end
-end
+alias log="sudo journalctl -ef -u"
 
 # Fix nvim `Cannot open undo file for writing` sometimes
 mkdir -p ~/.config/nvim/undo/
