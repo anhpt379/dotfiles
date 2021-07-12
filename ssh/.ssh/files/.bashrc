@@ -67,7 +67,7 @@ alias log="sudo journalctl --lines=10000 -u"
 
 alias pp='command sudo puppet agent -t'
 alias ppa='command sudo puppet agent -t --environment=$BOOKING_USER'
-alias ppl='view /var/log/puppet/puppetagent.log'
+alias ppl='less +G /var/log/puppet/puppetagent.log'
 alias cmd='command'
 
 alias pbcopy='nc 127.0.0.1 2224 --send-only'
