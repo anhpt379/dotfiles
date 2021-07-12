@@ -63,7 +63,7 @@ alias start="sudo systemctl start"
 alias stop="sudo systemctl stop"
 alias restart="sudo systemctl restart"
 alias info="sudo systemctl status"
-alias log="sudo journalctl --lines=10000 -u"
+alias log="sudo journalctl -ef -u"
 
 alias pp='command sudo puppet agent -t'
 alias ppa='command sudo puppet agent -t --environment=$BOOKING_USER'
