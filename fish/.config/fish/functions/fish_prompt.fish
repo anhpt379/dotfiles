@@ -27,10 +27,16 @@ function fish_prompt
 
     if string match -q -- "*.*" (hostname)
         if test "$USER" = root
-            echo -n -s (set_color red --bold) [$USER@(prompt_hostname) " " $cwd]$fish $normal_color
+            set color red
         else
-            echo -n -s (set_color white --bold) [$USER@(prompt_hostname) " " $cwd]$fish $normal_color
+            set color white
         end
+        if test $last_command_status -eq 0
+            set fish_icon_color cyan
+        else
+            set fish_icon_color red
+        end
+        echo -n -s (set_color $color --bold) [$USER@(prompt_hostname) " " $cwd](set_color $fish_icon_color)$fish $normal_color
     else
         if test $last_command_status -eq 0
             echo -n -s (set_color -b cyan) $fish (set_color -b normal)
