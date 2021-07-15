@@ -49,6 +49,9 @@ balias kd 'kubectl describe'
 balias kdf 'kubectl delete --force --grace-period=0'
 balias kn 'kubectl config set-context --current --namespace'
 
+balias http 'xh'
+balias https 'xhs'
+
 balias b 'brew'
 balias c 'clear'
 balias f 'fzf'
