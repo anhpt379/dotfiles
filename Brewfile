@@ -85,7 +85,7 @@ cask 'hiddenbar'
 cask 'imageoptim'
 cask 'iterm2'
 cask 'karabiner-elements'
-cask 'kitty'
+cask 'kitty'  # Until https://github.com/kovidgoyal/kitty/issues/3504 is resolved, v0.19.3 is the highest one that [=========] is rendering properly
 cask 'maccy'
 cask 'macdown'
 cask 'pock'
