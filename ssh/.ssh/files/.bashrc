@@ -28,9 +28,13 @@ alias g='git'
 alias gs='git status'
 alias push='git push origin'
 alias fetch='git fetch origin'
-alias reset='git reset'
-alias freset='git fetch origin; git reset --hard'
 alias rebase='git rebase'
+reset() {
+  if ! git cat-file -e "$1" 2> /dev/null; then
+    git fetch origin
+  fi
+  git reset --hard "$1"
+}
 alias master='git checkout master; git diff-index --quiet HEAD && git pull --rebase origin master'
 alias gadd='git add'
 alias gpush='git push'
