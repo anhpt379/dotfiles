@@ -2,8 +2,12 @@ balias g        'git'
 balias gs       'git status'
 balias push     'git push origin'
 balias fetch    'git fetch origin'
-balias reset    'git reset'
-balias freset   'git fetch origin; git reset --hard'
+function reset -d "git fetch reset"
+    if not git cat-file -e $argv 2> /dev/null;
+        git fetch origin
+    end
+    git reset --hard $argv
+end
 balias rebase   'git rebase'
 balias master   'git checkout master; git diff-index --quiet HEAD && git pull --rebase origin master'
 balias gadd     'git add'
