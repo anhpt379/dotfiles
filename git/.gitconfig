@@ -67,3 +67,6 @@
 
 [feature]
   manyFiles = true
+
+[init]
+  defaultBranch = master
