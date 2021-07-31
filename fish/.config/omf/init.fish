@@ -140,6 +140,11 @@ bind \e\[3\;3~ kill-word
 bind \e\[5~ forward-bigword
 bind \e\[6~ backward-bigword
 
+# Fix random command appears when pressing Option-N/P. This maps them to
+# Up/Down, to behave the same as Ctrl-N/P.
+bind \en down-or-search
+bind \ep up-or-search
+
 # Ctrl-D to exit immediately (the default behavior is `delete-or-exit`, which
 # is annoying since I can't exit the shell in the middle of typing a command)
 bind \cd 'exit'
