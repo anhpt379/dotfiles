@@ -1,5 +1,5 @@
 #command
-  H    noaction j/\^((diff|commit|Date|From) )|((added|deleted|modified):)\n
+  H    noaction j/\^(commit )|((added|deleted|modified):)\n
   h    left-scroll
   l    right-scroll
   i    toggle-option i
