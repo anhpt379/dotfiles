@@ -455,6 +455,7 @@ augroup fugitive-personal-key-mappings
   autocmd FileType fugitive nmap <buffer> p :bd!<CR>
         \ :Dispatch! noti git push origin HEAD --force-with-lease<CR>
         \ :silent exec '!git rev-parse --short HEAD \| tr -d "\n" \| pbcopy'<CR>
+  autocmd FileType fugitive nmap <buffer> P :Dispatch! noti git pull --rebase origin master<CR>
   autocmd FileType fugitive nmap <buffer> m :!git push --force-with-lease origin HEAD<CR>:<C-u>call vim_git_browse#GitOpenPullRequest()<CR>
 
   " Verbose and quiet git commit by default
