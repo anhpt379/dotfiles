@@ -185,6 +185,10 @@ set -gx FZF_DEFAULT_OPTS    '
   --bind=ctrl-f:preview-page-down,ctrl-b:preview-page-up
 '
 
+# Fix can't see `null` in jq output (also changed `false` to red, `true` to
+# green)
+set -gx JQ_COLORS '36:31:32:0;39:0;32:1;39:1;39'
+
 # Custom fish color scheme
 set -U fish_color_normal normal
 set -U fish_color_command dcdfe4
