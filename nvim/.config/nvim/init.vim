@@ -1089,3 +1089,9 @@ nmap <PageDown> 2j
 nmap <PageUp> 2k
 nmap <Home> 2h
 nmap <End> 2l
+
+" Disable TreeSitterContext in Dockerfile (it's incompatible at the moment -
+" nvim shows treesitter context errors everytime we move the cursor)
+augroup dockerfile
+  autocmd FileType Dockerfile :TSContextDisable
+augroup end
