@@ -47,7 +47,6 @@ call plug#begin()
   Plug 'roman/golden-ratio'
   Plug 'pechorin/any-jump.vim'
   Plug 'voldikss/vim-floaterm'
-  Plug 'lukas-reineke/indent-blankline.nvim'
 
   " Improving editing experience
   Plug 'anhpt379/targets.vim'
@@ -84,6 +83,8 @@ call plug#begin()
     Plug 'mhinz/vim-startify'
     Plug 'itchyny/lightline.vim'
     Plug 'mengelbrecht/lightline-bufferline'
+
+    Plug 'lukas-reineke/indent-blankline.nvim'
 
     Plug 'anhpt379/vim-fugitive'
     Plug 'anhpt379/vim-git-browse'
