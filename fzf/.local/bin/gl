@@ -2,7 +2,7 @@
 
 git rev-parse HEAD >/dev/null || exit 1
 
-get_commit_hash="echo {} | grep -o '^[a-f0-9]\{7,40\} ' | head -1"
+get_commit_hash="echo {} | grep -o '^[a-f0-9]\{7,40\} ' | head -1 | xargs"
 view_commit="${get_commit_hash} | xargs -I % git show --color=always %"
 rebase_commit="${get_commit_hash} | xargs -I % git rebase -i --rebase-merges %"
 preview_commit="${get_commit_hash} | \
