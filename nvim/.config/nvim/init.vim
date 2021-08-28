@@ -98,7 +98,7 @@ call plug#begin()
     Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 
     Plug 'rhysd/conflict-marker.vim'
-    Plug 'itchyny/vim-parenmatch'
+    Plug 'andymass/vim-matchup'
 
     Plug 'wakatime/vim-wakatime'
   endif
@@ -1097,3 +1097,12 @@ nmap <End> 2l
 augroup dockerfile
   autocmd FileType Dockerfile :TSContextDisable
 augroup end
+
+" Vim-matchup tree-sitter integration
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  matchup = {
+    enable = true,
+  },
+}
+EOF
