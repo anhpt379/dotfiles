@@ -916,6 +916,15 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 EOF
+
+" Vim-matchup tree-sitter integration
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  matchup = {
+    enable = true,
+  },
+}
+EOF
 endif
 
 " Vim-git-browse
@@ -1097,12 +1106,3 @@ nmap <End> 2l
 augroup dockerfile
   autocmd FileType Dockerfile :TSContextDisable
 augroup end
-
-" Vim-matchup tree-sitter integration
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
-  matchup = {
-    enable = true,
-  },
-}
-EOF
