@@ -5,6 +5,7 @@
   "suggest.numberSelect": false,
   "suggest.defaultSortMethod": "none",
   "git.addGBlameToVirtualText": true,
+  "python.pythonPath": "/usr/local/bin/python3",
   "yank.highlight.enable": false,
   "yank.enableCompletion": false,
   "nextword.count": 5,
