@@ -67,6 +67,7 @@ balias n 'note'
 balias o 'openstack'
 
 alias view 'nvim -c "set ft=log"'
+alias vim  'nvim'
 
 alias nv   'nvim'
 alias nf   'nvim +"FilesMru"'
