@@ -1,8 +1,8 @@
 {
-  "title": "Safari/Chrome key bindings",
+  "title": "Safari/Chrome/Firefox key bindings",
   "rules": [
     {
-      "description": "Safari/Chrome - Focus on the address bar with CMD+O",
+      "description": "Safari/Chrome/Firefox - Focus on the address bar with CMD+O",
       "manipulators": [
         {
           "type": "basic",
@@ -23,7 +23,8 @@
               "type": "frontmost_application_if",
               "bundle_identifiers": [
                 "^com\\.apple\\.Safari$",
-                "^com\\.google\\.Chrome$"
+                "^com\\.google\\.Chrome$",
+                "^org\\.mozilla\\.firefox$"
               ]
             }
           ]
@@ -31,7 +32,7 @@
       ]
     },
     {
-      "description": "Safari/Chrome - Focus on the address bar with CTRL+O",
+      "description": "Safari/Chrome/Firefox - Focus on the address bar with CTRL+O",
       "manipulators": [
         {
           "type": "basic",
@@ -52,7 +53,8 @@
               "type": "frontmost_application_if",
               "bundle_identifiers": [
                 "^com\\.apple\\.Safari$",
-                "^com\\.google\\.Chrome$"
+                "^com\\.google\\.Chrome$",
+                "^org\\.mozilla\\.firefox$"
               ]
             }
           ]
@@ -60,7 +62,7 @@
       ]
     },
     {
-      "description": "Safari/Chrome - Copy URL in the address bar with CTRL+Y",
+      "description": "Safari/Chrome/Firefox - Copy URL in the address bar with CTRL+Y",
       "manipulators": [
         {
           "type": "basic",
@@ -91,7 +93,8 @@
               "type": "frontmost_application_if",
               "bundle_identifiers": [
                 "^com\\.apple\\.Safari$",
-                "^com\\.google\\.Chrome$"
+                "^com\\.google\\.Chrome$",
+                "^org\\.mozilla\\.firefox$"
               ]
             }
           ]
@@ -99,7 +102,7 @@
       ]
     },
     {
-      "description": "Safari/Chrome - Accept suggestion & go to the url with CAPSLOCK+G",
+      "description": "Safari/Chrome/Firefox - Accept suggestion & go to the url with CAPSLOCK+G",
       "manipulators": [
         {
           "type": "basic",
@@ -119,7 +122,8 @@
               "type": "frontmost_application_if",
               "bundle_identifiers": [
                 "^com\\.apple\\.Safari$",
-                "^com\\.google\\.Chrome$"
+                "^com\\.google\\.Chrome$",
+                "^org\\.mozilla\\.firefox$"
               ]
             }
           ]
@@ -127,7 +131,7 @@
       ]
     },
     {
-      "description": "Safari/Chrome - Switch tabs with CMD+N/P",
+      "description": "Safari/Chrome/Firefox - Switch tabs with CMD+N/P",
       "manipulators": [
         {
           "type": "basic",
@@ -148,7 +152,8 @@
               "type": "frontmost_application_if",
               "bundle_identifiers": [
                 "^com\\.apple\\.Safari$",
-                "^com\\.google\\.Chrome$"
+                "^com\\.google\\.Chrome$",
+                "^org\\.mozilla\\.firefox$"
               ]
             }
           ]
@@ -172,7 +177,8 @@
               "type": "frontmost_application_if",
               "bundle_identifiers": [
                 "^com\\.apple\\.Safari$",
-                "^com\\.google\\.Chrome$"
+                "^com\\.google\\.Chrome$",
+                "^org\\.mozilla\\.firefox$"
               ]
             }
           ]
