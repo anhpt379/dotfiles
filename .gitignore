@@ -5,3 +5,4 @@ nvim/.config/nvim/dictionaries/nextword-data
 Brewfile.lock.json
 .DS_Store
 *.py[cod]
+wakapi-data/wakapi.db

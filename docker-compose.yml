@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  wakapi:
+    image: n1try/wakapi
+    restart: always
+    environment:
+      - WAKAPI_PASSWORD_SALT=bDXjvWPreEBlItV3ivjmYRM08XE0bgSL
+    volumes:
+      - ./wakapi-data:/data
+    ports:
+      - "3000:3000"
