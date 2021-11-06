@@ -910,7 +910,7 @@ if has('mac')
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
   ensure_installed = "maintained",
-  ignore_install = { "haskell" },
+  ignore_install = { "haskell", "swift" },
   highlight = {
     enable = true,
   },
