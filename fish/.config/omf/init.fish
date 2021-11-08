@@ -75,22 +75,21 @@ alias ngs  'nvim +"tab Git"'
 alias ngl  'nvim +"FzfCommits"'
 alias nlf  'nvim +"Lf"'
 
-alias update '\
-    brew upgrade;
-    fisher self-update;
-    fisher;
-    omf update;
-    pip3 install --upgrade pip;
-    brew upgrade neovim-nightly;
-    tldr --update;
-    pip3 install --user -r ~/dotfiles/requirements.txt;
+function update
+    brew upgrade
+    fisher self-update
+    fisher
+    omf update
+    pip3 install --upgrade pip
+    tldr --update
+    pip3 install --user -r ~/dotfiles/requirements.txt
     gem install --user-install \
         puppet-lint \
         puppet-lint-strict_indent-check \
         puppet-lint-trailing_comma-check \
         puppet-lint-trailing_newline-check \
-        solargraph;
-'
+        solargraph
+end
 
 globabbr C '| grcat conf.auto'
 globabbr G '| grep'
