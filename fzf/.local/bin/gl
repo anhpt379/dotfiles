@@ -59,6 +59,7 @@ eval "${git_cmd}" |
     --bind="enter:execute/${view_commit}/" \
     --bind="ctrl-y:execute-silent/${copy_commit_hash}/+abort" \
     --bind="ctrl-o:execute/${open_in_browser}/+abort" \
+    --bind="ctrl-alt-o:execute/${open_in_browser}/" \
     --bind="ctrl-r:execute/${rebase_commit}/+abort" \
     --bind="ctrl-]:execute/git push --force-with-lease/+abort" \
     --bind="ctrl-/:toggle-preview" \
