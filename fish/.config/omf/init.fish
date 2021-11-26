@@ -121,7 +121,7 @@ set -gx NEXTWORD_DATA_PATH $HOME/.config/nvim/dictionaries/nextword-data
 set -gx EDITOR 'nvim'
 set -gx KUBE_EDITOR 'vim'
 
-set -gx MANPAGER "nvim -c 'set ft=man | set showtabline=1 | set laststatus=0' -"
+set -gx MANPAGER "nvim -c 'set ft=man | set showtabline=1 | set laststatus=0' +Man!"
 
 # Fix trackpad scrolling doesn't work in diff-so-fancy
 # Need to remove the `X` flag from less options, but can't do it via .gitconfig,
