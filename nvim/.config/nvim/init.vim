@@ -422,13 +422,6 @@ noremap <Leader>f :GstatusClose<CR>:silent FilesMru<CR>
 noremap <Leader>b :FzfBLines<CR>
 " }}}
 
-" Hybrid line numbers
-augroup number-toggle
-  autocmd!
-  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu | set rnu   | endif
-  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu | set nornu | endif
-augroup end
-
 " Git {{{
 noremap gs :tab Git<CR>gg4j
 noremap gl :FzfCommits<CR>
@@ -479,7 +472,7 @@ augroup fugitive-personal-key-mappings
   autocmd FileType fugitive map <buffer> <nowait> x X
 
   " Left padding
-  autocmd FileType fugitive set signcolumn=yes | set number | set relativenumber
+  autocmd FileType fugitive set signcolumn=yes | set number
 augroup end
 
 augroup fugitive-auto-insert
