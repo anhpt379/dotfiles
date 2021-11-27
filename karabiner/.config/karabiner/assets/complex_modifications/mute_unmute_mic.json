@@ -1,0 +1,24 @@
+{
+  "title": "Mute/unmute microphone",
+  "rules": [
+    {
+      "description": "Mute/unmute mic with CMD+CONTROL+M",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "m",
+            "modifiers": {
+              "mandatory": ["control", "command"]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "osascript ~/.config/karabiner/assets/mute_unmute_mic.scpt"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
