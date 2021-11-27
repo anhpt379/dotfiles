@@ -610,10 +610,10 @@ xmap a <Plug>(operator-sandwich-add)
 
 " Close buffer with a single keypress
 function! Goodbye()
+  bd!
   if len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
-    q!
+    Startify
   else
-    bd!
     blast
   endif
 endfunction
