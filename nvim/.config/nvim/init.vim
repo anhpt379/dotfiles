@@ -612,7 +612,11 @@ xmap a <Plug>(operator-sandwich-add)
 function! Goodbye()
   bd!
   if len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
-    Startify
+    if has('mac')
+      Startify
+    else
+      q!
+    endif
   else
     blast
   endif
