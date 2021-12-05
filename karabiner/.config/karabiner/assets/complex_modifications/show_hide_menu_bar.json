@@ -1,0 +1,22 @@
+{
+  "title": "Show / hide menu bar",
+  "rules": [
+    {
+      "description": "Use DELETE key to show & hide menu bar",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f20"
+          },
+          "to": [
+            {
+              "key_code": "f2",
+              "modifiers": ["control"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
