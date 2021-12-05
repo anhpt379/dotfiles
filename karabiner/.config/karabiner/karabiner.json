@@ -16,32 +16,6 @@
                 },
                 "rules": [
                     {
-                        "description": "Map enter to control if pressed with other keys",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "return_or_enter",
-                                    "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "right_control"
-                                    }
-                                ],
-                                "to_if_alone": [
-                                    {
-                                        "key_code": "return_or_enter"
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
                         "description": "Map caps_lock to control if pressed with other keys, to escape if pressed alone",
                         "manipulators": [
                             {
@@ -1005,6 +979,16 @@
             "simple_modifications": [
                 {
                     "from": {
+                        "key_code": "delete_or_backspace"
+                    },
+                    "to": [
+                        {
+                            "key_code": "f20"
+                        }
+                    ]
+                },
+                {
+                    "from": {
                         "key_code": "right_command"
                     },
                     "to": [
@@ -1020,16 +1004,6 @@
                     "to": [
                         {
                             "key_code": "delete_forward"
-                        }
-                    ]
-                },
-                {
-                    "from": {
-                        "key_code": "delete_or_backspace"
-                    },
-                    "to": [
-                        {
-                            "key_code": "f20"
                         }
                     ]
                 }
