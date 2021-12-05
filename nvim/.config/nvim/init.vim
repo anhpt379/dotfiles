@@ -957,7 +957,7 @@ nnoremap gb :FloatermNew! gb<CR>
 
 " Vim-after-object: change/delete/select text *after* a character
 augroup vim-after-object
-  autocmd VimEnter * silent! call after_object#enable(['a', 'A'], '=', ':', '#', ' ', '|', '*')
+  autocmd VimEnter * silent! call after_object#enable([']', '['], '=', ':', '#', ' ', '|', '*')
 augroup end
 
 " ]i and [i to go to next/previous indentation level
