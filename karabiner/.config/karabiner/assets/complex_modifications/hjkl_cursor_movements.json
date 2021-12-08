@@ -2,7 +2,7 @@
   "title": "Cursor movements with HJKL",
   "rules": [
     {
-      "description": "Map command+h/j/k/l to arrow left/down/up/right",
+      "description": "Map Command+H/J/K/L to arrow left/down/up/right",
       "manipulators": [
         {
           "type": "basic",
@@ -67,7 +67,7 @@
       ]
     },
     {
-      "description": "Map option+h/j/k/l to option+left/down/up/right",
+      "description": "Map Option+H/J/K/L to Option+left/down/up/right",
       "manipulators": [
         {
           "type": "basic",
@@ -136,7 +136,7 @@
       ]
     },
     {
-      "description": "Map left_control+h/j/k/l to home/page_down/page_up/end",
+      "description": "Map Control+H/J/K/L to home/page_down/page_up/end",
       "manipulators": [
         {
           "type": "basic",

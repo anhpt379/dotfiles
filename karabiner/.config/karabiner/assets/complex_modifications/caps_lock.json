@@ -1,17 +1,15 @@
 {
-  "title": "Change caps_lock to control/esc",
+  "title": "Change CapsLock to Control/ESC",
   "rules": [
     {
-      "description": "Map caps_lock to control if pressed with other keys, to escape if pressed alone",
+      "description": "Map CapsLock to ESC when tapped, and to Control when held",
       "manipulators": [
         {
           "type": "basic",
           "from": {
             "key_code": "caps_lock",
             "modifiers": {
-              "optional": [
-                "any"
-              ]
+              "optional": ["any"]
             }
           },
           "to": [

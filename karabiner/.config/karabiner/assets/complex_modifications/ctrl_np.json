@@ -1,8 +1,8 @@
 {
-  "title": "Change control+p/n to arrow up/down",
+  "title": "Change Control+N/P to arrow down/up",
   "rules": [
     {
-      "description": "Map control+p/n to arrow up/down",
+      "description": "Map Control+N/P to arrow down/up",
       "manipulators": [
         {
           "type": "basic",
