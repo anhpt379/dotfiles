@@ -3,12 +3,12 @@ let s:mono1   = ['#262626', 238]
 let s:mono2   = ['#555555', 243]
 let s:mono3   = ['#dcdfe4', 255]
 
-let s:yellow  = ['#E2B962', 180]
-let s:red     = ['#DE456B', 168]
-let s:magenta = ['#C068DF', 176]
-let s:blue    = ['#3BB0E0', 75 ]
-let s:cyan    = ['#55CABE', 73 ]
-let s:green   = ['#8DC26C', 114]
+let s:yellow  = ['#DEB246', 180]
+let s:red     = ['#ee0b4f', 168]
+let s:magenta = ['#b954e1', 176]
+let s:blue    = ['#28c9ff', 75 ]
+let s:cyan    = ['#3cc8b4', 73 ]
+let s:green   = ['#5FAE4D', 114]
 
 let s:p = {'normal': {}, 'inactive': {}, 'insert': {}, 'replace': {}, 'visual': {}, 'tabline': {}}
 
