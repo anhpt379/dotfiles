@@ -1,3 +1,6 @@
+# Use grc automatically for supported commands
+source /usr/local/etc/grc.fish
+
 balias g        'git'
 balias gs       'git status'
 balias push     'git push origin'
