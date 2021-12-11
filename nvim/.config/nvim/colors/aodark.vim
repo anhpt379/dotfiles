@@ -24,7 +24,7 @@ let s:gutter_fg   = { 'gui': '#444444', 'cterm': '238'  }
 let s:cursor_line = { 'gui': '#252526', 'cterm': '235'  }
 let s:color_col   = { 'gui': '#1f1f22', 'cterm': '234'  }
 
-let s:selection   = { 'gui': '#74b9ff', 'cterm': '75'  }
+let s:selection   = { 'gui': '#28c9ff', 'cterm': '75'  }
 let s:vertsplit   = { 'gui': '#262626', 'cterm': '235'  }
 
 let s:non_text    = { 'gui': '#555555', 'cterm': '59'   }
@@ -91,7 +91,7 @@ call s:h('TabLine', s:comment_fg, s:cursor_line, '')
 call s:h('TabLineFill', s:comment_fg, s:cursor_line, '')
 call s:h('TabLineSel', s:fg, s:bg, '')
 
-call s:h('Visual', s:fg, s:selection, '')
+call s:h('Visual', s:bg, s:selection, '')
 call s:h('VisualNOS', '', s:selection, '')
 
 call s:h('ColorColumn', '', s:color_col, '')
