@@ -308,7 +308,7 @@ call s:h('TabLine', s:comment_fg, s:cursor_line, '')
 call s:h('TabLineFill', s:comment_fg, s:cursor_line, '')
 call s:h('TabLineSel', s:fg, s:bg, '')
 
-call s:h('Visual', s:fg, s:selection, '')
+call s:h('Visual', s:bg, s:selection, '')
 call s:h('VisualNOS', '', s:selection, '')
 
 call s:h('ColorColumn', '', s:color_col, '')
