@@ -223,7 +223,7 @@ let g:colors_name='aodark'
 let colors_name='aodark'
 
 let s:black       = { 'gui': '#101011', 'cterm': '0'  }
-let s:red         = { 'gui': '#ee0b4f', 'cterm': '9'  }
+let s:red         = { 'gui': '#dd3c69', 'cterm': '9'  }
 let s:green       = { 'gui': '#5FAE4D', 'cterm': '10' }
 let s:yellow      = { 'gui': '#DEB246', 'cterm': '11' }
 let s:blue        = { 'gui': '#28c9ff', 'cterm': '12' }
