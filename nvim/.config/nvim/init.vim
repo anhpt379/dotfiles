@@ -802,8 +802,8 @@ augroup end
 " Lf.vim
 let g:lf_map_keys = 0
 let g:lf_replace_netrw = 1
-autocmd TermOpen  * if has("mac") | set showtabline=0 | endif | set norelativenumber | set nonumber | set signcolumn=no  | set mouse-=a
-autocmd TermLeave * if has("mac") | set showtabline=2 | endif | set relativenumber   | set number   | set signcolumn=yes | set mouse+=a
+autocmd TermOpen  * if has("mac") | set showtabline=0 | endif | set nonumber | set signcolumn=no  | set mouse-=a
+autocmd TermLeave * if has("mac") | set showtabline=2 | endif | set number   | set signcolumn=yes | set mouse+=a
 map <Leader>l :<C-u>Lf<CR>
 
 " Clever-f
