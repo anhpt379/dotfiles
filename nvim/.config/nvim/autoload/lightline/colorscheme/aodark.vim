@@ -4,7 +4,7 @@ let s:mono2   = ['#555555', 243]
 let s:mono3   = ['#dcdfe4', 255]
 
 let s:yellow  = ['#DEB246', 180]
-let s:red     = ['#ee0b4f', 168]
+let s:red     = ['#dd3c69', 168]
 let s:magenta = ['#b954e1', 176]
 let s:blue    = ['#28c9ff', 75 ]
 let s:cyan    = ['#3cc8b4', 73 ]
