@@ -93,7 +93,7 @@ call plug#begin()
 
     Plug 'anhpt379/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-    Plug 'romgrk/nvim-treesitter-context'
+    " Plug 'romgrk/nvim-treesitter-context'
     Plug 'windwp/nvim-ts-autotag'
     Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 
