@@ -2,6 +2,7 @@ package balias
 package bang-bang
 package errno
 package grc
+package sudope
 package title
 theme default
 theme eclm
