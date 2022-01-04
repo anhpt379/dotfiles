@@ -17,6 +17,7 @@
   undo = reset --soft HEAD^
   prune = fetch --prune
   stash-all = stash save --include-untracked
+  stashed = stash list --pretty=format:'%gd: %Cred%h%Creset %Cgreen[%ar]%Creset %s'
 
 [status]
   showUntrackedFiles = all
