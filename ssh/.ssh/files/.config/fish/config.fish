@@ -13,8 +13,8 @@ end
 
 source ~/.config/omf/init.fish
 
-alias pp 'command sudo puppet agent -t'
-alias ppa 'command sudo puppet agent -t --environment=$BOOKING_USER'
+alias pp 'command sudo HOME=/root puppet agent -t'
+alias ppa 'command sudo HOME=/root puppet agent -t --environment=$BOOKING_USER'
 alias ppl 'less +G /var/log/puppet/puppetagent.log'
 
 alias tmux 'command tmux attach -t $BOOKING_USER; or command tmux new -s $BOOKING_USER'
