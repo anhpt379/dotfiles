@@ -92,6 +92,7 @@ call plug#begin()
     Plug 'shumphrey/fugitive-gitlab.vim'
 
     Plug 'neovim/nvim-lspconfig'
+    Plug 'williamboman/nvim-lsp-installer'
     Plug 'hrsh7th/cmp-nvim-lsp'
     Plug 'hrsh7th/cmp-buffer'
     Plug 'hrsh7th/cmp-path'
@@ -1126,8 +1127,26 @@ augroup dockerfile
 augroup end
 
 " Nvim LSP
+
 lua << EOF
+local lsp_installer = require("nvim-lsp-installer")
+
+lsp_installer.settings({
+  ui = {
+    icons = {
+      server_installed = "✓",
+      server_pending = "➜",
+      server_uninstalled = "✗"
+    }
+  }
+})
+
 require'lspconfig'.pyright.setup{}
+require'lspconfig'.puppet.setup{}
+require'lspconfig'.vimls.setup{}
+require'lspconfig'.bashls.setup{}
+require'lspconfig'.jsonls.setup{}
+require'lspconfig'.yamlls.setup{}
 EOF
 
 lua <<EOF
