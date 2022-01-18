@@ -98,6 +98,7 @@ call plug#begin()
     Plug 'hrsh7th/cmp-path'
     Plug 'hrsh7th/cmp-cmdline'
     Plug 'lukas-reineke/cmp-rg'
+    Plug 'ray-x/lsp_signature.nvim'
     Plug 'hrsh7th/nvim-cmp'
 
     " For vsnip users.
@@ -107,8 +108,6 @@ call plug#begin()
     " For luasnip users.
     " Plug 'L3MON4D3/LuaSnip'
     " Plug 'saadparwaiz1/cmp_luasnip'
-
-    Plug 'ray-x/lsp_signature.nvim'
 
     " For ultisnips users.
     " Plug 'SirVer/ultisnips'
@@ -1169,6 +1168,11 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<C-p>', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
   buf_set_keymap('n', '<C-n>', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
 
+  -- lsp_signature
+  cfg = {
+    floating_window = false,
+  }
+  require "lsp_signature".on_attach(cfg, bufnr)
 end
 
 lsp_installer.on_server_ready(function(server)
