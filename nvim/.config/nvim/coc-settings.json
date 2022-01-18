@@ -4,6 +4,7 @@
   "suggest.maxCompleteItemCount": 10,
   "suggest.numberSelect": false,
   "suggest.defaultSortMethod": "none",
+  "suggest.disableMenuShortcut": true,
   "suggest.completionItemKindLabels": {
     "text": " ",
     "method": " ",
