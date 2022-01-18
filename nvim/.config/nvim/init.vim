@@ -1154,9 +1154,43 @@ lua <<EOF
   -- Setup nvim-cmp.
   local cmp = require'cmp'
 
+  local kind_icons = {
+    Text = "",
+    Method = "",
+    Function = "",
+    Constructor = "",
+    Field = "",
+    Variable = "",
+    Class = "ﴯ",
+    Interface = "",
+    Module = "",
+    Property = "ﰠ",
+    Unit = "",
+    Value = "",
+    Enum = "",
+    Keyword = "",
+    Snippet = "",
+    Color = "",
+    File = "",
+    Reference = "",
+    Folder = "",
+    EnumMember = "",
+    Constant = "",
+    Struct = "",
+    Event = "",
+    Operator = "",
+    TypeParameter = ""
+  }
+
   cmp.setup({
     completion = {
       completeopt = 'menu,menuone,noinsert'
+    },
+    formatting = {
+      format = function(entry, vim_item)
+        vim_item.kind = kind_icons[vim_item.kind]
+        return vim_item
+      end
     },
     snippet = {
       -- REQUIRED - you must specify a snippet engine
@@ -1179,7 +1213,7 @@ lua <<EOF
         i = cmp.mapping.abort(),
         c = cmp.mapping.close(),
       }),
-      ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+      ['<CR>'] = cmp.mapping.confirm({ select = true }),
     },
     sources = cmp.config.sources({
       { name = 'nvim_lsp' },
