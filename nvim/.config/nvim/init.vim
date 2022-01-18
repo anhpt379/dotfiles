@@ -1258,7 +1258,15 @@ lua <<EOF
     },
     sources = cmp.config.sources({
       { name = 'nvim_lsp' },
-      { name = 'rg', option = { cwd = "/Users/panh/.config/nvim/dictionaries/" } },
+      {
+        name = 'rg',
+        option = {
+          cwd = "/Users/panh/.config/nvim/dictionaries/",
+          debounce = 200,
+          context_before = 0,
+          context_after = 0,
+        }
+      },
       -- { name = 'vsnip' }, -- For vsnip users.
       -- { name = 'luasnip' }, -- For luasnip users.
       -- { name = 'ultisnips' }, -- For ultisnips users.
