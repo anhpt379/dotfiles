@@ -97,6 +97,7 @@ call plug#begin()
     Plug 'hrsh7th/cmp-buffer'
     Plug 'hrsh7th/cmp-path'
     Plug 'hrsh7th/cmp-cmdline'
+    Plug 'lukas-reineke/cmp-rg'
     Plug 'hrsh7th/nvim-cmp'
 
     " For vsnip users.
@@ -1246,6 +1247,7 @@ lua <<EOF
     },
     sources = cmp.config.sources({
       { name = 'nvim_lsp' },
+      { name = 'rg', option = { cwd = "/Users/panh/.config/nvim/dictionaries/" } },
       -- { name = 'vsnip' }, -- For vsnip users.
       -- { name = 'luasnip' }, -- For luasnip users.
       -- { name = 'ultisnips' }, -- For ultisnips users.
