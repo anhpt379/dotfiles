@@ -1187,10 +1187,11 @@ lua <<EOF
       completeopt = 'menu,menuone,noinsert'
     },
     formatting = {
-      format = function(entry, vim_item)
-        vim_item.kind = kind_icons[vim_item.kind]
+      fields = { "kind", "abbr" },
+      format = function(_, vim_item)
+        vim_item.kind = kind_icons[vim_item.kind] or ""
         return vim_item
-      end
+      end,
     },
     snippet = {
       -- REQUIRED - you must specify a snippet engine
