@@ -1142,12 +1142,10 @@ lsp_installer.settings({
   }
 })
 
-require'lspconfig'.pyright.setup{}
-require'lspconfig'.puppet.setup{}
-require'lspconfig'.vimls.setup{}
-require'lspconfig'.bashls.setup{}
-require'lspconfig'.jsonls.setup{}
-require'lspconfig'.yamlls.setup{}
+lsp_installer.on_server_ready(function(server)
+  local opts = {}
+  server:setup(opts)
+end)
 EOF
 
 lua <<EOF
