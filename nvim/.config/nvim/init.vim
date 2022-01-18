@@ -110,8 +110,8 @@ call plug#begin()
     Plug 'ray-x/lsp_signature.nvim'
 
     " For ultisnips users.
-    Plug 'SirVer/ultisnips'
-    Plug 'quangnguyen30192/cmp-nvim-ultisnips'
+    " Plug 'SirVer/ultisnips'
+    " Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 
     " For snippy users.
     " Plug 'dcampos/nvim-snippy'
@@ -1198,7 +1198,7 @@ lua <<EOF
         -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
         -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
         -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
-        vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+        -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
       end,
     },
     mapping = {
@@ -1219,7 +1219,7 @@ lua <<EOF
       { name = 'nvim_lsp' },
       -- { name = 'vsnip' }, -- For vsnip users.
       -- { name = 'luasnip' }, -- For luasnip users.
-      { name = 'ultisnips' }, -- For ultisnips users.
+      -- { name = 'ultisnips' }, -- For ultisnips users.
       -- { name = 'snippy' }, -- For snippy users.
     }, {
       { name = 'buffer' },
