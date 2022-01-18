@@ -1184,12 +1184,12 @@ lua <<EOF
   local cmp = require'cmp'
 
   local kind_icons = {
-    Text = "",
+    Text = " ",
     Method = "",
     Function = "",
     Constructor = "",
-    Field = "",
-    Variable = "",
+    Field = "ﰠ ",
+    Variable = " ",
     Class = "ﴯ",
     Interface = "",
     Module = "",
@@ -1201,11 +1201,11 @@ lua <<EOF
     Snippet = "",
     Color = "",
     File = "",
-    Reference = "",
+    Reference = " ",
     Folder = "",
     EnumMember = "",
     Constant = "",
-    Struct = "",
+    Struct = "פּ ",
     Event = "",
     Operator = "",
     TypeParameter = ""
@@ -1221,6 +1221,17 @@ lua <<EOF
         vim_item.kind = kind_icons[vim_item.kind] or ""
         return vim_item
       end,
+    },
+    sorting = {
+      comparators = {
+        cmp.config.compare.offset,
+        cmp.config.compare.exact,
+        cmp.config.compare.score,
+        cmp.config.compare.kind,
+        cmp.config.compare.sort_text,
+        -- cmp.config.compare.length,
+        cmp.config.compare.order,
+      }
     },
     snippet = {
       -- REQUIRED - you must specify a snippet engine
