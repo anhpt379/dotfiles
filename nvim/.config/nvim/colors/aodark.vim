@@ -18,7 +18,7 @@ let s:fg          = s:white
 let s:bg          = s:black
 
 let s:comment_fg  = { 'gui': '#696969', 'cterm': '241'  }
-let s:gutter_bg   = { 'gui': '#282829', 'cterm': 'NONE' }
+let s:gutter_bg   = { 'gui': '#101011', 'cterm': 'NONE' }
 let s:gutter_fg   = { 'gui': '#444444', 'cterm': '238'  }
 
 let s:cursor_line = { 'gui': '#252526', 'cterm': '235'  }
@@ -76,7 +76,7 @@ call s:h('MoreMsg', s:fg, '', '')
 call s:h('WarningMsg', s:yellow, '', '')
 call s:h('Question', s:purple, '', '')
 
-call s:h('Pmenu', s:fg, s:gutter_bg   , '')
+call s:h('Pmenu', s:fg, s:gutter_bg, '')
 call s:h('PmenuSel', '', s:pmenuselect, '')
 call s:h('PmenuSbar', '', s:selection, '')
 call s:h('PmenuThumb', '', s:fg, '')
@@ -214,14 +214,17 @@ highlight CleverFDefaultLabel guifg=#ffb300 gui=bold,underline ctermfg=11 ctermb
 highlight CleverFDirect       guifg=#ffb300 gui=bold           ctermfg=11 ctermbg=235 cterm=bold
 
 " nvim-cmp
-highlight! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#808080
-highlight! CmpItemAbbrMatch guibg=NONE guifg=#ffb300
-highlight! CmpItemAbbrMatchFuzzy guibg=NONE guifg=#ffb300
-highlight! CmpItemKindVariable guibg=NONE guifg=#9CDCFE
-highlight! CmpItemKindInterface guibg=NONE guifg=#9CDCFE
-highlight! CmpItemKindText guibg=NONE guifg=#9CDCFE
-highlight! CmpItemKindFunction guibg=NONE guifg=#C586C0
-highlight! CmpItemKindMethod guibg=NONE guifg=#C586C0
-highlight! CmpItemKindKeyword guibg=NONE guifg=#D4D4D4
-highlight! CmpItemKindProperty guibg=NONE guifg=#D4D4D4
-highlight! CmpItemKindUnit guibg=NONE guifg=#D4D4D4
+highlight CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#808080
+highlight CmpItemAbbrMatch guibg=NONE guifg=#ffb300
+highlight CmpItemAbbrMatchFuzzy guibg=NONE guifg=#ffb300
+highlight CmpItemKindVariable guibg=NONE guifg=#9CDCFE
+highlight CmpItemKindInterface guibg=NONE guifg=#9CDCFE
+highlight CmpItemKindText guibg=NONE guifg=#9CDCFE
+highlight CmpItemKindFunction guibg=NONE guifg=#C586C0
+highlight CmpItemKindMethod guibg=NONE guifg=#C586C0
+highlight CmpItemKindKeyword guibg=NONE guifg=#D4D4D4
+highlight CmpItemKindProperty guibg=NONE guifg=#D4D4D4
+highlight CmpItemKindUnit guibg=NONE guifg=#D4D4D4
+
+call s:h('NormalFloat', '', s:gutter_bg, '')
+call s:h('FloatBorder', '', s:gutter_bg, '')
