@@ -98,6 +98,7 @@ call plug#begin()
     Plug 'hrsh7th/cmp-path'
     Plug 'hrsh7th/cmp-cmdline'
     Plug 'lukas-reineke/cmp-rg'
+    Plug 'ray-x/cmp-treesitter'
     Plug 'ray-x/lsp_signature.nvim'
     Plug 'nvim-lua/lsp-status.nvim'
     Plug 'hrsh7th/nvim-cmp'
@@ -1266,6 +1267,7 @@ cmp.setup({
   },
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
+    { name = 'treesitter' },
     {
       name = 'rg',
       option = {
