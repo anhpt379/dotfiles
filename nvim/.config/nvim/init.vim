@@ -91,7 +91,27 @@ call plug#begin()
     Plug 'tpope/vim-rhubarb'
     Plug 'shumphrey/fugitive-gitlab.vim'
 
-    Plug 'anhpt379/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+    " Plug 'anhpt379/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+
+    " main one
+    Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
+    " 9000+ Snippets
+    Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
+
+    " lua & third party sources -- See https://github.com/ms-jpq/coq.thirdparty
+    " Need to **configure separately**
+
+    " Plug 'ms-jpq/coq.thirdparty', {'branch': '3p'}
+    " - shell repl
+    " - nvim lua api
+    " - scientific calculator
+    " - comment banner
+    " - etc
+
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'williamboman/nvim-lsp-installer'
+
+
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     " Plug 'romgrk/nvim-treesitter-context'
     Plug 'windwp/nvim-ts-autotag'
@@ -1099,3 +1119,41 @@ nmap <End> 2l
 augroup dockerfile
   autocmd FileType Dockerfile :TSContextDisable
 augroup end
+
+" nvim-lsp-installer & coq_nvim
+ino <silent><expr> <Esc>   pumvisible() ? "\<C-e><Esc>" : "\<Esc>"
+ino <silent><expr> <C-c>   pumvisible() ? "\<C-e><C-c>" : "\<C-c>"
+ino <silent><expr> <BS>    pumvisible() ? "\<C-e><BS>"  : "\<BS>"
+ino <silent><expr> <CR>    pumvisible() ? (complete_info().selected == -1 ? "\<C-e><CR>" : "\<C-y>") : "\<CR>"
+ino <silent><expr> <Tab>   pumvisible() ? (complete_info().selected == -1 ? "\<C-e><CR>" : "\<C-y>") : "\<CR>"
+
+lua << EOF
+local lsp_installer = require("nvim-lsp-installer")
+
+lsp_installer.settings({
+  ui = {
+    icons = {
+      server_installed = "✓",
+      server_pending = "➜",
+      server_uninstalled = "✗"
+    }
+  }
+})
+
+local nvim_lsp = require('lspconfig')
+local coq = require('coq')
+
+vim.opt.completeopt = {'menuone', 'noselect'}
+vim.opt.shortmess:append({ c = true })  -- aka `shortmess+=c`
+
+vim.g.coq_settings = {
+  ["auto_start"] = "shut-up",
+  ["keymap.recommended"] = false,
+  ["display.pum.fast_close"] = true,
+}
+
+lsp_installer.on_server_ready(function(server)
+  server:setup(coq.lsp_ensure_capabilities({}))
+end)
+
+EOF
