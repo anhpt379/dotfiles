@@ -100,8 +100,8 @@ call plug#begin()
     Plug 'lukas-reineke/cmp-rg'
     Plug 'ray-x/cmp-treesitter'
     Plug 'ray-x/lsp_signature.nvim'
-    Plug 'josa42/nvim-lightline-lsp'
     Plug 'hrsh7th/nvim-cmp'
+    Plug 'anhpt379/lsp-status.nvim'
 
     " For vsnip users.
     " Plug 'hrsh7th/cmp-vsnip'
@@ -279,14 +279,13 @@ endif
 set formatoptions-=t
 
 " Lightline {{{
-
 let g:lightline = {
   \ 'colorscheme': 'aodark',
   \ 'active': {
   \   'left': [
   \     ['mode', 'paste'],
-  \     ['gitbranch', 'readonly', 'lsp_status', 'modified'],
-  \     ['lsp_info', 'lsp_hints', 'lsp_errors', 'lsp_warnings', 'lsp_ok']
+  \     ['gitbranch', 'readonly', 'modified'],
+  \     ['lsp_status']
   \   ]
   \ },
   \ 'component_function': {
@@ -294,19 +293,17 @@ let g:lightline = {
   \   'cocstatus': 'coc#status',
   \   'filetype': 'DevIconsFileType',
   \   'fileformat': 'DevIconsFileFormat',
-  \   'lsp_warnings': 'lightline#lsp#warnings',
-  \   'lsp_errors': 'lightline#lsp#errors',
-  \   'lsp_info': 'lightline#lsp#info',
-  \   'lsp_hints': 'lightline#lsp#hints',
-  \   'lsp_ok': 'lightline#lsp#ok',
-  \   'lsp_status': 'lightline#lsp#status',
+  \   'lsp_status': 'LspStatus',
   \ },
   \ }
-let g:lightline#lsp#indicator_warnings = ' '
-let g:lightline#lsp#indicator_errors = ' '
-let g:lightline#lsp#indicator_info = ' '
-let g:lightline#lsp#indicator_hints = ' '
-let g:lightline#lsp#indicator_ok = ' '
+
+function! LspStatus() abort
+  if luaeval('#vim.lsp.buf_get_clients() > 0')
+    return luaeval("require('lsp-status').status()")
+  endif
+
+  return ''
+endfunction
 
 function! DevIconsFugitiveHead()
   let branch = FugitiveHead()
@@ -1190,6 +1187,7 @@ local on_attach = function(client, bufnr)
     }
   }
   require "lsp_signature".on_attach(cfg, bufnr)
+  require "lsp-status".on_attach(client)
 end
 
 local cmp = require'cmp'
@@ -1296,11 +1294,34 @@ cmp.setup.cmdline(':', {
 })
 
 lsp_installer.on_server_ready(function(server)
-  local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+  local capabilities = vim.lsp.protocol.make_client_capabilities()
+  capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+  capabilities = vim.tbl_extend(
+      'keep',
+      capabilities or {},
+      require('lsp-status').capabilities
+  )
+
   local opts = {
     on_attach = on_attach,
     capabilities = capabilities
   }
   server:setup(opts)
 end)
+
+local lsp_status = require('lsp-status')
+lsp_status.register_progress()
+
+lsp_status.config({
+  kind_labels = kind_icons,
+  status_symbol = '',
+  indicator_errors = '',
+  indicator_warnings = '',
+  indicator_info = '',
+  indicator_hint = '',
+  indicator_ok = '',
+  status_format = function(name, contents)
+    return string.format("[%s] %s", name, contents)
+  end,
+})
 EOF
