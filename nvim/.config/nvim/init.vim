@@ -1216,9 +1216,7 @@ lua <<EOF
   }
 
   cmp.setup({
-    completion = {
-      completeopt = 'menu,menuone,noinsert'
-    },
+    completion = { },
     formatting = {
       fields = { "kind", "abbr" },
       format = function(_, vim_item)
