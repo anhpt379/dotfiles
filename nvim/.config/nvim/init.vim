@@ -44,7 +44,7 @@ call plug#begin()
   Plug 'machakann/vim-highlightedyank'
   Plug 'breuckelen/vim-resize'
   Plug 'ptzz/lf.vim', {'tag': 'v1.2'} | Plug 'rbgrouleff/bclose.vim'
-  Plug 'roman/golden-ratio'
+  " Plug 'roman/golden-ratio'
   Plug 'pechorin/any-jump.vim'
   Plug 'voldikss/vim-floaterm'
 
@@ -1170,7 +1170,10 @@ local on_attach = function(client, bufnr)
 
   -- lsp_signature
   cfg = {
-    floating_window = false,
+    floating_window = true,
+    handler_opts = {
+        border = "single"
+    }
   }
   require "lsp_signature".on_attach(cfg, bufnr)
 end
