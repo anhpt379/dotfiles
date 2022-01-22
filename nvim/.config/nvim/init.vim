@@ -100,7 +100,7 @@ call plug#begin()
     Plug 'lukas-reineke/cmp-rg'
     Plug 'ray-x/cmp-treesitter'
     Plug 'ray-x/lsp_signature.nvim'
-    Plug 'nvim-lua/lsp-status.nvim'
+    Plug 'josa42/nvim-lightline-lsp'
     Plug 'hrsh7th/nvim-cmp'
 
     " For vsnip users.
@@ -302,11 +302,11 @@ let g:lightline = {
   \   'lsp_status': 'lightline#lsp#status',
   \ },
   \ }
-let g:lightline#lsp#indicator_warnings = '⚠️'
-let g:lightline#lsp#indicator_errors = '❌'
-let g:lightline#lsp#indicator_info = 'ℹ️'
-let g:lightline#lsp#indicator_hints = '💡'
-let g:lightline#lsp#indicator_ok = '✅'
+let g:lightline#lsp#indicator_warnings = ' '
+let g:lightline#lsp#indicator_errors = ' '
+let g:lightline#lsp#indicator_info = ' '
+let g:lightline#lsp#indicator_hints = ' '
+let g:lightline#lsp#indicator_ok = ' '
 
 function! DevIconsFugitiveHead()
   let branch = FugitiveHead()
