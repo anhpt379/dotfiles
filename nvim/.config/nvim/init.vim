@@ -99,6 +99,7 @@ call plug#begin()
     Plug 'hrsh7th/cmp-cmdline'
     Plug 'lukas-reineke/cmp-rg'
     Plug 'ray-x/lsp_signature.nvim'
+    Plug 'nvim-lua/lsp-status.nvim'
     Plug 'hrsh7th/nvim-cmp'
 
     " For vsnip users.
@@ -283,7 +284,8 @@ let g:lightline = {
   \ 'active': {
   \   'left': [
   \     ['mode', 'paste'],
-  \     ['gitbranch', 'readonly', 'cocstatus', 'modified']
+  \     ['gitbranch', 'readonly', 'lsp_status', 'modified'],
+  \     ['lsp_info', 'lsp_hints', 'lsp_errors', 'lsp_warnings', 'lsp_ok']
   \   ]
   \ },
   \ 'component_function': {
@@ -291,8 +293,19 @@ let g:lightline = {
   \   'cocstatus': 'coc#status',
   \   'filetype': 'DevIconsFileType',
   \   'fileformat': 'DevIconsFileFormat',
+  \   'lsp_warnings': 'lightline#lsp#warnings',
+  \   'lsp_errors': 'lightline#lsp#errors',
+  \   'lsp_info': 'lightline#lsp#info',
+  \   'lsp_hints': 'lightline#lsp#hints',
+  \   'lsp_ok': 'lightline#lsp#ok',
+  \   'lsp_status': 'lightline#lsp#status',
   \ },
   \ }
+let g:lightline#lsp#indicator_warnings = '⚠️'
+let g:lightline#lsp#indicator_errors = '❌'
+let g:lightline#lsp#indicator_info = 'ℹ️'
+let g:lightline#lsp#indicator_hints = '💡'
+let g:lightline#lsp#indicator_ok = '✅'
 
 function! DevIconsFugitiveHead()
   let branch = FugitiveHead()
