@@ -1127,7 +1127,7 @@ augroup dockerfile
 augroup end
 
 " Nvim LSP
-set pumheight=20
+set pumheight=15
 
 lua << EOF
 local lsp_installer = require("nvim-lsp-installer")
