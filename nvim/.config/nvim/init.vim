@@ -1420,6 +1420,44 @@ null_ls.setup({
   },
 })
 
+local helpers = require("null-ls.helpers")
+local languagetool = {
+    method = null_ls.methods.DIAGNOSTICS,
+    filetypes = { "markdown", "gitcommit" },
+    generator = null_ls.generator({
+        command = "/Users/panh/.config/nvim/bin/remote_languagetool.py",
+        args = { "-" },
+        to_stdin = true,
+        from_stderr = true,
+        format = "json",
+        check_exit_code = function(code, stderr)
+            local success = code <= 1
+
+            if not success then
+              -- can be noisy for things that run often (e.g. diagnostics), but can
+              -- be useful for things that run on demand (e.g. formatting)
+              print(stderr)
+            end
+
+            return success
+        end,
+        on_output = helpers.diagnostics.from_json({
+            attributes = {
+                row = "line",
+                col = "column",
+                severity = "level",
+                message = "message",
+            },
+            severities = {
+                style_problem = helpers.diagnostics.severities["information"],
+            },
+        }),
+    }),
+}
+
+null_ls.register(languagetool)
+
+
 require("trouble").setup({
   mode = 'document_diagnostics',
   height = 5,
