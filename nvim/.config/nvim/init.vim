@@ -1376,29 +1376,37 @@ vim.diagnostic.config({
 
 local null_ls = require('null-ls')
 local sources = {
-  null_ls.builtins.diagnostics.write_good,
   null_ls.builtins.code_actions.gitsigns,
-  null_ls.builtins.diagnostics.shellcheck.with({
-      diagnostics_format = '[#{c}] #{m} (#{s})'
-  }),
 
-  null_ls.builtins.formatting.eslint_d,
-  null_ls.builtins.diagnostics.eslint_d,
-
-  null_ls.builtins.formatting.clang_format,
-
-  null_ls.builtins.formatting.black,
-
+  null_ls.builtins.diagnostics.ansiblelint,
   null_ls.builtins.diagnostics.vint,
   null_ls.builtins.diagnostics.shellcheck,
-
+  null_ls.builtins.diagnostics.flake8,
+  null_ls.builtins.diagnostics.codespell,
+  null_ls.builtins.diagnostics.cspell,
+  null_ls.builtins.diagnostics.misspell,
+  null_ls.builtins.diagnostics.curlylint,
+  null_ls.builtins.diagnostics.editorconfig_checker,
+  null_ls.builtins.diagnostics.eslint_d,
+  null_ls.builtins.diagnostics.gitlint,
+  null_ls.builtins.diagnostics.pylama,
+  null_ls.builtins.diagnostics.jsonlint,
+  null_ls.builtins.diagnostics.yamllint,
+  null_ls.builtins.diagnostics.luacheck,
+  null_ls.builtins.diagnostics.markdownlint,
+  null_ls.builtins.diagnostics.mdl,
+  null_ls.builtins.diagnostics.proselint,
+  null_ls.builtins.diagnostics.rubocop,
+  null_ls.builtins.diagnostics.stylelint,
+  null_ls.builtins.diagnostics.textlint,
+  null_ls.builtins.diagnostics.write_good,
   null_ls.builtins.diagnostics.hadolint.with({ filetypes = { "Dockerfile", "dockerfile" } }),
 
+  null_ls.builtins.formatting.eslint_d,
+  null_ls.builtins.formatting.clang_format,
+  null_ls.builtins.formatting.black,
   null_ls.builtins.formatting.fish_indent,
-  null_ls.builtins.code_actions.gitsigns,
-
   null_ls.builtins.formatting.sqlformat,
-
   null_ls.builtins.formatting.json_tool,
   null_ls.builtins.formatting.shfmt,
   null_ls.builtins.formatting.cmake_format,
