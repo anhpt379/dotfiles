@@ -402,6 +402,7 @@ inoremap <expr> <Tab> pumvisible() ? '<C-y> ' : '<C-g>u<Tab>'
 nmap <C-p> :lua vim.diagnostic.goto_prev()<CR>
 nmap <C-n> :lua vim.diagnostic.goto_next()<CR>
 
+
 " Jump to next/prev diagnostic from INSERT mode also
 imap <silent> <C-n> <Esc><C-n>
 imap <silent> <C-p> <Esc><C-p>
@@ -1207,7 +1208,6 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
   buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
   buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  buf_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
 
   -- lsp_signature
   cfg = {
@@ -1358,6 +1358,12 @@ lsp_status.config({
   end,
 })
 
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
+
 local null_ls = require('null-ls')
 local sources = {
   null_ls.builtins.diagnostics.write_good,
@@ -1400,8 +1406,8 @@ null_ls.setup({
 
 require("trouble").setup({
   mode = 'document_diagnostics',
-  height = 10,
-  padding = true,
+  height = 5,
+  padding = false,
   group = true,
   auto_open = false,
   auto_close = false,
