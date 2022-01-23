@@ -1383,8 +1383,6 @@ local sources = {
   null_ls.builtins.diagnostics.shellcheck,
   null_ls.builtins.diagnostics.flake8,
   null_ls.builtins.diagnostics.codespell,
-  null_ls.builtins.diagnostics.cspell,
-  null_ls.builtins.diagnostics.misspell,
   null_ls.builtins.diagnostics.curlylint,
   null_ls.builtins.diagnostics.editorconfig_checker,
   null_ls.builtins.diagnostics.eslint_d,
