@@ -74,6 +74,7 @@ brew 'watchman'
 brew 'wget'
 brew 'xh'
 brew 'yarn'
+brew 'codespell'
 brew 'youtube-dl'
 
 # Apps
