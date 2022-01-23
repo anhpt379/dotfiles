@@ -396,9 +396,11 @@ set signcolumn=yes
 inoremap <expr> <CR> pumvisible() ? '<C-y>' : '<CR>'
 inoremap <expr> <Tab> pumvisible() ? '<C-y> ' : '<C-g>u<Tab>'
 
-" Navigate diagnostics
-nmap <silent> <C-n> <Plug>(coc-diagnostic-next)
-nmap <silent> <C-p> <Plug>(coc-diagnostic-prev)
+" " Navigate diagnostics
+" nmap <silent> <C-n> <Plug>(coc-diagnostic-next)
+" nmap <silent> <C-p> <Plug>(coc-diagnostic-prev)
+nmap <C-p> :lua vim.diagnostic.goto_prev()<CR>
+nmap <C-n> :lua vim.diagnostic.goto_next()<CR>
 
 " Jump to next/prev diagnostic from INSERT mode also
 imap <silent> <C-n> <Esc><C-n>
@@ -1206,8 +1208,6 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
   buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
   buf_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
-  buf_set_keymap('n', '<C-p>', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
-  buf_set_keymap('n', '<C-n>', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
 
   -- lsp_signature
   cfg = {
