@@ -1143,6 +1143,32 @@ set pumheight=15
 lua << EOF
 local lsp_installer = require("nvim-lsp-installer")
 
+local servers = {
+  "ansiblels",
+  "bashls",
+  "cmake",
+  "cssls",
+  "dockerls",
+  "html",
+  "jedi_language_server",
+  "jsonls",
+  "ltex",
+  "puppet",
+  "remark_ls",
+  "rust_analyzer",
+  "sumneko_lua",
+  "tflint",
+  "yamlls",
+}
+
+for _, name in pairs(servers) do
+  local server_is_found, server = lsp_installer.get_server(name)
+  if server_is_found and not server:is_installed() then
+    print("Installing " .. name)
+    server:install()
+  end
+end
+
 lsp_installer.settings({
   ui = {
     icons = {
