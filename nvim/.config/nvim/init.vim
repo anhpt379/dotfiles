@@ -99,10 +99,13 @@ call plug#begin()
     Plug 'hrsh7th/cmp-cmdline'
     Plug 'lukas-reineke/cmp-rg'
     Plug 'petertriho/cmp-git' | Plug 'nvim-lua/plenary.nvim'
+    Plug 'jose-elias-alvarez/null-ls.nvim' | Plug 'nvim-lua/plenary.nvim'
     Plug 'ray-x/cmp-treesitter'
     Plug 'ray-x/lsp_signature.nvim'
     Plug 'hrsh7th/nvim-cmp'
     Plug 'anhpt379/lsp-status.nvim'
+
+    Plug 'folke/trouble.nvim' | Plug 'kyazdani42/nvim-web-devicons'
 
     " For vsnip users.
     " Plug 'hrsh7th/cmp-vsnip'
@@ -1353,5 +1356,54 @@ lsp_status.config({
   status_format = function(name, contents)
     return string.format("[%s] %s", name, contents)
   end,
+})
+
+local null_ls = require('null-ls')
+local sources = {
+  null_ls.builtins.diagnostics.write_good,
+  null_ls.builtins.code_actions.gitsigns,
+  null_ls.builtins.diagnostics.shellcheck.with({
+      diagnostics_format = '[#{c}] #{m} (#{s})'
+  }),
+
+  null_ls.builtins.formatting.eslint_d,
+  null_ls.builtins.diagnostics.eslint_d,
+
+  null_ls.builtins.formatting.clang_format,
+
+  null_ls.builtins.formatting.black,
+
+  null_ls.builtins.diagnostics.vint,
+  null_ls.builtins.diagnostics.shellcheck,
+
+  null_ls.builtins.diagnostics.hadolint.with({ filetypes = { "Dockerfile", "dockerfile" } }),
+
+  null_ls.builtins.formatting.fish_indent,
+  null_ls.builtins.code_actions.gitsigns,
+
+  null_ls.builtins.formatting.sqlformat,
+
+  null_ls.builtins.formatting.json_tool,
+  null_ls.builtins.formatting.shfmt,
+  null_ls.builtins.formatting.cmake_format,
+  null_ls.builtins.formatting.nginx_beautifier,
+}
+null_ls.setup({
+  sources = sources,
+  debug = true,
+  log = {
+    enable = true,
+    level = "debug",
+    use_console = "async",
+  },
+})
+
+require("trouble").setup({
+  mode = 'document_diagnostics',
+  height = 10,
+  padding = true,
+  group = true,
+  auto_open = false,
+  auto_close = false,
 })
 EOF
