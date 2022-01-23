@@ -98,6 +98,7 @@ call plug#begin()
     Plug 'hrsh7th/cmp-path'
     Plug 'hrsh7th/cmp-cmdline'
     Plug 'lukas-reineke/cmp-rg'
+    Plug 'petertriho/cmp-git' | Plug 'nvim-lua/plenary.nvim'
     Plug 'ray-x/cmp-treesitter'
     Plug 'ray-x/lsp_signature.nvim'
     Plug 'hrsh7th/nvim-cmp'
@@ -1216,6 +1217,8 @@ local on_attach = function(client, bufnr)
   require "lsp-status".on_attach(client)
 end
 
+require("cmp_git").setup()
+
 local cmp = require'cmp'
 
 local kind_icons = {
@@ -1292,6 +1295,7 @@ cmp.setup({
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
     { name = 'treesitter' },
+    { name = 'cmp_git' },
     {
       name = 'rg',
       option = {
