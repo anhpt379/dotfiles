@@ -1165,6 +1165,7 @@ local servers = {
   "rust_analyzer",
   "sumneko_lua",
   "tflint",
+  "vimls",
   "yamlls",
 }
 
