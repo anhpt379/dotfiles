@@ -1364,6 +1364,15 @@ for type, icon in pairs(signs) do
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
+-- diagnostics
+vim.diagnostic.config({
+  virtual_text = true,
+  signs = true,
+  underline = false,
+  update_in_insert = false,
+  severity_sort = false,
+})
+
 local null_ls = require('null-ls')
 local sources = {
   null_ls.builtins.diagnostics.write_good,
