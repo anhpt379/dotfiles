@@ -18,7 +18,7 @@ let s:fg          = s:white
 let s:bg          = s:black
 
 let s:comment_fg  = { 'gui': '#696969', 'cterm': '241'  }
-let s:gutter_bg   = { 'gui': '#282829', 'cterm': 'NONE' }
+let s:gutter_bg   = { 'gui': '#1c1c1d', 'cterm': 'NONE' }
 let s:gutter_fg   = { 'gui': '#444444', 'cterm': '238'  }
 
 let s:cursor_line = { 'gui': '#252526', 'cterm': '235'  }
@@ -26,6 +26,7 @@ let s:color_col   = { 'gui': '#1f1f22', 'cterm': '234'  }
 
 let s:selection   = { 'gui': '#28c9ff', 'cterm': '75'  }
 let s:vertsplit   = { 'gui': '#262626', 'cterm': '235'  }
+let s:pmenuselect = { 'gui': '#0060c0', 'cterm': '26'  }
 
 let s:non_text    = { 'gui': '#555555', 'cterm': '59'   }
 let s:search      = { 'gui': '#FFCC66', 'cterm': '11'   }
@@ -75,8 +76,8 @@ call s:h('MoreMsg', s:fg, '', '')
 call s:h('WarningMsg', s:yellow, '', '')
 call s:h('Question', s:purple, '', '')
 
-call s:h('Pmenu', s:fg, s:gutter_bg   , '')
-call s:h('PmenuSel', s:fg, s:blue, '')
+call s:h('Pmenu', s:fg, s:gutter_bg, '')
+call s:h('PmenuSel', '', s:pmenuselect, '')
 call s:h('PmenuSbar', '', s:selection, '')
 call s:h('PmenuThumb', '', s:fg, '')
 
@@ -149,11 +150,11 @@ call s:h('Ignore', s:fg, '', '')
 call s:h('Error', s:red, s:gutter_bg, '')
 call s:h('Todo', s:purple, '', '')
 
-" GitGutter
-call s:h('GitGutterAdd', s:green, s:gutter_bg, '')
-call s:h('GitGutterDelete', s:red, s:gutter_bg, '')
-call s:h('GitGutterChange', s:yellow, s:gutter_bg, '')
-call s:h('GitGutterChangeDelete', s:red, s:gutter_bg, '')
+" GitSigns
+call s:h('GitSignsAdd', s:green, s:gutter_bg, '')
+call s:h('GitSignsDelete', s:red, s:gutter_bg, '')
+call s:h('GitSignsChange', s:yellow, s:gutter_bg, '')
+call s:h('GitSignsCurrentLineBlame', s:comment_fg, s:gutter_bg, '')
 
 " Fugitive
 call s:h('diffAdded', s:green, '', '')
@@ -211,3 +212,19 @@ highlight link CocWarningSign CocWarningHighlight
 " Clever-f
 highlight CleverFDefaultLabel guifg=#ffb300 gui=bold,underline ctermfg=11 ctermbg=235 cterm=bold,underline
 highlight CleverFDirect       guifg=#ffb300 gui=bold           ctermfg=11 ctermbg=235 cterm=bold
+
+" nvim-cmp
+highlight CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#808080
+highlight CmpItemAbbrMatch guibg=NONE guifg=#ffb300
+highlight CmpItemAbbrMatchFuzzy guibg=NONE guifg=#ffb300
+highlight CmpItemKindVariable guibg=NONE guifg=#9CDCFE
+highlight CmpItemKindInterface guibg=NONE guifg=#9CDCFE
+highlight CmpItemKindText guibg=NONE guifg=#9CDCFE
+highlight CmpItemKindFunction guibg=NONE guifg=#C586C0
+highlight CmpItemKindMethod guibg=NONE guifg=#C586C0
+highlight CmpItemKindKeyword guibg=NONE guifg=#D4D4D4
+highlight CmpItemKindProperty guibg=NONE guifg=#D4D4D4
+highlight CmpItemKindUnit guibg=NONE guifg=#D4D4D4
+
+call s:h('NormalFloat', '', s:gutter_bg, '')
+call s:h('FloatBorder', '', s:gutter_bg, '')
