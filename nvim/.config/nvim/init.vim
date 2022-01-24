@@ -125,7 +125,6 @@ call plug#begin()
     " Plug 'dcampos/nvim-snippy'
     " Plug 'dcampos/cmp-snippy'
 
-    " Plug 'anhpt379/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     " Plug 'romgrk/nvim-treesitter-context'
     Plug 'windwp/nvim-ts-autotag'
@@ -146,31 +145,6 @@ let g:startuptime_more_info_key_seq = '<Space>'
 
 " Open vim-plug in a new buffer
 let g:plug_window = 'enew'
-
-let g:coc_global_extensions = [
-  \ 'coc-git',
-  \ 'coc-pyright',
-  \ 'coc-perl',
-  \ 'coc-lua',
-  \ 'coc-html',
-  \ 'coc-css',
-  \ 'coc-fish',
-  \ 'coc-markdownlint',
-  \ 'coc-docker',
-  \ 'coc-sh',
-  \ 'coc-vimlsp',
-  \ 'coc-yaml',
-  \ 'coc-xml',
-  \ 'coc-nextword',
-  \ 'coc-solargraph',
-  \ 'coc-gitignore',
-  \ 'coc-dictionary',
-  \ 'coc-diagnostic',
-  \ 'coc-marketplace'
-  \ ]
-
-" coc-dictionary
-set dictionary+=~/.config/nvim/dictionaries/hacker_news.txt
 
 " ansible-vim
 let g:ansible_attribute_highlight = 'ab'
@@ -268,7 +242,6 @@ nnoremap <Leader>u :source ~/.config/nvim/init.vim<CR>
   \ :silent !PlugInstall<CR>
   \ :PlugUpdate --sync<CR>
   \ :PlugUpgrade<CR>
-  \ :CocUpdate<CR>
   \ :PlugDiff<CR>
 
 " Turn off whitespaces compare and folding in vimdiff
@@ -296,7 +269,6 @@ let g:lightline = {
   \ },
   \ 'component_function': {
   \   'gitbranch': 'DevIconsFugitiveHead',
-  \   'cocstatus': 'coc#status',
   \   'filetype': 'DevIconsFileType',
   \   'fileformat': 'DevIconsFileFormat',
   \   'lsp_status': 'LspStatus',
@@ -372,12 +344,6 @@ endif
 
 " }}}
 
-
-" Coc {{{
-let g:coc_status_error_sign   = ' '
-let g:coc_status_warning_sign = ' '
-let g:coc_status_info_sign    = ' '
-
 " If hidden is not set, TextEdit might fail
 set hidden
 
@@ -399,40 +365,16 @@ inoremap <expr> <CR> pumvisible() ? '<C-y>' : '<CR>'
 inoremap <expr> <Tab> pumvisible() ? '<C-y> ' : '<C-g>u<Tab>'
 
 " " Navigate diagnostics
-" nmap <silent> <C-n> <Plug>(coc-diagnostic-next)
-" nmap <silent> <C-p> <Plug>(coc-diagnostic-prev)
 nmap <C-p> :lua vim.diagnostic.goto_prev()<CR>
 nmap <C-n> :lua vim.diagnostic.goto_next()<CR>
-
 
 " Jump to next/prev diagnostic from INSERT mode also
 imap <silent> <C-n> <Esc><C-n>
 imap <silent> <C-p> <Esc><C-p>
 
-" Remap keys for gotos
-" nmap <silent> gd <Plug>(coc-definition)
-
-" Use K to show documentation in preview window
-" nnoremap <silent> K :call CocAction('doHover')<CR>
-
-" Create mappings for function text object, requires document symbols feature
-" of languageserver
-xmap if <Plug>(coc-funcobj-i)
-xmap af <Plug>(coc-funcobj-a)
-omap if <Plug>(coc-funcobj-i)
-omap af <Plug>(coc-funcobj-a)
-
-" Add status line support, for integration with other plugin, checkout `:h
-" coc-status`
-if exists('g:did_coc_loaded')
-  set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-endif
-
 " No transparent auto-completion popup
 set pumblend=0
 set winblend=0
-
-" }}}
 
 " Bclose
 let g:bclose_no_plugin_maps = v:true
@@ -974,12 +916,6 @@ nnoremap <silent> gO :<C-u>call vim_git_browse#GitBrowse(v:false)<CR>
 xnoremap <silent> gO :<C-u>call vim_git_browse#GitBrowse(v:true)<CR>
 nnoremap <silent> gp :<C-u>call vim_git_browse#GitOpenPipelines()<CR>
 nnoremap <silent> gm :!if git branch -a \| grep remotes/ \| grep -q /$(git branch --show-current)$; test $? -eq 1; then git push --force-with-lease origin HEAD; fi<CR>:<C-u>call vim_git_browse#GitOpenPullRequest()<CR>
-
-" LanguageTool
-" Disable vim <C-n>/<C-p> complete in INSERT mode, since we have coc-dictionary
-" already
-imap <C-n> <Esc><C-n>
-imap <C-p> <Esc><C-p>
 
 " Suda & vim-eunuch
 let g:suda_smart_edit = 1
