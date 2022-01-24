@@ -577,14 +577,14 @@ augroup format-options
   autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
 augroup end
 
-" Colorizer
-lua require'colorizer'.setup()
-
 " Lexima
 let g:lexima_enable_basic_rules = 0
 let g:lexima_map_escape = ''
 
 if has('mac')
+  " Colorizer
+  lua require'colorizer'.setup()
+
   " Autoclose and autorename HTML tags using treesitter
   lua require('nvim-ts-autotag').setup()
 
@@ -886,25 +886,23 @@ augroup update-mru-on-file-open
   autocmd BufWinEnter * UpdateMru
 augroup end
 
-" Treesitter
 if has('mac')
 lua <<EOF
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained",
-  ignore_install = { "haskell", "swift" },
-  highlight = {
-    enable = true,
-  },
-}
-EOF
+  -- treesitter
+  require'nvim-treesitter.configs'.setup {
+    ensure_installed = "maintained",
+    ignore_install = { "haskell", "swift" },
+    highlight = {
+      enable = true,
+    },
+  }
 
-" Vim-matchup tree-sitter integration
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
-  matchup = {
-    enable = true,
-  },
-}
+  -- vim-matchup tree-sitter integration
+  require'nvim-treesitter.configs'.setup {
+    matchup = {
+      enable = true,
+    },
+  }
 EOF
 endif
 
@@ -1085,7 +1083,8 @@ augroup end
 " Nvim LSP
 set pumheight=15
 
-lua << EOF
+if has('mac')
+lua <<EOF
 local lsp_installer = require("nvim-lsp-installer")
 
 local servers = {
@@ -1433,3 +1432,4 @@ require('gitsigns').setup({
   },
 })
 EOF
+endif
