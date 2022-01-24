@@ -18,10 +18,10 @@ let s:fg          = s:white
 let s:bg          = s:black
 
 let s:comment_fg  = { 'gui': '#696969', 'cterm': '241'  }
-let s:gutter_bg   = { 'gui': '#1c1c1d', 'cterm': 'NONE' }
+let s:gutter_bg   = { 'gui': '#262626', 'cterm': 'NONE' }
 let s:gutter_fg   = { 'gui': '#444444', 'cterm': '238'  }
 
-let s:cursor_line = { 'gui': '#252526', 'cterm': '235'  }
+let s:cursor_line = { 'gui': '#262626', 'cterm': '235'  }
 let s:color_col   = { 'gui': '#1f1f22', 'cterm': '234'  }
 
 let s:selection   = { 'gui': '#28c9ff', 'cterm': '75'  }
