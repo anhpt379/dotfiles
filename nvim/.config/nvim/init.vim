@@ -1159,9 +1159,7 @@ local servers = {
   "html",
   "jedi_language_server",
   "jsonls",
-  "ltex",
   "puppet",
-  "remark_ls",
   "rust_analyzer",
   "sumneko_lua",
   "tflint",
@@ -1383,7 +1381,7 @@ local sources = {
   null_ls.builtins.diagnostics.shellcheck,
   null_ls.builtins.diagnostics.flake8,
   null_ls.builtins.diagnostics.codespell,
-  null_ls.builtins.diagnostics.curlylint,
+  -- null_ls.builtins.diagnostics.curlylint,
   null_ls.builtins.diagnostics.editorconfig_checker,
   null_ls.builtins.diagnostics.eslint_d,
   null_ls.builtins.diagnostics.gitlint,
@@ -1422,37 +1420,29 @@ null_ls.setup({
 
 local helpers = require("null-ls.helpers")
 local languagetool = {
-    method = null_ls.methods.DIAGNOSTICS,
-    filetypes = { "markdown", "gitcommit" },
-    generator = null_ls.generator({
-        command = "/Users/panh/.config/nvim/bin/remote_languagetool.py",
-        args = { "-" },
-        to_stdin = true,
-        from_stderr = true,
-        format = "json",
-        check_exit_code = function(code, stderr)
-            local success = code <= 1
-
-            if not success then
-              -- can be noisy for things that run often (e.g. diagnostics), but can
-              -- be useful for things that run on demand (e.g. formatting)
-              print(stderr)
-            end
-
-            return success
-        end,
-        on_output = helpers.diagnostics.from_json({
-            attributes = {
-                row = "line",
-                col = "column",
-                severity = "level",
-                message = "message",
-            },
-            severities = {
-                style_problem = helpers.diagnostics.severities["information"],
-            },
-        }),
+  name = "languagetool",
+  method = null_ls.methods.DIAGNOSTICS,
+  filetypes = { "markdown", "gitcommit" },
+  generator = null_ls.generator({
+    command = "/Users/panh/.config/nvim/bin/remote_languagetool.py",
+    args = { "-" },
+    to_stdin = true,
+    from_stderr = false,
+    timeout = 5000,
+    format = "json",
+    check_exit_code = function(code)
+      return code < 1
+    end,
+    on_output = helpers.diagnostics.from_json({
+      attributes = {
+        row = "line",
+        col = "column",
+        code = "code",
+        severity = "level",
+        message = "message",
+      }
     }),
+  }),
 }
 
 null_ls.register(languagetool)
