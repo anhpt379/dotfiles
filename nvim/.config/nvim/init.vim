@@ -699,7 +699,7 @@ nnoremap ]w :NextTrailingWhitespace<CR>
 nnoremap [w :PrevTrailingWhitespace<CR>
 
 function! DisableWhitespace()
-  if &ft =~# 'fugitive\|startify\|ctrlsf\|git\|man\|log'
+  if &filetype =~# 'fugitive\|startify\|ctrlsf\|git\|man\|log'
     DisableWhitespace
   endif
 endfunction
@@ -1077,7 +1077,7 @@ nmap <Home> 2h
 nmap <End> 2l
 
 " Disable TreeSitterContext in Dockerfile (it's incompatible at the moment -
-" nvim shows treesitter context errors everytime we move the cursor)
+" nvim shows treesitter context errors every time we move the cursor)
 augroup dockerfile
   autocmd FileType Dockerfile :TSContextDisable
 augroup end
