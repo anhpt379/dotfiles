@@ -16,6 +16,7 @@ disabled_rules = [
     "EN_QUOTES",
     "LC_AFTER_PERIOD",
     "WORD_CONTAINS_UNDERSCORE",
+    "MORFOLOGIK_RULE_EN_US",
 ]
 
 r = requests.post(
@@ -41,12 +42,11 @@ for match in matches:
     if type == "misspelling" and word in personal_word_list:
         continue
 
-    rule_id = match["rule"]["id"]
     replacements = " / ".join([i["value"] for i in match["replacements"]])
     if replacements:
         match[
             "message"
-        ] = f"{rule_id}\n{match['message']}\n\nSuggestion: \"{word}\" -> {replacements}"
+        ] = f"\"{word}\" -> \"{replacements}\"\n{match['message']}"
 
     if type == "misspelling" and not replacements:
         continue
@@ -60,7 +60,7 @@ for match in matches:
         column += 1
     match["line"] = line
     match["column"] = column
-
+    match["code"] = match["rule"]["id"]
     match["level"] = "hint"
     output.append(match)
 
