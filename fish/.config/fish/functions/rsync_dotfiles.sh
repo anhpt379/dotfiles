@@ -9,7 +9,7 @@ if [ ! -f "${lock_file}" ] || [ "$(find "${lock_file}" -mtime +4h -print)" ]; th
     echo "***************************************************************************"
     echo "Uploading ~/.local/bin/"
     rsync -azvhP \
-        --bwlimit=20 \
+        --bwlimit=50 \
         --info=name0 \
         --info=progress2 \
         --no-inc-recursive \
@@ -21,7 +21,7 @@ if [ ! -f "${lock_file}" ] || [ "$(find "${lock_file}" -mtime +4h -print)" ]; th
     echo "***************************************************************************"
     echo "Uploading ~/.ssh/files/"
     rsync -azvhP \
-        --bwlimit=20 \
+        --bwlimit=50 \
         --info=name0 \
         --info=progress2 \
         --no-inc-recursive \
