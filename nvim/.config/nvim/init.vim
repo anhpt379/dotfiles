@@ -1357,7 +1357,7 @@ lsp_status.config({
   end,
 })
 
-local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
   local hl = "DiagnosticSign" .. type
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
@@ -1365,7 +1365,7 @@ end
 
 -- diagnostics
 vim.diagnostic.config({
-  virtual_text = true,
+  virtual_text = false,
   signs = true,
   underline = false,
   update_in_insert = false,
@@ -1444,8 +1444,34 @@ local languagetool = {
     }),
   }),
 }
+local puppet_lint = {
+  name = "puppet-lint",
+  method = null_ls.methods.DIAGNOSTICS,
+  filetypes = { "puppet" },
+  generator = null_ls.generator({
+    command = "puppet-lint",
+    args = { "--json" },
+    to_stdin = true,
+    from_stderr = false,
+    timeout = 5000,
+    format = "json",
+    check_exit_code = function(code)
+      return code < 1
+    end,
+    on_output = helpers.diagnostics.from_json({
+      attributes = {
+        row = "line",
+        col = "column",
+        severity = "kind",
+        message = "message",
+        code = "check",
+      }
+    }),
+  }),
+}
 
 null_ls.register(languagetool)
+null_ls.register(puppet_lint)
 
 
 require("trouble").setup({
