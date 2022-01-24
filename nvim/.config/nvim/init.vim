@@ -105,6 +105,8 @@ call plug#begin()
     Plug 'hrsh7th/nvim-cmp'
     Plug 'anhpt379/lsp-status.nvim'
 
+    Plug 'lewis6991/gitsigns.nvim' | Plug 'nvim-lua/plenary.nvim'
+
     Plug 'folke/trouble.nvim' | Plug 'kyazdani42/nvim-web-devicons'
 
     " For vsnip users.
@@ -1481,5 +1483,18 @@ require("trouble").setup({
   group = true,
   auto_open = false,
   auto_close = false,
+})
+
+require('gitsigns').setup({
+  current_line_blame = true,
+  current_line_blame_opts = {
+    virt_text = true,
+    virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
+    delay = 500,
+    ignore_whitespace = false,
+  },
+  current_line_blame_formatter_opts = {
+    relative_time = true
+  },
 })
 EOF

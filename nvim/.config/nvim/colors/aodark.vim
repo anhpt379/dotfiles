@@ -150,11 +150,11 @@ call s:h('Ignore', s:fg, '', '')
 call s:h('Error', s:red, s:gutter_bg, '')
 call s:h('Todo', s:purple, '', '')
 
-" GitGutter
-call s:h('GitGutterAdd', s:green, s:gutter_bg, '')
-call s:h('GitGutterDelete', s:red, s:gutter_bg, '')
-call s:h('GitGutterChange', s:yellow, s:gutter_bg, '')
-call s:h('GitGutterChangeDelete', s:red, s:gutter_bg, '')
+" GitSigns
+call s:h('GitSignsAdd', s:green, s:gutter_bg, '')
+call s:h('GitSignsDelete', s:red, s:gutter_bg, '')
+call s:h('GitSignsChange', s:yellow, s:gutter_bg, '')
+call s:h('GitSignsCurrentLineBlame', s:comment_fg, s:gutter_bg, '')
 
 " Fugitive
 call s:h('diffAdded', s:green, '', '')
