@@ -41,7 +41,6 @@ call plug#begin()
   Plug 'chrisbra/Colorizer'
   Plug 'norcalli/nvim-colorizer.lua'
   Plug 'ryanoasis/vim-devicons'
-  Plug 'machakann/vim-highlightedyank'
   Plug 'breuckelen/vim-resize'
   Plug 'ptzz/lf.vim', {'tag': 'v1.2'} | Plug 'rbgrouleff/bclose.vim'
   Plug 'spektroskop/golden-ratio', {'branch': 'skip-popups'}
@@ -656,8 +655,8 @@ augroup end
 map / /\V
 map ? ?\V
 
-" Vim-highlightedyank
-let g:highlightedyank_highlight_duration = 700
+" Highlight yanked text
+autocmd TextYankPost * silent! lua vim.highlight.on_yank {higroup="IncSearch", timeout=700}
 
 if !has('mac')
   " Copy remote text yank to local clipboard
@@ -1017,7 +1016,7 @@ let g:indent_blankline_filetype_exclude = ['fzf', 'startify', 'man', 'log']
 " notices that the file you are editing was changed by another program (like
 " git, or another editor).
 augroup FCSHandler
-  au FileChangedShell * call FCSHandler(expand('<afile>:p'))
+  autocmd FileChangedShell * call FCSHandler(expand('<afile>:p'))
 augroup END
 
 function! FCSHandler(name)
