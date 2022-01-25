@@ -556,8 +556,8 @@ nnoremap - za
 vnoremap - za
 
 " Comment stuff out
-nnoremap <Leader>/ :Commentary<CR>
-vnoremap <Leader>/ :Commentary<CR>
+nmap <Leader>/ gcc
+vmap <Leader>/ gc
 
 " Join lines and restore cursor location (J)
 nnoremap J mjJ`j
@@ -586,9 +586,6 @@ if has('mac')
 
   " Autoclose and autorename HTML tags using treesitter
   lua require('nvim-ts-autotag').setup()
-
-  " Correctly set `commentstring` in complex filetypes using treesitter
-  lua require'nvim-treesitter.configs'.setup{context_commentstring={enable = true}}
 endif
 
 " Sandwich
@@ -894,12 +891,11 @@ lua <<EOF
     highlight = {
       enable = true,
     },
-  }
-
-  -- vim-matchup tree-sitter integration
-  require'nvim-treesitter.configs'.setup {
     matchup = {
       enable = true,
+    },
+    context_commentstring = {
+      enable = true
     },
   }
 EOF
