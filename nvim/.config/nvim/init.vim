@@ -102,7 +102,7 @@ call plug#begin()
     Plug 'ray-x/cmp-treesitter'
     Plug 'ray-x/lsp_signature.nvim'
     Plug 'hrsh7th/nvim-cmp'
-    Plug 'anhpt379/lsp-status.nvim'
+    Plug 'nvim-lua/lsp-status.nvim'
 
     Plug 'lewis6991/gitsigns.nvim' | Plug 'nvim-lua/plenary.nvim'
 
@@ -125,6 +125,7 @@ call plug#begin()
     " Plug 'dcampos/cmp-snippy'
 
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    Plug 'SmiteshP/nvim-gps'
     " Plug 'romgrk/nvim-treesitter-context'
     Plug 'windwp/nvim-ts-autotag'
     Plug 'JoosepAlviste/nvim-ts-context-commentstring'
@@ -263,7 +264,7 @@ let g:lightline = {
   \   'left': [
   \     ['mode', 'paste'],
   \     ['gitbranch', 'readonly', 'modified'],
-  \     ['lsp_status']
+  \     ['lsp_status', 'where_am_i']
   \   ]
   \ },
   \ 'component_function': {
@@ -271,6 +272,7 @@ let g:lightline = {
   \   'filetype': 'DevIconsFileType',
   \   'fileformat': 'DevIconsFileFormat',
   \   'lsp_status': 'LspStatus',
+  \   'where_am_i': 'Whereami',
   \ },
   \ }
 
@@ -280,6 +282,11 @@ function! LspStatus() abort
   endif
 
   return ''
+endfunction
+
+function! Whereami() abort
+	return luaeval("require'nvim-gps'.is_available()") ?
+    \ luaeval("require'nvim-gps'.get_location()") : ''
 endfunction
 
 function! DevIconsFugitiveHead()
@@ -1278,6 +1285,7 @@ local lsp_status = require('lsp-status')
 lsp_status.register_progress()
 
 lsp_status.config({
+  current_function = false,
   kind_labels = kind_icons,
   status_symbol = '',
   indicator_errors = '',
@@ -1285,9 +1293,6 @@ lsp_status.config({
   indicator_info = '',
   indicator_hint = '',
   indicator_ok = '',
-  status_format = function(name, contents)
-    return string.format("[%s] %s", name, contents)
-  end,
 })
 
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
@@ -1426,5 +1431,7 @@ require('gitsigns').setup({
     relative_time = true
   },
 })
+
+require("nvim-gps").setup()
 EOF
 endif
