@@ -563,8 +563,8 @@ nnoremap - za
 vnoremap - za
 
 " Comment stuff out
-nmap <Leader>/ gcc
-vmap <Leader>/ gc
+nmap <Leader>c gcc
+vmap <Leader>c gc
 
 " Join lines and restore cursor location (J)
 nnoremap J mjJ`j
