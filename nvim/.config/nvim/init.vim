@@ -336,6 +336,8 @@ if has('mac')
   let g:lightline#bufferline#modified        = ' '
   let g:lightline#bufferline#read_only       = ' '
   let g:lightline#bufferline#clickable       = 1
+  let g:lightline.separator                  = { 'left': '', 'right': '' }
+  let g:lightline.subseparator               = { 'left': '', 'right': '' }
 
   let g:lightline#bufferline#number_map = {
     \ 0: '⁰', 1: '¹', 2: '²', 3: '³', 4: '⁴',
