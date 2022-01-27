@@ -571,6 +571,10 @@ vmap <Leader>c gc
 " Join lines and restore cursor location (J)
 nnoremap J mjJ`j
 
+" Make it easier to increase/decrease values
+map <Leader>= <C-a>
+map <Leader>- <C-x>
+
 " Faster search & replace with <C-r>
 map <C-u> <Plug>(RepeatRedo)
 nnoremap <C-r> :%s/<C-r><C-w>//<Left>
