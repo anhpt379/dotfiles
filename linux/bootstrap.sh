@@ -23,7 +23,7 @@ sudo dnf config-manager --add-repo https://download.opensuse.org/repositories/sh
 sudo dnf install -y fish
 # export XDG_DATA_HOME=/usr/local/share  # Different $XDG_DATA_HOME for oh-my-fish local & remote
 curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
-# sudo usermod -s /usr/bin/fish vagrant
+sudo usermod -s /usr/bin/fish vagrant
 
 # docker
 # sudo dnf install -y docker docker-compose
