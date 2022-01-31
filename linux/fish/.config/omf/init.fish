@@ -218,7 +218,7 @@ set -U fish_pager_color_prefix white --bold --underline
 set -U fish_pager_color_progress brwhite --background=cyan
 
 # lf
-set -x LF_ICONS (
+set -gx LF_ICONS (
   sed ~/.config/lf/icons \
     -e '/^[ \t]*#/d'     \
     -e '/^[ \t]*$/d'     \
