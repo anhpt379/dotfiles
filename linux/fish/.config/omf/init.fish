@@ -1,3 +1,21 @@
+# macOS integration
+alias pbcopy 'nc 127.0.0.1 2224 --send-only'
+alias pbpaste 'nc 127.0.0.1 2225 --recv-only'
+function open -d "Open an URL in macOS default web browser"
+    echo $argv | nc 127.0.0.1 2226
+end
+
+alias root 'sudo -E -s fish'
+alias sudo 'sudo -E'
+
+# systemctl aliases
+alias start="sudo systemctl start"
+alias stop="sudo systemctl stop"
+alias restart="sudo systemctl restart"
+alias info="sudo systemctl status"
+alias log="sudo journalctl -ef -u"
+
+# git
 balias g        'git'
 balias gs       'git status'
 balias push     'git push origin'

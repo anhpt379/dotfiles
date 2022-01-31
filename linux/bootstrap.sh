@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo dnf install -y stow git fzf jq ipython ripgrep bat exa cargo fd-find telnet npm @development-tools
+sudo dnf install -y stow git fzf jq ipython ripgrep bat exa cargo npm fd-find telnet nmap-ncat @development-tools
 
 cd ~
 stow --dir=dotfiles/linux/ --target=/home/vagrant/ bat
