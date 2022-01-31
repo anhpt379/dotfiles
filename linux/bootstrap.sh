@@ -49,7 +49,7 @@ mv lf ~/.local/bin/
 rm -f lf-linux-amd64.tar.gz
 
 # pretty-ping
-curl -fLo /usr/local/bin/prettyping https://github.com/denilsonsa/prettyping/raw/master/prettyping && chmod +x /usr/local/bin/prettyping
+curl -fLo ~/.local/bin/prettyping https://github.com/denilsonsa/prettyping/raw/master/prettyping && chmod +x ~/.local/bin/prettyping
 
 # xh
 # cargo install xh
