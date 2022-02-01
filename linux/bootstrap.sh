@@ -2,10 +2,12 @@
 
 sudo dnf install -y \
   stow git fzf jq fd-find ripgrep bat exa \
-  nmap-ncat codespell ipython \
+  nmap-ncat ipython \
   cargo npm telnet atop \
   grc gron pwgen tldr youtube-dl \
+  python3-pip luarocks lua-devel ruby-devel \
   @development-tools
+sudo dnf group install -y "C Development Tools and Libraries"
 
 stow --dir=dotfiles/linux/ --target=/home/vagrant/ bat
 stow --dir=dotfiles/linux/ --target=/home/vagrant/ curl
@@ -44,6 +46,15 @@ sudo ln -sf /squashfs-root/AppRun /usr/bin/nvim
 rm -f nvim.appimage
 nvim -c "PlugInstall" -c "qall"
 nvim -c "TSUpdate" -c "qall"
+
+# null-ls
+pip install vim-vint ansible-lint[community,yamllint]
+sudo npm install -g jsonlint textlint write-good # markdownlint
+gem install --bindir ~/.local/bin/ mdl rubocop
+sudo luarocks install luacheck
+sudo dnf install -y ShellCheck codespell proselint
+curl -fLo ~/.local/bin/hadolint https://github.com/hadolint/hadolint/releases/download/v2.8.0/hadolint-Linux-x86_64 && \
+  chmod +x ~/.local/bin/hadolint
 
 # lf
 wget https://github.com/gokcehan/lf/releases/download/r26/lf-linux-amd64.tar.gz
