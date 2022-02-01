@@ -1245,7 +1245,7 @@ cmp.setup({
     {
       name = 'rg',
       option = {
-        cwd = "/Users/panh/.config/nvim/dictionaries/",
+        cwd = "/home/vagrant/.config/nvim/dictionaries/",
         debounce = 200,
         context_before = 0,
         context_after = 0,
