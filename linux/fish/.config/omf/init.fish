@@ -63,8 +63,9 @@ balias fd 'fd --hidden --exclude=".git"'
 balias pwl 'nvim ~/.config/nvim/dictionaries/personal_word_list.txt'
 
 balias cmd 'command'
-balias d 'docker'
-balias dc 'docker-compose'
+balias d 'sudo docker'
+balias ds 'sudo docker ps'
+balias dc 'sudo docker-compose'
 
 balias k 'kubectl'
 balias kd 'kubectl describe'
