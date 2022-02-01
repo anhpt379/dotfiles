@@ -1,3 +1,14 @@
+# ssh to vagrant automatically
+if nc -z 127.0.0.1 2222
+    ssh -p 2222 \
+        -o UserKnownHostsFile=/dev/null \
+        -o StrictHostKeyChecking=no \
+        -o LogLevel=ERROR \
+        -o IdentitiesOnly=yes \
+        -i ~/.dotfiles/macOS/.vagrant/machines/default/virtualbox/private_key \
+        vagrant@127.0.0.1
+end
+
 # macOS integration
 alias pbcopy 'nc 127.0.0.1 2224 --send-only'
 alias pbpaste 'nc 127.0.0.1 2225 --recv-only'
