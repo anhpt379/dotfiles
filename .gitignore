@@ -2,6 +2,7 @@ linux/nvim/.config/nvim/autoload/plug.vim*
 linux/nvim/.config/nvim/undo/*
 linux/nvim/.config/nvim/dictionaries/nextword-data
 linux/wakapi-data/wakapi.db
+linux/fish/.config/fish/fish_variables
 macOS/Brewfile.lock.json
 .DS_Store
 *.py[cod]

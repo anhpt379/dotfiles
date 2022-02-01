@@ -87,5 +87,8 @@ sudo docker-compose -f ~/dotfiles/linux/docker-compose.yml up -d
 # ssh
 mkdir ~/.ssh/control/
 
+# timezone
+sudo timedatectl set-timezone Europe/Amsterdam
+
 # reboot to finish changing the shell to fish
 reboot
