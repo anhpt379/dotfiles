@@ -14,9 +14,9 @@ function fish_prompt
     end
 
     if [ (uname -s) = 'Darwin' ]
-        set fish ""
+        set fish " "
     else
-        set fish ""
+        set fish "⋊>"
     end
     set -l ahead "↑"
     set -l behind "↓"
@@ -44,9 +44,9 @@ function fish_prompt
         echo -n -s (set_color $color --bold) [$USER@(prompt_hostname) " " $cwd](set_color $fish_icon_color)$fish $normal_color
     else
         if test $last_command_status -eq 0
-            echo -n -s (set_color cyan) $fish (set_color -b normal)
+            echo -n -s (set_color -b cyan) $fish (set_color -b normal)
         else
-            echo -n -s (set_color red) $fish (set_color -b normal)
+            echo -n -s (set_color -b red) $fish (set_color -b normal)
         end
 
         if git_is_repo
