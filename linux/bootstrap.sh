@@ -84,5 +84,8 @@ sudo systemctl enable docker
 sudo systemctl start docker
 sudo docker-compose -f ~/dotfiles/linux/docker-compose.yml up -d
 
+# ssh
+mkdir ~/.ssh/control/
+
 # reboot to finish changing the shell to fish
 reboot
