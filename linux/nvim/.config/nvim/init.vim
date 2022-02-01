@@ -682,11 +682,9 @@ nnoremap P :set paste<CR>:let @a = system("nc 127.0.0.1 2225 --recv-only")<CR>"a
 " Don't change the clipboard if paste over a visually selected text
 xnoremap p "_d:set paste<CR>:let @a = system("nc 127.0.0.1 2225 --recv-only")<CR>"aP`]:set nopaste<CR>
 
-" Fix nvim on server x/X in VISUAL mode doesn't trigger TextYankPost
-if !$USER ==# 'vagrant'
-  vnoremap x ygvx
-  vnoremap X ygvX
-endif
+" Fix nvim linux x/X in VISUAL mode doesn't copy text to macOS' clipboard
+vnoremap x ygvx
+vnoremap X ygvX
 
 " Conflict-marker {{{
 let g:conflict_marker_highlight_group = ''
