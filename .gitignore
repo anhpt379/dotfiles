@@ -9,4 +9,3 @@ linux/ssh/.ssh/conf.d
 linux/ssh/.ssh/id_ed25519
 linux/ssh/.ssh/root@wifiman
 linux/wakapi-data/wakapi.db
-macOS/Brewfile.lock.json
