@@ -50,7 +50,7 @@ function fish_prompt
             echo -n -s (set_color red) $fish (set_color -b normal)
         end
 
-        if set -q is_darwin and git_is_repo
+        if not set -q is_darwin; and git_is_repo
             if test "$theme_short_path" = yes
                 set root_folder (command git rev-parse --show-toplevel 2> /dev/null)
                 set parent_root_folder (dirname $root_folder)
