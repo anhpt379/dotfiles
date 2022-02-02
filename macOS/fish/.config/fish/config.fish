@@ -1,0 +1,1 @@
+../../../../linux/fish/.config/fish/config.fish
