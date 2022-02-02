@@ -14,7 +14,8 @@ function fish_prompt
     end
 
     if [ (uname -s) = 'Darwin' ]
-        set fish " "
+        set fish ""
+        set is_darwin
     else
         set fish "⋊>"
     end
@@ -44,12 +45,12 @@ function fish_prompt
         echo -n -s (set_color $color --bold) [$USER@(prompt_hostname) " " $cwd](set_color $fish_icon_color)$fish $normal_color
     else
         if test $last_command_status -eq 0
-            echo -n -s (set_color -b cyan) $fish (set_color -b normal)
+            echo -n -s (set_color cyan) $fish (set_color -b normal)
         else
-            echo -n -s (set_color -b red) $fish (set_color -b normal)
+            echo -n -s (set_color red) $fish (set_color -b normal)
         end
 
-        if git_is_repo
+        if set -q is_darwin and git_is_repo
             if test "$theme_short_path" = yes
                 set root_folder (command git rev-parse --show-toplevel 2> /dev/null)
                 set parent_root_folder (dirname $root_folder)
@@ -75,6 +76,8 @@ function fish_prompt
     printf '\033[6 q'
 
     # z auto remove directories that no longer exist
-    z --clean > /dev/null 2>&1
+    if not set -q is_darwin
+        z --clean > /dev/null 2>&1
+    end
 end
 
