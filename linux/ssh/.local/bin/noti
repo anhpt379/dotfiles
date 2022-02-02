@@ -1,0 +1,4 @@
+#!/bin/bash
+
+bash -c "$@"
+echo "\`$@\` returned $?" | nc 127.0.0.1 2227

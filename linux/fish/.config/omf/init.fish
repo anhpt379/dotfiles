@@ -1,10 +1,3 @@
-# macOS integration
-alias pbcopy 'nc 127.0.0.1 2224 --send-only'
-alias pbpaste 'nc 127.0.0.1 2225 --recv-only'
-function open -d "Open an URL in macOS default web browser"
-    echo $argv | nc 127.0.0.1 2226
-end
-
 alias root 'sudo -E -s fish'
 alias sudo 'sudo -E'
 

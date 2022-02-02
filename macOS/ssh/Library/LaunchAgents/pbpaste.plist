@@ -24,7 +24,7 @@
     <key>inetdCompatibility</key>
     <dict>
       <key>Wait</key>
-      <false />
+      <false/>
     </dict>
   </dict>
 </plist>
