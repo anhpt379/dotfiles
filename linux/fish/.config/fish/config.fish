@@ -1,5 +1,8 @@
 #!/usr/bin/env fish
 
+# Tell vagrant where the Vagrantfile is
+set -gx VAGRANT_CWD ~/dotfiles/macOS
+
 # ssh to vagrant automatically
 if nc -z 127.0.0.1 2222
     ssh -p 2222 \
