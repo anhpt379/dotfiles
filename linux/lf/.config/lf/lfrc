@@ -159,6 +159,7 @@ map x       cut
 map y       copy
 map Y       copy_path
 map a       push :new<space>
+map n       push :new<space>
 map <space> preview
 map o       reveal
 map r       :rename
