@@ -1339,7 +1339,7 @@ local sources = {
   null_ls.builtins.diagnostics.proselint,
   null_ls.builtins.diagnostics.rubocop,
   null_ls.builtins.diagnostics.stylelint,
-  null_ls.builtins.diagnostics.textlint,
+  -- null_ls.builtins.diagnostics.textlint,
   null_ls.builtins.diagnostics.write_good,
   null_ls.builtins.diagnostics.hadolint.with({ filetypes = { "Dockerfile", "dockerfile" } }),
 
