@@ -930,7 +930,7 @@ let g:floaterm_wintype = 'split'
 let g:floaterm_autoclose = 1
 let g:floaterm_open_in_root = v:true
 let g:floaterm_shell = '/usr/bin/fish'
-let g:floaterm_keymap_toggle = '<F12>'
+let g:floaterm_keymap_toggle = '<C-t>'
 
 augroup floaterm
   autocmd User Startified setlocal buflisted
