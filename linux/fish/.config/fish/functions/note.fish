@@ -1,7 +1,7 @@
 function note -d "Manage notes in ~/Workspace/notes"
     set current_dir (pwd)
 
-    cd ~/Workspace/notes/
+    cd ~/notes/
 
     set cmd_name $_
     if [ $cmd_name = n ]
