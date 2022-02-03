@@ -1392,34 +1392,37 @@ local languagetool = {
     }),
   }),
 }
-local puppet_lint = {
+local puppetlint = {
   name = "puppet-lint",
   method = null_ls.methods.DIAGNOSTICS,
   filetypes = { "puppet" },
   generator = null_ls.generator({
     command = "puppet-lint",
-    args = { "--json" },
-    to_stdin = true,
-    from_stderr = false,
-    timeout = 5000,
+    args = { "--json", "$FILENAME" },
+    to_temp_file = true,
+    timeout = 20000,
     format = "json",
     check_exit_code = function(code)
-      return code < 1
+      return code <= 1
     end,
-    on_output = helpers.diagnostics.from_json({
-      attributes = {
-        row = "line",
-        col = "column",
-        severity = "kind",
-        message = "message",
-        code = "check",
-      }
-    }),
+    on_output = function(params)
+      local parser = helpers.diagnostics.from_json({
+        attributes = {
+          row = "line",
+          col = "column",
+          severity = "kind",
+          message = "message",
+          code = "check",
+        }
+      })
+
+      return parser({ output = params.output[1] })
+    end,
   }),
 }
 
 null_ls.register(languagetool)
-null_ls.register(puppet_lint)
+null_ls.register(puppetlint)
 
 
 require("trouble").setup({

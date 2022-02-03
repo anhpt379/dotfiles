@@ -49,7 +49,7 @@ nvim -c "TSUpdate" -c "qall"
 
 # null-ls
 pip install vim-vint 'ansible-lint[community,yamllint]'
-sudo npm install -g jsonlint textlint write-good # markdownlint
+sudo npm install -g jsonlint textlint write-good markdownlint-cli
 gem install --bindir ~/.local/bin/ \
   mdl rubocop \
   puppet-lint \
@@ -120,6 +120,7 @@ gem install --bindir ~/.local/bin/ \
   puppet-lint-wmf_styleguide-check \
   puppet-lint-world_writable_files-check \
   puppet-lint-yumrepo_gpgcheck_enabled-check
+rm -f ~/.local/bin/puppet
 
 sudo luarocks install luacheck
 sudo dnf install -y ShellCheck codespell proselint
