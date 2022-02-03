@@ -438,13 +438,13 @@ let g:dispatch_no_maps = 1
 map m vgl
 
 nmap g[ :Dispatch! noti git pull --rebase origin master<CR>
-nmap g] :Dispatch! noti git push --force-with-lease origin HEAD<CR>:silent exec '!git rev-parse --short HEAD \| tr -d "\n" \| nc 127.0.0.1 2224 --send-only'<CR>
+nmap g] :Dispatch! noti git push --force-with-lease origin HEAD<CR>:silent exec '!git rev-parse --short HEAD \| tr -d "\n" \| pbcopy'<CR>
 nmap M  :Dispatch! noti 'git checkout master && git pull --rebase origin master'<CR>
 
 augroup fugitive-personal-key-mappings
   autocmd FileType fugitive nmap <buffer> p :bd!<CR>
         \ :Dispatch! noti git push origin HEAD --force-with-lease<CR>
-        \ :silent exec '!git rev-parse --short HEAD \| tr -d "\n" \| nc 127.0.0.1 2224 --send-only'<CR>
+        \ :silent exec '!git rev-parse --short HEAD \| tr -d "\n" \| pbcopy'<CR>
   autocmd FileType fugitive nmap <buffer> P :Dispatch! noti git pull --rebase origin master<CR>
   autocmd FileType fugitive nmap <buffer> m :!git push --force-with-lease origin HEAD<CR>:<C-u>call vim_git_browse#GitOpenPullRequest()<CR>
 
@@ -668,19 +668,19 @@ map ? ?\V
 " Highlight yanked text
 autocmd TextYankPost * silent! lua vim.highlight.on_yank {higroup="IncSearch", timeout=700}
 
-" Copy remote text yank to local clipboard
-augroup YankToLocalClipboard
-  autocmd TextYankPost * call system('nc 127.0.0.1 2224 --send-only', @0)
+" Copy text yank to macOS' clipboard
+augroup YankToMacOSClipboard
+  autocmd TextYankPost * call system('pbcopy', @")
 augroup end
 
 " Automatically jump to end of text you pasted
-vnoremap p :<C-u>set paste<CR>:let @a = system("nc 127.0.0.1 2225 --recv-only")<CR>"ap`]:set nopaste<CR>
-nnoremap p :set paste<CR>:let @a = system("nc 127.0.0.1 2225 --recv-only")<CR>"ap`]:set nopaste<CR>
-vnoremap P :<C-u>set paste<CR>:let @a = system("nc 127.0.0.1 2225 --recv-only")<CR>"aP`]:set nopaste<CR>
-nnoremap P :set paste<CR>:let @a = system("nc 127.0.0.1 2225 --recv-only")<CR>"aP`]:set nopaste<CR>
+vnoremap p :<C-u>set paste<CR>:let @a = system("pbpaste")<CR>"ap`]:set nopaste<CR>
+nnoremap p :set paste<CR>:let @a = system("pbpaste")<CR>"ap`]:set nopaste<CR>
+vnoremap P :<C-u>set paste<CR>:let @a = system("pbpaste")<CR>"aP`]:set nopaste<CR>
+nnoremap P :set paste<CR>:let @a = system("pbpaste")<CR>"aP`]:set nopaste<CR>
 
 " Don't change the clipboard if paste over a visually selected text
-xnoremap p "_d:set paste<CR>:let @a = system("nc 127.0.0.1 2225 --recv-only")<CR>"aP`]:set nopaste<CR>
+xnoremap p "_d:set paste<CR>:let @a = system("pbpaste")<CR>"aP`]:set nopaste<CR>
 
 " Fix nvim linux x/X in VISUAL mode doesn't copy text to macOS' clipboard
 vnoremap x ygvx
@@ -948,7 +948,7 @@ nmap <silent> [i <Plug>(IndentWisePreviousLesserIndent)
 " the selected text
 function! GoogleSearchImFeelingLucky()
   let searchterm = getreg('g')
-  silent! exec 'silent! !echo "http://www.google.com/search?sourceid=navclient&gfns=1&q=' . searchterm . '" | nc 127.0.0.1 2226 &'
+  silent! exec 'silent! !open "http://www.google.com/search?sourceid=navclient&gfns=1&q=' . searchterm . '" &'
 endfunction
 vnoremap <Leader><Leader> "gy<Esc>:call GoogleSearchImFeelingLucky()<CR>
 
