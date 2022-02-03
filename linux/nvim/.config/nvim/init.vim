@@ -932,6 +932,9 @@ let g:floaterm_open_in_root = v:true
 let g:floaterm_shell = '/usr/bin/fish'
 let g:floaterm_keymap_toggle = '<C-t>'
 
+" Scroll up in nvim terminal with <C-b>
+tnoremap <C-b> <C-\><C-n>:set nonumber<CR>:set signcolumn=no<CR>
+
 augroup floaterm
   autocmd User Startified setlocal buflisted
 augroup end
