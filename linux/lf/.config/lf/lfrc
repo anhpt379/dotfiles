@@ -95,12 +95,6 @@ cmd copy_name %{{
   echo "Name copied: $name"
 }}
 
-cmd preview %{{
-  if command -v qlmanage; then
-    qlmanage -p $f &>/dev/null
-  fi
-}}
-
 # NERDTree-like add file/dir
 cmd new %{{
   path=$1
@@ -160,7 +154,6 @@ map y       copy
 map Y       copy_path
 map a       push :new<space>
 map n       push :new<space>
-map <space> preview
 map o       reveal
 map r       :rename
 map gh      go_home
