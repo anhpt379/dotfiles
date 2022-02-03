@@ -48,7 +48,7 @@ nvim -c "PlugInstall" -c "qall"
 nvim -c "TSUpdate" -c "qall"
 
 # null-ls
-pip install vim-vint ansible-lint[community,yamllint]
+pip install vim-vint 'ansible-lint[community,yamllint]'
 sudo npm install -g jsonlint textlint write-good # markdownlint
 gem install --bindir ~/.local/bin/ \
   mdl rubocop \
