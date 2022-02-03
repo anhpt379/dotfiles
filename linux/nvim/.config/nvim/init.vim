@@ -1372,11 +1372,11 @@ local languagetool = {
   method = null_ls.methods.DIAGNOSTICS,
   filetypes = { "markdown", "gitcommit" },
   generator = null_ls.generator({
-    command = "/Users/panh/.config/nvim/bin/remote_languagetool.py",
+    command = "/home/vagrant/.config/nvim/bin/remote_languagetool.py",
     args = { "-" },
     to_stdin = true,
     from_stderr = false,
-    timeout = 5000,
+    timeout = 20000,
     format = "json",
     check_exit_code = function(code)
       return code < 1
