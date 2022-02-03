@@ -1,4 +1,13 @@
 #!/bin/bash
 
 bash -c "$@"
-echo "\`$@\` returned $?" | nc 127.0.0.1 2227
+
+code=$?
+
+if [ ${code} -eq 0 ]; then
+  icon="✓"
+else
+  icon="✗"
+fi
+
+echo "${icon} \`$@\` returned ${code}" | nc 127.0.0.1 2227
