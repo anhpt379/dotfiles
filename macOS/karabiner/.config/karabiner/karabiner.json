@@ -1024,25 +1024,6 @@
                         ]
                     },
                     {
-                        "description": "Use DELETE key to show & hide menu bar",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "f20"
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "f2",
-                                        "modifiers": [
-                                            "control"
-                                        ]
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
                         "description": "Map Control+[ to ESC",
                         "manipulators": [
                             {
@@ -1210,7 +1191,7 @@
                     },
                     "to": [
                         {
-                            "key_code": "f20"
+                            "key_code": "f12"
                         }
                     ]
                 },

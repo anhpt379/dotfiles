@@ -795,8 +795,9 @@ augroup end
 " Lf.vim
 let g:lf_map_keys = 0
 let g:lf_replace_netrw = 1
-autocmd TermOpen  * if has("mac") | set showtabline=0 | endif | set nonumber | set signcolumn=no  | set mouse-=a
-autocmd TermLeave * if has("mac") | set showtabline=2 | endif | set number   | set signcolumn=yes | set mouse+=a
+autocmd TermOpen  * if $USER ==# 'vagrant' | set showtabline=0 | endif | set nonumber | set signcolumn=no  | set mouse-=a
+autocmd TermEnter * if $USER ==# 'vagrant' | set showtabline=0 | endif | set nonumber | set signcolumn=no  | set mouse-=a
+autocmd TermLeave * if $USER ==# 'vagrant' | set showtabline=2 | endif | set number   | set signcolumn=yes | set mouse+=a
 map <Leader>l :<C-u>Lf<CR>
 
 " Clever-f
@@ -928,6 +929,8 @@ command! SudoWrite w suda://%
 let g:floaterm_wintype = 'split'
 let g:floaterm_autoclose = 1
 let g:floaterm_open_in_root = v:true
+let g:floaterm_shell = '/usr/bin/fish'
+let g:floaterm_keymap_toggle = '<F12>'
 
 augroup floaterm
   autocmd User Startified setlocal buflisted
