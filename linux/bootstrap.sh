@@ -52,7 +52,7 @@ pip install vim-vint 'ansible-lint[community,yamllint]'
 sudo npm install -g jsonlint textlint write-good markdownlint-cli
 gem install --bindir ~/.local/bin/ \
   mdl rubocop \
-  puppet-lint \
+  puppet puppet-lint \
   puppet-lint-absolute_classname-check \
   puppet-lint-absolute_template_path \
   puppet-lint-alias-check \
@@ -154,6 +154,10 @@ sudo dnf install -y docker docker-compose
 sudo systemctl enable docker
 sudo systemctl start docker
 sudo docker-compose -f ~/dotfiles/linux/docker-compose.yml up -d
+
+# puppet-editor-config
+cd ~/.local/share/nvim/lsp_servers/puppet
+sed -i 's/\r//g' puppet-*
 
 # ssh
 mkdir ~/.ssh/control/
