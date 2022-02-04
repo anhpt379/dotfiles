@@ -1,4 +1,4 @@
-function note -d "Manage notes in ~/Workspace/notes"
+function note -d "Manage notes in ~/notes"
     set current_dir (pwd)
 
     cd ~/notes/

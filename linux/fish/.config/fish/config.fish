@@ -86,3 +86,8 @@ set -U fish_pager_color_progress brwhite --background=cyan
 set --global KITTY_SHELL_INTEGRATION enabled
 source ~/.config/fish/kitty/shell-integration/fish/vendor_conf.d/kitty-shell-integration.fish
 set --prepend fish_complete_path ~/.config/fish/kitty/shell-integration/fish/vendor_completions.d
+
+# Auto jump to nvim's current working directory
+if test -f ~/.cache/nvim/cwd
+    cd (cat ~/.cache/nvim/cwd)
+end
