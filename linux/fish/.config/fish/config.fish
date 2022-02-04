@@ -81,3 +81,8 @@ set -U fish_pager_color_completion normal
 set -U fish_pager_color_description B3A06D yellow
 set -U fish_pager_color_prefix white --bold --underline
 set -U fish_pager_color_progress brwhite --background=cyan
+
+# Kitty integration
+set --global KITTY_SHELL_INTEGRATION enabled
+source ~/.config/fish/kitty/shell-integration/fish/vendor_conf.d/kitty-shell-integration.fish
+set --prepend fish_complete_path ~/.config/fish/kitty/shell-integration/fish/vendor_completions.d
