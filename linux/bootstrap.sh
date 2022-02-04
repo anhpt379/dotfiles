@@ -116,7 +116,6 @@ gem install --bindir ~/.local/bin/ \
   puppet-lint-use_ensure_packages-check \
   puppet-lint-variable_contains_upcase \
   puppet-lint-version_comparison-check \
-  puppet-lint-vim_modeline-check \
   puppet-lint-wmf_styleguide-check \
   puppet-lint-world_writable_files-check \
   puppet-lint-yumrepo_gpgcheck_enabled-check
