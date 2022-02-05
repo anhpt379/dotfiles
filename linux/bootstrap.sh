@@ -38,12 +38,15 @@ sudo usermod -s /usr/bin/fish vagrant
 # nvim
 sudo yum install -y libstdc++-static gcc-c++
 sudo npm i -g npm@latest
-curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
-chmod u+x nvim.appimage
-./nvim.appimage --appimage-extract
-sudo mv squashfs-root /
-sudo ln -sf /squashfs-root/AppRun /usr/bin/nvim
-rm -f nvim.appimage
+
+curl -fLo ~/.local/bin/nvim.appimage https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+chmod u+x ~/.local/bin/nvim.appimage
+mkdir ~/.local/bin/nvim-appimage/
+cd ~/.local/bin/nvim-appimage/ || exit 1
+../nvim.appimage --appimage-extract
+ln -sf ~/.local/bin/nvim-appimage/squashfs-root/AppRun ~/.local/bin/nvim
+cd ~/ || exit 1
+
 nvim -c "PlugInstall" -c "qall"
 nvim -c "TSUpdate" -c "qall"
 
