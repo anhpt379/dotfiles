@@ -75,7 +75,7 @@ jobs:
       - name: vint
         uses: ludvighz/vint-action@v1
         with:
-          path: nvim/.config/nvim/
+          path: linux/nvim/.config/nvim/
 
   markdown-lint:
     name: Markdown
