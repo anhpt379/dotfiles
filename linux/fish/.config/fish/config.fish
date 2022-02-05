@@ -91,3 +91,33 @@ set --prepend fish_complete_path ~/.config/fish/kitty/shell-integration/fish/ven
 if test -f ~/.cache/nvim/cwd
     cd (cat ~/.cache/nvim/cwd)
 end
+
+if [ $USER != 'vagrant' ]
+    alias pp 'command sudo HOME=/root puppet agent -t'
+    alias ppa 'command sudo HOME=/root puppet agent -t --environment=$BOOKING_USER'
+    alias ppl 'less +G /var/log/puppet/puppetagent.log'
+
+    alias tmux 'command tmux attach -t $BOOKING_USER; or command tmux new -s $BOOKING_USER'
+    alias motd 'cat /etc/motd; [ -f /etc/motd.local ] && cat /etc/motd.local'
+
+    # Fix nvim `Cannot open undo file for writing` sometimes
+    mkdir -p ~/.config/nvim/undo/
+    if [ (find . \! -mount -type f -user $BOOKING_USER -print 2>/dev/null | wc -l) -gt 0 ]
+        sudo chown -R $BOOKING_USER ~/.config/nvim/undo/
+        sudo chown -R $BOOKING_USER ~/.local/share/z/data/
+    end
+
+    # Shorten title
+    title (hostname | awk -F. '{ print $1 }')
+
+    # Fix <C-c> doesn't work in remote fish
+    bind \cc 'commandline ""'
+
+    # Fix git-deploy umask complaining
+    umask 0002
+
+    # Auto start tmux
+    if not set -q TMUX
+        tmux
+    end
+end
