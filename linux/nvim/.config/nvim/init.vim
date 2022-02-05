@@ -250,9 +250,8 @@ silent! set splitvertical
 set diffopt+=iwhite
 set diffopt+=vertical
 
-if $USER ==# 'vagrant'
-  set clipboard=unnamed
-endif
+" Use system clipboard
+set clipboard=unnamedplus
 
 " Disable auto wrap lines
 set formatoptions-=t
@@ -668,11 +667,6 @@ map ? ?\V
 " Highlight yanked text
 autocmd TextYankPost * silent! lua vim.highlight.on_yank {higroup="IncSearch", timeout=700}
 
-" Copy text yank to macOS' clipboard
-augroup YankToMacOSClipboard
-  autocmd TextYankPost * call system('pbcopy', @")
-augroup end
-
 " Automatically jump to end of text you pasted
 vnoremap p :<C-u>set paste<CR>:let @a = system("pbpaste")<CR>"ap`]:set nopaste<CR>
 nnoremap p :set paste<CR>:let @a = system("pbpaste")<CR>"ap`]:set nopaste<CR>
@@ -681,10 +675,6 @@ nnoremap P :set paste<CR>:let @a = system("pbpaste")<CR>"aP`]:set nopaste<CR>
 
 " Don't change the clipboard if paste over a visually selected text
 xnoremap p "_d:set paste<CR>:let @a = system("pbpaste")<CR>"aP`]:set nopaste<CR>
-
-" Fix nvim linux x/X in VISUAL mode doesn't copy text to macOS' clipboard
-vnoremap x ygvx
-vnoremap X ygvX
 
 " Conflict-marker {{{
 let g:conflict_marker_highlight_group = ''
