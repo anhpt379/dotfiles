@@ -1,8 +1,0 @@
-git+https://github.com/Vimjas/vint.git#egg=vim-vint
-neovim
-neovim-remote
-jedi
-curlylint
-gitlint
-pylama
-wakatime
