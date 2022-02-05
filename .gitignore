@@ -1,7 +1,11 @@
-nvim/.config/nvim/autoload/plug.vim*
-nvim/.config/nvim/undo/*
-nvim/.config/nvim/dictionaries/nextword-data
-Brewfile.lock.json
-.DS_Store
 *.py[cod]
-wakapi-data/wakapi.db
+.DS_Store
+.vagrant
+linux/fish/.config/fish/fish_variables
+linux/nvim/.config/nvim/autoload/plug.vim*
+linux/nvim/.config/nvim/dictionaries/nextword-data
+linux/nvim/.config/nvim/undo/*
+linux/ssh/.ssh/conf.d
+linux/ssh/.ssh/id_ed25519
+linux/ssh/.ssh/root@wifiman
+linux/wakapi-data/wakapi.db
