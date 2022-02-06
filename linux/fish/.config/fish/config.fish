@@ -92,7 +92,8 @@ if test -f ~/.cache/nvim/cwd
     cd (cat ~/.cache/nvim/cwd)
 end
 
-if [ $USER != 'vagrant' ]
+if begin not string match -q -- "Darwin" (uname);
+    and not string match -q -- "vagrant" $USER; end
     alias pp 'command sudo HOME=/root puppet agent -t'
     alias ppa 'command sudo HOME=/root puppet agent -t --environment=$BOOKING_USER'
     alias ppl 'less +G /var/log/puppet/puppetagent.log'
