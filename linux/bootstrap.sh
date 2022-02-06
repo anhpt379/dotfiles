@@ -4,7 +4,7 @@ sudo dnf install -y \
   stow git fzf jq fd-find ripgrep bat exa \
   nmap-ncat ipython bind-utils \
   cargo npm telnet atop \
-  grc gron pwgen tldr youtube-dl cronie \
+  grc gron pwgen tldr youtube-dl \
   python3-pip luarocks lua-devel ruby-devel \
   @development-tools
 sudo dnf group install -y "C Development Tools and Libraries"
@@ -160,6 +160,11 @@ sudo docker-compose -f ~/dotfiles/linux/docker-compose.yml up -d
 # puppet-editor-config
 cd ~/.local/share/nvim/lsp_servers/puppet || exit 1
 sed -i 's/\r//g' puppet-*
+
+# cron
+sudo dnf install -y cronie
+sudo systemctl enable crond
+sudo systemctl start crond
 
 # ffmpeg
 sudo dnf install -y \
