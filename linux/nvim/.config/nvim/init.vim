@@ -1088,7 +1088,7 @@ lua <<EOF
 local lsp_installer = require("nvim-lsp-installer")
 
 local servers = {
-  "ansiblels",
+  -- "ansiblels",
   "bashls",
   "cmake",
   "cssls",
