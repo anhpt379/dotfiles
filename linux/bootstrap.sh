@@ -44,7 +44,7 @@ chmod u+x ~/.local/bin/nvim.appimage
 mkdir ~/.local/bin/nvim-appimage/
 cd ~/.local/bin/nvim-appimage/ || exit 1
 ../nvim.appimage --appimage-extract
-ln -sf ~/.local/bin/nvim-appimage/squashfs-root/AppRun ~/.local/bin/nvim
+sudo ln -sf ~/.local/bin/nvim-appimage/squashfs-root/AppRun /usr/bin/nvim
 cd ~/ || exit 1
 
 nvim -c "PlugInstall" -c "qall"
