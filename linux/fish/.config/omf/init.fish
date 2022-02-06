@@ -81,7 +81,7 @@ function nv
 end
 
 function update
-    fisher
+    fisher update
     omf update
     tldr --update
 end
