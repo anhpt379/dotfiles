@@ -65,17 +65,17 @@ jobs:
       - name: python-linter
         uses: piotrpawlaczek/python-blacken@release/stable
 
-  vint:
-    name: Vim
-    runs-on: ubuntu-latest
-    steps:
-      - name: checkout
-        uses: actions/checkout@v2
+  # vint:
+  #   name: Vim
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: checkout
+  #       uses: actions/checkout@v2
 
-      - name: vint
-        uses: ludvighz/vint-action@v1
-        with:
-          path: linux/nvim/.config/nvim/init.vim
+  #     - name: vint
+  #       uses: ludvighz/vint-action@v1
+  #       with:
+  #         path: linux/nvim/.config/nvim/init.vim
 
   markdown-lint:
     name: Markdown
