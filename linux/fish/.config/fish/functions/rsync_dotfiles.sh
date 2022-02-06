@@ -2,7 +2,8 @@
 set -x
 
 target=$1
-lock_file="/tmp/.rsync-${target}.lock"
+
+lock_file="$HOME/.cache/rsync/${target}.lock"
 
 if [ ! -f "${lock_file}" ] || [ "$(find "${lock_file}" -mmin +240 -print)" ]; then
     touch "${lock_file}"

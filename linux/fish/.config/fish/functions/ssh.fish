@@ -33,7 +33,8 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
                 --keep-dirlinks \
                 ~/.ssh/files/.*rc "$argv[1]":~/ 2>/dev/null
 
-            nohup ~/.config/fish/functions/rsync_dotfiles.sh $argv[1] > /tmp/.rsync-$argv[1].log &
+            mkdir -p ~/.cache/rsync
+            nohup ~/.config/fish/functions/rsync_dotfiles.sh $argv[1] > ~/.cache/rsync/$argv[1].log &
         end
     end
 
