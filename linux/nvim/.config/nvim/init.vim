@@ -39,7 +39,6 @@ call plug#begin()
   Plug 'anhpt379/fzf.vim'
   Plug 'anhpt379/fzf-filemru'
   Plug 'chrisbra/Colorizer'
-  Plug 'norcalli/nvim-colorizer.lua'
   Plug 'ryanoasis/vim-devicons'
   Plug 'breuckelen/vim-resize'
   Plug 'ptzz/lf.vim', {'tag': 'v1.2'} | Plug 'rbgrouleff/bclose.vim'
@@ -84,6 +83,7 @@ call plug#begin()
     Plug 'mengelbrecht/lightline-bufferline'
 
     Plug 'lukas-reineke/indent-blankline.nvim'
+    Plug 'norcalli/nvim-colorizer.lua'
 
     Plug 'anhpt379/vim-fugitive'
     Plug 'anhpt379/vim-git-browse'
@@ -592,14 +592,6 @@ augroup end
 let g:lexima_enable_basic_rules = 0
 let g:lexima_map_escape = ''
 
-if $USER ==# 'vagrant'
-  " Colorizer
-  lua require'colorizer'.setup()
-
-  " Autoclose and autorename HTML tags using treesitter
-  lua require('nvim-ts-autotag').setup()
-endif
-
 " Sandwich
 runtime macros/sandwich/keymap/surround.vim
 xmap a <Plug>(operator-sandwich-add)
@@ -884,7 +876,13 @@ augroup end
 
 if $USER ==# 'vagrant'
 lua <<EOF
-  -- treesitter
+  -- Colorizer
+  require'colorizer'.setup()
+
+  -- Autoclose and autorename HTML tags using treesitter
+  require'nvim-ts-autotag'.setup()
+
+  -- Treesitter
   require'nvim-treesitter.configs'.setup {
     ensure_installed = "maintained",
     ignore_install = { "haskell", "swift" },
