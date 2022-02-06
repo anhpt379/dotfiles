@@ -4,7 +4,7 @@ sudo dnf install -y \
   stow git fzf jq fd-find ripgrep bat exa \
   nmap-ncat ipython bind-utils \
   cargo npm telnet atop \
-  grc gron pwgen tldr youtube-dl \
+  grc gron pwgen tldr youtube-dl cronie \
   python3-pip luarocks lua-devel ruby-devel \
   @development-tools
 sudo dnf group install -y "C Development Tools and Libraries"
