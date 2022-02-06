@@ -158,7 +158,7 @@ sudo systemctl start docker
 sudo docker-compose -f ~/dotfiles/linux/docker-compose.yml up -d
 
 # puppet-editor-config
-cd ~/.local/share/nvim/lsp_servers/puppet
+cd ~/.local/share/nvim/lsp_servers/puppet || exit 1
 sed -i 's/\r//g' puppet-*
 
 # ssh
