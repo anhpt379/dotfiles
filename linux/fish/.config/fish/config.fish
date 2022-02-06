@@ -21,6 +21,8 @@ alias ....  'cd ../../..'
 alias ..... 'cd ../../../..'
 
 alias cmd 'command'
+alias c   'clear'
+alias q   'exit'
 
 alias ls  'exa --group-directories-first'
 alias la  'exa --group-directories-first -a'
