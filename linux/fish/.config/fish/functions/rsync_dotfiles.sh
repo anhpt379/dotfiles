@@ -8,6 +8,10 @@ if [ ! -f "${lock_file}" ] || [ "$(find "${lock_file}" -mmin +240 -print)" ]; th
     touch "${lock_file}"
 
     echo "***************************************************************************"
+    echo "Wait for dotfiles.pl to run..."
+    sleep 15
+
+    echo "***************************************************************************"
     echo "Uploading ~/.ssh/files/"
     rsync -azvhP \
         --bwlimit=50 \
