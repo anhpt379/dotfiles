@@ -42,7 +42,7 @@ function fish_prompt
         else
             set fish_icon_color red
         end
-        echo -n -s (set_color $color --bold) [$USER@(prompt_hostname) " " $cwd](set_color $fish_icon_color)$fish $normal_color
+        echo -n -s (set_color $color --bold) [$USER@(prompt_hostname) " " $cwd](set_color $fish_icon_color)$fish
     else
         if test $last_command_status -eq 0
             echo -n -s (set_color cyan) $fish (set_color -b normal)
@@ -58,19 +58,19 @@ function fish_prompt
             end
 
             echo -n -s " " $directory_color $cwd $normal_color
-            echo -n -s " on " $repository_color (git_branch_name) $normal_color " "
+            echo -n -s " on " $repository_color (git_branch_name)
 
             if git_is_touched
-                echo -n -s $dirty
-            else
-                echo -n -s (git_ahead $ahead $behind $diverged $none)
+                echo -n -s " " $normal_color $dirty
+            else if git_ahead > /dev/null
+                echo -n -s " " $normal_color (git_ahead $ahead $behind $diverged $none)
             end
         else
-            echo -n -s " " $directory_color $cwd $normal_color
+            echo -n -s " " $directory_color $cwd
         end
     end
 
-    echo -n -s "$normal_color "
+    echo -n -s $normal_color " "
 
     # Reset cursor shape to beam
     printf '\033[6 q'
