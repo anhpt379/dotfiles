@@ -1,6 +1,48 @@
 
 
-# ------------------------ >8 ------------------------
-# 50-character subject line
+# -----------------------------------------------------------------------------
+# <type>(<scope>): <short summary>
+#   │       │             │
+#   │       │             └─⫸ Summary in present tense.
+#   │       │                 Not capitalized.
+#   │       │                 No period at the end.
+#   │       │
+#   │       └─⫸ Commit scope (optional)
+#   │
+#   └─⫸ Commit type: feat|fix|build|ci|docs|perf|refactor|test|chore|style
 #
-# 72-character wrapped longer description
+# [optional body]
+#
+# [optional footer(s)]
+# -----------------------------------------------------------------------------
+#
+# Answer the following questions:
+#   * Why is this change necessary?
+#   * How does it address the issue?
+#   * What side effects does this change have?
+#
+# Types:
+#   Must be one of the following:
+#
+#   * feat: new feature for the user, not a new feature for build script
+#   * fix: a bug fix
+#   * build: changes that affect the build system or external dependencies
+#   * ci: changes to our CI configuration files and scripts
+#   * docs: changes to the documentation
+#   * perf: a code change that improves performance
+#   * refactor: a code change that neither fixes a bug nor adds a feature
+#   * test: adding missing tests or correcting existing tests
+#   * chore: updating grunt tasks etc; no production code change
+#   * style: formatting, missing semi colons, etc; no production code change
+#
+# See https://www.conventionalcommits.org/en/v1.0.0/#summary
+#
+# Example:
+# -----------------------------------------------------------------------------
+#   fix(middleware): ensure Range headers adhere more closely to RFC 2616
+#
+#   Add one new dependency, use `range-parser` (Express dependency) to compute
+#   range. It is more well-tested in the wild.
+#
+#   Fixes #2310
+# -----------------------------------------------------------------------------

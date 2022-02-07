@@ -10,7 +10,6 @@ text = sys.stdin.read()
 
 # IDs of rules to be disabled, comma-separated
 disabled_rules = [
-    "ARROWS",
     "COMMA_PARENTHESIS_WHITESPACE",
     "DASH_RULE",
     "EN_QUOTES",
