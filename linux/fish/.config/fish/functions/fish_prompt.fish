@@ -74,10 +74,5 @@ function fish_prompt
 
     # Reset cursor shape to beam
     printf '\033[6 q'
-
-    # z auto remove directories that no longer exist
-    if not set -q is_darwin
-        z --clean > /dev/null 2>&1
-    end
 end
 
