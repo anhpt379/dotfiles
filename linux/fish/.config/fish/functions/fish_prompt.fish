@@ -12,7 +12,7 @@ function fish_prompt
 
     set -l normal_color (set_color normal)
     set -l repository_color (set_color yellow)
-    set -l directory_background_color (set_color -b 333)
+    set -l prompt_background_color (set_color -b 333)
     set -l directory_color
     set -l user_color
 
@@ -26,27 +26,30 @@ function fish_prompt
         echo -n -s " "
     end
 
+    echo -n -s $prompt_background_color
+
     if string match -q -- "*.*" (hostname)
         if test "$USER" = root
             set user_color (set_color ee0b4f)
         else
             set user_color (set_color fefefe)
         end
-        echo -n -s $directory_background_color $user_color $USER@(prompt_hostname) $directory_color " " $cwd " " $normal_color
+        echo -n -s $user_color $USER@(prompt_hostname)
+        echo -n -s $directory_color " " $cwd " "
     else
         if test $kernel = "Linux"; and git_is_repo
-            echo -n -s $directory_background_color $directory_color " " $cwd " " $normal_color
-            echo -n -s " " $repository_color (git_branch_name)
+            echo -n -s $directory_color " " $cwd " "
+            echo -n -s $repository_color (git_branch_name) " "
 
             set -l git_ahead_status (git_ahead $ahead $behind $diverged $none)
 
             if git_is_touched
-                echo -n -s " " $normal_color $dirty
+                echo -n -s $dirty " "
             else if test "$git_ahead_status" != ""
-                echo -n -s " " $normal_color $git_ahead_status
+                echo -n -s $git_ahead_status " "
             end
         else
-            echo -n -s $directory_background_color $directory_color " " $cwd " "
+            echo -n -s $directory_color " " $cwd " "
         end
     end
 
@@ -55,4 +58,3 @@ function fish_prompt
     # Reset cursor shape to beam
     printf '\033[6 q'
 end
-
