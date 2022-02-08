@@ -166,6 +166,10 @@ sudo dnf install -y cronie
 sudo systemctl enable crond
 sudo systemctl start crond
 
+echo "0 * * * * bash ~/dotfiles/linux/youtube-dl/Music/youtube-dl/download.sh" > cron
+crontab cron
+rm -f cron
+
 # ffmpeg
 sudo dnf install -y \
   https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-"$(rpm -E %fedora)".noarch.rpm \
