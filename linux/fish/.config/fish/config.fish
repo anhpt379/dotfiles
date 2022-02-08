@@ -105,9 +105,8 @@ if begin not string match -q -- "Darwin" (uname);
 
     # Fix nvim `Cannot open undo file for writing` sometimes
     mkdir -p ~/.config/nvim/undo/
-    if [ (find . \! -mount -type f -user $BOOKING_USER -print 2>/dev/null | wc -l) -gt 0 ]
+    if set -q BOOKING_USER
         sudo chown -R $BOOKING_USER ~/.config/nvim/undo/
-        sudo chown -R $BOOKING_USER ~/.local/share/z/data/
     end
 
     # Shorten title

@@ -36,6 +36,12 @@ function fish_prompt
         end
         echo -n -s $user_color $USER@(prompt_hostname)
         echo -n -s $directory_color " " $cwd " "
+
+        # Fix z keeps asking for permission to update $Z_DATA file when it's
+        # owned by `root`
+        if set -q BOOKING_USER
+            sudo chown -R $BOOKING_USER $Z_DATA
+        end
     else
         if test $kernel = "Linux"; and git_is_repo
             echo -n -s $directory_color " " $cwd " "
