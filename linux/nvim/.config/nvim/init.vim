@@ -455,6 +455,9 @@ augroup fugitive-personal-key-mappings
   " gw in gitcommit to save and close
   autocmd FileType gitcommit nmap <buffer> gw :x<CR>
 
+  " gr to open repo in browser
+  autocmd FileType fugitive nmap <buffer> gr :<C-u>call vim_git_browse#GitOpenRepo()<CR>
+
   " Open diff in a new buffer by default
   autocmd FileType fugitive map <buffer> <nowait> <CR> O
 
