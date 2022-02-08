@@ -13,29 +13,28 @@ function fish_prompt
     set -l normal_color (set_color normal)
     set -l repository_color (set_color yellow)
     set -l prompt_background_color (set_color -b 333)
-    set -l directory_color
     set -l user_color
-
-    if test $last_command_status -eq 0
-        set directory_color (set_color fefefe)
-    else
-        set directory_color (set_color ee0b4f)
-    end
 
     if test $kernel = "Darwin"
         echo -n -s " "
+    end
+
+    if test $last_command_status -eq 0
+        echo -n -s (set_color -b cyan) " "
+    else
+        echo -n -s (set_color -b red) " "
     end
 
     echo -n -s $prompt_background_color
 
     if string match -q -- "*.*" (hostname)
         if test "$USER" = root
-            set user_color (set_color ee0b4f)
+            set user_color (set_color red)
         else
-            set user_color (set_color fefefe)
+            set user_color (set_color white)
         end
-        echo -n -s $user_color $USER@(prompt_hostname)
-        echo -n -s $directory_color " " $cwd " "
+        echo -n -s " " $user_color $USER@(prompt_hostname)
+        echo -n -s " " $repository_color $cwd " "
 
         # Fix z keeps asking for permission to update $Z_DATA file when it's
         # owned by `root`
@@ -44,7 +43,7 @@ function fish_prompt
         end
     else
         if test $kernel = "Linux"; and git_is_repo
-            echo -n -s $directory_color " " $cwd " "
+            echo -n -s " " $cwd " "
             echo -n -s $repository_color (git_branch_name) " "
 
             set -l git_ahead_status (git_ahead $ahead $behind $diverged $none)
@@ -55,7 +54,7 @@ function fish_prompt
                 echo -n -s $git_ahead_status " "
             end
         else
-            echo -n -s $directory_color " " $cwd " "
+            echo -n -s " " $cwd " "
         end
     end
 
