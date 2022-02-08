@@ -19,7 +19,7 @@ function fish_prompt
     if test $last_command_status -eq 0
         set directory_color (set_color fefefe)
     else
-        set directory_color (set_color eb1454)
+        set directory_color (set_color ee0b4f)
     end
 
     if test $kernel = "Darwin"
@@ -28,11 +28,11 @@ function fish_prompt
 
     if string match -q -- "*.*" (hostname)
         if test "$USER" = root
-            set user_color (set_color -b 333; set_color eb1454)
+            set user_color (set_color -b 333; set_color ee0b4f)
         else
             set user_color (set_color -b 333; set_color fefefe)
         end
-        echo -n -s $user_color (set_color --bold) " " $USER@(prompt_hostname) " " (set_color normal) $directory_background_color $directory_color " " $cwd " " $normal_color
+        echo -n -s $user_color $USER@(prompt_hostname) " " $directory_background_color $directory_color " " $cwd " " $normal_color
     else
         if test $kernel = "Linux"; and git_is_repo
             echo -n -s $directory_background_color $directory_color " " $cwd " " $normal_color
