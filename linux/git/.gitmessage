@@ -9,7 +9,8 @@
 #   │       │
 #   │       └─⫸ Commit scope (optional)
 #   │
-#   └─⫸ Commit type: feat|fix|build|ci|docs|perf|refactor|test|chore|style
+#   └─⫸ Commit type: add|cut|feat|fix|bump|build|ci|docs|\
+#                    style|perf|refactor|test|chore|revert
 #
 # [optional body]
 #
@@ -24,16 +25,20 @@
 # Types:
 #   Must be one of the following:
 #
-#   * feat: new feature for the user, not a new feature for build script
+#   * add: changes to add new capability or functions
+#   * cut: removing a capability or function
+#   * feat: new feature
 #   * fix: a bug fix
-#   * build: changes that affect the build system or external dependencies
-#   * ci: changes to our CI configuration files and scripts
+#   * bump: the versions or dependency versions
+#   * build: changes to build system or external dependencies
+#   * ci: changes to CI configuration files and scripts
 #   * docs: changes to the documentation
+#   * style: changes to the code that do not affect the meaning
 #   * perf: a code change that improves performance
 #   * refactor: a code change that neither fixes a bug nor adds a feature
 #   * test: adding missing tests or correcting existing tests
-#   * chore: updating grunt tasks etc; no production code change
-#   * style: formatting, missing semi colons, etc; no production code change
+#   * chore: changes for housekeeping
+#   * revert: reverting a commit
 #
 # See https://www.conventionalcommits.org/en/v1.0.0/#summary
 #
