@@ -12,7 +12,7 @@ function fish_prompt
 
     set -l normal_color (set_color normal)
     set -l repository_color (set_color yellow)
-    set -l directory_background_color (set_color -b 464646)
+    set -l directory_background_color (set_color -b 333)
     set -l directory_color
     set -l user_color
 
@@ -28,11 +28,11 @@ function fish_prompt
 
     if string match -q -- "*.*" (hostname)
         if test "$USER" = root
-            set user_color (set_color -b 333; set_color ee0b4f)
+            set user_color (set_color ee0b4f)
         else
-            set user_color (set_color -b 333; set_color fefefe)
+            set user_color (set_color fefefe)
         end
-        echo -n -s $user_color $USER@(prompt_hostname) " " $directory_background_color $directory_color " " $cwd " " $normal_color
+        echo -n -s $directory_background_color $user_color $USER@(prompt_hostname) $directory_color " " $cwd " " $normal_color
     else
         if test $kernel = "Linux"; and git_is_repo
             echo -n -s $directory_background_color $directory_color " " $cwd " " $normal_color
