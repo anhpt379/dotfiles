@@ -4,7 +4,7 @@
 set -gx VAGRANT_CWD ~/dotfiles/macOS
 
 # ssh to vagrant automatically
-if nc -z 127.0.0.1 2222
+if nc -z 127.0.0.1 2222 &>/dev/null
     ssh -p 2222 \
         -o UserKnownHostsFile=/dev/null \
         -o StrictHostKeyChecking=no \
@@ -83,6 +83,9 @@ set -U fish_pager_color_completion normal
 set -U fish_pager_color_description B3A06D yellow
 set -U fish_pager_color_prefix white --bold --underline
 set -U fish_pager_color_progress brwhite --background=cyan
+
+# Hide fish greeting
+set fish_greeting
 
 # Kitty integration
 set --global KITTY_SHELL_INTEGRATION enabled
