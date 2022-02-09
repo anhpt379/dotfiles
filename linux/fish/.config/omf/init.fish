@@ -94,10 +94,11 @@ globabbr U '| uniq'
 globabbr V '| view'
 globabbr W '| wc -l'
 
-set -x GOROOT /usr/local/opt/go/libexec
 set -gx PATH $PATH $HOME/.local/bin
 
-set -gx PATH $HOME/go/bin $PATH
+set -gx GOPATH $HOME/.go
+
+set -gx PATH $HOME/.go/bin $PATH
 set -gx PATH $HOME/.cargo/bin $PATH
 
 # https://github.com/high-moctane/nextword-data
