@@ -58,7 +58,6 @@ balias http 'xh'
 balias https 'xhs'
 
 balias b 'brew'
-balias c 'clear'
 balias f 'fzf'
 balias h 'tldr'
 balias l 'll'

@@ -20,9 +20,10 @@ alias ...   'cd ../..'
 alias ....  'cd ../../..'
 alias ..... 'cd ../../../..'
 
-alias cmd 'command'
-alias c   'clear'
-alias q   'exit'
+alias cmd   'command'
+alias q     'exit'
+alias c     '~/.local/bin/clear'
+alias clear '~/.local/bin/clear'
 
 alias ls  'exa --group-directories-first'
 alias la  'exa --group-directories-first -a'
