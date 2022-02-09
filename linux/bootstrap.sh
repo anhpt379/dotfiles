@@ -5,7 +5,7 @@ sudo dnf install -y \
   nmap-ncat ipython bind-utils \
   cargo npm telnet atop \
   grc gron pwgen tldr youtube-dl \
-  python3-pip luarocks lua-devel ruby-devel \
+  python3-pip luarocks lua-devel ruby-devel golang \
   @development-tools
 sudo dnf group install -y "C Development Tools and Libraries"
 
