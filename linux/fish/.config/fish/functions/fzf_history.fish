@@ -14,7 +14,7 @@ function fzf_history -d "Show command history"
     if test "$key" = enter
         commandline -- $result
         commandline -f execute
-    else
+    else if test -n $result
         commandline -- $result
         commandline -it -- " "
     end
