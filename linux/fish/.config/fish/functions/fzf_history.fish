@@ -6,7 +6,7 @@ function fzf_history -d "Show command history"
               --header="(Press TAB to accept, ENTER to accept and run)" \
               --bind=tab:accept \
               --read0 \
-              --query=(commandline)
+              --query=^(commandline)
     )
 
     set -l key (echo $result | cut -d' ' -f1)
