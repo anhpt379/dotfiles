@@ -121,6 +121,12 @@ if begin not string match -q -- "Darwin" (uname);
     # Shorten title
     title (hostname | awk -F. '{ print $1 }')
 
+    # Fix `exa -l` complaining about timezone:
+    #
+    #   Unable to determine time zone: No such file or directory (os error 2)
+    #
+    set --erase TZ
+
     # Fix <C-c> doesn't work in remote fish
     bind \cc 'commandline ""'
 
