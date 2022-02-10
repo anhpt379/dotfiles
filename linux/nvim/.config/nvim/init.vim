@@ -634,9 +634,9 @@ let g:startify_lists = [
   \ ]
 
 let g:startify_bookmarks = [
-  \ {'b': '~/dotfiles/Brewfile'},
-  \ {'f': '~/dotfiles/fish/.config/omf/init.fish'},
-  \ {'v': '~/dotfiles/nvim/.config/nvim/init.vim'},
+  \ {'b': '~/dotfiles/macOS/Brewfile'},
+  \ {'f': '~/dotfiles/linux/fish/.config/omf/init.fish'},
+  \ {'v': '~/dotfiles/linux/nvim/.config/nvim/init.vim'},
   \ ]
 
 augroup startified
