@@ -6,7 +6,7 @@ sudo dnf install -y \
   cargo npm telnet atop \
   grc gron pwgen tldr youtube-dl \
   python3-pip luarocks lua-devel ruby-devel golang \
-  @development-tools
+  man-pages @development-tools
 sudo dnf group install -y "C Development Tools and Libraries"
 
 stow --dir=dotfiles/linux/ --target=/home/vagrant/ bat
