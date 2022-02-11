@@ -74,6 +74,7 @@ call plug#begin()
   Plug 'jeetsukumaran/vim-indentwise'
   Plug 'anhpt379/ctrlsf.vim'
   Plug 'matze/vim-move'
+  Plug 'tyru/open-browser.vim'
 
   " Heavily loaded plugins
   if $USER ==# 'vagrant'
@@ -993,20 +994,17 @@ augroup ctrlsf-key-mappings
   autocmd FileType ctrlsf nmap <buffer> gw :w<CR>
 augroup end
 
-" Fix gx doesn't open URL in macOS
-" https://github.com/vim/vim/issues/4738
-function! OpenURLUnderCursor()
-  let s:uri = matchstr(getline('.'), '[a-z]*:\/\/[^ >,;()]*')
-  let s:uri = shellescape(s:uri, 1)
-  echom s:uri
-  if s:uri !=# ''
-    silent exec '!open "'.s:uri.'"'
-    :redraw!
-  else
-    echo 'No URI found in line.'
-  endif
-endfunction
-nnoremap gx :call OpenURLUnderCursor()<CR>
+" open-browser.vim
+" Use gx to open URL under the cursor.
+" This uses open-browser.vim instead of netrw_gx, since it detects URL better
+" in some cases, like this one:
+"
+"   ['https://github.com/']
+"
+let g:netrw_nogx = 1
+let g:openbrowser_browser_commands = [{'name': "open", "args": ["{browser}", "{uri}"]}]
+nmap gx <Plug>(openbrowser-smart-search)
+vmap gx <Plug>(openbrowser-smart-search)
 
 " Indent Blankline
 let g:indent_blankline_use_treesitter = v:true
