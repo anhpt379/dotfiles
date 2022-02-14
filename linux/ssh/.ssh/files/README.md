@@ -31,10 +31,16 @@ mv lf .local/bin/
 rm -f lf-linux-amd64.tar.gz
 
 # fd
-wget https://github.com/sharkdp/fd/releases/download/v8.3.1/fd-v8.3.1-x86_64-unknown-linux-musl.tar.gz
+wget https://github.com/sharkdp/fd/releases/download/v8.3.2/fd-v8.3.2-x86_64-unknown-linux-musl.tar.gz
 tar zxvf fd-*-x86_64-unknown-linux-musl.tar.gz
 mv fd-*/fd .local/bin/
 rm -rf fd-*
+
+# rg
+wget https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/ripgrep-13.0.0-x86_64-unknown-linux-musl.tar.gz
+tar zxvf ripgrep-*-x86_64-unknown-linux-musl.tar.gz
+mv ripgrep-*/rg .local/bin/
+rm -rf ripgrep-*
 
 # diff-so-fancy
 git clone --depth=1 https://github.com/so-fancy/diff-so-fancy.git
