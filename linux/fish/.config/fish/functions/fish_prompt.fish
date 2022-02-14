@@ -42,8 +42,8 @@ function fish_prompt
 
         # Fix z keeps asking for permission to update $Z_DATA file when it's
         # owned by `root`
-        if set -q BOOKING_USER
-            sudo chown -R $BOOKING_USER $Z_DATA
+        if test "$USER" = root; and set -q BOOKING_USER
+            chown -R $BOOKING_USER $Z_DATA
         end
     else
         if test $kernel = "Linux"; and git_is_repo
