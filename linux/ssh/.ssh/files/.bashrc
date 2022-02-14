@@ -73,6 +73,8 @@ alias log="sudo journalctl -ef -u"
 alias pp='command sudo HOME=/root puppet agent -t'
 alias ppa='command sudo HOME=/root puppet agent -t --environment=$BOOKING_USER'
 alias ppl='less +G /var/log/puppet/puppetagent.log'
+alias ppc='cat /etc/puppetlabs/puppet/puppet.conf'
+
 alias cmd='command'
 
 alias pbcopy='nc 127.0.0.1 2224 --send-only'

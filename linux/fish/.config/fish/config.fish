@@ -108,6 +108,7 @@ if begin not string match -q -- "Darwin" (uname);
     alias pp 'command sudo HOME=/root puppet agent -t'
     alias ppa 'command sudo HOME=/root puppet agent -t --environment=$BOOKING_USER'
     alias ppl 'less +G /var/log/puppet/puppetagent.log'
+    alias ppc 'cat /etc/puppetlabs/puppet/puppet.conf'
 
     alias tmux 'command tmux attach -t $BOOKING_USER; or command tmux new -s $BOOKING_USER'
     alias motd 'cat /etc/motd; [ -f /etc/motd.local ] && cat /etc/motd.local'
