@@ -1,18 +1,50 @@
 function fzf_find -d "Find files and folders"
-    set -l commandline (__fzf_parse_commandline)
-    set -l dir $commandline[1]
-    set -l fzf_query $commandline[2]
+    set -l command (commandline)
+    if string match -q -- "ssh*" $command
+        set result (
+            cat ~/.cache/servers.txt \
+            | sort \
+            | awk '{ print " " $1 }' \
+            | fzf --select-1 --exit-0 --ansi \
+                --bind=tab:accept \
+                --expect=enter \
+                --header='(Press TAB to accept, ENTER to accept and run)' \
+                --query=(echo $command | sed 's/^ssh//' | xargs)
+        )
+    else
+        set -l commandline (__fzf_parse_commandline)
+        set -l dir $commandline[1]
+        set -l fzf_query $commandline[2]
 
-    set result (
-        fd --color=always --type=f --no-ignore --hidden --exclude='.git' . $dir \
-        | devicon add \
-        | fzf --delimiter=\t --select-1 --exit-0 --ansi \
-              --bind=tab:accept \
-              --expect=enter \
-              --header="(Press TAB to accept, ENTER to accept and run)" \
-              --preview="$FZF_DEFAULT_PREVIEW_COMMAND" \
-              --query "$fzf_query" \
-    )
+        if string match -q -- "cd*" $command
+            set result (
+                fd --type=d --no-ignore --hidden --exclude='.git' . $dir \
+                | awk '{ print $1"/" }' \
+                | devicon add \
+                | fzf --delimiter=\t --select-1 --exit-0 --ansi \
+                    --bind=tab:accept \
+                    --expect=enter \
+                    --header="(Press TAB to accept, ENTER to accept and run)" \
+                    --preview="$FZF_DEFAULT_PREVIEW_COMMAND" \
+                    --query "$fzf_query" \
+            )
+        else
+            set result (
+                fd --no-ignore --hidden --exclude='.git' . $dir \
+                | devicon add \
+                | fzf --delimiter=\t --select-1 --exit-0 --ansi \
+                    --bind=tab:accept \
+                    --expect=enter \
+                    --header="(Press TAB to accept, ENTER to accept and run)" \
+                    --preview="$FZF_DEFAULT_PREVIEW_COMMAND" \
+                    --query "$fzf_query" \
+            )
+        end
+    end
+
+    if not string match -q -- "* *" $command
+        commandline -it -- " "
+    end
 
     if test -z "$result"
         commandline -f repaint
@@ -29,6 +61,7 @@ function fzf_find -d "Find files and folders"
     end
     commandline -f repaint
 end
+
 
 # Copied from https://github.com/junegunn/fzf/blob/fd8858f8c93e38d50f00cd21430e21d89e2f9399/shell/key-bindings.fish#L119-L159
 function __fzf_parse_commandline -d 'Parse the current command line token and return split of existing filepath and rest of token'
@@ -54,6 +87,7 @@ function __fzf_parse_commandline -d 'Parse the current command line token and re
     echo $dir
     echo $fzf_query
 end
+
 
 function __fzf_get_dir -d 'Find the longest existing filepath from input string'
     set dir $argv
