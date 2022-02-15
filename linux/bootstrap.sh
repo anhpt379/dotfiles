@@ -167,6 +167,9 @@ sudo systemctl enable crond
 sudo systemctl start crond
 
 echo "0 * * * * bash ~/dotfiles/linux/youtube-dl/Music/youtube-dl/download.sh" > cron
+# Use this cronjob to refresh the list of servers that fzf_find uses to search
+# for hosts when typing `ssh<C-f>`:
+# echo "0 3 * * * bash -c \"curl -fsH 'Accept-encoding: gzip' https://<DOMAIN>/servers | gunzip - | jq -r '.servers | .[] | .fqdn' | sort | grep -v 'spare-' > ~/.cache/servers.txt\" >>/tmp/cron.log 2>&1" >> cron
 crontab cron
 rm -f cron
 

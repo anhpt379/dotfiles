@@ -3,7 +3,6 @@ function fzf_find -d "Find files and folders"
     if string match -q -- "ssh*" $command
         set result (
             cat ~/.cache/servers.txt \
-            | sort \
             | awk '{ print " " $1 }' \
             | fzf --select-1 --exit-0 --ansi \
                 --bind=tab:accept \
