@@ -15,30 +15,16 @@ function fish_prompt
     set -l prompt_background_color (set_color -b 333)
     set -l user_color
 
-    if test $kernel = "Darwin"
-        echo -n -s " "
-    end
-
-    # The space we see below is not a normal space, it's a thin space (U+2009).
-    # I use it as a marker, when combining with tmux `search-backward` we can
-    # jump to the previous/next prompt in the scrollback (by searching for the
-    # character).
-    if test $last_command_status -eq 0
-        echo -n -s (set_color -b cyan) " "
-    else
-        echo -n -s (set_color -b red) " "
-    end
-
-    echo -n -s $prompt_background_color
-
     if string match -q -- "*.*" (hostname)
         if test "$USER" = root
             set user_color (set_color red)
         else
             set user_color (set_color white)
         end
-        echo -n -s " " $user_color $USER@(prompt_hostname)
-        echo -n -s " " $repository_color $cwd " "
+
+        echo -n -s $prompt_background_color
+        echo -n -s "[" $user_color $USER@(prompt_hostname)
+        echo -n -s " " $repository_color $cwd $normal_color $prompt_background_color "]"
 
         # Fix z keeps asking for permission to update $Z_DATA file when it's
         # owned by `root`
@@ -46,6 +32,22 @@ function fish_prompt
             chown -R $BOOKING_USER $Z_DATA
         end
     else
+        if test $kernel = "Darwin"
+            echo -n -s " "
+        end
+
+        # The space we see below is not a normal space, it's a thin space (U+2009).
+        # I use it as a marker, when combining with tmux `search-backward` we can
+        # jump to the previous/next prompt in the scrollback (by searching for the
+        # character).
+        if test $last_command_status -eq 0
+            echo -n -s (set_color -b cyan) " "
+        else
+            echo -n -s (set_color -b red) " "
+        end
+
+        echo -n -s $prompt_background_color
+
         if test $kernel = "Linux"; and git_is_repo
             echo -n -s " " $cwd " "
             echo -n -s $repository_color (git_branch_name) " "
