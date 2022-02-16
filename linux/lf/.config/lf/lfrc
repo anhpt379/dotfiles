@@ -157,6 +157,8 @@ map n       push :new<space>
 map o       reveal
 map r       :rename
 map gh      go_home
+map gd      cd ~/Downloads
+map gw      cd ~/Workspace
 map <c-f>   :fzf_jump
 map t       !fish
 map <tab>   :toggle
