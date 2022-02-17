@@ -9,6 +9,11 @@ set cursorline
 set number
 set relativenumber
 
+" Change cursor shape to block when in NORMAL mode, and vertical line when in
+" INSERT mode
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"
+
 " Fix slow vim escape from INSERT mode
 set ttimeoutlen=5
 
