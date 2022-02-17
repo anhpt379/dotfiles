@@ -8,6 +8,26 @@ set nowrap
 set cursorline
 set number
 
+" Insert spaces when Tab is pressed
+set expandtab
+
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set shiftround
+
+" Make it obvious where 80 characters is
+set textwidth=79
+set colorcolumn=+1
+
+" Persistent undo
+set undofile
+
+" Searching and substitution
+set incsearch
+set ignorecase
+set smartcase
+
 " Change cursor shape to block when in NORMAL mode, and vertical line when in
 " INSERT mode
 let &t_SI = "\e[6 q"
