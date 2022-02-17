@@ -105,8 +105,8 @@ end
 
 if begin not string match -q -- "Darwin" (uname);
     and not string match -q -- "vagrant" $USER; end
-    alias pp 'command sudo HOME=/root puppet agent -t'
-    alias ppa 'command sudo HOME=/root puppet agent -t --environment=$BOOKING_USER'
+    alias pp 'command sudo HOME=/root TERMINFO=/home/panh/.terminfo puppet agent -t'
+    alias ppa 'command sudo HOME=/root TERMINFO=/home/panh/.terminfo puppet agent -t --environment=$BOOKING_USER'
     alias ppl 'tail -1000 /var/log/puppet/puppetagent.log | grcat conf.auto | less +G'
     alias ppc 'bat -l ini /etc/puppetlabs/puppet/puppet.conf'
 

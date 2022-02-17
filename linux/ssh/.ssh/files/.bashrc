@@ -70,8 +70,8 @@ alias restart="sudo systemctl restart"
 alias info="sudo systemctl status"
 alias log="sudo journalctl -ef -u"
 
-alias pp='command sudo HOME=/root puppet agent -t'
-alias ppa='command sudo HOME=/root puppet agent -t --environment=$BOOKING_USER'
+alias pp='command sudo HOME=/root TERMINFO=/home/panh/.terminfo puppet agent -t'
+alias ppa='command sudo HOME=/root TERMINFO=/home/panh/.terminfo puppet agent -t --environment=$BOOKING_USER'
 alias ppl='less +G /var/log/puppet/puppetagent.log'
 alias ppc='cat /etc/puppetlabs/puppet/puppet.conf'
 
