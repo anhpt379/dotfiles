@@ -1,1 +1,1 @@
-../../../../linux/tmux/.tmux
+../../../tmux/.tmux
