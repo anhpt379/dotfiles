@@ -223,26 +223,27 @@ let g:colors_name='aodark'
 let colors_name='aodark'
 
 let s:black       = { 'gui': '#101011', 'cterm': '0'  }
-let s:red         = { 'gui': '#dd3c69', 'cterm': '9'  }
-let s:green       = { 'gui': '#5FAE4D', 'cterm': '10' }
-let s:yellow      = { 'gui': '#DEB246', 'cterm': '11' }
+let s:red         = { 'gui': '#e22f62', 'cterm': '9'  }
+let s:green       = { 'gui': '#5fae4d', 'cterm': '10' }
+let s:yellow      = { 'gui': '#deb246', 'cterm': '11' }
 let s:blue        = { 'gui': '#28c9ff', 'cterm': '12' }
 let s:purple      = { 'gui': '#b954e1', 'cterm': '13' }
 let s:cyan        = { 'gui': '#3cc8b4', 'cterm': '14' }
-let s:white       = { 'gui': '#F1F1F1', 'cterm': '15' }
+let s:white       = { 'gui': '#f1f1f1', 'cterm': '15' }
 
 let s:fg          = s:white
 let s:bg          = s:black
 
 let s:comment_fg  = { 'gui': '#696969', 'cterm': '241'  }
-let s:gutter_bg   = { 'gui': '#282829', 'cterm': 'NONE' }
+let s:gutter_bg   = { 'gui': '#262626', 'cterm': 'NONE' }
 let s:gutter_fg   = { 'gui': '#444444', 'cterm': '238'  }
 
-let s:cursor_line = { 'gui': '#252526', 'cterm': '235'  }
+let s:cursor_line = { 'gui': '#262626', 'cterm': '235'  }
 let s:color_col   = { 'gui': '#1f1f22', 'cterm': '234'  }
 
-let s:selection   = { 'gui': '#74b9ff', 'cterm': '75'  }
+let s:selection   = { 'gui': '#28c9ff', 'cterm': '75'  }
 let s:vertsplit   = { 'gui': '#262626', 'cterm': '235'  }
+let s:pmenuselect = { 'gui': '#0060c0', 'cterm': '26'  }
 
 let s:non_text    = { 'gui': '#555555', 'cterm': '59'   }
 let s:search      = { 'gui': '#FFCC66', 'cterm': '11'   }
@@ -366,11 +367,11 @@ call s:h('Ignore', s:fg, '', '')
 call s:h('Error', s:red, s:gutter_bg, '')
 call s:h('Todo', s:purple, '', '')
 
-" GitGutter
-call s:h('GitGutterAdd', s:green, s:gutter_bg, '')
-call s:h('GitGutterDelete', s:red, s:gutter_bg, '')
-call s:h('GitGutterChange', s:yellow, s:gutter_bg, '')
-call s:h('GitGutterChangeDelete', s:red, s:gutter_bg, '')
+" GitSigns
+call s:h('GitSignsAdd', s:green, s:gutter_bg, '')
+call s:h('GitSignsDelete', s:red, s:gutter_bg, '')
+call s:h('GitSignsChange', s:yellow, s:gutter_bg, '')
+call s:h('GitSignsCurrentLineBlame', s:comment_fg, s:gutter_bg, '')
 
 " Fugitive
 call s:h('diffAdded', s:green, '', '')
@@ -415,15 +416,6 @@ highlight ConflictMarkerOurs guibg=#2e5049
 highlight ConflictMarkerSeparator guifg=#e5c07b
 highlight ConflictMarkerTheirs guibg=#344f69
 highlight ConflictMarkerEnd guibg=#2f628e
-
-" Coc.nvim
-highlight CocFloating guibg=#282829
-highlight CocErrorHighlight guifg=#DE456B
-highlight CocWarningHighlight guifg=#E2B962
-highlight CocHintHighlight guifg=#ffffff gui=underline
-highlight CocHintSign guifg=#55CABE
-highlight link CocErrorSign CocErrorHighlight
-highlight link CocWarningSign CocWarningHighlight
 
 " Clever-f
 highlight CleverFDefaultLabel guifg=#ffb300 gui=bold,underline ctermfg=11 ctermbg=235 cterm=bold,underline
