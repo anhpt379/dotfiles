@@ -9,6 +9,9 @@ set cursorline
 set number
 set relativenumber
 
+" Fix slow vim escape from INSERT mode
+set ttimeoutlen=5
+
 " Move the view a half screenwidth left/right with H/L
 map H zH
 map L zL
