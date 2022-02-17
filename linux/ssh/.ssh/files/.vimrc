@@ -7,7 +7,6 @@ map gw :update<CR>
 set nowrap
 set cursorline
 set number
-set relativenumber
 
 " Change cursor shape to block when in NORMAL mode, and vertical line when in
 " INSERT mode
