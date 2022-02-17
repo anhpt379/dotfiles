@@ -1,5 +1,5 @@
 #command
-  H    noaction j/\^(commit )|((added|deleted|modified):)\n
+  C    noaction j/\^(commit )|((added|deleted|modified):)\n
   A    noaction j?Applied catalog in .* seconds\n
   h    left-scroll
   l    right-scroll
