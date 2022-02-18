@@ -176,3 +176,8 @@ function j --description "z fzf integration"
         __z $argv
     end
 end
+
+# grc fish integration
+if type -q grc
+    source /etc/grc.fish
+end

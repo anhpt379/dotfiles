@@ -2,7 +2,6 @@ package balias
 package bang-bang
 package config
 package errno
-package grc
 package spark
 package sudope
 package title
