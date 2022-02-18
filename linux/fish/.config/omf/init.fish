@@ -84,7 +84,7 @@ function update
     tldr --update
 end
 
-globabbr C '| grcat conf.auto'
+globabbr C '| grcat'
 globabbr G '| grep'
 globabbr H '| head'
 globabbr L '| less'
@@ -178,6 +178,10 @@ function j --description "z fzf integration"
 end
 
 # grc fish integration
-if type -q grc
+if type -q grc-rs
+    alias grc   'grc-rs'
+    alias grcat 'grc-rs --colour=on cat'
     source /etc/grc.fish
+else
+    alias grcat 'grcat conf.cat'
 end

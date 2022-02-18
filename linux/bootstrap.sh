@@ -142,6 +142,9 @@ chmod +x ~/.local/bin/prettyping
 # xh
 cargo install xh
 
+# grc-rs
+cargo install grc-rs
+
 # fx
 sudo npm install -g fx
 
