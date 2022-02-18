@@ -72,11 +72,11 @@ alias tf='tail -f'
 
 alias sc='sudo systemctl'
 alias jc='sudo journalctl'
-alias start="sudo systemctl start"
-alias stop="sudo systemctl stop"
-alias restart="sudo systemctl restart"
-alias info="sudo systemctl status"
-alias log="sudo journalctl -ef -u"
+alias start='sudo systemctl start'
+alias stop='sudo systemctl stop'
+alias restart='sudo systemctl restart'
+alias info='sudo systemctl status'
+alias log='sudo journalctl -e -u'
 
 alias pp='command sudo HOME=/root TERMINFO=/home/panh/.terminfo puppet agent -t'
 alias ppa='command sudo HOME=/root TERMINFO=/home/panh/.terminfo puppet agent -t --environment=$BOOKING_USER'

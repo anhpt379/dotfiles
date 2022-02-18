@@ -6,7 +6,7 @@ alias start="sudo systemctl start"
 alias stop="sudo systemctl stop"
 alias restart="sudo systemctl restart"
 alias info="sudo systemctl status"
-alias log="sudo journalctl -ef -u"
+alias log="sudo journalctl -e -u"
 
 # git
 balias g        'git'
