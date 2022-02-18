@@ -61,9 +61,14 @@ alias la='command ls --color=yes --group-directories-first -A'
 alias ll='command ls --color=yes --group-directories-first -lh'
 alias lla='command ls --color=yes --group-directories-first -lhA'
 
+alias dmesg='dmesg -H'
+
 alias q='exit'
 alias c='clear'
 alias m='master'
+alias l='less'
+alias t='tail'
+alias tf='tail -f'
 
 alias sc='sudo systemctl'
 alias jc='sudo journalctl'

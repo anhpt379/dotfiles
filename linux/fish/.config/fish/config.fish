@@ -29,11 +29,16 @@ end
 alias cmd 'command'
 alias c   'clear'
 alias q   'exit'
+alias l   'less'
+alias t   'tail'
+alias tf  'tail -f'
 
 alias ls  'exa --group-directories-first'
 alias la  'exa --group-directories-first -a'
 alias ll  'exa --group-directories-first -l'
 alias lla 'exa --group-directories-first -la'
+
+alias dmesg 'dmesg -H'
 
 # Key bindings
 bind \cg accept-autosuggestion execute
