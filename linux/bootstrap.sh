@@ -148,6 +148,9 @@ cargo install grc-rs
 # fx
 sudo npm install -g fx
 
+# glow
+sudo rpm -i https://github.com/charmbracelet/glow/releases/download/v1.4.1/glow_1.4.1_linux_amd64.rpm
+
 # diff-so-fancy
 git clone --depth=1 https://github.com/so-fancy/diff-so-fancy.git
 mv diff-so-fancy/diff-so-fancy ~/.local/bin/
