@@ -1088,7 +1088,6 @@ lua <<EOF
 local lsp_installer = require("nvim-lsp-installer")
 
 local servers = {
-  -- "ansiblels",
   "bashls",
   "cmake",
   "cssls",
@@ -1100,6 +1099,8 @@ local servers = {
   "puppet",
   "rust_analyzer",
   "sumneko_lua",
+  "terraformls",
+  "solargraph",
   "tflint",
   "vimls",
   "yamlls",
