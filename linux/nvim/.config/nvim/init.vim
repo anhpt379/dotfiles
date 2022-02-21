@@ -1002,7 +1002,7 @@ augroup end
 "   ['https://github.com/']
 "
 let g:netrw_nogx = 1
-let g:openbrowser_browser_commands = [{'name': "open", "args": ["{browser}", "{uri}"]}]
+let g:openbrowser_browser_commands = [{'name': 'open', 'args': ['{browser}', '{uri}']}]
 nmap gx <Plug>(openbrowser-smart-search)
 vmap gx <Plug>(openbrowser-smart-search)
 nmap <Leader><Leader> gx
