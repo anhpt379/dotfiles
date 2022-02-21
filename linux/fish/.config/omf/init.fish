@@ -57,6 +57,7 @@ balias kn 'kubectl config set-context --current --namespace'
 balias http 'xh'
 balias https 'xhs'
 
+balias j 'z'
 balias b 'brew'
 balias f 'fzf'
 balias h 'tldr'
@@ -161,21 +162,6 @@ set -gx LF_ICONS (
     -e 's/$//'           \
   | tr '\n' ':'
 )
-
-# z
-function j --description "z fzf integration"
-    # auto remove directories that no longer exist
-    z --clean > /dev/null 2>&1
-
-    if test (count $argv) -lt 1
-        if not set result (__z --recent --list 2> /dev/null | awk '{ print $2 }' | fzf)
-            return
-        end
-        cd (echo $result)
-    else
-        __z $argv
-    end
-end
 
 # grc fish integration
 if type -q grc-rs

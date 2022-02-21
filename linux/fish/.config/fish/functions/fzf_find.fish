@@ -25,7 +25,21 @@ function fzf_find -d "Find files and folders"
                     --expect=enter \
                     --header="(Press TAB to accept, ENTER to accept and run)" \
                     --preview="$FZF_DEFAULT_PREVIEW_COMMAND" \
-                    --query "$fzf_query" \
+                    --query="$fzf_query" \
+            )
+        else if string match -q -- "j*" $command
+            # auto remove directories that no longer exist
+            z --clean > /dev/null 2>&1
+
+            set result (
+                __z --recent --list 2> /dev/null \
+                | awk '{ print " " $2 }' \
+                | fzf --delimiter=\t --select-1 --exit-0 --ansi \
+                    --bind=tab:accept \
+                    --expect=enter \
+                    --header="(Press TAB to accept, ENTER to accept and run)" \
+                    --preview="$FZF_DEFAULT_PREVIEW_COMMAND" \
+                    --query=(echo $command | sed 's/^j//' | xargs)
             )
         else
             set result (
@@ -36,7 +50,7 @@ function fzf_find -d "Find files and folders"
                     --expect=enter \
                     --header="(Press TAB to accept, ENTER to accept and run)" \
                     --preview="$FZF_DEFAULT_PREVIEW_COMMAND" \
-                    --query "$fzf_query" \
+                    --query="$fzf_query" \
             )
         end
     end
