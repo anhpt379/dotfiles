@@ -50,6 +50,10 @@ cd ~/ || exit 1
 nvim -c "PlugInstall" -c "qall"
 nvim -c "TSUpdate" -c "qall"
 
+# neoformat
+sudo yum install -y shfmt
+pip install black
+
 # null-ls
 pip install vim-vint 'ansible-lint[community,yamllint]'
 sudo npm install -g jsonlint textlint write-good markdownlint-cli
