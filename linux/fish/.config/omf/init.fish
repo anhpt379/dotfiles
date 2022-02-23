@@ -1,3 +1,12 @@
+# grc fish integration
+if type -q grc-rs
+    alias grc   'grc-rs'
+    alias grcat 'grc-rs --colour=on cat'
+    source /etc/grc.fish
+else
+    alias grcat 'grcat conf.cat'
+end
+
 alias root 'sudo -E -s fish'
 alias sudo 'sudo -E'
 
@@ -162,12 +171,3 @@ set -gx LF_ICONS (
     -e 's/$//'           \
   | tr '\n' ':'
 )
-
-# grc fish integration
-if type -q grc-rs
-    alias grc   'grc-rs'
-    alias grcat 'grc-rs --colour=on cat'
-    source /etc/grc.fish
-else
-    alias grcat 'grcat conf.cat'
-end
