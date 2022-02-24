@@ -2,7 +2,7 @@
 
 sudo dnf install -y \
   stow git fzf jq fd-find ripgrep bat exa \
-  nmap-ncat ipython bind-utils \
+  nmap-ncat ipython python3-virtualenv bind-utils \
   cargo npm telnet atop \
   grc gron pwgen tldr youtube-dl \
   python3-pip luarocks lua-devel ruby-devel golang \
