@@ -13,7 +13,7 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
         echo
     end
 
-    if not ssh-add -l | grep -q 'Booking.com temporary key'
+    if not command ssh git@gitlab.booking.com &> /dev/null
         echo "Booking's SSH key expired. Getting a new one..."
         command ssh -A ssh.booking.com
     end
