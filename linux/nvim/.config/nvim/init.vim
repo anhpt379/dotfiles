@@ -445,7 +445,12 @@ augroup fugitive-personal-key-mappings
         \ :Dispatch! noti 'git push origin HEAD --force-with-lease'<CR>
         \ :silent exec '!git rev-parse --short HEAD \| tr -d "\n" \| pbcopy'<CR>
   autocmd FileType fugitive nmap <buffer> P :Dispatch! noti 'git pull --rebase origin master'<CR>
-  autocmd FileType fugitive nmap <buffer> m :!git push --force-with-lease origin HEAD<CR>:<C-u>call vim_git_browse#GitOpenPullRequest()<CR>
+  autocmd FileType fugitive nmap <buffer> m
+        \ :!if git branch -a \| grep remotes/ \| grep -q /$(git branch --show-current)$; test $? -eq 1; then
+        \     git push --force-with-lease origin HEAD;
+        \   fi<CR>
+        \ :<C-u>call vim_git_browse#GitOpenPullRequest()<CR>
+        \ :silent exec '!git rev-parse --short HEAD \| tr -d "\n" \| pbcopy'<CR>
 
   " Verbose and quiet git commit by default
   autocmd FileType fugitive nmap <buffer> C  :vertical Git commit --quiet --no-status<CR>
@@ -910,7 +915,11 @@ nnoremap <silent> gO :<C-u>call vim_git_browse#GitBrowse(v:false)<CR>
 xnoremap <silent> gO :<C-u>call vim_git_browse#GitBrowse(v:true)<CR>
 nnoremap <silent> gp :<C-u>call vim_git_browse#GitOpenPipelines()<CR>
 nnoremap <silent> gr :<C-u>call vim_git_browse#GitOpenRepo()<CR>
-nnoremap <silent> gm :!if git branch -a \| grep remotes/ \| grep -q /$(git branch --show-current)$; test $? -eq 1; then git push --force-with-lease origin HEAD; fi<CR>:<C-u>call vim_git_browse#GitOpenPullRequest()<CR>
+nnoremap <silent> gm :!if git branch -a \| grep remotes/ \| grep -q /$(git branch --show-current)$; test $? -eq 1; then
+                   \     git push --force-with-lease origin HEAD;
+                   \   fi<CR>
+                   \ :<C-u>call vim_git_browse#GitOpenPullRequest()<CR>
+                   \ :silent exec '!git rev-parse --short HEAD \| tr -d "\n" \| pbcopy'<CR>
 
 " Suda & vim-eunuch
 let g:suda_smart_edit = 1
