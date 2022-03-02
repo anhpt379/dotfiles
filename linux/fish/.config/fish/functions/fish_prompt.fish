@@ -15,7 +15,7 @@ function fish_prompt
     set -l prompt_background_color (set_color -b 333)
     set -l user_color
 
-    if string match -q -- "*.*" (hostname --fqdn)
+    if string match -q -- "*.*" (hostname -f)
         if test "$USER" = root
             set user_color (set_color red)
         else
