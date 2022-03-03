@@ -111,17 +111,17 @@ end
 if begin not string match -q -- "Darwin" (uname);
     and not string match -q -- "vagrant" $USER; end
     alias pp 'command sudo HOME=/root TERMINFO=/home/panh/.terminfo puppet agent -t'
-    alias ppa 'command sudo HOME=/root TERMINFO=/home/panh/.terminfo puppet agent -t --environment=$BOOKING_USER'
+    alias ppa 'command sudo HOME=/root TERMINFO=/home/panh/.terminfo puppet agent -t --environment=panh'
     alias ppl 'tail -1000 /var/log/puppet/puppetagent.log | grcat | less +G'
     alias ppc 'bat --theme ansi --language gitconfig /etc/puppetlabs/puppet/puppet.conf'
 
-    alias tmux 'command tmux attach -t $BOOKING_USER; or command tmux new -s $BOOKING_USER'
+    alias tmux 'command tmux attach -t panh; or command tmux new -s panh'
     alias motd 'cat /etc/motd; [ -f /etc/motd.local ] && cat /etc/motd.local'
 
     # Fix nvim `Cannot open undo file for writing` sometimes
     mkdir -p ~/.config/nvim/undo/
     if test "$USER" = root; and set -q BOOKING_USER
-        chown -R $BOOKING_USER ~/.config/nvim/undo/
+        chown -R panh ~/.config/nvim/undo/
     end
 
     # Shorten title
