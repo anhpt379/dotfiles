@@ -126,7 +126,11 @@ set -gx MANPAGER "nvim -c 'set ft=man | set showtabline=1 | set laststatus=0' +M
 # since git set the default to `FRX` if we don't set `LESS` environment variable
 # https://github.com/so-fancy/diff-so-fancy/issues/246
 # https://github.com/git/git/blob/v2.7.1/Documentation/config.txt#L646-L648
-set -gx LESS 'RM'
+if string match -q -- "vagrant" $USER
+    set -gx LESS '--incsearch --LONG-PROMPT --RAW-CONTROL-CHARS'
+else
+    set -gx LESS '--LONG-PROMPT --RAW-CONTROL-CHARS'
+end
 
 # Edit and run the current command in vim
 bind \ce edit_and_run_command_buffer

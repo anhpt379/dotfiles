@@ -7,6 +7,7 @@ sudo dnf install -y \
   grc gron pwgen tldr youtube-dl \
   python3-pip luarocks lua-devel ruby-devel golang \
   man-pages @development-tools
+sudo dnf upgrade -y less
 sudo dnf group install -y "C Development Tools and Libraries"
 
 stow --dir=dotfiles/linux/ --target=/home/vagrant/ bat
