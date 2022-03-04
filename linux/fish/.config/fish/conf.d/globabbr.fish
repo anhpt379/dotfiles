@@ -13,7 +13,7 @@ function __fish_expand_globabbreviation
 #    end
 end
 
-bind \  '__fish_expand_globabbreviation; commandline -i " "'
+bind \  '__fish_expand_globabbreviation || commandline -i " "'
 # bind \n '__fish_expand_abbreviation; commandline -f execute'
 
 function globabbreviations --description 'List, show and query abbreviations'
