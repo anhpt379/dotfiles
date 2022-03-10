@@ -9,13 +9,17 @@
           "from": {
             "key_code": "o",
             "modifiers": {
-              "mandatory": ["left_command"]
+              "mandatory": [
+                "left_command"
+              ]
             }
           },
           "to": [
             {
               "key_code": "l",
-              "modifiers": ["left_command"]
+              "modifiers": [
+                "left_command"
+              ]
             }
           ],
           "conditions": [
@@ -33,55 +37,30 @@
       ]
     },
     {
-      "description": "Browser - Focus on the address bar with CTRL+O",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "o",
-            "modifiers": {
-              "mandatory": ["left_control"]
-            }
-          },
-          "to": [
-            {
-              "key_code": "l",
-              "modifiers": ["left_command"]
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "^com\\.apple\\.Safari$",
-                "^com\\.google\\.Chrome$",
-                "^org\\.mozilla\\.firefox$",
-                "^com\\.kagi\\.kagimacOS$"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "Browser - Copy URL in the address bar with CTRL+Y",
+      "description": "Browser - Copy URL in the address bar with CMD+Y",
       "manipulators": [
         {
           "type": "basic",
           "from": {
             "key_code": "y",
             "modifiers": {
-              "mandatory": ["left_control"]
+              "mandatory": [
+                "left_command"
+              ]
             }
           },
           "to": [
             {
               "key_code": "l",
-              "modifiers": ["left_command"]
+              "modifiers": [
+                "left_command"
+              ]
             },
             {
               "key_code": "c",
-              "modifiers": ["left_command"]
+              "modifiers": [
+                "left_command"
+              ]
             },
             {
               "key_code": "escape"
@@ -112,7 +91,9 @@
           "from": {
             "key_code": "g",
             "modifiers": {
-              "mandatory": ["left_control"]
+              "mandatory": [
+                "left_control"
+              ]
             }
           },
           "to": [
@@ -142,13 +123,17 @@
           "from": {
             "key_code": "n",
             "modifiers": {
-              "mandatory": ["left_command"]
+              "mandatory": [
+                "left_command"
+              ]
             }
           },
           "to": [
             {
               "key_code": "tab",
-              "modifiers": ["left_control"]
+              "modifiers": [
+                "left_control"
+              ]
             }
           ],
           "conditions": [
@@ -168,13 +153,18 @@
           "from": {
             "key_code": "p",
             "modifiers": {
-              "mandatory": ["left_command"]
+              "mandatory": [
+                "left_command"
+              ]
             }
           },
           "to": [
             {
               "key_code": "tab",
-              "modifiers": ["left_control", "left_shift"]
+              "modifiers": [
+                "left_control",
+                "left_shift"
+              ]
             }
           ],
           "conditions": [
