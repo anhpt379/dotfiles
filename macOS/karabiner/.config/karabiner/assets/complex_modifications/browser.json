@@ -1,8 +1,8 @@
 {
-  "title": "Safari/Chrome/Firefox key bindings",
+  "title": "Browser key bindings",
   "rules": [
     {
-      "description": "Safari/Chrome/Firefox - Focus on the address bar with CMD+O",
+      "description": "Browser - Focus on the address bar with CMD+O",
       "manipulators": [
         {
           "type": "basic",
@@ -24,7 +24,8 @@
               "bundle_identifiers": [
                 "^com\\.apple\\.Safari$",
                 "^com\\.google\\.Chrome$",
-                "^org\\.mozilla\\.firefox$"
+                "^org\\.mozilla\\.firefox$",
+                "^com\\.kagi\\.kagimacOS$"
               ]
             }
           ]
@@ -32,7 +33,7 @@
       ]
     },
     {
-      "description": "Safari/Chrome/Firefox - Focus on the address bar with CTRL+O",
+      "description": "Browser - Focus on the address bar with CTRL+O",
       "manipulators": [
         {
           "type": "basic",
@@ -54,7 +55,8 @@
               "bundle_identifiers": [
                 "^com\\.apple\\.Safari$",
                 "^com\\.google\\.Chrome$",
-                "^org\\.mozilla\\.firefox$"
+                "^org\\.mozilla\\.firefox$",
+                "^com\\.kagi\\.kagimacOS$"
               ]
             }
           ]
@@ -62,7 +64,7 @@
       ]
     },
     {
-      "description": "Safari/Chrome/Firefox - Copy URL in the address bar with CTRL+Y",
+      "description": "Browser - Copy URL in the address bar with CTRL+Y",
       "manipulators": [
         {
           "type": "basic",
@@ -94,7 +96,8 @@
               "bundle_identifiers": [
                 "^com\\.apple\\.Safari$",
                 "^com\\.google\\.Chrome$",
-                "^org\\.mozilla\\.firefox$"
+                "^org\\.mozilla\\.firefox$",
+                "^com\\.kagi\\.kagimacOS$"
               ]
             }
           ]
@@ -102,7 +105,7 @@
       ]
     },
     {
-      "description": "Safari/Chrome/Firefox - Accept suggestion & go to the url with CAPSLOCK+G",
+      "description": "Browser - Accept suggestion & go to the url with CAPSLOCK+G",
       "manipulators": [
         {
           "type": "basic",
@@ -123,7 +126,8 @@
               "bundle_identifiers": [
                 "^com\\.apple\\.Safari$",
                 "^com\\.google\\.Chrome$",
-                "^org\\.mozilla\\.firefox$"
+                "^org\\.mozilla\\.firefox$",
+                "^com\\.kagi\\.kagimacOS$"
               ]
             }
           ]
@@ -131,7 +135,7 @@
       ]
     },
     {
-      "description": "Safari/Chrome/Firefox - Switch tabs with CMD+N/P",
+      "description": "Browser - Switch tabs with CMD+N/P",
       "manipulators": [
         {
           "type": "basic",
@@ -153,7 +157,8 @@
               "bundle_identifiers": [
                 "^com\\.apple\\.Safari$",
                 "^com\\.google\\.Chrome$",
-                "^org\\.mozilla\\.firefox$"
+                "^org\\.mozilla\\.firefox$",
+                "^com\\.kagi\\.kagimacOS$"
               ]
             }
           ]
@@ -178,7 +183,8 @@
               "bundle_identifiers": [
                 "^com\\.apple\\.Safari$",
                 "^com\\.google\\.Chrome$",
-                "^org\\.mozilla\\.firefox$"
+                "^org\\.mozilla\\.firefox$",
+                "^com\\.kagi\\.kagimacOS$"
               ]
             }
           ]
