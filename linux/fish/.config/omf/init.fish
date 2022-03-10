@@ -95,6 +95,7 @@ function update
 end
 
 globabbr C '| grcat'
+globabbr J '| jq'
 globabbr G '| grep'
 globabbr H '| head'
 globabbr L '| less'
