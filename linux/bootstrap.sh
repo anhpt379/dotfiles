@@ -55,6 +55,11 @@ nvim -c "TSUpdate" -c "qall"
 sudo yum install -y shfmt
 pip install black
 
+# python/ruby/node.js provider
+pip install neovim
+gem install --bindir ~/.local/bin/ neovim
+sudo npm install -g neovim
+
 # null-ls
 pip install vim-vint 'ansible-lint[community,yamllint]'
 sudo npm install -g jsonlint textlint write-good markdownlint-cli
