@@ -1357,7 +1357,7 @@ null_ls.setup({
     level = "debug",
     use_console = "async",
   },
-  update_in_insert = true,
+  update_in_insert = false,
 })
 
 local helpers = require("null-ls.helpers")
