@@ -905,6 +905,10 @@ lua <<EOF
     },
   }
 EOF
+
+" Fix slow cursor movement on jinja2 files
+let g:matchup_matchparen_deferred = 1
+
 endif
 
 " Vim-git-browse
