@@ -1107,7 +1107,6 @@ local servers = {
   "dockerls",
   "html",
   "jedi_language_server",
-  "pyright",
   "jsonls",
   "puppet",
   "rust_analyzer",
