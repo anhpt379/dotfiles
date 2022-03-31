@@ -156,6 +156,10 @@ set splitright
 " Enable mouse for all mode
 set mouse=a
 
+" Make mouse scrolling smoother, by scroll one line at a time
+map <ScrollWheelUp> <C-Y>
+map <ScrollWheelDown> <C-E>
+
 set pumblend=20
 set cursorline
 
