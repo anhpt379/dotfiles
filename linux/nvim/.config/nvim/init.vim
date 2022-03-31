@@ -276,35 +276,80 @@ let g:lightline = {
   \ }
 
 function! LspStatus() abort
+  if has_key(b:, 'lightline_lspstatus') &&
+      \ reltimestr(reltime(b:lightline_lspstatus_time)) =~# '^\s*0\.[0-5]'
+    return b:lightline_lspstatus
+  endif
+
   if luaeval('#vim.lsp.buf_get_clients() > 0')
-    return luaeval("require('lsp-status').status()")
+    let lspstatus = luaeval("require('lsp-status').status()")
+
+    let b:lightline_lspstatus = lspstatus
+    let b:lightline_lspstatus_time = reltime()
+    return b:lightline_lspstatus
   endif
 
   return ''
 endfunction
 
 function! Whereami() abort
-	return luaeval("require'nvim-gps'.is_available()") ?
+  if has_key(b:, 'lightline_whereami') &&
+      \ reltimestr(reltime(b:lightline_whereami_time)) =~# '^\s*0\.[0-5]'
+    return b:lightline_whereami
+  endif
+
+	let location = luaeval("require'nvim-gps'.is_available()") ?
     \ luaeval("require'nvim-gps'.get_location()") : ''
+
+  let b:lightline_whereami = location
+  let b:lightline_whereami_time = reltime()
+  return b:lightline_whereami
 endfunction
 
 function! DevIconsFugitiveHead()
+  if has_key(b:, 'lightline_fugitive') &&
+      \ reltimestr(reltime(b:lightline_fugitive_time)) =~# '^\s*0\.[0-5]'
+    return b:lightline_fugitive
+  endif
+
   let branch = FugitiveHead()
   if empty(branch)
     return ''
   endif
-  return ' ' . branch
+  let head = ' ' . branch
+
+  let b:lightline_fugitive = head
+  let b:lightline_fugitive_time = reltime()
+  return b:lightline_fugitive
 endfunction
 
 function! DevIconsFileType()
-  return winwidth(0) > 70 ?
+  if has_key(b:, 'lightline_devicons_filetype') &&
+      \ reltimestr(reltime(b:lightline_devicons_filetype_time)) =~# '^\s*0\.[0-5]'
+    return b:lightline_devicons_filetype
+  endif
+
+  let filetype = winwidth(0) > 70 ?
         \ (strlen(&filetype) ?
         \  WebDevIconsGetFileTypeSymbol() . ' ' . &filetype : 'no ft') : ''
+
+  let b:lightline_devicons_filetype = filetype
+  let b:lightline_devicons_filetype_time = reltime()
+  return b:lightline_devicons_filetype
 endfunction
 
 function! DevIconsFileFormat()
-  return winwidth(0) > 70 ?
+  if has_key(b:, 'lightline_devicons_fileformat') &&
+      \ reltimestr(reltime(b:lightline_devicons_fileformat_time)) =~# '^\s*0\.[0-5]'
+    return b:lightline_devicons_fileformat
+  endif
+
+  let fileformat = winwidth(0) > 70 ?
         \ (WebDevIconsGetFileFormatSymbol() . ' ' . &fileformat) : ''
+
+  let b:lightline_devicons_fileformat = fileformat
+  let b:lightline_devicons_fileformat_time = reltime()
+  return b:lightline_devicons_fileformat
 endfunction
 
 " Show vim tab line even if only one file is open
