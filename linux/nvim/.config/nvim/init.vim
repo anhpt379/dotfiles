@@ -1175,6 +1175,7 @@ local servers = {
   "dockerls",
   "html",
   "jedi_language_server",
+  "ansiblels",
   "jsonls",
   "puppet",
   "rust_analyzer",
