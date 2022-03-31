@@ -1175,6 +1175,7 @@ local servers = {
   "dockerls",
   "html",
   "jedi_language_server",
+  "grammarly",
   "ansiblels",
   "jsonls",
   "puppet",
@@ -1355,6 +1356,9 @@ lsp_installer.on_server_ready(function(server)
     on_attach = on_attach,
     capabilities = capabilities
   }
+  if server.name == "grammarly" then
+    opts.filetypes = { "markdown", "gitcommit" }
+  end
   server:setup(opts)
 end)
 
@@ -1431,36 +1435,6 @@ null_ls.setup({
   },
   update_in_insert = false,
 })
-
-local helpers = require("null-ls.helpers")
-local languagetool = {
-  name = "languagetool",
-  method = null_ls.methods.DIAGNOSTICS,
-  filetypes = { "markdown", "gitcommit" },
-  generator = null_ls.generator({
-    command = "/home/vagrant/.config/nvim/bin/remote_languagetool.py",
-    args = { "-" },
-    to_stdin = true,
-    from_stderr = false,
-    timeout = 20000,
-    format = "json",
-    check_exit_code = function(code)
-      return code < 1
-    end,
-    on_output = helpers.diagnostics.from_json({
-      attributes = {
-        row = "line",
-        col = "column",
-        code = "code",
-        severity = "level",
-        message = "message",
-      }
-    }),
-  }),
-}
-
-null_ls.register(languagetool)
-
 
 require("trouble").setup({
   mode = 'document_diagnostics',
