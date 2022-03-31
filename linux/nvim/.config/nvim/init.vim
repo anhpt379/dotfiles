@@ -126,7 +126,7 @@ call plug#begin()
 
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'SmiteshP/nvim-gps'
-    " Plug 'romgrk/nvim-treesitter-context'
+    Plug 'romgrk/nvim-treesitter-context'
     Plug 'windwp/nvim-ts-autotag'
     Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 
@@ -936,7 +936,7 @@ lua <<EOF
   require'nvim-ts-autotag'.setup()
 
   -- Treesitter
-  require'nvim-treesitter.configs'.setup {
+  require'nvim-treesitter.configs'.setup{
     ensure_installed = "maintained",
     ignore_install = { "haskell", "swift" },
     highlight = {
@@ -948,6 +948,25 @@ lua <<EOF
     context_commentstring = {
       enable = true
     },
+  }
+
+  -- Treesitter context
+  require'treesitter-context'.setup{
+    enable = true,
+    throttle = true,
+    max_lines = 0,
+    patterns = {
+      default = {
+          'class',
+          'function',
+          'method',
+          'for',
+          'while',
+          'if',
+          'switch',
+          'case',
+      },
+    }
   }
 EOF
 
