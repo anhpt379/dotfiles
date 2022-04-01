@@ -38,7 +38,7 @@ alias la  'exa --group-directories-first -a'
 alias ll  'exa --group-directories-first -l'
 alias lla 'exa --group-directories-first -la'
 
-alias dmesg 'dmesg -H'
+alias dmesg 'dmesg --color'
 
 # Key bindings
 bind \cg accept-autosuggestion execute

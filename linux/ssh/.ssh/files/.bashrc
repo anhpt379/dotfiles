@@ -61,7 +61,7 @@ alias la='command ls --color=yes --group-directories-first -A'
 alias ll='command ls --color=yes --group-directories-first -lh'
 alias lla='command ls --color=yes --group-directories-first -lhA'
 
-alias dmesg='dmesg -H'
+alias dmesg='dmesg --color'
 
 alias q='exit'
 alias c='clear'
