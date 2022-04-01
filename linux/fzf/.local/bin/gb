@@ -42,9 +42,9 @@ branch_name=$(echo "${result}" | xargs | cut -d' ' -f2- | sed 's/.* //')
 
 if [ "${key}" = "ctrl-d" ]; then
   if [ "$(git branch --show-current)" = "${branch_name}" ]; then
-    git checkout master && git branch -d "${branch_name}"
+    git checkout master && git branch -D "${branch_name}"
   else
-    git branch -d "${branch_name}"
+    git branch -D "${branch_name}"
   fi
 elif [ -n "${branch_name}" ]; then
   if git show-ref --verify --quiet refs/heads/"${branch_name}"; then
