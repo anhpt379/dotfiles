@@ -17,4 +17,6 @@ exec /usr/local/bin/nvim \
   -c "autocmd TermEnter * stopinsert" \
   -c "autocmd TermClose * ${AUTOCMD_TERMCLOSE_CMD}" \
   -c "nmap P ?^ \\\|^\[.*@.*\]<CR>" \
+  -c "nmap a <nop>" \
+  -c "nmap i <nop>" \
   -c 'terminal sed </dev/fd/63 -e "s/'$'\x1b'']8;;file:[^\]*[\]//g" && sleep 0.01 && printf "'$'\x1b'']2;"' 63<&0 0</dev/null
