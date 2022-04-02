@@ -75,8 +75,17 @@ balias m 'master'
 balias n 'note'
 balias o 'openstack'
 
-alias view 'nvim -c "set ft=log"'
-alias vim  'nvim'
+alias vim 'nvim'
+function view
+    nvim \
+        -u NONE \
+        -c "map <silent> q :<C-u>qa!<CR>" \
+        -c "set shell=bash scrollback=100000 laststatus=0 clipboard+=unnamedplus" \
+        -c "autocmd TermEnter * stopinsert" \
+        -c "nmap a <nop>" \
+        -c "nmap i <nop>" \
+        "$argv"
+end
 
 alias nf   'nvim +"FilesMru"'
 alias ngs  'nvim +"tab Git"'
