@@ -115,8 +115,6 @@ if begin not string match -q -- "Darwin" (uname);
     alias ppl  'tail -1000 /var/log/puppet/puppetagent.log | grcat | less +G'
     alias pplf 'less +G /var/log/puppet/puppetagent.log'
     alias ppc  'bat --theme ansi --language gitconfig /etc/puppetlabs/puppet/puppet.conf'
-
-    alias tmux 'command tmux attach -t panh; or command tmux new -s panh'
     alias motd 'cat /etc/motd; [ -f /etc/motd.local ] && cat /etc/motd.local'
 
     # Fix nvim `Cannot open undo file for writing` sometimes
@@ -142,6 +140,6 @@ if begin not string match -q -- "Darwin" (uname);
 
     # Auto start tmux
     if not set -q TMUX
-        tmux
+        tmux attach -t panh; or tmux new -s panh
     end
 end
