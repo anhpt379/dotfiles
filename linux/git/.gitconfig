@@ -23,9 +23,9 @@
   showUntrackedFiles = all
 
 [pager]
-  log  = diff-so-fancy | less --tabs=4
-  show = diff-so-fancy | less --tabs=4
-  diff = diff-so-fancy | less --tabs=4
+  log  = diff-so-fancy | view
+  show = diff-so-fancy | view
+  diff = diff-so-fancy | view
 
 [web]
   browser = open
