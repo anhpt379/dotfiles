@@ -10,7 +10,7 @@ else
   AUTOCMD_TERMCLOSE_CMD="normal G"
 fi
 
-exec nvim \
+exec /usr/local/bin/nvim \
   -u NONE \
   -c "map <silent> q :qa!<CR>" \
   -c "set shell=bash scrollback=100000 laststatus=0 clipboard+=unnamedplus" \
