@@ -20,9 +20,7 @@ alias ...   'cd ../..'
 alias ....  'cd ../../..'
 alias ..... 'cd ../../../..'
 
-if not set -q TMUX
-    alias clear '~/.local/bin/clear'
-else
+if set -q TMUX
     alias clear 'tput reset'
 end
 

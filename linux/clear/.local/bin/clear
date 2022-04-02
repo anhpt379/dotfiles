@@ -2,7 +2,7 @@
 # https://superuser.com/a/1667623
 
 if [ "$#" -ne 0 ]; then
-  command clear "$@"
+  /usr/bin/clear "$@"
   exit
 fi
 
@@ -14,4 +14,4 @@ if [ "$?" -eq 0 ]; then
   done
 fi
 
-command clear -x
+/usr/bin/clear -x

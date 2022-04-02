@@ -117,7 +117,7 @@ globabbr W '| wc -l'
 
 set -gx no_proxy localhost,.booking.com
 
-set -gx PATH $PATH $HOME/.local/bin
+set -gx PATH $HOME/.local/bin $PATH
 
 set -gx GOPATH $HOME/.go
 
