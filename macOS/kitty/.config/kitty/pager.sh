@@ -12,7 +12,7 @@ fi
 
 exec /usr/local/bin/nvim \
   -u NONE \
-  -c "map <silent> q :qa!<CR>" \
+  -c "map <silent> q :<C-u>qa!<CR>" \
   -c "set shell=bash scrollback=100000 laststatus=0 clipboard+=unnamedplus" \
   -c "autocmd TermEnter * stopinsert" \
   -c "autocmd TermClose * ${AUTOCMD_TERMCLOSE_CMD}" \
