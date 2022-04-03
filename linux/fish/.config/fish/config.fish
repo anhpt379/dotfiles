@@ -110,8 +110,8 @@ if begin not string match -q -- "Darwin" (uname);
     and not string match -q -- "vagrant" $USER; end
     alias pp   'command sudo HOME=/root TERMINFO=/home/panh/.terminfo puppet agent -t'
     alias ppa  'command sudo HOME=/root TERMINFO=/home/panh/.terminfo puppet agent -t --environment=panh'
-    alias ppl  'tail -1000 /var/log/puppet/puppetagent.log | grcat | less +G'
-    alias pplf 'less +G /var/log/puppet/puppetagent.log'
+    alias ppl  'tail -1000 /var/log/puppet/puppetagent.log | grcat | view +G'
+    alias pplf 'view +G /var/log/puppet/puppetagent.log'
     alias ppc  'bat --theme ansi --language gitconfig /etc/puppetlabs/puppet/puppet.conf'
     alias motd 'cat /etc/motd; [ -f /etc/motd.local ] && cat /etc/motd.local'
 
