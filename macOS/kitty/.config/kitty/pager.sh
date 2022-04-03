@@ -20,6 +20,6 @@ exec /usr/local/bin/nvim \
   -c "nmap P ?^ \\\|^\[.*@.*\]<CR>" \
   -c "nmap <CR>  :nohlsearch<CR>" \
   -c "nmap <ESC> :nohlsearch<CR>" \
-  -c "nmap H zH | nmap L zL" \
+  -c "nmap H zH | nmap L zL | nmap h zh | nmap l zl" \
   -c "nmap a <nop> | nmap i <nop>" \
   -c 'terminal sed </dev/fd/63 -e "s/'$'\x1b'']8;;file:[^\]*[\]//g" && sleep 0.01 && printf "'$'\x1b'']2;"' 63<&0 0</dev/null
