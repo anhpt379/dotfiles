@@ -4,7 +4,7 @@ if [ $# -eq 0 ]; then
   exec nvim \
     -u NONE \
     -c "map <silent> q :<C-u>qa!<CR>" \
-    -c "set shell=bash scrollback=100000 laststatus=0 clipboard+=unnamedplus nowrap" \
+    -c "set shell=bash scrollback=100000 laststatus=0 clipboard+=unnamedplus nowrap incsearch ignorecase smartcase" \
     -c "autocmd TermEnter * stopinsert" \
     -c "nmap C /^commit\\\|^added:\\\|^deleted:\\\|^modified:<CR>" \
     -c "nmap A ?Applied catalog in .* seconds<CR>" \
@@ -17,7 +17,7 @@ else
   exec nvim \
     -u NONE \
     -c "map <silent> q :<C-u>qa!<CR>" \
-    -c "set shell=bash scrollback=100000 laststatus=0 clipboard+=unnamedplus nowrap" \
+    -c "set shell=bash scrollback=100000 laststatus=0 clipboard+=unnamedplus nowrap incsearch ignorecase smartcase" \
     -c "autocmd TermEnter * stopinsert" \
     -c "nmap C /^commit\\\|^added:\\\|^deleted:\\\|^modified:<CR>" \
     -c "nmap A ?Applied catalog in .* seconds<CR>" \
