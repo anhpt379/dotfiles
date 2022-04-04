@@ -67,6 +67,7 @@ alias q='exit'
 alias c='clear'
 alias m='master'
 alias l='less'
+alias v='view'
 alias t='tail'
 alias tf='tail -f'
 

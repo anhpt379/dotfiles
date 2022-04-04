@@ -28,6 +28,7 @@ alias cmd 'command'
 alias c   'clear'
 alias q   'exit'
 alias l   'less'
+alias v   'view'
 alias t   'tail'
 alias tf  'tail -f'
 
