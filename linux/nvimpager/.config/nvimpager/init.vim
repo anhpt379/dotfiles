@@ -20,8 +20,3 @@ nmap l zl
 
 nmap a <nop>
 nmap i <nop>
-
-" Watch for file changes
-" https://github.com/lucc/nvimpager/issues/21
-set autoread
-call timer_start(300, {id -> nvim_command("checktime")}, {"repeat": -1})
