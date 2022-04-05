@@ -28,7 +28,7 @@ alias cmd 'command'
 alias c   'clear'
 alias q   'exit'
 alias l   'less'
-alias v   'view'
+alias v   'nvimpager'
 alias t   'tail'
 alias tf  'tail -f'
 
@@ -66,6 +66,9 @@ bind \cd 'exit'
 # Fix can't see `null` in jq output (also changed `false` to red, `true` to
 # green)
 set -gx JQ_COLORS '36:31:32:0;39:0;32:1;39:1;39'
+
+# Tell nvimpager where the nvim is
+set -gx NVIM ~/.local/bin/nvim
 
 # Custom fish color scheme
 set -U fish_color_normal normal
@@ -111,8 +114,8 @@ if begin not string match -q -- "Darwin" (uname);
     and not string match -q -- "vagrant" $USER; end
     alias pp   'command sudo HOME=/root TERMINFO=/home/panh/.terminfo puppet agent -t'
     alias ppa  'command sudo HOME=/root TERMINFO=/home/panh/.terminfo puppet agent -t --environment=panh'
-    alias ppl  'tail -1000 /var/log/puppet/puppetagent.log | grcat | view +G'
-    alias pplf 'view +G /var/log/puppet/puppetagent.log'
+    alias ppl  'tail -1000 /var/log/puppet/puppetagent.log | grcat | nvimpager -- --cmd "autocmd VimEnter * :normal G"'
+    alias pplf 'nvimpager -- --cmd "autocmd VimEnter * :normal G" /var/log/puppet/puppetagent.log'
     alias ppc  'bat --theme ansi --language gitconfig /etc/puppetlabs/puppet/puppet.conf'
     alias motd 'cat /etc/motd; [ -f /etc/motd.local ] && cat /etc/motd.local'
 

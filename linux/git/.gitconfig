@@ -23,9 +23,9 @@
   showUntrackedFiles = all
 
 [pager]
-  log  = diff-so-fancy | view
-  show = diff-so-fancy | view
-  diff = diff-so-fancy | view
+  log  = diff-so-fancy | nvimpager -p
+  show = diff-so-fancy | nvimpager -p
+  diff = diff-so-fancy | nvimpager -p
 
 [web]
   browser = open

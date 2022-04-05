@@ -38,7 +38,7 @@ rm -f install
 sudo usermod -s /usr/bin/fish vagrant
 
 # nvim
-sudo yum install -y libstdc++-static gcc-c++
+sudo dnf install -y libstdc++-static gcc-c++
 sudo npm i -g npm@latest
 
 curl -fLo ~/.local/bin/nvim.appimage https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
@@ -53,7 +53,7 @@ nvim -c "PlugInstall" -c "qall"
 nvim -c "TSUpdate" -c "qall"
 
 # neoformat
-sudo yum install -y shfmt
+sudo dnf install -y shfmt
 pip install black
 
 # python/ruby/node.js provider
@@ -139,6 +139,14 @@ sudo luarocks install luacheck
 sudo dnf install -y ShellCheck codespell proselint
 curl -fLo ~/.local/bin/hadolint https://github.com/hadolint/hadolint/releases/download/v2.8.0/hadolint-Linux-x86_64 && \
   chmod +x ~/.local/bin/hadolint
+
+# nvimpager
+sudo dnf install -y scdoc
+git clone https://github.com/anhpt379/nvimpager.git
+cd nvimpager || exit 1
+make PREFIX=~/.local install
+cd ..
+rm -rf nvimpager
 
 # lf
 wget https://github.com/gokcehan/lf/releases/download/r26/lf-linux-amd64.tar.gz

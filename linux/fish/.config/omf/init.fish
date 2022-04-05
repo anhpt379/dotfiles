@@ -102,7 +102,7 @@ globabbr P '| pbcopy'
 globabbr S '| sort'
 globabbr T '| tail'
 globabbr U '| uniq'
-globabbr V '| view'
+globabbr V '| nvimpager'
 globabbr W '| wc -l'
 
 set -gx no_proxy localhost,.booking.com
@@ -120,7 +120,8 @@ set -gx NEXTWORD_DATA_PATH $HOME/.config/nvim/dictionaries/nextword-data
 set -gx EDITOR 'nvim'
 set -gx KUBE_EDITOR 'vim'
 
-set -gx MANPAGER "nvim -c 'set ft=man | set showtabline=1 | set laststatus=0' +Man!"
+set -gx MANPAGER  "nvimpager -p"
+set -gx PAGER     "nvimpager -p"
 
 # Fix trackpad scrolling doesn't work in diff-so-fancy
 # Need to remove the `X` flag from less options, but can't do it via .gitconfig,
