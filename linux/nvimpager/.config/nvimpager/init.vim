@@ -1,4 +1,5 @@
-lua nvimpager.maps = false
+set runtimepath+=~/.config/nvim/
+colorscheme aodark
 
 set clipboard+=unnamedplus
 
@@ -8,8 +9,9 @@ set incsearch
 set ignorecase
 set smartcase
 
-nmap C /^commit\|^added:\|^deleted:\|^modified:<CR>
+lua nvimpager.maps = false
 
+nmap C /^commit\|^added:\|^deleted:\|^modified:<CR>
 nmap A ?Applied catalog in .* seconds<CR>
 
 nmap <CR>  :nohlsearch<CR>
