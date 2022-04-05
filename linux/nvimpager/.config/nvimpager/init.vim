@@ -1,3 +1,5 @@
+lua nvimpager.maps = false
+
 set clipboard+=unnamedplus
 
 set nowrap
@@ -20,3 +22,10 @@ nmap l zl
 
 nmap a <nop>
 nmap i <nop>
+nmap c <nop>
+nmap s <nop>
+nmap I <nop>
+
+map  q         :<C-u>qa!<CR>
+nmap <Space>   <PageDown>
+nmap <S-Space> <PageUp>
