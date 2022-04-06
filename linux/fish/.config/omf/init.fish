@@ -51,6 +51,7 @@ balias cat 'bat'
 balias ping 'prettyping --nolegend'
 balias ncdu 'ncdu -rr -x --exclude .git'
 balias fd 'fd --hidden --exclude=".git"'
+balias less 'nvimpager -p'
 
 balias pwl 'nvim ~/.config/nvim/dictionaries/personal_word_list.txt'
 
