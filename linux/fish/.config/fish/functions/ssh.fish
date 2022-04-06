@@ -34,7 +34,8 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
             --compress-level=9 \
             --copy-links \
             --keep-dirlinks \
-            ~/.ssh/files/.{bashrc,inputrc,vimrc,less,terminfo} "$argv[1]":/tmp/panh/ 2>/dev/null
+            --relative \
+            ~/.ssh/files/.{bashrc,inputrc,vimrc,less,terminfo,.local/bin/pbcopy,.local/bin/pbpaste} "$argv[1]":/tmp/panh/ 2>/dev/null
 
         command ssh $argv -t HOME=/tmp/panh bash
 
@@ -48,7 +49,8 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
                 --compress-level=9 \
                 --copy-links \
                 --keep-dirlinks \
-                ~/.ssh/files/.{bashrc,inputrc,vimrc,less,terminfo} "$argv[1]":~/ 2>/dev/null
+                --relative \
+                ~/.ssh/files/.{bashrc,inputrc,vimrc,less,terminfo,.local/bin/pbcopy,.local/bin/pbpaste} "$argv[1]":~/ 2>/dev/null
 
             mkdir -p ~/.cache/rsync
             nohup ~/.config/fish/functions/rsync_dotfiles.sh $argv > ~/.cache/rsync/$argv[1].log &

@@ -20,6 +20,7 @@ if [ ! -f "${lock_file}" ] || [ "$(find "${lock_file}" -mmin +240 -print)" ]; th
         --compress-level=9 \
         --copy-links \
         --keep-dirlinks \
+        --relative \
         --exclude-from="$HOME/.ssh/files/.rsyncignore" \
         ~/.ssh/files/ "${target}":~/ 2>/dev/null && \
         command ssh "${target}" -- 'touch ~/.rsync-done'
