@@ -11,7 +11,7 @@ set smartcase
 
 lua nvimpager.maps = false
 
-nmap C /^commit\|^added:\|^deleted:\|^modified:<CR>
+nmap C /commit [a-z0-9]\{40}\\|added: .\+$\\|deleted: .\+$\\|modified: .\+$<CR>
 nmap A ?Applied catalog in .* seconds<CR>
 
 nmap <CR>  :nohlsearch<CR>
