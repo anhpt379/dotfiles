@@ -1,5 +1,4 @@
 # vim: ft=conf
-tap 'dimentium/autoraise'
 tap 'domt4/autoupdate'
 tap 'homebrew/bundle'
 tap 'homebrew/cask'
@@ -9,7 +8,6 @@ tap 'homebrew/core'
 tap 'universal-ctags/universal-ctags'
 
 brew 'autoconf'
-brew 'autoraise'
 brew 'bash'
 brew 'coreutils'
 brew 'curl'
