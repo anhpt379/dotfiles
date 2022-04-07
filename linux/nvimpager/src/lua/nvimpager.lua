@@ -646,7 +646,7 @@ local function ansi2highlight()
   nvim.nvim_command("highlight NvimPagerConceal gui=NONE guisp=NONE " ..
 		    "guifg=background guibg=background")
   nvim.nvim_win_set_option(0, "conceallevel", 3)
-  nvim.nvim_win_set_option(0, "concealcursor", "nv")
+  nvim.nvim_win_set_option(0, "concealcursor", "nvc")
   local pattern = "\27%[([0-9;]*)m"
   state:clear()
   namespace = nvim.nvim_create_namespace("")
