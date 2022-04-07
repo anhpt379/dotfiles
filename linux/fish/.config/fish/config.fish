@@ -67,9 +67,6 @@ bind \cd 'exit'
 # green)
 set -gx JQ_COLORS '36:31:32:0;39:0;32:1;39:1;39'
 
-# Tell nvimpager where the nvim is
-set -gx NVIM ~/.local/bin/nvim
-
 # Custom fish color scheme
 set -U fish_color_normal normal
 set -U fish_color_command dcdfe4
@@ -118,6 +115,9 @@ if begin not string match -q -- "Darwin" (uname);
     alias pplf 'nvimpager -- --cmd "autocmd VimEnter * :normal G" /var/log/puppet/puppetagent.log'
     alias ppc  'bat --theme ansi --language gitconfig /etc/puppetlabs/puppet/puppet.conf'
     alias motd 'cat /etc/motd; [ -f /etc/motd.local ] && cat /etc/motd.local'
+
+    # Tell nvimpager where the nvim is
+    set -gx NVIM ~/.local/bin/nvim
 
     # Fix nvim `Cannot open undo file for writing` sometimes
     mkdir -p ~/.config/nvim/undo/

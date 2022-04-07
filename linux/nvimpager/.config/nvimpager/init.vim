@@ -1,4 +1,3 @@
-set runtimepath+=~/.config/nvim/
 colorscheme aodark
 
 set clipboard+=unnamedplus
