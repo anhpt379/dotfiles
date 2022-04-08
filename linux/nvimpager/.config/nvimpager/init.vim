@@ -31,6 +31,9 @@ map  q         :<C-u>qa!<CR>
 nmap <Space>   <PageDown>
 nmap <S-Space> <PageUp>
 
+" F to reread the file, partially similar to less +F
+nmap F :e<CR>
+
 " Hide `E211: file no longer available` on `cat <file> | nvimpager -p`
 augroup suppress-file-no-longer-available-warning
   autocmd FileChangedShell * :
