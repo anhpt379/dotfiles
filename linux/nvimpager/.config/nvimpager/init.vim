@@ -30,3 +30,8 @@ nmap I <nop>
 map  q         :<C-u>qa!<CR>
 nmap <Space>   <PageDown>
 nmap <S-Space> <PageUp>
+
+" Hide `E211: file no longer available` on `cat <file> | nvimpager -p`
+augroup suppress-file-no-longer-available-warning
+  autocmd FileChangedShell * :
+augroup end
