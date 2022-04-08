@@ -28,8 +28,6 @@ nmap s <nop>
 nmap I <nop>
 
 map  q         :<C-u>qa!<CR>
-nmap <Space>   <PageDown>
-nmap <S-Space> <PageUp>
 
 " F to reread the file, partially similar to less +F
 nmap F :e<CR>
