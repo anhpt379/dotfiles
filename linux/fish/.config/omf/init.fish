@@ -1,5 +1,5 @@
 # grc fish integration
-if type -q grc-rs
+if [ -f ~/.cargo/bin/grc-rs ]
     alias grc   'grc-rs'
     alias grcat 'grc-rs --colour=on cat'
     source /etc/grc.fish
