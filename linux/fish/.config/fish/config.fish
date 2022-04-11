@@ -115,6 +115,7 @@ if begin not string match -q -- "Darwin" (uname);
     alias pplf 'nvimpager -- --cmd "autocmd VimEnter * :normal G" /var/log/puppet/puppetagent.log'
     alias ppc  'bat --theme ansi --language gitconfig /etc/puppetlabs/puppet/puppet.conf'
     alias motd 'cat /etc/motd; [ -f /etc/motd.local ] && cat /etc/motd.local'
+    alias ssh  'cmd ssh'
 
     # Tell nvimpager where the nvim is
     set -gx NVIM ~/.local/bin/nvim
