@@ -133,6 +133,7 @@ gem install --bindir ~/.local/bin/ \
   puppet-lint-wmf_styleguide-check \
   puppet-lint-world_writable_files-check \
   puppet-lint-yumrepo_gpgcheck_enabled-check
+sudo gem install --bindir ~/.local/bin/ rubocop rubocop-rspec
 rm -f ~/.local/bin/puppet
 
 sudo luarocks install luacheck
