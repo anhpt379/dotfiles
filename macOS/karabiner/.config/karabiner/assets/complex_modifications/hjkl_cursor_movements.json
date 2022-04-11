@@ -9,8 +9,12 @@
           "from": {
             "key_code": "h",
             "modifiers": {
-              "mandatory": ["command"],
-              "optional": ["shift"]
+              "mandatory": [
+                "command"
+              ],
+              "optional": [
+                "shift"
+              ]
             }
           },
           "to": [
@@ -24,8 +28,12 @@
           "from": {
             "key_code": "j",
             "modifiers": {
-              "mandatory": ["command"],
-              "optional": ["shift"]
+              "mandatory": [
+                "command"
+              ],
+              "optional": [
+                "shift"
+              ]
             }
           },
           "to": [
@@ -39,8 +47,12 @@
           "from": {
             "key_code": "k",
             "modifiers": {
-              "mandatory": ["command"],
-              "optional": ["shift"]
+              "mandatory": [
+                "command"
+              ],
+              "optional": [
+                "shift"
+              ]
             }
           },
           "to": [
@@ -54,8 +66,12 @@
           "from": {
             "key_code": "l",
             "modifiers": {
-              "mandatory": ["command"],
-              "optional": ["shift"]
+              "mandatory": [
+                "command"
+              ],
+              "optional": [
+                "shift"
+              ]
             }
           },
           "to": [
@@ -74,14 +90,20 @@
           "from": {
             "key_code": "h",
             "modifiers": {
-              "mandatory": ["option"],
-              "optional": ["shift"]
+              "mandatory": [
+                "option"
+              ],
+              "optional": [
+                "shift"
+              ]
             }
           },
           "to": [
             {
               "key_code": "left_arrow",
-              "modifiers": ["left_option"]
+              "modifiers": [
+                "left_option"
+              ]
             }
           ]
         },
@@ -90,14 +112,20 @@
           "from": {
             "key_code": "j",
             "modifiers": {
-              "mandatory": ["option"],
-              "optional": ["shift"]
+              "mandatory": [
+                "option"
+              ],
+              "optional": [
+                "shift"
+              ]
             }
           },
           "to": [
             {
               "key_code": "down_arrow",
-              "modifiers": ["left_option"]
+              "modifiers": [
+                "left_option"
+              ]
             }
           ]
         },
@@ -106,14 +134,20 @@
           "from": {
             "key_code": "k",
             "modifiers": {
-              "mandatory": ["option"],
-              "optional": ["shift"]
+              "mandatory": [
+                "option"
+              ],
+              "optional": [
+                "shift"
+              ]
             }
           },
           "to": [
             {
               "key_code": "up_arrow",
-              "modifiers": ["left_option"]
+              "modifiers": [
+                "left_option"
+              ]
             }
           ]
         },
@@ -122,14 +156,20 @@
           "from": {
             "key_code": "l",
             "modifiers": {
-              "mandatory": ["option"],
-              "optional": ["shift"]
+              "mandatory": [
+                "option"
+              ],
+              "optional": [
+                "shift"
+              ]
             }
           },
           "to": [
             {
               "key_code": "right_arrow",
-              "modifiers": ["left_option"]
+              "modifiers": [
+                "left_option"
+              ]
             }
           ]
         }
@@ -143,14 +183,20 @@
           "from": {
             "key_code": "h",
             "modifiers": {
-              "mandatory": ["left_control"],
-              "optional": ["shift"]
+              "mandatory": [
+                "left_control"
+              ],
+              "optional": [
+                "shift"
+              ]
             }
           },
           "to": [
             {
               "key_code": "left_arrow",
-              "modifiers": ["fn"]
+              "modifiers": [
+                "fn"
+              ]
             }
           ],
           "conditions": [
@@ -158,8 +204,7 @@
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
                 "^com\\.apple\\.Notes$",
-                "^com\\.apple\\.iChat$",
-                "^com\\.apple\\.Safari$"
+                "^com\\.apple\\.iChat$"
               ]
             }
           ]
@@ -169,36 +214,20 @@
           "from": {
             "key_code": "h",
             "modifiers": {
-              "mandatory": ["left_control"],
-              "optional": ["shift"]
-            }
-          },
-          "to": [
-            {
-              "key_code": "up_arrow",
-              "modifiers": ["left_command"]
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": ["^com\\.apple\\.Safari$"]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "h",
-            "modifiers": {
-              "mandatory": ["left_control"],
-              "optional": ["shift"]
+              "mandatory": [
+                "left_control"
+              ],
+              "optional": [
+                "shift"
+              ]
             }
           },
           "to": [
             {
               "key_code": "a",
-              "modifiers": ["left_control"]
+              "modifiers": [
+                "left_control"
+              ]
             }
           ],
           "conditions": [
@@ -216,42 +245,20 @@
           "from": {
             "key_code": "j",
             "modifiers": {
-              "mandatory": ["left_control"],
-              "optional": ["shift"]
+              "mandatory": [
+                "left_control"
+              ],
+              "optional": [
+                "shift"
+              ]
             }
           },
           "to": [
             {
               "key_code": "down_arrow",
-              "modifiers": ["fn"]
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": ["^com\\.apple\\.Safari$"]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "j",
-            "modifiers": {
-              "mandatory": ["left_control"],
-              "optional": ["shift"]
-            }
-          },
-          "to": [
-            {
-              "key_code": "down_arrow",
-              "modifiers": ["left_control"]
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": ["^com\\.apple\\.Safari$"]
+              "modifiers": [
+                "fn"
+              ]
             }
           ]
         },
@@ -260,67 +267,19 @@
           "from": {
             "key_code": "k",
             "modifiers": {
-              "mandatory": ["left_control"],
-              "optional": ["shift"]
+              "mandatory": [
+                "left_control"
+              ],
+              "optional": [
+                "shift"
+              ]
             }
           },
           "to": [
             {
               "key_code": "up_arrow",
-              "modifiers": ["fn"]
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": ["^com\\.apple\\.Safari$"]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "k",
-            "modifiers": {
-              "mandatory": ["left_control"],
-              "optional": ["shift"]
-            }
-          },
-          "to": [
-            {
-              "key_code": "up_arrow",
-              "modifiers": ["left_control"]
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": ["^com\\.apple\\.Safari$"]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "l",
-            "modifiers": {
-              "mandatory": ["left_control"],
-              "optional": ["shift"]
-            }
-          },
-          "to": [
-            {
-              "key_code": "right_arrow",
-              "modifiers": ["fn"]
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^com\\.apple\\.Notes$",
-                "^com\\.apple\\.iChat$",
-                "^com\\.apple\\.Safari$"
+              "modifiers": [
+                "fn"
               ]
             }
           ]
@@ -330,20 +289,29 @@
           "from": {
             "key_code": "l",
             "modifiers": {
-              "mandatory": ["left_control"],
-              "optional": ["shift"]
+              "mandatory": [
+                "left_control"
+              ],
+              "optional": [
+                "shift"
+              ]
             }
           },
           "to": [
             {
-              "key_code": "down_arrow",
-              "modifiers": ["left_command"]
+              "key_code": "right_arrow",
+              "modifiers": [
+                "fn"
+              ]
             }
           ],
           "conditions": [
             {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": ["^com\\.apple\\.Safari$"]
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Notes$",
+                "^com\\.apple\\.iChat$"
+              ]
             }
           ]
         },
@@ -352,14 +320,20 @@
           "from": {
             "key_code": "l",
             "modifiers": {
-              "mandatory": ["left_control"],
-              "optional": ["shift"]
+              "mandatory": [
+                "left_control"
+              ],
+              "optional": [
+                "shift"
+              ]
             }
           },
           "to": [
             {
               "key_code": "e",
-              "modifiers": ["left_control"]
+              "modifiers": [
+                "left_control"
+              ]
             }
           ],
           "conditions": [
