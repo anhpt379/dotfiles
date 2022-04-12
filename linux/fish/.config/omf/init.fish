@@ -132,7 +132,7 @@ set -gx PAGER     "nvimpager -p"
 set -gx LESS '--LONG-PROMPT --RAW-CONTROL-CHARS'
 
 # Edit and run the current command in vim
-bind \ce edit_and_run_command_buffer
+bind \cv edit_and_run_command_buffer
 
 # Make Control+W (or Option+Delete) in fish works similar to vim. By default,
 # fish binds it to `backward-kill-path-component`, which doesn't respect the
