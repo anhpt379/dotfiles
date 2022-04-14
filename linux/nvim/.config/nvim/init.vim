@@ -88,8 +88,6 @@ call plug#begin()
 
     Plug 'anhpt379/vim-fugitive'
     Plug 'anhpt379/vim-git-browse'
-    Plug 'tpope/vim-rhubarb'
-    Plug 'shumphrey/fugitive-gitlab.vim'
 
     Plug 'neovim/nvim-lspconfig'
     Plug 'williamboman/nvim-lsp-installer'
@@ -1129,9 +1127,6 @@ function! FCSHandler(name)
   echon msg
   echohl None
 endfunction
-
-" GBrowse
-let g:fugitive_gitlab_domains = ['https://gitlab.booking.com/']
 
 " Vim-move
 " Moving text left/down/up//right faster with <C-hjkl>

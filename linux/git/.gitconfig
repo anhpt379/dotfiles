@@ -27,9 +27,6 @@
   show = diff-so-fancy | nvimpager -p
   diff = diff-so-fancy | nvimpager -p
 
-[web]
-  browser = open
-
 [interactive]
   diffFilter = (echo && diff-so-fancy)
 
