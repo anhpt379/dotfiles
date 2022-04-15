@@ -2,8 +2,6 @@ colorscheme aodark
 
 set clipboard+=unnamedplus
 
-set nowrap
-
 set incsearch
 set ignorecase
 set smartcase
