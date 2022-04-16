@@ -1,53 +1,25 @@
 
 
-# -----------------------------------------------------------------------------
-# <type>(<scope>): <short summary>
-#   │       │             │
-#   │       │             └─⫸ Summary in present tense.
-#   │       │                 Not capitalized.
-#   │       │                 No period at the end.
-#   │       │
-#   │       └─⫸ Commit scope (optional)
-#   │
-#   └─⫸ Commit type: add|cut|feat|fix|bump|build|ci|docs|\
-#                    style|perf|refactor|test|chore|revert
+# <type>(<scope>)[!]: <short summary>
 #
-# [optional body]
+# <body>           what and why vs. how
 #
-# [optional footer(s)]
-# -----------------------------------------------------------------------------
+## Answer the following questions:
+#  * Why is this change necessary?
+#  * How does it address the issue?
+#  * What side effects does this change have?
 #
-# Answer the following questions:
-#   * Why is this change necessary?
-#   * How does it address the issue?
-#   * What side effects does this change have?
-#
-# Types:
-#   Must be one of the following:
-#
-#   * add: changes to add new capability or functions
-#   * cut: removing a capability or function
-#   * feat: new feature
-#   * fix: a bug fix
-#   * bump: the versions or dependency versions
-#   * build: changes to build system or external dependencies
-#   * ci: changes to CI configuration files and scripts
-#   * docs: changes to the documentation
-#   * style: changes to the code that do not affect the meaning
-#   * perf: a code change that improves performance
-#   * refactor: a code change that neither fixes a bug nor adds a feature
-#   * test: adding missing tests or correcting existing tests
-#   * chore: changes for housekeeping
-#   * revert: reverting a commit
+## TYPES:
+# feat!:    An API breaking feature [major release bump]
+# feat:     A new feature           [minor release bump]
+# fix:      A bug fix               [patch release bump]
+# docs:     Documentation only changes
+# style:    Changes that do not affect the meaning of the code
+#           (white-space, formatting, missing semi-colons, etc)
+# refactor: A code change that neither fixes a bug nor adds a feature
+# perf:     A code change that improves performance
+# test:     Adding missing tests
+# chore:    Changes to the build process or auxiliary tools and libraries
+#           such as documentation generation
 #
 # See https://www.conventionalcommits.org/en/v1.0.0/#summary
-#
-# Example:
-# -----------------------------------------------------------------------------
-#   fix(middleware): ensure Range headers adhere more closely to RFC 2616
-#
-#   Add one new dependency, use `range-parser` (Express dependency) to compute
-#   range. It is more well-tested in the wild.
-#
-#   Fixes #2310
-# -----------------------------------------------------------------------------
