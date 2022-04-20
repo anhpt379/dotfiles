@@ -65,7 +65,7 @@ sudo npm install -g neovim
 pip install vim-vint 'ansible-lint[community,yamllint]'
 sudo npm install -g jsonlint textlint write-good markdownlint-cli
 sudo gem install --bindir ~/.local/bin/ rubocop rubocop-rspec
-gem install --bindir ~/.local/bin/ mdl puppet puppet-lint
+gem install --bindir ~/.local/bin/ mdl puppet puppet-lint puppet-lint-strict_indent-check
 rm -f ~/.local/bin/puppet
 
 sudo luarocks install luacheck
