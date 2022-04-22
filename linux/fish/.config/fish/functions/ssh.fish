@@ -13,19 +13,33 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
         echo
     end
 
-    if not command ssh git@gitlab.booking.com &> /dev/null
-        echo "Booking's SSH key expired. Getting a new one..."
+    set -f now (date +%s)
+    set -f deadline (expr $now - 86400 + 7200)
+    set -f have_good_key no
+    set -f have_temp_key no
+
+    for ts in (ssh-add -l 2>/dev/null | sed -ne 's/.*temporary key \([0-9]\+\) .*/\1/p')
+        set -f have_temp_key yes
+        if [ $ts -gt $deadline ]
+            set -f have_good_key yes
+        end
+    end
+
+    if [ $have_temp_key = yes ] && [ $have_good_key = no ]
+        echo "Booking's SSH key is about to expire. Getting a new one..."
         command ssh -A ssh.booking.com
     end
 
-    if begin string match -q -- "git*" $argv;
-        or string match -q -- "*ssh.booking.com" $argv; end
+    if begin
+            string match -q -- "git*" $argv
+            or string match -q -- "*ssh.booking.com" $argv
+        end
 
         command ssh $argv
 
-    # Sync just the minimal dotfiles to /tmp/panh/ when using root@<host>
-    # `root` is a shared account on servers, I don't want to pollute it with my
-    # own personal settings, so let's change the $HOME to a different location.
+        # Sync just the minimal dotfiles to /tmp/panh/ when using root@<host>
+        # `root` is a shared account on servers, I don't want to pollute it with my
+        # own personal settings, so let's change the $HOME to a different location.
     else if string match -q -- "root@*" $argv
         rsync -azvhP \
             --info=name0 \
@@ -39,9 +53,9 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
 
         command ssh $argv -t HOME=/tmp/panh bash
 
-    # Sync dotfiles & binary files to remote
+        # Sync dotfiles & binary files to remote
     else
-        if command ssh $argv -- /bin/true &> /dev/null
+        if command ssh $argv -- /bin/true &>/dev/null
             rsync -azvhP \
                 --info=name0 \
                 --info=progress2 \
@@ -53,7 +67,7 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
                 ~/.ssh/files/./.{bashrc,inputrc,vimrc,less,terminfo,local/bin/pbcopy,local/bin/pbpaste} "$argv[1]":~/ 2>/dev/null
 
             mkdir -p ~/.cache/rsync
-            nohup ~/.config/fish/functions/rsync_dotfiles.sh $argv > ~/.cache/rsync/$argv[1].log &
+            nohup ~/.config/fish/functions/rsync_dotfiles.sh $argv >~/.cache/rsync/$argv[1].log &
         end
 
         command ssh $argv
