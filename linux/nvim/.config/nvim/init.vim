@@ -505,8 +505,9 @@ augroup fugitive-personal-key-mappings
   autocmd FileType fugitive nmap <buffer> ca :vertical Git commit --quiet --no-status --amend<CR>
   autocmd FileType fugitive nmap <buffer> ce :Git commit --amend --quiet --no-status --no-edit<CR>
 
-  " gw in gitcommit to save and close
+  " gw in gitcommit/gitrebase to save and close
   autocmd FileType gitcommit nmap <buffer> gw :x<CR>
+  autocmd FileType gitrebase nmap <buffer> gw :x<CR>
 
   " gr to open repo in browser
   autocmd FileType fugitive nmap <buffer> gr :<C-u>call vim_git_browse#GitOpenRepo()<CR>
