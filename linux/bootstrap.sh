@@ -1,7 +1,7 @@
 #!/bin/bash
 
 sudo dnf install -y \
-  stow git fzf jq fd-find ripgrep bat exa \
+  stow git fzf jq fd-find ripgrep bat exa direnv \
   nmap-ncat ipython python3-virtualenv bind-utils git-subtree \
   cargo npm telnet atop \
   grc gron pwgen tldr youtube-dl \

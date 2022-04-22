@@ -117,6 +117,10 @@ if test -f ~/.cache/nvim/cwd
     cd (cat ~/.cache/nvim/cwd)
 end
 
+if type -q direnv
+    direnv hook fish | source
+end
+
 if begin not string match -q -- "Darwin" (uname);
     and not string match -q -- "vagrant" $USER; end
     alias pp   'command sudo HOME=/root TERMINFO=/home/panh/.terminfo puppet agent -t'
