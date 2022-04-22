@@ -64,6 +64,11 @@ function fish_prompt
         end
     end
 
+    # z auto remove directories that no longer exist
+    if type -q z
+        z --clean > /dev/null 2>&1
+    end
+
     echo -n -s $normal_color " "
 
     # Reset cursor shape to beam
