@@ -158,7 +158,9 @@ map o       reveal
 map r       :rename
 map gh      go_home
 map gd      cd ~/Downloads
-map gw      cd ~/Workspace
+map gw      cd ~/code/work
+map gp      cd ~/code/personal
+map gt      cd ~/code/temp
 map <c-f>   :fzf_jump
 map t       !fish
 map <tab>   :toggle

@@ -1,5 +1,4 @@
 [user]
-  email = anh.pham@booking.com
   name = Anh Pham
 
 [core]
@@ -68,3 +67,9 @@
 
 [init]
   defaultBranch = master
+
+[includeIf "gitdir:~/code/work/"]
+  path = ~/code/work/.gitconfig
+
+[includeIf "gitdir:~/code/personal/"]
+  path = ~/code/personal/.gitconfig

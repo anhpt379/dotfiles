@@ -106,7 +106,7 @@ globabbr U '| uniq'
 globabbr V '| nvimpager'
 globabbr W '| wc -l'
 
-set -gx no_proxy localhost,.booking.com
+set -gx no_proxy localhost,.$COMPANY_DOMAIN
 
 set -gx PATH $HOME/.local/bin $PATH
 

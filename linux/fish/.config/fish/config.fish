@@ -1,5 +1,15 @@
 #!/usr/bin/env fish
 
+# `10.252.13.240` is a DNS server, if this stops working, check for
+# a new one in hieradata/common.yaml::dns_servers
+set -l COMPANY_NAME (
+    dig +short -x 10.252.13.240 | awk -F. '{ print $(NF-2) }'
+)
+set -gx COMPANY_NAME_LOWER (echo $COMPANY_NAME | tr A-Z a-z)
+set -gx COMPANY_NAME_UPPER (echo $COMPANY_NAME | tr a-z A-Z)
+set -gx COMPANY_NAME_CAPITALIZE (echo $COMPANY_NAME | sed 's/[^ ]*/\u&/g')
+set -gx COMPANY_DOMAIN "$COMPANY_NAME_LOWER.com"
+
 # Tell vagrant where the Vagrantfile is
 set -gx VAGRANT_CWD ~/dotfiles/macOS
 
@@ -122,7 +132,7 @@ if begin not string match -q -- "Darwin" (uname);
 
     # Fix nvim `Cannot open undo file for writing` sometimes
     mkdir -p ~/.config/nvim/undo/
-    if test "$USER" = root; and set -q BOOKING_USER
+    if test "$USER" = root; and set -q "$COMPANY_NAME_UPPER"_USER
         chown -R panh ~/.config/nvim/undo/
     end
 
