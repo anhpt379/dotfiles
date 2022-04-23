@@ -1448,3 +1448,11 @@ require('gitsigns').setup({
 require("nvim-gps").setup()
 EOF
 endif
+
+" Allow nvim to handle <Tab> and <C-i> differently
+" https://github.com/neovim/neovim/issues/5916#issuecomment-1103675837
+" This is needed until https://github.com/neovim/neovim/pull/18181 is merged.
+augroup kitty-keyboard-protocol
+  autocmd UIEnter * if v:event.chan ==# 0 | call chansend(v:stderr, "\x1b[>1u") | endif
+  autocmd UILeave * if v:event.chan ==# 0 | call chansend(v:stderr, "\x1b[<1u") | endif
+augroup end
