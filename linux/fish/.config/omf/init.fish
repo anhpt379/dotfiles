@@ -94,6 +94,13 @@ function update
     tldr --update
 end
 
+alias urldecode 'python3 -c "\
+    import sys, urllib.parse; \
+    print(urllib.parse.unquote_plus(sys.argv[1]))"'
+alias urlencode 'python3 -c "\
+    import sys, urllib.parse; \
+    print(urllib.parse.quote_plus(sys.argv[1]))"'
+
 globabbr C '| grcat'
 globabbr J '| jq'
 globabbr G '| grep'
