@@ -94,6 +94,24 @@ function update
     tldr --update
 end
 
+function less
+    if [ (count $argv) -ge 1 ]
+        set -f file $argv[-1]
+
+        if [ -e "$file" ]
+            set -f file_size (command ls -s --block-size=1048576 "$file" | cut -d' ' -f1) # in MB
+
+            # Open big files, or files with one really long line with less
+            if [ $file_size -gt 200 ] || [ "$(head -2 "$file" | wc -l)" -lt 2 ]
+                command less --line-numbers $argv
+                return
+            end
+        end
+    end
+
+    nvimpager -p $argv
+end
+
 alias urldecode 'python3 -c "\
     import sys, urllib.parse; \
     print(urllib.parse.unquote_plus(sys.argv[1]))"'
