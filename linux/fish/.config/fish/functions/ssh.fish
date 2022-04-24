@@ -25,8 +25,8 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
         end
     end
 
-    if [ $have_temp_key = yes ] && [ $have_good_key = no ]
-        echo "$COMPANY_NAME_CAPITALIZE's SSH key is about to expire. Getting a new one..."
+    if [ $have_temp_key = no ] || [ $have_good_key = no ]
+        echo "$COMPANY_NAME_CAPITALIZE's SSH key has expired. Getting a new one..."
         command ssh -A ssh.$COMPANY_DOMAIN
     end
 
