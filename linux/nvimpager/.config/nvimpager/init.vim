@@ -34,3 +34,7 @@ nmap F :e<CR>
 augroup suppress-file-no-longer-available-warning
   autocmd FileChangedShell * :
 augroup end
+
+augroup strip-ansi-color-codes
+  autocmd TextYankPost * call system("sed -e 's/\x1B\[[0-9;]*[JKmsu]//g' \| pbcopy", @0)
+augroup end
