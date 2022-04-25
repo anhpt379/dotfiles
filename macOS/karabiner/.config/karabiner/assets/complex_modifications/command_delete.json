@@ -1,8 +1,8 @@
 {
-  "title": "Command+backspace shouldn't delete the whole line",
+  "title": "COMMAND+BACKSPACE shouldn't delete the whole line",
   "rules": [
     {
-      "description": "Map ⌘⌫ to ⌥⌫",
+      "description": "Map COMMAND+BACKSPACE to OPTION+BACKSPACE",
       "manipulators": [
         {
           "type": "basic",
@@ -22,7 +22,7 @@
       ]
     },
     {
-      "description": "Map ⌘⌦ to ⌥⌦",
+      "description": "Map COMMAND+DELETE to OPTION+DELETE",
       "manipulators": [
         {
           "type": "basic",

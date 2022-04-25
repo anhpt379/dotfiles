@@ -2,7 +2,7 @@
   "title": "Browser key bindings",
   "rules": [
     {
-      "description": "Browser - Focus on the address bar with CMD+O",
+      "description": "Browser - Focus on the address bar with COMMAND+O",
       "manipulators": [
         {
           "type": "basic",
@@ -37,7 +37,7 @@
       ]
     },
     {
-      "description": "Browser - Copy URL in the address bar with CMD+Y",
+      "description": "Browser - Copy URL in the address bar with COMMAND+Y",
       "manipulators": [
         {
           "type": "basic",
@@ -84,7 +84,7 @@
       ]
     },
     {
-      "description": "Browser - Accept suggestion & go to the url with CAPSLOCK+G",
+      "description": "Browser - Accept suggestion & go to the url with CONTROL+G",
       "manipulators": [
         {
           "type": "basic",
@@ -116,7 +116,7 @@
       ]
     },
     {
-      "description": "Browser - Switch tabs with CMD+N/P",
+      "description": "Browser - Switch tabs with COMMAND+N/P",
       "manipulators": [
         {
           "type": "basic",

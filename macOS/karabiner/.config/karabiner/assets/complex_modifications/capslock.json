@@ -1,8 +1,8 @@
 {
-  "title": "Change CapsLock to Control/ESC",
+  "title": "CAPSLOCK to act as both CONTROL & ESCAPE",
   "rules": [
     {
-      "description": "Map CapsLock to ESC when tapped, and to Control when held",
+      "description": "Map CAPSLOCK to CONTROL on hold, and to ESCAPE on tap",
       "manipulators": [
         {
           "type": "basic",

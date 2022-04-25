@@ -1,8 +1,8 @@
 {
-  "title": "Fix Option+Backspace doesn't work in less",
+  "title": "Fix OPTION+BACKSPACE doesn't work in less",
   "rules": [
     {
-      "description": "Map ⌥⌫ to Ctrl-W when in terminal",
+      "description": "Map OPTION+BACKSPACE to CONTROL+W when in terminal apps",
       "manipulators": [
         {
           "type": "basic",

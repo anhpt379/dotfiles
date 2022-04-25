@@ -1,8 +1,8 @@
 {
-  "title": "Control+[ to work as ESC everywhere",
+  "title": "CONTROL+[ to act as ESCAPE everywhere",
   "rules": [
     {
-      "description": "Map Control+[ to ESC",
+      "description": "Map CONTROL+[ to ESCAPE everywhere except terminal apps",
       "manipulators": [
         {
           "type": "basic",

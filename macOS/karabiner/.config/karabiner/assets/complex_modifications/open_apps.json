@@ -1,8 +1,8 @@
 {
-  "title": "Open macOS apps with Cmd+<number>",
+  "title": "Open macOS apps with COMMAND+1/2/3/4",
   "rules": [
     {
-      "description": "Open Chrome with Cmd+1",
+      "description": "Open Chrome with COMMAND+1",
       "manipulators": [
         {
           "type": "basic",
@@ -23,7 +23,7 @@
       ]
     },
     {
-      "description": "Open Slack with Cmd+2",
+      "description": "Open Slack with COMMAND+2",
       "manipulators": [
         {
           "type": "basic",
@@ -44,7 +44,7 @@
       ]
     },
     {
-      "description": "Open Notes with Cmd+3",
+      "description": "Open Notes with COMMAND+3",
       "manipulators": [
         {
           "type": "basic",
@@ -65,7 +65,7 @@
       ]
     },
     {
-      "description": "Open Kitty with Cmd+4",
+      "description": "Open Kitty with COMMAND+4",
       "manipulators": [
         {
           "type": "basic",
@@ -86,7 +86,7 @@
       ]
     },
     {
-      "description": "Open SimpleClock with Command+CapsLock+T",
+      "description": "Open SimpleClock with COMMAND+CAPSLOCK+T",
       "manipulators": [
         {
           "type": "basic",
