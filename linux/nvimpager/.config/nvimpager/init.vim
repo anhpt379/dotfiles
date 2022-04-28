@@ -6,6 +6,10 @@ set incsearch
 set ignorecase
 set smartcase
 
+set wrap
+noremap j gj
+noremap k gk
+
 lua nvimpager.maps = false
 
 nmap C /commit [a-z0-9]\{40}\\|added: .\+$\\|deleted: .\+$\\|modified: .\+$<CR>
