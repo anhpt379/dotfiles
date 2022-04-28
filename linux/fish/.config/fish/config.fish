@@ -15,7 +15,7 @@ set -gx VAGRANT_CWD ~/dotfiles/macOS
 
 # ssh to vagrant automatically
 if nc -z 127.0.0.1 2222 &>/dev/null
-    ssh -p 2222 \
+    command ssh -p 2222 \
         -o UserKnownHostsFile=/dev/null \
         -o StrictHostKeyChecking=no \
         -o LogLevel=ERROR \
