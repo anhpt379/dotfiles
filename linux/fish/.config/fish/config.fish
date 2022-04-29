@@ -130,6 +130,8 @@ if begin not string match -q -- "Darwin" (uname);
     alias motd 'cat /etc/motd; [ -f /etc/motd.local ] && cat /etc/motd.local'
     alias ssh  'cmd ssh'
 
+    git config --global user.email anh.pham@$COMPANY_DOMAIN
+
     # Tell nvimpager where the nvim is
     set -gx NVIM ~/.local/bin/nvim
 
