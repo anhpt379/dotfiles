@@ -8,7 +8,6 @@ else
 end
 
 alias root 'sudo -E -s fish'
-alias sudo 'sudo -E'
 
 # systemctl aliases
 alias start="sudo systemctl start"
