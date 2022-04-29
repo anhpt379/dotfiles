@@ -12,6 +12,8 @@ set wrap
 noremap j gj
 noremap k gk
 
+let g:loaded_matchparen = 1
+
 lua nvimpager.maps = false
 
 nmap C /commit [a-z0-9]\{40}\\|added: .\+$\\|deleted: .\+$\\|modified: .\+$<CR>
