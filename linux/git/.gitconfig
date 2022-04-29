@@ -45,7 +45,7 @@
 
 [commit]
   template = ~/.gitmessage
-  cleanup = default
+  cleanup = scissors
 
 [rebase]
   autoStash = true
