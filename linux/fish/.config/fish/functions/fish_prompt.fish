@@ -25,12 +25,6 @@ function fish_prompt
         echo -n -s $prompt_background_color
         echo -n -s "[" $user_color $USER@(prompt_hostname)
         echo -n -s " " $repository_color $cwd $normal_color $prompt_background_color "]"
-
-        # Fix z keeps asking for permission to update $Z_DATA file when it's
-        # owned by `root`
-        if test "$USER" = root; and set -q "$COMPANY_NAME_UPPER"_USER
-            chown -R panh $Z_DATA
-        end
     else
         if test $kernel = "Darwin"
             echo -n -s " "
@@ -67,6 +61,12 @@ function fish_prompt
     # z auto remove directories that no longer exist
     if type -q z
         z --clean > /dev/null 2>&1
+
+        # Fix z keeps asking for permission to update $Z_DATA file when it's
+        # owned by `root`
+        if test "$USER" = root; and set -q "$COMPANY_NAME_UPPER"_USER
+            chown -R panh $Z_DATA
+        end
     end
 
     echo -n -s $normal_color " "
