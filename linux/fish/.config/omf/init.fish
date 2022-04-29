@@ -14,7 +14,10 @@ alias start     'sudo systemctl start'
 alias stop      'sudo systemctl stop'
 alias restart   'sudo systemctl restart'
 alias info      'sudo systemctl status'
-alias log       'sudo journalctl -e -u'
+function log
+    SYSTEMD_PAGER=cat sudo journalctl -u $argv | \
+        nvimpager -- --cmd "autocmd VimEnter * :normal G"
+end
 
 # git
 balias g        'git'
