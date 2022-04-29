@@ -25,10 +25,10 @@ vagrant VM.
 ## Why using a VM
 
 - easier to reproduce the setup.
-- we're in the same OS as on servers.
-- git operations are faster (`git status` on a large repo took 95ms in linux VM,
-  250ms in macOS (Safe Mode) and 900ms in macOS with Forcepoint DLB Endpoint
-  enabled).
+- we're on the same OS as on servers.
+- git operations are faster (`git status` on a large repo took 95ms on
+  virtualbox, 250ms on macOS (Safe Mode) and 900ms on macOS with Forcepoint DLB
+  Endpoint enabled).
 - easier on the laptop's fan, and battery usage (due to the security agents,
   they have fewer things to scan, since most of the work is isolated in the VM
   now).
