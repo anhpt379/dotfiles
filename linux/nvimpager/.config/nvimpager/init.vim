@@ -6,6 +6,8 @@ set incsearch
 set ignorecase
 set smartcase
 
+set noswapfile
+
 set wrap
 noremap j gj
 noremap k gk
