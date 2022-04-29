@@ -56,16 +56,9 @@ Key concepts:
 - ssh port forwards (port 2224 → 2227) are being used to make `open`, `noti`,
   `pbcopy` and `pbpaste` commands work within the linux VM.
 
-## What does it look like
+## Screenshot
 
 ![vim-startify](docs/screenshots/1.png)
-![<Space>-f](docs/screenshots/2.png)
-![gl](docs/screenshots/3.png)
-![gb](docs/screenshots/4.png)
-![<C-t>](docs/screenshots/5.png)
-![<Space>-l](docs/screenshots/6.png)
-![gs](docs/screenshots/7.png)
-![gsC](docs/screenshots/8.png)
 
 ## Key mappings
 
@@ -120,7 +113,7 @@ Key concepts:
 ### fish
 
 - `<C-g>` accept suggestion and execute
-- `<C-e>` edit the current command in vim
+- `<C-v>` edit the current command in vim
 - `<C-r>` fzf history
 - `<C-f>` fzf find
 
@@ -128,8 +121,10 @@ Key concepts:
 
 Below is the adjusted keyboard layout that I'm using:
 
-- `caps_lock` is `control` on held, `esc` on tapped
-- `right_command` and `right_option` are `backspace` and `delete`
+- `caps_lock` is `control` on hold, `esc` on tap.
+- `return` is `control` on hold.
+- `right_command` and `right_option` are `backspace` and `delete`.
+- `:` and `;` are swapped.
 
 [![layout](macOS/karabiner/keyboard_layout.png)][1]
 
@@ -153,4 +148,4 @@ become arrow keys (Left/Down/Up/Right):
 
 - `Command` + `N/P` to switch between tabs.
 
-- `Command` + `<Right>/<Left>` to maximize/almost-maximize a window.
+- `Command` + `<Up>/<Down>` to maximize/almost-maximize a window.
