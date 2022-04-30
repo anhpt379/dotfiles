@@ -162,7 +162,8 @@ map gw      cd ~/code/work
 map gp      cd ~/code/personal
 map gt      cd ~/code/temp
 map <c-f>   :fzf_jump
-map t       !fish
+map t       :{{ set sortby atime; bottom; }}
+map T       :set sortby natural
 map <tab>   :toggle
 map v       :toggle
 map V       :toggle
