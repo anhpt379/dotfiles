@@ -69,10 +69,10 @@ function fzf_find -d "Find files and folders"
     set -l key (echo $result | cut -d' ' -f1)
     set -l result (echo $result | cut -d' ' -f2- | devicon remove)
     commandline -it -- (string escape $result)
+    commandline -f repaint
     if test "$key" = enter
         commandline -f execute
     end
-    commandline -f repaint
 end
 
 
