@@ -79,15 +79,11 @@ balias o 'openstack'
 
 alias vim 'nvim'
 
-alias nf   'nvim +"FilesMru"'
-alias ngs  'nvim +"tab Git"'
-alias ngl  'nvim +"FzfCommits"'
-alias nlf  'nvim +"Lf"'
-function nv
-    echo (pwd) > ~/.cache/nvim/cwd
-    nvim $argv
-    rm -f ~/.cache/nvim/cwd
-end
+alias nf  'nvim +"FilesMru"'
+alias ngs 'nvim +"tab Git"'
+alias ngl 'nvim +"FzfCommits"'
+alias nlf 'nvim +"Lf"'
+alias nv  'nvim $argv'
 
 function update
     fisher update

@@ -19,7 +19,7 @@ end
 
 status is-interactive || exit 0
 not functions -q __ksi_schedule || exit 0
-# Check fish version 3.3.0+ efficiently and fallback to check the last working version 3.2.0, exit on outdated versions.
+# Check fish version 3.3.0+ efficiently and fallback to check the minimum working version 3.2.0, exit on outdated versions.
 # "Warning: Update fish to version 3.3.0+ to enable kitty shell integration.\n"
 set -q fish_killring || set -q status_generation || string match -qnv "3.1.*" "$version"
 or echo -en "\eP@kitty-print|V2FybmluZzogVXBkYXRlIGZpc2ggdG8gdmVyc2lvbiAzLjMuMCsgdG8gZW5hYmxlIGtpdHR5IHNoZWxsIGludGVncmF0aW9uLgo=\e\\" && exit 0 || exit 0
@@ -72,28 +72,13 @@ function __ksi_schedule --on-event fish_prompt -d "Setup kitty integration after
     # Enable prompt marking with OSC 133
     if not contains "no-prompt-mark" $_ksi
         and not set -q __ksi_prompt_state
-        function __ksi_mark_prompt_start --on-event fish_prompt
-            contains "$__ksi_prompt_state" post-exec pre-exec ""
+        function __ksi_mark_prompt_start --on-event fish_prompt --on-event fish_cancel --on-event fish_posterror
+            test "$__ksi_prompt_state" != prompt-start
             and echo -en "\e]133;D\a"
             set --global __ksi_prompt_state prompt-start
             echo -en "\e]133;A\a"
         end
         __ksi_mark_prompt_start
-
-        functions -c fish_prompt __ksi_original_fish_prompt
-        function fish_prompt
-            # fish trims one trailing newline from the output of fish_prompt, so
-            # we need to do the same. See https://github.com/kovidgoyal/kitty/issues/4032
-            # op is a list because fish splits on newlines in command substitution
-            set --local op (__ksi_original_fish_prompt)
-            # print all but last element of the list, each followed by a new line
-            set -q op[2]
-            and printf '%s\n' $op[1..-2]
-            # print the last component without a newline
-            printf '%s' $op[-1]
-            set --global __ksi_prompt_state prompt-end
-            echo -en "\e]133;B\a"
-        end
 
         function __ksi_mark_output_start --on-event fish_preexec
             set --global __ksi_prompt_state pre-exec
@@ -108,5 +93,17 @@ function __ksi_schedule --on-event fish_prompt -d "Setup kitty integration after
         # With prompt marking, kitty clears the current prompt on resize,
         # so we need fish to redraw it.
         set --global fish_handle_reflow 1
+    end
+
+    # Enable CWD reporting
+    if not contains "no-cwd" $_ksi
+        # This function name is from fish and will override the builtin one, which is enabled by default for kitty in fish 3.5.0+.
+        # We provide this to ensure that fish 3.2.0 and above will work.
+        # https://github.com/fish-shell/fish-shell/blob/3.2.0/share/functions/__fish_config_interactive.fish#L275
+        function __update_cwd_osc --on-variable PWD -d "Report PWD changes to kitty"
+            status is-command-substitution
+            or echo -en "\e]7;kitty-shell-cwd://$hostname$PWD\a"
+        end
+        __update_cwd_osc
     end
 end

@@ -1,5 +1,19 @@
 #!/usr/bin/env fish
 
+# Tell vagrant where the Vagrantfile is
+set -gx VAGRANT_CWD ~/dotfiles/macOS
+
+# ssh to vagrant automatically
+if nc -z 127.0.0.1 2222 &>/dev/null
+    command kitty +kitten ssh -p 2222 \
+        -o UserKnownHostsFile=/dev/null \
+        -o StrictHostKeyChecking=no \
+        -o LogLevel=ERROR \
+        -o IdentitiesOnly=yes \
+        -i ~/dotfiles/macOS/.vagrant/machines/default/virtualbox/private_key \
+        vagrant@127.0.0.1
+end
+
 # `10.252.13.240` is a DNS server, if this stops working, check for
 # a new one in hieradata/common.yaml::dns_servers
 set -l COMPANY_NAME (
@@ -9,20 +23,6 @@ set -gx COMPANY_NAME_LOWER (echo $COMPANY_NAME | tr A-Z a-z)
 set -gx COMPANY_NAME_UPPER (echo $COMPANY_NAME | tr a-z A-Z)
 set -gx COMPANY_NAME_CAPITALIZE (echo $COMPANY_NAME | sed 's/[^ ]*/\u&/g')
 set -gx COMPANY_DOMAIN "$COMPANY_NAME_LOWER.com"
-
-# Tell vagrant where the Vagrantfile is
-set -gx VAGRANT_CWD ~/dotfiles/macOS
-
-# ssh to vagrant automatically
-if nc -z 127.0.0.1 2222 &>/dev/null
-    command ssh -p 2222 \
-        -o UserKnownHostsFile=/dev/null \
-        -o StrictHostKeyChecking=no \
-        -o LogLevel=ERROR \
-        -o IdentitiesOnly=yes \
-        -i ~/dotfiles/macOS/.vagrant/machines/default/virtualbox/private_key \
-        vagrant@127.0.0.1
-end
 
 # Common aliases
 alias ..    'cd ..'
@@ -111,11 +111,6 @@ set fish_greeting
 set --global KITTY_SHELL_INTEGRATION enabled
 source ~/.config/fish/kitty/shell-integration/fish/vendor_conf.d/kitty-shell-integration.fish
 set --prepend fish_complete_path ~/.config/fish/kitty/shell-integration/fish/vendor_completions.d
-
-# Auto jump to nvim's current working directory
-if test -f ~/.cache/nvim/cwd
-    cd (cat ~/.cache/nvim/cwd)
-end
 
 if type -q direnv
     direnv hook fish | source
