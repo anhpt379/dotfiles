@@ -22,9 +22,9 @@
   showUntrackedFiles = all
 
 [pager]
-  log  = diff-so-fancy | nvimpager -p
+  diff = less --tabs=4
+  log  = less --tabs=4
   show = diff-so-fancy | nvimpager -p
-  diff = diff-so-fancy | nvimpager -p
 
 [interactive]
   diffFilter = (echo && diff-so-fancy)
