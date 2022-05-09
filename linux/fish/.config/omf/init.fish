@@ -57,8 +57,8 @@ balias view 'nvimpager -p'
 
 balias pwl 'nvim ~/.config/nvim/dictionaries/personal_word_list.txt'
 
-balias docker         'sudo docker'
-balias docker-compose 'sudo docker-compose'
+balias docker         'sudo -E docker'
+balias docker-compose 'sudo -E docker-compose'
 
 balias k   'kubectl'
 balias kd  'kubectl describe'
