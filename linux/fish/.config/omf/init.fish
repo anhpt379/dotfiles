@@ -143,7 +143,7 @@ set -gx NEXTWORD_DATA_PATH $HOME/.config/nvim/dictionaries/nextword-data
 set -gx EDITOR 'nvim'
 set -gx KUBE_EDITOR 'vim'
 
-set -gx MANPAGER  "nvimpager -p"
+set -gx MANPAGER  "less"
 set -gx PAGER     "nvimpager -p"
 
 # Fix trackpad scrolling doesn't work in diff-so-fancy
