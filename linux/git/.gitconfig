@@ -12,7 +12,7 @@
 [alias]
   amend = commit --amend
   merged = branch --merged
-  pushf = push --force-with-lease
+  pushf = push --force
   undo = reset --soft HEAD^
   prune = fetch --prune
   stash-all = stash save --include-untracked
