@@ -51,7 +51,7 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
             --relative \
             ~/.ssh/files/./.{bashrc,inputrc,vimrc,less,terminfo,local/bin/pbcopy,local/bin/pbpaste} "$argv[1]":/tmp/panh/ 2>/dev/null
 
-        command kitty +kitten ssh $argv -t HOME=/tmp/panh bash
+        command kitty +kitten ssh $argv -t HOME=/tmp/panh bash || command ssh $argv -t HOME=/tmp/panh bash
 
     else
         # Sync dotfiles & binary files to remote
@@ -70,7 +70,7 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
             nohup ~/.config/fish/functions/rsync_dotfiles.sh $argv >~/.cache/rsync/$argv[1].log &
         end
 
-        command kitty +kitten ssh $argv
+        command kitty +kitten ssh $argv || command ssh $argv
     end
 
 end
