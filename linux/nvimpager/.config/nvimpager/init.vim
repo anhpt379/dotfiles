@@ -6,6 +6,7 @@ set incsearch
 set ignorecase
 set smartcase
 
+set nomodeline
 set noswapfile
 
 set wrap
