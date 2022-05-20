@@ -116,12 +116,12 @@
       ]
     },
     {
-      "description": "Browser - Switch tabs with COMMAND+N/P",
+      "description": "Browser - Move tab left/right with COMMAND+[/]",
       "manipulators": [
         {
           "type": "basic",
           "from": {
-            "key_code": "n",
+            "key_code": "close_bracket",
             "modifiers": {
               "mandatory": [
                 "left_command"
@@ -130,10 +130,20 @@
           },
           "to": [
             {
-              "key_code": "tab",
+              "key_code": "up_arrow",
               "modifiers": [
-                "left_control"
+                "command",
+                "option"
               ]
+            },
+            {
+              "key_code": "right_arrow",
+              "modifiers": [
+                "command"
+              ]
+            },
+            {
+              "key_code": "escape"
             }
           ],
           "conditions": [
@@ -151,7 +161,7 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "p",
+            "key_code": "open_bracket",
             "modifiers": {
               "mandatory": [
                 "left_command"
@@ -160,11 +170,20 @@
           },
           "to": [
             {
-              "key_code": "tab",
+              "key_code": "up_arrow",
               "modifiers": [
-                "left_control",
-                "left_shift"
+                "command",
+                "option"
               ]
+            },
+            {
+              "key_code": "left_arrow",
+              "modifiers": [
+                "command"
+              ]
+            },
+            {
+              "key_code": "escape"
             }
           ],
           "conditions": [
