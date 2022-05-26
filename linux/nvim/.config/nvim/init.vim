@@ -1456,3 +1456,8 @@ require('gitsigns').setup({
 require("nvim-gps").setup()
 EOF
 endif
+
+" Run :Neoformat automatically on *.pp file save
+augroup puppet
+  autocmd FileType puppet autocmd BufWritePre <buffer> :Neoformat
+augroup end
