@@ -43,9 +43,7 @@ for match in matches:
 
     replacements = " / ".join([i["value"] for i in match["replacements"]])
     if replacements:
-        match[
-            "message"
-        ] = f"\"{word}\" -> \"{replacements}\"\n{match['message']}"
+        match["message"] = f"\"{word}\" -> \"{replacements}\"\n{match['message']}"
 
     if type == "misspelling" and not replacements:
         continue
