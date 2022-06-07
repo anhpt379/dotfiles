@@ -1,5 +1,20 @@
 " A minimal .vimrc file
 
+" Run puppet-lint automatically on *.pp file save
+function! PuppetLintFix()
+  let temp_file = tempname()
+  execute 'w ' . temp_file
+  execute '%!puppet-lint --fix ' . temp_file . ' &>/dev/null; cat ' . temp_file
+  call delete(temp_file)
+endfunction
+
+augroup puppet-lint
+  autocmd FileType puppet autocmd BufWritePre <buffer>
+    \ let cursor = getpos(".") |
+    \ silent! call PuppetLintFix() |
+    \ call setpos(".", cursor)
+augroup end
+
 map q :q!<CR>
 map Q :q!<CR>
 map gw :update<CR>

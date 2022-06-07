@@ -1457,7 +1457,17 @@ require("nvim-gps").setup()
 EOF
 endif
 
-" Run :Neoformat automatically on *.pp file save
-augroup puppet
-  autocmd FileType puppet autocmd BufWritePre <buffer> :Neoformat
+" Run puppet-lint automatically on *.pp file save
+function! PuppetLintFix()
+  let temp_file = tempname()
+  execute 'w ' . temp_file
+  execute '%!puppet-lint --fix ' . temp_file . ' &>/dev/null; cat ' . temp_file
+  call delete(temp_file)
+endfunction
+
+augroup puppet-lint
+  autocmd FileType puppet autocmd BufWritePre <buffer>
+    \ let cursor = getpos(".") |
+    \ silent! call PuppetLintFix() |
+    \ call setpos(".", cursor)
 augroup end
