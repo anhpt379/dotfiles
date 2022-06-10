@@ -24,7 +24,7 @@
 [pager]
   diff = less --tabs=4
   log  = less --tabs=4
-  show = diff-so-fancy | nvimpager -p
+  show = diff-so-fancy | less --tabs=4
 
 [interactive]
   diffFilter = (echo && diff-so-fancy)
