@@ -22,7 +22,7 @@
   showUntrackedFiles = all
 
 [pager]
-  diff = less --tabs=4
+  diff = diff-so-fancy | less --tabs=4
   log  = less --tabs=4
   show = diff-so-fancy | less --tabs=4
 
