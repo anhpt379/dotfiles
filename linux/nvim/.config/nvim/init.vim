@@ -468,7 +468,7 @@ noremap <Leader>b :FzfBLines<CR>
 noremap gs :tab Git<CR>gg4j
 noremap gl :FzfCommits<CR>
 noremap gL :FzfBCommits<CR>
-noremap <expr> gw &modified ? ':silent! Gwrite<CR>:update<CR>' : ''
+noremap <expr> gw &modified ? ':silent! Gwrite<CR>:w<CR>' : ''
 
 command! Gundo               silent! G undo
 command! Gstash              silent! G stash
