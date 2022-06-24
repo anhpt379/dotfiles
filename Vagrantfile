@@ -1,0 +1,22 @@
+Vagrant.configure("2") do |config|
+  config.vm.box = "bento/fedora-34"
+
+  # config.vm.synced_folder "../", "/home/vagrant/dotfiles/"
+  # config.vm.synced_folder "../../Downloads", "/home/vagrant/Downloads/"
+  # config.vm.synced_folder "../../Desktop", "/home/vagrant/Desktop/"
+  # config.vm.synced_folder "../../Music", "/home/vagrant/Music/"
+
+  # config.vm.provision "file", source: "~/.ssh/id_ed25519", destination: "/home/vagrant/.ssh/id_ed25519"
+  # config.vm.provision "file", source: "~/.ssh/conf.d/work.conf", destination: "/home/vagrant/.ssh/conf.d/work.conf"
+  # config.vm.provision "shell", path: "../linux/bootstrap.sh", privileged: false
+
+  # config.vm.network :forwarded_port, host: 3000, guest: 3000
+
+  config.vm.disk :disk, size: "10GB", primary: true
+
+  config.vm.provider "vmware_desktop" do |v|
+    # v.name = "dev"
+    v.memory = 4096
+    v.cpus = 4
+  end
+end
