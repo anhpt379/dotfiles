@@ -36,6 +36,10 @@ nmap I <nop>
 
 map  q :<C-u>qa!<CR>
 
+" Make mouse scrolling smoother, by scroll one line at a time
+map <ScrollWheelUp> <C-Y>
+map <ScrollWheelDown> <C-E>
+
 " F to reread the file, partially similar to less +F
 nmap F :e<CR>
 
