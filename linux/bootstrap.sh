@@ -1,7 +1,7 @@
 #!/bin/bash
 
 sudo dnf install -y \
-  stow git fzf jq fd-find ripgrep bat exa direnv \
+  stow git fzf jq fd-find ripgrep exa direnv \
   nmap-ncat ipython python3-virtualenv bind-utils git-subtree \
   cargo npm telnet atop corkscrew \
   grc gron pwgen tldr youtube-dl \
@@ -10,7 +10,6 @@ sudo dnf install -y \
 sudo dnf upgrade -y less
 sudo dnf group install -y "C Development Tools and Libraries"
 
-stow --dir=dotfiles/linux/ --target=/home/vagrant/ bat
 stow --dir=dotfiles/linux/ --target=/home/vagrant/ curl
 stow --dir=dotfiles/linux/ --target=/home/vagrant/ docker
 stow --dir=dotfiles/linux/ --target=/home/vagrant/ fish

@@ -11,7 +11,7 @@ docker-compose run atop cp /usr/bin/atop /out/
 
 # rust apps
 docker-compose build cargo
-docker-compose run cargo cp /usr/local/cargo/bin/{bat,exa,xh} /out/
+docker-compose run cargo cp /usr/local/cargo/bin/{exa,xh} /out/
 
 # nvim
 wget https://github.com/neovim/neovim/releases/download/v0.7.0/nvim.appimage

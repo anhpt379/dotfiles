@@ -20,7 +20,7 @@ else
     filename=$(basename "$path")
     cd "$dirname" && exa -lha --color=always "$filename"
   else
-    # preview file contents with `bat`
-    bat --color=always --line-range=:300 "$path"
+    # preview file contents with `nvimpager`
+    head -300 "$path" | nvimpager -c
   fi
 fi

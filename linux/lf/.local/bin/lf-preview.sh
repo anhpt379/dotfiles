@@ -4,5 +4,5 @@ if file -bL --mime "$@" | grep -q 'charset=binary'; then
   filename=$(basename "$1")
   cd "$dirname" && exa -lha --color=always "$filename"
 else
-  bat --color=always --line-range=:300 "$@"
+  head -300 "$1" | nvimpager -c
 fi

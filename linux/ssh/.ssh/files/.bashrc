@@ -82,7 +82,7 @@ alias log='sudo journalctl -e -u'
 alias pp='command sudo HOME=/root TERMINFO=/home/panh/.terminfo puppet agent -t'
 alias ppa='command sudo HOME=/root TERMINFO=/home/panh/.terminfo puppet agent -t --environment=panh'
 alias ppl='less +G /var/log/puppet/puppetagent.log'
-alias ppc='bat --theme ansi --language gitconfig /etc/puppetlabs/puppet/puppet.conf'
+alias ppc='cat /etc/puppetlabs/puppet/puppet.conf'
 
 alias cmd='command'
 
