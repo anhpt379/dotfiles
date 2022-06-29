@@ -483,15 +483,15 @@ command! Gcherrypickabort    silent! G cherry-pick --abort
 let g:dispatch_no_maps = 1
 map m vgl
 
-nmap g[ :Dispatch! noti 'git pull --rebase origin master'<CR>
+nmap g[ :Dispatch! noti 'git pull --rebase origin $(git branch \| grep -o -m1 "\b\(master\\|main\)\b")'<CR>
 nmap g] :Dispatch! noti 'git push --force origin HEAD'<CR>:silent exec '!git rev-parse --short HEAD \| tr -d "\n" \| pbcopy'<CR>
-nmap M  :Dispatch! noti 'git checkout master && git pull --rebase origin master'<CR>
+nmap M  :Dispatch! noti 'git checkout $(git branch \| grep -o -m1 "\b\(master\\|main\)\b") && git pull --rebase origin $(git branch \| grep -o -m1 "\b\(master\\|main\)\b")'<CR>
 
 augroup fugitive-personal-key-mappings
   autocmd FileType fugitive nmap <buffer> p :bd!<CR>
         \ :Dispatch! noti 'git push origin HEAD --force'<CR>
         \ :silent exec '!git rev-parse --short HEAD \| tr -d "\n" \| pbcopy'<CR>
-  autocmd FileType fugitive nmap <buffer> P :Dispatch! noti 'git pull --rebase origin master'<CR>
+  autocmd FileType fugitive nmap <buffer> P :Dispatch! noti 'git pull --rebase origin $(git branch \| grep -o -m1 "\b\(master\\|main\)\b")'<CR>
   autocmd FileType fugitive nmap <buffer> m
         \ :!if git branch -a \| grep remotes/ \| grep -q /$(git branch --show-current)$; test $? -eq 1; then
         \     git push --force origin HEAD;
