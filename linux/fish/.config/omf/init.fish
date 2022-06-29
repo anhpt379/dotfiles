@@ -31,7 +31,7 @@ function reset -d "git fetch reset"
     git reset --hard $argv
 end
 balias rebase   'git rebase'
-balias master   'git checkout master; git diff-index --quiet HEAD && git pull --rebase origin master'
+balias master   'git checkout (git branch | grep -o -m1 "\b\(master\|main\)\b"); git diff-index --quiet HEAD && git pull --rebase origin (git branch | grep -o -m1 "\b\(master\|main\)\b")'
 balias gadd     'git add'
 balias gpush    'git push'
 balias gpull    'git pull'
