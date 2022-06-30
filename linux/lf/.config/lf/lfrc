@@ -13,7 +13,7 @@ set ignorecase off
 
 set promptfmt "\033[34;1m%w/\033[0m\033[1m%f\033[0m"
 
-set previewer ~/.local/bin/lf-preview.sh
+set previewer ~/.local/bin/fzf-preview.sh
 
 set hiddenfiles ".git"
 
