@@ -49,7 +49,7 @@ balias gclone   'git clone'
 balias gremote  'git remote'
 balias gbranch  'git branch'
 
-balias cat  'nvimpager -c'
+balias cat  'less'
 balias ping 'prettyping --nolegend'
 balias ncdu 'ncdu -rr -x --exclude .git'
 balias fd   'fd --hidden --exclude=".git"'
