@@ -1,3 +1,25 @@
+set runtimepath+=~/.config/nvim/
+
+call plug#begin()
+  " Syntax highlighting
+  Plug 'gisphm/vim-gitignore'
+  Plug 'chr4/nginx.vim'
+  Plug 'glench/vim-jinja2-syntax'
+  Plug 'ekalinin/Dockerfile.vim'
+  Plug 'rodjek/vim-puppet'
+  Plug 'pearofducks/ansible-vim'
+  Plug 'mechatroner/rainbow_csv'
+  Plug 'ericpruitt/tmux.vim'
+  Plug 'georgewitteman/vim-fish'
+  Plug 'CH-DanReif/haproxy.vim'
+  Plug 'towolf/vim-helm'
+  Plug 'MTDL9/vim-log-highlighting'
+  Plug 'wgwoods/vim-systemd-syntax'
+  Plug 'raimon49/requirements.txt.vim'
+  Plug 'hashivim/vim-terraform'
+  Plug 'VebbNix/lf-vim'
+call plug#end()
+
 colorscheme aodark
 
 set clipboard+=unnamedplus
