@@ -114,7 +114,7 @@ function less
         end
     end
 
-    nvimpager -p $argv
+    nvimpager -a $argv
 end
 
 alias urldecode 'python3 -c "\
