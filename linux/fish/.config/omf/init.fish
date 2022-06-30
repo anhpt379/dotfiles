@@ -92,6 +92,11 @@ function update
 end
 
 function less
+    if [ ! -t 1 ]
+        command less $argv
+        return
+    end
+
     if [ (count $argv) -ge 1 ]
         set -f file $argv[-1]
 
