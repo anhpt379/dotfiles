@@ -20,7 +20,16 @@ else
     filename=$(basename "$path")
     cd "$dirname" && exa -lha --color=always "$filename"
   else
-    # preview file contents with `nvimpager`
-    nvimpager -c "$path"
+    # since nvimpager is slow for large files, but I like its highlighting, so
+    # let's use nvimpager only in case we think it might be possible for the
+    # highlighting to work (which means the file has an extension, and that
+    # extension is not `.txt`)
+    if echo "$path" | grep -q '\.txt$'; then
+      command cat "$path"
+    elif basename "$path" | grep -qF '.'; then
+      nvimpager -c "$path"
+    else
+      command cat "$path"
+    fi
   fi
 fi
