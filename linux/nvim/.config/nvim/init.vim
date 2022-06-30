@@ -25,7 +25,7 @@ call plug#begin()
   Plug 'pearofducks/ansible-vim'
   Plug 'mechatroner/rainbow_csv'
   Plug 'ericpruitt/tmux.vim'
-  Plug 'georgewitteman/vim-fish'
+  Plug 'khaveesh/vim-fish-syntax'
   Plug 'CH-DanReif/haproxy.vim'
   Plug 'towolf/vim-helm'
   Plug 'MTDL9/vim-log-highlighting'
