@@ -21,6 +21,6 @@ else
     cd "$dirname" && exa -lha --color=always "$filename"
   else
     # preview file contents with `nvimpager`
-    head -300 "$path" | nvimpager -c
+    nvimpager -c "$path"
   fi
 fi

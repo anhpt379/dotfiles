@@ -173,7 +173,7 @@ bind \cr 'fzf_history'
 set -gx SHELL '/bin/bash'
 
 set -gx FZF_DEFAULT_COMMAND 'fd --hidden --type f --color=never --exclude ".git" -E "*.jp*g" -E "*.png"'
-set -gx FZF_DEFAULT_PREVIEW_COMMAND '~/.local/bin/fzf-preview.sh {}'
+set -gx FZF_PREVIEW_COMMAND '~/.local/bin/fzf-preview.sh {}'
 set -gx FZF_DEFAULT_OPTS    '
   --pointer=" " --prompt="> "
   --color=fg:#DCDFE4,bg:-1,hl:#DCDFE4

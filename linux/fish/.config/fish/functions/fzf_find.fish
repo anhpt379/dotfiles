@@ -24,7 +24,7 @@ function fzf_find -d "Find files and folders"
                     --bind=tab:accept \
                     --expect=enter \
                     --header="(Press TAB to accept, ENTER to accept and run)" \
-                    --preview="$FZF_DEFAULT_PREVIEW_COMMAND" \
+                    --preview="$FZF_PREVIEW_COMMAND" \
                     --query="$fzf_query" \
             )
         else if string match -q -- "j*" $command
@@ -38,7 +38,7 @@ function fzf_find -d "Find files and folders"
                     --bind=tab:accept \
                     --expect=enter \
                     --header="(Press TAB to accept, ENTER to accept and run)" \
-                    --preview="$FZF_DEFAULT_PREVIEW_COMMAND" \
+                    --preview="$FZF_PREVIEW_COMMAND" \
                     --query=(echo $command | sed 's/^j//' | xargs)
             )
         else
@@ -49,7 +49,7 @@ function fzf_find -d "Find files and folders"
                     --bind=tab:accept \
                     --expect=enter \
                     --header="(Press TAB to accept, ENTER to accept and run)" \
-                    --preview="$FZF_DEFAULT_PREVIEW_COMMAND" \
+                    --preview="$FZF_PREVIEW_COMMAND" \
                     --query="$fzf_query" \
             )
         end
