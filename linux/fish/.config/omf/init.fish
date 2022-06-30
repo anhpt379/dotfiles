@@ -103,6 +103,9 @@ function less
                 command less --line-numbers $argv
                 return
             end
+        else
+            echo "$file: No such file or directory"
+            return 1
         end
     end
 
