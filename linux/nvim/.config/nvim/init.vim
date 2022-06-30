@@ -32,6 +32,7 @@ call plug#begin()
   Plug 'raimon49/requirements.txt.vim'
   Plug 'hashivim/vim-terraform'
   Plug 'VebbNix/lf-vim'
+  Plug 'rhysd/vim-syntax-codeowners'
 
   " Fancy UI stuff
   Plug 'anhpt379/fzf'
