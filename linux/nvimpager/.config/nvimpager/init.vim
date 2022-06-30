@@ -3,7 +3,6 @@ call plug#begin()
   Plug 'gisphm/vim-gitignore'
   Plug 'chr4/nginx.vim'
   Plug 'glench/vim-jinja2-syntax'
-  Plug 'ekalinin/Dockerfile.vim'
   Plug 'rodjek/vim-puppet'
   Plug 'pearofducks/ansible-vim'
   Plug 'mechatroner/rainbow_csv'
