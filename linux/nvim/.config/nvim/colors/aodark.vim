@@ -213,6 +213,10 @@ highlight link CocWarningSign CocWarningHighlight
 highlight CleverFDefaultLabel guifg=#ffb300 gui=bold,underline ctermfg=11 ctermbg=235 cterm=bold,underline
 highlight CleverFDirect       guifg=#ffb300 gui=bold           ctermfg=11 ctermbg=235 cterm=bold
 
+" CtrlSF
+highlight link ctrlsfMatch Search
+highlight link ctrlsfLnumMatch LineNr
+
 " nvim-cmp
 highlight CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#808080
 highlight CmpItemAbbrMatch guibg=NONE guifg=#ffb300
