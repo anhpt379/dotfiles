@@ -651,6 +651,9 @@ let g:lexima_map_escape = ''
 " Sandwich
 runtime macros/sandwich/keymap/surround.vim
 xmap a <Plug>(operator-sandwich-add)
+nmap yq ysiw'
+nmap cq <Plug>(sandwich-replace-auto)
+nmap dq <Plug>(sandwich-delete-auto)
 
 " Close buffer with a single keypress
 function! Goodbye()
