@@ -76,6 +76,9 @@ call plug#begin()
   Plug 'matze/vim-move'
   Plug 'tyru/open-browser.vim'
 
+  " Improve performance
+  Plug 'lewis6991/impatient.nvim'
+
   " Heavily loaded plugins
   if $USER ==# 'vagrant'
     Plug 'dstein64/vim-startuptime'
@@ -136,6 +139,7 @@ call plug#begin()
 
 call plug#end()
 
+lua require('impatient')
 
 " Vim-startuptime
 let g:startuptime_self = 1
