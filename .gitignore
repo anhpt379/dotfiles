@@ -3,7 +3,7 @@
 .vagrant
 linux/fish/.config/fish/fish_variables
 linux/nvim/.config/nvim/autoload/plug.vim*
-linux/nvim/.config/nvim/dictionaries/nextword-data
+linux/nvim/.config/nvim/dictionaries/mocword.sqlite
 linux/nvim/.config/nvim/undo/*
 linux/ssh/.ssh/conf.d
 linux/ssh/.ssh/id_ed25519

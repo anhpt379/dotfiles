@@ -96,6 +96,9 @@ cargo install xh
 # grc-rs
 cargo install grc-rs
 
+# mocword
+cargo install mocword
+
 # fx
 sudo npm install -g fx
 

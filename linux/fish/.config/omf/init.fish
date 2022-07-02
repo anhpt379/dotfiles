@@ -145,8 +145,8 @@ set -gx GOPATH $HOME/.go
 set -gx PATH $HOME/.go/bin $PATH
 set -gx PATH $HOME/.cargo/bin $PATH
 
-# https://github.com/high-moctane/nextword-data
-set -gx NEXTWORD_DATA_PATH $HOME/.config/nvim/dictionaries/nextword-data
+# https://github.com/high-moctane/mocword
+set -gx MOCWORD_DATA $HOME/.config/nvim/dictionaries/mocword.sqlite
 
 set -gx EDITOR 'nvim'
 set -gx KUBE_EDITOR 'vim'

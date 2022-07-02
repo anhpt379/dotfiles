@@ -100,6 +100,7 @@ call plug#begin()
     Plug 'hrsh7th/cmp-path'
     Plug 'hrsh7th/cmp-cmdline'
     Plug 'lukas-reineke/cmp-rg'
+    Plug 'yutkat/cmp-mocword' | Plug 'anhpt379/plenary.nvim'
     Plug 'jose-elias-alvarez/null-ls.nvim' | Plug 'anhpt379/plenary.nvim'
     Plug 'ray-x/cmp-treesitter'
     Plug 'ray-x/lsp_signature.nvim'
@@ -1316,10 +1317,11 @@ cmp.setup({
   },
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
+    { name = 'mocword' },
     {
       name = 'rg',
       option = {
-        cwd = "/home/vagrant/.config/nvim/dictionaries/",
+        cwd = "/home/vagrant/.config/nvim/dictionaries/hacker_news/",
         debounce = 200,
         context_before = 0,
         context_after = 0,
