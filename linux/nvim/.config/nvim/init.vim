@@ -77,6 +77,7 @@ call plug#begin()
   Plug 'tyru/open-browser.vim'
 
   " Improve performance
+  Plug 'antoinemadec/FixCursorHold.nvim'
   Plug 'lewis6991/impatient.nvim'
 
   " Heavily loaded plugins
@@ -433,6 +434,9 @@ imap <silent> <C-p> <Esc><C-p>
 " No transparent auto-completion popup
 set pumblend=0
 set winblend=0
+
+" FixCursorHold.nvim
+let g:cursorhold_updatetime = 100
 
 " Bclose
 let g:bclose_no_plugin_maps = v:true
