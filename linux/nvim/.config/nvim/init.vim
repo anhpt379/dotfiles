@@ -54,7 +54,7 @@ call plug#begin()
   Plug 'machakann/vim-sandwich'
   Plug 'tpope/vim-commentary'
   Plug 'ntpeters/vim-better-whitespace'
-  Plug 'farmergreg/vim-lastplace'
+  Plug 'ethanholz/nvim-lastplace'
   Plug 'paretje/suda.vim'
   Plug 'tpope/vim-eunuch'
   Plug 'anhpt379/vim-unimpaired'
@@ -1488,6 +1488,12 @@ require('gitsigns').setup({
 })
 
 require("nvim-gps").setup()
+
+require'nvim-lastplace'.setup {
+  lastplace_ignore_buftype = {"quickfix", "nofile", "help"},
+  lastplace_ignore_filetype = {"gitcommit", "gitrebase", "svn", "hgcommit"},
+  lastplace_open_folds = true
+}
 EOF
 endif
 
