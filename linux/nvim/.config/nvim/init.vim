@@ -73,6 +73,7 @@ call plug#begin()
   Plug 'junegunn/vim-after-object'
   Plug 'jeetsukumaran/vim-indentwise'
   Plug 'anhpt379/ctrlsf.vim'
+  Plug 'matze/vim-move'
   Plug 'tyru/open-browser.vim'
 
   " Improve performance
@@ -1081,6 +1082,15 @@ function! FCSHandler(name)
   echon msg
   echohl None
 endfunction
+
+" Vim-move
+let g:move_map_keys = 0
+let g:move_auto_indent = 1
+let g:move_past_end_of_line = 0
+vmap [e <Plug>MoveBlockUp
+vmap ]e <Plug>MoveBlockDown
+vmap [c <Plug>MoveBlockLeft
+vmap ]c <Plug>MoveBlockRight
 
 " Tree-sitter based folding
 set foldmethod=expr
