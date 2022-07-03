@@ -9,7 +9,7 @@ nvim='
     -c "nmap C /^commit\\\|^added:\\\|^deleted:\\\|^modified:<CR>" \
     -c "nmap A ?Applied catalog in .* seconds<CR>" \
     -c "nmap <CR> :nohlsearch<CR> | nmap <ESC> :nohlsearch<CR>" \
-    -c "nmap H zH | nmap L zL | nmap h zh | nmap l zl" \
+    -c "nmap H zh | nmap L zl" \
     -c "nmap a <nop> | nmap i <nop>" \
 '
 extra_args=''
