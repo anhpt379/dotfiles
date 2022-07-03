@@ -73,7 +73,6 @@ call plug#begin()
   Plug 'junegunn/vim-after-object'
   Plug 'jeetsukumaran/vim-indentwise'
   Plug 'anhpt379/ctrlsf.vim'
-  Plug 'matze/vim-move'
   Plug 'tyru/open-browser.vim'
 
   " Improve performance
@@ -582,12 +581,6 @@ set sidescrolloff=7
 " Copy path to clipboard
 command! CopyPath :call system('pbcopy', fnamemodify(expand("%"), ":~:."))
 
-" Insert mode navigational keys
-inoremap <C-k> <Up>
-inoremap <C-j> <Down>
-inoremap <C-h> <Left>
-inoremap <C-l> <Right>
-
 " Split line (sister to [J]oin lines)
 " The normal use of S is covered by cc, so don't worry about shadowing
 nnoremap S i<CR><ESC>:StripWhitespace<CR>
@@ -1089,27 +1082,16 @@ function! FCSHandler(name)
   echohl None
 endfunction
 
-" Vim-move
-" Moving text left/down/up//right faster with <C-hjkl>
-" (<C-hkjk> is Home/PageDown/PageUp/End due to mappings in Karabiner)
-let g:move_map_keys = 0
-let g:move_auto_indent = 1
-let g:move_past_end_of_line = 0
-vmap <PageUp> <Plug>MoveBlockUp
-vmap <PageDown> <Plug>MoveBlockDown
-vmap <Home> <Plug>MoveBlockLeft
-vmap <End> <Plug>MoveBlockRight
-
 " Tree-sitter based folding
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
 
 " <C-hjkl> to jump 2 lines/chars at a time
 " Below we're using <PageUp/Down> <Home/End> due to the maps in Karabiner
-nmap <PageDown> 2j
-nmap <PageUp> 2k
-nmap <Home> 2h
-nmap <End> 2l
+map <PageDown> 2j
+map <PageUp> 2k
+map <Home> 2h
+map <End> 2l
 
 " Disable TreeSitterContext in Dockerfile (it's incompatible at the moment -
 " nvim shows treesitter context errors every time we move the cursor)
