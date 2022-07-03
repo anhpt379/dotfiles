@@ -73,7 +73,7 @@ call plug#begin()
   Plug 'junegunn/vim-after-object'
   Plug 'jeetsukumaran/vim-indentwise'
   Plug 'anhpt379/ctrlsf.vim'
-  Plug 'matze/vim-move'
+  Plug 'anhpt379/vim-move'
   Plug 'tyru/open-browser.vim'
 
   " Improve performance
