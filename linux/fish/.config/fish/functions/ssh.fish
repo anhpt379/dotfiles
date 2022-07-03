@@ -67,7 +67,7 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
                 ~/.ssh/files/./.{bashrc,inputrc,vimrc,less,terminfo,local/bin/pbcopy,local/bin/pbpaste} "$argv[1]":~/ 2>/dev/null
 
             mkdir -p ~/.cache/rsync
-            nohup ~/.config/fish/functions/rsync_dotfiles.sh $argv >~/.cache/rsync/$argv[1].log &
+            nohup ~/.config/fish/functions/rsync_dotfiles.sh $argv >~/.cache/rsync/$argv[1].log 2>/dev/null &
         end
 
         command kitty +kitten ssh $argv || command ssh $argv
