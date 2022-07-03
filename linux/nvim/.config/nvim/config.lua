@@ -1,29 +1,29 @@
 -- nvim-lsp-installer
-local lsp_installer = require("nvim-lsp-installer")
+local lsp_installer = require('nvim-lsp-installer')
 
 local servers = {
-  "bashls",
-  "cmake",
-  "cssls",
-  "dockerls",
-  "html",
-  "jedi_language_server",
-  "ansiblels",
-  "jsonls",
-  "puppet",
-  "rust_analyzer",
-  "sumneko_lua",
-  "terraformls",
-  "solargraph",
-  "tflint",
-  "vimls",
-  "yamlls",
+  'bashls',
+  'cmake',
+  'cssls',
+  'dockerls',
+  'html',
+  'jedi_language_server',
+  'ansiblels',
+  'jsonls',
+  'puppet',
+  'rust_analyzer',
+  'sumneko_lua',
+  'terraformls',
+  'solargraph',
+  'tflint',
+  'vimls',
+  'yamlls',
 }
 
 for _, name in pairs(servers) do
   local server_is_found, server = lsp_installer.get_server(name)
   if server_is_found and not server:is_installed() then
-    print("Installing " .. name)
+    print('Installing ' .. name)
     server:install()
   end
 end
@@ -31,15 +31,15 @@ end
 lsp_installer.settings({
   ui = {
     icons = {
-      server_installed = "✓",
-      server_pending = "➜",
-      server_uninstalled = "✗"
+      server_installed = '✓',
+      server_pending = '➜',
+      server_uninstalled = '✗'
     }
   }
 })
 
 -- nvim-lspconfig
-local nvim_lsp = require('lspconfig')
+require('lspconfig')
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -66,52 +66,52 @@ local on_attach = function(client, bufnr)
   local cfg = {
     floating_window = true,
     handler_opts = {
-        border = "single"
+      border = 'single'
     }
   }
-  require "lsp_signature".on_attach(cfg, bufnr)
-  require "lsp-status".on_attach(client)
+  require 'lsp_signature'.on_attach(cfg, bufnr)
+  require 'lsp-status'.on_attach(client)
 end
 
 -- nvim-cmp
 vim.o.pumheight = 15  -- nvim-cmp popup height
 
-local cmp = require'cmp'
+local cmp = require('cmp')
 
 local kind_icons = {
-  Text = " ",
-  Method = "",
-  Function = "",
-  Constructor = "",
-  Field = "ﰠ ",
-  Variable = " ",
-  Class = "ﴯ",
-  Interface = "",
-  Module = "",
-  Property = "ﰠ",
-  Unit = "",
-  Value = "",
-  Enum = "",
-  Keyword = "",
-  Snippet = "",
-  Color = "",
-  File = "",
-  Reference = " ",
-  Folder = "",
-  EnumMember = "",
-  Constant = "",
-  Struct = "פּ ",
-  Event = "",
-  Operator = "",
-  TypeParameter = ""
+  Text = ' ',
+  Method = '',
+  Function = '',
+  Constructor = '',
+  Field = 'ﰠ ',
+  Variable = ' ',
+  Class = 'ﴯ',
+  Interface = '',
+  Module = '',
+  Property = 'ﰠ',
+  Unit = '',
+  Value = '',
+  Enum = '',
+  Keyword = '',
+  Snippet = '',
+  Color = '',
+  File = '',
+  Reference = ' ',
+  Folder = '',
+  EnumMember = '',
+  Constant = '',
+  Struct = 'פּ ',
+  Event = '',
+  Operator = '',
+  TypeParameter = ''
 }
 
 cmp.setup({
   completion = { },
   formatting = {
-    fields = { "kind", "abbr" },
+    fields = { 'kind', 'abbr' },
     format = function(_, vim_item)
-      vim_item.kind = kind_icons[vim_item.kind] or ""
+      vim_item.kind = kind_icons[vim_item.kind] or ''
       return vim_item
     end,
   },
@@ -129,10 +129,10 @@ cmp.setup({
   snippet = {
     -- REQUIRED - you must specify a snippet engine
     expand = function(args)
-      -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+      -- vim.fn['vsnip#anonymous'](args.body) -- For `vsnip` users.
       -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
       -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
-      -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+      -- vim.fn['UltiSnips#Anon'](args.body) -- For `ultisnips` users.
     end,
   },
   mapping = {
@@ -155,7 +155,7 @@ cmp.setup({
     {
       name = 'rg',
       option = {
-        cwd = "/home/vagrant/.config/nvim/dictionaries/hacker_news/",
+        cwd = '/home/vagrant/.config/nvim/dictionaries/hacker_news/',
         debounce = 200,
         context_before = 0,
         context_after = 0,
@@ -233,7 +233,7 @@ local sources = {
   null_ls.builtins.diagnostics.stylelint,
   -- null_ls.builtins.diagnostics.textlint,
   -- null_ls.builtins.diagnostics.write_good,
-  null_ls.builtins.diagnostics.hadolint.with({ filetypes = { "Dockerfile", "dockerfile" } }),
+  null_ls.builtins.diagnostics.hadolint.with({ filetypes = { 'Dockerfile', 'dockerfile' } }),
 
   null_ls.builtins.formatting.eslint_d,
   null_ls.builtins.formatting.clang_format,
@@ -250,34 +250,34 @@ null_ls.setup({
   debug = true,
   log = {
     enable = true,
-    level = "debug",
-    use_console = "async",
+    level = 'debug',
+    use_console = 'async',
   },
   update_in_insert = false,
 })
 
-local helpers = require("null-ls.helpers")
+local helpers = require('null-ls.helpers')
 local languagetool = {
-  name = "languagetool",
+  name = 'languagetool',
   method = null_ls.methods.DIAGNOSTICS,
-  filetypes = { "markdown", "gitcommit" },
+  filetypes = { 'markdown', 'gitcommit' },
   generator = null_ls.generator({
-    command = "/home/vagrant/.config/nvim/bin/remote_languagetool.py",
-    args = { "-" },
+    command = '/home/vagrant/.config/nvim/bin/remote_languagetool.py',
+    args = { '-' },
     to_stdin = true,
     from_stderr = false,
     timeout = 20000,
-    format = "json",
+    format = 'json',
     check_exit_code = function(code)
       return code < 1
     end,
     on_output = helpers.diagnostics.from_json({
       attributes = {
-        row = "line",
-        col = "column",
-        code = "code",
-        severity = "level",
-        message = "message",
+        row = 'line',
+        col = 'column',
+        code = 'code',
+        severity = 'level',
+        message = 'message',
       }
     }),
   }),
@@ -286,9 +286,9 @@ local languagetool = {
 null_ls.register(languagetool)
 
 -- diagnostics
-local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+local signs = { Error = ' ', Warn = ' ', Hint = ' ', Info = ' ' }
 for type, icon in pairs(signs) do
-  local hl = "DiagnosticSign" .. type
+  local hl = 'DiagnosticSign' .. type
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
@@ -300,7 +300,7 @@ vim.diagnostic.config({
   severity_sort = false,
 })
 
-require("trouble").setup({
+require('trouble').setup({
   mode = 'document_diagnostics',
   height = 5,
   padding = false,
@@ -313,10 +313,10 @@ require("trouble").setup({
 vim.g.matchup_matchparen_deferred = 1
 
 -- Autoclose and autorename HTML tags using treesitter
-require'nvim-ts-autotag'.setup()
+require('nvim-ts-autotag').setup()
 
 -- Treesitter
-require'nvim-treesitter.configs'.setup{
+require('nvim-treesitter.configs').setup({
   highlight = {
     enable = true,
   },
@@ -326,26 +326,26 @@ require'nvim-treesitter.configs'.setup{
   context_commentstring = {
     enable = true
   },
-}
+})
 
 -- Treesitter context
-require'treesitter-context'.setup{
+require('treesitter-context').setup({
   enable = true,
   throttle = true,
   max_lines = 0,
   patterns = {
     default = {
-        'class',
-        'function',
-        'method',
-        'for',
-        'while',
-        'if',
-        'switch',
-        'case',
+      'class',
+      'function',
+      'method',
+      'for',
+      'while',
+      'if',
+      'switch',
+      'case',
     },
   }
-}
+})
 
 require('gitsigns').setup({
   current_line_blame = true,
@@ -362,10 +362,10 @@ require('gitsigns').setup({
 
 require'colorizer'.setup()
 
-require("nvim-gps").setup()
+require('nvim-gps').setup()
 
-require'nvim-lastplace'.setup {
-  lastplace_ignore_buftype = {"quickfix", "nofile", "help"},
-  lastplace_ignore_filetype = {"gitcommit", "gitrebase", "svn", "hgcommit"},
+require'nvim-lastplace'.setup({
+  lastplace_ignore_buftype = {'quickfix', 'nofile', 'help'},
+  lastplace_ignore_filetype = {'gitcommit', 'gitrebase', 'svn', 'hgcommit'},
   lastplace_open_folds = true
-}
+})
