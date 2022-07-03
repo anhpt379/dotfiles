@@ -610,11 +610,6 @@ vnoremap s "_s
 nnoremap x "_x
 nnoremap X "_X
 
-" Use [c ]c to swap chars instead of xp and Xp
-" This uses vim register a instead of the default one (system clipboard)
-nnoremap ]c v"ax"ap
-nnoremap [c hv"ax"aph
-
 " Disable <BS>/<Del> in NORMAL mode
 nnoremap <BS>  <nop>
 nnoremap <Del> <nop>
@@ -1091,6 +1086,10 @@ vmap [e <Plug>MoveBlockUp
 vmap ]e <Plug>MoveBlockDown
 vmap [c <Plug>MoveBlockLeft
 vmap ]c <Plug>MoveBlockRight
+nmap [e <Plug>MoveLineUp
+nmap ]e <Plug>MoveLineDown
+nmap [c <Plug>MoveCharLeft
+nmap ]c <Plug>MoveCharRight
 
 " Tree-sitter based folding
 set foldmethod=expr
