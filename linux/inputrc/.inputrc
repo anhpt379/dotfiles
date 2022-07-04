@@ -24,4 +24,5 @@
 "\C-d": "\C-u\C-d"
 
 # Autocomplete with a single <Tab> press
+TAB: menu-complete
 set show-all-if-ambiguous on
