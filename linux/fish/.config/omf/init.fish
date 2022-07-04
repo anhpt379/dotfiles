@@ -171,6 +171,7 @@ bind \cw backward-kill-word
 
 # Fzf
 bind --erase \co
+bind \t  'fzf_complete'
 bind \cf 'fzf_find'
 bind \cr 'fzf_history'
 # bind \t  '__fish_expand_globabbreviation || fzf_complete'

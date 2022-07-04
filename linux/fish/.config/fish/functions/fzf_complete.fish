@@ -10,7 +10,7 @@ function fzf_complete
         end \
         | sort | uniq \
         | string replace -r \t'(.*)$' \t(set_color $fish_pager_color_description)'$1'(set_color normal) \
-        | fzf --delimiter=\t --select-1 --exit-0 --ansi \
+        | fzf --delimiter=\t --select-1 --exit-0 --ansi +i \
               --bind=tab:accept \
               --expect=enter \
               --tiebreak=begin \
@@ -32,9 +32,9 @@ function fzf_complete
         commandline -f repaint
     else
         if string match -q -- "*/" $result
-            commandline -rt -- (string replace --all " " "\\ " $result)
+            commandline -rt -- (string replace --all " " "\\ " -- $result)
         else
-            commandline -rt -- (string replace --all " " "\\ " $result)" "
+            commandline -rt -- (string replace --all " " "\\ " -- $result)" "
         end
         commandline -f repaint
         if test "$key" = enter
