@@ -60,6 +60,9 @@ balias pwl 'nvim ~/.config/nvim/dictionaries/personal_word_list.txt'
 balias docker         'sudo -E docker'
 balias docker-compose 'sudo -E docker-compose'
 
+balias ansible          'TERM=xterm-256color command ansible'
+balias ansible-playbook 'TERM=xterm-256color command ansible-playbook'
+
 balias k   'kubectl'
 balias kd  'kubectl describe'
 balias kdf 'kubectl delete --force --grace-period=0'
