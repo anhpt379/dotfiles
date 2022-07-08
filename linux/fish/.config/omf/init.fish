@@ -204,6 +204,7 @@ set -gx FZF_DEFAULT_OPTS    '
   --bind=tab:accept,ctrl-j:ignore,ctrl-k:ignore
   --bind=change:first
   --bind=ctrl-f:preview-page-down,ctrl-b:preview-page-up
+  --bind=ctrl-h:backward-kill-word
 '
 
 # lf
