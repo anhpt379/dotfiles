@@ -5,7 +5,7 @@ sudo dnf install -y \
   nmap-ncat ipython python3-virtualenv bind-utils git-subtree \
   cargo npm telnet atop corkscrew \
   grc gron pwgen tldr youtube-dl \
-  python3-pip luarocks lua-devel ruby-devel golang \
+  python3-pip python3-devel luarocks lua-devel ruby-devel golang \
   man-pages @development-tools
 sudo dnf upgrade -y less
 sudo dnf group install -y "C Development Tools and Libraries"
@@ -54,6 +54,9 @@ nvim -c "TSUpdate" -c "qall"
 # neoformat
 sudo dnf install -y shfmt
 pip install black
+
+# yamlfmt
+pip install yamlfmt
 
 # python/ruby/node.js provider
 pip install neovim

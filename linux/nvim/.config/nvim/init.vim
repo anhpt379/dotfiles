@@ -65,7 +65,7 @@ call plug#begin()
   Plug 'tpope/vim-dispatch'
   Plug 'qxxxb/vim-searchhi'
   Plug 'inkarkat/vim-EnhancedJumps' | Plug 'inkarkat/vim-ingo-library'
-  Plug 'sbdchd/neoformat'
+  Plug 'anhpt379/neoformat'
   Plug 'tpope/vim-sleuth'
   Plug 'kana/vim-niceblock'
   Plug 'haya14busa/vim-asterisk'
