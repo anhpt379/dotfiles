@@ -58,6 +58,9 @@ pip install black
 # yamlfmt
 pip install yamlfmt
 
+# prettier
+sudo npm install -g --save-dev --save-exact prettier
+
 # python/ruby/node.js provider
 pip install neovim
 gem install --bindir ~/.local/bin/ neovim
