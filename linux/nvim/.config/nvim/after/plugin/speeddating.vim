@@ -13,6 +13,7 @@ let s:cycles = [
   \ ['true', 'false'],
   \ ['TRUE', 'FALSE'],
   \ ['True', 'False'],
+  \ ['enable', 'disable'],
   \ ['on', 'off'],
   \ ['ON', 'OFF'],
   \ ['On', 'Off'],
