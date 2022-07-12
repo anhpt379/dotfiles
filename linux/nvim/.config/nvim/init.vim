@@ -141,7 +141,9 @@ call plug#begin()
 
 call plug#end()
 
-lua require('impatient')
+if $USER ==# 'vagrant'
+  lua require('impatient')
+endif
 
 " Vim-startuptime
 let g:startuptime_self = 1
