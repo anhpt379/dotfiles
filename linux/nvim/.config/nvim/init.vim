@@ -1083,7 +1083,7 @@ endfunction
 
 " Vim-move
 let g:move_map_keys = 0
-let g:move_auto_indent = 1
+let g:move_auto_indent = 0
 let g:move_past_end_of_line = 0
 vmap [e <Plug>MoveBlockUp
 vmap ]e <Plug>MoveBlockDown
