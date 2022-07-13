@@ -888,7 +888,7 @@ map <C-i> <Plug>EnhancedJumpsLocalNewer
 let g:neoformat_basic_format_align = 1
 let g:neoformat_basic_format_retab = 1
 let g:neoformat_basic_format_trim  = 1
-let g:neoformat_enabled_yaml = ['yamlfmt']
+let g:neoformat_enabled_yaml = ['prettierd']
 
 command! FormatCode silent! Neoformat
 
@@ -1118,15 +1118,22 @@ endif
 
 " Run puppet-lint automatically on *.pp file save
 function! PuppetLintFix()
-  let temp_file = tempname()
-  execute 'w ' . temp_file
-  execute '%!puppet-lint --fix ' . temp_file . ' &>/dev/null; cat ' . temp_file
+  let temp_file = tempname() . '.pp'
+  execute 'noautocmd w ' . temp_file
+  execute '%!cd `git rev-parse --show-toplevel` && scripts/format-puppet.sh ' . temp_file . ' &>/dev/null; cat ' . temp_file
+  call delete(temp_file)
+endfunction
+
+function! YAMLLintFix()
+  let temp_file = tempname() . '.yaml'
+  execute 'noautocmd w ' . temp_file
+  execute '%!cd `git rev-parse --show-toplevel` && scripts/format-yaml.sh ' . temp_file . ' &>/dev/null; cat ' . temp_file
   call delete(temp_file)
 endfunction
 
 augroup puppet-lint
   autocmd FileType puppet autocmd BufWritePre <buffer>
-    \ let cursor = getpos(".") |
-    \ silent! call PuppetLintFix() |
-    \ call setpos(".", cursor)
+    \ let cursor = getpos(".") | silent! call PuppetLintFix() | call setpos(".", cursor)
+  autocmd FileType yaml autocmd BufWritePre <buffer>
+    \ let cursor = getpos(".") | silent! call YAMLLintFix() | call setpos(".", cursor)
 augroup end
