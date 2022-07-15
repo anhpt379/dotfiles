@@ -890,8 +890,6 @@ let g:neoformat_basic_format_retab = 1
 let g:neoformat_basic_format_trim  = 1
 let g:neoformat_enabled_yaml = ['prettierd']
 
-command! FormatCode silent! Neoformat
-
 " Vim parenmatch
 let g:loaded_matchparen = 1
 
@@ -1116,24 +1114,31 @@ if $USER ==# 'vagrant'
   luafile <sfile>:h/config.lua
 endif
 
-" Run puppet-lint automatically on *.pp file save
-function! PuppetLintFix()
-  let temp_file = tempname() . '.pp'
-  execute 'noautocmd w ' . temp_file
-  execute '%!cd `git rev-parse --show-toplevel` && scripts/format-puppet.sh ' . temp_file . ' &>/dev/null; cat ' . temp_file
+" Format code on file save
+function! FormatCode()
+  let script_file =
+        \ trim(system(['git', 'rev-parse', '--show-toplevel'])) .
+        \ '/scripts/format-' . &filetype . '.sh'
+  if v:shell_error != 0 || !filereadable(script_file)
+    return
+  endif
+
+  let cursor = getpos('.')
+
+  let temp_file = tempname()
+  execute 'silent noautocmd w ' . temp_file
+  let output = system([script_file, temp_file])
+  if v:shell_error == 0
+    execute 'silent %!cat ' . temp_file
+  else
+    echo output
+  endif
   call delete(temp_file)
+
+  call setpos('.', cursor)
 endfunction
 
-function! YAMLLintFix()
-  let temp_file = tempname() . '.yaml'
-  execute 'noautocmd w ' . temp_file
-  execute '%!cd `git rev-parse --show-toplevel` && scripts/format-yaml.sh ' . temp_file . ' &>/dev/null; cat ' . temp_file
-  call delete(temp_file)
-endfunction
-
-augroup puppet-lint
-  autocmd FileType puppet autocmd BufWritePre <buffer>
-    \ let cursor = getpos(".") | silent! call PuppetLintFix() | call setpos(".", cursor)
-  autocmd FileType yaml autocmd BufWritePre <buffer>
-    \ let cursor = getpos(".") | silent! call YAMLLintFix() | call setpos(".", cursor)
+augroup format_code_on_save
+  autocmd FileType puppet autocmd BufWritePre <buffer> call FormatCode()
+  autocmd FileType yaml autocmd BufWritePre <buffer> call FormatCode()
 augroup end
