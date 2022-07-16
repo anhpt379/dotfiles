@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-# Remove all empty lines from mocword's output, to avoid nvim from showing
-# empty suggestions (especially on the beginning of a new line)
-~/.cargo/bin/mocword "$@" | sed '/^$/d'
