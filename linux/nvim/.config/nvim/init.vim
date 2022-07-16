@@ -904,15 +904,6 @@ augroup puppet
   autocmd FileType puppet set formatexpr=
 augroup end
 
-" Don't use the "smart" yaml indentation detection. It doesn't work in
-" kubernetes-related yaml files, since they are using YAML list with `-` on the
-" same indent level as the parent.
-" Also, this will fix the wrong indentation detection in Vim 7.4 (the version
-" on my servers)
-augroup yaml
-  autocmd FileType yaml set indentexpr=
-augroup end
-
 " Use Option+H/L to move around in vim command line
 cnoremap <M-b> <S-Left>
 cnoremap <M-f> <S-Right>
