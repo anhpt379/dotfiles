@@ -17,7 +17,7 @@ local servers = {
   'solargraph',
   'tflint',
   'vimls',
-  'yamlls',
+  -- 'yamlls',
 }
 
 for _, name in pairs(servers) do
