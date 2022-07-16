@@ -904,6 +904,28 @@ augroup puppet
   autocmd FileType puppet set formatexpr=
 augroup end
 
+" Smart YAML indentation
+augroup yaml
+  function! YamlIndent()
+    let lnum = v:lnum - 1
+    if lnum == 0
+      return 0
+    endif
+    let line = getline(lnum)
+    let indent = indent(lnum)
+    let increase = indent + &shiftwidth
+    if line =~# ':$' || line =~# '^.*- .*: '
+      return increase
+    else
+      if indent == 0
+        let indent = GetYAMLIndent(v:lnum) - &shiftwidth * 2
+      endif
+      return indent
+    endif
+  endfunction
+  autocmd FileType yaml set indentexpr=YamlIndent()
+augroup end
+
 " Use Option+H/L to move around in vim command line
 cnoremap <M-b> <S-Left>
 cnoremap <M-f> <S-Right>
