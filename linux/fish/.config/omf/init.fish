@@ -141,12 +141,11 @@ globabbr W '| wc -l'
 
 set -gx no_proxy localhost,.$COMPANY_DOMAIN
 
-set -gx PATH $HOME/.local/bin $PATH
-
 set -gx GOPATH $HOME/.go
 
 set -gx PATH $HOME/.go/bin $PATH
 set -gx PATH $HOME/.cargo/bin $PATH
+set -gx PATH $HOME/.local/bin $PATH
 
 # https://github.com/high-moctane/mocword
 set -gx MOCWORD_DATA $HOME/.config/nvim/dictionaries/mocword.sqlite
