@@ -48,7 +48,7 @@ if [ "${key}" = "ctrl-d" ]; then
   fi
 elif [ -n "${branch_name}" ]; then
   if git show-ref --verify --quiet refs/heads/"${branch_name}"; then
-    git checkout "${branch_name}" && git pull --rebase origin master
+    git checkout "${branch_name}" && git pull --rebase origin master || git rebase --abort
   else
     git checkout -b "${branch_name}"
   fi
