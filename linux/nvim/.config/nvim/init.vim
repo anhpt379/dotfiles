@@ -735,6 +735,9 @@ let g:conflict_marker_highlight_group = ''
 let g:conflict_marker_begin = '^<<<<<<< .*$'
 let g:conflict_marker_end   = '^>>>>>>> .*$'
 
+let g:conflict_marker_enable_matchit = 1
+let g:conflict_marker_enable_mappings = 1
+
 " }}}
 
 " Vim-better-whitespace
