@@ -1132,29 +1132,26 @@ endif
 
 " Format code on file save
 function! FormatCode()
+  noautocmd write
+
   let script_file =
-        \ trim(system(['git', 'rev-parse', '--show-toplevel'])) .
+        \ system('git rev-parse --show-toplevel')[:-2] .
         \ '/scripts/format-' . &filetype . '.sh'
   if v:shell_error != 0 || !filereadable(script_file)
     return
   endif
 
-  let cursor = getpos('.')
-
-  let temp_file = tempname()
-  execute 'silent noautocmd w ' . temp_file
-  let output = system([script_file, temp_file])
+  let output = system(script_file . ' ' . expand('%:p'))
   if v:shell_error == 0
-    execute 'silent %!cat ' . temp_file
+    let view = winsaveview()
+    edit
+    call winrestview(view)
   else
     echo output
   endif
-  call delete(temp_file)
-
-  call setpos('.', cursor)
 endfunction
 
 augroup format_code_on_save
-  autocmd FileType puppet autocmd BufWritePre <buffer> call FormatCode()
-  autocmd FileType yaml autocmd BufWritePre <buffer> call FormatCode()
+  autocmd BufWriteCmd *.pp call FormatCode()
+  autocmd BufWriteCmd *.yaml,*.eyaml,*.yml call FormatCode()
 augroup end
