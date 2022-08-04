@@ -13,7 +13,7 @@ function fzf_complete
         | fzf --delimiter=\t --select-1 --exit-0 --ansi +i \
               --bind=tab:accept \
               --expect=enter \
-              --tiebreak=begin,length \
+              --tiebreak=begin,chunk \
               --header="(Press TAB to accept, ENTER to accept and run)" \
               --preview="$FZF_PREVIEW_COMMAND" \
               --preview-window=right:hidden \
