@@ -152,11 +152,12 @@ cmp.setup({
   },
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
-    { name = 'buffer' },
-    { name = 'mocword' },
     { name = 'treesitter' },
+    { name = 'buffer', max_item_count = 3 },
+    { name = 'mocword', max_item_count = 3 },
     {
       name = 'rg',
+      max_item_count = 3,
       option = {
         cwd = '/home/vagrant/.config/nvim/dictionaries/hacker_news/',
         debounce = 200,
