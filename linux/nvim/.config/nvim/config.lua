@@ -154,6 +154,7 @@ cmp.setup({
     { name = 'nvim_lsp' },
     { name = 'buffer' },
     { name = 'mocword' },
+    { name = 'treesitter' },
     {
       name = 'rg',
       option = {
