@@ -101,6 +101,7 @@ call plug#begin()
     Plug 'hrsh7th/cmp-cmdline'
     Plug 'ray-x/cmp-treesitter'
     Plug 'lukas-reineke/cmp-rg'
+    Plug 'davidsierradz/cmp-conventionalcommits'
     Plug 'anhpt379/cmp-mocword' | Plug 'anhpt379/plenary.nvim'
     Plug 'jose-elias-alvarez/null-ls.nvim' | Plug 'anhpt379/plenary.nvim'
     Plug 'ray-x/cmp-treesitter'

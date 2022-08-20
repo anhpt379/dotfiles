@@ -153,6 +153,7 @@ cmp.setup({
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
     { name = 'treesitter' },
+    { name = 'conventionalcommits' },
     { name = 'buffer', max_item_count = 3 },
     { name = 'mocword', max_item_count = 3 },
     {
