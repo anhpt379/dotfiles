@@ -117,6 +117,7 @@ cmp.setup({
   },
   sorting = {
     comparators = {
+      function(...) return require('cmp_buffer'):compare_locality(...) end,
       cmp.config.compare.offset,
       cmp.config.compare.exact,
       cmp.config.compare.score,
