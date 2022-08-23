@@ -13,18 +13,27 @@ function fish_prompt
     set -l normal_color (set_color normal)
     set -l repository_color (set_color yellow)
     set -l prompt_background_color (set_color -b 333)
-    set -l user_color
 
     if string match -q -- "*.*" (hostname -f)
+        echo -n -s $prompt_background_color
+        echo -n -s "["
+
         if test "$USER" = root
-            set user_color (set_color red)
+            set_color red
         else
-            set user_color (set_color white)
+            set_color white
         end
 
-        echo -n -s $prompt_background_color
-        echo -n -s "[" $user_color $USER@(prompt_hostname)
-        echo -n -s " " $repository_color $cwd $normal_color $prompt_background_color "]"
+        echo -n -s (prompt_hostname)
+
+        if test $last_command_status -eq 0
+            set_color yellow
+        else
+            set_color red
+        end
+
+        echo -n -s " " $cwd
+        echo -n -s $normal_color $prompt_background_color "]"
     else
         if test $kernel = "Darwin"
             echo -n -s " "

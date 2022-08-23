@@ -17,7 +17,7 @@ exec /usr/local/bin/nvim \
   -c "set shell=bash scrollback=100000 laststatus=0 clipboard+=unnamedplus nowrap incsearch ignorecase smartcase" \
   -c "autocmd TermEnter * stopinsert" \
   -c "autocmd TermClose * ${AUTOCMD_TERMCLOSE_CMD}" \
-  -c "nmap P ?^ \\\|^\[.*@.*\]<CR>" \
+  -c "nmap P ?^ \\\|^\[.*\]<CR>" \
   -c "nmap <CR>  :nohlsearch<CR>" \
   -c "nmap <ESC> :nohlsearch<CR>" \
   -c "nmap H zH | nmap L zL | nmap h zh | nmap l zl" \
