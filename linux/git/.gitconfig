@@ -5,6 +5,7 @@
   editor = nvim
   commitGraph = true
   excludesFile = ~/.gitignore_global
+  pager = cat
 
 [color]
   ui = true
