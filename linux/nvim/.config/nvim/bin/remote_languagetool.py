@@ -8,6 +8,13 @@ import requests
 language = "en-US"
 text = sys.stdin.read()
 
+lines = text.splitlines()
+if len(lines) > 500:
+    for i in range(len(lines) - 500):
+        lines[i] = ''
+text = '\n'.join(lines)
+
+
 # IDs of rules to be disabled, comma-separated
 disabled_rules = [
     "COMMA_PARENTHESIS_WHITESPACE",
