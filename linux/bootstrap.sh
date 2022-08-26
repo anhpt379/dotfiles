@@ -80,7 +80,7 @@ curl -fLo ~/.local/bin/hadolint https://github.com/hadolint/hadolint/releases/do
 
 # nvimpager
 sudo dnf install -y scdoc
-git clone https://github.com/anhpt379/nvimpager.git
+git clone https://github.com/lucc/nvimpager.git
 cd nvimpager || exit 1
 make PREFIX=~/.local install
 cd ..
