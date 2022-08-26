@@ -64,7 +64,6 @@ call plug#begin()
   Plug 'tpope/vim-speeddating'
   Plug 'tpope/vim-dispatch'
   Plug 'qxxxb/vim-searchhi'
-  Plug 'inkarkat/vim-EnhancedJumps' | Plug 'inkarkat/vim-ingo-library'
   Plug 'sbdchd/neoformat'
   Plug 'tpope/vim-sleuth'
   Plug 'kana/vim-niceblock'
@@ -137,6 +136,7 @@ call plug#begin()
 
     Plug 'rhysd/conflict-marker.vim'
     Plug 'andymass/vim-matchup'
+    Plug 'inkarkat/vim-EnhancedJumps' | Plug 'inkarkat/vim-ingo-library'
 
     Plug 'wakatime/vim-wakatime'
   endif
