@@ -43,7 +43,6 @@ call plug#begin()
   Plug 'breuckelen/vim-resize'
   Plug 'ptzz/lf.vim', {'tag': 'v1.2'} | Plug 'rbgrouleff/bclose.vim'
   Plug 'spektroskop/golden-ratio', {'branch': 'skip-popups'}
-  Plug 'pechorin/any-jump.vim'
   Plug 'voldikss/vim-floaterm'
 
   " Improving editing experience
@@ -64,7 +63,6 @@ call plug#begin()
   Plug 'tpope/vim-speeddating'
   Plug 'tpope/vim-dispatch'
   Plug 'qxxxb/vim-searchhi'
-  Plug 'sbdchd/neoformat'
   Plug 'tpope/vim-sleuth'
   Plug 'kana/vim-niceblock'
   Plug 'haya14busa/vim-asterisk'
@@ -111,6 +109,9 @@ call plug#begin()
     Plug 'lewis6991/gitsigns.nvim' | Plug 'anhpt379/plenary.nvim'
 
     Plug 'folke/trouble.nvim' | Plug 'kyazdani42/nvim-web-devicons'
+
+    Plug 'sbdchd/neoformat'
+    Plug 'pechorin/any-jump.vim'
 
     " For vsnip users.
     " Plug 'hrsh7th/cmp-vsnip'
