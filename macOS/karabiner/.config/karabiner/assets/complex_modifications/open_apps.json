@@ -1,15 +1,15 @@
 {
-  "title": "Open macOS apps with COMMAND+CONTROL+C/K/N/M/S",
+  "title": "Open macOS apps with LEFT_CONTROL+RIGHT_CONTROL+C/K/N/M/S",
   "rules": [
     {
-      "description": "Open Chrome with COMMAND+CONTROL+C",
+      "description": "Open Chrome with LEFT_CONTROL+RIGHT_CONTROL+C",
       "manipulators": [
         {
           "type": "basic",
           "from": {
             "key_code": "c",
             "modifiers": {
-              "mandatory": ["command", "control"]
+              "mandatory": ["left_control", "right_control"]
             }
           },
           "to": [
@@ -21,14 +21,14 @@
       ]
     },
     {
-      "description": "Open Slack with COMMAND+CONTROL+S",
+      "description": "Open Slack with LEFT_CONTROL+RIGHT_CONTROL+S",
       "manipulators": [
         {
           "type": "basic",
           "from": {
             "key_code": "s",
             "modifiers": {
-              "mandatory": ["command", "control"]
+              "mandatory": ["left_control", "right_control"]
             }
           },
           "to": [
@@ -40,14 +40,14 @@
       ]
     },
     {
-      "description": "Open Notes with COMMAND+CONTROL+N",
+      "description": "Open Notes with LEFT_CONTROL+RIGHT_CONTROL+N",
       "manipulators": [
         {
           "type": "basic",
           "from": {
             "key_code": "n",
             "modifiers": {
-              "mandatory": ["command", "control"]
+              "mandatory": ["left_control", "right_control"]
             }
           },
           "to": [
@@ -59,14 +59,14 @@
       ]
     },
     {
-      "description": "Open Kitty with COMMAND+CONTROL+K",
+      "description": "Open Kitty with LEFT_CONTROL+RIGHT_CONTROL+K",
       "manipulators": [
         {
           "type": "basic",
           "from": {
             "key_code": "k",
             "modifiers": {
-              "mandatory": ["command", "control"]
+              "mandatory": ["left_control", "right_control"]
             }
           },
           "to": [
@@ -78,14 +78,14 @@
       ]
     },
     {
-      "description": "Open Maccy with COMMAND+CONTROL+M",
+      "description": "Open Maccy with LEFT_CONTROL+RIGHT_CONTROL+M",
       "manipulators": [
         {
           "type": "basic",
           "from": {
             "key_code": "m",
             "modifiers": {
-              "mandatory": ["command", "control"]
+              "mandatory": ["left_control", "right_control"]
             }
           },
           "to": [
@@ -97,14 +97,14 @@
       ]
     },
     {
-      "description": "Open SimpleClock with COMMAND+CONTROL+T",
+      "description": "Open SimpleClock with LEFT_CONTROL+RIGHT_CONTROL+T",
       "manipulators": [
         {
           "type": "basic",
           "from": {
             "key_code": "t",
             "modifiers": {
-              "mandatory": ["command", "control"]
+              "mandatory": ["left_control", "right_control"]
             }
           },
           "to": [

@@ -794,15 +794,15 @@
                         ]
                     },
                     {
-                        "description": "Open Chrome with COMMAND+CONTROL+C",
+                        "description": "Open Chrome with LEFT_CONTROL+RIGHT_CONTROL+C",
                         "manipulators": [
                             {
                                 "from": {
                                     "key_code": "c",
                                     "modifiers": {
                                         "mandatory": [
-                                            "command",
-                                            "control"
+                                            "left_control",
+                                            "right_control"
                                         ]
                                     }
                                 },
@@ -816,15 +816,15 @@
                         ]
                     },
                     {
-                        "description": "Open Slack with COMMAND+CONTROL+S",
+                        "description": "Open Slack with LEFT_CONTROL+RIGHT_CONTROL+S",
                         "manipulators": [
                             {
                                 "from": {
                                     "key_code": "s",
                                     "modifiers": {
                                         "mandatory": [
-                                            "command",
-                                            "control"
+                                            "left_control",
+                                            "right_control"
                                         ]
                                     }
                                 },
@@ -838,15 +838,15 @@
                         ]
                     },
                     {
-                        "description": "Open Notes with COMMAND+CONTROL+N",
+                        "description": "Open Notes with LEFT_CONTROL+RIGHT_CONTROL+N",
                         "manipulators": [
                             {
                                 "from": {
                                     "key_code": "n",
                                     "modifiers": {
                                         "mandatory": [
-                                            "command",
-                                            "control"
+                                            "left_control",
+                                            "right_control"
                                         ]
                                     }
                                 },
@@ -860,15 +860,15 @@
                         ]
                     },
                     {
-                        "description": "Open Kitty with COMMAND+CONTROL+K",
+                        "description": "Open Kitty with LEFT_CONTROL+RIGHT_CONTROL+K",
                         "manipulators": [
                             {
                                 "from": {
                                     "key_code": "k",
                                     "modifiers": {
                                         "mandatory": [
-                                            "command",
-                                            "control"
+                                            "left_control",
+                                            "right_control"
                                         ]
                                     }
                                 },
@@ -882,15 +882,15 @@
                         ]
                     },
                     {
-                        "description": "Open Maccy with COMMAND+CONTROL+M",
+                        "description": "Open Maccy with LEFT_CONTROL+RIGHT_CONTROL+M",
                         "manipulators": [
                             {
                                 "from": {
                                     "key_code": "m",
                                     "modifiers": {
                                         "mandatory": [
-                                            "command",
-                                            "control"
+                                            "left_control",
+                                            "right_control"
                                         ]
                                     }
                                 },
@@ -904,15 +904,15 @@
                         ]
                     },
                     {
-                        "description": "Open SimpleClock with COMMAND+CONTROL+T",
+                        "description": "Open SimpleClock with LEFT_CONTROL+RIGHT_CONTROL+T",
                         "manipulators": [
                             {
                                 "from": {
                                     "key_code": "t",
                                     "modifiers": {
                                         "mandatory": [
-                                            "command",
-                                            "control"
+                                            "left_control",
+                                            "right_control"
                                         ]
                                     }
                                 },
