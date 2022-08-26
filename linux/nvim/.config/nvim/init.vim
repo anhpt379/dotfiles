@@ -859,8 +859,8 @@ set diffopt+=algorithm:patience
 " set diffopt+=indent-heuristic
 
 " A faster way to toggle line number
-map [n :<C-u>set nonumber<CR>:set norelativenumber<CR>
-map ]n :<C-u>set number<CR>:set relativenumber<CR>
+map [n :<C-u>set nonumber<CR>
+map ]n :<C-u>set number<CR>
 
 " Vim searchhi
 map n   <Plug>(searchhi-n)zz<Plug>SearchIndex
