@@ -167,6 +167,8 @@ bind \cv edit_and_run_command_buffer
 # `-` character in the middle of a word.
 bind \cw backward-kill-word
 
+bind \b backward-kill-bigword
+
 # Fzf
 bind --erase \co
 bind \t  'fzf_complete'
