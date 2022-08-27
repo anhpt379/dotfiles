@@ -141,6 +141,7 @@ set -gx GOPATH $HOME/.go
 
 set -gx PATH $HOME/.go/bin $PATH
 set -gx PATH $HOME/.cargo/bin $PATH
+set -gx PATH $HOME/.local/bin/nvim-appimage/squashfs-root/usr/bin/ $PATH
 set -gx PATH $HOME/.local/bin $PATH
 
 # https://github.com/high-moctane/mocword

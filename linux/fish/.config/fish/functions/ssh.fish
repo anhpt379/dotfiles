@@ -54,21 +54,24 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
         command ssh $argv -t HOME=/tmp/panh bash
 
     else
-        # Sync dotfiles & binary files to remote
-        if command ssh $argv -- /bin/true &>/dev/null
-            rsync -azvhP \
-                --info=name0 \
-                --info=progress2 \
-                --no-inc-recursive \
-                --compress-level=9 \
-                --copy-links \
-                --keep-dirlinks \
-                --relative \
-                ~/.ssh/files/./.{bashrc,inputrc,vimrc,less,terminfo,local/bin/pbcopy,local/bin/pbpaste} "$argv[1]":~/ 2>/dev/null
+        set -f jump_host (cat ~/.ssh/conf.d/work.conf | grep ProxyJump | tail -1 | awk '{ print $NF }')
 
-            mkdir -p ~/.cache/rsync
-            nohup ~/.config/fish/functions/rsync_dotfiles.sh $argv >~/.cache/rsync/$argv[1].log 2>/dev/null &
-        end
+        echo "Syncing dotfiles to $jump_host..."
+        rsync -azhP \
+            --quiet \
+            --info=name0 \
+            --info=progress2 \
+            --no-inc-recursive \
+            --compress-level=9 \
+            --copy-links \
+            --keep-dirlinks \
+            --delete \
+            --exclude-from="$HOME/.ssh/files/.rsyncignore" \
+            ~/.ssh/files/ $jump_host:~/HOME/
+
+        echo "Syncing dotfiles from $jump_host to $argv[1]..."
+        command ssh $jump_host -- "rsync --quiet -a ~/HOME/ $argv[1]:~/"
+        command ssh $jump_host -- "rsync --quiet -a --delete ~/HOME/.local/bin/ $argv[1]:~/.local/bin/"
 
         command ssh $argv
     end

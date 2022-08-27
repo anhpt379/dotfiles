@@ -6,6 +6,7 @@ linux/nvim/.config/nvim/autoload/plug.vim*
 linux/nvim/.config/nvim/dictionaries/mocword.sqlite
 linux/nvim/.config/nvim/undo/*
 linux/ssh/.ssh/conf.d
+linux/ssh/.ssh/files/.local/bin/nvim-appimage
 linux/ssh/.ssh/id_ed25519
 linux/ssh/.ssh/root@wifiman
 linux/wakapi-data/wakapi.db

@@ -16,7 +16,11 @@ docker-compose run cargo cp /usr/local/cargo/bin/{exa,xh} /out/
 # nvim
 wget https://github.com/neovim/neovim/releases/download/v0.7.2/nvim.appimage
 chmod +x nvim.appimage
-mv nvim.appimage .local/bin/
+mkdir -p .local/bin/nvim-appimage/
+cd .local/bin/nvim-appimage/
+../../../nvim.appimage --appimage-extract
+cd -
+rm -f nvim.appimage
 
 # fzf
 wget https://github.com/junegunn/fzf/releases/download/0.32.1/fzf-0.32.1-linux_amd64.tar.gz
