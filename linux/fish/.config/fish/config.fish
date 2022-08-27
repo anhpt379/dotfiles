@@ -128,7 +128,7 @@ if begin not string match -q -- "Darwin" (uname);
     git config --global user.email anh.pham@$COMPANY_DOMAIN
 
     # Tell nvimpager where the nvim is
-    set -gx NVIM ~/.local/bin/nvim
+    set -gx NVIM ~/.local/bin/nvim-appimage/squashfs-root/usr/bin/nvim
 
     # Fix nvim `Cannot open undo file for writing` sometimes
     mkdir -p ~/.config/nvim/undo/
