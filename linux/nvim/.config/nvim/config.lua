@@ -19,7 +19,7 @@ require("mason-lspconfig").setup {
     'pyright',
     'ansible-language-server',
     'json-lsp',
-    'puppet-editor-services',
+    -- 'puppet-editor-services',
     'rust-analyzer',
     'lua-language-server',
     'terraform-ls',
