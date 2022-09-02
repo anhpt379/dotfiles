@@ -40,7 +40,7 @@ sudo usermod -s /usr/bin/fish vagrant
 sudo dnf install -y libstdc++-static gcc-c++
 sudo npm i -g npm@latest
 
-curl -fLo ~/.local/bin/nvim.appimage https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+curl -fLo ~/.local/bin/nvim.appimage https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
 chmod u+x ~/.local/bin/nvim.appimage
 mkdir ~/.local/bin/nvim-appimage/
 cd ~/.local/bin/nvim-appimage/ || exit 1

@@ -1,77 +1,51 @@
--- nvim-lsp-installer
-local lsp_installer = require('nvim-lsp-installer')
-
-local servers = {
-  'bashls',
-  'cmake',
-  'cssls',
-  'dockerls',
-  'html',
-  'jedi_language_server',
-  'ansiblels',
-  'jsonls',
-  'puppet',
-  'rust_analyzer',
-  'sumneko_lua',
-  'terraformls',
-  'solargraph',
-  'tflint',
-  'vimls',
-  -- 'yamlls',
-}
-
-for _, name in pairs(servers) do
-  local server_is_found, server = lsp_installer.get_server(name)
-  if server_is_found and not server:is_installed() then
-    print('Installing ' .. name)
-    server:install()
-  end
-end
-
-lsp_installer.settings({
+-- language servers
+require("mason").setup {
   ui = {
     icons = {
-      server_installed = '✓',
-      server_pending = '➜',
-      server_uninstalled = '✗'
+      package_installed = "✓",
+      package_pending = "➜",
+      package_uninstalled = "✗"
     }
+  }
+}
+
+require("mason-lspconfig").setup {
+  ensure_installed = {
+    'bash-language-server',
+    'cmake-language-server',
+    'css-lsp',
+    'dockerfile-language-server',
+    'html-lsp',
+    'pyright',
+    'ansible-language-server',
+    'json-lsp',
+    'puppet-editor-services',
+    'rust-analyzer',
+    'lua-language-server',
+    'terraform-ls',
+    'solargraph',
+    'tflint',
+    'vim-language-server',
+    -- 'yamlls',
+  },
+  automatic_installation = true,
+}
+require("mason-lspconfig").setup_handlers({
+  function (server_name) -- default handler (optional)
+    require("lspconfig")[server_name].setup {}
+  end,
+})
+
+require'lsp_signature'.setup({
+  bind = true,
+  floating_window = true,
+  handler_opts = {
+    border = 'single'
   }
 })
 
--- nvim-lspconfig
+require('lsp-status').register_progress()
 require('lspconfig')
-
--- Use an on_attach function to only map the following keys
--- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
-  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-
-  -- Enable completion triggered by <c-x><c-o>
-  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
-
-  -- Mappings.
-  local opts = { noremap=true, silent=true }
-
-  -- See `:help vim.lsp.*` for documentation on any of the below functions
-  buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-  buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-  buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-  -- buf_set_keymap('n', '<space>gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  -- buf_set_keymap('n', '<space>gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-
-  -- lsp_signature
-  local cfg = {
-    floating_window = true,
-    handler_opts = {
-      border = 'single'
-    }
-  }
-  require 'lsp_signature'.on_attach(cfg, bufnr)
-  require 'lsp-status'.on_attach(client)
-end
 
 -- nvim-cmp
 vim.o.pumheight = 15  -- nvim-cmp popup height
@@ -182,22 +156,6 @@ cmp.setup.cmdline(':', {
     { name = 'cmdline' }
   })
 })
-
-lsp_installer.on_server_ready(function(server)
-  local capabilities = vim.lsp.protocol.make_client_capabilities()
-  capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
-  capabilities = vim.tbl_extend(
-    'keep',
-    capabilities or {},
-    require('lsp-status').capabilities
-  )
-
-  local opts = {
-    on_attach = on_attach,
-    capabilities = capabilities
-  }
-  server:setup(opts)
-end)
 
 local lsp_status = require('lsp-status')
 lsp_status.register_progress()

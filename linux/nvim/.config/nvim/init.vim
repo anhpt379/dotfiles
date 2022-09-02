@@ -91,7 +91,7 @@ call plug#begin()
     Plug 'anhpt379/vim-git-browse'
 
     Plug 'neovim/nvim-lspconfig'
-    Plug 'williamboman/nvim-lsp-installer'
+    Plug 'williamboman/mason.nvim' | Plug 'williamboman/mason-lspconfig.nvim'
     Plug 'hrsh7th/cmp-nvim-lsp'
     Plug 'hrsh7th/cmp-buffer'
     Plug 'hrsh7th/cmp-path'
@@ -1110,6 +1110,12 @@ nmap [e <Plug>MoveLineUp
 nmap ]e <Plug>MoveLineDown
 nmap [c <Plug>MoveCharLeft
 nmap ]c <Plug>MoveCharRight
+
+" Lsp
+nmap gd       :lua vim.lsp.buf.declaration()<CR>
+nmap gD       :lua vim.lsp.buf.definition()<CR>
+nmap K        :lua vim.lsp.buf.hover()<CR>
+nmap <Space>r :lua vim.lsp.buf.rename()<CR>
 
 " Tree-sitter based folding
 set foldmethod=expr
