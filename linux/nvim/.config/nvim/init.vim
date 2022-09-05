@@ -53,7 +53,7 @@ call plug#begin()
   Plug 'machakann/vim-sandwich'
   Plug 'tpope/vim-commentary'
   Plug 'ntpeters/vim-better-whitespace'
-  Plug 'ethanholz/nvim-lastplace'
+  Plug 'farmergreg/vim-lastplace'
   Plug 'paretje/suda.vim'
   Plug 'tpope/vim-eunuch'
   Plug 'anhpt379/vim-unimpaired'
