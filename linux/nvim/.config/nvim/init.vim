@@ -665,7 +665,6 @@ function! Goodbye()
     q!
   else
     bd!
-    blast
   endif
 endfunction
 
