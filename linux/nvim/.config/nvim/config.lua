@@ -38,7 +38,7 @@ require("mason-lspconfig").setup_handlers({
 
 require'lsp_signature'.setup({
   bind = true,
-  floating_window = true,
+  floating_window = false,
   handler_opts = {
     border = 'single'
   }
