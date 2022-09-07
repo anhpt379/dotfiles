@@ -253,7 +253,7 @@ noremap <Space> <Nop>
 nnoremap <Leader>u :source ~/.config/nvim/init.vim<CR>
   \ :TSInstall all<CR>
   \ :PlugClean<CR>
-  \ :silent !PlugInstall<CR>
+  \ :silent! PlugInstall<CR>
   \ :PlugUpdate --sync<CR>
   \ :PlugUpgrade<CR>
   \ :PlugDiff<CR>
