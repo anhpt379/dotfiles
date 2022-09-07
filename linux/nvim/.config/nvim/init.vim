@@ -477,6 +477,11 @@ command! GstatusClose call s:close_gstatus()
 noremap <Leader>g :GstatusClose<CR>:FzfRg<Space>
 noremap <Leader>f :GstatusClose<CR>:silent FilesMru<CR>
 noremap <Leader>b :FzfBLines<CR>
+
+" Workaround for <C-/> to toggle fzf preview doesn't work since v0.7.2
+" https://github.com/neovim/neovim/issues/18735
+tnoremap <C-/> <C-_>
+
 " }}}
 
 " Git {{{
