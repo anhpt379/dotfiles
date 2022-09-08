@@ -49,24 +49,26 @@ nvim -c "PlugInstall" -c "qall"
 nvim -c "TSUpdate" -c "qall"
 
 # code formatters
-pip install black
+pip3 install black
 npm install -g @fsouza/prettierd
-pip install yamlfixer-opt-nc
+pip3 install yamlfixer-opt-nc
 
 # nvim python/ruby/node.js provider
-pip install neovim
+pip3 install neovim
 gem install --bindir ~/.local/bin/ neovim
 npm install -g neovim
 
 # nvim null-ls
-pip install vim-vint 'ansible-lint[community,yamllint]'
+pip3 install vim-vint 'ansible-lint[community,yamllint]'
 npm install -g jsonlint textlint write-good markdownlint-cli
 gem install --bindir ~/.local/bin/ rubocop rubocop-rspec
 gem install --bindir ~/.local/bin/ mdl
-
 luarocks install luacheck
 curl -fLo ~/.local/bin/hadolint https://github.com/hadolint/hadolint/releases/download/v2.10.0/hadolint-Darwin-x86_64 && \
   chmod +x ~/.local/bin/hadolint
+
+# languagetool
+pip3 install requests
 
 # nvimpager
 git clone --depth=1 https://github.com/lucc/nvimpager.git
@@ -98,7 +100,7 @@ rm -rf diff-so-fancy
 docker-compose -f ~/dotfiles/local/docker-compose.yml up -d
 
 # youtube-dl
-pip install youtube-dl
+pip3 install youtube-dl
 echo "0 * * * * bash ~/Music/youtube-dl/download.sh" > cron
 # Use this cronjob to refresh the list of servers that fzf_find uses to search
 # for hosts when typing `ssh<C-f>`:
