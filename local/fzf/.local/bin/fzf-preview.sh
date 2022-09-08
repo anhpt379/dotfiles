@@ -27,6 +27,11 @@ else
     if echo "$path" | grep -q '\.txt$'; then
       command cat "$path"
     elif basename "$path" | grep -qF '.'; then
+      # Tell nvimpager (again) where nvim is
+      # Somehow on remote this variable is changed to another value (it looks
+      # like this: `NVIM=/tmp/nvimQPBuJM/0`), I couldn't figure out why, so
+      # this workaround will fix no preview for fzf in vim on remote servers.
+      export NVIM=~/.local/bin/nvim-appimage/squashfs-root/usr/bin/nvim
       nvimpager -c "$path"
     else
       command cat "$path"
