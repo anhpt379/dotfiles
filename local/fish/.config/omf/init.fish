@@ -2,7 +2,7 @@
 if [ -f ~/.cargo/bin/grc-rs ]
     alias grc   'grc-rs'
     alias grcat 'grc-rs --colour=on cat'
-    source /etc/grc.fish
+    source /usr/local/etc/grc.fish
 else
     alias grcat 'grcat conf.cat'
 end
