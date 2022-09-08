@@ -1,7 +1,7 @@
 #!/bin/bash
 
 sudo dnf install -y \
-  stow git fzf jq fd-find ripgrep exa direnv \
+  stow git fzf jq ripgrep exa direnv \
   nmap-ncat ipython python3-virtualenv bind-utils git-subtree \
   cargo npm telnet atop corkscrew \
   grc gron pwgen tldr youtube-dl \
@@ -35,6 +35,12 @@ fish install --path=~/.local/share/omf --config=~/.config/omf --yes --noninterac
 rm -f install
 
 sudo usermod -s /usr/bin/fish vagrant
+
+# fd
+wget https://github.com/sharkdp/fd/releases/download/v8.4.0/fd-v8.4.0-x86_64-unknown-linux-musl.tar.gz
+tar zxvf fd-*-x86_64-unknown-linux-musl.tar.gz
+mv fd-*/fd ~/.local/bin/
+rm -rf fd-*
 
 # nvim
 sudo dnf install -y libstdc++-static gcc-c++
