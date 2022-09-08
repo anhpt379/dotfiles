@@ -66,7 +66,7 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
             --copy-links \
             --keep-dirlinks \
             --delete \
-            --exclude-from="$HOME/dotfiles/remote/HOME/.rsyncignore" \
+            --exclude-from="$HOME/dotfiles/remote/.rsyncignore" \
             ~/dotfiles/remote/HOME/ $jump_host:~/HOME/
 
         echo "Syncing dotfiles from $jump_host to $argv[1]..."
