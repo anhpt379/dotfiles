@@ -142,6 +142,7 @@ set -gx GOPATH $HOME/.go
 
 set -gx PATH /usr/local/opt/grep/libexec/gnubin $PATH
 set -gx PATH /usr/local/opt/gnu-sed/libexec/gnubin $PATH
+set -gx PATH /usr/local/opt/coreutils/libexec/gnubin $PATH
 set -gx PATH $HOME/.go/bin $PATH
 set -gx PATH $HOME/.cargo/bin $PATH
 set -gx PATH $HOME/.local/bin/nvim-appimage/squashfs-root/usr/bin/ $PATH
