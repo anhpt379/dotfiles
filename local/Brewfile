@@ -5,7 +5,6 @@ tap 'homebrew/cask'
 tap 'homebrew/cask-fonts'
 tap 'homebrew/cask-versions'
 tap 'homebrew/core'
-tap 'universal-ctags/universal-ctags'
 
 brew 'autoconf'
 brew 'bash'
@@ -17,7 +16,7 @@ brew 'gawk'
 brew 'gnu-sed'
 brew 'grep'
 brew 'less'
-brew 'minikube'
+# brew 'minikube'
 brew 'noti'
 brew 'python3'
 brew 'rsync'
@@ -28,25 +27,25 @@ brew 'trash'
 brew 'wget'
 
 # Apps
-cask '1password'
+# cask '1password'
 cask 'alt-tab'
-cask 'displaperture'
-cask 'docker'
+# cask 'displaperture'
+# cask 'docker'
 cask 'font-fira-code'
-cask 'haptickey'
+# cask 'haptickey'
 cask 'hiddenbar'
 cask 'imageoptim'
 cask 'karabiner-elements'
 cask 'kitty'
 cask 'maccy'
-cask 'macdown'
-cask 'pock'
+# cask 'macdown'
+# cask 'pock'
 cask 'qbserve'
 cask 'rectangle'
-cask 'scalar'
+# cask 'scalar'
 cask 'the-unarchiver'
-cask 'vagrant'
-cask 'virtualbox'
+# cask 'vagrant'
+# cask 'virtualbox'
 
 # QuickLook plugins
 #
@@ -67,6 +66,6 @@ cask 'font-meslo-nerd-font'
 mas 'Amphetamine', id: 937984704
 mas 'Be Focus', id: 961632517
 mas 'Fantastical', id: 975937182
-mas 'Keynote', id: 409183694
-mas 'Numbers', id: 409203825
-mas 'Spark', id: 1176895641
+# mas 'Keynote', id: 409183694
+# mas 'Numbers', id: 409203825
+# mas 'Spark', id: 1176895641
