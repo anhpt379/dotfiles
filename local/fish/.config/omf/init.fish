@@ -182,6 +182,8 @@ bind \cr 'fzf_history'
 # https://github.com/junegunn/fzf/blob/0.25.0/src/util/util_unix.go#L13
 set -gx SHELL '/bin/bash'
 
+set -gx Z_DATA "$HOME/.local/share/z/data"
+
 set -gx FZF_DEFAULT_COMMAND 'fd --hidden --type f --color=never --exclude ".git" -E "*.jp*g" -E "*.png"'
 set -gx FZF_PREVIEW_COMMAND '~/.local/bin/fzf-preview.sh {}'
 set -gx FZF_DEFAULT_OPTS    '
