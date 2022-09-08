@@ -49,6 +49,12 @@ chsh -s /usr/local/bin/fish
 nvim -c "PlugInstall" -c "qall"
 nvim -c "TSUpdate" -c "qall"
 
+# Disable lua ftplugin, since it's really slow
+# It got introduced since nvim 0.7.2 (in
+# https://github.com/neovim/neovim/commit/fd5e5d2715d264447d94d7253f3c78bd7003a472)
+# and it took ~1s to load.
+sed -i 's/^.*\.lua.*$//g' /usr/local/Cellar/neovim/*/share/nvim/runtime/ftplugin.vim
+
 # code formatters
 pip3 install black
 npm install -g @fsouza/prettierd
