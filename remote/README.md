@@ -46,11 +46,9 @@ tar zxvf ripgrep-*-x86_64-unknown-linux-musl.tar.gz
 mv ripgrep-*/rg HOME/.local/bin/
 rm -rf ripgrep-*
 
-# diff-so-fancy
-git clone --depth=1 https://github.com/so-fancy/diff-so-fancy.git
-mkdir -p HOME/.local/bin/lib/
-cp diff-so-fancy/diff-so-fancy .local/bin/
-cp diff-so-fancy/lib/* HOME/.local/bin/lib/
-rm -rf diff-so-fancy
-
+# grc
+for f in grc grcat; do
+  curl -fLo HOME/.local/bin/$f https://raw.githubusercontent.com/garabik/grc/master/$f
+  chmod +x HOME/.local/bin/$f
+done
 ```
