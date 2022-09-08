@@ -35,9 +35,9 @@ function fish_prompt
         echo -n -s " " $cwd
         echo -n -s $normal_color $prompt_background_color "]"
     else
-        if test $kernel = "Darwin"
-            echo -n -s " "
-        end
+        # if test $kernel = "Darwin"
+        #     echo -n -s " "
+        # end
 
         # The space we see below is not a normal space, it's a thin space (U+2009).
         # I use it as a marker, when combining with tmux `search-backward` we can
