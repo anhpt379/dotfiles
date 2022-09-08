@@ -18,7 +18,8 @@ local vim = vim      -- luacheck: ignore
 -- names that will be exported from this module
 local nvimpager = {
   -- user facing options
-  maps = true,  -- if the default mappings should be defined
+  maps = true,          -- if the default mappings should be defined
+  git_colors = false,   -- if the highlighting from the git should be used
 }
 
 -- A mapping of ansi color numbers to neovim color names
@@ -157,8 +158,6 @@ end
 
 -- Initialize some module level variables for cat mode.
 local function init_cat_mode()
-  -- Initialize the ansi group to color cache with the "Normal" hl group.
-  cache[0] = group2ansi(nvim.nvim_call_function('hlID', {'Normal'}))
   -- Get the value of &termguicolors from neovim.
   colors_24_bit = nvim.nvim_get_option('termguicolors')
   -- Select the correct coloe escaping function.
@@ -167,6 +166,8 @@ local function init_cat_mode()
   else
     color2escape = color2escape_8bit
   end
+  -- Initialize the ansi group to color cache with the "Normal" hl group.
+  cache[0] = group2ansi(nvim.nvim_call_function('hlID', {'Normal'}))
 end
 
 -- Check if the begining of the current buffer contains ansi escape sequences.
@@ -178,22 +179,6 @@ local function check_escape_sequences()
     end
   end
   return false
-end
-
--- Savely get the listchars option on different nvim versions
---
--- From release 0.4.3 to 0.4.4 the listchars option was changed from window
--- local to global-local.  This affects the calls to either
--- nvim_win_get_option or nvim_get_option so that there is no save way to call
--- just one in all versions.
---
--- returns: string -- the listchars value
-local function get_listchars()
-  -- this works for newer versions of neovim
-  local status, data = pcall(nvim.nvim_get_option, 'listchars')
-  if status then return data end
-  -- this works for old neovim versions
-  return nvim.nvim_win_get_option(0, 'listchars')
 end
 
 -- turn a listchars string into a table
@@ -209,11 +194,8 @@ end
 -- Iterate through the current buffer and print it to stdout with terminal
 -- color codes for highlighting.
 local function highlight()
-  -- Detect an empty buffer, see :help line2byte().  We can not use
-  -- nvim_buf_get_lines as the table will contain one empty string for both an
-  -- empty file and a file with just one empty line.
-  if nvim.nvim_buf_line_count(0) == 1 and
-    nvim.nvim_call_function("line2byte", {2}) == -1 then
+  -- Detect an empty buffer.
+  if nvim.nvim_buf_get_offset(0, 0) == -1 then
     return
   elseif check_escape_sequences() then
     for _, line in ipairs(nvim.nvim_buf_get_lines(0, 0, -1, false)) do
@@ -226,7 +208,7 @@ local function highlight()
   local syntax_id_whitespace = nvim.nvim_call_function('hlID', {'Whitespace'})
   local syntax_id_non_text = nvim.nvim_call_function('hlID', {'NonText'})
   local list = nvim.nvim_win_get_option(0, "list")
-  local listchars = list and parse_listchars(get_listchars()) or {}
+  local listchars = list and parse_listchars(vim.o.listchars) or {}
   local last_syntax_id = -1
   local last_conceal_id = -1
   local linecount = nvim.nvim_buf_line_count(0)
@@ -335,8 +317,7 @@ local function fix_runtime_path()
   nvim.nvim_set_option("packpath", runtimepath)
   runtimepath = os.getenv("RUNTIME") .. "," .. runtimepath
   nvim.nvim_set_option("runtimepath", runtimepath)
-  new = new .. '/rplugin.vim'
-  nvim.nvim_command("let $NVIM_RPLUGIN_MANIFEST = '" .. new .. "'")
+  vim.env.NVIM_RPLUGIN_MANIFEST = new .. '/rplugin.vim'
 end
 
 -- Parse the command of the calling process to detect some common
@@ -399,15 +380,25 @@ end
 local function detect_filetype()
   if not doc and detect_man_page_in_current_buffer() then doc = 'man' end
   if doc == 'git' then
-    -- Use nvim's syntax highlighting for git buffers instead of git's
-    -- internal highlighting.
-    strip_ansi_escape_sequences_from_current_buffer()
+    if nvimpager.git_colors then
+      -- Use the highlighting from the git commands.
+      doc = nil
+    else
+      -- Use nvim's syntax highlighting for git buffers instead of git's
+      -- internal highlighting.
+      strip_ansi_escape_sequences_from_current_buffer()
+    end
   end
-  if doc == 'man' then
+  -- python uses the same "highlighting" technique with backspace as roff.
+  -- This means we have to load the full :Man plugin for python as well and
+  -- not just set the filetype to man.
+  if doc == 'man' or doc == 'pydoc' then
     nvim.nvim_buf_set_option(0, 'readonly', false)
     nvim.nvim_command("Man!")
     nvim.nvim_buf_set_option(0, 'readonly', true)
-  elseif doc == 'pydoc' or doc == 'perldoc' or doc == 'ri' then
+    -- do not set the file type again later on
+    doc = nil
+  elseif doc == 'perldoc' or doc == 'ri' then
     doc = 'man' -- only set the syntax, not the full :Man plugin
   end
   if doc ~= nil then
@@ -706,9 +697,15 @@ function nvimpager.stage1()
   -- prevent messages when opening files (especially for the cat version)
   nvim.nvim_set_option('shortmess', nvim.nvim_get_option('shortmess')..'F')
   -- Define autocmd group for nvimpager.
-  nvim.nvim_command('augroup NvimPager')
-  nvim.nvim_command('  autocmd!')
-  nvim.nvim_command('augroup END')
+  local group = nvim.nvim_create_augroup('NvimPager', {})
+  local tmp = os.getenv('TMPFILE')
+  if tmp and tmp ~= "" then
+    nvim.nvim_create_autocmd("VimEnter", {pattern = "*", once = true,
+      group = group, callback = function()
+	nvim.nvim_buf_set_option(0, "buftype", "nofile")
+	os.remove(tmp)
+      end})
+  end
   doc = detect_parent_process()
   if doc == 'git' then
     -- We disable modelines for this buffer as they could disturb the git
@@ -730,20 +727,20 @@ end
 -- would not be available in --cmd.
 function nvimpager.stage2()
   detect_filetype()
-  local mode, events
+  local callback, events
   if #nvim.nvim_list_uis() == 0 then
-    mode, events = 'cat', 'VimEnter'
+    callback, events = nvimpager.cat_mode, 'VimEnter'
   else
     if nvimpager.maps then
       set_maps()
     end
-    mode, events = 'pager', 'VimEnter,BufWinEnter'
+    callback, events = nvimpager.pager_mode, {'VimEnter', 'BufWinEnter'}
   end
+  local group = nvim.nvim_create_augroup('NvimPager', {clear = false})
   -- The "nested" in these autocomands enables nested executions of
-  -- autocomands inside the *_mode() functions.  See :h autocmd-nested, for
-  -- compatibility with nvim < 0.4 we use "nested" and not "++nested".
-  nvim.nvim_command(
-    'autocmd NvimPager '..events..' * nested lua nvimpager.'..mode..'_mode()')
+  -- autocomands inside the *_mode() functions.  See :h autocmd-nested.
+  nvim.nvim_create_autocmd(events, {pattern = '*', callback = callback,
+    nested = true, group = group})
 end
 
 -- functions only exported for tests
