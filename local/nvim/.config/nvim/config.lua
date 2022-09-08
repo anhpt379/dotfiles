@@ -134,7 +134,7 @@ cmp.setup({
       name = 'rg',
       max_item_count = 3,
       option = {
-        cwd = '/home/vagrant/.config/nvim/dictionaries/hacker_news/',
+        cwd = '/Users/panh/.config/nvim/dictionaries/hacker_news/',
         debounce = 200,
         context_before = 0,
         context_after = 0,
