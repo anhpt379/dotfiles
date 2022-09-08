@@ -1,15 +1,15 @@
-# Git subtree commands
+# How to update
 
-## Adding nvimpager
-
-```bash
-cd $(git rev-parse --show-toplevel)
-git subtree add --prefix=local/nvimpager/src https://github.com/lucc/nvimpager.git main --squash
-```
-
-## Pulling nvimpager's updates
+<https://github.com/lucc/nvimpager>
 
 ```bash
-cd $(git rev-parse --show-toplevel)
-git subtree pull --prefix=local/nvimpager/src https://github.com/lucc/nvimpager.git main --squash
+curl -fLo .local/share/nvimpager/runtime/lua/nvimpager.lua https://raw.githubusercontent.com/lucc/nvimpager/main/lua/nvimpager.lua
+curl -fLo .local/bin/nvimpager https://raw.githubusercontent.com/lucc/nvimpager/main/nvimpager
+
+# Update the code to use a relative RUNTIME directory
+# This way it'll be possible to copy the file to another machine.
+sed -i 's|^RUNTIME=.*$|RUNTIME="$HOME/.local/share/nvimpager/runtime"|' .local/bin/nvimpager
+
+chmod +x .local/bin/nvimpager
 ```
+```bash
