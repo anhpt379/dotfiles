@@ -77,13 +77,6 @@ curl -fLo ~/.local/bin/hadolint https://github.com/hadolint/hadolint/releases/do
 # languagetool
 pip3 install requests
 
-# nvimpager
-git clone --depth=1 https://github.com/lucc/nvimpager.git
-cd nvimpager || exit 1
-make PREFIX=~/.local install
-cd ..
-rm -rf nvimpager
-
 # prettyping
 curl -fLo ~/.local/bin/prettyping https://github.com/denilsonsa/prettyping/raw/master/prettyping
 chmod +x ~/.local/bin/prettyping
