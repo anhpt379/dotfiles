@@ -1,0 +1,3 @@
+*conceal-test* normal
+conceal-test
+vim: filetype=help
