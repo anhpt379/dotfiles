@@ -14,6 +14,7 @@ brew autoupdate --enable-notification
 stow bat
 stow clear
 stow curl
+stow diff-so-fancy
 stow docker
 stow fish
 stow fzf
@@ -91,6 +92,8 @@ cargo install mocword
 # npm install -g fx
 
 # diff-so-fancy
+curl -fLo ~/.local/bin/prettyping https://github.com/denilsonsa/prettyping/raw/master/prettyping
+
 git clone --depth=1 https://github.com/so-fancy/diff-so-fancy.git
 mv diff-so-fancy/diff-so-fancy ~/.local/bin/
 mv diff-so-fancy/lib/ ~/.local/bin/lib
