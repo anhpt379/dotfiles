@@ -89,6 +89,7 @@ alias nlf 'nvim +"Lf"'
 alias nv  'nvim $argv'
 
 function update
+    cd ~/dotfiles/local/ && brew bundle
     fisher update
     omf update
     tldr --update
