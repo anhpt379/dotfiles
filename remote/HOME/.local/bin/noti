@@ -1,1 +1,13 @@
-../../../../local/ssh/.local/bin/noti
+#!/bin/bash
+
+bash -c "$@"
+
+code=$?
+
+if [ ${code} -eq 0 ]; then
+  icon="✓"
+else
+  icon="✗"
+fi
+
+echo "${icon} \`$@\` returned ${code}" | nc 127.0.0.1 2227
