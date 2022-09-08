@@ -4,15 +4,15 @@
 set -gx VAGRANT_CWD ~/dotfiles/local
 
 # ssh to vagrant automatically
-if nc -z 127.0.0.1 2222 &>/dev/null
-    command kitty +kitten ssh -p 2222 \
-        -o UserKnownHostsFile=/dev/null \
-        -o StrictHostKeyChecking=no \
-        -o LogLevel=ERROR \
-        -o IdentitiesOnly=yes \
-        -i ~/dotfiles/macOS/.vagrant/machines/default/virtualbox/private_key \
-        vagrant@127.0.0.1
-end
+# if nc -z 127.0.0.1 2222 &>/dev/null
+#     command kitty +kitten ssh -p 2222 \
+#         -o UserKnownHostsFile=/dev/null \
+#         -o StrictHostKeyChecking=no \
+#         -o LogLevel=ERROR \
+#         -o IdentitiesOnly=yes \
+#         -i ~/dotfiles/macOS/.vagrant/machines/default/virtualbox/private_key \
+#         vagrant@127.0.0.1
+# end
 
 # `10.252.13.240` is a DNS server, if this stops working, check for
 # a new one in hieradata/common.yaml::dns_servers
