@@ -8,7 +8,6 @@ stow:
 	stow curl
 	stow docker
 	stow fish
-	stow fonts
 	stow fzf
 	stow gem
 	stow git
@@ -22,7 +21,6 @@ stow:
 	stow ssh
 	stow tmux
 	stow vale
-	stow wakapi-data
 	stow wakatime
 	stow youtube-dl
 
