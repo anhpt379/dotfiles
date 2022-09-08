@@ -1,7 +1,3 @@
-README.md
-Dockerfile.*
-docker-compose.yml
-
 # Unnecessary files
 *.gif
 *.jpeg
