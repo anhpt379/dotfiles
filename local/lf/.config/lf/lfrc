@@ -120,7 +120,7 @@ cmd delete %{{
 
   if [ $ans = "y" ]; then
     for f in $fx; do
-      if type -q trash
+      if type -q trash; then
         trash $f
       else
         rm -f $f
