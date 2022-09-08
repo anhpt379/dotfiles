@@ -123,7 +123,7 @@ cmd delete %{{
       if type -q trash; then
         trash $f
       else
-        rm -f $f
+        rm -rf $f
       fi
     done
     echo "File deleted: $files"
