@@ -46,7 +46,6 @@
 
 [commit]
   template = ~/.gitmessage
-  cleanup = default
 
 [rebase]
   autoStash = true
