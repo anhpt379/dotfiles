@@ -6,18 +6,18 @@ services:
       context: .
       dockerfile: Dockerfile.fish
     volumes:
-      - .local/bin:/out
+      - HOME/.local/bin:/out
 
   atop:
     build:
       context: .
       dockerfile: Dockerfile.atop
     volumes:
-      - .local/bin:/out
+      - HOME/.local/bin:/out
 
   cargo:
     build:
       context: .
       dockerfile: Dockerfile.cargo
     volumes:
-      - .local/bin:/out
+      - HOME/.local/bin:/out
