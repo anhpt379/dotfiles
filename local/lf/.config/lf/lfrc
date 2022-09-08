@@ -120,7 +120,11 @@ cmd delete %{{
 
   if [ $ans = "y" ]; then
     for f in $fx; do
-      trash $f
+      if type -q trash
+        trash $f
+      else
+        rm -f $f
+      fi
     done
     echo "File deleted: $files"
   else
