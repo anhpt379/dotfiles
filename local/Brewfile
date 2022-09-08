@@ -8,44 +8,68 @@ tap 'homebrew/core'
 
 brew 'autoconf'
 brew 'bash'
+brew 'bind'  # to get `dig` command
 brew 'coreutils'
 brew 'curl'
 brew 'exa'
+brew 'fd'
 brew 'fish'
+brew 'fzf'
 brew 'gawk'
+brew 'git'
 brew 'gnu-sed'
+brew 'grc'
 brew 'grep'
+brew 'jq'
 brew 'less'
-# brew 'minikube'
-brew 'noti'
-brew 'python3'
+brew 'lf'
+brew 'neovim'
+brew 'pwgen'
+brew 'ripgrep'
 brew 'rsync'
+brew 'shfmt'
 brew 'stow'
-brew 'superbrothers/opener/opener'
 brew 'telnet'
+brew 'tldr'
 brew 'trash'
 brew 'wget'
+brew 'xh'
+
+brew 'docker'
+brew 'docker-compose'
+
+brew 'corkscrew'
+brew 'noti'
+brew 'superbrothers/opener/opener'
+
+brew 'ffmpeg'
+brew 'youtube-dl'
+
+brew 'golang'
+brew 'npm'
+brew 'python3'
+brew 'ruby'
+brew 'rust'
+
+# nvimpager
+brew 'scdoc'
+
+# nvim null-ls
+brew 'codespell'
+brew 'luarocks'
+brew 'shellcheck'
 
 # Apps
-# cask '1password'
 cask 'alt-tab'
-# cask 'displaperture'
-# cask 'docker'
 cask 'font-fira-code'
-# cask 'haptickey'
 cask 'hiddenbar'
-cask 'imageoptim'
 cask 'karabiner-elements'
 cask 'kitty'
 cask 'maccy'
-# cask 'macdown'
-# cask 'pock'
+cask 'macdown'
 cask 'qbserve'
 cask 'rectangle'
-# cask 'scalar'
 cask 'the-unarchiver'
-# cask 'vagrant'
-# cask 'virtualbox'
 
 # QuickLook plugins
 #
@@ -66,6 +90,3 @@ cask 'font-meslo-nerd-font'
 mas 'Amphetamine', id: 937984704
 mas 'Be Focus', id: 961632517
 mas 'Fantastical', id: 975937182
-# mas 'Keynote', id: 409183694
-# mas 'Numbers', id: 409203825
-# mas 'Spark', id: 1176895641
