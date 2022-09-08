@@ -134,7 +134,7 @@ cmp.setup({
       name = 'rg',
       max_item_count = 3,
       option = {
-        cwd = '/Users/panh/.config/nvim/dictionaries/hacker_news/',
+        cwd = vim.fn.expand('~/.config/nvim/dictionaries/hacker_news/'),
         debounce = 200,
         context_before = 0,
         context_after = 0,
@@ -223,7 +223,7 @@ local languagetool = {
   method = null_ls.methods.DIAGNOSTICS,
   filetypes = { 'markdown', 'gitcommit' },
   generator = null_ls.generator({
-    command = '/home/vagrant/.config/nvim/bin/remote_languagetool.py',
+    command = vim.fn.expand('~/.config/nvim/bin/remote_languagetool.py'),
     args = { '-' },
     to_stdin = true,
     from_stderr = false,
