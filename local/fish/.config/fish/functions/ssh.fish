@@ -49,7 +49,7 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
             --copy-links \
             --keep-dirlinks \
             --relative \
-            ~/.ssh/files/./.{bashrc,inputrc,vimrc,less,terminfo,local/bin/pbcopy,local/bin/pbpaste} "$argv[1]":/tmp/panh/ 2>/dev/null
+            ~/dotfiles/remote/HOME/./.{bashrc,inputrc,vimrc,less,terminfo,local/bin/pbcopy,local/bin/pbpaste} "$argv[1]":/tmp/panh/ 2>/dev/null
 
         command ssh $argv -t HOME=/tmp/panh bash
 
@@ -66,8 +66,8 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
             --copy-links \
             --keep-dirlinks \
             --delete \
-            --exclude-from="$HOME/.ssh/files/.rsyncignore" \
-            ~/.ssh/files/ $jump_host:~/HOME/
+            --exclude-from="$HOME/dotfiles/remote/HOME/.rsyncignore" \
+            ~/dotfiles/remote/HOME/ $jump_host:~/HOME/
 
         echo "Syncing dotfiles from $jump_host to $argv[1]..."
         command ssh $jump_host -- "rsync --quiet -a ~/HOME/ $argv[1]:~/"
