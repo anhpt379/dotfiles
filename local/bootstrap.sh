@@ -87,6 +87,11 @@ cargo install grc-rs
 # mocword
 cargo install mocword
 
+wget https://github.com/high-moctane/mocword-data/releases/download/eng20200217/mocword.sqlite.gz
+gunzip mocword.sqlite.gz
+mv mocword.sqlite ~/.config/nvim/dictionaries/mocword.sqlite
+rm -f mocword*
+
 # fx
 # npm install -g fx
 
