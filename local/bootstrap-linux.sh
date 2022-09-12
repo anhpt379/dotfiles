@@ -1,68 +1,72 @@
 #!/bin/bash
 
-sudo dnf install -y \
-  stow git fzf jq ripgrep exa direnv \
-  nmap-ncat ipython python3-virtualenv bind-utils git-subtree \
-  cargo npm telnet atop corkscrew \
-  grc gron pwgen tldr youtube-dl \
-  python3-pip python3-devel luarocks lua-devel ruby-devel golang \
-  man-pages @development-tools
-sudo dnf upgrade -y less
-sudo dnf group install -y "C Development Tools and Libraries"
+sudo apt-get update --allow-releaseinfo-change
 
-stow --dir=dotfiles/linux/ --target=/home/vagrant/ curl
-stow --dir=dotfiles/linux/ --target=/home/vagrant/ docker
-stow --dir=dotfiles/linux/ --target=/home/vagrant/ fish
-stow --dir=dotfiles/linux/ --target=/home/vagrant/ fzf
-stow --dir=dotfiles/linux/ --target=/home/vagrant/ git
-stow --dir=dotfiles/linux/ --target=/home/vagrant/ grc
-stow --dir=dotfiles/linux/ --target=/home/vagrant/ inputrc
-stow --dir=dotfiles/linux/ --target=/home/vagrant/ less
-stow --dir=dotfiles/linux/ --target=/home/vagrant/ lf
-stow --dir=dotfiles/linux/ --target=/home/vagrant/ nvim
-stow --dir=dotfiles/linux/ --target=/home/vagrant/ ssh
-stow --dir=dotfiles/linux/ --target=/home/vagrant/ tmux
-stow --dir=dotfiles/linux/ --target=/home/vagrant/ wakatime
-stow --dir=dotfiles/linux/ --target=/home/vagrant/ youtube-dl
+sudo apt-get install -y --no-install-recommends stow git \
+  fzf jq ripgrep exa \
+  curl ncat dnsutils \
+  telnet atop corkscrew \
+  grc gron pwgen tldr \
+  youtube-dl ipython \
+  python3-virtualenv python3-pip python3-dev \
+  cargo npm luarocks golang build-essential
+
+# dotfiles
+cd ~/ || exit 1
+git clone https://github.com/anhpt379/dotfiles.git
+cd dotfiles/local/ || exit 1
 
 # fish
-sudo dnf config-manager --add-repo \
-  https://download.opensuse.org/repositories/shells:fish:release:3/Fedora_33/shells:fish:release:3.repo
-sudo dnf install -y fish
+sudo apt install -y gpg
+echo 'deb http://download.opensuse.org/repositories/shells:/fish:/release:/3/Debian_10/ /' | sudo tee /etc/apt/sources.list.d/shells:fish:release:3.list
+curl -fsSL https://download.opensuse.org/repositories/shells:fish:release:3/Debian_10/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/shells_fish_release_3.gpg > /dev/null
+sudo apt update
+sudo apt install fish
 
+stow fish
+
+# oh-my-fish
 curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install > install
 fish install --path=~/.local/share/omf --config=~/.config/omf --yes --noninteractive
 rm -f install
 
-sudo usermod -s /usr/bin/fish vagrant
+# stow
+stow curl
+stow docker
+stow fish
+stow fzf
+stow git
+stow grc
+stow inputrc
+stow less
+stow lf
+stow nvim
+stow ssh
+stow tmux
+stow wakatime
 
 # fd
-wget https://github.com/sharkdp/fd/releases/download/v8.4.0/fd-v8.4.0-x86_64-unknown-linux-musl.tar.gz
-tar zxvf fd-*-x86_64-unknown-linux-musl.tar.gz
+wget https://github.com/sharkdp/fd/releases/download/v8.4.0/fd-v8.4.0-aarch64-unknown-linux-gnu.tar.gz
+tar zxvf fd-*.tar.gz
 mv fd-*/fd ~/.local/bin/
 rm -rf fd-*
 
 # nvim
-sudo dnf install -y libstdc++-static gcc-c++
-sudo npm i -g npm@latest
+# sudo npm i -g npm@latest
 
-curl -fLo ~/.local/bin/nvim.appimage https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
-chmod u+x ~/.local/bin/nvim.appimage
-mkdir ~/.local/bin/nvim-appimage/
-cd ~/.local/bin/nvim-appimage/ || exit 1
-../nvim.appimage --appimage-extract
-sudo ln -sf ~/.local/bin/nvim-appimage/squashfs-root/AppRun /usr/bin/nvim
-cd ~/ || exit 1
+sudo apt-get install -y ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl doxygen
+git clone --depth=1 https://github.com/neovim/neovim.git
+cd neovim || exit 1
+git checkout stable
+make CMAKE_BUILD_TYPE=RelWithDebInfo
+sudo make install
 
 nvim -c "PlugInstall" -c "qall"
 nvim -c "TSUpdate" -c "qall"
 
 # neoformat
-sudo dnf install -y shfmt
-pip install black
-
-# yamlfmt
-pip install yamlfmt
+go install mvdan.cc/sh/v3/cmd/shfmt@latest
+pip3 install black
 
 # prettier
 sudo npm install -g --save-dev --save-exact prettier
@@ -85,8 +89,8 @@ curl -fLo ~/.local/bin/hadolint https://github.com/hadolint/hadolint/releases/do
   chmod +x ~/.local/bin/hadolint
 
 # nvimpager
-sudo dnf install -y scdoc
-git clone https://github.com/lucc/nvimpager.git
+sudo apt install -y scdoc
+git clone --depth=1 https://github.com/lucc/nvimpager.git
 cd nvimpager || exit 1
 make PREFIX=~/.local install
 cd ..
