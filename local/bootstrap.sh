@@ -44,7 +44,9 @@ curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install 
 fish install --path=~/.local/share/omf --config=~/.config/omf --yes --noninteractive
 rm -f install
 
-chsh -s /usr/local/bin/fish
+which fish
+# Add fish path to /etc/shells
+chsh -s /opt/homebrew/bin/fish
 
 # nvim
 nvim -c "PlugInstall" -c "qall"
