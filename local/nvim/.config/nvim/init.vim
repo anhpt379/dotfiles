@@ -78,7 +78,7 @@ call plug#begin()
   Plug 'lewis6991/impatient.nvim'
 
   " Heavily loaded plugins
-  if has("mac")
+  if $USER ==# 'debian'
     Plug 'dstein64/vim-startuptime'
     Plug 'mhinz/vim-startify'
     Plug 'itchyny/lightline.vim'
@@ -144,7 +144,7 @@ call plug#begin()
 
 call plug#end()
 
-if has("mac")
+if $USER ==# 'debian'
   lua require('impatient')
 endif
 
@@ -367,7 +367,7 @@ function! DevIconsFileFormat()
 endfunction
 
 " Show vim tab line even if only one file is open
-if has("mac")
+if $USER ==# 'debian'
   set showtabline=2
 
   nmap <Leader>1 <Plug>lightline#bufferline#go(1)
@@ -847,9 +847,9 @@ augroup end
 " Lf.vim
 let g:lf_map_keys = 0
 let g:lf_replace_netrw = 1
-autocmd TermOpen  * if has("mac") | set showtabline=0 | endif | set nonumber | set signcolumn=no  | set mouse-=a
-autocmd TermEnter * if has("mac") | set showtabline=0 | endif | set nonumber | set signcolumn=no  | set mouse-=a
-autocmd TermLeave * if has("mac") | set showtabline=2 | endif | set number   | set signcolumn=yes | set mouse+=a
+autocmd TermOpen  * if $USER ==# 'debian' | set showtabline=0 | endif | set nonumber | set signcolumn=no  | set mouse-=a
+autocmd TermEnter * if $USER ==# 'debian' | set showtabline=0 | endif | set nonumber | set signcolumn=no  | set mouse-=a
+autocmd TermLeave * if $USER ==# 'debian' | set showtabline=2 | endif | set number   | set signcolumn=yes | set mouse+=a
 map <Leader>l :<C-u>Lf<CR>
 
 " Clever-f
@@ -1139,7 +1139,7 @@ augroup dockerfile
 augroup end
 
 " Lua config
-if has("mac")
+if $USER ==# 'debian'
   luafile <sfile>:h/config.lua
 endif
 
