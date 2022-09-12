@@ -32,25 +32,40 @@ fish install --path=~/.local/share/omf --config=~/.config/omf --yes --noninterac
 rm -f install
 
 # stow
+stow bat
+stow clear
 stow curl
+stow diff-so-fancy
 stow docker
-stow fish
 stow fzf
+stow gem
 stow git
 stow grc
 stow inputrc
+stow kitty
 stow less
 stow lf
 stow nvim
+stow nvimpager
 stow ssh
 stow tmux
+stow vale
 stow wakatime
+# stow youtube-dl
 
 # fd
 wget https://github.com/sharkdp/fd/releases/download/v8.4.0/fd-v8.4.0-aarch64-unknown-linux-gnu.tar.gz
 tar zxvf fd-*.tar.gz
 mv fd-*/fd ~/.local/bin/
 rm -rf fd-*
+
+# fzf
+cd /tmp || exit 1
+wget https://github.com/junegunn/fzf/releases/download/0.33.0/fzf-0.33.0-linux_arm64.tar.gz
+tar zxvf fzf-*.tar.gz
+mv fzf ~/.local/bin/
+rm -rf fzf-*.tar.gz
+cd - || exit 1
 
 # nvim
 sudo apt-get install -y ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl doxygen
@@ -91,7 +106,7 @@ wget https://github.com/gokcehan/lf/releases/download/r27/lf-linux-arm64.tar.gz
 tar zxvf lf-*.tar.gz
 mv lf ~/.local/bin/
 rm -f lf-*.tar.gz
-cd -
+cd - || exit 1
 
 # prettyping
 curl -fLo ~/.local/bin/prettyping https://github.com/denilsonsa/prettyping/raw/master/prettyping
