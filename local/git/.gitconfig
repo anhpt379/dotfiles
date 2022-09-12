@@ -1,5 +1,6 @@
 [user]
   name = Anh Pham
+  email = anhpt379@gmail.com
 
 [core]
   editor = nvim
