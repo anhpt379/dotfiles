@@ -3,7 +3,8 @@
 bash .macos
 
 xcode-select --install
-ruby -e "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" \
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+
 
 brew bundle
 brew autoupdate --start 86400
