@@ -6,6 +6,37 @@ tap 'homebrew/cask-fonts'
 tap 'homebrew/cask-versions'
 tap 'homebrew/core'
 
+# Apps
+cask 'alt-tab'
+cask 'font-fira-code'
+cask 'hiddenbar'
+cask 'karabiner-elements'
+cask 'kitty'
+cask 'maccy'
+cask 'macdown'
+cask 'menumeters'
+cask 'qbserve'
+cask 'rectangle'
+cask 'the-unarchiver'
+cask 'google-chrome'
+
+# QuickLook plugins
+#
+# Do this to active these plugins after installing
+#
+# $ sudo xattr -cr ~/Library/QuickLook/*
+# $ qlmanage -r
+# $ qlmanage -r cache
+# $ killall Finder
+#
+cask 'qlmarkdown'
+cask 'qlstephen'
+
+# Mac App Store
+mas 'Amphetamine', id: 937984704
+mas 'Be Focus', id: 961632517
+mas 'Fantastical', id: 975937182
+
 brew 'autoconf'
 brew 'bash'
 brew 'bind'  # to get `dig` command
@@ -60,35 +91,3 @@ brew 'codespell'
 brew 'luarocks'
 brew 'shellcheck'
 
-# Apps
-cask 'alt-tab'
-cask 'font-fira-code'
-cask 'hiddenbar'
-cask 'karabiner-elements'
-cask 'kitty'
-cask 'maccy'
-cask 'macdown'
-cask 'menumeters'
-cask 'qbserve'
-cask 'rectangle'
-cask 'the-unarchiver'
-
-# QuickLook plugins
-#
-# Do this to active these plugins after installing
-#
-# $ sudo xattr -cr ~/Library/QuickLook/*
-# $ qlmanage -r
-# $ qlmanage -r cache
-# $ killall Finder
-#
-cask 'qlmarkdown'
-cask 'qlstephen'
-
-# Fonts
-cask 'font-meslo-nerd-font'
-
-# Mac App Store
-mas 'Amphetamine', id: 937984704
-mas 'Be Focus', id: 961632517
-mas 'Fantastical', id: 975937182
