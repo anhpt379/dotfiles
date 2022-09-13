@@ -9,16 +9,16 @@ tap 'homebrew/core'
 # Apps
 cask 'alt-tab'
 cask 'font-fira-code'
+cask 'google-chrome'
 cask 'hiddenbar'
 cask 'karabiner-elements'
 cask 'kitty'
 cask 'maccy'
 cask 'macdown'
-cask 'menumeters'
 cask 'qbserve'
 cask 'rectangle'
+cask 'stats'
 cask 'the-unarchiver'
-cask 'google-chrome'
 cask 'topnotch'
 
 # QuickLook plugins
