@@ -2,13 +2,12 @@
 tap 'Homebrew/homebrew-autoupdate'
 tap 'homebrew/bundle'
 tap 'homebrew/cask'
-tap 'homebrew/cask-fonts'
 tap 'homebrew/cask-versions'
 tap 'homebrew/core'
 
 # Apps
 cask 'alt-tab'
-cask 'font-fira-code'
+cask 'developerexcuses'
 cask 'google-chrome'
 cask 'hiddenbar'
 cask 'karabiner-elements'
@@ -20,6 +19,7 @@ cask 'rectangle'
 cask 'stats'
 cask 'the-unarchiver'
 cask 'topnotch'
+cask 'utm'
 
 # Mac App Store
 mas 'Amphetamine', id: 937984704
