@@ -6,6 +6,7 @@ local/nvim/.config/nvim/autoload/plug.vim*
 local/nvim/.config/nvim/dictionaries/mocword.sqlite
 local/nvim/.config/nvim/undo/*
 local/ssh/.ssh/conf.d
+local/ssh/.ssh/id_ed25519
 local/ssh/.ssh/root@wifiman
 local/wakapi-data/wakapi.db
 macOS/Brewfile.lock.json
