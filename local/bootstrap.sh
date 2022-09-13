@@ -1,9 +1,7 @@
 #!/bin/bash
 
-# sudo & login without password
+# sudo without password
 echo 'debian ALL=(ALL) NOPASSWD: ALL' | sudo tee -a /etc/sudoers
-mkdir -p ~/.ssh/
-echo 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN+vCLnISKaTXIjYdtoLqap9hdwovfXLBqt5cCD2s7ff anhpt379@gmail.com' > ~/.ssh/authorized_keys
 
 # essential packages
 sudo apt-get update --allow-releaseinfo-change
