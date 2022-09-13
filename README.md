@@ -3,46 +3,17 @@
 ![Linter](https://github.com/anhpt379/dotfiles/workflows/Linter/badge.svg)
 ![Platform](https://img.shields.io/badge/platform-macos-blue)
 
+![vim-startify](docs/screenshots/1.png)
+
 ## Installation
 
-Clone this repo to `~/dotfiles` and run:
+Clone this repo to `~/dotfiles` and follow the instructions in
+`macOS/bootstrap.sh` and `local/bootstrap.sh`.
 
-```bash
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-brew install stow vagrant fish kitty noti superbrothers/opener/opener
+I'm using this VM image: <https://mac.getutm.app/gallery/debian-10-4-minimal>
 
-cd ~/dotfiles/macOS
-stow kitty
-stow fish
-stow ssh
-
-vagrant up
-```
-
-Then, open `Kitty` app, you will see yourself in a fish prompt within the
-vagrant VM.
-
-## Why using a VM
-
-- easier to reproduce the setup.
-- we're on the same OS as on servers.
-- git operations are faster (`git status` on a large repo took 95ms on
-  virtualbox, 250ms on macOS (Safe Mode) and 900ms on macOS with Forcepoint DLB
-  Endpoint enabled).
-- easier on the laptop's fan, and battery usage (due to the security agents,
-  they have fewer things to scan, since most of the work is isolated in the VM
-  now).
-
-### Why not using docker (with Docker Desktop on Mac)
-
-- slow shared storage performance.
-- no persistent storage within the container.
-
-### Why not using native macOS
-
-- security agents (in my case: Forcepoint DLP Endpoint) slow down file
-  operations by a lot (~4-5 times).
-- git operations [are slower](https://gregoryszorc.com/blog/2018/10/29/global-kernel-locks-in-apfs/) on APFS than on ext4 (~2-3 times).
+To ssh into it, import the VM, then go to Edit VM -> Network -> Port Forward,
+map TCP Guest `0.0.0.0:22` to Host `127.0.0.1:2222`.
 
 ## The setup
 
@@ -56,9 +27,20 @@ Key concepts:
 - ssh port forwards (port 2224 → 2227) are being used to make `open`, `noti`,
   `pbcopy` and `pbpaste` commands work within the linux VM.
 
-## Screenshot
+**Why using a VM?**
 
-![vim-startify](docs/screenshots/1.png)
+- it's easier to reproduce the setup.
+- git & docker are much (10x) faster.
+
+**Why not using docker (with Docker Desktop for Mac)?**
+
+Slow storage performance (`git status` on a docker volume was 8x slower than in
+a VM).
+
+**Why not using native macOS?**
+
+git & docker operations are slow (`git status` on a relatively large repo takes
+`450ms`, vs `50ms` in a VM).
 
 ## Key mappings
 
@@ -93,7 +75,7 @@ Key concepts:
 - `g]` git push origin HEAD --force-with-lease
 - `gl` git log (repo)
 - `gL` git log (current buffer)
-- `vgl` git log (line)
+- `Vgl` git log (line)
 - `gp` open github/gitlab pipelines in browser
 - `go` open github/gitlab link in browser
 - `gm` create/open MR
@@ -119,8 +101,6 @@ Key concepts:
 
 ### Keyboard layout
 
-Below is the adjusted keyboard layout that I'm using:
-
 - `caps_lock` is `control` on hold, `esc` on tap.
 - `return` is `control` on hold.
 - `right_command` and `right_option` are `backspace` and `delete`.
@@ -133,7 +113,7 @@ Below is the adjusted keyboard layout that I'm using:
 ### Vim `HJKL` everywhere with [Karabiner](karabiner/.config/karabiner/karabiner.json)
 
 When pressed together with `Command`, `Option` or `CapsLock`, `HJKL` will
-become arrow keys (Left/Down/Up/Right):
+become arrow keys (`Left`/`Down`/`Up`/`Right`):
 
 - `Command` + `H/J/K/L` will perform character-level cursor movements.
   - Hold down an additional `Shift` key to select text.
@@ -148,4 +128,4 @@ become arrow keys (Left/Down/Up/Right):
 
 - `Command` + `N/P` to switch between tabs.
 
-- `Command` + `<Up>/<Down>` to maximize/almost-maximize a window.
+- `Command` + `<Up>`/`<Down>` to maximize/almost-maximize a window.

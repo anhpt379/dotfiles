@@ -9,11 +9,10 @@ touch Xcode.app
 # Then open Spotlight preferences, disable `Developer` checkbox
 ```
 
-
 ## Install fonts
 
 Open all files in `fonts/` directory and press `Install`.
 
-## Increase pointer size
+## Increase mouse pointer size
 
 Go to Accessibility -> Display -> Pointer.
