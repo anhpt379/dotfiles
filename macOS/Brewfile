@@ -40,6 +40,7 @@ mas 'Fantastical', id: 975937182
 brew 'bash'
 brew 'bind'  # to get `dig` command
 brew 'coreutils'
+brew 'jq'    # for youtube-dl/download.sh to work
 brew 'curl'
 brew 'exa'
 brew 'fd'

@@ -23,8 +23,8 @@ stow ssh
 stow youtube-dl
 
 cp -r karabiner/.config/karabiner ~/.config/
-cp -r alt-tab/Library/*   ~/Library/
-cp -r maccy/Library/*     ~/Library/
+cp -r alt-tab/Library/Preferences/* ~/Library/Preferences/
+cp -r maccy/Library/* ~/Library/
 cp -r rectangle/Library/* ~/Library/
 
 # fish
@@ -34,6 +34,11 @@ rm -f install
 
 echo '/opt/homebrew/bin/fish' | sudo tee -a /etc/shells
 chsh -s /opt/homebrew/bin/fish
+
+# oh-my-fish
+curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install > install
+fish install --path=~/.local/share/omf --config=~/.config/omf --yes --noninteractive
+rm -f install
 
 # nvim
 nvim -c "PlugInstall" -c "qall"
