@@ -1,0 +1,175 @@
+set shell "bash"
+set shellopts '-eu'
+set ifs "\n"
+set scrolloff 5
+
+set drawbox on
+set dircounts on
+set incsearch on
+
+set icons on
+
+set ignorecase off
+
+set promptfmt "\033[34;1m%w/\033[0m\033[1m%f\033[0m"
+
+set previewer ~/.local/bin/fzf-preview.sh
+
+set hiddenfiles ".git"
+
+# Fzf integration
+cmd fzf_jump ${{
+  dir=""
+  if [ -d "$f" ]; then
+    dir="$f"
+  fi
+
+  res="$(fd --color=always --no-ignore --hidden --exclude '.git' . $dir | fzf --height=100% --ansi --preview='~/.local/bin/fzf-preview.sh {}')"
+
+  if [ -f "$res" ]; then
+    cmd="select"
+  elif [ -d "$res" ]; then
+    cmd="cd"
+  fi
+
+  lf -remote "send $id $cmd \"$res\""
+}}
+
+# Reveal file/dir in Finder
+cmd reveal %{{
+  open -R $f
+}}
+
+# Run chmod on a file
+cmd chmod+x %{{
+  chmod +x $f
+  lf -remote "send reload"
+}}
+
+cmd chmod-x %{{
+  chmod -x $f
+  lf -remote "send reload"
+}}
+
+# Extract the current file with the right command
+cmd extract ${{
+  set -f
+  case $f in
+    *.tar.bz|*.tar.bz2|*.tbz|*.tbz2) tar xjvf $f;;
+    *.tar.gz|*.tgz) tar xzvf $f;;
+    *.tar.xz|*.txz) tar xJvf $f;;
+    *.zip) unzip $f;;
+    *.rar) unrar x $f;;
+    *.7z) 7z x $f;;
+  esac
+}}
+
+# Compress current file or selected files with tar and gunzip
+cmd tar ${{
+  set -f
+  mkdir $1
+  cp -r $fx $1
+  tar czf $1.tar.gz $1
+  rm -rf $1
+}}
+
+# compress current file or selected files with zip
+cmd zip ${{
+  set -f
+  mkdir $1
+  cp -r $fx $1
+  zip -r $1.zip $1
+  rm -rf $1
+}}
+
+# Copy the path of the highlighted file
+cmd copy_path %{{
+  echo "$f" | tr -d '\n' | pbcopy
+  echo "Path copied: $f"
+}}
+
+cmd copy_name %{{
+  name=$(basename "$f")
+  name="${name%.*}"
+  echo $name | pbcopy
+  echo "Name copied: $name"
+}}
+
+# NERDTree-like add file/dir
+cmd new %{{
+  path=$1
+  if [[ "$path" =~ '/'$ ]]; then
+    mkdir -p $path
+    lf -remote "send reload"
+    lf -remote "send cd $path"
+  else
+    mkdir -p "$(dirname $path)"
+    touch $path
+    lf -remote "send reload"
+    lf -remote "send select $path"
+  fi
+}}
+
+# Delete files
+cmd delete %{{
+  set -f
+  files=$(echo $fx | tr ' ' '\n' | awk -F/ '{ print $NF }' | tr '\n' ' ' | xargs)
+
+  printf " Delete $files? [y/n] "
+  read ans
+
+  if [ $ans = "y" ]; then
+    for f in $fx; do
+      if type -q trash; then
+        trash $f
+      else
+        rm -rf $f
+      fi
+    done
+    echo "File deleted: $files"
+  else
+    echo ""
+  fi
+}}
+
+# Go to project root
+cmd go_home %{{
+  dir=$(git rev-parse --show-toplevel)
+  lf -remote "send cd $dir"
+}}
+
+# Smarter ESC key
+cmd escape %{{
+  if [ -z "$fs" ]; then
+    lf -remote "send quit"
+  else
+    lf -remote "send unselect"
+  fi
+}}
+
+# Basic Functions
+map <esc>   escape
+map <c-c>   escape
+map <enter> open $fx
+map .       set hidden!
+map d       delete
+map x       cut
+map y       copy
+map Y       copy_path
+map a       push :new<space>
+map n       push :new<space>
+map o       reveal
+map r       :rename
+map gh      go_home
+map gd      cd ~/Downloads
+map gw      cd ~/code/work
+map gp      cd ~/code/personal
+map gt      cd ~/code/temp
+map <c-f>   :fzf_jump
+map t       :{{ set sortby atime; bottom; }}
+map T       :set sortby natural
+map <tab>   :toggle
+map v       :toggle
+map V       :toggle
+map +       chmod+x
+map _       chmod-x

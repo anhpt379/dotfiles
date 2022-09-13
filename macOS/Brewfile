@@ -5,48 +5,20 @@ tap 'homebrew/cask'
 tap 'homebrew/cask-fonts'
 tap 'homebrew/cask-versions'
 tap 'homebrew/core'
-tap 'universal-ctags/universal-ctags'
-
-brew 'autoconf'
-brew 'bash'
-brew 'coreutils'
-brew 'curl'
-brew 'exa'
-brew 'fish'
-brew 'gawk'
-brew 'gnu-sed'
-brew 'grep'
-brew 'less'
-brew 'minikube'
-brew 'noti'
-brew 'python3'
-brew 'rsync'
-brew 'stow'
-brew 'superbrothers/opener/opener'
-brew 'telnet'
-brew 'trash'
-brew 'wget'
 
 # Apps
-cask '1password'
 cask 'alt-tab'
-cask 'displaperture'
-cask 'docker'
 cask 'font-fira-code'
-cask 'haptickey'
 cask 'hiddenbar'
-cask 'imageoptim'
 cask 'karabiner-elements'
 cask 'kitty'
 cask 'maccy'
 cask 'macdown'
-cask 'pock'
+cask 'menumeters'
 cask 'qbserve'
 cask 'rectangle'
-cask 'scalar'
 cask 'the-unarchiver'
-cask 'vagrant'
-cask 'virtualbox'
+cask 'google-chrome'
 
 # QuickLook plugins
 #
@@ -60,13 +32,38 @@ cask 'virtualbox'
 cask 'qlmarkdown'
 cask 'qlstephen'
 
-# Fonts
-cask 'font-meslo-nerd-font'
-
 # Mac App Store
 mas 'Amphetamine', id: 937984704
 mas 'Be Focus', id: 961632517
 mas 'Fantastical', id: 975937182
-mas 'Keynote', id: 409183694
-mas 'Numbers', id: 409203825
-mas 'Spark', id: 1176895641
+
+brew 'bash'
+brew 'bind'  # to get `dig` command
+brew 'coreutils'
+brew 'curl'
+brew 'exa'
+brew 'fd'
+brew 'fish'
+brew 'fzf'
+brew 'gawk'
+brew 'git'
+brew 'gnu-sed'
+brew 'grc'
+brew 'grep'
+brew 'less'
+brew 'lf'
+brew 'neovim'
+brew 'ripgrep'
+brew 'rsync'
+brew 'stow'
+brew 'telnet'
+brew 'trash'
+brew 'wget'
+brew 'xh'
+
+brew 'corkscrew'
+brew 'noti'
+brew 'superbrothers/opener/opener'
+
+brew 'ffmpeg'
+brew 'youtube-dl'
