@@ -8,7 +8,7 @@ sudo apt-get update --allow-releaseinfo-change
 curl -sL https://deb.nodesource.com/setup_16.x | sudo bash -
 
 sudo apt-get install -y --no-install-recommends stow git \
-  jq ripgrep exa \
+  jq ripgrep exa rsync \
   curl ncat dnsutils \
   telnet atop corkscrew \
   grc gron pwgen tldr \
