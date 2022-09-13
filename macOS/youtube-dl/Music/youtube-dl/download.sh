@@ -4,7 +4,7 @@ cd ~/Music/youtube-dl/ || exit 1
 
 PLAYLIST="https://www.youtube.com/playlist?list=LLWHbPRck8HGdTIBFaYRjmsg"
 
-/usr/bin/youtube-dl \
+youtube-dl \
   --dump-json \
   --flat-playlist \
   --playlist-end 100 \
@@ -14,7 +14,7 @@ PLAYLIST="https://www.youtube.com/playlist?list=LLWHbPRck8HGdTIBFaYRjmsg"
   | sed 's_^_https://youtu.be/_' \
   > urls.txt
 
-/usr/bin/youtube-dl \
+youtube-dl \
   --verbose \
   --ignore-errors \
   --continue \
@@ -25,7 +25,6 @@ PLAYLIST="https://www.youtube.com/playlist?list=LLWHbPRck8HGdTIBFaYRjmsg"
   --audio-format mp3 \
   --audio-quality 0 \
   --output "%(title)s.%(ext)s" \
-  --ffmpeg-location /usr/bin/ffmpeg \
   --download-archive downloaded.txt \
   --batch-file urls.txt \
   > youtube-dl.log
