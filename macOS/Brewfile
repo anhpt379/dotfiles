@@ -1,5 +1,5 @@
 # vim: ft=conf
-tap 'domt4/autoupdate'
+tap 'Homebrew/homebrew-autoupdate'
 tap 'homebrew/bundle'
 tap 'homebrew/cask'
 tap 'homebrew/cask-fonts'
