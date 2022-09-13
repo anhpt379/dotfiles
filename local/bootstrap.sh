@@ -57,7 +57,6 @@ stow ssh
 stow tmux
 stow vale
 stow wakatime
-# stow youtube-dl
 
 # fd
 wget https://github.com/sharkdp/fd/releases/download/v8.4.0/fd-v8.4.0-aarch64-unknown-linux-gnu.tar.gz
@@ -84,12 +83,17 @@ sudo make install
 nvim -c "PlugInstall" -c "qall"
 nvim -c "TSUpdate" -c "qall"
 
-# neoformat
+# Disable lua ftplugin, since it's really slow
+# It got introduced since nvim 0.7.2 (in
+# https://github.com/neovim/neovim/commit/fd5e5d2715d264447d94d7253f3c78bd7003a472)
+# and it took ~1s to load.
+sed -i 's/^.*\.lua.*$//g' /usr/local/Cellar/neovim/*/share/nvim/runtime/ftplugin.vim
+
+# code formatters
 curl -fLo ~/.local/bin/shfmt https://github.com/mvdan/sh/releases/download/v3.5.1/shfmt_v3.5.1_linux_arm64 && chmod +x ~/.local/bin/shfmt
 pip3 install black
-
-# prettier
-sudo npm install -g --save-dev --save-exact prettier
+sudo npm install -g @fsouza/prettierd
+pip3 install yamlfixer-opt-nc
 
 # python/ruby/node.js provider
 pip3 install neovim
@@ -105,6 +109,9 @@ sudo luarocks install luacheck
 sudo apt-get install -y shellcheck codespell python3-proselint
 curl -fLo ~/.local/bin/hadolint https://github.com/hadolint/hadolint/releases/download/v2.10.0/hadolint-Linux-arm64 && \
   chmod +x ~/.local/bin/hadolint
+
+# languagetool
+pip3 install requests
 
 # lf
 cd /tmp || exit
@@ -129,6 +136,11 @@ cargo install grc-rs
 
 # mocword
 cargo install mocword
+
+wget https://github.com/high-moctane/mocword-data/releases/download/eng20200217/mocword.sqlite.gz
+gunzip mocword.sqlite.gz
+mv mocword.sqlite ~/.config/nvim/dictionaries/mocword.sqlite
+rm -f mocword*
 
 # docker
 sudo apt install -y docker docker-compose
