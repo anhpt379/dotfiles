@@ -140,7 +140,9 @@ set -gx no_proxy localhost,.$COMPANY_DOMAIN
 
 set -gx GOPATH $HOME/.go
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
+if test -f /opt/homebrew/bin/brew
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+end
 
 set -gx PATH /opt/homebrew/opt/grep/libexec/gnubin $PATH
 set -gx PATH /opt/homebrew/opt/gnu-sed/libexec/gnubin $PATH
