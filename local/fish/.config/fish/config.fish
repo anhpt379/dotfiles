@@ -1,20 +1,25 @@
 #!/usr/bin/env fish
 
-# ssh to the VM automatically
-if nc -z 127.0.0.1 2222 &>/dev/null
-    command kitty +kitten ssh -p 2222 \
-        -o UserKnownHostsFile=/dev/null \
-        -o StrictHostKeyChecking=no \
-        -o LogLevel=ERROR \
-        -o IdentitiesOnly=yes \
-        debian@127.0.0.1
+if not set -q COMPANY_NAME
+    if test -f ~/code/work/.gitconfig
+        set -gx COMPANY_NAME (
+            cat ~/code/work/.gitconfig | grep '@' | head -1 | awk -F@ '{ print $NF }'
+        )
+    end
 end
 
-# `10.252.13.240` is a DNS server, if this stops working, check for
-# a new one in hieradata/common.yaml::dns_servers
-set -l COMPANY_NAME (
-    timeout 0.2 dig +short -x 10.252.13.240 | awk -F. '{ print $(NF-2) }'
-)
+# ssh to the VM automatically
+if string match -q -- "Darwin" (uname)
+    if nc -z 127.0.0.1 2222 &>/dev/null
+        command kitty +kitten ssh -p 2222 \
+            -o UserKnownHostsFile=/dev/null \
+            -o StrictHostKeyChecking=no \
+            -o LogLevel=ERROR \
+            -o IdentitiesOnly=yes \
+            debian@127.0.0.1 -t COMPANY_NAME=$COMPANY_NAME /usr/bin/fish
+    end
+end
+
 set -gx COMPANY_NAME_LOWER (echo $COMPANY_NAME | tr A-Z a-z)
 set -gx COMPANY_NAME_UPPER (echo $COMPANY_NAME | tr a-z A-Z)
 set -gx COMPANY_NAME_CAPITALIZE (echo $COMPANY_NAME | sed 's/[^ ]*/\u&/g')
@@ -121,6 +126,9 @@ if begin not string match -q -- "Darwin" (uname);
     alias motd 'cat /etc/motd; [ -f /etc/motd.local ] && cat /etc/motd.local'
     alias ssh  'cmd ssh'
 
+    # Update the default email for git
+    git config --global user.email anh.pham@$COMPANY_DOMAIN
+
     # Tell nvimpager where the nvim is
     set -gx NVIM ~/.local/bin/nvim-appimage/squashfs-root/usr/bin/nvim
 
@@ -154,3 +162,4 @@ if begin not string match -q -- "Darwin" (uname);
         tmux attach -t panh; or tmux new -s panh
     end
 end
+
