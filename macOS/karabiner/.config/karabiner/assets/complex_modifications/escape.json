@@ -1,0 +1,22 @@
+{
+  "title": "ESCAPE to lock screen",
+  "rules": [
+    {
+      "description": "Lock screen on pressing ESCAPE key",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "escape"
+          },
+          "to": [
+            {
+              "key_code": "q",
+              "modifiers": ["control", "command"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
