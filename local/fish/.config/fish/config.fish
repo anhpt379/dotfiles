@@ -10,10 +10,8 @@ if nc -z 127.0.0.1 2222 &>/dev/null
         debian@127.0.0.1
 end
 
-# `10.252.13.240` is a DNS server, if this stops working, check for
-# a new one in hieradata/common.yaml::dns_servers
 set -l COMPANY_NAME (
-    timeout 0.2 dig +short -x 10.252.13.240 | awk -F. '{ print $(NF-2) }'
+    cat ~/code/work/.gitconfig | grep '@' | head -1 | awk -F@ '{ print $NF }'
 )
 set -gx COMPANY_NAME_LOWER (echo $COMPANY_NAME | tr A-Z a-z)
 set -gx COMPANY_NAME_UPPER (echo $COMPANY_NAME | tr a-z A-Z)
