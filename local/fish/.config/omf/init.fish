@@ -217,12 +217,12 @@ set -gx FZF_DEFAULT_OPTS    '
 
 # lf
 set -gx LF_ICONS (
-  sed ~/.config/lf/icons \
-    -e '/^[ \t]*#/d'     \
-    -e '/^[ \t]*$/d'     \
-    -e 's/[ \t]\+/=/g'   \
-    -e 's/$//'           \
-  | tr '\n' ':'
+    sed ~/.config/lf/icons \
+        -e '/^[ \t]*#/d'   \
+        -e '/^[ \t]*$/d'   \
+        -e 's/[ \t]\+/=/g' \
+        -e 's/$//'         \
+    | tr '\n' ':'
 )
 
 # search a server by fqdn prefix and open it in serverdb
