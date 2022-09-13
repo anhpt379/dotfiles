@@ -19,9 +19,6 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 # Light windows with dark menu bar
 defaults write -g NSRequiresAquaSystemAppearance -bool Yes
 
-# Automatically show & hide the menu bar
-defaults write NSGlobalDomain _HIHideMenuBar -bool true
-
 # Make the mouse pointer bigger
 defaults write com.apple.universalaccess mouseDriverCursorSize 1.5
 
