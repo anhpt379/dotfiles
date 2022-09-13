@@ -3,6 +3,10 @@
 # sudo without password
 echo 'debian ALL=(ALL) NOPASSWD: ALL' | sudo tee -a /etc/sudoers
 
+# no grub wait time when booting
+sudo sed -i 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=0/' /etc/default/grub
+sudo update-grub
+
 # essential packages
 sudo apt-get update --allow-releaseinfo-change
 curl -sL https://deb.nodesource.com/setup_16.x | sudo bash -
