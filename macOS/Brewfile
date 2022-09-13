@@ -21,18 +21,6 @@ cask 'stats'
 cask 'the-unarchiver'
 cask 'topnotch'
 
-# QuickLook plugins
-#
-# Do this to active these plugins after installing
-#
-# $ sudo xattr -cr ~/Library/QuickLook/*
-# $ qlmanage -r
-# $ qlmanage -r cache
-# $ killall Finder
-#
-cask 'qlmarkdown'
-cask 'qlstephen'
-
 # Mac App Store
 mas 'Amphetamine', id: 937984704
 mas 'Be Focus', id: 961632517
