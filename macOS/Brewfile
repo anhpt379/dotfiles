@@ -37,7 +37,6 @@ mas 'Amphetamine', id: 937984704
 mas 'Be Focus', id: 961632517
 mas 'Fantastical', id: 975937182
 
-brew 'autoconf'
 brew 'bash'
 brew 'bind'  # to get `dig` command
 brew 'coreutils'
@@ -51,24 +50,16 @@ brew 'git'
 brew 'gnu-sed'
 brew 'grc'
 brew 'grep'
-brew 'ipython'
-brew 'jq'
 brew 'less'
 brew 'lf'
 brew 'neovim'
-brew 'pwgen'
 brew 'ripgrep'
 brew 'rsync'
-brew 'shfmt'
 brew 'stow'
 brew 'telnet'
-brew 'tldr'
 brew 'trash'
 brew 'wget'
 brew 'xh'
-
-brew 'docker'
-brew 'docker-compose'
 
 brew 'corkscrew'
 brew 'noti'
@@ -76,18 +67,3 @@ brew 'superbrothers/opener/opener'
 
 brew 'ffmpeg'
 brew 'youtube-dl'
-
-brew 'golang'
-brew 'npm'
-brew 'python3'
-brew 'ruby'
-brew 'rust'
-
-# nvimpager
-brew 'scdoc'
-
-# nvim null-ls
-brew 'codespell'
-brew 'luarocks'
-brew 'shellcheck'
-
