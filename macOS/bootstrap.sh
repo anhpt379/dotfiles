@@ -40,6 +40,8 @@ curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install 
 fish install --path=~/.local/share/omf --config=~/.config/omf --yes --noninteractive
 rm -f install
 
+omf install
+
 # nvim
 nvim -c "PlugInstall" -c "qall"
 
