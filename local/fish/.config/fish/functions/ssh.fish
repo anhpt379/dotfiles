@@ -17,21 +17,23 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
         echo
     end
 
-    set -f now (date +%s)
-    set -f deadline (expr $now - 86400 + 7200)
-    set -f have_good_key no
-    set -f have_temp_key no
+    if not string match -q -- "Darwin" (uname)
+        set -f now (date +%s)
+        set -f deadline (expr $now - 86400 + 7200)
+        set -f have_good_key no
+        set -f have_temp_key no
 
-    for ts in (ssh-add -l 2>/dev/null | sed -ne 's/.*temporary key \([0-9]\+\) .*/\1/p')
-        set -f have_temp_key yes
-        if [ $ts -gt $deadline ]
-            set -f have_good_key yes
+        for ts in (ssh-add -l 2>/dev/null | sed -ne 's/.*temporary key \([0-9]\+\) .*/\1/p')
+            set -f have_temp_key yes
+            if [ $ts -gt $deadline ]
+                set -f have_good_key yes
+            end
         end
-    end
 
-    if [ $have_temp_key = no ] || [ $have_good_key = no ]
-        echo "$COMPANY_NAME_CAPITALIZE's SSH key has expired. Getting a new one..."
-        command ssh -A ssh.$COMPANY_DOMAIN
+        if [ $have_temp_key = no ] || [ $have_good_key = no ]
+            echo "$COMPANY_NAME_CAPITALIZE's SSH key has expired. Getting a new one..."
+            command ssh -A ssh.$COMPANY_DOMAIN
+        end
     end
 
     if begin
