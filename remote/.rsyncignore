@@ -38,8 +38,6 @@
 .local/share/nvim/plugged/nvim-*
 .local/share/nvim/plugged/plenary.nvim
 .local/share/nvim/plugged/trouble.nvim
-.local/share/nvim/plugged/vim-fugitive
-.local/share/nvim/plugged/vim-git-browse
 .local/share/nvim/plugged/vim-gitignore/*/gitignore
 .local/share/nvim/plugged/vim-ingo-library
 .local/share/nvim/plugged/vim-matchup

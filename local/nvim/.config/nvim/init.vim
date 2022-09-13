@@ -77,6 +77,10 @@ call plug#begin()
   Plug 'antoinemadec/FixCursorHold.nvim'
   Plug 'lewis6991/impatient.nvim'
 
+  " Git
+  Plug 'anhpt379/vim-fugitive'
+  Plug 'anhpt379/vim-git-browse'
+
   " Heavily loaded plugins
   if $USER ==# 'debian'
     Plug 'dstein64/vim-startuptime'
@@ -86,9 +90,6 @@ call plug#begin()
 
     Plug 'lukas-reineke/indent-blankline.nvim'
     Plug 'norcalli/nvim-colorizer.lua'
-
-    Plug 'anhpt379/vim-fugitive'
-    Plug 'anhpt379/vim-git-browse'
 
     Plug 'neovim/nvim-lspconfig'
     Plug 'williamboman/mason.nvim' | Plug 'williamboman/mason-lspconfig.nvim'
