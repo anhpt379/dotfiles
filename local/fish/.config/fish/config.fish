@@ -3,7 +3,7 @@
 if not set -q COMPANY_NAME
     if test -f ~/code/work/.gitconfig
         set -gx COMPANY_NAME (
-            cat ~/code/work/.gitconfig | grep '@' | head -1 | awk -F@ '{ print $NF }'
+            cat ~/code/work/.gitconfig | grep '@' | head -1 | awk -F@ '{ print $NF }' | awk -F. '{ print $1 }'
         )
     end
 end
