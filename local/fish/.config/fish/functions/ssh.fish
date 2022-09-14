@@ -77,7 +77,6 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
 
         echo "Syncing dotfiles from $jump_host to $argv[1]..."
         command ssh $jump_host -- "rsync --quiet -a ~/HOME/ $argv[1]:~/"
-        command ssh $jump_host -- "rsync --quiet -a --delete ~/HOME/.local/bin/ $argv[1]:~/.local/bin/"
 
         command ssh $argv
     end
