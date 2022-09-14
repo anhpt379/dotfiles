@@ -20,7 +20,7 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 defaults write -g NSRequiresAquaSystemAppearance -bool Yes
 
 # Make the mouse pointer bigger
-defaults write com.apple.universalaccess mouseDriverCursorSize 1.5
+defaults write com.apple.universalaccess mouseDriverCursorSize -float 1.5
 
 # Disable sound on Ctrl-/ (when show/hide fzf preview)
 defaults write com.apple.systemsound com.apple.sound.uiaudio.enabled -int 0
