@@ -9,7 +9,6 @@ tap 'superbrothers/opener'
 
 # Apps
 cask 'alt-tab'
-cask 'developerexcuses'
 cask 'font-fira-code'
 cask 'font-meslo-lg-nerd-font'
 cask 'google-chrome'
