@@ -31,7 +31,7 @@ done
 
 if [ "${cmd_name}" = "gl" ]; then
   if [ "${args_count}" -eq 1 ]; then
-    args="-- '${args_array[0]}'"
+    args="--follow -- '${args_array[0]}'"
   fi
 elif [ "${cmd_name}" = "gd" ]; then
   args="-p --unified=0"
