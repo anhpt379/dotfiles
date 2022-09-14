@@ -13,6 +13,7 @@ cask 'hiddenbar'
 cask 'karabiner-elements'
 cask 'key-codes'
 cask 'kitty'
+cask 'lima'
 cask 'maccy'
 cask 'macdown'
 cask 'qbserve'
@@ -20,7 +21,6 @@ cask 'rectangle'
 cask 'stats'
 cask 'the-unarchiver'
 cask 'topnotch'
-cask 'utm'
 
 # Mac App Store
 mas 'Amphetamine', id: 937984704
