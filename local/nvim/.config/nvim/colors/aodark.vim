@@ -5,7 +5,7 @@ syntax reset
 let g:colors_name='aodark'
 let colors_name='aodark'
 
-let s:black       = { 'gui': '#101011', 'cterm': '0'  }
+let s:black       = { 'gui': '#000000', 'cterm': '0'  }
 let s:red         = { 'gui': '#e22f62', 'cterm': '9'  }
 let s:green       = { 'gui': '#5fae4d', 'cterm': '10' }
 let s:yellow      = { 'gui': '#deb246', 'cterm': '11' }
@@ -182,7 +182,7 @@ highlight link gitcommitDiscardedArrow gitcommitDiscardedFile
 highlight link gitcommitSelectedArrow gitcommitSelectedFile
 highlight link gitcommitUnmergedArrow gitcommitUnmergedFile
 
-highlight gitmessengerPopupNormal guibg=#101011 ctermbg=0
+highlight gitmessengerPopupNormal guibg=#000000 ctermbg=0
 highlight link gitmessengerHeader Identifier
 highlight link gitmessengerHash Number
 highlight link gitmessengerHistory Constant
