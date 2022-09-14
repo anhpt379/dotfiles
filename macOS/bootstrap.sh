@@ -5,7 +5,9 @@ bash .macos
 xcode-select --install
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
-brew bundle
+stow brew
+
+brew bundle --global
 brew autoupdate start 86400 --upgrade --cleanup
 
 stow clear

@@ -138,6 +138,7 @@ globabbr W '| wc -l'
 
 set -gx no_proxy localhost,.$COMPANY_DOMAIN
 
+set -gx HOMEBREW_BUNDLE_FILE "~/.Brewfile"
 set -gx GOPATH $HOME/.go
 
 if test -f /opt/homebrew/bin/brew
