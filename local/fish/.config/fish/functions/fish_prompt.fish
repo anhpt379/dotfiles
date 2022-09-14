@@ -12,7 +12,7 @@ function fish_prompt
 
     set -l normal_color (set_color normal)
     set -l repository_color (set_color yellow)
-    set -l prompt_background_color (set_color -b 333)
+    set -l prompt_background_color (set_color -b 262626)
 
     if string match -q -- "*.*" (hostname -f)
         echo -n -s $prompt_background_color
