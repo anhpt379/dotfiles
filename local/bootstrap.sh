@@ -133,4 +133,3 @@ sudo timedatectl set-timezone Europe/Amsterdam
 
 # reboot to finish changing the shell to fish
 reboot
-

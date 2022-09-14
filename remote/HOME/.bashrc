@@ -99,15 +99,10 @@ umask 0002
 
 # Extract nvim appimage
 if [ ! -f ~/.local/bin/nvim-appimage/squashfs-root/usr/bin/nvim ]; then
-  if [ -d ~/.local/bin/nvim ]; then
-    rm -rf ~/.local/bin/nvim
-  fi
-
   if [ -f ~/.local/bin/nvim.appimage ]; then
     mkdir -p ~/.local/bin/nvim-appimage/
     cd ~/.local/bin/nvim-appimage/ || exit 1
     ../nvim.appimage --appimage-extract
-    ln -sf ~/.local/bin/nvim-appimage/squashfs-root/AppRun ~/.local/bin/nvim
   fi
 fi
 
