@@ -926,26 +926,6 @@
                         ]
                     },
                     {
-                        "description": "Lock screen on pressing ESCAPE key",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "escape"
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "q",
-                                        "modifiers": [
-                                            "control",
-                                            "command"
-                                        ]
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
                         "description": "Map COMMAND+M to vk_none",
                         "manipulators": [
                             {
@@ -960,6 +940,22 @@
                                 "to": [
                                     {
                                         "key_code": "vk_none"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Start screen saver on pressing ESCAPE key",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "escape"
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "open -b com.apple.ScreenSaver.Engine"
                                     }
                                 ],
                                 "type": "basic"

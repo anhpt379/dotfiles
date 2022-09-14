@@ -2,7 +2,7 @@
   "title": "ESCAPE to lock screen",
   "rules": [
     {
-      "description": "Lock screen on pressing ESCAPE key",
+      "description": "Start screen saver on pressing ESCAPE key",
       "manipulators": [
         {
           "type": "basic",
@@ -11,8 +11,7 @@
           },
           "to": [
             {
-              "key_code": "q",
-              "modifiers": ["control", "command"]
+              "shell_command": "open -b com.apple.ScreenSaver.Engine"
             }
           ]
         }
