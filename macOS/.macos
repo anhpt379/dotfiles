@@ -188,11 +188,14 @@ defaults write com.apple.Dock autohide-delay -float 0
 # Enable highlight hover effect for the grid view of a stack (Dock)
 defaults write com.apple.dock mouse-over-hilite-stack -bool true
 
-# Set the icon size of Dock items to 36 pixels
-defaults write com.apple.dock tilesize -int 24
+# Set the icon size (in pixels) of Dock items
+defaults write com.apple.dock tilesize -int 53
 
 # Change minimize/maximize window effect
 defaults write com.apple.dock mineffect -string "scale"
+
+# No magnification
+defaults write com.apple.dock magnification -bool false
 
 # Minimize windows into their application’s icon
 defaults write com.apple.dock minimize-to-application -bool true
@@ -226,9 +229,6 @@ defaults write com.apple.dock show-recents -bool false
 # Fix text in Notification Center is too dark in Dark Mode
 defaults write com.apple.notificationcenterui NSRequiresAquaSystemAppearance -bool No
 
-# Reduce transparency
-defaults write com.apple.universalaccess reduceTransparency 1
-
 # Hot corners
 # Possible values:
 #  0: no-op
@@ -250,8 +250,8 @@ defaults write com.apple.dock wvous-tl-modifier -int 0
 defaults write com.apple.dock wvous-tr-corner -int 12
 defaults write com.apple.dock wvous-tr-modifier -int 0
 
-# Bottom left screen corner → Show application windows
-defaults write com.apple.dock wvous-bl-corner -int 3
+# Bottom left screen corner → Desktop
+defaults write com.apple.dock wvous-bl-corner -int 4
 defaults write com.apple.dock wvous-bl-modifier -int 0
 
 # Bottom right screen corner → Desktop
