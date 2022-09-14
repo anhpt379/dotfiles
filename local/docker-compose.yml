@@ -7,6 +7,6 @@ services:
     environment:
       - WAKAPI_PASSWORD_SALT=bDXjvWPreEBlItV3ivjmYRM08XE0bgSL
     volumes:
-      - ./wakapi-data:/data
+      - /Users/panh/data:/data
     ports:
       - "3000:3000"

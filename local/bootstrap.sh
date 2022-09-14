@@ -115,9 +115,6 @@ sudo systemctl enable docker
 sudo systemctl start docker
 
 # wakapi
-# To access the web UI, go to UTM -> Edit VM -> Network -> Port Forward, map
-# TCP Guest `0.0.0.0:3000` to Host `127.0.0.1:3000`, then open
-# http://127.0.0.1:3000 in browser.
 sudo docker-compose -f ~/dotfiles/local/docker-compose.yml up -d
 
 # cron

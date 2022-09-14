@@ -10,10 +10,11 @@
 Clone this repo to `~/dotfiles` and follow the instructions in
 `macOS/bootstrap.sh` and `local/bootstrap.sh`.
 
-I'm using this VM image: <https://mac.getutm.app/gallery/debian-10-4-minimal>
+I'm using this lima [fedora](macOS/lima/fedora.yaml) image at the moment.
 
-To ssh into it, import the VM, then go to Edit VM -> Network -> Port Forward,
-map TCP Guest `0.0.0.0:22` to Host `127.0.0.1:2222`.
+```bash
+limactl start --name=fedora macOS/lima/fedora.yaml
+```
 
 ## The setup
 
