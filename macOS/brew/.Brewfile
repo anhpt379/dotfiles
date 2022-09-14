@@ -46,6 +46,7 @@ brew 'jq'    # for youtube-dl/download.sh to work
 brew 'less'
 brew 'lf'
 brew 'lima'
+brew 'mas'
 brew 'neovim'
 brew 'ripgrep'
 brew 'rsync'
