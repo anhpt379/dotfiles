@@ -8,6 +8,8 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
   augroup end
 endif
 
+let g:hostname = hostname()
+
 call plug#begin()
 
   " Defaults everyone can agree on
@@ -82,7 +84,7 @@ call plug#begin()
   Plug 'anhpt379/vim-git-browse'
 
   " Heavily loaded plugins
-  if $USER ==# 'debian'
+  if g:hostname =~# 'fedora'
     Plug 'dstein64/vim-startuptime'
     Plug 'mhinz/vim-startify'
     Plug 'itchyny/lightline.vim'
@@ -145,7 +147,7 @@ call plug#begin()
 
 call plug#end()
 
-if $USER ==# 'debian'
+if g:hostname =~# 'fedora'
   lua require('impatient')
 endif
 
@@ -368,7 +370,7 @@ function! DevIconsFileFormat()
 endfunction
 
 " Show vim tab line even if only one file is open
-if $USER ==# 'debian'
+if g:hostname =~# 'fedora'
   set showtabline=2
 
   nmap <Leader>1 <Plug>lightline#bufferline#go(1)
@@ -848,9 +850,9 @@ augroup end
 " Lf.vim
 let g:lf_map_keys = 0
 let g:lf_replace_netrw = 1
-autocmd TermOpen  * if $USER ==# 'debian' | set showtabline=0 | endif | set nonumber | set signcolumn=no  | set mouse-=a
-autocmd TermEnter * if $USER ==# 'debian' | set showtabline=0 | endif | set nonumber | set signcolumn=no  | set mouse-=a
-autocmd TermLeave * if $USER ==# 'debian' | set showtabline=2 | endif | set number   | set signcolumn=yes | set mouse+=a
+autocmd TermOpen  * if g:hostname =~# 'fedora' | set showtabline=0 | endif | set nonumber | set signcolumn=no  | set mouse-=a
+autocmd TermEnter * if g:hostname =~# 'fedora' | set showtabline=0 | endif | set nonumber | set signcolumn=no  | set mouse-=a
+autocmd TermLeave * if g:hostname =~# 'fedora' | set showtabline=2 | endif | set number   | set signcolumn=yes | set mouse+=a
 map <Leader>l :<C-u>Lf<CR>
 
 " Clever-f
@@ -1140,7 +1142,7 @@ augroup dockerfile
 augroup end
 
 " Lua config
-if $USER ==# 'debian'
+if g:hostname =~# 'fedora'
   luafile <sfile>:h/config.lua
 endif
 

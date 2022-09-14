@@ -10,13 +10,10 @@ end
 
 # ssh to the VM automatically
 if string match -q -- "Darwin" (uname)
-    if nc -z 127.0.0.1 2222 &>/dev/null
-        command kitty +kitten ssh -p 2222 \
-            -o UserKnownHostsFile=/dev/null \
-            -o StrictHostKeyChecking=no \
-            -o LogLevel=ERROR \
-            -o IdentitiesOnly=yes \
-            debian@127.0.0.1 -t COMPANY_NAME=$COMPANY_NAME /usr/bin/fish
+    if limactl list | grep -q Running
+        set -l lima_ssh (limactl show-ssh fedora)
+        set -l kitty_ssh "kitty +kitten $lima_ssh -t COMPANY_NAME=$COMPANY_NAME /bin/fish"
+        eval $kitty_ssh
     end
 end
 
@@ -118,7 +115,7 @@ if type -q direnv
 end
 
 if begin not string match -q -- "Darwin" (uname);
-    and not string match -q -- "debian" $USER; end
+    and not string match -e -q -- "fedora" (hostname); end
     alias pp   'command sudo HOME=/root TERMINFO=/home/panh/.terminfo puppet agent -t'
     alias ppa  'command sudo HOME=/root TERMINFO=/home/panh/.terminfo puppet agent -t --environment=panh'
     alias ppl  'nvimpager -- --cmd "autocmd VimEnter * :normal G" /var/log/puppet/puppetagent.log'

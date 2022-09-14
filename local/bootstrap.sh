@@ -1,38 +1,22 @@
 #!/bin/bash
 
-# sudo without password
-echo 'debian ALL=(ALL) NOPASSWD: ALL' | sudo tee -a /etc/sudoers
-
-# no grub wait time when booting
-sudo sed -i 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=0/' /etc/default/grub
-sudo update-grub
-
-# essential packages
-sudo apt-get update --allow-releaseinfo-change
-curl -sL https://deb.nodesource.com/setup_16.x | sudo bash -
-
-sudo apt-get install -y --no-install-recommends stow git \
+sudo dnf install -y stow git fish neovim \
   jq ripgrep exa rsync \
-  curl ncat dnsutils \
+  curl wget nmap-ncat dnsutils \
   telnet atop corkscrew \
-  grc gron pwgen tldr \
+  grc gron pwgen tldr man-pages \
   youtube-dl ipython python3-virtualenv \
-  python3-setuptools python3-pip python3-dev \
-  cargo luarocks golang rubygems nodejs build-essential
+  python3-setuptools python3-pip python3-devel \
+  cargo npm luarocks lua-devel golang ruby-devel @development-tools
 
 # dotfiles
 cd ~/ || exit 1
 git clone https://github.com/anhpt379/dotfiles.git
 cd dotfiles/local/ || exit 1
 
-# fish
-sudo apt install -y gpg
-echo 'deb http://download.opensuse.org/repositories/shells:/fish:/release:/3/Debian_10/ /' | sudo tee /etc/apt/sources.list.d/shells:fish:release:3.list
-curl -fsSL https://download.opensuse.org/repositories/shells:fish:release:3/Debian_10/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/shells_fish_release_3.gpg > /dev/null
-sudo apt update
-sudo apt install fish
-
 stow fish
+
+sudo usermod -s /bin/fish $USER
 
 # oh-my-fish
 curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install > install
@@ -50,14 +34,12 @@ stow gem
 stow git
 stow grc
 stow inputrc
-stow kitty
 stow less
 stow lf
 stow nvim
 stow nvimpager
 stow ssh
 stow tmux
-stow vale
 stow wakatime
 
 # fd
@@ -75,24 +57,10 @@ rm -rf fzf-*.tar.gz
 cd - || exit 1
 
 # nvim
-sudo apt-get install -y ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl doxygen
-git clone --depth=1 https://github.com/neovim/neovim.git
-cd neovim || exit 1
-git checkout stable
-make CMAKE_BUILD_TYPE=RelWithDebInfo
-sudo make install
-
 nvim -c "PlugInstall" -c "qall"
-nvim -c "TSUpdate" -c "qall"
-
-# Disable lua ftplugin, since it's really slow
-# It got introduced since nvim 0.7.2 (in
-# https://github.com/neovim/neovim/commit/fd5e5d2715d264447d94d7253f3c78bd7003a472)
-# and it took ~1s to load.
-sed -i 's/^.*\.lua.*$//g' /usr/local/Cellar/neovim/*/share/nvim/runtime/ftplugin.vim
 
 # code formatters
-curl -fLo ~/.local/bin/shfmt https://github.com/mvdan/sh/releases/download/v3.5.1/shfmt_v3.5.1_linux_arm64 && chmod +x ~/.local/bin/shfmt
+sudo dnf install shfmt
 pip3 install black
 sudo npm install -g @fsouza/prettierd
 pip3 install yamlfixer-opt-nc
@@ -108,9 +76,7 @@ sudo npm install -g jsonlint textlint write-good markdownlint-cli
 gem install --bindir ~/.local/bin/ rubocop rubocop-rspec mdl
 
 sudo luarocks install luacheck
-sudo apt-get install -y shellcheck codespell python3-proselint
-curl -fLo ~/.local/bin/hadolint https://github.com/hadolint/hadolint/releases/download/v2.10.0/hadolint-Linux-arm64 && \
-  chmod +x ~/.local/bin/hadolint
+sudo dnf install -y codespell proselint hadolint shellcheck
 
 # languagetool
 pip3 install requests
@@ -142,13 +108,17 @@ cargo install mocword
 wget https://github.com/high-moctane/mocword-data/releases/download/eng20200217/mocword.sqlite.gz
 gunzip mocword.sqlite.gz
 mv mocword.sqlite ~/.config/nvim/dictionaries/mocword.sqlite
-rm -f mocword*
 
 # docker
-sudo apt install -y docker docker-compose
+sudo dnf install -y docker docker-compose
 sudo systemctl enable docker
 sudo systemctl start docker
-sudo docker-compose -f ~/dotfiles/linux/docker-compose.yml up -d
+
+# wakapi
+# To access the web UI, go to UTM -> Edit VM -> Network -> Port Forward, map
+# TCP Guest `0.0.0.0:3000` to Host `127.0.0.1:3000`, then open
+# http://127.0.0.1:3000 in browser.
+sudo docker-compose -f ~/dotfiles/local/docker-compose.yml up -d
 
 # cron
 # sudo dnf install -y cronie
@@ -173,3 +143,4 @@ sudo timedatectl set-timezone Europe/Amsterdam
 
 # reboot to finish changing the shell to fish
 reboot
+
