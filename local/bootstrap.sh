@@ -122,18 +122,11 @@ sudo docker-compose -f ~/dotfiles/local/docker-compose.yml up -d
 # sudo systemctl enable crond
 # sudo systemctl start crond
 
-# echo "0 * * * * bash ~/Music/youtube-dl/download.sh" > cron
 # # Use this cronjob to refresh the list of servers that fzf_find uses to search
 # # for hosts when typing `ssh<C-f>`:
 # # echo "0 3 * * * bash -c \"curl -fsH 'Accept-encoding: gzip' https://<DOMAIN>/servers | gunzip - | jq -r '.servers | .[] | .fqdn' | sort | grep -v 'spare-' > ~/.cache/servers.txt\" >>/tmp/cron.log 2>&1" >> cron
 # crontab cron
 # rm -f cron
-
-# ffmpeg
-# sudo dnf install -y \
-#   https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-"$(rpm -E %fedora)".noarch.rpm \
-#   https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-"$(rpm -E %fedora)".noarch.rpm
-# sudo dnf install -y ffmpeg
 
 # timezone
 sudo timedatectl set-timezone Europe/Amsterdam
