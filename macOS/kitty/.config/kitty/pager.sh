@@ -18,8 +18,7 @@ exec /opt/homebrew/bin/nvim \
   -c "autocmd TermEnter * stopinsert" \
   -c "autocmd TermClose * ${AUTOCMD_TERMCLOSE_CMD}" \
   -c "nmap p ? \\\|^\[.*\]<CR>" \
-  -c "nmap <CR>  :nohlsearch<CR>" \
-  -c "nmap <ESC> :nohlsearch<CR>" \
-  -c "nmap H zH | nmap L zL | nmap h zh | nmap l zl" \
+  -c "nmap <CR>  :nohlsearch<CR> | nmap <ESC> :nohlsearch<CR>" \
+  -c "nmap H zH | nmap L zL | nmap J <C-e> | nmap K <C-y>" \
   -c "nmap a <nop> | nmap i <nop>" \
   -c 'terminal sed </dev/fd/63 -e "s/'$'\x1b'']8;;file:[^\]*[\]//g" && sleep 0.01 && printf "'$'\x1b'']2;"' 63<&0 0</dev/null
