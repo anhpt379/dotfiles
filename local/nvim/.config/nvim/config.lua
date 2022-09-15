@@ -9,7 +9,7 @@ require("mason").setup {
   }
 }
 
-require("mason-lspconfig").setup {
+require('mason-tool-installer').setup {
   ensure_installed = {
     'bash-language-server',
     'cmake-language-server',
@@ -19,17 +19,18 @@ require("mason-lspconfig").setup {
     'pyright',
     'ansible-language-server',
     'json-lsp',
-    -- 'puppet-editor-services',
     'rust-analyzer',
     'lua-language-server',
     'terraform-ls',
     'solargraph',
     'tflint',
     'vim-language-server',
-    -- 'yamlls',
   },
-  automatic_installation = true,
+  auto_update = true,
+  run_on_start = true,
+  start_delay = 3000, -- 3 second delay
 }
+
 require("mason-lspconfig").setup_handlers({
   function (server_name) -- default handler (optional)
     require("lspconfig")[server_name].setup {}
