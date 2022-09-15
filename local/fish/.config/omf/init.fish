@@ -93,16 +93,18 @@ alias nlf 'nvim +"Lf"'
 alias nv  'nvim $argv'
 
 function update
+    fisher update
+    omf update
     if command -v brew
         brew bundle
-        brew bundle clean
-        brew bundle clean --force
+        brew bundle cleanup
+        brew bundle cleanup --force
         brew outdated
         brew upgrade
     end
-    fisher update
-    omf update
-    tldr --update
+    if command -v tldr
+        tldr --update
+    end
 end
 
 function less
