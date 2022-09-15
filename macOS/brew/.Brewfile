@@ -7,6 +7,8 @@ tap 'homebrew/cask-versions'
 tap 'homebrew/core'
 tap 'superbrothers/opener'
 
+cask_args appdir: "~/Applications", require_sha: true, no_quarantine: true
+
 # Apps
 cask 'alt-tab'
 cask 'font-fira-code'
@@ -21,6 +23,7 @@ cask 'macdown'
 cask 'qbserve'
 cask 'rectangle'
 cask 'stats'
+cask 'syntax-highlight'
 cask 'the-unarchiver'
 cask 'topnotch'
 
