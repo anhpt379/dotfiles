@@ -60,6 +60,7 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
         command ssh $argv -t HOME=/tmp/panh bash
 
     else
+        set -f start_time (date +%s)
         set -f jump_host (cat ~/.ssh/conf.d/work.conf | grep ProxyJump | tail -1 | awk '{ print $NF }')
 
         echo "Syncing dotfiles to $jump_host..."
@@ -78,7 +79,11 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
         echo "Syncing dotfiles from $jump_host to $argv[1]..."
         command ssh $jump_host -- "rsync -e 'ssh -o UserKnownHostsFile=/dev/null' --quiet -a ~/HOME/ $argv[1]:~/"
 
-        echo "✓ $(echo $argv[1] | awk -F. '{ print $1 }') is connected now." | nc 127.0.0.1 2227
+        set -f end_time (date +%s)
+        set -f duration (expr $end_time - $start_time)
+        if test $duration -gt 2
+            echo "✓ $(echo $argv[1] | awk -F. '{ print $1 }') is connected now." | nc 127.0.0.1 2227
+        end
 
         command ssh $argv
     end
