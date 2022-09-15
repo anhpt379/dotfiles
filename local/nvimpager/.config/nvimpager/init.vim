@@ -37,8 +37,8 @@ let g:loaded_matchparen = 1
 
 lua nvimpager.maps = false
 
-nmap C /commit [a-z0-9]\{40}\\|added: .\+$\\|deleted: .\+$\\|modified: .\+$<CR>
-nmap A ?Applied catalog in .* seconds<CR>
+nmap c /commit [a-z0-9]\{40}\\|added: .\+$\\|deleted: .\+$\\|modified: .\+$<CR>
+nmap a ?Applied catalog in .* seconds<CR>
 
 nmap <CR>  :nohlsearch<CR>
 nmap <ESC> :nohlsearch<CR>
