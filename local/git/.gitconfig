@@ -19,6 +19,7 @@
   prune = fetch --prune
   stash-all = stash save --include-untracked
   stashed = stash list --pretty=format:'%gd: %Cred%h%Creset %Cgreen[%ar]%Creset %s'
+  apply-gitignore = !git ls-files -ci --exclude-standard -z | xargs -0 git rm --cached
 
 [status]
   showUntrackedFiles = all
