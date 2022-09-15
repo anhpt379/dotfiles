@@ -82,7 +82,6 @@ alias f 'fzf'
 alias h 'tldr'
 alias l 'll'
 alias m 'master'
-alias n 'note'
 alias o 'openstack'
 
 alias vim 'nvim'

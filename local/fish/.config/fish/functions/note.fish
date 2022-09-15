@@ -4,18 +4,8 @@ function note -d "Manage notes in ~/notes"
     cd ~/notes/
 
     set cmd_name $_
-    if [ $cmd_name = n ]
-        echo -e "\n\n===============================================================================" >>zZz.txt
-        echo -n (date) >>zZz.txt
-        if [ (count $argv) -gt 0 ]
-            echo -n ": "$argv >>zZz.txt
-        end
-        echo -e "\n===============================================================================\n" >>zZz.txt
-        nvim "+normal Go" +startinsert zZz.txt
-        exit 0
-    else
-        set file_to_open (
-            python3 -c '
+    set file_to_open (
+        python3 -c '
 import os
 
 files = os.listdir(".")
@@ -44,15 +34,14 @@ for f in files:
     output.append(f"{f} \033[2m{preview}\033[0m")
 
 print("\n".join(output))' | devicon add | \
-            fzf --preview="head -100 \$(echo {} | cut -d' ' -f2) | nvimpager -c" \
-                --preview-window=right:70% \
-                --height=100% --print-query --ansi | \
-            tail -1 | cut -d' ' -f2
-        )
+        fzf --preview="head -100 \$(echo {} | cut -d' ' -f2) | nvimpager -c" \
+            --preview-window=right:70% \
+            --height=100% --print-query --ansi | \
+        tail -1 | cut -d' ' -f2
+    )
 
-        if string length -q -- "$file_to_open"
-            nvim "$file_to_open"
-        end
+    if string length -q -- "$file_to_open"
+        nvim "$file_to_open"
     end
 
     cd $current_dir
