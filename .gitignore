@@ -11,6 +11,7 @@ local/fish/.config/fish/functions/__z*.fish
 local/fish/.config/fish/functions/_autopair_*.fish
 local/fish/.config/fish/functions/_puffer_*.fish
 local/fish/.config/fish/functions/_sponge_*.fish
+local/fish/.config/fish/functions/fish_ssh_agent.fish
 local/fish/.config/fish/functions/fisher.fish
 local/fish/.config/fish/functions/sponge_*.fish
 local/nvim/.config/nvim/autoload/plug.vim*
