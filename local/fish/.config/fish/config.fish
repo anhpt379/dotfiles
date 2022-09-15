@@ -1,5 +1,10 @@
 #!/usr/bin/env fish
 
+# Install fisher & fish plugins
+if status is-interactive && ! functions --query fisher
+    curl -sL https://git.io/fisher | source && fisher update
+end
+
 if test -f ~/code/work/.gitconfig
     set -gx COMPANY_NAME (
         cat ~/code/work/.gitconfig | grep '@' | head -1 | awk -F@ '{ print $NF }' | awk -F. '{ print $1 }'
