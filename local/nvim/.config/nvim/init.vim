@@ -594,7 +594,7 @@ set scrolloff=5
 set sidescrolloff=7
 
 " Copy path to clipboard
-command! CopyPath :call system('pbcopy', fnamemodify(expand("%"), ":~:."))
+command! CPP :call system('pbcopy', fnamemodify(expand("%"), ":~:."))
 
 " Split line (sister to [J]oin lines)
 " The normal use of S is covered by cc, so don't worry about shadowing
