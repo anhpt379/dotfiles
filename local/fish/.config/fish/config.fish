@@ -8,15 +8,6 @@ if not set -q COMPANY_NAME
     end
 end
 
-# ssh to the VM automatically
-if string match -q -- "Darwin" (uname)
-    if limactl list | grep -q Running
-        set -l lima_ssh (limactl show-ssh fedora)
-        set -l kitty_ssh "kitty +kitten $lima_ssh -t COMPANY_NAME=$COMPANY_NAME /bin/fish"
-        eval $kitty_ssh
-    end
-end
-
 set -gx COMPANY_NAME_LOWER (echo $COMPANY_NAME | tr A-Z a-z)
 set -gx COMPANY_NAME_UPPER (echo $COMPANY_NAME | tr a-z A-Z)
 set -gx COMPANY_NAME_CAPITALIZE (echo $COMPANY_NAME | sed 's/[^ ]*/\u&/g')

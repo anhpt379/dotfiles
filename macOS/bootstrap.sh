@@ -10,6 +10,7 @@ stow brew
 brew bundle --global
 brew autoupdate start 86400 --upgrade --cleanup
 
+stow bash
 stow clear
 stow diff-so-fancy
 stow fish
@@ -33,9 +34,6 @@ cp -r rectangle/Library/* ~/Library/
 curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install > install
 fish install --path=~/.local/share/omf --config=~/.config/omf --yes --noninteractive
 rm -f install
-
-echo '/opt/homebrew/bin/fish' | sudo tee -a /etc/shells
-chsh -s /opt/homebrew/bin/fish
 
 # oh-my-fish
 curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install > install
