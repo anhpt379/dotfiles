@@ -78,6 +78,8 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
         echo "Syncing dotfiles from $jump_host to $argv[1]..."
         command ssh $jump_host -- "rsync -e 'ssh -o UserKnownHostsFile=/dev/null' --quiet -a ~/HOME/ $argv[1]:~/"
 
+        echo "✓ $(echo $argv[1] | awk -F. '{ print $1 }') is connected now." | nc 127.0.0.1 2227
+
         command ssh $argv
     end
 
