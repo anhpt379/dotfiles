@@ -111,6 +111,10 @@ if begin not string match -q -- "Darwin" (uname);
     alias ppc  'nvimpager -c -- --cmd "set ft=cfg" /etc/puppetlabs/puppet/puppet.conf'
     alias motd 'cat /etc/motd; [ -f /etc/motd.local ] && cat /etc/motd.local'
     alias ssh  'cmd ssh'
+    function psql
+        cp ~/.psqlrc /tmp/
+        sudo -u postgres bash -c "PSQLRC=/tmp/.psqlrc psql $argv[1]"
+    end
 
     # Update the default email for git
     git config --global user.email anh.pham@$COMPANY_DOMAIN
