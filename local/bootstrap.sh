@@ -1,13 +1,16 @@
 #!/bin/bash
 
-sudo dnf install -y stow git fish neovim \
+sudo dnf install -y \
+  stow git fish neovim \
   jq ripgrep exa rsync \
-  curl wget nmap-ncat dnsutils \
-  telnet atop corkscrew \
-  grc gron pwgen tldr man-pages \
-  youtube-dl ipython python3-virtualenv \
+  curl wget nmap-ncat \
+  telnet corkscrew \
+  tldr man-pages grc dnsutils \
+  atop pwgen gron ncdu \
+  ipython python3-virtualenv \
   python3-setuptools python3-pip python3-devel \
-  cargo npm luarocks lua-devel golang ruby-devel @development-tools
+  cargo golang npm luarocks lua-devel ruby-devel \
+  @development-tools
 
 # dotfiles
 cd ~/ || exit 1
