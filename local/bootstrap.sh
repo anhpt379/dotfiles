@@ -89,9 +89,11 @@ mv lf ~/.local/bin/
 rm -f lf-*.tar.gz
 cd - || exit 1
 
-# prettyping
-curl -fLo ~/.local/bin/prettyping https://github.com/denilsonsa/prettyping/raw/master/prettyping
-chmod +x ~/.local/bin/prettyping
+# hping3
+# the normal `ping` doesn't work in Lima VM
+# (https://github.com/lima-vm/lima/blob/master/README.md#ping-shows-duplicate-packets-and-massive-response-times),
+# but `hping3` does work
+sudo dnf install -y hping3
 
 # xh
 wget https://github.com/ducaale/xh/releases/download/v0.16.1/xh-v0.16.1-aarch64-unknown-linux-musl.tar.gz

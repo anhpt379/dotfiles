@@ -50,7 +50,11 @@ alias gremote  'git remote'
 alias gbranch  'git branch'
 
 alias cat  'less'
-alias ping 'prettyping --nolegend'
+if command -v prettyping &> /dev/null
+    alias ping 'prettyping --nolegend'
+else if command -v hping3 &> /dev/null
+    alias ping 'sudo hping3'
+end
 alias ncdu 'ncdu -rr -x --exclude .git'
 alias fd   'fd --hidden --exclude=".git"'
 alias view 'nvimpager -p'
