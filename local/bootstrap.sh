@@ -82,7 +82,7 @@ sudo luarocks install luacheck
 sudo dnf install -y codespell proselint hadolint ShellCheck
 
 # languagetool
-pip3 install requests
+pip3 install --upgrade requests
 
 # lf
 cd /tmp || exit
