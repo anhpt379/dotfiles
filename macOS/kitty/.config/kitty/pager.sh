@@ -11,7 +11,7 @@ else
   AUTOCMD_TERMCLOSE_CMD="normal G"
 fi
 
-exec /usr/local/bin/nvim \
+exec /opt/homebrew/bin/nvim \
   -u NONE \
   -c "map <silent> q :<C-u>qa!<CR>" \
   -c "set shell=bash scrollback=100000 laststatus=0 clipboard+=unnamedplus nowrap incsearch ignorecase smartcase" \
