@@ -70,6 +70,9 @@ pip3 install neovim
 gem install --bindir ~/.local/bin/ neovim
 sudo npm install -g neovim
 
+# tree-sitter
+sudo dnf install -y gcc-c++ libstdc++-static
+
 # null-ls
 pip3 install vim-vint
 sudo npm install -g jsonlint textlint write-good markdownlint-cli
