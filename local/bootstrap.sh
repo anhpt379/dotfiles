@@ -39,6 +39,7 @@ stow grc
 stow inputrc
 stow less
 stow lf
+stow man
 stow nvim
 stow nvimpager
 stow ssh
@@ -49,10 +50,12 @@ stow wakatime
 wget https://github.com/sharkdp/fd/releases/download/v8.4.0/fd-v8.4.0-aarch64-unknown-linux-gnu.tar.gz
 tar zxvf fd-*.tar.gz
 mv fd-*/fd ~/.local/bin/
+mv fd-*/fd.1 ~/.local/share/man/man1/
 rm -rf fd-*
 
 # fzf
 cd /tmp || exit 1
+curl -fLo ~/.local/share/man/man1/fzf.1 https://raw.githubusercontent.com/junegunn/fzf/0.33.0/man/man1/fzf.1
 wget https://github.com/junegunn/fzf/releases/download/0.33.0/fzf-0.33.0-linux_arm64.tar.gz
 tar zxvf fzf-*.tar.gz
 mv fzf ~/.local/bin/
@@ -89,6 +92,7 @@ pip3 install --upgrade requests
 
 # lf
 cd /tmp || exit
+curl -fLo ~/.local/share/man/man1/lf.1 https://raw.githubusercontent.com/gokcehan/lf/r27/lf.1
 wget https://github.com/gokcehan/lf/releases/download/r27/lf-linux-arm64.tar.gz
 tar zxvf lf-*.tar.gz
 mv lf ~/.local/bin/
@@ -102,13 +106,15 @@ cd - || exit 1
 sudo dnf install -y hping3
 
 # xh
+curl -fLo ~/.local/share/man/man1/xh.1 https://raw.githubusercontent.com/ducaale/xh/v0.16.1/doc/xh.1
 wget https://github.com/ducaale/xh/releases/download/v0.16.1/xh-v0.16.1-aarch64-unknown-linux-musl.tar.gz
 tar zxvf xh-*.tar.gz
 mv xh-*/xh ~/.local/bin/
 rm -rf xh-*.tar.gz
 
 # grc-rs
-cargo install grc-rs
+curl -fLo ~/.local/share/man/man1/grc-rs.1 https://raw.githubusercontent.com/larsch/grc-rs/v0.3.2/grc-rs.1
+cargo install grc-rs@0.3.2
 
 # mocword
 cargo install mocword
@@ -126,9 +132,9 @@ sudo systemctl start docker
 sudo docker-compose -f ~/dotfiles/local/docker-compose.yml up -d
 
 # cron
-# sudo dnf install -y cronie
-# sudo systemctl enable crond
-# sudo systemctl start crond
+sudo dnf install -y cronie
+sudo systemctl enable crond
+sudo systemctl start crond
 
 # # Use this cronjob to refresh the list of servers that fzf_find uses to search
 # # for hosts when typing `ssh<C-f>`:
