@@ -48,11 +48,9 @@ nmap L zl
 nmap J <C-e>
 nmap K <C-y>
 
-nmap a <nop>
 nmap i <nop>
-nmap c <nop>
-nmap s <nop>
 nmap I <nop>
+nmap s <nop>
 
 map  q :<C-u>qa!<CR>
 
