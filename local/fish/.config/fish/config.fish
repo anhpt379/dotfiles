@@ -1,11 +1,9 @@
 #!/usr/bin/env fish
 
-if not set -q COMPANY_NAME
-    if test -f ~/code/work/.gitconfig
-        set -gx COMPANY_NAME (
-            cat ~/code/work/.gitconfig | grep '@' | head -1 | awk -F@ '{ print $NF }' | awk -F. '{ print $1 }'
-        )
-    end
+if test -f ~/code/work/.gitconfig
+    set -gx COMPANY_NAME (
+        cat ~/code/work/.gitconfig | grep '@' | head -1 | awk -F@ '{ print $NF }' | awk -F. '{ print $1 }'
+    )
 end
 
 set -gx COMPANY_NAME_LOWER (echo $COMPANY_NAME | tr A-Z a-z)
