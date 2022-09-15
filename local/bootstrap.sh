@@ -76,7 +76,7 @@ sudo npm install -g jsonlint textlint write-good markdownlint-cli
 gem install --bindir ~/.local/bin/ rubocop rubocop-rspec mdl
 
 sudo luarocks install luacheck
-sudo dnf install -y codespell proselint hadolint shellcheck
+sudo dnf install -y codespell proselint hadolint ShellCheck
 
 # languagetool
 pip3 install requests
