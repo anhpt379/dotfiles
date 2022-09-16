@@ -57,10 +57,10 @@ alias gclone='git clone'
 alias gremote='git remote'
 alias gbranch='git branch'
 
-alias ls='command ls --color=always --group-directories-first -v'
-alias la='command ls --color=always --group-directories-first -Av'
-alias ll='command ls --color=always --group-directories-first -lhv'
-alias lla='command ls --color=always --group-directories-first -lhAv'
+alias ls='command ls --color=yes --group-directories-first -vF'
+alias la='command ls --color=yes --group-directories-first -vF -A'
+alias ll='command ls --color=yes --group-directories-first -vF -lh'
+alias lla='command ls --color=yes --group-directories-first -vF -lhA'
 
 alias dmesg='dmesg --color'
 

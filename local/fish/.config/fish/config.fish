@@ -34,10 +34,10 @@ alias v   'nvimpager'
 alias t   'tail'
 alias tf  'tail -f'
 
-alias ls  'exa --group-directories-first'
-alias la  'exa --group-directories-first -a'
-alias ll  'exa --group-directories-first -l'
-alias lla 'exa --group-directories-first -la'
+alias ls  'exa --group-directories-first -F'
+alias la  'exa --group-directories-first -F -a'
+alias ll  'exa --group-directories-first -F -l'
+alias lla 'exa --group-directories-first -F -la'
 
 alias dmesg 'dmesg --color'
 

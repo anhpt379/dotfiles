@@ -12,7 +12,7 @@ if [[ -d $path ]]; then
   echo
 
   # preview directory contents with `exa`
-  command ls --color=always --group-directories-first -lhAv
+  command ls --color=always --group-directories-first -lhAvF "$path"
 else
   if file -bL --mime "$path" | grep -q 'charset=binary'; then
     # show file info if it's a binary file
