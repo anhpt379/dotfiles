@@ -1,3 +1,1 @@
-#!/bin/bash
-
-source ~/.bash_aliases
+../../local/bash/.bashrc

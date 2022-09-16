@@ -1,0 +1,1 @@
+../../local/bash/.bash_aliases
