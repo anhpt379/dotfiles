@@ -11,7 +11,6 @@ brew bundle --global
 brew autoupdate start 86400 --upgrade --cleanup
 
 stow bash
-stow clear
 stow diff-so-fancy
 stow fish
 stow fzf

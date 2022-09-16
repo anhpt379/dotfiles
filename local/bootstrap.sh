@@ -28,7 +28,6 @@ rm -f install
 
 # stow
 stow bat
-stow clear
 stow curl
 stow diff-so-fancy
 stow docker
