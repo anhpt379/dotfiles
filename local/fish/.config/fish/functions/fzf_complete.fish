@@ -7,7 +7,9 @@ function fzf_complete
     # there will be too many files and the auto completion will be slow).
     if string match -q -- "*/*/*/**" (commandline)
         fzf_find
-        return
+        if test $status -ne 124
+            return
+        end
     end
 
     # Color descriptions manually
