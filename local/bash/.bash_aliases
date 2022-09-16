@@ -84,4 +84,7 @@ alias kn='kubectl config set-context --current --namespace'
 alias urldecode='python3 -c "import sys, urllib.parse; print(urllib.parse.unquote_plus(sys.argv[1]))"'
 alias urlencode='python3 -c "import sys, urllib.parse; print(urllib.parse.quote_plus(sys.argv[1]))"'
 
-
+alias finder_show_hidden_files="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
+alias finder_hide_hidden_files="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
+alias finder_hide_desktop_files="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
+alias finder_show_desktop_files="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
