@@ -18,7 +18,6 @@ function fzf_complete
               --scheme=path \
               --header="$(tput setaf 1)TAB$(tput sgr0) to select, $(tput setaf 1)ENTER$(tput sgr0) to run, $(tput setaf 1)ESC$(tput sgr0) to cancel" \
               --preview="$FZF_PREVIEW_COMMAND" \
-              --preview-window=right:hidden \
               --query "$current_word" \
     )
 
