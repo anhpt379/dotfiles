@@ -7,7 +7,7 @@ function fzf_find -d "Find files and folders"
             | fzf --select-1 --exit-0 --ansi \
                 --bind=tab:accept \
                 --expect=enter \
-                --header='(Press TAB to accept, ENTER to accept and run)' \
+                --header="$(tput setaf 1)TAB$(tput sgr0) to select, $(tput setaf 1)ENTER$(tput sgr0) to run, $(tput setaf 1)ESC$(tput sgr0) to cancel" \
                 --query=(echo $command | sed 's/^ssh//' | xargs)
         )
     else
@@ -29,7 +29,7 @@ function fzf_find -d "Find files and folders"
                 | fzf --delimiter=\t --select-1 --exit-0 --ansi \
                     --bind=tab:accept \
                     --expect=enter \
-                    --header="(Press TAB to accept, ENTER to accept and run)" \
+                    --header="$(tput setaf 1)TAB$(tput sgr0) to select, $(tput setaf 1)ENTER$(tput sgr0) to run, $(tput setaf 1)ESC$(tput sgr0) to cancel" \
                     --preview="$FZF_PREVIEW_COMMAND" \
                     --query="$fzf_query" \
             )
@@ -43,7 +43,7 @@ function fzf_find -d "Find files and folders"
                 | fzf --delimiter=\t --select-1 --exit-0 --ansi \
                     --bind=tab:accept \
                     --expect=enter \
-                    --header="(Press TAB to accept, ENTER to accept and run)" \
+                    --header="$(tput setaf 1)TAB$(tput sgr0) to select, $(tput setaf 1)ENTER$(tput sgr0) to run, $(tput setaf 1)ESC$(tput sgr0) to cancel" \
                     --preview="$FZF_PREVIEW_COMMAND" \
                     --query=(echo $command | sed 's/^j//' | xargs)
             )
@@ -54,7 +54,7 @@ function fzf_find -d "Find files and folders"
                 | fzf --delimiter=\t --select-1 --exit-0 --ansi \
                     --bind=tab:accept \
                     --expect=enter \
-                    --header="(Press TAB to accept, ENTER to accept and run)" \
+                    --header="$(tput setaf 1)TAB$(tput sgr0) to select, $(tput setaf 1)ENTER$(tput sgr0) to run, $(tput setaf 1)ESC$(tput sgr0) to cancel" \
                     --preview="$FZF_PREVIEW_COMMAND" \
                     --query="$fzf_query" \
             )

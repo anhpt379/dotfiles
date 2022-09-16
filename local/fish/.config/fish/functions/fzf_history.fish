@@ -3,7 +3,7 @@ function fzf_history -d "Show command history"
         history -z \
         | fzf --tiebreak=index \
               --expect=enter \
-              --header="(Press TAB to accept, ENTER to accept and run)" \
+              --header="$(tput setaf 1)TAB$(tput sgr0) to select, $(tput setaf 1)ENTER$(tput sgr0) to run, $(tput setaf 1)ESC$(tput sgr0) to cancel" \
               --bind=tab:accept \
               --read0 \
               --query=^(commandline)
