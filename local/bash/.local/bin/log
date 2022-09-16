@@ -1,0 +1,4 @@
+#!/bin/bash
+
+SYSTEMD_PAGER=cat sudo journalctl -u $@ | \
+  nvimpager -- --cmd "autocmd VimEnter * :normal G"

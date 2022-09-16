@@ -16,30 +16,9 @@ set -gx COMPANY_NAME_UPPER (echo $COMPANY_NAME | tr a-z A-Z)
 set -gx COMPANY_NAME_CAPITALIZE (echo $COMPANY_NAME | sed 's/[^ ]*/\u&/g')
 set -gx COMPANY_DOMAIN "$COMPANY_NAME_LOWER.com"
 
-# Common aliases
-alias ..    'cd ..'
-alias ...   'cd ../..'
-alias ....  'cd ../../..'
-alias ..... 'cd ../../../..'
-
-if set -q TMUX
-    alias clear 'tput reset'
-end
-
-alias cmd 'command'
-alias c   'clear'
-alias q   'exit'
-alias l   'less'
-alias v   'nvimpager'
-alias t   'tail'
-alias tf  'tail -f'
-
-alias ls  'exa --group-directories-first -F'
-alias la  'exa --group-directories-first -F -a'
-alias ll  'exa --group-directories-first -F -l'
-alias lla 'exa --group-directories-first -F -la'
-
-alias dmesg 'dmesg --color'
+# Load aliases
+source ~/.bash_aliases
+source ~/.config/fish/aliases.fish
 
 # Key bindings
 bind \cg accept-autosuggestion execute
@@ -110,17 +89,6 @@ end
 
 if begin not string match -q -- "Darwin" (uname);
     and not string match -e -q -- "fedora" (hostname); end
-    alias pp   'command sudo HOME=/root TERMINFO=/home/panh/.terminfo puppet agent -t'
-    alias ppa  'command sudo HOME=/root TERMINFO=/home/panh/.terminfo puppet agent -t --environment=panh'
-    alias ppl  'nvimpager -- --cmd "autocmd VimEnter * :normal G" /var/log/puppet/puppetagent.log'
-    alias ppc  'nvimpager -c -- --cmd "set ft=cfg" /etc/puppetlabs/puppet/puppet.conf'
-    alias motd 'cat /etc/motd; [ -f /etc/motd.local ] && cat /etc/motd.local'
-    alias ssh  'cmd ssh'
-
-    alias ls='command ls --color=always --group-directories-first -v'
-    alias la='command ls --color=always --group-directories-first -Av'
-    alias ll='command ls --color=always --group-directories-first -lhv'
-    alias lla='command ls --color=always --group-directories-first -lhAv'
 
     function psql
         cp ~/.psqlrc /tmp/
