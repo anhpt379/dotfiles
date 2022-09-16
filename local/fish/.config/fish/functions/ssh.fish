@@ -82,7 +82,7 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
         set -f end_time (date +%s)
         set -f duration (expr $end_time - $start_time)
         if test $duration -gt 2
-            echo "$(echo $argv[1] | awk -F. '{ print $1 }') is connected now ✅" | nc 127.0.0.1 2227
+            echo "$(echo $argv[1] | awk -F. '{ print $1 }') is connected now 😀" | nc 127.0.0.1 2227
         end
 
         command ssh $argv
