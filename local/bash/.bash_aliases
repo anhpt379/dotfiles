@@ -35,6 +35,10 @@ alias lla='command ls --color=yes --group-directories-first -vF -lhA'
 
 alias dmesg='dmesg --color'
 
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
 alias q='exit'
 alias c='clear'
 alias m='master'
