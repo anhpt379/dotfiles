@@ -47,4 +47,8 @@ for f in grc grcat; do
   curl -fLo HOME/.local/bin/$f https://raw.githubusercontent.com/garabik/grc/master/$f
   chmod +x HOME/.local/bin/$f
 done
+
+# jq
+curl -fLo HOME/.local/bin/jq https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64
+chmod +x HOME/.local/bin/jq
 ```
