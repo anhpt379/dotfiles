@@ -12,13 +12,13 @@ if [[ -d $path ]]; then
   echo
 
   # preview directory contents with `exa`
-  exa --color always -la --group-directories-first "$path"
+  command ls --color=always --group-directories-first -lhAv
 else
   if file -bL --mime "$path" | grep -q 'charset=binary'; then
     # show file info if it's a binary file
     dirname=$(dirname "$path")
     filename=$(basename "$path")
-    cd "$dirname" && exa -lha --color=always "$filename"
+    cd "$dirname" && command ls -lh --color=always "$filename"
   else
     # since nvimpager is slow for large files, but I like its highlighting, so
     # let's use nvimpager only in case we think it might be possible for the

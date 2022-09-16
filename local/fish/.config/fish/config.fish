@@ -116,6 +116,12 @@ if begin not string match -q -- "Darwin" (uname);
     alias ppc  'nvimpager -c -- --cmd "set ft=cfg" /etc/puppetlabs/puppet/puppet.conf'
     alias motd 'cat /etc/motd; [ -f /etc/motd.local ] && cat /etc/motd.local'
     alias ssh  'cmd ssh'
+
+    alias ls='command ls --color=always --group-directories-first -v'
+    alias la='command ls --color=always --group-directories-first -Av'
+    alias ll='command ls --color=always --group-directories-first -lhv'
+    alias lla='command ls --color=always --group-directories-first -lhAv'
+
     function psql
         cp ~/.psqlrc /tmp/
         sudo -u postgres bash -c "PSQLRC=/tmp/.psqlrc psql $argv[1]"
