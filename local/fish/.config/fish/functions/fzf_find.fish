@@ -15,10 +15,16 @@ function fzf_find -d "Find files and folders"
         set -l dir $commandline[1]
         set -l fzf_query $commandline[2]
 
+        set -l fd_command "fd --no-ignore --hidden --exclude='.git'"
+        if string match -q -- "." $dir
+            set -a fd_command "--strip-cwd-prefix $dir"
+        else
+            set -a fd_command ". $dir"
+        end
+
         if string match -q -- "cd*" $command
             set result (
-                fd --type=d --no-ignore --hidden --exclude='.git' . $dir \
-                | awk '{ print $1"/" }' \
+                eval "$fd_command --type=d" \
                 | devicon add \
                 | fzf --delimiter=\t --select-1 --exit-0 --ansi \
                     --bind=tab:accept \
@@ -43,7 +49,7 @@ function fzf_find -d "Find files and folders"
             )
         else
             set result (
-                fd --no-ignore --hidden --exclude='.git' . $dir \
+                eval "$fd_command" \
                 | devicon add \
                 | fzf --delimiter=\t --select-1 --exit-0 --ansi \
                     --bind=tab:accept \
