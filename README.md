@@ -3,7 +3,7 @@
 ![Linter](https://github.com/anhpt379/dotfiles/workflows/Linter/badge.svg)
 ![Platform](https://img.shields.io/badge/platform-macos-blue)
 
-![vim-startify](docs/screenshots/1.png)
+![vim-startify](images/screenshots/1.png)
 
 ## Installation
 
@@ -18,7 +18,7 @@ limactl start --name=fedora macOS/lima/fedora.yaml
 
 ## The setup
 
-![overview](docs/overview.svg)
+![overview](images/overview.svg)
 
 **Key concepts:**
 
