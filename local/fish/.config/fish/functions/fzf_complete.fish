@@ -1,41 +1,31 @@
 function fzf_complete
-    set -l cmdline (commandline --cut-at-cursor)
+    set -l command (commandline --cut-at-cursor)
     set -l current_word (commandline -ct)
 
-    # Trigger fzf_find instead if there're more than 2 levels of directory in
-    # the path (we don't want to trigger fzf_find when less than that because
-    # there will be too many files and the auto completion will be slow).
-    if string match -q -- "*/*/*/**" (commandline)
-        fzf_find
-        if test $status -ne 124
-            return
-        end
-    end
-
     # Color descriptions manually
-    set result (
+    set -l result (
         begin
-            complete -C "$cmdline." | grep -Fv '/./' | grep -Fv '/../' | grep -Fv './' | grep -Fv '../'
-            complete -C "$cmdline"
+            complete -C "$command." | grep -Fv '/./' | grep -Fv '/../' | grep -Fv './' | grep -Fv '../'
+            complete -C "$command"
         end \
         | sort | uniq \
         | string replace -r \t'(.*)$' \t(set_color $fish_pager_color_description)'$1'(set_color normal) \
-        | fzf --delimiter=\t --select-1 --exit-0 --ansi +i \
-              --bind=tab:accept \
+        | fzf --delimiter=\t --select-1 --exit-0 --ansi \
               --expect=enter \
-              --tiebreak=begin,chunk \
+              --expect=tab \
+              --tiebreak=chunk \
               --header="(Press TAB to accept, ENTER to accept and run)" \
               --preview="$FZF_PREVIEW_COMMAND" \
               --preview-window=right:hidden \
-              --query "^$current_word" \
+              --query "$current_word" \
     )
 
     # Split key & result
-    set key (echo $result | cut -d' ' -f1)
-    set result (echo $result | cut -d' ' -f2-)
+    set -l key (echo $result | cut -d' ' -f1)
+    set -l result (echo $result | cut -d' ' -f2-)
 
     # Remove description
-    set result (string replace -r \t'.*' '' -- $result)
+    set -l result (string replace -r \t'.*' '' -- $result)
 
     if test "$result" = ""
         commandline -it -- ""
@@ -43,10 +33,14 @@ function fzf_complete
     else
         if string match -q -- "*/" $result
             commandline -rt -- (string replace --all " " "\\ " -- $result)
+            if test "$key" = tab
+                fzf_complete
+            end
         else
             commandline -rt -- (string replace --all " " "\\ " -- $result)" "
         end
         commandline -f repaint
+
         if test "$key" = enter
             commandline -f execute
         end
