@@ -28,7 +28,7 @@ alias gclone='git clone'
 alias gremote='git remote'
 alias gbranch='git branch'
 
-alias ls='command ls --color=yes --group-directories-first -vF'
+alias ls='ls --color=yes --group-directories-first -vF'
 alias la='command ls --color=yes --group-directories-first -vF -A'
 alias ll='command ls --color=yes --group-directories-first -vF -lh'
 alias lla='command ls --color=yes --group-directories-first -vF -lhA'
