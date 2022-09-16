@@ -1,7 +1,8 @@
 #!/bin/bash
 
-# Fix blue dircolor is too dark
-export LS_COLORS=
+# Fix unreadable dir names with 777 permissions
+# https://unix.stackexchange.com/questions/241726/fix-ls-colors-for-directories-with-777-permission
+export LS_COLORS=":ow=:"
 
 # Add ~/.local/bin to $PATH
 export PATH=$HOME/.local/bin:$PATH
