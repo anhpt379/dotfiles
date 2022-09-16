@@ -53,7 +53,14 @@ eval "${git_cmd}" |
   tr "\n" " " |
   sed "s/\`//g" |
   sed -E "s/\\x1b\\[32m[a-f0-9]{7,}+/\\n&/2g" |
-  fzf --no-mouse --reverse --tiebreak=index --no-multi --ansi --height=100% --exact \
+  fzf --no-mouse \
+    --reverse \
+    --tiebreak=chunk,index \
+    --scheme=history \
+    --no-multi \
+    --ansi \
+    --height=100% \
+    --exact \
     --preview="${preview_commit}" \
     --header="${red}CTRL-/${reset} to toggle preview, ${red}CTRL-S${reset} to toggle sort, ${red}CTRL-Y${reset} to yank commit hash, ${red}CTRL-R${reset} to rebase -i, ${red}CTRL-O${reset} to open commit in browser" \
     --bind="enter:execute/${view_commit}/" \

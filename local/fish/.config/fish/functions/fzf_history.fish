@@ -1,8 +1,9 @@
 function fzf_history -d "Show command history"
     set -l result (
         history -z \
-        | fzf --tiebreak=index \
-              --expect=enter \
+        | fzf --expect=enter \
+              --tiebreak=chunk,index \
+              --scheme=history \
               --header="$(tput setaf 1)TAB$(tput sgr0) to select, $(tput setaf 1)ENTER$(tput sgr0) to run, $(tput setaf 1)ESC$(tput sgr0) to cancel" \
               --bind=tab:accept \
               --read0 \
