@@ -16,6 +16,8 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 # General UI/UX                                                               #
 ###############################################################################
 
+osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to true'
+
 # Light windows with dark menu bar
 defaults write -g NSRequiresAquaSystemAppearance -bool Yes
 
@@ -181,6 +183,9 @@ defaults write com.apple.finder FXInfoPanesExpanded -dict \
 ###############################################################################
 # Dock, Dashboard, and hot corners                                            #
 ###############################################################################
+
+# Automatically hide and show the Dock
+defaults write com.apple.dock autohide -bool true
 
 # No delay when show & hide the dock
 defaults write com.apple.Dock autohide-delay -float 0
