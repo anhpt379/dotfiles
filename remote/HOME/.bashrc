@@ -17,7 +17,7 @@ fi
 
 # A nicer bash prompt
 if [ "$(id -u)" -eq 0 ]; then
-  PS1="\[\e[01;31m\][\h \w]# \[\e[00m\]"
+  PS1="\[\e[00;31m\][\h \w]# \[\e[00m\]"
 else
   PS1="[\h \w]$ "
 fi
