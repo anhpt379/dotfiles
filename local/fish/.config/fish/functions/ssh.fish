@@ -3,8 +3,8 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
     # https://gist.github.com/josh-padnick/c90183be3d0e1feb89afd7573505cab3
     if test -z (pgrep ssh-agent | string collect)
         eval (ssh-agent -c)
-        set -Ux SSH_AUTH_SOCK $SSH_AUTH_SOCK
-        set -Ux SSH_AGENT_PID $SSH_AGENT_PID
+        set -Ux SSH_AUTH_SOCK $SSH_AUTH_SOCK &>/dev/null
+        set -Ux SSH_AGENT_PID $SSH_AGENT_PID &>/dev/null
     end
 
     if not ssh-add -l | grep anhpt379@gmail.com | grep -q ED25519
