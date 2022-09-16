@@ -2,6 +2,14 @@ function fzf_complete
     set -l cmdline (commandline --cut-at-cursor)
     set -l current_word (commandline -ct)
 
+    # Trigger fzf_find instead if there're more than 2 levels of directory in
+    # the path (we don't want to trigger fzf_find when less than that because
+    # there will be too many files and the auto completion will be slow).
+    if string match -q -- "*/*/*/**" (commandline)
+        fzf_find
+        return
+    end
+
     # Color descriptions manually
     set result (
         begin
