@@ -7,10 +7,12 @@ else
     alias grcat 'grcat conf.cat'
 end
 
-alias ls  'exa --group-directories-first -F'
-alias la  'exa --group-directories-first -F -a'
-alias ll  'exa --group-directories-first -F -l'
-alias lla 'exa --group-directories-first -F -la'
+if command -v exa >/dev/null
+    alias ls  'exa --group-directories-first -F'
+    alias la  'exa --group-directories-first -F -a'
+    alias ll  'exa --group-directories-first -F -l'
+    alias lla 'exa --group-directories-first -F -la'
+end
 
 alias root 'sudo -E -s fish'
 alias cat  'less'
@@ -18,7 +20,7 @@ alias cat  'less'
 alias ncdu 'ncdu -rr -x --exclude .git'
 alias fd   'fd --hidden --exclude=".git"'
 alias view 'nvimpager -p'
-alias man 'MANPAGER="nvimpager -p" command man'
+alias man  'MANPAGER="nvimpager -p" command man'
 
 alias pwl 'nvim ~/.config/nvim/dictionaries/personal_word_list.txt'
 
