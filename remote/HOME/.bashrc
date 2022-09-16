@@ -25,6 +25,9 @@ fi
 # Load aliases
 source ~/.bash_aliases
 
+# Reset cursor shape to beam
+printf '\033[6 q'
+
 # Fix git-deploy umask complaining
 umask 0002
 
