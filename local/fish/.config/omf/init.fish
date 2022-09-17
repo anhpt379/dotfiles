@@ -70,7 +70,7 @@ set -gx Z_DATA "$HOME/.local/share/z/data"
 set -gx FZF_DEFAULT_COMMAND 'fd --hidden --type f --color=never --exclude ".git" -E "*.jp*g" -E "*.png"'
 set -gx FZF_PREVIEW_COMMAND '~/.local/bin/fzf-preview.sh {}'
 set -gx FZF_DEFAULT_OPTS    '
-  --pointer=" " --prompt="> "
+  --pointer=" " --prompt="FZF> "
   --color=fg:#DCDFE4,bg:-1,hl:#DCDFE4
   --color=fg+:#FFCC66,bg+:#262626,hl+:#FFCC66
   --color=prompt:#f1f1f1,pointer:#f1f1f1
