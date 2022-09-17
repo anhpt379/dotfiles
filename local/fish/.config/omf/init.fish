@@ -33,8 +33,8 @@ set -gx MOCWORD_DATA $HOME/.config/nvim/dictionaries/mocword.sqlite
 set -gx EDITOR 'nvim'
 set -gx KUBE_EDITOR 'vim'
 
-set -gx MANPAGER  "less"
-set -gx PAGER     "nvimpager -p"
+set -gx MANPAGER "/usr/bin/less"
+set -gx PAGER    "nvimpager -p"
 
 # Fix trackpad scrolling doesn't work in diff-so-fancy
 # Need to remove the `X` flag from less options, but can't do it via .gitconfig,
