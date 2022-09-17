@@ -74,7 +74,7 @@ set -gx FZF_DEFAULT_OPTS    '
   --color=fg:#DCDFE4,bg:-1,hl:#DCDFE4
   --color=fg+:#FFCC66,bg+:#262626,hl+:#FFCC66
   --color=prompt:#f1f1f1,pointer:#f1f1f1
-  --color=info:#555555,spinner:#555555
+  --color=info:#696969,spinner:#696969
   --color=marker:#55CABE
   --color=spinner:108
   --cycle
