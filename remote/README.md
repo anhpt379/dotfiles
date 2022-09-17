@@ -1,6 +1,6 @@
 # Update binary files
 
-```bash
+```fish
 # fish
 docker-compose build fish
 docker-compose run fish cp /usr/bin/fish /out/
@@ -19,10 +19,11 @@ chmod +x nvim.appimage
 mv nvim.appimage HOME/.local/bin/
 
 # fzf
-wget https://github.com/junegunn/fzf/releases/download/0.32.1/fzf-0.32.1-linux_amd64.tar.gz
-tar zxvf fzf-*-linux_amd64.tar.gz
+set FZF_VERSION 0.33.0
+wget https://github.com/junegunn/fzf/releases/download/$FZF_VERSION/fzf-$FZF_VERSION-linux_amd64.tar.gz
+tar zxvf fzf-$FZF_VERSION-linux_amd64.tar.gz
 mv fzf HOME/.local/bin/
-rm -f fzf-*-linux_amd64.tar.gz
+rm -f fzf-$FZF_VERSION-linux_amd64.tar.gz
 
 # lf
 wget https://github.com/gokcehan/lf/releases/download/r27/lf-linux-amd64.tar.gz
