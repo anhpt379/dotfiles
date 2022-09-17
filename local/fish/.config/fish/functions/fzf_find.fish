@@ -7,7 +7,7 @@ function fzf_find -d "Find files and folders"
             | fzf --select-1 --exit-0 --ansi \
                 --bind=tab:accept \
                 --expect=enter \
-                --header="$(tput setaf 1)TAB$(tput sgr0) to select, $(tput setaf 1)ENTER$(tput sgr0) to run, $(tput setaf 1)CTRL-C$(tput sgr0) to cancel, $(tput setaf 1)CTRL-/$(tput sgr0) to toggle preview" \
+                --header="$(tput setaf 1)TAB$(tput sgr0) to select, $(tput setaf 1)ENTER$(tput sgr0) to run, $(tput setaf 1)CTRL-C$(tput sgr0) to stop, $(tput setaf 1)CTRL-/$(tput sgr0) to toggle preview" \
                 --query=(echo $command | sed 's/^ssh//' | xargs)
         )
     else
@@ -31,7 +31,7 @@ function fzf_find -d "Find files and folders"
                     --expect=enter \
                     --tiebreak=chunk \
                     --scheme=path \
-                    --header="$(tput setaf 1)TAB$(tput sgr0) to select, $(tput setaf 1)ENTER$(tput sgr0) to run, $(tput setaf 1)CTRL-C$(tput sgr0) to cancel, $(tput setaf 1)CTRL-/$(tput sgr0) to toggle preview" \
+                    --header="$(tput setaf 1)TAB$(tput sgr0) to select, $(tput setaf 1)ENTER$(tput sgr0) to run, $(tput setaf 1)CTRL-C$(tput sgr0) to stop, $(tput setaf 1)CTRL-/$(tput sgr0) to toggle preview" \
                     --preview="$FZF_PREVIEW_COMMAND" \
                     --query="$fzf_query" \
             )
@@ -47,7 +47,7 @@ function fzf_find -d "Find files and folders"
                     --expect=enter \
                     --tiebreak=chunk \
                     --scheme=path \
-                    --header="$(tput setaf 1)TAB$(tput sgr0) to select, $(tput setaf 1)ENTER$(tput sgr0) to run, $(tput setaf 1)CTRL-C$(tput sgr0) to cancel, $(tput setaf 1)CTRL-/$(tput sgr0) to toggle preview" \
+                    --header="$(tput setaf 1)TAB$(tput sgr0) to select, $(tput setaf 1)ENTER$(tput sgr0) to run, $(tput setaf 1)CTRL-C$(tput sgr0) to stop, $(tput setaf 1)CTRL-/$(tput sgr0) to toggle preview" \
                     --preview="$FZF_PREVIEW_COMMAND" \
                     --query=(echo $command | sed 's/^j//' | xargs)
             )
@@ -66,7 +66,7 @@ function fzf_find -d "Find files and folders"
                     --expect=enter \
                     --tiebreak=chunk \
                     --scheme=path \
-                    --header="$(tput setaf 1)TAB$(tput sgr0) to select, $(tput setaf 1)ENTER$(tput sgr0) to run, $(tput setaf 1)CTRL-C$(tput sgr0) to cancel, $(tput setaf 1)CTRL-/$(tput sgr0) to toggle preview" \
+                    --header="$(tput setaf 1)TAB$(tput sgr0) to select, $(tput setaf 1)ENTER$(tput sgr0) to run, $(tput setaf 1)CTRL-C$(tput sgr0) to stop, $(tput setaf 1)CTRL-/$(tput sgr0) to toggle preview" \
                     --preview="$FZF_PREVIEW_COMMAND" \
                     --query="$fzf_query" \
             )
