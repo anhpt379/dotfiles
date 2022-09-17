@@ -13,7 +13,7 @@ set ignorecase off
 
 set promptfmt "\033[34;1m%w/\033[0m\033[1m%f\033[0m"
 
-set previewer ~/.local/bin/fzf-preview.sh
+set previewer fzf_preview
 
 set hiddenfiles ".git"
 
@@ -24,7 +24,7 @@ cmd fzf_jump ${{
     dir="$f"
   fi
 
-  res="$(fd --color=always --no-ignore --hidden --exclude '.git' . $dir | fzf --height=100% --ansi --preview='~/.local/bin/fzf-preview.sh {}')"
+  res="$(fd --color=always --no-ignore --hidden --exclude '.git' . $dir | fzf --height=100% --ansi --preview='fzf_preview {}')"
 
   if [ -f "$res" ]; then
     cmd="select"
