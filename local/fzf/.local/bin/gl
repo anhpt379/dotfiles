@@ -55,8 +55,7 @@ eval "${git_cmd}" |
   sed -E "s/\\x1b\\[32m[a-f0-9]{7,}+/\\n&/2g" |
   fzf --no-mouse \
     --reverse \
-    --tiebreak=chunk,index \
-    --scheme=history \
+    --tiebreak=index \
     --no-multi \
     --ansi \
     --height=100% \
