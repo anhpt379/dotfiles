@@ -10,7 +10,7 @@ function fzf_complete
         end \
         | sort | uniq \
         | string replace -r \t'(.*)$' \t(set_color $fish_pager_color_description)'$1'(set_color normal) \
-        | fzf --delimiter=\t --select-1 --exit-0 --ansi \
+        | fzf --delimiter=\t --exit-0 --ansi \
               --expect=enter \
               --expect=tab \
               --no-height \
