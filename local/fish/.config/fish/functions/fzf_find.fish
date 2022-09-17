@@ -8,6 +8,7 @@ function fzf_find -d "Find files and folders"
                 --bind=tab:accept \
                 --expect=enter \
                 --header="$(tput setaf 1)TAB$(tput sgr0) to select, $(tput setaf 1)ENTER$(tput sgr0) to run, $(tput setaf 1)CTRL-C$(tput sgr0) to stop, $(tput setaf 1)CTRL-/$(tput sgr0) to toggle preview" \
+                --prompt="SSH> " \
                 --query=(echo $command | sed 's/^ssh//' | xargs)
         )
     else
@@ -32,6 +33,7 @@ function fzf_find -d "Find files and folders"
                     --tiebreak=chunk \
                     --scheme=path \
                     --header="$(tput setaf 1)TAB$(tput sgr0) to select, $(tput setaf 1)ENTER$(tput sgr0) to run, $(tput setaf 1)CTRL-C$(tput sgr0) to stop, $(tput setaf 1)CTRL-/$(tput sgr0) to toggle preview" \
+                    --prompt="DIRECTORY> " \
                     --preview="$FZF_PREVIEW_COMMAND" \
                     --query="$fzf_query" \
             )
