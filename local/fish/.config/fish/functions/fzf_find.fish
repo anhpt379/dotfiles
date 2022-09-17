@@ -52,8 +52,14 @@ function fzf_find -d "Find files and folders"
                     --query=(echo $command | sed 's/^j//' | xargs)
             )
         else
-            set result (
-                eval $fd_command \
+             set files (eval timeout 0.1 $fd_command)
+             if test $status -eq 124  # timed out
+                echo -e "\nIt took too long to list files, canceling..."
+                commandline -f repaint
+                return 1
+             end
+             set result (
+                printf %s\n $files \
                 | devicon add \
                 | fzf --delimiter=\t --select-1 --exit-0 --ansi \
                     --bind=tab:accept \
