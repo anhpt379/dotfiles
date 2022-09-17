@@ -552,7 +552,7 @@ augroup end
 
 augroup fugitive-auto-insert
   autocmd!
-  autocmd BufEnter COMMIT_EDITMSG startinsert
+  autocmd BufEnter COMMIT_EDITMSG if empty(getline(1)) | startinsert | endif
 augroup end
 " }}}
 
