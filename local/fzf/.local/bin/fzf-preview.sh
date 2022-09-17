@@ -4,7 +4,7 @@
 name=$(echo "$1" | devicon remove)
 
 if [[ -d $name ]]; then
-  echo "Directory: $(tput bold)$name"
+  echo "Directory: $(tput bold)$name$(tput sgr0)"
   echo
 
   # preview directory contents with `exa`
@@ -14,6 +14,8 @@ elif [[ -f $name ]]; then
     # show file info if it's a binary file
     dirname=$(dirname "$name")
     filename=$(basename "$name")
+    echo "File: $(tput bold)$name$(tput sgr0)"
+    echo
     cd "$dirname" && command ls -lh --color=always "$filename"
   else
     # since nvimpager is slow for large files, but I like its highlighting, so
@@ -21,16 +23,18 @@ elif [[ -f $name ]]; then
     # highlighting to work (which means the file has an extension, and that
     # extension is not `.txt`)
     if echo "$name" | grep -q '\.txt$'; then
-      command cat "$name"
+      command head -1000 "$name"
+    elif test "$(wc -l "$name" | awk '{ print $1 }')" -gt 2000; then
+      command head -1000 "$name"
     elif basename "$name" | grep -qF '.'; then
       # Tell nvimpager (again) where nvim is
       # Somehow on remote this variable is changed to another value (it looks
       # like this: `NVIM=/tmp/nvimQPBuJM/0`), I couldn't figure out why, so
       # this workaround will fix no preview for fzf in vim on remote servers.
       export NVIM=~/.local/bin/nvim-appimage/squashfs-root/usr/bin/nvim
-      nvimpager -c "$name"
+      nvimpager -c "$name" | head -1000
     else
-      command cat "$name"
+      command head -1000 "$name"
     fi
   fi
 elif command -v "$name" &>/dev/null; then
