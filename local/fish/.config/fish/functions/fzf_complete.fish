@@ -13,7 +13,6 @@ function fzf_complete
         | fzf --delimiter=\t --select-1 --exit-0 --ansi \
               --expect=enter \
               --expect=tab \
-              --expect=esc \
               --no-height \
               --tiebreak=chunk \
               --scheme=path \
