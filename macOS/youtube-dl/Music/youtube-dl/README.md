@@ -7,5 +7,5 @@
 ## Add to crontab
 
 ```bash
-0 * * * * bash ~/Music/youtube-dl/download.sh
+0 * * * * bash ~/Music/youtube-dl/download.sh &> ~/Music/youtube-dl/download.log
 ```
