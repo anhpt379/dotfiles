@@ -12,14 +12,14 @@ ln 
 or 
 ex 
 
-*.7z       
+*.7z       
 *.ai       
-*.apk      
+*.apk      
 *.awk      
 *.bash     
 *.bat      
 *.bmp      
-*.bz2      
+*.bz2      
 *.c        
 *.c++      
 *.cc       
@@ -39,7 +39,7 @@ ex 
 *.d        
 *.dart     
 *.db       
-*.deb      
+*.deb      
 *.diff     
 *.dump     
 *.edn      
@@ -57,12 +57,12 @@ ex 
 *.fsi      
 *.fsscript 
 *.fsx      
-*.gem      
+*.gem      
 *.gif      
 *.go       
 *.gpg      
-*.gz       
-*.gzip     
+*.gz       
+*.gzip     
 *.h        
 *.hbs      
 *.hpp      
@@ -112,11 +112,11 @@ ex 
 *.pyc      
 *.pyd      
 *.pyo      
-*.rar      
+*.rar      
 *.rb       
 *.rlib     
 *.rmd      
-*.rpm      
+*.rpm      
 *.rs       
 *.rss      
 *.sass     
@@ -129,8 +129,8 @@ ex 
 *.styl     
 *.suo      
 *.t        
-*.tar      
-*.tgz      
+*.tar      
+*.tgz      
 *.ts       
 *.tsx      
 *.ttf      
@@ -140,10 +140,10 @@ ex 
 *.vue      ﵂
 *.xml      
 *.xul      
-*.xz       
+*.xz       
 *.yaml     
 *.yml      
-*.zip      
+*.zip      
 
 .DS_Store        
 .bash_profile    
