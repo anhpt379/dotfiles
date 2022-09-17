@@ -55,7 +55,7 @@ function fzf_find -d "Find files and folders"
                     --query=(echo $command | sed 's/^j//' | xargs)
             )
         else
-            set files (eval timeout 1 $fd_command)
+            set files (eval timeout 0.05 $fd_command)
             if test $status -eq 124  # timed out
                 echo -e "\nIt took too long to list files, canceling..."
                 commandline -f repaint
