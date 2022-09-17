@@ -17,7 +17,7 @@ function fzf_complete
               --no-height \
               --tiebreak=chunk \
               --scheme=path \
-              --header="$(tput setaf 1)TAB$(tput sgr0) to select, $(tput setaf 1)ENTER$(tput sgr0) to run, $(tput setaf 1)ESC$(tput sgr0) to cancel, $(tput setaf 1)CTRL-/$(tput sgr0) to toggle preview" \
+              --header="$(tput setaf 1)TAB$(tput sgr0) to select, $(tput setaf 1)ENTER$(tput sgr0) to run, $(tput setaf 1)CTRL-C$(tput sgr0) to cancel, $(tput setaf 1)CTRL-/$(tput sgr0) to toggle preview" \
               --preview="$FZF_PREVIEW_COMMAND" \
               --query "$keyword" \
     )
