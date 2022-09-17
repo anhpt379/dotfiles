@@ -1,6 +1,6 @@
 function fzf_complete
     set -l command (commandline --cut-at-cursor)
-    set -l current_word (commandline -ct)
+    set -l keyword (commandline -ct)
 
     # Color descriptions manually
     set -l result (
@@ -18,7 +18,7 @@ function fzf_complete
               --scheme=path \
               --header="$(tput setaf 1)TAB$(tput sgr0) to select, $(tput setaf 1)ENTER$(tput sgr0) to run, $(tput setaf 1)ESC$(tput sgr0) to cancel, $(tput setaf 1)CTRL-/$(tput sgr0) to toggle preview" \
               --preview="$FZF_PREVIEW_COMMAND" \
-              --query "$current_word" \
+              --query "$keyword" \
     )
 
     # Split key & result
