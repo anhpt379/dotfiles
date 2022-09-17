@@ -61,6 +61,9 @@ function fzf_find -d "Find files and folders"
                 commandline -f repaint
                 return 1
             end
+            if test -z "$files"
+                return
+            end
             set result (
                 printf %s\n $files \
                 | devicon add \
