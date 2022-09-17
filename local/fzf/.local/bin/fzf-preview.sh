@@ -33,6 +33,8 @@ elif [[ -f $name ]]; then
       command cat "$name"
     fi
   fi
-elif command -v "$name"; then
+elif command -v "$name" &>/dev/null; then
   type "$name"
+else
+  echo "$name"
 fi
