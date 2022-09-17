@@ -32,6 +32,7 @@ function fzf_find -d "Find files and folders"
                     --expect=enter \
                     --tiebreak=chunk \
                     --scheme=path \
+                    --height=60% \
                     --header="$(tput setaf 1)TAB$(tput sgr0) to select, $(tput setaf 1)ENTER$(tput sgr0) to run, $(tput setaf 1)CTRL-[$(tput sgr0) to stop, $(tput setaf 1)CTRL-/$(tput sgr0) to toggle preview" \
                     --prompt="DIRECTORY> " \
                     --preview="$FZF_PREVIEW_COMMAND" \
@@ -54,20 +55,20 @@ function fzf_find -d "Find files and folders"
                     --query=(echo $command | sed 's/^j//' | xargs)
             )
         else
-             set files (eval timeout 0.1 $fd_command)
-             if test $status -eq 124  # timed out
+            set files (eval timeout 1 $fd_command)
+            if test $status -eq 124  # timed out
                 echo -e "\nIt took too long to list files, canceling..."
                 commandline -f repaint
                 return 1
-             end
-             set result (
+            end
+            set result (
                 printf %s\n $files \
                 | devicon add \
                 | fzf --delimiter=\t --select-1 --exit-0 --ansi \
-                    --bind=tab:accept \
                     --expect=enter \
                     --tiebreak=chunk \
                     --scheme=path \
+                    --height=60% \
                     --header="$(tput setaf 1)TAB$(tput sgr0) to select, $(tput setaf 1)ENTER$(tput sgr0) to run, $(tput setaf 1)CTRL-[$(tput sgr0) to stop, $(tput setaf 1)CTRL-/$(tput sgr0) to toggle preview" \
                     --preview="$FZF_PREVIEW_COMMAND" \
                     --query="$fzf_query" \
