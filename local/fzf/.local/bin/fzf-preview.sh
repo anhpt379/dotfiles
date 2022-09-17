@@ -7,15 +7,27 @@ if [[ -d $name ]]; then
   echo "Directory: $(tput bold)$name$(tput sgr0)"
   echo
 
+  if [[ ! -r $name ]]; then
+    echo "Cannot read directory: Permission denied"
+    exit 1
+  fi
+
   # preview directory contents with `exa`
   command ls --color=always --group-directories-first -lhAvF "$name"
+
 elif [[ -f $name ]]; then
+  echo "File: $(tput bold)$name$(tput sgr0)"
+  echo
+
+  if [[ ! -r $name ]]; then
+    echo "Cannot read file: Permission denied"
+    exit 1
+  fi
+
   if file -bL --mime "$name" | grep -q 'charset=binary'; then
     # show file info if it's a binary file
     dirname=$(dirname "$name")
     filename=$(basename "$name")
-    echo "File: $(tput bold)$name$(tput sgr0)"
-    echo
     cd "$dirname" && command ls -lh --color=always "$filename"
   else
     # since nvimpager is slow for large files, but I like its highlighting, so
@@ -38,6 +50,8 @@ elif [[ -f $name ]]; then
     fi
   fi
 elif command -v "$name" &>/dev/null; then
+  echo "Command: $(tput bold)$name$(tput sgr0)"
+  echo
   type "$name"
 else
   echo "$name"
