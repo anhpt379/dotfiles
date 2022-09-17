@@ -89,6 +89,7 @@ ex 
 *.ksh      
 *.less     
 *.lhs      
+*.log      
 *.lua      
 *.macos    
 *.markdown 
