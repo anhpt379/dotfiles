@@ -9,7 +9,7 @@ function fzf_complete
             complete -C "$command"
         end \
         | sort | uniq \
-        | string replace -r \t'(.*)$' \t(set_color $fish_pager_color_description)'$1'(set_color normal) \
+        | string replace -r \t'(.*)$' \t$(tput setaf 8)'$1'$(tput sgr0) \
         | fzf --delimiter=\t --select-1 --exit-0 --ansi \
               --expect=enter \
               --expect=tab \
