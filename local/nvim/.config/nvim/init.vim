@@ -1017,6 +1017,7 @@ vmap <C-s><C-f> <Plug>CtrlSFVwordExec
 let g:ctrlsf_default_root = 'project'
 let g:ctrlsf_ignore_dir = ['.git']
 let g:ctrlsf_case_sensitive = 'yes'
+let g:ctrlsf_confirm_save = 0
 let g:ctrlsf_confirm_unsaving_quit = 0
 let g:ctrlsf_position = 'left'
 let g:ctrlsf_indent = 2
