@@ -821,6 +821,13 @@ function! ToggleHomeZero()
 endfunction
 nnoremap 0 :call ToggleHomeZero()<CR>
 
+" Line text objects
+" https://vi.stackexchange.com/a/21238
+xnoremap il g_o^
+onoremap il :normal vil<CR>
+xnoremap al $o^
+onoremap al :normal val<CR>
+
 " Jump to left/right split using <C-h/l> (Home/End)
 nnoremap <Home> <C-W><C-H>
 nnoremap <End>  <C-W><C-L>
