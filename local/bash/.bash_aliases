@@ -61,6 +61,7 @@ alias ppa='command sudo HOME=/root TERMINFO=/home/panh/.terminfo puppet agent -t
 alias ppaf='sudo killall puppet 2>/dev/null; pp --enable; ppa; pp --disable "panh ppaf" --for=4; date'
 alias ppl='less +G /var/log/puppet/puppetagent.log'
 alias ppc='cat /etc/puppetlabs/puppet/puppet.conf'
+alias ppca='sudo cat "/opt/puppetlabs/puppet/cache/client_data/catalog/$(hostname).json" | jq | less'
 alias motd='cat /etc/motd; [ -f /etc/motd.local ] && cat /etc/motd.local'
 
 alias cmd='command'
