@@ -1025,6 +1025,7 @@ let g:ctrlsf_auto_focus = { 'at' : 'start' }
 let g:ctrlsf_auto_preview = 0
 let g:ctrlsf_winsize = '100%'
 let g:ctrlsf_backend = 'rg'
+let g:ctrlsf_follow_symlinks = 0
 let g:ctrlsf_extra_backend_args = {
   \ 'rg': '--fixed-strings --hidden --glob "!.git"'
   \ }
