@@ -7,5 +7,5 @@ function sudo -d "sudo wrapper that preserves environment vars and aliases"
         set argv fish -c "$new_args"
     end
 
-    command sudo -E $argv
+    command sudo -E TERM=xterm-256color $argv
 end

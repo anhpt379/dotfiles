@@ -70,7 +70,6 @@ alias pbcopy='nc 127.0.0.1 2224 --send-only'
 alias pbpaste='nc 127.0.0.1 2225 --recv-only'
 
 alias root='sudo -E -s'
-alias sudo='sudo -E TERM=xterm-256color '
 
 alias view='less'
 

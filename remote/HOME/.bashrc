@@ -25,6 +25,9 @@ fi
 # Load aliases
 source ~/.bash_aliases
 
+# Fix `sudo lla` doesn't work in bash
+alias sudo='sudo -E TERM=xterm-256color '
+
 # Reset cursor shape to beam
 PS1+="$(printf '\033[6 q')"
 
