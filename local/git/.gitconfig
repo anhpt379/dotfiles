@@ -72,6 +72,3 @@
 
 [includeIf "gitdir:~/code/work/"]
   path = ~/code/work/.gitconfig
-
-[includeIf "gitdir:~/code/personal/"]
-  path = ~/code/personal/.gitconfig

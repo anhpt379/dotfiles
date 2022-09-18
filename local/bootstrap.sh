@@ -144,5 +144,10 @@ sudo systemctl start crond
 # timezone
 sudo timedatectl set-timezone Europe/Amsterdam
 
+# work email
+mkdir -p ~/code/work/
+echo '[user]' > ~/code/work/.gitconfig
+echo '  email = work.email@company.com' >> ~/code/work/.gitconfig
+
 # reboot to finish changing the shell to fish
 reboot
