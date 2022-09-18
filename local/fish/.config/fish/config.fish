@@ -5,12 +5,15 @@ if status is-interactive && ! functions --query fisher
     curl -sL https://git.io/fisher | source && fisher update
 end
 
-if test -f ~/code/work/.gitconfig
-    set -gx COMPANY_NAME (
-        cat ~/code/work/.gitconfig | grep '@' | head -1 | awk -F@ '{ print $NF }' | awk -F. '{ print $1 }'
-    )
+if not set -q WORK_EMAIL
+    if test -f ~/code/work/.gitconfig
+        set -gx WORK_EMAIL (cat ~/code/work/.gitconfig | grep '@' | head -1 | awk '{ print $NF }')
+    else
+        echo "Error: No WORK_EMAIL detected!"
+    end
 end
 
+set -gx COMPANY_NAME (echo $WORK_EMAIL | awk -F@ '{ print $NF }' | awk -F. '{ print $1 }')
 set -gx COMPANY_NAME_LOWER (echo $COMPANY_NAME | tr A-Z a-z)
 set -gx COMPANY_NAME_UPPER (echo $COMPANY_NAME | tr a-z A-Z)
 set -gx COMPANY_NAME_CAPITALIZE (echo $COMPANY_NAME | sed 's/[^ ]*/\u&/g')
@@ -96,7 +99,9 @@ if begin not string match -q -- "Darwin" (uname);
     end
 
     # Update the default email for git
-    git config --global user.email anh.pham@$COMPANY_DOMAIN
+    if set -q WORK_EMAIL
+        git config --global user.email $WORK_EMAIL
+    end
 
     # Tell nvimpager where the nvim is
     set -gx NVIM ~/.local/bin/nvim-appimage/squashfs-root/usr/bin/nvim
@@ -105,6 +110,7 @@ if begin not string match -q -- "Darwin" (uname);
     mkdir -p ~/.config/nvim/undo/
     if test "$USER" = root; and set -q "$COMPANY_NAME_UPPER"_USER
         chown -R panh ~/.config/nvim/undo/
+        chown -R panh ~/.local/share/nvim/shada/
 
         if test -d ~/.cache
             chown -R panh ~/.cache/

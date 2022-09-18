@@ -57,7 +57,7 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
             --relative \
             ~/dotfiles/remote/HOME/./.{bashrc,inputrc,vimrc,less,terminfo,local/bin/pbcopy,local/bin/pbpaste} "$argv[1]":/tmp/panh/ 2>/dev/null
 
-        command ssh $argv -t HOME=/tmp/panh bash
+        command ssh $argv -t WORK_EMAIL=$WORK_EMAIL HOME=/tmp/panh bash
 
     else
         set -f start_time (date +%s)
@@ -88,7 +88,7 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
             echo "$(echo $argv[1] | awk -F. '{ print $1 }') is connected now 😀" | nc 127.0.0.1 2227
         end
 
-        command ssh $argv
+        command ssh $argv -t WORK_EMAIL=$WORK_EMAIL fish
     end
 
 end
