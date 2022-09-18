@@ -87,6 +87,7 @@ cmp.setup({
     fields = { 'kind', 'abbr' },
     format = function(_, vim_item)
       vim_item.kind = kind_icons[vim_item.kind] or ''
+      vim_item.dup = 0
       return vim_item
     end,
   },
