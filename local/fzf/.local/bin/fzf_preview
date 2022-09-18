@@ -24,7 +24,8 @@ elif [[ -f $name ]]; then
     exit 1
   fi
 
-  if file -bL --mime "$name" | grep -q 'charset=binary'; then
+  file_size=$(command ls -s --block-size=1048576 "$name" | cut -d' ' -f1)  # in MB
+  if (file -bL --mime "$name" | grep -q 'charset=binary') || (test $file_size -gt 5); then
     # show file info if it's a binary file
     dirname=$(dirname "$name")
     filename=$(basename "$name")
