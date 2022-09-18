@@ -462,12 +462,27 @@ let g:fzf_commits_log_options = '
   \ --format="%C(green)%h %C(reset)%s %C(#555555)%b(%aN - %cr)"
   \ '
 
+function! s:open_rg_match(line)
+  let parts = split(a:line, ':')
+  execute 'silent edit +' . parts[1] . ' ' . parts[0]
+endfunction
+
 command! -complete=dir -bang -nargs=* FzfRg
-  \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always
-  \       --smart-case --fixed-strings --hidden --glob "!.git" -- "'.escape(<q-args>, '$"').'" || true', 1,
-  \   fzf#vim#with_preview({'options': ['--no-multi', '--layout=reverse', '--preview-window=right:60%', '--bind=ctrl-/:toggle-preview']}),
-  \   <bang>0)
+  \ call fzf#run({
+  \   'source': 'rg --column --line-number --no-heading --color=always
+  \       --smart-case --fixed-strings --hidden --glob "!.git" -- "'.escape(<q-args>, '$"').'" || true',
+  \   'sink': function('s:open_rg_match'),
+  \   'options': [
+  \       '--ansi',
+  \       '--prompt', 'Rg> ',
+  \       '--no-multi',
+  \       '--layout=reverse',
+  \       '--preview', 'fzf_preview {}',
+  \       '--preview-window=right:60%,~2,+2/2',
+  \       '--bind=ctrl-/:toggle-preview'
+  \   ]
+  \ },
+  \ )
 
 function! s:close_gstatus()
   for l:winnr in range(1, winnr('$'))

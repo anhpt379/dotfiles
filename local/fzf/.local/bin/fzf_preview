@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
 
+IFS=':' read -r -a INPUT <<< "$1"
+
+FILE=${INPUT[0]}
+LINE=${INPUT[1]}
+
 # Remove the devicon
-name=$(echo "$1" | devicon remove)
+name=$(echo "$FILE" | devicon remove)
 
 if [[ -d $name ]]; then
   echo "Directory: $(tput bold)$name$(tput sgr0)"
@@ -30,23 +35,49 @@ elif [[ -f $name ]]; then
     filename=$(basename "$name")
     cd "$dirname" && command ls -lh --color=always "$filename"
   else
+
+    LINE_CENTER=20
+    if (test -z $LINE) || (test $LINE -le $LINE_CENTER); then
+      LINE_CENTER=$LINE
+      START=1
+      END=100
+    else
+      START=$(expr $LINE - $LINE_CENTER + 1)
+      END=$(expr $LINE - $LINE_CENTER + 1 + 100)
+    fi
+
+    RESET="\x1b[m"
+    BG='\033[47m'   # White Background
+    FG='\033[0;30m' # Black Foreground
+
     # since nvimpager is slow for large files, but I like its highlighting, so
     # let's use nvimpager only in case we think it might be possible for the
     # highlighting to work (which means the file has an extension, and that
     # extension is not `.txt`)
     if echo "$name" | grep -q '\.txt$'; then
-      command head -1000 "$name"
+      CMD="command sed -n ${START},${END}p '$name'"
     elif test "$(wc -l "$name" | awk '{ print $1 }')" -gt 2000; then
-      command head -1000 "$name"
+      CMD="command sed -n ${START},${END}p '$name'"
     elif basename "$name" | grep -qF '.'; then
       # Tell nvimpager (again) where nvim is
       # Somehow on remote this variable is changed to another value (it looks
       # like this: `NVIM=/tmp/nvimQPBuJM/0`), I couldn't figure out why, so
       # this workaround will fix no preview for fzf in vim on remote servers.
       export NVIM=~/.local/bin/nvim-appimage/squashfs-root/usr/bin/nvim
-      nvimpager -c "$name" | head -1000
+      CMD="nvimpager -c '$name' | command sed -n ${START},${END}p"
     else
-      command head -1000 "$name"
+      CMD="command sed -n ${START},${END}p '$name'"
+    fi
+
+    if test -z $LINE_CENTER; then
+      eval "$CMD"
+    else
+      eval "$CMD" 2> /dev/null | \
+        awk "{ \
+          if (NR == $LINE_CENTER) \
+              { gsub(/\x1b[[0-9;]*m/, \"\"); printf(\"$FG$BG%s\n$RESET\", \$0); } \
+          else printf(\"$RESET%s\n\", \$0); \
+          }"
     fi
   fi
 elif command -v "$name" &>/dev/null; then
