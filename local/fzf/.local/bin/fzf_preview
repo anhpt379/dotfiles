@@ -16,7 +16,7 @@ if [[ -d $name ]]; then
   command ls --color=always --group-directories-first -lhAvF "$name"
 
 elif [[ -f $name ]]; then
-  echo "File: $(tput bold)$name$(tput sgr0)"
+  echo -e "File: \033[1m$name\033[0m"
   echo
 
   if [[ ! -r $name ]]; then
