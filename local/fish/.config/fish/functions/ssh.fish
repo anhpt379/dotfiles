@@ -73,6 +73,7 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
             --copy-links \
             --keep-dirlinks \
             --delete \
+            --delete-excluded \
             --exclude-from="$HOME/dotfiles/remote/.rsyncignore" \
             ~/dotfiles/remote/HOME/ $jump_host:~/HOME/
 
