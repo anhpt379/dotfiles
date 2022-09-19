@@ -521,7 +521,7 @@ command! Gcherrypickcontinue silent! G cherry-pick --continue
 command! Gcherrypickabort    silent! G cherry-pick --abort
 
 let g:dispatch_no_maps = 1
-map m vgl
+map m viwgl
 
 nmap g[ :Dispatch! noti 'git pull --rebase origin $(git branch \| grep -o -m1 "\b\(master\\|main\)\b")'<CR>
 nmap g] :Dispatch! noti 'git push --force-with-lease origin HEAD'<CR>:silent exec '!git rev-parse --short HEAD \| tr -d "\n" \| pbcopy'<CR>
