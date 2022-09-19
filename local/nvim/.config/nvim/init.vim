@@ -465,6 +465,7 @@ let g:fzf_commits_log_options = '
 function! s:open_rg_match(line)
   let parts = split(a:line, ':')
   execute 'silent edit +' . parts[1] . ' ' . parts[0]
+  " TODO: jump to column (parts[3])?
 endfunction
 
 command! -complete=dir -bang -nargs=* FzfRg
