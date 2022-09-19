@@ -110,7 +110,10 @@ if begin not string match -q -- "Darwin" (uname);
     mkdir -p ~/.config/nvim/undo/
     if test "$USER" = root; and set -q "$COMPANY_NAME_UPPER"_USER
         chown -R panh ~/.config/nvim/undo/
-        chown -R panh ~/.local/share/nvim/shada/
+
+        if test -d ~/.local/share/nvim/shada/
+            chown -R panh ~/.local/share/nvim/shada/
+        end
 
         if test -d ~/.cache
             chown -R panh ~/.cache/
