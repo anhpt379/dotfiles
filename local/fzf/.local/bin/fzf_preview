@@ -5,6 +5,11 @@ IFS=':' read -r -a INPUT <<< "$1"
 FILE=${INPUT[0]}
 LINE=${INPUT[1]}
 
+if ! [[ $LINE =~ ^[0-9]+$ ]] ; then
+  FILE=$1
+  LINE=
+fi
+
 # Remove the devicon
 name=$(echo "$FILE" | devicon remove)
 
