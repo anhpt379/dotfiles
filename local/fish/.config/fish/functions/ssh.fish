@@ -90,6 +90,11 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
         end
 
         command ssh $argv -t WORK_EMAIL=$WORK_EMAIL fish
-    end
 
+        set -f code $status
+        if test $code -ne 0
+            clear
+            echo "`ssh $argv` returned $code"
+        end
+    end
 end
