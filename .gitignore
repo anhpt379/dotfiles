@@ -3,12 +3,10 @@
 .vagrant
 local/fish/.config/fish/completions/fisher.fish
 local/fish/.config/fish/conf.d/autopair.fish
-local/fish/.config/fish/conf.d/puffer_*.fish
 local/fish/.config/fish/conf.d/z.fish
 local/fish/.config/fish/fish_variables
 local/fish/.config/fish/functions/__z*.fish
 local/fish/.config/fish/functions/_autopair_*.fish
-local/fish/.config/fish/functions/_puffer_*.fish
 local/fish/.config/fish/functions/fisher.fish
 local/nvim/.config/nvim/autoload/plug.vim*
 local/nvim/.config/nvim/dictionaries/mocword.sqlite
