@@ -8,8 +8,15 @@ LINE=${INPUT[1]}
 # Remove the devicon
 name=$(echo "$FILE" | devicon remove)
 
+if test "$(echo "$name" | wc --chars)" -gt 50; then
+  # $name is too long, let's truncate it at the beginning
+  display_name=$(python -c "import sys; parts = sys.argv[1].split('/'); print('.../' + '/'.join(parts[-3:]))" "$name")
+else
+  display_name=$name
+fi
+
 if [[ -d $name ]]; then
-  echo "Directory: $(tput bold)$name$(tput sgr0)"
+  echo "Directory: $(tput bold)$display_name$(tput sgr0)"
   echo
 
   if [[ ! -r $name ]]; then
@@ -21,7 +28,7 @@ if [[ -d $name ]]; then
   command ls --color=always --group-directories-first -lhAvF "$name"
 
 elif [[ -f $name ]]; then
-  echo -e "File: \033[1m$name\033[0m"
+  echo -e "File: \033[1m$display_name\033[0m"
   echo
 
   if [[ ! -r $name ]]; then
