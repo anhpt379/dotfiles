@@ -47,10 +47,10 @@ elif [[ -f $name ]]; then
     if (test -z $LINE) || (test $LINE -le $LINE_CENTER); then
       LINE_CENTER=$LINE
       START=1
-      END=100
+      END=200
     else
       START=$(expr $LINE - $LINE_CENTER + 1)
-      END=$(expr $LINE - $LINE_CENTER + 1 + 100)
+      END=$(expr $LINE - $LINE_CENTER + 1 + 200)
     fi
 
     RESET="\x1b[m"
