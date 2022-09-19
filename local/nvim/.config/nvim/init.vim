@@ -479,7 +479,7 @@ command! -complete=dir -bang -nargs=* FzfRg
   \       '--no-multi',
   \       '--layout=reverse',
   \       '--preview', 'fzf_preview {}',
-  \       '--preview-window=right:60%,~2,+2/2',
+  \       '--preview-window=right:60%,border-sharp,~2,+2/2',
   \       '--bind=ctrl-/:toggle-preview'
   \   ]
   \ },

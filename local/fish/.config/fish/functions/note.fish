@@ -35,7 +35,7 @@ for f in files:
 
 print("\n".join(output))' | devicon add | \
         fzf --preview="head -100 \$(echo {} | cut -d' ' -f2) | nvimpager -c" \
-            --preview-window=right:70% \
+            --preview-window=right:70%,border-sharp \
             --height=100% --print-query --ansi | \
         tail -1 | cut -d' ' -f2
     )

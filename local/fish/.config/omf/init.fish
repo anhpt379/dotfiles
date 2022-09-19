@@ -81,8 +81,8 @@ set -gx FZF_DEFAULT_OPTS    '
   --cycle
   --no-multi
   --reverse
-  --height=40%
-  --preview-window=right:60%
+  --height=60%
+  --preview-window=right:60%,border-sharp
   --bind=ctrl-/:toggle-preview
   --bind=ctrl-s:toggle-sort
   --bind=tab:accept,ctrl-j:ignore,ctrl-k:ignore
