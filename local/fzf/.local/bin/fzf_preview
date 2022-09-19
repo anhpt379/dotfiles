@@ -32,8 +32,6 @@ elif [[ -f $name ]]; then
   echo
 
   if [[ ! -r $name ]]; then
-    echo -e "File: \033[1m$name\033[0m"
-    echo
     echo "Cannot read file: Permission denied"
     exit 1
   fi
@@ -43,8 +41,6 @@ elif [[ -f $name ]]; then
     # show file info if it's a binary file
     dirname=$(dirname "$name")
     filename=$(basename "$name")
-    echo -e "File: \033[1m$name\033[0m"
-    echo
     cd "$dirname" && command ls -lh --color=always "$filename"
 
   else
