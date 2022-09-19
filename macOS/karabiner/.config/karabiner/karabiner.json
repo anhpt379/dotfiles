@@ -1077,7 +1077,7 @@
                     },
                     "to": [
                         {
-                            "key_code": "mission_control"
+                            "apple_vendor_keyboard_key_code": "mission_control"
                         }
                     ]
                 },
@@ -1087,7 +1087,7 @@
                     },
                     "to": [
                         {
-                            "key_code": "launchpad"
+                            "apple_vendor_keyboard_key_code": "spotlight"
                         }
                     ]
                 },
@@ -1097,7 +1097,7 @@
                     },
                     "to": [
                         {
-                            "key_code": "illumination_decrement"
+                            "consumer_key_code": "dictation"
                         }
                     ]
                 },
@@ -1107,7 +1107,7 @@
                     },
                     "to": [
                         {
-                            "key_code": "illumination_increment"
+                            "consumer_key_code": "al_terminal_lock_or_screensaver"
                         }
                     ]
                 },
