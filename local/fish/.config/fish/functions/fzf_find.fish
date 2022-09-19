@@ -25,7 +25,7 @@ function fzf_find -d "Find files and folders"
 
         if string match -q -- "cd*" $command
             set result (
-                eval "$fd_command --type=d" \
+                eval "$fd_command --type=directory --type=symlink" \
                 | devicon add \
                 | fzf --delimiter=\t --select-1 --exit-0 --ansi \
                     --bind=tab:accept \
