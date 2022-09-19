@@ -37,9 +37,9 @@ elif [ "${cmd_name}" = "gd" ]; then
   args="-p --unified=0"
 else
   if [ "${args_count}" -eq 1 ]; then
-    args="-i -S'${args_array[0]}'"
+    args="-i -G'${args_array[0]}'"
   elif [ "${args_count}" -eq 2 ]; then
-    args="-i -S'${args_array[0]}' -- '${args_array[1]}'"
+    args="-i -G'${args_array[0]}' -- '${args_array[1]}'"
   fi
 fi
 git_cmd="git log -${num_commits} \
