@@ -23,7 +23,7 @@ function fzf_find -d "Find files and folders"
             set -a fd_command ". $dir"
         end
 
-        if string match -q -- "cd*" $command
+        if string match -q -- "cd*/" $command
             set result (
                 eval "$fd_command --type=directory --type=symlink" \
                 | devicon add \
