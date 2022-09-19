@@ -41,16 +41,16 @@ elif [[ -f $name ]]; then
     dirname=$(dirname "$name")
     filename=$(basename "$name")
     cd "$dirname" && command ls -lh --color=always "$filename"
-  else
 
-    LINE_CENTER=20
-    if (test -z $LINE) || (test $LINE -le $LINE_CENTER); then
-      LINE_CENTER=$LINE
-      START=1
-      END=200
+  else
+    LINE_HIGHLIGHT=20
+    if test -z "$LINE" || test "$LINE" -le "$LINE_HIGHLIGHT"; then
+      LINE_HIGHLIGHT=$LINE
+      LINE_START=1
+      LINE_END=200
     else
-      START=$(expr $LINE - $LINE_CENTER + 1)
-      END=$(expr $LINE - $LINE_CENTER + 1 + 200)
+      LINE_START=$(( "$LINE" - "$LINE_HIGHLIGHT" + 1))
+      LINE_END=$(("$LINE" - "$LINE_HIGHLIGHT" + 1 + 200))
     fi
 
     RESET="\x1b[m"
@@ -62,35 +62,38 @@ elif [[ -f $name ]]; then
     # highlighting to work (which means the file has an extension, and that
     # extension is not `.txt`)
     if echo "$name" | grep -q '\.txt$'; then
-      CMD="command sed -n ${START},${END}p '$name'"
+      CMD="command sed -n ${LINE_START},${LINE_END}p '$name'"
     elif test "$(wc -l "$name" | awk '{ print $1 }')" -gt 2000; then
-      CMD="command sed -n ${START},${END}p '$name'"
+      CMD="command sed -n ${LINE_START},${LINE_END}p '$name'"
     elif basename "$name" | grep -qF '.'; then
       # Tell nvimpager (again) where nvim is
       # Somehow on remote this variable is changed to another value (it looks
       # like this: `NVIM=/tmp/nvimQPBuJM/0`), I couldn't figure out why, so
       # this workaround will fix no preview for fzf in vim on remote servers.
       export NVIM=~/.local/bin/nvim-appimage/squashfs-root/usr/bin/nvim
-      CMD="nvimpager -c '$name' | command sed -n ${START},${END}p"
+      CMD="nvimpager -c '$name' | command sed -n ${LINE_START},${LINE_END}p"
     else
-      CMD="command sed -n ${START},${END}p '$name'"
+      CMD="command sed -n ${LINE_START},${LINE_END}p '$name'"
     fi
 
-    if test -z $LINE_CENTER; then
+    if test -z "$LINE_HIGHLIGHT"; then
       eval "$CMD"
     else
       eval "$CMD" 2> /dev/null | \
         awk "{ \
-          if (NR == $LINE_CENTER) \
+          if (NR == $LINE_HIGHLIGHT) \
               { gsub(/\x1b[[0-9;]*m/, \"\"); printf(\"$FG$BG%s\n$RESET\", \$0); } \
           else printf(\"$RESET%s\n\", \$0); \
           }"
     fi
   fi
+
 elif command -v "$name" &>/dev/null; then
   echo "Command: $(tput bold)$name$(tput sgr0)"
   echo
   type "$name"
+
 else
   echo "$name"
+
 fi
