@@ -96,6 +96,9 @@ set -gx LF_ICONS (
 # Hide fish greeting
 set fish_greeting
 
+# Use default fish key bindings
+set -g fish_key_bindings fish_default_key_bindings
+
 # Kitty integration
 set --global KITTY_SHELL_INTEGRATION enabled
 source ~/.config/fish/kitty/shell-integration/fish/vendor_conf.d/kitty-shell-integration.fish
