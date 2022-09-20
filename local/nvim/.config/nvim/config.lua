@@ -190,7 +190,6 @@ local sources = {
   null_ls.builtins.diagnostics.yamllint,
   null_ls.builtins.diagnostics.luacheck,
   null_ls.builtins.diagnostics.markdownlint,
-  null_ls.builtins.diagnostics.mdl,
   null_ls.builtins.diagnostics.proselint,
   null_ls.builtins.diagnostics.rubocop,
   null_ls.builtins.diagnostics.stylelint,
