@@ -14,6 +14,9 @@ files.sort()
 first_empty_file = None
 output = []
 for f in files:
+    if os.path.isdir(f):
+        continue
+
     data = open(f).read(100)
     lines = [
         line
@@ -33,8 +36,13 @@ for f in files:
         preview = preview[:50] + "..."
     output.append(f"{f} \033[2m{preview}\033[0m")
 
+for f in files:
+    if os.path.isdir(f):
+        for i in os.listdir(f):
+            output.append(f + "/" + i)
+
 print("\n".join(output))' | devicon add | \
-        fzf --preview="head -100 \$(echo {} | cut -d' ' -f2) | nvimpager -c" \
+        fzf --preview="fzf_preview \$(echo {} | cut -d' ' -f2)" \
             --preview-window=right:70% \
             --height=100% --print-query --ansi | \
         tail -1 | cut -d' ' -f2
