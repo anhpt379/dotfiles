@@ -126,6 +126,10 @@ end
 function __fzf_get_dir -d 'Find the longest existing filepath from input string'
     set dir $argv
 
+    if not string match -qr -- '.*/$' $dir
+        set dir (dirname -- "$dir")
+    end
+
     # Strip all trailing slashes. Ignore if $dir is root dir (/)
     if [ (string length -- $dir) -gt 1 ]
         set dir (string replace -r '/*$' -- '' $dir)
