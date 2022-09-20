@@ -21,7 +21,7 @@ function fzf_complete
         | fzf --delimiter=\t --select-1 --exit-0 --ansi \
               --expect=enter \
               --expect=tab \
-              --height=60% \
+              --height=20% \
               --tiebreak=chunk \
               --header="$(tput setaf 1)TAB$(tput sgr0) to select, $(tput setaf 1)ENTER$(tput sgr0) to run, $(tput setaf 1)CTRL-[$(tput sgr0) to stop, $(tput setaf 1)CTRL-/$(tput sgr0) to toggle preview" \
               --preview="$FZF_PREVIEW_COMMAND" \
