@@ -203,7 +203,7 @@ highlight ConflictMarkerEnd guibg=#2f628e
 " Coc.nvim
 highlight CocFloating guibg=#282829
 highlight CocErrorHighlight guifg=#dd3c69
-highlight CocWarningHighlight guifg=#DEB246
+highlight CocWarningHighlight guifg=#d6b152
 highlight CocHintHighlight guifg=#ffffff gui=underline
 highlight CocHintSign guifg=#55CABE
 highlight link CocErrorSign CocErrorHighlight
