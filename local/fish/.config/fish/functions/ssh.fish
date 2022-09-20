@@ -94,7 +94,7 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
         set -f code $status
         if test $code -ne 0
             clear
-            echo "SSH: Connection to $argv[1]: Broken pipe ($code)"
+            echo "SSH: Connection to $argv[1] has been closed."
         end
     end
 end
