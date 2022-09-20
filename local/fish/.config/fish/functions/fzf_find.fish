@@ -114,7 +114,7 @@ function __fzf_parse_commandline -d 'Parse the current command line token and re
             set fzf_query $commandline
         else
             # Also remove trailing slash after dir, to "split" input properly
-            set fzf_query (string replace -r "^$dir/?" -- '' "$commandline")
+            set fzf_query (string replace "$dir/" -- '' "$commandline")
         end
     end
 
