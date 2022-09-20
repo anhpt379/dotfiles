@@ -59,7 +59,7 @@ set -gx SHELL '/bin/bash'
 
 set -gx Z_DATA "$HOME/.local/share/z/data"
 
-set -gx FZF_DEFAULT_COMMAND 'fd --hidden --type f --color=never --exclude ".git" -E "*.jp*g" -E "*.png"'
+set -gx FZF_DEFAULT_COMMAND 'fd --one-file-system --hidden --type f --color=never --exclude ".git" -E "*.jp*g" -E "*.png"'
 set -gx FZF_PREVIEW_COMMAND 'fzf_preview {}'
 set -gx FZF_DEFAULT_OPTS    '
   --pointer=" "
