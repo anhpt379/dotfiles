@@ -38,7 +38,7 @@ result=$(
 )
 
 key=$(echo "${result}" | xargs | cut -d' ' -f1)
-branch_name=$(echo "${result}" | xargs | cut -d' ' -f2- | sed 's/.* //')
+branch_name=$(echo "${result}" | xargs | sed -E 's/ \*$//' | cut -d' ' -f2- | sed 's/.* //')
 
 if [ "${key}" = "ctrl-d" ]; then
   if [ "$(git branch --show-current)" = "${branch_name}" ]; then
