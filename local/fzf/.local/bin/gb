@@ -34,7 +34,6 @@ result=$(
       --preview="${preview_cmd}" \
       --header="${red}CTRL-/${reset} to toggle preview, ${red}CTRL-Y${reset} to yank, ${red}CTRL-D${reset} to delete branch" \
       --prompt="> " \
-      --bind="ctrl-/:toggle-preview" \
       --bind="ctrl-y:execute-silent/${copy_cmd}/+abort"
 )
 
