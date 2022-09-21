@@ -31,7 +31,7 @@ function fzf_find -d "Find files and folders"
                     --bind=tab:accept \
                     --expect=enter \
                     --tiebreak=chunk \
-                    --height=20% \
+                    --height=40% \
                     --header="$(tput setaf 1)TAB$(tput sgr0) to select, $(tput setaf 1)ENTER$(tput sgr0) to run, $(tput setaf 1)CTRL-[$(tput sgr0) to stop, $(tput setaf 1)CTRL-/$(tput sgr0) to toggle preview" \
                     --prompt="DIRECTORY> " \
                     --preview="$FZF_PREVIEW_COMMAND" \
@@ -106,7 +106,7 @@ function fzf_find -d "Find files and folders"
                 | fzf --delimiter=\t --select-1 --exit-0 --ansi \
                     --expect=enter \
                     --tiebreak=chunk \
-                    --height=20% \
+                    --height=40% \
                     --header="$(tput setaf 1)TAB$(tput sgr0) to select, $(tput setaf 1)ENTER$(tput sgr0) to run, $(tput setaf 1)CTRL-[$(tput sgr0) to stop, $(tput setaf 1)CTRL-/$(tput sgr0) to toggle preview" \
                     --preview="$FZF_PREVIEW_COMMAND" \
                     --query="$fzf_query" \
