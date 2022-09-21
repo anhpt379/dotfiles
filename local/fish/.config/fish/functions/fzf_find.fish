@@ -53,6 +53,44 @@ function fzf_find -d "Find files and folders"
                     --query=(echo $command | sed 's/^j//' | xargs)
             )
         else
+            if begin
+                   string match -q -- "rm -r*" $command;
+                or string match -q -- "scp -r*" $command;
+                or string match -q -- "mkdir *" $command;
+                or string match -q -- "du *" $command;
+                or string match -q -- "git -C*" $command;
+
+                # Technically we can use `ls` to list file, but I use it to
+                # list directory only.
+                or string match -q -- "ls *" $command;
+                or string match -q -- "la *" $command;
+                or string match -q -- "ll *" $command;
+                or string match -q -- "lla *" $command;
+                end
+                set -a fd_command "--type=directory"
+            else if begin
+                   string match -q -- "cat *" $command;
+                or string match -q -- "less *" $command;
+                or string match -q -- "head *" $command;
+                or string match -q -- "tail *" $command;
+                or string match -q -- "view *" $command;
+                or string match -q -- "vim *" $command;
+                or string match -q -- "nvim *" $command;
+                or string match -q -- "nv *" $command;
+                or string match -q -- "rm -f*" $command;
+                or string match -q -- "chmod +x *" $command;
+                or string match -q -- "wc *" $command;
+                or string match -q -- "md5sum *" $command;
+                or string match -q -- "sed *" $command;
+                or string match -q -- "scp *" $command;
+                or string match -q -- "bash *" $command;
+                or string match -q -- "python *" $command;
+                or string match -q -- "source *" $command;
+                or string match -q -- "./*" $command;
+                end
+                set -a fd_command "--type=file"
+            end
+
             set files (eval timeout 0.05 $fd_command)
             if test $status -eq 124  # timed out
                 echo -e "\nIt took too long to list files, canceling..."
