@@ -113,6 +113,10 @@ function fzf_find -d "Find files and folders"
             )
         end
     end
+    if test $status -ne 0
+        commandline -f repaint
+        return
+    end
 
     if not string match -q -- "* *" $command
         commandline -it -- " "

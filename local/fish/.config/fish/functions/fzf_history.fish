@@ -9,6 +9,10 @@ function fzf_history -d "Show command history"
               --read0 \
               --query=^(commandline)
     )
+    if test $status -ne 0
+        commandline -f repaint
+        return
+    end
 
     set -l key (echo $result | cut -d' ' -f1)
     set -l result (echo $result | cut -d' ' -f2-)

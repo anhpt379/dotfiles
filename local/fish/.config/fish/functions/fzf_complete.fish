@@ -27,6 +27,10 @@ function fzf_complete
               --preview="$FZF_PREVIEW_COMMAND" \
               --query "$keyword" \
     )
+    if test $status -ne 0
+        commandline -f repaint
+        return
+    end
 
     # Split key & result
     set -l key (echo $result | cut -d' ' -f1)
