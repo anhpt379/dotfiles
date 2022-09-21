@@ -70,6 +70,8 @@ alias root='sudo -E -s'
 
 alias view='less'
 
+alias whatprovides='rpm -q --whatprovides'
+
 alias ansible='TERM=xterm-256color command ansible'
 alias ansible-playbook='TERM=xterm-256color command ansible-playbook'
 
