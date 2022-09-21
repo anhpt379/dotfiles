@@ -59,13 +59,6 @@ function fzf_find -d "Find files and folders"
                 or string match -q -- "mkdir *" $command;
                 or string match -q -- "du *" $command;
                 or string match -q -- "git -C*" $command;
-
-                # Technically we can use `ls` to list file, but I use it to
-                # list directory only.
-                or string match -q -- "ls *" $command;
-                or string match -q -- "la *" $command;
-                or string match -q -- "ll *" $command;
-                or string match -q -- "lla *" $command;
                 end
                 set -a fd_command "--type=directory"
             else if begin
