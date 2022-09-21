@@ -1174,6 +1174,11 @@ endif
 
 " Format code on file save
 function! FormatCode()
+  let file = expand('%:p')
+  if !filewritable(file)
+    return
+  endif
+
   noautocmd write
 
   let script_file =
@@ -1183,7 +1188,7 @@ function! FormatCode()
     return
   endif
 
-  let output = system(script_file . ' ' . expand('%:p'))
+  let output = system(script_file . ' ' . file)
   if v:shell_error == 0
     let view = winsaveview()
     edit
