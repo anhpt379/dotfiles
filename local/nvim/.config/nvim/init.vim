@@ -648,6 +648,7 @@ nnoremap - za
 vnoremap - za
 
 " Comment stuff out
+setglobal commentstring=#\ %s
 nmap <Leader>c gcc
 vmap <Leader>c gc
 
