@@ -130,6 +130,9 @@ sudo systemctl start docker
 # wakapi
 sudo docker-compose -f ~/dotfiles/local/docker-compose.yml up -d
 
+# standup-notes
+pip3 install git+https://github.com/anhpt379/standup_notes
+
 # cron
 sudo dnf install -y cronie
 sudo systemctl enable crond
