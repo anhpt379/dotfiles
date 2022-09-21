@@ -253,8 +253,8 @@ if begin not string match -q -- "Darwin" (uname);
     umask 0002
 
     # Auto start tmux
-    if not set -q TMUX
-        tmux attach -t panh; or tmux new -s panh
+    if begin; not set -q TMUX; and test -x /usr/bin/tmux; end
+        /usr/bin/tmux attach -t panh; or /usr/bin/tmux new -s panh
     end
 end
 
