@@ -18,7 +18,7 @@ alias root 'sudo -E -s fish'
 alias cat  'less'
 
 alias ncdu 'ncdu -rr -x --exclude .git'
-alias fd   'fd --one-file-system --hidden --exclude=".git"'
+alias fd   'command fd --one-file-system --hidden --exclude=".git"'
 alias view 'nvimpager -p'
 alias man  'MANPAGER="nvimpager -p" command man'
 

@@ -16,7 +16,7 @@ function fzf_find -d "Find files and folders"
         set -l dir $commandline[1]
         set -l fzf_query $commandline[2]
 
-        set -l fd_command "fd --one-file-system --no-ignore --hidden --exclude='.git'"
+        set -l fd_command "command fd --one-file-system --no-ignore --hidden --exclude='.git'"
         if string match -q -- "." $dir
             set -a fd_command "--strip-cwd-prefix $dir"
         else
