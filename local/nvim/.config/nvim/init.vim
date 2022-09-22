@@ -100,6 +100,7 @@ call plug#begin()
     Plug 'hrsh7th/cmp-buffer'
     Plug 'hrsh7th/cmp-path'
     Plug 'hrsh7th/cmp-cmdline'
+    Plug 'dmitmel/cmp-cmdline-history'
     Plug 'ray-x/cmp-treesitter'
     Plug 'lukas-reineke/cmp-rg'
     Plug 'davidsierradz/cmp-conventionalcommits'

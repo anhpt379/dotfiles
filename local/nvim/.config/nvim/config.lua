@@ -83,6 +83,11 @@ local kind_icons = {
 
 cmp.setup({
   completion = { },
+  matching = {
+    disallow_fuzzy_matching = false,
+    disallow_partial_matching = false,
+    disallow_prefix_unmatching = true,
+  },
   formatting = {
     fields = { 'kind', 'abbr' },
     format = function(_, vim_item)
@@ -146,6 +151,15 @@ cmp.setup({
     -- { name = 'luasnip' }, -- For luasnip users.
     -- { name = 'ultisnips' }, -- For ultisnips users.
     -- { name = 'snippy' }, -- For snippy users.
+  })
+})
+
+-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline(':', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = cmp.config.sources({
+    { name = 'cmdline' },
+    { name = 'cmdline_history' },
   })
 })
 
