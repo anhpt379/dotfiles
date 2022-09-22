@@ -32,8 +32,18 @@ require('mason-tool-installer').setup {
 }
 
 require("mason-lspconfig").setup_handlers({
-  function (server_name) -- default handler (optional)
-    require("lspconfig")[server_name].setup {}
+  function (server_name)
+    if server_name == 'sumneko_lua' then
+      require("lspconfig")[server_name].setup {
+        settings = {
+          Lua = {
+            diagnostics = { globals = { "vim" } },
+          }
+        }
+      }
+    else
+      require("lspconfig")[server_name].setup {}
+    end
   end,
 })
 
