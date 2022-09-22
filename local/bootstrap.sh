@@ -103,6 +103,7 @@ cd - || exit 1
 # (https://github.com/lima-vm/lima/blob/master/README.md#ping-shows-duplicate-packets-and-massive-response-times),
 # but `hping3` does work
 sudo dnf install -y hping3
+sudo setcap cap_net_raw+ep "$(which hping3)"
 
 # xh
 curl -fLo ~/.local/share/man/man1/xh.1 https://raw.githubusercontent.com/ducaale/xh/v0.16.1/doc/xh.1

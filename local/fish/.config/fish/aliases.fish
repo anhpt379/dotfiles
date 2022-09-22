@@ -52,3 +52,9 @@ alias ppc 'nvimpager -c -- --cmd "set ft=cfg" /etc/puppetlabs/puppet/puppet.conf
 if set -q TMUX
     alias clear 'tput reset'
 end
+
+if command -v prettyping &>/dev/null
+  alias ping "prettyping --nolegend"
+else if command -v hping3 &>/dev/null
+  alias ping "hping3"
+end

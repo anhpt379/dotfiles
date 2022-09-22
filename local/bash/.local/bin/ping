@@ -1,9 +1,0 @@
-#!/bin/bash
-
-if command -v prettyping &>/dev/null; then
-  prettyping --nolegend $@
-elif command -v hping3 &>/dev/null; then
-  sudo hping3 $@
-else
-  command ping $@
-fi
