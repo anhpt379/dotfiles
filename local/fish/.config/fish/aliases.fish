@@ -40,10 +40,6 @@ alias o 'openstack'
 
 alias vim 'nvim'
 
-alias ds  'standup-notes'
-alias dsr 'standup-notes --yesterday --read'  # daily standup read
-alias dsw 'standup-notes --today --edit'      # daily standup write
-
 alias nf  'nvim +"FilesMru"'
 alias ngs 'nvim +"tab Git"'
 alias ngl 'nvim +"FzfCommits"'

@@ -1,0 +1,55 @@
+#!/bin/bash
+
+# Accept free format human readable date string, like: tomorrow, yesterday,
+# next Friday, this Sat, -1 day, etc. or even empty (defaults to today).
+if ! date -d "$*" &>/dev/null; then
+  exit 1
+fi
+
+cd ~/notes/standups/ || exit 1
+
+date_long=$(date -d "$*" +"%A, %d %b %Y")
+date_short=$(date -d "$*" +"%Y-%m-%d")
+
+command="nvim"
+file="$date_short.md"
+
+if test -f "$file"; then
+  prev_file=$(ls -1 | grep -B1 "$file" | grep -v "$file")
+
+  if test -n "$prev_file"; then
+    command+=" +:bnext $prev_file"
+  fi
+
+  command+=" $file"
+
+  next_file=$(ls -1 | grep -A1 "$file" | grep -v "$file")
+
+  if test -n "$next_file"; then
+    command+=" $next_file"
+  fi
+
+else
+  prev_file=$(ls -1 | tail -1)
+
+  if test -n "$prev_file"; then
+    command+=" +:bnext $prev_file"
+  fi
+
+  echo "\
+# $date_long
+
+## What I did yesterday
+
+-
+
+## What I'm going to do today
+
+-
+
+## What issues are blocking me" >"$file"
+
+  command+=" +5 $file"
+fi
+
+eval "$command"
