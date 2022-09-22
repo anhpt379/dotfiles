@@ -39,11 +39,11 @@ set -gx PATH $HOME/.local/bin $PATH
 # https://github.com/high-moctane/mocword
 set -gx MOCWORD_DATA $HOME/.config/nvim/dictionaries/mocword.sqlite
 
-set -gx EDITOR 'nvim'
-set -gx KUBE_EDITOR 'vim'
+set -gx EDITOR nvim
+set -gx KUBE_EDITOR vim
 
-set -gx MANPAGER "/usr/bin/less"
-set -gx PAGER    "/usr/bin/less"
+set -gx MANPAGER /usr/bin/less
+set -gx PAGER /usr/bin/less
 
 # Fix trackpad scrolling doesn't work in diff-so-fancy
 # Need to remove the `X` flag from less options, but can't do it via .gitconfig,
@@ -55,13 +55,13 @@ set -gx LESS '--LONG-PROMPT --RAW-CONTROL-CHARS'
 # Fix fzf couldn't preview matches that end with `\`. This happens in fish
 # only. Fzf uses the shell set in SHELL env to execute the preview command.
 # https://github.com/junegunn/fzf/blob/0.25.0/src/util/util_unix.go#L13
-set -gx SHELL '/bin/bash'
+set -gx SHELL /bin/bash
 
 set -gx Z_DATA "$HOME/.local/share/z/data"
 
 set -gx FZF_DEFAULT_COMMAND 'command fd --one-file-system --hidden --type f --color=never --exclude ".git" -E "*.jp*g" -E "*.png"'
 set -gx FZF_PREVIEW_COMMAND 'fzf_preview {}'
-set -gx FZF_DEFAULT_OPTS    '
+set -gx FZF_DEFAULT_OPTS '
   --pointer=" "
   --prompt="FZF> "
   --color=fg:#DCDFE4,bg:-1,hl:#DCDFE4
@@ -152,16 +152,16 @@ bind \ep up-or-search
 
 # Ctrl-D to exit immediately (the default behavior is `delete-or-exit`, which
 # is annoying since I can't exit the shell in the middle of typing a command)
-bind \cd 'exit'
+bind \cd exit
 
 # Edit and run the current command in vim
 bind \cv edit_and_run_command_buffer
 
 # Fzf
 bind --erase \co
-bind \t  'fzf_complete'
-bind \cf 'fzf_find'
-bind \cr 'fzf_history'
+bind \t fzf_complete
+bind \cf fzf_find
+bind \cr fzf_history
 # bind \t  '__fish_expand_globabbreviation || fzf_complete'
 
 # search a server by fqdn prefix and open it in serverdb
@@ -207,8 +207,10 @@ set -U fish_pager_color_description B3A06D yellow
 set -U fish_pager_color_prefix white --bold --underline
 set -U fish_pager_color_progress brwhite --background=cyan
 
-if begin not string match -q -- "Darwin" (uname);
-    and not string match -e -q -- "fedora" (hostname); end
+if begin
+        not string match -q -- Darwin (uname)
+        and not string match -e -q -- fedora (hostname)
+    end
 
     function psql
         cp ~/.psqlrc /tmp/
@@ -253,8 +255,9 @@ if begin not string match -q -- "Darwin" (uname);
     umask 0002
 
     # Auto start tmux
-    if begin; not set -q TMUX; and test -x /usr/bin/tmux; end
+    if begin
+            not set -q TMUX; and test -x /usr/bin/tmux
+        end
         /usr/bin/tmux attach -t panh; or /usr/bin/tmux new -s panh
     end
 end
-

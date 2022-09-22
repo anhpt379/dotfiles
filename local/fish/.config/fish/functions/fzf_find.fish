@@ -39,7 +39,7 @@ function fzf_find -d "Find files and folders"
             )
         else if string match -q -- "j*" $command
             # auto remove directories that no longer exist
-            z --clean > /dev/null 2>&1
+            z --clean >/dev/null 2>&1
 
             set result (
                 __z --recent --list 2> /dev/null \
@@ -54,38 +54,38 @@ function fzf_find -d "Find files and folders"
             )
         else
             if begin
-                   string match -q -- "rm -r*" $command;
-                or string match -q -- "scp -r*" $command;
-                or string match -q -- "mkdir *" $command;
-                or string match -q -- "du *" $command;
-                or string match -q -- "git -C*" $command;
+                    string match -q -- "rm -r*" $command
+                    or string match -q -- "scp -r*" $command
+                    or string match -q -- "mkdir *" $command
+                    or string match -q -- "du *" $command
+                    or string match -q -- "git -C*" $command
                 end
                 set -a fd_command "--type=directory"
             else if begin
-                   string match -q -- "cat *" $command;
-                or string match -q -- "less *" $command;
-                or string match -q -- "head *" $command;
-                or string match -q -- "tail *" $command;
-                or string match -q -- "view *" $command;
-                or string match -q -- "vim *" $command;
-                or string match -q -- "nvim *" $command;
-                or string match -q -- "nv *" $command;
-                or string match -q -- "rm -f*" $command;
-                or string match -q -- "chmod +x *" $command;
-                or string match -q -- "wc *" $command;
-                or string match -q -- "md5sum *" $command;
-                or string match -q -- "sed *" $command;
-                or string match -q -- "scp *" $command;
-                or string match -q -- "bash *" $command;
-                or string match -q -- "python *" $command;
-                or string match -q -- "source *" $command;
-                or string match -q -- "./*" $command;
+                    string match -q -- "cat *" $command
+                    or string match -q -- "less *" $command
+                    or string match -q -- "head *" $command
+                    or string match -q -- "tail *" $command
+                    or string match -q -- "view *" $command
+                    or string match -q -- "vim *" $command
+                    or string match -q -- "nvim *" $command
+                    or string match -q -- "nv *" $command
+                    or string match -q -- "rm -f*" $command
+                    or string match -q -- "chmod +x *" $command
+                    or string match -q -- "wc *" $command
+                    or string match -q -- "md5sum *" $command
+                    or string match -q -- "sed *" $command
+                    or string match -q -- "scp *" $command
+                    or string match -q -- "bash *" $command
+                    or string match -q -- "python *" $command
+                    or string match -q -- "source *" $command
+                    or string match -q -- "./*" $command
                 end
                 set -a fd_command "--type=file"
             end
 
             set files (eval timeout 0.05 $fd_command)
-            if test $status -eq 124  # timed out
+            if test $status -eq 124 # timed out
                 echo -e "\nIt took too long to list files, canceling..."
                 commandline -f repaint
                 return 1

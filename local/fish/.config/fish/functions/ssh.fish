@@ -9,7 +9,7 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
 
     if not ssh-add -l | grep anhpt379@gmail.com | grep -q ED25519
         echo "GitHub's SSH key expired. Adding it again..."
-        if string match -q -- "Darwin" (uname)
+        if string match -q -- Darwin (uname)
             ssh-add --apple-use-keychain ~/.ssh/id_ed25519
         else
             ssh-add ~/.ssh/id_ed25519
@@ -17,7 +17,7 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
         echo
     end
 
-    if not string match -q -- "Darwin" (uname)
+    if not string match -q -- Darwin (uname)
         set -f now (date +%s)
         set -f deadline (expr $now - 86400 + 7200)
         set -f have_good_key no
