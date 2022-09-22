@@ -37,14 +37,6 @@ require("mason-lspconfig").setup_handlers({
   end,
 })
 
-require'lsp_signature'.setup({
-  bind = true,
-  floating_window = false,
-  handler_opts = {
-    border = 'single'
-  }
-})
-
 require('lsp-status').register_progress()
 require('lspconfig')
 
@@ -133,6 +125,7 @@ cmp.setup({
   },
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
+    { name = 'nvim_lsp_signature_help' },
     { name = 'treesitter' },
     { name = 'conventionalcommits' },
     { name = 'buffer', max_item_count = 3 },

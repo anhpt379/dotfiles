@@ -100,6 +100,7 @@ call plug#begin()
     Plug 'hrsh7th/cmp-buffer'
     Plug 'hrsh7th/cmp-path'
     Plug 'hrsh7th/cmp-cmdline'
+    Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
     Plug 'dmitmel/cmp-cmdline-history'
     Plug 'ray-x/cmp-treesitter'
     Plug 'lukas-reineke/cmp-rg'
@@ -107,7 +108,6 @@ call plug#begin()
     Plug 'anhpt379/cmp-mocword' | Plug 'anhpt379/plenary.nvim'
     Plug 'jose-elias-alvarez/null-ls.nvim' | Plug 'anhpt379/plenary.nvim'
     Plug 'ray-x/cmp-treesitter'
-    Plug 'ray-x/lsp_signature.nvim'
     Plug 'hrsh7th/nvim-cmp'
     Plug 'nvim-lua/lsp-status.nvim'
 
