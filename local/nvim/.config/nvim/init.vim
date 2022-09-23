@@ -593,6 +593,10 @@ xnoremap p "_dP`]
 vmap < <gv
 vmap > >gv
 
+" Use <Tab> and <S-Tab> to indent/outdent the code block
+vmap <Tab> >gv
+vmap <S-Tab> <gv
+
 " Y yanks until EOL, more like D and C
 " yy still yanks the whole line
 nnoremap Y y$
