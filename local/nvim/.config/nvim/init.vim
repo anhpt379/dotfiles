@@ -141,6 +141,7 @@ call plug#begin()
     Plug 'romgrk/nvim-treesitter-context'
     Plug 'windwp/nvim-ts-autotag'
     Plug 'JoosepAlviste/nvim-ts-context-commentstring'
+    Plug 'm-demare/hlargs.nvim'
 
     Plug 'anhpt379/conflict-marker.vim'
     Plug 'andymass/vim-matchup'
