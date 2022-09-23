@@ -101,6 +101,11 @@ set -gx LF_ICONS (
     | tr '\n' ':'
 )
 
+# vivid
+if command -v vivid >/dev/null
+    set -gx LS_COLORS (vivid generate aodark)
+end
+
 # Hide fish greeting
 set fish_greeting
 

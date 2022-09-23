@@ -123,6 +123,12 @@ wget https://github.com/high-moctane/mocword-data/releases/download/eng20200217/
 gunzip mocword.sqlite.gz
 mv mocword.sqlite ~/.config/nvim/dictionaries/mocword.sqlite
 
+# vivid
+wget https://github.com/sharkdp/vivid/releases/download/v0.8.0/vivid-v0.8.0-aarch64-unknown-linux-gnu.tar.gz
+tar zxvf vivid-*.tar.gz
+mv vivid-*/vivid ~/.local/bin/
+rm -rf vivid-*
+
 # docker
 sudo dnf install -y docker docker-compose
 sudo systemctl enable docker
