@@ -340,3 +340,4 @@ require('guess-indent').setup()
 require('hlargs').setup({
   color = '#28c9ff',
 })
+require('nvim-surround').setup()

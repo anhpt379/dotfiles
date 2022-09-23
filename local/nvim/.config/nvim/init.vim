@@ -52,7 +52,7 @@ call plug#begin()
   Plug 'michaeljsmith/vim-indent-object'
   Plug 'tpope/vim-repeat'
   Plug 'inkarkat/vim-visualrepeat'
-  Plug 'machakann/vim-sandwich'
+  Plug 'kylechui/nvim-surround'
   Plug 'tpope/vim-commentary'
   Plug 'ntpeters/vim-better-whitespace'
   Plug 'farmergreg/vim-lastplace'
