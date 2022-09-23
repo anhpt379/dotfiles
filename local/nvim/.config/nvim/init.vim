@@ -90,6 +90,7 @@ call plug#begin()
     Plug 'itchyny/lightline.vim'
     Plug 'mengelbrecht/lightline-bufferline'
 
+    Plug 'petertriho/nvim-scrollbar'
     Plug 'lukas-reineke/indent-blankline.nvim'
     Plug 'norcalli/nvim-colorizer.lua'
 

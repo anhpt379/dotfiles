@@ -336,3 +336,5 @@ require('gitsigns').setup({
 require'colorizer'.setup()
 
 require('nvim-gps').setup()
+
+require('scrollbar').setup()
