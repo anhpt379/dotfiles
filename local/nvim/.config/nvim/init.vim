@@ -65,7 +65,7 @@ call plug#begin()
   Plug 'tpope/vim-speeddating'
   Plug 'tpope/vim-dispatch'
   Plug 'qxxxb/vim-searchhi'
-  Plug 'tpope/vim-sleuth'
+  Plug 'NMAC427/guess-indent.nvim'
   Plug 'kana/vim-niceblock'
   Plug 'haya14busa/vim-asterisk'
   Plug 'google/vim-searchindex'

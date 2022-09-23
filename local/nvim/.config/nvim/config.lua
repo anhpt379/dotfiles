@@ -333,8 +333,10 @@ require('gitsigns').setup({
   },
 })
 
-require'colorizer'.setup()
+require('colorizer').setup()
 
 require('nvim-gps').setup()
 
 require('scrollbar').setup()
+
+require('guess-indent').setup()
