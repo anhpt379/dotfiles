@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ ! -t 1 ]; then
-  command less --quit-if-one-screen $*
+  /usr/bin/less --quit-if-one-screen $*
   exit $?
 fi
 
@@ -13,7 +13,7 @@ if [ $# -ge 1 ]; then
 
     # Open big files, or files with one really long line with less
     if [ $file_size -gt 200 ] || [ "$(head --bytes=4096 "$file" 2>/dev/null | head -1 | wc --chars)" -gt 1000 ]; then
-      command less --line-numbers $*
+      /usr/bin/less --line-numbers $*
       exit $?
     fi
   else
