@@ -78,6 +78,7 @@ call plug#begin()
   " Improve performance
   Plug 'antoinemadec/FixCursorHold.nvim'
   Plug 'lewis6991/impatient.nvim'
+  Plug 'nathom/filetype.nvim'
 
   " Git
   Plug 'anhpt379/vim-fugitive'
