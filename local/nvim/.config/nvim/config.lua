@@ -341,3 +341,8 @@ require('hlargs').setup({
   color = '#28c9ff',
 })
 require('nvim-surround').setup()
+require('nvim-treesitter.configs').setup({
+  endwise = {
+    enable = true,
+  },
+})
