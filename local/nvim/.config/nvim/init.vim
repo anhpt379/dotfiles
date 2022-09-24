@@ -561,7 +561,7 @@ augroup fugitive-personal-key-mappings
   autocmd FileType fugitive nmap <buffer> gr :<C-u>call vim_git_browse#GitOpenRepo()<CR>
 
   " Open diff in a new buffer by default
-  autocmd FileType fugitive map <buffer> <nowait> <CR> <O
+  autocmd FileType fugitive map <buffer> <nowait> <CR> O
 
   " Easier to reach -= keys
   autocmd FileType fugitive map <buffer> <nowait> d =
