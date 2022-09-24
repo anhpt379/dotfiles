@@ -20,9 +20,10 @@ core:
 
   directory:
     foreground: blue
+    font-style: bold
 
   symlink:
-    foreground: pink
+    foreground: gray
 
   multi_hard_link: {}
 
@@ -67,13 +68,12 @@ core:
   sticky: {}
 
   executable_file:
-    foreground: red
-    font-style: bold
+    foreground: cyan
 
 text:
   special:
-    foreground: background_color
-    background: yellow
+    foreground: green
+    font-style: bold
 
   todo:
     font-style: bold
@@ -82,7 +82,7 @@ text:
     foreground: gray
 
   configuration:
-    foreground: yellow
+    foreground: white
 
   other:
     foreground: yellow
@@ -92,13 +92,13 @@ markup:
 
 programming:
   source:
-    foreground: green
+    foreground: white
 
   tooling:
-    foreground: green
+    foreground: white
 
     continuous-integration:
-      foreground: green
+      foreground: yellow
 
 media:
   foreground: pink
@@ -111,7 +111,7 @@ archives:
   font-style: underline
 
 executable:
-  foreground: red
+  foreground: yellow
   font-style: bold
 
 unimportant:
