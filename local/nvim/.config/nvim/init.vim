@@ -46,7 +46,6 @@ call plug#begin()
   Plug 'ptzz/lf.vim', {'tag': 'v1.2'} | Plug 'rbgrouleff/bclose.vim'
   Plug 'spektroskop/golden-ratio', {'branch': 'skip-popups'}
   Plug 'voldikss/vim-floaterm'
-  Plug 'gbprod/yanky.nvim'
 
   " Improving editing experience
   Plug 'anhpt379/targets.vim'
@@ -756,6 +755,9 @@ augroup end
 " No magic search by default
 map / /\V
 map ? ?\V
+
+" Highlight yanked text
+autocmd TextYankPost * silent! lua vim.highlight.on_yank {higroup="IncSearch", timeout=700}
 
 " Automatically jump to end of text you pasted
 vnoremap p :<C-u>set paste<CR>:let @a = system("pbpaste")<CR>"ap`]:set nopaste<CR>

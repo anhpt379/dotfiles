@@ -217,10 +217,6 @@ highlight CleverFDirect       guifg=#ffb300 gui=bold           ctermfg=11 ctermb
 highlight link ctrlsfMatch Search
 highlight link ctrlsfLnumMatch LineNr
 
-" Yanky
-highlight link YankyPut IncSearch
-highlight link YankyYanked IncSearch
-
 " nvim-cmp
 highlight CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#808080
 highlight CmpItemAbbrMatch guibg=NONE guifg=#ffb300
