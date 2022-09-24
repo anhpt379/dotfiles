@@ -397,6 +397,7 @@ if g:hostname =~# 'fedora'
   nmap <Leader>w q
   nmap <Leader>q Q
   nmap <Leader>t :enew<CR>
+  nmap <Leader><Leader> <C-^>
 
   let g:lightline#bufferline#show_number     = 2
   let g:lightline#bufferline#shorten_path    = 1
