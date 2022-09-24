@@ -709,7 +709,7 @@ endfunction
 map q :<C-u>silent! call Goodbye()<CR>
 
 " Close all buffers without saving
-nnoremap <silent> Q :q!<CR>
+nnoremap <silent> Q :qa!<CR>
 
 " Remap recording macro key to the delete key
 " (I mapped the delete key to F20 in Karabiner)
