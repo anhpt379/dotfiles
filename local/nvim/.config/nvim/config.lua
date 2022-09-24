@@ -372,3 +372,11 @@ require('hlargs').setup({
   color = '#28c9ff',
 })
 require('nvim-surround').setup()
+
+-- Yanky
+require('yanky').setup({
+  highlight = {
+    timer = 700,
+  }
+})
+vim.keymap.set({"n","x"}, "y", "<Plug>(YankyYank)")
