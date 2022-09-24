@@ -138,12 +138,12 @@ call plug#begin()
     " Plug 'dcampos/cmp-snippy'
 
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    Plug 'nvim-treesitter/nvim-treesitter-context'
+    Plug 'nvim-treesitter/nvim-treesitter-textobjects'
     Plug 'SmiteshP/nvim-gps'
-    Plug 'romgrk/nvim-treesitter-context'
     Plug 'windwp/nvim-ts-autotag'
     Plug 'JoosepAlviste/nvim-ts-context-commentstring'
     Plug 'm-demare/hlargs.nvim'
-    Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 
     Plug 'anhpt379/conflict-marker.vim'
     Plug 'andymass/vim-matchup'
