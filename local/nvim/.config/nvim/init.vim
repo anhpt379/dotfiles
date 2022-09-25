@@ -1177,12 +1177,6 @@ map <PageUp> 2k
 map <Home> 2h
 map <End> 2l
 
-" Disable TreeSitterContext in Dockerfile (it's incompatible at the moment -
-" nvim shows treesitter context errors every time we move the cursor)
-augroup dockerfile
-  autocmd FileType Dockerfile :TSContextDisable
-augroup end
-
 " Lua config
 if g:hostname =~# 'fedora'
   luafile <sfile>:h/config.lua
