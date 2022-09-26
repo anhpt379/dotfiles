@@ -983,16 +983,18 @@ augroup end
 cnoremap <M-b> <S-Left>
 cnoremap <M-f> <S-Right>
 
-" Fix Option/Ctrl+Backspace/Delete didn't work in vim command line
+" Fix Control/Option+Backspace/Delete didn't work in vim command line
 cnoremap <M-BS> <C-w>
 cnoremap <expr> <C-BS>  &cedit. 'dB' .'<C-c><Space><BS>'
 cnoremap <expr> <M-Del> &cedit. 'dw' .'<C-c><Space><BS>'
 cnoremap <expr> <C-Del> &cedit. 'dW' .'<C-c><Space><BS>'
 
-" Map Ctrl-Backspace to delete the previous word in insert mode
+" Allow Control/Option+Backspace/Delete to delete words in insert mode
 set backspace=indent,eol,start
-inoremap <C-BS> <C-w>
-inoremap <C-h> <C-w>
+inoremap <C-BS>  <C-o>dB
+inoremap <M-BS>  <C-o>db
+inoremap <C-Del> <C-o>dW
+inoremap <M-d>   <C-o>dw
 
 " Fzf-mru
 augroup update-mru-on-file-open
