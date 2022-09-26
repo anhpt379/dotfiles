@@ -55,7 +55,7 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
             --copy-links \
             --keep-dirlinks \
             --relative \
-            ~/dotfiles/remote/HOME/./.{bashrc,inputrc,vimrc,less,terminfo,local/bin/pbcopy,local/bin/pbpaste} "$argv[1]":/tmp/panh/ 2>/dev/null
+            ~/dotfiles/remote/HOME/./.{bashrc,bash_aliases,inputrc,vimrc,less,terminfo,local/bin/pbcopy,local/bin/pbpaste} "$argv[1]":/tmp/panh/ 2>/dev/null
 
         command ssh $argv -t WORK_EMAIL=$WORK_EMAIL HOME=/tmp/panh bash
 
