@@ -54,6 +54,16 @@ nmap s <nop>
 
 map  q :<C-u>qa!<CR>
 
+" Use Option+H/L to jump word by word in vim command line
+cnoremap <M-b> <S-Left>
+cnoremap <M-f> <S-Right>
+
+" Fix Option/Ctrl+Backspace/Delete didn't work in vim command line
+cnoremap <M-BS> <C-w>
+cnoremap <expr> <C-BS>  &cedit. 'dB' .'<C-c><Space><BS>'
+cnoremap <expr> <M-Del> &cedit. 'dw' .'<C-c><Space><BS>'
+cnoremap <expr> <C-Del> &cedit. 'dW' .'<C-c><Space><BS>'
+
 " Make mouse scrolling smoother, by scroll one line at a time
 map <ScrollWheelUp> <C-Y>
 map <ScrollWheelDown> <C-E>
