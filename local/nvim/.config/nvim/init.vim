@@ -985,13 +985,14 @@ cnoremap <M-f> <S-Right>
 
 " Fix Option/Ctrl+Backspace/Delete didn't work in vim command line
 cnoremap <M-BS> <C-w>
+cnoremap <expr> <C-BS>  &cedit. 'dB' .'<C-c><Space><BS>'
 cnoremap <expr> <M-Del> &cedit. 'dw' .'<C-c><Space><BS>'
 cnoremap <expr> <C-Del> &cedit. 'dW' .'<C-c><Space><BS>'
 
 " Map Ctrl-Backspace to delete the previous word in insert mode
 set backspace=indent,eol,start
-noremap! <C-BS> <C-w>
-noremap! <C-h> <C-w>
+inoremap <C-BS> <C-w>
+inoremap <C-h> <C-w>
 
 " Fzf-mru
 augroup update-mru-on-file-open
