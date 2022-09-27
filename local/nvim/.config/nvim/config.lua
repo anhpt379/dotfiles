@@ -289,9 +289,8 @@ require('nvim-treesitter.configs').setup({
   highlight = {
     enable = true,
   },
-  indent = {
-    enable = true,
-    disable = { 'yaml' }
+  yati = {
+    enable = true
   },
   matchup = {
     enable = true,
