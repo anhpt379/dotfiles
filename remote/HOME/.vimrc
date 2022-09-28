@@ -21,6 +21,13 @@ function! FormatCode()
     let view = winsaveview()
     edit
     call winrestview(view)
+
+    " Vim 7.4 needs this to restore code highlighting
+    if &filetype ==# 'yaml'
+      set filetype=yaml
+    elseif &filetype ==# 'puppet'
+      set filetype=puppet
+    endif
   else
     echo output
   endif
