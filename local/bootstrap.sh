@@ -27,11 +27,12 @@ fish install --path=~/.local/share/omf --config=~/.config/omf --yes --noninterac
 rm -f install
 
 # stow
-stow bat
+stow bash
+stow bin
 stow curl
 stow diff-so-fancy
 stow docker
-stow fzf
+stow fish
 stow gem
 stow git
 stow grc
@@ -43,6 +44,7 @@ stow nvim
 stow nvimpager
 stow ssh
 stow tmux
+stow vivid
 stow wakatime
 
 # fd
