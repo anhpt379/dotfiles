@@ -480,7 +480,11 @@ endfunction
 
 command! -complete=dir -bang -nargs=* FzfRg
   \ call fzf#run({
-  \   'source': 'rg --column --line-number --no-heading --color=always
+  \   'source': 'rg
+  \       --colors "match:none"
+  \       --colors "path:fg:blue"
+  \       --colors "line:fg:magenta"
+  \       --column --line-number --no-heading --color=always
   \       --smart-case --fixed-strings --hidden --glob "!.git" -- "'.escape(<q-args>, '$"').'" || true',
   \   'sink': function('s:open_rg_match'),
   \   'options': [
