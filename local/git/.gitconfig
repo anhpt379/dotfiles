@@ -26,7 +26,7 @@
 
 [pager]
   diff = diff-so-fancy | view
-  log  = less --tabs=4
+  log  = /usr/bin/less --tabs=4
   show = diff-so-fancy | view
 
 [interactive]
