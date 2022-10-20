@@ -1198,3 +1198,39 @@ augroup format_code_on_save
   autocmd BufWriteCmd *.pp call FormatCode()
   autocmd BufWriteCmd *.yaml,*.eyaml,*.yml call FormatCode()
 augroup end
+
+function! PuppetGoToDefinition()
+  let isk_save = &l:isk
+
+  " [Class['::foo::bar']], file('/path/to/file.sh'), $::is_staging
+  " include ::profile_base
+  setlocal iskeyword+=:,.,/,],[,',\",\$,-
+  let cword = expand('<cword>')
+  let &l:isk = isk_save
+
+  let tag_name = cword
+
+  " Removing single/double quotes, and `::` from the tag name
+  let tag_name = substitute(tag_name, ':$', '', '')
+  let tag_name = substitute(tag_name, '^"', '', '')
+  let tag_name = substitute(tag_name, '"$', '', '')
+  let tag_name = substitute(tag_name, "^'", '', '')
+  let tag_name = substitute(tag_name, "'$", '', '')
+  let tag_name = substitute(tag_name, '^::', '', '')
+
+  let tag_len = len(tag_name)
+  if tag_name[0] ==# '['
+    let tag_name = tag_name[1:tag_len]
+    let tag_len = len(tag_name)
+  endif
+  if tag_name[tag_len-2:tag_len-1] ==# ']]'
+    let tag_name = tag_name[0:tag_len-2]
+  endif
+
+  echo tag_name
+  exec('silent! tag ' . tag_name)
+endfunction
+
+augroup puppet_go_to_definition
+  autocmd FileType puppet nmap <buffer> <C-]> :call PuppetGoToDefinition()<CR>
+augroup end
