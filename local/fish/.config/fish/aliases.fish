@@ -1,8 +1,10 @@
 # grc fish integration
 if [ -f ~/.cargo/bin/grc-rs ]
-    alias grc grc-rs
     alias grcat 'grc-rs --colour=on cat'
-    source /etc/grc.fish
+
+    for cmd in df id ip w uptime stat
+        type "$cmd" >/dev/null 2>&1 && alias "$cmd"="grc-rs --colour=auto $cmd"
+    end
 else
     alias grcat 'grcat conf.cat'
 end
