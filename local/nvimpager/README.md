@@ -11,4 +11,4 @@ curl -fLo .local/bin/nvimpager https://raw.githubusercontent.com/lucc/nvimpager/
 sed -i 's|^RUNTIME=.*$|RUNTIME="$HOME/.local/share/nvimpager/runtime"|' .local/bin/nvimpager
 
 chmod +x .local/bin/nvimpager
-```bash
+```
