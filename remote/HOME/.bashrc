@@ -35,8 +35,9 @@ PS1+="$(printf '\033[6 q')"
 umask 0002
 
 # Extract nvim appimage
-if [ ! -f ~/.local/bin/nvim-appimage/squashfs-root/usr/bin/nvim ]; then
-  if [ -f ~/.local/bin/nvim.appimage ]; then
+if ! test -f ~/.local/bin/nvim-appimage/squashfs-root/usr/bin/nvim || test ~/.local/bin/nvim.appimage -nt ~/.local/bin/nvim-appimage/squashfs-root/usr/bin/nvim; then
+  if test -f ~/.local/bin/nvim.appimage; then
+    rm -rf ~/.local/bin/nvim-appimage/
     mkdir -p ~/.local/bin/nvim-appimage/
     cd ~/.local/bin/nvim-appimage/ || exit 1
     ../nvim.appimage --appimage-extract
