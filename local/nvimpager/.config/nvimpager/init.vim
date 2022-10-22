@@ -68,8 +68,8 @@ cnoremap <expr> <C-Del> &cedit. 'dW' .'<C-c><Space><BS>'
 map <ScrollWheelUp> <C-Y>
 map <ScrollWheelDown> <C-E>
 
-" F to reread the file, partially similar to less +F
-nmap F :e<CR>
+" F to toggle "follow mode"
+map F :lua nvimpager.toggle_follow()<CR>
 
 " Hide `E211: file no longer available` on `cat <file> | nvimpager -p`
 augroup suppress-file-no-longer-available-warning
