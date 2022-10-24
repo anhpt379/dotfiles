@@ -1220,15 +1220,8 @@ function! PuppetGoToDefinition()
   let tag_name = substitute(tag_name, "^'", '', '')
   let tag_name = substitute(tag_name, "'$", '', '')
   let tag_name = substitute(tag_name, '^::', '', '')
-
-  let tag_len = len(tag_name)
-  if tag_name[0] ==# '['
-    let tag_name = tag_name[1:tag_len]
-    let tag_len = len(tag_name)
-  endif
-  if tag_name[tag_len-2:tag_len-1] ==# ']]'
-    let tag_name = tag_name[0:tag_len-2]
-  endif
+  let tag_name = substitute(tag_name, '^[', '', '')
+  let tag_name = substitute(tag_name, ']]$', ']', '')
 
   echo tag_name
   exec('silent! tag ' . tag_name)
