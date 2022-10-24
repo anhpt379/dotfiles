@@ -157,9 +157,6 @@ call plug#end()
 
 if g:hostname =~# 'fedora'
   lua require('impatient')
-
-  " Hide cmdline (requires nvim v0.8.0+)
-  set cmdheight=0
 endif
 
 " Vim-startuptime
