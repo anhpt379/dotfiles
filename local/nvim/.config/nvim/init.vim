@@ -180,6 +180,10 @@ set mouse=a
 map <ScrollWheelUp> <C-Y>
 map <ScrollWheelDown> <C-E>
 
+" Fix unexpected horizontally scrolling when using trackpad
+nmap <ScrollWheelLeft> <nop>
+nmap <ScrollWheelRight> <nop>
+
 set pumblend=20
 set cursorline
 
