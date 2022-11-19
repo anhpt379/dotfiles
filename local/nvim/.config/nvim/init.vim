@@ -176,13 +176,9 @@ set splitright
 " Enable mouse for all mode
 set mouse=a
 
-" Make mouse scrolling smoother, by scroll one line at a time
-map <ScrollWheelUp> <C-Y>
-map <ScrollWheelDown> <C-E>
-
-" Fix unexpected horizontally scrolling when using trackpad
-nmap <ScrollWheelLeft> <nop>
-nmap <ScrollWheelRight> <nop>
+" Make mouse scrolling smoother, by scroll one line at a time.
+" (and also fix unexpected horizontally scrolling when using trackpad)
+set mousescroll=ver:1,hor:0
 
 set pumblend=20
 set cursorline
