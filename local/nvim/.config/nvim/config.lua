@@ -158,13 +158,13 @@ cmp.setup({
 })
 
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline(':', {
-  mapping = cmp.mapping.preset.cmdline(),
-  sources = cmp.config.sources({
-    { name = 'cmdline' },
-    { name = 'cmdline_history' },
-  })
-})
+-- cmp.setup.cmdline(':', {
+--   mapping = cmp.mapping.preset.cmdline(),
+--   sources = cmp.config.sources({
+--     { name = 'cmdline' },
+--     { name = 'cmdline_history' },
+--   })
+-- })
 
 local lsp_status = require('lsp-status')
 lsp_status.register_progress()
