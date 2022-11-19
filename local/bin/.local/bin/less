@@ -9,6 +9,11 @@ if [ $# -ge 1 ]; then
   file=${@: -1}
 
   if [ -e "$file" ]; then
+    if [ ! -r "$file" ]; then
+      echo "$(basename "$0"): $file: Permission denied"
+      exit 1
+    fi
+
     file_size=$(command ls -s --block-size=1048576 "$file" | cut -d' ' -f1) # in MB
 
     # Open big files, or files with one really long line with less
