@@ -1,7 +1,7 @@
 #!/bin/bash
 
 sudo dnf install -y \
-  stow git fish neovim \
+  stow git fish \
   jq ripgrep exa rsync \
   curl wget nmap-ncat \
   telnet corkscrew \
@@ -46,6 +46,15 @@ stow ssh
 stow tmux
 stow vivid
 stow wakatime
+
+# neovim
+sudo dnf -y install ninja-build libtool autoconf automake cmake gcc gcc-c++ make pkgconfig unzip patch gettext curl
+git clone https://github.com/neovim/neovim
+cd neovim || exit 1
+git checkout stable
+make CMAKE_BUILD_TYPE=RelWithDebInfo
+sudo make install
+nvim --version
 
 # fd
 wget https://github.com/sharkdp/fd/releases/download/v8.4.0/fd-v8.4.0-aarch64-unknown-linux-gnu.tar.gz
