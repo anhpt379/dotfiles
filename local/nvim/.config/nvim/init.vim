@@ -62,7 +62,7 @@ call plug#begin()
   Plug 'rhysd/clever-f.vim'
   Plug 'junegunn/vim-easy-align'
   Plug 'RRethy/nvim-treesitter-endwise'
-  Plug 'cohama/lexima.vim'
+  Plug 'windwp/nvim-autopairs'
   Plug 'tpope/vim-speeddating'
   Plug 'tpope/vim-dispatch'
   Plug 'qxxxb/vim-searchhi'

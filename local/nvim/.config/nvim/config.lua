@@ -371,3 +371,4 @@ require('hlargs').setup({
   color = '#28c9ff',
 })
 require('nvim-surround').setup()
+require('nvim-autopairs').setup()
