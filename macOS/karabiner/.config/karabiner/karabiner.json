@@ -794,11 +794,11 @@
                         ]
                     },
                     {
-                        "description": "Open Chrome with COMMAND+CONTROL+C",
+                        "description": "Open Safari with COMMAND+CONTROL+B",
                         "manipulators": [
                             {
                                 "from": {
-                                    "key_code": "c",
+                                    "key_code": "b",
                                     "modifiers": {
                                         "mandatory": [
                                             "command",
@@ -808,7 +808,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "open -a 'Google Chrome.app'"
+                                        "shell_command": "open -a 'Safari.app'"
                                     }
                                 ],
                                 "type": "basic"
@@ -897,28 +897,6 @@
                                 "to": [
                                     {
                                         "shell_command": "open -a 'Maccy.app'"
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Open SimpleClock with COMMAND+CONTROL+T",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "t",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "command",
-                                            "control"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "shell_command": "open -a 'SimpleClock.app'"
                                     }
                                 ],
                                 "type": "basic"
