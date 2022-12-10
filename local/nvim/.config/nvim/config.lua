@@ -331,25 +331,6 @@ require('nvim-treesitter.configs').setup({
   },
 })
 
--- Treesitter context
-require('treesitter-context').setup({
-  enable = true,
-  throttle = true,
-  max_lines = 0,
-  patterns = {
-    default = {
-      'class',
-      'function',
-      'method',
-      'for',
-      'while',
-      'if',
-      'switch',
-      'case',
-    },
-  }
-})
-
 require('gitsigns').setup({
   current_line_blame = true,
   current_line_blame_opts = {
@@ -365,7 +346,6 @@ require('gitsigns').setup({
 
 require('colorizer').setup()
 require('nvim-gps').setup()
-require('scrollbar').setup()
 require('guess-indent').setup()
 require('hlargs').setup({
   color = '#28c9ff',
