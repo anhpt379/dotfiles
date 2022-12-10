@@ -200,7 +200,7 @@ set number
 set gdefault
 
 " Make it obvious where 80 characters is
-set textwidth=79
+set textwidth=87
 set colorcolumn=+1
 
 " Make the keyboard faaaaaaast
