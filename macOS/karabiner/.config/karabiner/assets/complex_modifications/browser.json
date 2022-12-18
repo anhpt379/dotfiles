@@ -9,17 +9,13 @@
           "from": {
             "key_code": "o",
             "modifiers": {
-              "mandatory": [
-                "left_command"
-              ]
+              "mandatory": ["left_command"]
             }
           },
           "to": [
             {
               "key_code": "l",
-              "modifiers": [
-                "left_command"
-              ]
+              "modifiers": ["left_command"]
             }
           ],
           "conditions": [
@@ -44,23 +40,17 @@
           "from": {
             "key_code": "y",
             "modifiers": {
-              "mandatory": [
-                "left_command"
-              ]
+              "mandatory": ["left_command"]
             }
           },
           "to": [
             {
               "key_code": "l",
-              "modifiers": [
-                "left_command"
-              ]
+              "modifiers": ["left_command"]
             },
             {
               "key_code": "c",
-              "modifiers": [
-                "left_command"
-              ]
+              "modifiers": ["left_command"]
             },
             {
               "key_code": "escape"
@@ -84,6 +74,32 @@
       ]
     },
     {
+      "description": "Safari - Open new tab at the end",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "t",
+            "modifiers": {
+              "mandatory": ["left_command"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "t",
+              "modifiers": ["left_command", "left_option"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.apple\\.Safari$"]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "description": "Browser - Accept suggestion & go to the url with CONTROL+G",
       "manipulators": [
         {
@@ -91,9 +107,7 @@
           "from": {
             "key_code": "g",
             "modifiers": {
-              "mandatory": [
-                "left_control"
-              ]
+              "mandatory": ["left_control"]
             }
           },
           "to": [
@@ -123,24 +137,17 @@
           "from": {
             "key_code": "close_bracket",
             "modifiers": {
-              "mandatory": [
-                "left_command"
-              ]
+              "mandatory": ["left_command"]
             }
           },
           "to": [
             {
               "key_code": "up_arrow",
-              "modifiers": [
-                "command",
-                "option"
-              ]
+              "modifiers": ["command", "option"]
             },
             {
               "key_code": "right_arrow",
-              "modifiers": [
-                "command"
-              ]
+              "modifiers": ["command"]
             },
             {
               "key_code": "escape"
@@ -163,24 +170,17 @@
           "from": {
             "key_code": "open_bracket",
             "modifiers": {
-              "mandatory": [
-                "left_command"
-              ]
+              "mandatory": ["left_command"]
             }
           },
           "to": [
             {
               "key_code": "up_arrow",
-              "modifiers": [
-                "command",
-                "option"
-              ]
+              "modifiers": ["command", "option"]
             },
             {
               "key_code": "left_arrow",
-              "modifiers": [
-                "command"
-              ]
+              "modifiers": ["command"]
             },
             {
               "key_code": "escape"
