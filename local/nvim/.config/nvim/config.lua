@@ -41,6 +41,16 @@ require("mason-lspconfig").setup_handlers({
           }
         }
       }
+    elseif server_name == 'pyright' then
+      require("lspconfig")[server_name].setup {
+        settings = {
+          python = {
+            analysis = {
+              diagnosticMode = 'openFilesOnly'
+            }
+          }
+        }
+      }
     else
       require("lspconfig")[server_name].setup {}
     end
