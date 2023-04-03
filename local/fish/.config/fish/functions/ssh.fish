@@ -60,36 +60,37 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
         command ssh $argv -t WORK_EMAIL=$WORK_EMAIL HOME=/tmp/panh bash
 
     else
-        set -f start_time (date +%s)
-        set -f jump_host (cat ~/.ssh/conf.d/work.conf | grep ProxyJump | tail -1 | awk '{ print $NF }')
+        # set -f start_time (date +%s)
+        # set -f jump_host (cat ~/.ssh/conf.d/work.conf | grep ProxyJump | tail -1 | awk '{ print $NF }')
 
-        echo "Syncing dotfiles to $jump_host..."
-        rsync -azhP \
-            --quiet \
-            --info=name0 \
-            --info=progress2 \
-            --no-inc-recursive \
-            --compress-level=9 \
-            --copy-links \
-            --keep-dirlinks \
-            --delete \
-            --delete-excluded \
-            --exclude-from="$HOME/dotfiles/remote/.rsyncignore" \
-            ~/dotfiles/remote/HOME/ $jump_host:~/HOME/
+        # echo "Syncing dotfiles to $jump_host..."
+        # rsync -azhP \
+        #     --quiet \
+        #     --info=name0 \
+        #     --info=progress2 \
+        #     --no-inc-recursive \
+        #     --compress-level=9 \
+        #     --copy-links \
+        #     --keep-dirlinks \
+        #     --delete \
+        #     --delete-excluded \
+        #     --exclude-from="$HOME/dotfiles/remote/.rsyncignore" \
+        #     ~/dotfiles/remote/HOME/ $jump_host:~/HOME/
 
-        echo "Syncing dotfiles from $jump_host to $argv[1]..."
-        command ssh $jump_host -- "rsync -e 'ssh -o UserKnownHostsFile=/dev/null' --quiet -a ~/HOME/ $argv[1]:~/"
-        if test $status -ne 0
-            return
-        end
+        # echo "Syncing dotfiles from $jump_host to $argv[1]..."
+        # command ssh $jump_host -- "rsync -e 'ssh -o UserKnownHostsFile=/dev/null' --quiet -a ~/HOME/ $argv[1]:~/"
+        # if test $status -ne 0
+        #     return
+        # end
 
-        set -f end_time (date +%s)
-        set -f duration (expr $end_time - $start_time)
-        if test $duration -gt 2
-            echo "$(echo $argv[1] | awk -F. '{ print $1 }') is connected now 😀" | nc 127.0.0.1 2227
-        end
+        # set -f end_time (date +%s)
+        # set -f duration (expr $end_time - $start_time)
+        # if test $duration -gt 2
+        #     echo "$(echo $argv[1] | awk -F. '{ print $1 }') is connected now 😀" | nc 127.0.0.1 2227
+        # end
 
-        command ssh $argv -t WORK_EMAIL=$WORK_EMAIL fish
+        # command ssh $argv -t WORK_EMAIL=$WORK_EMAIL fish
+        command ssh $argv -t "dotfiles.pl; WORK_EMAIL=$WORK_EMAIL ~/.local/bin/fish"
 
         set -f code $status
         if test $code -ne 0
