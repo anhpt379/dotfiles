@@ -44,7 +44,7 @@ call plug#begin()
   Plug 'ryanoasis/vim-devicons'
   Plug 'breuckelen/vim-resize'
   Plug 'ptzz/lf.vim', {'tag': 'v1.2'} | Plug 'rbgrouleff/bclose.vim'
-  Plug 'spektroskop/golden-ratio', {'branch': 'skip-popups'}
+  Plug 'roman/golden-ratio'
   Plug 'voldikss/vim-floaterm'
 
   " Improving editing experience
