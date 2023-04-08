@@ -19,7 +19,7 @@ chmod +x nvim.appimage
 mv nvim.appimage HOME/.local/bin/
 
 # fzf
-set FZF_VERSION 0.33.0
+set FZF_VERSION 0.38.0
 wget https://github.com/junegunn/fzf/releases/download/$FZF_VERSION/fzf-$FZF_VERSION-linux_amd64.tar.gz
 tar zxvf fzf-$FZF_VERSION-linux_amd64.tar.gz
 mv fzf HOME/.local/bin/
@@ -32,7 +32,7 @@ mv lf HOME/.local/bin/
 rm -f lf-linux-amd64.tar.gz
 
 # fd
-wget https://github.com/sharkdp/fd/releases/download/v8.4.0/fd-v8.4.0-x86_64-unknown-linux-musl.tar.gz
+wget https://github.com/sharkdp/fd/releases/download/v8.7.0/fd-v8.7.0-x86_64-unknown-linux-musl.tar.gz
 tar zxvf fd-*-x86_64-unknown-linux-musl.tar.gz
 mv fd-*/fd HOME/.local/bin/
 rm -rf fd-*
