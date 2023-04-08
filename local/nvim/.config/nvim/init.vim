@@ -75,6 +75,7 @@ call plug#begin()
   Plug 'anhpt379/ctrlsf.vim'
   Plug 'anhpt379/vim-move'
   Plug 'tyru/open-browser.vim'
+  Plug 'ojroques/vim-oscyank'
 
   " Improve performance
   Plug 'antoinemadec/FixCursorHold.nvim'
@@ -1089,6 +1090,14 @@ augroup end
 let g:netrw_nogx = 1
 let g:openbrowser_browser_commands = [{'name': 'open', 'args': ['{browser}', '{uri}']}]
 nmap gx <Plug>(openbrowser-smart-search)
+
+" vim-oscyank
+augroup oscyank
+  autocmd TextYankPost *
+      \ if v:event.operator is 'y' |
+      \ execute 'OSCYankRegister "' |
+      \ endif
+augroup end
 
 " Indent Blankline
 let g:indent_blankline_use_treesitter = v:true

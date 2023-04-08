@@ -1,1 +1,4 @@
-../../../../local/bin/.local/bin/pbcopy
+#!/bin/bash
+
+# OSC-52 copy
+base64 | xargs -0 printf '\e]52;c;%s\007'
