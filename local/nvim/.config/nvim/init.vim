@@ -514,6 +514,9 @@ noremap <Leader>b :FzfBLines<CR>
 " https://github.com/neovim/neovim/issues/18735
 tnoremap <C-/> <C-_>
 
+" Workaround for <C-Backspace> doesn't work for fzf when running in nvim
+tnoremap <C-BS> <C-w>
+
 " }}}
 
 " Git {{{
