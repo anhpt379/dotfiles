@@ -15,9 +15,6 @@ call plug#begin()
   " Defaults everyone can agree on
   Plug 'tpope/vim-sensible'
 
-  " EditorConfig
-  Plug 'editorconfig/editorconfig-vim'
-
   " Syntax highlighting
   Plug 'gisphm/vim-gitignore'
   Plug 'chr4/nginx.vim'
