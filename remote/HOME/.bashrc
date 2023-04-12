@@ -40,7 +40,7 @@ if ! test -f ~/.local/bin/nvim-appimage/squashfs-root/usr/bin/nvim || test ~/.lo
     rm -rf ~/.local/bin/nvim-appimage/
     mkdir -p ~/.local/bin/nvim-appimage/
     cd ~/.local/bin/nvim-appimage/ || exit 1
-    ../nvim.appimage --appimage-extract
+    ../nvim.appimage --appimage-extract >/dev/null
   fi
 fi
 

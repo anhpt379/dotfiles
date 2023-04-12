@@ -90,7 +90,24 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
         # end
 
         # command ssh $argv -t WORK_EMAIL=$WORK_EMAIL fish
-        command ssh $argv -t "dotfiles.pl; WORK_EMAIL=$WORK_EMAIL ~/.local/bin/fish"
+
+        set GITLAB_DOMAIN (echo $WORK_EMAIL | awk -F@ '{ print "gitlab."$2 }')
+        command ssh $argv -t "
+            export GIT_SSH_COMMAND='ssh -i /usr/local/etc/gitlab_ssh_key_dotfiles/id_rsa'
+            if test -d .files; then
+                cd .files/
+                git fetch --depth 1 origin master
+                git reset --hard origin/master
+            else
+                git clone --depth=1 --branch=master git@$GITLAB_DOMAIN:panh/dotfiles.git .files
+                cd .files/
+            fi
+
+            rsync -a HOME/ ~/
+            cd ~/
+
+            WORK_EMAIL=$WORK_EMAIL ~/.local/bin/fish
+        "
 
         set -f code $status
         if test $code -ne 0
