@@ -105,7 +105,10 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
             rsync -a HOME/ ~/
             cd ~/
 
-            WORK_EMAIL=$WORK_EMAIL TERM=xterm-kitty ~/.local/bin/fish
+            export TERM=xterm-kitty
+            export WORK_EMAIL=$WORK_EMAIL
+
+            source ~/.bash_profile
         "
 
         set -f code $status
