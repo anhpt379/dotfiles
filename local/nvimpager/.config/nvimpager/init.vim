@@ -1,4 +1,6 @@
 call plug#begin()
+  Plug 'ojroques/vim-oscyank'
+
   " Syntax highlighting
   Plug 'gisphm/vim-gitignore'
   Plug 'chr4/nginx.vim'
@@ -78,4 +80,12 @@ augroup end
 
 augroup strip-ansi-color-codes
   autocmd TextYankPost * call system("sed -e 's/\x1B\[[0-9;]*[JKmsu]//g' \| pbcopy", @0)
+augroup end
+
+" vim-oscyank
+augroup oscyank
+  autocmd TextYankPost *
+      \ if v:event.operator is 'y' |
+      \ execute 'OSCYankRegister "' |
+      \ endif
 augroup end
