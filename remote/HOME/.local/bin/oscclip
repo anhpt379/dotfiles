@@ -4,7 +4,7 @@
 # Modified:
 #   * changed the default runtime to python3
 #   * updated code to be compatible with python3.7
-#   * changed `read_tty` timeout to 0.05
+#   * changed read_tty & tmux sleep timeout to 0.1
 #   * added `if __name__ == "__main__"` section
 #
 import argparse
@@ -83,7 +83,7 @@ def _tmux_osc52_paste(primary: bool) -> bytes:
     try:
         subprocess.run(["tmux", "refresh-client", "-l"], check=True)
         # It might be a bit racy; give the terminal time.
-        time.sleep(0.05)
+        time.sleep(0.1)
         p = subprocess.run(
             ["tmux", "save-buffer", "-"], check=True, capture_output=True
         )
@@ -126,7 +126,7 @@ def osc52_paste(primary: bool) -> bytes:
         curses.noecho()
         curses.cbreak()
         write_tty(buf)
-        resp = read_tty(b"\a", 0.05)
+        resp = read_tty(b"\a", 0.1)
         if resp == b"":
             return resp
         return _parse_osc52_response(resp)
