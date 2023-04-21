@@ -53,7 +53,6 @@ alias start='sudo systemctl start'
 alias stop='sudo systemctl stop'
 alias restart='sudo systemctl restart'
 alias info='sudo systemctl status'
-alias log='sudo journalctl -e -u'
 
 alias pp='command sudo HOME=/root TERMINFO=/home/panh/.terminfo puppet agent -t'
 alias ppf='sudo killall puppet 2>/dev/null; pp --enable; pp'
