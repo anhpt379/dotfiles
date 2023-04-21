@@ -112,11 +112,6 @@ set fish_greeting
 # Use default fish key bindings
 set -g fish_key_bindings fish_default_key_bindings
 
-# Kitty integration
-set --global KITTY_SHELL_INTEGRATION enabled
-source ~/.config/fish/kitty/shell-integration/fish/vendor_conf.d/kitty-shell-integration.fish
-set --prepend fish_complete_path ~/.config/fish/kitty/shell-integration/fish/vendor_completions.d
-
 if type -q direnv
     direnv hook fish | source
 end
