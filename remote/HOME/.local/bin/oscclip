@@ -3,6 +3,7 @@
 #
 # Modified:
 #   * changed the default runtime to python3
+#   * updated code to be compatible with python3.7
 #   * changed `read_tty` timeout to 0.05
 #   * added `if __name__ == "__main__"` section
 #
@@ -139,7 +140,7 @@ def _osc_copy() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--bypass",
-        action=argparse.BooleanOptionalAction,
+        action="store_true",
         default=False,
         help="bypass terminal multiplexers",
     )
