@@ -48,13 +48,25 @@ stow vivid
 stow wakatime
 
 # neovim
-sudo dnf -y install ninja-build libtool autoconf automake cmake gcc gcc-c++ make pkgconfig unzip patch gettext curl
-git clone https://github.com/neovim/neovim
+sudo dnf install -y ninja-build libtool autoconf automake cmake gcc gcc-c++ make pkgconfig unzip patch gettext curl
+git clone --depth=1 https://github.com/neovim/neovim
 cd neovim || exit 1
 git checkout stable
 make CMAKE_BUILD_TYPE=RelWithDebInfo
 sudo make install
 nvim --version
+
+# nvimpager
+sudo dnf install -y scdoc
+cd /tmp || exit
+git clone --depth=1 https://github.com/lucc/nvimpager.git
+cd nvimpager/ || exit 1
+make PREFIX=$HOME/.local install
+# Update the code to use a relative RUNTIME directory
+# This way it'll be possible to copy the file to another machine.
+sed -i 's|^RUNTIME=.*$|RUNTIME="$HOME/.local/share/nvimpager/runtime"|' ~/.local/bin/nvimpager
+cd ..
+rm -rf nvimpager
 
 # fd
 wget https://github.com/sharkdp/fd/releases/download/v8.7.0/fd-v8.7.0-aarch64-unknown-linux-gnu.tar.gz
