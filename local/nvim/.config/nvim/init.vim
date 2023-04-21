@@ -76,7 +76,6 @@ call plug#begin()
   " Improve performance
   Plug 'antoinemadec/FixCursorHold.nvim'
   Plug 'lewis6991/impatient.nvim'
-  Plug 'nathom/filetype.nvim'
 
   " Git
   Plug 'anhpt379/vim-fugitive'
@@ -153,6 +152,11 @@ call plug#end()
 if g:hostname =~# 'fedora'
   lua require('impatient')
 endif
+
+" Use filetype.lua instead of filetype.vim
+" https://github.com/neovim/neovim/pull/16600
+let g:do_filetype_lua = 1
+let g:did_load_filetypes = 0
 
 " Vim-startuptime
 let g:startuptime_self = 1
