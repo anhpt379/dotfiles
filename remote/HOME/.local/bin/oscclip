@@ -233,7 +233,7 @@ def osc_paste() -> None:
 
 
 if __name__ == "__main__":
-    if 'pbpaste' in sys.argv[0]:
+    if "pbpaste" in sys.argv[0] or "termux-clipboard-get" in sys.argv[0]:
         sys.exit(osc_paste())
     else:
         sys.exit(osc_copy())
