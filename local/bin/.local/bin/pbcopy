@@ -1,3 +1,1 @@
-#!/bin/bash
-
-base64 | xargs -0 printf '\e]52;c;%s\007'
+oscclip
