@@ -218,11 +218,8 @@ def _osc_paste() -> None:
 
     if args.trim_newline:
         data = data.strip()
-        end = b""
-    else:
-        end = b"" if data[-1] == ord("\n") else b"\n"
 
-    sys.stdout.buffer.write(data + end)
+    sys.stdout.buffer.write(data)
 
 
 def osc_paste() -> None:
