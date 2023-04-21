@@ -44,7 +44,10 @@ def handle_result(args, data, target_window_id, boss):
             not is_set(ISIG)
             and not is_set(ICANON)
             and not is_set(ECHO)
-            and re.match(r"^Password.*:", data)
+            and (
+                re.match(r"^Password.*:", data)
+                or re.match(r"^Enter passphrase for key '.*/id_ed25519':", data)
+            )
         ):
             # ssh -t <host> <cmd> # same socket mode for kinit and cat :(
             send_password()
