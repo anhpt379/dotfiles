@@ -1,1 +1,3 @@
-oscclip
+#!/bin/bash
+
+nc 127.0.0.1 2225 --recv-only

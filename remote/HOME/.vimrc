@@ -100,6 +100,29 @@ nnoremap J mjJ`j
 nnoremap <CR>       :nohlsearch<CR><Left><Right>
 nnoremap <Esc><Esc> :nohlsearch<CR><Left><Right>
 
+" Clipboard
+nnoremap y0  y0:call system("pbcopy", @0)<CR>
+nnoremap y$  y$:call system("pbcopy", @0)<CR>
+nnoremap ye  ye:call system("pbcopy", @0)<CR>
+nnoremap yE  yE:call system("pbcopy", @0)<CR>
+nnoremap yw  yw:call system("pbcopy", @0)<CR>
+nnoremap yW  yW:call system("pbcopy", @0)<CR>
+nnoremap yy  yy:call system("pbcopy", @0)<CR>
+nnoremap yiw yiw:call system("pbcopy", @0)<CR>
+nnoremap yib yib:call system("pbcopy", @0)<CR>
+nnoremap yiq yiq:call system("pbcopy", @0)<CR>
+nnoremap Y   Y:call system("pbcopy", @0)<CR>
+vnoremap y   y:call system("pbcopy", @0)<CR>
+
+" Automatically jump to end of text you pasted
+vnoremap p :<C-u>set paste<CR>:let @a = system("pbpaste")<CR>"ap`]:set nopaste<CR>
+nnoremap p :set paste<CR>:let @a = system("pbpaste")<CR>"ap`]:set nopaste<CR>
+vnoremap P :<C-u>set paste<CR>:let @a = system("pbpaste")<CR>"aP`]:set nopaste<CR>
+nnoremap P :set paste<CR>:let @a = system("pbpaste")<CR>"aP`]:set nopaste<CR>
+
+" Don't change the clipboard if paste over a visually selected text
+xnoremap p "_d:set paste<CR>:let @a = system("pbpaste")<CR>"aP`]:set nopaste<CR>
+
 " Fix vim x/X in VISUAL mode doesn't copy text to macOS' clipboard
 vnoremap x ygvx
 vnoremap X ygvX

@@ -77,7 +77,6 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
         #     --keep-dirlinks \
         #     --relative \
         #     ~/dotfiles/remote/HOME/./.{bashrc,bash_aliases,inputrc,vimrc,less,terminfo} "$argv[1]":/tmp/panh/ 2>/dev/null
-
         # command ssh $argv -t WORK_EMAIL=$WORK_EMAIL HOME=/tmp/panh bash
 
         set REMOTE_COMMAND "export HOME=/tmp/panh; $REMOTE_COMMAND"
