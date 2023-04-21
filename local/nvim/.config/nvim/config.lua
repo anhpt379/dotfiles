@@ -362,6 +362,7 @@ require('hlargs').setup({
 })
 require('nvim-surround').setup()
 require('nvim-autopairs').setup()
+require('nvim-autopairs').remove_rule('`')
 
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 cmp.event:on(
