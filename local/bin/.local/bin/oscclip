@@ -19,20 +19,23 @@ import sys
 import time
 
 
+TTY = os.getenv("SSH_TTY", "/dev/tty")
+
+
 def die(msg: str) -> None:
     print(f"error: {msg}", file=sys.stderr)
     sys.exit(1)
 
 
 def write_tty(data: bytes) -> None:
-    with open("/dev/tty", "wb") as f:
+    with open(TTY, "wb") as f:
         f.write(data)
         f.flush()
 
 
 def read_tty(terminator: bytes, timeout: float) -> bytes:
     sel = selectors.DefaultSelector()
-    with open("/dev/tty", "rb", buffering=0) as f:
+    with open(TTY, "rb", buffering=0) as f:
         fd = f.fileno()
         flag = fcntl.fcntl(fd, fcntl.F_GETFL)
         fcntl.fcntl(fd, fcntl.F_SETFL, flag | os.O_NONBLOCK)
