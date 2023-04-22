@@ -17,11 +17,10 @@ if command -v exa >/dev/null
 end
 
 alias root 'sudo -E -s fish'
-alias cat less
 
 alias ncdu 'ncdu -rr -x --exclude .git'
 alias fd 'command fd --one-file-system --hidden --exclude=".git"'
-alias view 'nvimpager -p'
+alias view 'less'
 alias man 'MANPAGER="nvimpager -p" command man'
 
 alias pwl 'nvim ~/.config/nvim/dictionaries/personal_word_list.txt'
