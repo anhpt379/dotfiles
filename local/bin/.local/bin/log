@@ -1,4 +1,7 @@
 #!/bin/bash
 
-SYSTEMD_PAGER=cat sudo journalctl -u $@ | \
-  nvimpager -- --cmd "autocmd VimEnter * :normal G"
+if [ ! -t 1 ]; then
+  SYSTEMD_PAGER=cat sudo journalctl -u $@
+else
+  SYSTEMD_PAGER=cat sudo journalctl -u $@ | nvimpager -p +\$
+fi

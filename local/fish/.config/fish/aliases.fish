@@ -47,8 +47,7 @@ alias ngl 'nvim +"FzfCommits"'
 alias nlf 'nvim +"Lf"'
 alias nv 'nvim $argv'
 
-alias ppl 'nvimpager -- --cmd "autocmd VimEnter * :normal G" /var/log/puppet/puppetagent.log'
-alias ppc 'nvimpager -c -- --cmd "set ft=cfg" /etc/puppetlabs/puppet/puppet.conf'
+alias ppc 'nvimpager -c -- --cmd "set ft=sh" /etc/puppetlabs/puppet/puppet.conf'
 
 if set -q TMUX
     alias clear 'tput reset'

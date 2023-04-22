@@ -44,6 +44,7 @@ set -gx KUBE_EDITOR vim
 
 set -gx MANPAGER /usr/bin/less
 set -gx PAGER /usr/bin/less
+set -gx LESSEDIT 'nvimpager -p -- ?lm+%lm. %f'
 
 # Fix trackpad scrolling doesn't work in diff-so-fancy
 # Need to remove the `X` flag from less options, but can't do it via .gitconfig,
