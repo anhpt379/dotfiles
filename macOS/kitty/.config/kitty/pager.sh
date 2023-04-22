@@ -20,6 +20,6 @@ exec /opt/homebrew/bin/nvim \
   -c "autocmd VimEnter * normal G" \
   -c "nmap p ? \\\|^\[.*\]<CR>" \
   -c "nmap <CR>  :nohlsearch<CR> | nmap <ESC> :nohlsearch<CR>" \
-  -c "nmap H zH | nmap L zL | nmap J <C-e> | nmap K <C-y>" \
+  -c "nmap H zH | nmap L zL | nmap J <C-e> | nmap K <C-y> | nmap <ScrollWheelLeft> <nop> | nmap <ScrollWheelRight> <nop>" \
   -c "nmap a <nop> | nmap i <nop>" \
   -c "silent write! /tmp/kitty_scrollback_buffer | te cat /tmp/kitty_scrollback_buffer -"
