@@ -53,3 +53,35 @@ done
 curl -fLo HOME/.local/bin/jq https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64
 chmod +x HOME/.local/bin/jq
 ```
+
+## How to sync remote's dotfiles to another git repo
+
+1. Create an empty git repo
+
+1. Place this `sync_dotfiles.sh` file to that repo:
+
+```bash
+#!/bin/bash
+
+rm -rf HOME
+git rm -r --cached HOME/
+
+echo "Syncing ~/dotfiles/remote/HOME/"
+rsync -azvhP \
+    --info=name0 \
+    --info=progress2 \
+    --no-inc-recursive \
+    --compress-level=9 \
+    --copy-links \
+    --keep-dirlinks \
+    --delete \
+    --exclude-from="/home/panh.linux/dotfiles/remote/.rsyncignore" \
+    ~/dotfiles/remote/HOME/ HOME/
+
+git add --all
+git status
+git commit -m 'Sync local dotfiles'
+git push origin HEAD --force-with-lease
+```
+
+1. Run `bash sync_dotfiles.sh` to copy everything there.
