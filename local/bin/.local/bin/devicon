@@ -32,8 +32,9 @@ for line in sys.stdin:
         if " " not in line:
             print(line)
         else:
-            icon, text = line.split(" ", 1)
+            icon = line.split(" ", 1)[0][-1]
             if icon == icons.get("fi") or icon in icons.values():
+                text = line.replace(icon + " ", "")
                 print(text)
             else:
                 print(line)

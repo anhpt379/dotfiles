@@ -13,8 +13,9 @@ function fzf_find -d "Find files and folders"
         )
     else
         set -l commandline (__fzf_parse_commandline)
-        set -l dir $commandline[1]
+        set dir $commandline[1]
         set -l fzf_query $commandline[2]
+        set -l fzf_preview_command "fzf_preview $dir/{}"
 
         set -l fd_command "command fd --one-file-system --no-ignore --hidden --exclude='.git'"
         if string match -q -- "." $dir
@@ -25,7 +26,8 @@ function fzf_find -d "Find files and folders"
 
         if string match -q -- "cd*/" $command
             set result (
-                eval "$fd_command --type=directory --type=symlink" \
+                eval "$fd_command --type=directory --follow" \
+                | sed "s|^$dir/||" \
                 | devicon add \
                 | fzf --delimiter=\t --select-1 --exit-0 --ansi \
                     --bind=tab:accept \
@@ -34,7 +36,8 @@ function fzf_find -d "Find files and folders"
                     --height=40% \
                     --header="$(tput setaf 1)TAB$(tput sgr0) to select, $(tput setaf 1)ENTER$(tput sgr0) to run, $(tput setaf 1)CTRL-[$(tput sgr0) to stop, $(tput setaf 1)CTRL-/$(tput sgr0) to toggle preview" \
                     --prompt="DIRECTORY> " \
-                    --preview="$FZF_PREVIEW_COMMAND" \
+                    --keep-right \
+                    --preview="$fzf_preview_command" \
                     --query="$fzf_query" \
             )
         else if string match -q -- "j*" $command
@@ -49,7 +52,7 @@ function fzf_find -d "Find files and folders"
                     --expect=enter \
                     --tiebreak=chunk \
                     --header="$(tput setaf 1)TAB$(tput sgr0) to select, $(tput setaf 1)ENTER$(tput sgr0) to run, $(tput setaf 1)CTRL-[$(tput sgr0) to stop, $(tput setaf 1)CTRL-/$(tput sgr0) to toggle preview" \
-                    --preview="$FZF_PREVIEW_COMMAND" \
+                    --preview="$fzf_preview_command" \
                     --query=(echo $command | sed 's/^j//' | xargs)
             )
         else
@@ -95,13 +98,15 @@ function fzf_find -d "Find files and folders"
             end
             set result (
                 printf %s\n $files \
+                | sed "s|^$dir/||" \
                 | devicon add \
                 | fzf --delimiter=\t --select-1 --exit-0 --ansi \
                     --expect=enter \
                     --tiebreak=chunk \
                     --height=40% \
+                    --keep-right \
                     --header="$(tput setaf 1)TAB$(tput sgr0) to select, $(tput setaf 1)ENTER$(tput sgr0) to run, $(tput setaf 1)CTRL-[$(tput sgr0) to stop, $(tput setaf 1)CTRL-/$(tput sgr0) to toggle preview" \
-                    --preview="$FZF_PREVIEW_COMMAND" \
+                    --preview="$fzf_preview_command" \
                     --query="$fzf_query" \
             )
         end
@@ -124,6 +129,10 @@ function fzf_find -d "Find files and folders"
 
     set -l key (echo $result | cut -d' ' -f1)
     set -l result (echo $result | cut -d' ' -f2- | devicon remove)
+
+    if set -q dir
+        set result "$dir/$result"
+    end
 
     if string match -q -- "* *" $command
         commandline -it -- (string escape $result)
