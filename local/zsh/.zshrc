@@ -75,6 +75,21 @@ plugins=(git z zsh-autosuggestions zsh-history-substring-search zsh-syntax-highl
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+source ~/.oh-my-zsh/custom/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+
+# Accept suggestion & run with a single <Enter> key press
+bindkey -M menuselect '\r' .accept-line
+
+# ESC to close tab completion menu
+bindkey -M menuselect '\e' send-break
+
+# Edit command in vim with ctrl-v
+autoload edit-command-line; zle -N edit-command-line
+bindkey '^v' edit-command-line
+
+# Show file/directory using bold font (similar to fish)
+typeset -A ZSH_HIGHLIGHT_STYLES
+ZSH_HIGHLIGHT_STYLES[path]='bold'
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
