@@ -23,7 +23,8 @@ cmd fzf_jump ${{
     dir="$f"
   fi
 
-  res="$(command fd --one-file-system --color=always --no-ignore --hidden --exclude '.git' . $dir | fzf --height=100% --ansi --preview='fzf_preview {}')"
+  res="$(command fd --one-file-system --color=always --no-ignore --hidden --exclude '.git' . $dir | sed "s|$dir/||" | fzf --height=100% --ansi --preview="fzf_preview $dir/{}")"
+  res="$dir/$res"
 
   if [ -f "$res" ]; then
     cmd="select"
