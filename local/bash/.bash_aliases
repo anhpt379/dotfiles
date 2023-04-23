@@ -47,6 +47,9 @@ alias v='nvimpager'
 alias t='tail'
 alias tf='tail -f'
 
+alias py='python'
+alias ipy='ipython'
+
 alias sc='sudo systemctl'
 alias jc='sudo journalctl'
 alias start='sudo systemctl start'
