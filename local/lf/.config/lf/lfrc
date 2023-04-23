@@ -6,6 +6,7 @@ set scrolloff 5
 set drawbox on
 set dircounts on
 set incsearch on
+set hidden on
 
 set icons on
 
@@ -14,8 +15,6 @@ set ignorecase off
 set promptfmt "\033[34;1m%w/\033[0m\033[1m%f\033[0m"
 
 set previewer fzf_preview
-
-set hiddenfiles ".git"
 
 # Fzf integration
 cmd fzf_jump ${{
