@@ -347,7 +347,7 @@ require('gitsigns').setup({
     virt_text = true,
     virt_text_pos = 'eol',
     delay = 200,
-    ignore_whitespace = false,
+    ignore_whitespace = true,
   },
   current_line_blame_formatter_opts = {
     relative_time = true
