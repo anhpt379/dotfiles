@@ -232,3 +232,52 @@ highlight CmpItemKindUnit guibg=NONE guifg=#D4D4D4
 
 call s:h('NormalFloat', '', s:gutter_bg, '')
 call s:h('FloatBorder', '', s:gutter_bg, '')
+
+" vim-log-highlighting
+highlight link logNumber Directory
+highlight link logHexNumber Directory
+highlight link logBinaryNumber Directory
+highlight link logFloatNumber Directory
+highlight link logBoolean Boolean
+highlight link logNull Constant
+highlight link logString String
+
+highlight link logDate Directory
+highlight link logDateDay Directory
+highlight link logTime Directory
+highlight link logTimeZone Directory
+
+highlight link logUrl Underlined
+highlight link logDomain Label
+highlight link logUUID Label
+highlight link logMD5 Label
+highlight link logIPV4 Label
+highlight link logIPV6 ErrorMsg
+highlight link logMacAddress Label
+highlight link logFilePath Conditional
+
+highlight link logSysColumns Conditional
+highlight link logSysProcess Include
+
+highlight link logXmlHeader Function
+highlight link logXmlDoctype Function
+highlight link logXmlTag Identifier
+highlight link logXmlAttribute Type
+highlight link logXmlNamespace Include
+highlight link logXmlComment Comment
+highlight link logXmlCData String
+highlight link logXmlEntity Special
+
+highlight link logOperator Operator
+highlight link logBrackets Comment
+highlight link logEmptyLines Comment
+
+highlight link logLevelEmergency ErrorMsg
+highlight link logLevelAlert ErrorMsg
+highlight link logLevelCritical ErrorMsg
+highlight link logLevelError ErrorMsg
+highlight link logLevelWarning WarningMsg
+highlight link logLevelNotice Character
+highlight link logLevelInfo DiffAdd
+highlight link logLevelDebug Comment
+highlight link logLevelTrace Comment

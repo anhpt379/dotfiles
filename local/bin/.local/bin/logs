@@ -3,5 +3,5 @@
 if [ ! -t 1 ]; then
   SYSTEMD_PAGER=cat sudo journalctl -u $@
 else
-  SYSTEMD_PAGER=cat sudo journalctl -u $@ | nvimpager -p +\$
+  SYSTEMD_PAGER=cat sudo journalctl -u $@ | nvimpager -p +\$ --cmd "set ft=log"
 fi

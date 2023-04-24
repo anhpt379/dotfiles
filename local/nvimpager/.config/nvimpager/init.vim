@@ -1,6 +1,6 @@
 set runtimepath+=~/.config/nvim
 
-call plug#begin()
+call plug#begin('~/.local/share/nvim/plugged')
   " Syntax highlighting
   Plug 'gisphm/vim-gitignore'
   Plug 'chr4/nginx.vim'
