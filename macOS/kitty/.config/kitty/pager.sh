@@ -14,12 +14,12 @@ fi
 exec /opt/homebrew/bin/nvim \
   -u NONE \
   -c "map <silent> q :<C-u>qa!<CR>" \
-  -c "set shell=bash scrollback=100000 laststatus=0 clipboard+=unnamedplus nowrap incsearch ignorecase smartcase" \
+  -c "set shell=bash scrollback=100000 laststatus=0 clipboard+=unnamedplus nowrap incsearch ignorecase smartcase mousescroll=ver:1,hor:0" \
   -c "autocmd TermEnter * stopinsert" \
   -c "autocmd TermClose * ${AUTOCMD_TERMCLOSE_CMD}" \
   -c "autocmd VimEnter * normal G" \
   -c "nmap p ? \\\|^\[.*\]<CR>" \
   -c "nmap <CR>  :nohlsearch<CR> | nmap <ESC> :nohlsearch<CR>" \
-  -c "nmap H zH | nmap L zL | nmap J <C-e> | nmap K <C-y> | nmap <ScrollWheelLeft> <nop> | nmap <ScrollWheelRight> <nop>" \
+  -c "nmap H zH | nmap L zL | nmap J <C-e> | nmap K <C-y>" \
   -c "nmap a <nop> | nmap i <nop>" \
-  -c "silent write! /tmp/kitty_scrollback_buffer | te cat /tmp/kitty_scrollback_buffer -"
+  -c "silent write! /tmp/kitty_scrollback_buffer | terminal cat /tmp/kitty_scrollback_buffer -"

@@ -29,6 +29,8 @@ set smartcase
 set nomodeline
 set noswapfile
 
+set mousescroll=ver:1,hor:0
+
 set wrap
 noremap j gj
 noremap k gk
