@@ -1,3 +1,5 @@
+set runtimepath+=~/.config/nvim
+
 call plug#begin()
   " Syntax highlighting
   Plug 'gisphm/vim-gitignore'
