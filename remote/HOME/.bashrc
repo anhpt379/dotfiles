@@ -9,9 +9,14 @@ export PATH=$HOME/.local/bin:$PATH
 
 # Fix SSH auth socket location so agent forwarding works within tmux
 if [[ -n $SSH_CONNECTION ]]; then
-  if [[ -n "$SSH_AUTH_SOCK" ]] && [[ "$SSH_AUTH_SOCK" != */.ssh/ssh_auth_sock ]]; then
-    mkdir -p ~/.ssh
+  mkdir -p ~/.ssh
+
+  if [[ -n $SSH_AUTH_SOCK ]] && [[ $SSH_AUTH_SOCK != */.ssh/ssh_auth_sock ]]; then
     ln -sf "$SSH_AUTH_SOCK" ~/.ssh/ssh_auth_sock
+  fi
+
+  if [[ -n $SSH_TTY ]] && [[ $SSH_TTY != */.ssh/ssh_tty ]]; then
+    ln -sf "$SSH_TTY" ~/.ssh/ssh_tty
   fi
 fi
 
