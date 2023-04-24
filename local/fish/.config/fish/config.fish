@@ -267,6 +267,7 @@ if begin
     if begin
             not set -q TMUX; and test -x /usr/bin/tmux
         end
+        /usr/bin/tmux source-file ~/.tmux.conf
         /usr/bin/tmux attach -t panh; or /usr/bin/tmux new -s panh
     end
 end
