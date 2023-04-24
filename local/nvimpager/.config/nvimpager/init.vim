@@ -33,7 +33,6 @@ set noswapfile
 
 set mousescroll=ver:1,hor:0
 
-set wrap
 noremap j gj
 noremap k gk
 
@@ -47,10 +46,14 @@ nmap a ?Applied catalog in .* seconds<CR>
 nmap <CR>  :nohlsearch<CR>
 nmap <ESC> :nohlsearch<CR>
 
-nmap H zh
-nmap L zl
-nmap J <C-e>
-nmap K <C-y>
+nmap <PageUp>   20<C-y>
+nmap <PageDown> 20<C-e>
+nmap <Home>     20zh
+nmap <End>      20zl
+nmap <Up>       <C-y>
+nmap <Down>     <C-e>
+nmap <Left>     zh
+nmap <Right>    zl
 
 nmap i <nop>
 nmap I <nop>
