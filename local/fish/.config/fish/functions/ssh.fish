@@ -47,6 +47,13 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
             cd .files/
         fi
 
+        # Remove old scripts
+        rm -f ~/.local/bin/log
+        rm -f ~/.local/bin/fzf_preview.sh
+        rm -f ~/.local/bin/open
+        rm -f ~/.local/bin/xdg-open
+        rm -f ~/.local/bin/trash
+
         rsync -a HOME/ ~/
         cd ~/
 
