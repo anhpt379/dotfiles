@@ -26,6 +26,9 @@ curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install 
 fish install --path=~/.local/share/omf --config=~/.config/omf --yes --noninteractive
 rm -f install
 
+# fisher
+curl -sL https://git.io/fisher | source && fisher update
+
 # stow
 stow bash
 stow bin
