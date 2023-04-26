@@ -46,7 +46,7 @@ def handle_result(args, data, target_window_id, boss):
             and not is_set(ECHO)
             and (
                 re.match(r"^Password.*:", data)
-                or re.match(r"^Enter passphrase for key '.*/id_ed25519':", data)
+                or re.match(r"^Enter passphrase for .*/id_ed25519.*", data)
             )
         ):
             # ssh -t <host> <cmd> # same socket mode for kinit and cat :(
