@@ -33,6 +33,8 @@ set noswapfile
 
 set mousescroll=ver:1,hor:0
 
+set shada=!,'5000,<2500,s500,h
+
 noremap j gj
 noremap k gk
 
