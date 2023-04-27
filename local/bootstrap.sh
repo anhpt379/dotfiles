@@ -138,10 +138,6 @@ tar zxvf xh-*.tar.gz
 mv xh-*/xh ~/.local/bin/
 rm -rf xh-*.tar.gz
 
-# grc-rs
-curl -fLo ~/.local/share/man/man1/grc-rs.1 https://raw.githubusercontent.com/larsch/grc-rs/v0.3.2/grc-rs.1
-cargo install grc-rs@0.3.2
-
 # mocword
 cargo install mocword
 
