@@ -34,12 +34,8 @@ curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install 
 fish install --path=~/.local/share/omf --config=~/.config/omf --yes --noninteractive
 rm -f install
 
-# oh-my-fish
-curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install > install
-fish install --path=~/.local/share/omf --config=~/.config/omf --yes --noninteractive
-rm -f install
-
-omf install
+# fisher
+curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
 
 # nvim
 nvim -c "PlugInstall" -c "qall"
