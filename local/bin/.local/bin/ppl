@@ -1,7 +1,0 @@
-#!/bin/bash
-
-if [ ! -t 1 ]; then
-  /usr/bin/less /var/log/puppet/puppetagent.log
-else
-  nvimpager -p +\$ /var/log/puppet/puppetagent.log
-fi
