@@ -1,10 +1,3 @@
-package balias
 package bang-bang
-package config
-package errno
-package spark
-package sudope
-package title
-package weather
 theme default
 theme eclm
