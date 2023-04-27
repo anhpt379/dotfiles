@@ -48,8 +48,8 @@ core:
     background: darkergray
 
   broken_symlink:
-    foreground: black
-    background: red
+    foreground: red
+    background: black
 
   missing_symlink_target:
     foreground: black
