@@ -49,6 +49,14 @@ abbr -a grcat     'grcat conf.cat'
 abbr -a ppcatalog 'sudo cat "/opt/puppetlabs/puppet/cache/client_data/catalog/$(sudo puppet config print certname).json" | jq | less'
 abbr -a pwl       'nvim ~/.config/nvim/dictionaries/personal_word_list.txt'
 
+abbr cpr  'cp -R'
+abbr chx  'chmod +x'
+abbr chR  'chmod -R'
+abbr rmf  'rm -f'
+abbr rmrf 'rm -rf'
+abbr cwd  'pwd | pbcopy'
+abbr irb  'irb --simple-prompt'
+
 if command -v prettyping &>/dev/null
     abbr -a ping 'prettyping --nolegend'
 else if command -v hping3 &>/dev/null
