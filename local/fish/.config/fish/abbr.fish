@@ -1,68 +1,56 @@
-abbr --add .. 'cd ..'
-abbr --add ... 'cd ../..'
-abbr --add .... 'cd ../../..'
-abbr --add ..... 'cd ../../../..'
+abbr -a ..    'cd ..'
+abbr -a ...   'cd ../..'
+abbr -a ....  'cd ../../..'
+abbr -a ..... 'cd ../../../..'
 
-abbr --add g 'git'
-abbr --add gs 'git status'
-abbr --add gco 'git checkout'
+abbr -a g   'git'
+abbr -a gs  'git status'
+abbr -a gco 'git checkout'
+abbr -a m   'master'
 
-abbr --add b brew
-abbr --add c clear
-abbr --add f fzf
-abbr --add h tldr
-abbr --add ipy ipython
-abbr --add j z
-abbr --add l less
-abbr --add l ll
-abbr --add m master
-abbr --add o openstack
-abbr --add p python
-abbr --add q exit
-abbr --add t tail
-abbr --add tf tail -f
-abbr --add v nvimpager
+abbr -a c 'clear'
+abbr -a q 'exit'
+abbr -a j 'z'
 
-abbr --add vim nvim
-abbr --add nv nvim
+abbr -a b 'brew'
+abbr -a f 'fzf'
+abbr -a h 'tldr'
 
-if not string match -e -q -- fedora (hostname)
-    abbr --add ppcatalog 'sudo cat "/opt/puppetlabs/puppet/cache/client_data/catalog/$(sudo puppet config print certname).json" | jq | less'
+abbr -a o   'openstack'
+abbr -a p   'python'
+abbr -a ipy 'ipython'
 
-    abbr --add k 'kubectl'
-    abbr --add kd 'kubectl describe'
-    abbr --add kdf 'kubectl delete --force --grace-period=0'
-    abbr --add kn 'kubectl config set-context --current --namespace'
+abbr -a l   'less'
+abbr -a t   'tail'
+abbr -a tf  'tail -f'
+
+abbr -a v   'nvim'
+abbr -a vim 'nvim'
+abbr -a nv  'nvim'
+
+abbr -a cmd  'command'
+abbr -a root 'sudo -E -s fish'
+
+abbr -a fd   'command fd --one-fil e-system --hidden --exclude=".git"'
+abbr -a ncdu 'ncdu -rr -x --excl ude .git'
+
+abbr -a docker         'sudo -E docker'
+abbr -a docker-compose 'sudo -E docker-compose'
+
+abbr -a http  'xh'
+abbr -a https 'xhs'
+
+abbr -a k   'kubectl'
+abbr -a kd  'kubectl describe'
+abbr -a kdf 'kubectl delete --force --grace-period=0'
+abbr -a kn  'kubectl config set-context --current --namespace'
+
+abbr -a grcat     'grcat conf.cat'
+abbr -a ppcatalog 'sudo cat "/opt/puppetlabs/puppet/cache/client_data/catalog/$(sudo puppet config print certname).json" | jq | less'
+abbr -a pwl       'nvim ~/.config/nvim/dictionaries/personal_word_list.txt'
+
+if command -v prettyping &>/dev/null
+    abbr -a ping 'prettyping --nolegend'
+else if command -v hping3 &>/dev/null
+    abbr -a ping 'hping3'
 end
-
-# grc fish integration
-if [ -f ~/.cargo/bin/grc-rs ]
-    alias grcat 'grc-rs --colour=on cat'
-
-    for cmd in df id ip w uptime stat
-        type "$cmd" >/dev/null 2>&1 && alias "$cmd"="grc-rs --colour=auto $cmd"
-    end
-else
-    alias grcat 'grcat conf.cat'
-end
-
-abbr --add cmd 'command'
-abbr --add root 'sudo -E -s fish'
-
-abbr --add ncdu 'ncdu -rr -x --exclude .git'
-abbr --add fd 'command fd --one-file-system --hidden --exclude=".git"'
-
-abbr --add pwl 'nvim ~/.config/nvim/dictionaries/personal_word_list.txt'
-
-abbr --add docker 'sudo -E docker'
-abbr --add docker-compose 'sudo -E docker-compose'
-
-abbr --add http xh
-abbr --add https xhs
-
-
-# if command -v prettyping &>/dev/null
-#     abbr --add ping "prettyping --nolegend"
-# else if command -v hping3 &>/dev/null
-#     abbr --add ping hping3
-# end
