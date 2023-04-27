@@ -1,6 +1,0 @@
-#!/bin/bash
-
-if ! git cat-file -e "$1" 2> /dev/null; then
-  git fetch origin
-fi
-git reset --hard "$1"
