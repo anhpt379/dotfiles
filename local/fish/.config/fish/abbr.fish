@@ -23,6 +23,7 @@ abbr -a l   'less'
 abbr -a t   'tail'
 abbr -a tf  'tail -f'
 
+abbr -a s   'ssh'
 abbr -a v   'nvim'
 abbr -a vim 'nvim'
 abbr -a nv  'nvim'
