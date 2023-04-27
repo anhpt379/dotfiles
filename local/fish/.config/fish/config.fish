@@ -117,18 +117,6 @@ set -g fish_key_bindings fish_default_key_bindings
 source ~/.config/fish/abbr.fish
 source ~/.config/fish/themes/aodark.fish
 
-globabbr C '| grcat'
-globabbr J '| jq'
-globabbr G '| grep'
-globabbr H '| head'
-globabbr L '| less'
-globabbr P '| pbcopy'
-globabbr S '| sort'
-globabbr T '| tail'
-globabbr U '| uniq'
-globabbr V '| nvimpager'
-globabbr W '| wc -l'
-
 if begin
         not string match -q -- Darwin (uname)
         and not string match -e -q -- fedora (hostname)

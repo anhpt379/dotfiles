@@ -54,3 +54,15 @@ if command -v prettyping &>/dev/null
 else if command -v hping3 &>/dev/null
     abbr -a ping 'hping3'
 end
+
+abbr -a --position=anywhere C '| grcat conf.cat'
+abbr -a --position=anywhere J '| jq'
+abbr -a --position=anywhere G '| grep'
+abbr -a --position=anywhere H '| head'
+abbr -a --position=anywhere L '| less'
+abbr -a --position=anywhere P '| pbcopy'
+abbr -a --position=anywhere S '| sort'
+abbr -a --position=anywhere T '| tail'
+abbr -a --position=anywhere U '| uniq'
+abbr -a --position=anywhere V '| nvimpager'
+abbr -a --position=anywhere W '| wc -l'
