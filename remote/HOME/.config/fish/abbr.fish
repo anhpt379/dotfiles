@@ -1,0 +1,1 @@
+../../../../local/fish/.config/fish/abbr.fish

@@ -1,1 +1,0 @@
-../../../../local/fish/.config/fish/aliases.fish
