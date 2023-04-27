@@ -2,6 +2,7 @@ version: "3"
 
 services:
   fish:
+    platform: linux/amd64
     build:
       context: .
       dockerfile: Dockerfile.fish

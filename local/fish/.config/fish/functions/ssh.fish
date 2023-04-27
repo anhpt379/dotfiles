@@ -53,6 +53,7 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
         rm -f ~/.local/bin/open
         rm -f ~/.local/bin/xdg-open
         rm -f ~/.local/bin/trash
+        rm -f ~/.local/bin/fish
 
         rsync -a HOME/ ~/
         cd ~/

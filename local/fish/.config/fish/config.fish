@@ -29,6 +29,7 @@ end
 
 fish_add_path $HOME/.go/bin
 fish_add_path $HOME/.cargo/bin
+fish_add_path $HOME/.local/bin/fish-appimage/squashfs-root/usr/bin/
 fish_add_path $HOME/.local/bin/nvim-appimage/squashfs-root/usr/bin/
 fish_add_path $HOME/.local/bin
 

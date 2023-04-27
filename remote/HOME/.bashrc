@@ -27,9 +27,6 @@ else
   PS1="[\h \w]$ "
 fi
 
-# Load aliases
-source ~/.bash_aliases
-
 # Fix `sudo lla` doesn't work in bash
 alias sudo='sudo -E TERM=xterm-256color '
 
@@ -46,6 +43,16 @@ if ! test -f ~/.local/bin/nvim-appimage/squashfs-root/usr/bin/nvim || test ~/.lo
     mkdir -p ~/.local/bin/nvim-appimage/
     cd ~/.local/bin/nvim-appimage/ || exit 1
     ../nvim.appimage --appimage-extract >/dev/null
+  fi
+fi
+
+# Extract fish appimage
+if ! test -f ~/.local/bin/fish-appimage/squashfs-root/usr/bin/fish || test ~/.local/bin/fish.appimage -nt ~/.local/bin/fish-appimage/squashfs-root/usr/bin/fish; then
+  if test -f ~/.local/bin/fish.appimage; then
+    rm -rf ~/.local/bin/fish-appimage/
+    mkdir -p ~/.local/bin/fish-appimage/
+    cd ~/.local/bin/fish-appimage/ || exit 1
+    ../fish.appimage --appimage-extract >/dev/null
   fi
 fi
 

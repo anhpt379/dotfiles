@@ -2,8 +2,10 @@
 
 ```fish
 # fish
-docker-compose build fish
-docker-compose run fish cp /usr/bin/fish /out/
+# https://github.com/fish-shell/fish-shell/issues/6475#issuecomment-1498722501
+wget 'https://github.com/mliszcz/fish-shell/releases/download/fish-3.6.1-x86_64/fish-3.6.1-x86_64.AppImage'
+mv fish-*.AppImage HOME/.local/bin/fish.appimage
+chmod +x HOME/.local/bin/fish.appimage
 
 # atop
 docker-compose build atop
