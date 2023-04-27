@@ -10,7 +10,6 @@ abbr -a m   'master'
 
 abbr -a c 'clear'
 abbr -a q 'exit'
-abbr -a j 'z'
 
 abbr -a b 'brew'
 abbr -a f 'fzf'
