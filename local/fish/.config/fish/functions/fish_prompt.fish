@@ -38,30 +38,12 @@ function fish_prompt
         # z auto remove directories that no longer exist
         if type -q z
             z --clean >/dev/null 2>&1
-
-            # Fix z keeps asking for permission to update $Z_DATA file when it's
-            # owned by `root`
-            if test "$USER" = root
-                chown -R panh $Z_DATA
-            end
         end
 
+        # Fix permission issues because of reusing $HOME when switching to root
         if test "$USER" = root
-            chown -R panh ~/.config/nvim/undo/
-
-            if test -d ~/.local/state/nvim/shada/
-                chown -R panh ~/.local/state/nvim/shada/
-            end
-
-            if test -d ~.local/state/nvimpager/shada/
-                chown -R panh ~/.local/state/nvimpager/shada/
-            end
-
-            if test -d ~/.cache
-                chown -R panh ~/.cache/
-            end
+            chown -R panh ~/.*
         end
-
 
     else
         if test $kernel = Darwin
