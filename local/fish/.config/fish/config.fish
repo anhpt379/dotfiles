@@ -55,7 +55,7 @@ set -gx LESS '--LONG-PROMPT --RAW-CONTROL-CHARS'
 # https://github.com/junegunn/fzf/blob/0.25.0/src/util/util_unix.go#L13
 set -gx SHELL /bin/bash
 
-set -gx Z_CMD 'j'
+set -U  Z_CMD 'j'
 set -gx Z_DATA "$HOME/.local/share/z/data"
 set -gx Z_EXCLUDE '.*/code/work/puppet$'
 set -gx Z_OWNER (logname)
