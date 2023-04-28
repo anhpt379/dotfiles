@@ -2,9 +2,14 @@
 
 source ~/.bashrc
 
-# Auto start tmux
-if test -z "$TMUX" && test -x /usr/bin/tmux; then
-  /usr/bin/tmux attach -t panh || /usr/bin/tmux new -s panh
+if test -x /usr/bin/tmux; then
+  # Auto reload tmux config
+  /usr/bin/tmux source ~/.tmux.conf
+
+  # Auto start tmux
+  if test -z "$TMUX"; then
+    /usr/bin/tmux attach -t panh || /usr/bin/tmux new -s panh
+  fi
 fi
 
 # Open fish automatically after logging in to a server
