@@ -3,9 +3,6 @@
 source ~/.bashrc
 
 if test -x /usr/bin/tmux; then
-  # Auto reload tmux config
-  /usr/bin/tmux source ~/.tmux.conf
-
   # Auto start tmux
   if test -z "$TMUX"; then
     /usr/bin/tmux -u attach -t panh || /usr/bin/tmux -u new -s panh
