@@ -8,7 +8,7 @@ if test -x /usr/bin/tmux; then
 
   # Auto start tmux
   if test -z "$TMUX"; then
-    /usr/bin/tmux attach -t panh || /usr/bin/tmux new -s panh
+    /usr/bin/tmux -u attach -t panh || /usr/bin/tmux -u new -s panh
   fi
 fi
 
