@@ -153,11 +153,4 @@ if begin
 
     # Fix git-deploy umask complaining
     umask 0002
-
-    # Auto start tmux
-    if begin
-            not set -q TMUX; and test -x /usr/bin/tmux
-        end
-        /usr/bin/tmux attach -t panh; or /usr/bin/tmux new -s panh
-    end
 end
