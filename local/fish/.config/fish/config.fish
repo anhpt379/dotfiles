@@ -138,17 +138,6 @@ if begin
 
     # Fix nvim `Cannot open undo file for writing` sometimes
     mkdir -p ~/.config/nvim/undo/
-    if test "$USER" = root; and set -q "$COMPANY_NAME_UPPER"_USER
-        chown -R panh ~/.config/nvim/undo/
-
-        if test -d ~/.local/state/nvim/shada/
-            chown -R panh ~/.local/state/nvim/shada/
-        end
-
-        if test -d ~/.cache
-            chown -R panh ~/.cache/
-        end
-    end
 
     # Shorten title
     title (hostname | awk -F. '{ print $1 }')
