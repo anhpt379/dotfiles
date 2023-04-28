@@ -32,8 +32,8 @@ abbr -a cmd  'command'
 abbr -a r    'sudo -E -s fish'
 abbr -a root 'sudo -E -s fish'
 
-abbr -a fd   'command fd --one-fil e-system --hidden --exclude=".git"'
-abbr -a ncdu 'ncdu -rr -x --excl ude .git'
+abbr -a fd   'command fd --one-file-system --hidden --exclude=".git"'
+abbr -a ncdu 'ncdu -rr -x --exclude .git'
 
 abbr -a docker         'sudo -E docker'
 abbr -a docker-compose 'sudo -E docker-compose'
