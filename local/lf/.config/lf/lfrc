@@ -14,7 +14,7 @@ set ignorecase off
 
 set promptfmt "\033[34;1m%w/\033[0m\033[1m%f\033[0m"
 
-set previewer fzf_preview
+set previewer "preview"
 
 # Fzf integration
 cmd fzf_jump ${{
@@ -25,7 +25,7 @@ cmd fzf_jump ${{
 
   res="$(command fd --one-file-system --color=never --no-ignore --hidden --exclude '.git' . $dir | \
          sed "s|$dir/||" | \
-         fzf --height=100% --ansi --preview="fzf_preview $dir/{}")"
+         fzf --height=100% --ansi --preview="preview $dir/{}")"
   res="$dir/$res"
 
   if [ -f "$res" ]; then

@@ -90,7 +90,7 @@ set -gx FZF_DEFAULT_OPTS '
     --bind=ctrl-f:preview-page-down,ctrl-b:preview-page-up
     --bind=ctrl-h:backward-kill-word
 '
-set -gx FZF_PREVIEW_COMMAND 'fzf_preview {}'
+set -gx FZF_PREVIEW_COMMAND 'preview {}'
 
 # lf
 set -gx LF_ICONS (

@@ -491,7 +491,7 @@ command! -complete=dir -bang -nargs=* FzfRg
   \       '--prompt', 'Rg> ',
   \       '--no-multi',
   \       '--layout=reverse',
-  \       '--preview', 'fzf_preview {}',
+  \       '--preview', 'preview {}',
   \       '--preview-window=right:60%,~2,+2/2'
   \   ]
   \ },

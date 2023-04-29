@@ -15,7 +15,7 @@ function fzf_find -d "Find files and folders"
         set -l commandline (__fzf_parse_commandline)
         set dir $commandline[1]
         set -l fzf_query $commandline[2]
-        set -l fzf_preview_command "fzf_preview $dir/{}"
+        set -l fzf_preview_command "preview $dir/{}"
 
         set -l fd_command "command fd --one-file-system --no-ignore --hidden --exclude='.git'"
         if string match -q -- "." $dir
