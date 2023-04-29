@@ -7,7 +7,6 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'glench/vim-jinja2-syntax'
   Plug 'rodjek/vim-puppet'
   Plug 'pearofducks/ansible-vim'
-  Plug 'mechatroner/rainbow_csv'
   Plug 'ericpruitt/tmux.vim'
   Plug 'khaveesh/vim-fish-syntax'
   Plug 'CH-DanReif/haproxy.vim'

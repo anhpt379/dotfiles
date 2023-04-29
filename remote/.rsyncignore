@@ -8,6 +8,7 @@
 *.rst
 *.txt
 .config/fish/functions/ssh.fish
+.config/nvim/autoload/plug.vim.old
 .config/nvim/dictionaries
 .github
 .gitignore
@@ -15,8 +16,16 @@
 .local/share/fish/man
 .local/share/fish/tools
 .local/share/nvim/plugged/*/.git
+.local/share/nvim/plugged/*/.gitattributes
 .local/share/nvim/plugged/*/doc
 .local/share/nvim/plugged/*/test*
+.local/share/nvim/plugged/*/t/*
+.local/share/nvim/plugged/*/*ignore
+.local/share/nvim/plugged/*/*file
+.local/share/nvim/plugged/*/*file.lock
+.local/share/nvim/plugged/*/*.yml
+.local/share/nvim/plugged/*/*.toml
+.local/share/nvim/plugged/*/LICENSE
 .local/share/nvim/plugged/any-jump.vim
 .local/share/nvim/plugged/clever-f.vim/autoload/clever_f/migemo
 .local/share/nvim/plugged/cmp-*
@@ -29,6 +38,8 @@
 .local/share/nvim/plugged/fzf/shell
 .local/share/nvim/plugged/fzf/src
 .local/share/nvim/plugged/gitsigns.nvim
+.local/share/nvim/plugged/hlargs.nvim
+.local/share/nvim/plugged/rainbow_csv
 .local/share/nvim/plugged/indent-blankline.nvim
 .local/share/nvim/plugged/lightline*
 .local/share/nvim/plugged/lsp*

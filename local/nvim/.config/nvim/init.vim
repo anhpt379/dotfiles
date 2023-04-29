@@ -21,7 +21,6 @@ call plug#begin()
   Plug 'glench/vim-jinja2-syntax'
   Plug 'rodjek/vim-puppet'
   Plug 'pearofducks/ansible-vim'
-  Plug 'mechatroner/rainbow_csv'
   Plug 'ericpruitt/tmux.vim'
   Plug 'khaveesh/vim-fish-syntax'
   Plug 'CH-DanReif/haproxy.vim'
@@ -87,6 +86,8 @@ call plug#begin()
     Plug 'mhinz/vim-startify'
     Plug 'itchyny/lightline.vim'
     Plug 'mengelbrecht/lightline-bufferline'
+
+    Plug 'mechatroner/rainbow_csv'
 
     Plug 'lukas-reineke/indent-blankline.nvim'
     Plug 'norcalli/nvim-colorizer.lua'
