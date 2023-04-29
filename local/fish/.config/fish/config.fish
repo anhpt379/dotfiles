@@ -139,9 +139,6 @@ if begin
     # Tell nvimpager where the nvim is
     set -gx NVIM ~/.local/bin/nvim-appimage/squashfs-root/usr/bin/nvim
 
-    # Fix nvim `Cannot open undo file for writing` sometimes
-    mkdir -p ~/.config/nvim/undo/
-
     # Shorten title
     title (hostname | awk -F. '{ print $1 }')
 

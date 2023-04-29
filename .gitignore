@@ -10,7 +10,6 @@ local/fish/.config/fish/functions/_autopair_*.fish
 local/fish/.config/fish/functions/fisher.fish
 local/nvim/.config/nvim/autoload/plug.vim*
 local/nvim/.config/nvim/dictionaries/mocword.sqlite
-local/nvim/.config/nvim/undo/*
 local/ssh/.ssh/id_ed25519
 local/ssh/.ssh/root@wifiman
 local/ssh/.ssh/ssh_auth_sock
