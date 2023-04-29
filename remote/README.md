@@ -11,10 +11,6 @@ chmod +x HOME/.local/bin/fish.appimage
 docker-compose build atop
 docker-compose run atop cp /usr/bin/atop /out/
 
-# rust apps
-docker-compose build cargo
-docker-compose run cargo cp /usr/local/cargo/bin/xh /out/
-
 # nvim
 wget https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
 chmod +x nvim.appimage
