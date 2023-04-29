@@ -33,7 +33,10 @@ set noswapfile
 
 set mousescroll=ver:1,hor:0
 
+set undofile
+set undodir=~/.local/state/nvim/undo
 set shada=!,'5000,<2500,s500,h
+set shadafile=~/.local/state/nvim/shada/main.shada
 
 noremap j gj
 noremap k gk

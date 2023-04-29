@@ -239,9 +239,11 @@ set expandtab
 " Automatically :write before running commands
 set autowrite
 
-" Persistent undo
+" Persistent undo & searches
 set undofile
-set undodir=~/.config/nvim/undo
+set undodir=~/.local/state/nvim/undo
+set shada=!,'5000,<2500,s500,h
+set shadafile=~/.local/state/nvim/shada/main.shada
 
 " Searching and substitution {{{
 set ignorecase
@@ -729,7 +731,6 @@ nnoremap <F20> q
 let g:startify_disable_at_vimenter = 0
 nmap <Leader>s :Startify<CR>
 
-set shada=!,'5000,<2500,s500,h
 let g:startify_change_to_dir = 0
 let g:startify_fortune_use_unicode = 1
 let g:startify_enable_special = 0

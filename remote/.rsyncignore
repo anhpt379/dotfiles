@@ -9,7 +9,6 @@
 *.txt
 .config/fish/functions/ssh.fish
 .config/nvim/dictionaries
-.config/nvim/undo
 .github
 .gitignore
 .local/share/fish/fish_history
@@ -45,13 +44,6 @@
 .local/share/nvim/plugged/vim-startify
 .local/share/nvim/plugged/vim-startuptime
 .local/share/nvim/plugged/vim-wakatime
-.local/share/omf/.git
-.local/share/omf/bin
-.local/share/omf/docs
-.local/share/omf/pkg/*/.git
-.local/share/omf/tests
-.local/share/omf/themes/*/.git
-.local/share/omf/tools
 .tmux/plugins/*/.*
 .tmux/plugins/*/tests
 .travis-ci.yml

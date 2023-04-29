@@ -40,9 +40,10 @@ function fish_prompt
             z --clean >/dev/null 2>&1
         end
 
-        # Fix permission issues because of reusing $HOME when switching to root
+        # Fix nvim permission issues when switching to root
         if test "$USER" = root
-            chown -R panh ~/.*
+            chown -R panh ~/.local/state/nvim/
+            chown panh ~/.cache/fzf_filemru
         end
 
     else
