@@ -132,7 +132,7 @@ if begin
     end
 
     # Update the default email for git
-    if set -q WORK_EMAIL
+    if set -q WORK_EMAIL; and not grep -q $COMPANY_DOMAIN ~/.gitconfig
         git config --global user.email $WORK_EMAIL
     end
 
