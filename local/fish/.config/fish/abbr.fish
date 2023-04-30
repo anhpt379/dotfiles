@@ -12,15 +12,12 @@ abbr -a c 'clear'
 abbr -a q 'exit'
 
 abbr -a b 'brew'
-abbr -a f 'fzf'
 abbr -a h 'tldr'
 
 abbr -a o   'openstack'
 abbr -a p   'python'
 abbr -a ipy 'ipython'
 
-abbr -a l   'less'
-abbr -a t   'tail'
 abbr -a tf  'tail -f'
 
 abbr -a sh  'ssh'
