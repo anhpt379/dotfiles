@@ -42,8 +42,13 @@ function fish_prompt
 
         # Fix nvim permission issues when switching to root
         if test "$USER" = root
-            chown -R panh ~/.local/state/nvim/
-            chown panh ~/.cache/fzf_filemru
+            if test -d ~/.local/state/nvim/
+                chown -R panh ~/.local/state/nvim/
+            end
+
+            if test -f ~/.cache/fzf_filemru
+                chown panh ~/.cache/fzf_filemru
+            end
         end
 
     else
