@@ -58,7 +58,7 @@ call plug#begin()
   Plug 'rhysd/clever-f.vim'
   Plug 'junegunn/vim-easy-align'
   Plug 'RRethy/nvim-treesitter-endwise'
-  Plug 'anhpt379/nvim-autopairs'
+  Plug 'cohama/lexima.vim'
   Plug 'tpope/vim-speeddating'
   Plug 'tpope/vim-dispatch'
   Plug 'qxxxb/vim-searchhi'
@@ -699,8 +699,6 @@ augroup format-options
 augroup end
 
 " Lexima
-let g:lexima_enable_basic_rules = 0
-let g:lexima_enable_endwise_rules = 0
 let g:lexima_map_escape = ''
 
 " Sandwich
