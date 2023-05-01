@@ -7,16 +7,6 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
         set -Ux SSH_AGENT_PID $SSH_AGENT_PID &>/dev/null
     end
 
-    if not ssh-add -l | grep anhpt379@gmail.com | grep -q ED25519
-        echo "GitHub's SSH key not found. Adding it..."
-        if string match -q -- Darwin (uname)
-            ssh-add --apple-use-keychain ~/.ssh/id_ed25519
-        else
-            ssh-add ~/.ssh/id_ed25519
-        end
-        echo
-    end
-
     if not string match -q -- Darwin (uname)
         set -f now (date +%s)
         set -f deadline (expr $now - 86400 + 7200)
@@ -31,9 +21,20 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
         end
 
         if [ $have_temp_key = no ] || [ $have_good_key = no ]
+            ssh-add -D
             echo "$COMPANY_NAME_CAPITALIZE's SSH key has expired. Getting a new one..."
             command ssh -A ssh.$COMPANY_DOMAIN
         end
+    end
+
+    if not ssh-add -l | grep anhpt379@gmail.com | grep -q ED25519
+        echo "GitHub's SSH key not found. Adding it..."
+        if string match -q -- Darwin (uname)
+            ssh-add --apple-use-keychain ~/.ssh/id_ed25519
+        else
+            ssh-add ~/.ssh/id_ed25519
+        end
+        echo
     end
 
     set GITLAB_DOMAIN (echo $WORK_EMAIL | awk -F@ '{ print "gitlab."$2 }')
