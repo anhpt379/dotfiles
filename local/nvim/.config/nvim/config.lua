@@ -94,6 +94,7 @@ local kind_icons = {
 }
 
 cmp.setup({
+  preselect = cmp.PreselectMode.None,
   completion = { },
   matching = {
     disallow_fuzzy_matching = false,
