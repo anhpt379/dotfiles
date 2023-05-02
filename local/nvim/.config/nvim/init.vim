@@ -785,6 +785,7 @@ let g:conflict_marker_enable_mappings = 1
 let g:strip_whitespace_on_save = 0
 let g:strip_whitelines_at_eof = 1
 let g:better_whitespace_operator = ''
+let g:current_line_whitespace_disabled_soft = 1
 
 nnoremap ]w :NextTrailingWhitespace<CR>
 nnoremap [w :PrevTrailingWhitespace<CR>
