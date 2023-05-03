@@ -29,6 +29,11 @@ abbr -a cmd  'command'
 abbr -a r    'sudo -E -s fish'
 abbr -a root 'sudo -E -s fish'
 
+abbr -a start   'sudo systemctl start'
+abbr -a stop    'sudo systemctl stop'
+abbr -a restart 'sudo systemctl restart'
+abbr -a info    'sudo systemctl status'
+
 abbr -a fd   'command fd --one-file-system --hidden --exclude=".git"'
 abbr -a ncdu 'ncdu -rr -x --exclude .git'
 
