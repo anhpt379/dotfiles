@@ -700,6 +700,7 @@ augroup end
 
 " Lexima
 let g:lexima_map_escape = ''
+let g:lexima_enable_basic_rules = 0
 
 " Sandwich
 runtime macros/sandwich/keymap/surround.vim
