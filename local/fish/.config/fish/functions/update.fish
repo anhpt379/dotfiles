@@ -10,4 +10,7 @@ function update
     if command -v tldr
         tldr --update
     end
+    if command -v dnf
+        sudo dnf update
+    end
 end
