@@ -5,9 +5,9 @@ bash -c "$@"
 code=$?
 
 if [ ${code} -eq 0 ]; then
-  emoji="😀"
+  emoji="🎉"
 else
-  emoji="☹️"
+  emoji="❌"
 fi
 
-echo "$@ ${emoji}" | nc 127.0.0.1 2227
+echo "${emoji} $@" | nc 127.0.0.1 2227
