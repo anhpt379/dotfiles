@@ -11,10 +11,6 @@
 .config/nvim/autoload/plug.vim.old
 .config/nvim/dictionaries
 .github
-.gitignore
-.local/share/fish/fish_history
-.local/share/fish/man
-.local/share/fish/tools
 .local/share/nvim/plugged/*/.git
 .local/share/nvim/plugged/*/.gitattributes
 .local/share/nvim/plugged/*/doc
