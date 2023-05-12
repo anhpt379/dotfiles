@@ -1,6 +1,5 @@
 function update
     fisher update
-    omf update
     if command -v brew
         brew bundle
         brew bundle cleanup

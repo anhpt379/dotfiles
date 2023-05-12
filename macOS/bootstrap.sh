@@ -29,11 +29,6 @@ cp -r alt-tab/Library/Preferences/* ~/Library/Preferences/
 cp -r maccy/Library/* ~/Library/
 cp -r rectangle/Library/* ~/Library/
 
-# fish
-curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install > install
-fish install --path=~/.local/share/omf --config=~/.config/omf --yes --noninteractive
-rm -f install
-
 # fisher
 curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
 
