@@ -4,7 +4,7 @@ cd ~/Music/youtube-dl/ || exit 1
 
 PLAYLIST="https://www.youtube.com/playlist?list=LLWHbPRck8HGdTIBFaYRjmsg"
 
-/opt/homebrew/bin/youtube-dl \
+youtube-dl \
   --dump-json \
   --flat-playlist \
   --playlist-end 100 \
@@ -14,7 +14,7 @@ PLAYLIST="https://www.youtube.com/playlist?list=LLWHbPRck8HGdTIBFaYRjmsg"
   | sed 's_^_https://youtu.be/_' \
   > urls.txt
 
-/opt/homebrew/bin/youtube-dl \
+youtube-dl \
   --verbose \
   --ignore-errors \
   --continue \

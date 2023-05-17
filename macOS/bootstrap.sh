@@ -40,6 +40,7 @@ curl -fLo ~/.local/bin/prettyping https://github.com/denilsonsa/prettyping/raw/m
 chmod +x ~/.local/bin/prettyping
 
 # youtube-dl
+pip3 install https://github.com/ytdl-org/youtube-dl/archive/refs/heads/master.zip
 echo "0 * * * * bash ~/Music/youtube-dl/download.sh" > cron
 crontab cron
 rm -f cron

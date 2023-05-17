@@ -32,6 +32,7 @@ fish_add_path $HOME/.cargo/bin
 fish_add_path $HOME/.local/bin/fish-appimage/squashfs-root/usr/bin/
 fish_add_path $HOME/.local/bin/nvim-appimage/squashfs-root/usr/bin/
 fish_add_path $HOME/.local/bin
+fish_add_path $(python3 -m site --user-base)/bin
 
 # https://github.com/high-moctane/mocword
 set -gx MOCWORD_DATA $HOME/.config/nvim/dictionaries/mocword.sqlite
