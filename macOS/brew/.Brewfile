@@ -64,4 +64,5 @@ brew 'noti'
 brew 'opener'
 
 brew 'ffmpeg'
+brew 'atomicparsley'
 brew 'youtube-dl'
