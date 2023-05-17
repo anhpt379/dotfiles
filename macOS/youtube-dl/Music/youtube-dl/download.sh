@@ -22,14 +22,14 @@ youtube-dl \
   --no-post-overwrites \
   --embed-thumbnail \
   --extract-audio \
-  --audio-format mp3 \
+  --audio-format aac \
   --audio-quality 0 \
   --output "%(title)s.%(ext)s" \
   --download-archive downloaded.txt \
   --batch-file urls.txt \
 
-rm -f ./*.temp.mp3
+rm -f ./*.temp.aac
 
-mv ./*.mp3 ~/Music/Music/Media.localized/Automatically\ Add\ to\ Music.localized/
+mv ./*.aac ~/Music/Music/Media.localized/Automatically\ Add\ to\ Music.localized/
 
 rm -f ./*.jpg ./*.webp ./*.png ./*.m4a ./*.webm ./*.mp4 ./*.part
