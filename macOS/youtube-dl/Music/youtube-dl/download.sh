@@ -24,6 +24,7 @@ youtube-dl \
   --extract-audio \
   --audio-format m4a \
   --audio-quality 0 \
+  --output "%(title)s.%(ext)s" \
   --download-archive downloaded.txt \
   --batch-file urls.txt \
 
