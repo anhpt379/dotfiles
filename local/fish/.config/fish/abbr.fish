@@ -20,7 +20,6 @@ abbr -a ipy 'ipython'
 
 abbr -a tf  'tail -f'
 
-abbr -a sh  'ssh'
 abbr -a v   'nvim'
 abbr -a vim 'nvim'
 abbr -a nv  'nvim'
