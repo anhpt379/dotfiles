@@ -75,8 +75,8 @@ rm -rf fd-*
 
 # fzf
 cd /tmp || exit 1
-curl -fLo ~/.local/share/man/man1/fzf.1 https://raw.githubusercontent.com/junegunn/fzf/0.38.0/man/man1/fzf.1
-wget https://github.com/junegunn/fzf/releases/download/0.38.0/fzf-0.38.0-linux_arm64.tar.gz
+curl -fLo ~/.local/share/man/man1/fzf.1 https://raw.githubusercontent.com/junegunn/fzf/0.41.1/man/man1/fzf.1
+wget https://github.com/junegunn/fzf/releases/download/0.41.1/fzf-0.41.1-linux_arm64.tar.gz
 tar zxvf fzf-*.tar.gz
 mv fzf ~/.local/bin/
 rm -rf fzf-*.tar.gz
