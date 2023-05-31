@@ -49,6 +49,7 @@ stow wakatime
 sudo dnf install -y ninja-build libtool autoconf automake cmake gcc gcc-c++ make pkgconfig unzip patch gettext curl
 git clone --depth=1 https://github.com/neovim/neovim
 cd neovim || exit 1
+git fetch --tags --force
 git checkout stable
 make CMAKE_BUILD_TYPE=RelWithDebInfo
 sudo make install
