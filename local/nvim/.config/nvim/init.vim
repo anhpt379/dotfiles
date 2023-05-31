@@ -107,7 +107,7 @@ call plug#begin()
     Plug 'anhpt379/cmp-mocword' | Plug 'anhpt379/plenary.nvim'
     Plug 'jose-elias-alvarez/null-ls.nvim' | Plug 'anhpt379/plenary.nvim'
     Plug 'ray-x/cmp-treesitter'
-    Plug 'hrsh7th/nvim-cmp', {'commit': '3ac8d6cd29c74ff482d8ea47d45e5081bfc3f5ad'}
+    Plug 'hrsh7th/nvim-cmp'
     Plug 'nvim-lua/lsp-status.nvim'
 
     Plug 'lewis6991/gitsigns.nvim' | Plug 'anhpt379/plenary.nvim'
