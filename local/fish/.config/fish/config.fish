@@ -61,36 +61,37 @@ set -gx Z_DATA "$HOME/.local/share/z/data"
 set -gx Z_EXCLUDE '.*/code/work/puppet$'
 set -gx Z_OWNER (logname)
 
-set -gx FZF_DEFAULT_COMMAND 'command fd
-    --one-file-system
-    --hidden
-    --type f
-    --color=never
-    --exclude=".git"
-    --exclude="*.jp*g"
-    --exclude="*.png"
-'
-set -gx FZF_DEFAULT_OPTS '
-    --pointer=" "
-    --prompt="FZF> "
-    --color=fg:#DCDFE4,bg:-1,hl:#DCDFE4
-    --color=fg+:#FFCC66,bg+:#262626,hl+:#FFCC66
-    --color=prompt:#f1f1f1,pointer:#f1f1f1
-    --color=info:#696969,spinner:#696969
-    --color=marker:#55CABE
-    --color=spinner:108
-    --cycle
-    --no-multi
-    --reverse
-    --height=40%
-    --preview-window=right:60%
-    --bind=ctrl-/:toggle-preview
-    --bind=ctrl-s:toggle-sort
-    --bind=tab:accept,ctrl-j:ignore,ctrl-k:ignore
-    --bind=change:first
-    --bind=ctrl-f:preview-page-down,ctrl-b:preview-page-up
-    --bind=ctrl-h:backward-kill-word
-'
+set -gx FZF_DEFAULT_COMMAND \
+    $(echo 'command fd
+                --one-file-system
+                --hidden
+                --type f
+                --color=never
+                --exclude=".git"
+                --exclude="*.jp*g"
+                --exclude="*.png"
+            ' | tr -d '\n')
+set -gx FZF_DEFAULT_OPTS \
+    $(echo '--pointer=" "
+            --prompt="FZF> "
+            --color=fg:#DCDFE4,bg:-1,hl:#DCDFE4
+            --color=fg+:#FFCC66,bg+:#262626,hl+:#FFCC66
+            --color=prompt:#f1f1f1,pointer:#f1f1f1
+            --color=info:#696969,spinner:#696969
+            --color=marker:#55CABE
+            --color=spinner:108
+            --cycle
+            --no-multi
+            --reverse
+            --height=40%
+            --preview-window=right:60%
+            --bind=ctrl-/:toggle-preview
+            --bind=ctrl-s:toggle-sort
+            --bind=tab:accept,ctrl-j:ignore,ctrl-k:ignore
+            --bind=change:first
+            --bind=ctrl-f:preview-page-down,ctrl-b:preview-page-up
+            --bind=ctrl-h:backward-kill-word
+            ' | tr -d '\n')
 set -gx FZF_PREVIEW_COMMAND 'preview {}'
 
 # lf
