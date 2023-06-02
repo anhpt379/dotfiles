@@ -78,6 +78,8 @@ call plug#begin()
 
   " Git
   Plug 'anhpt379/vim-fugitive'
+  Plug 'tpope/vim-rhubarb'
+  Plug 'shumphrey/fugitive-gitlab.vim'
   Plug 'anhpt379/vim-git-browse'
 
   " Heavily loaded plugins
@@ -980,12 +982,13 @@ augroup update-mru-on-file-open
   autocmd BufWinEnter * UpdateMru
 augroup end
 
+" Vim-fugitive GBrowse
+let g:fugitive_gitlab_domains = ['https://gitlab.' . $COMPANY_DOMAIN]
+map <silent> go :GBrowse<CR>
+map <silent> gO :GBrowse!<CR>
+
 " Vim-git-browse
 let g:vim_git_browse_use_default_keymap = 0
-nnoremap <silent> go :<C-u>call vim_git_browse#GitBrowse(v:false, 'master')<CR>
-xnoremap <silent> go :<C-u>call vim_git_browse#GitBrowse(v:true, 'master')<CR>
-nnoremap <silent> gO :<C-u>call vim_git_browse#GitBrowse(v:false)<CR>
-xnoremap <silent> gO :<C-u>call vim_git_browse#GitBrowse(v:true)<CR>
 nnoremap <silent> gp :<C-u>call vim_git_browse#GitOpenPipelines()<CR>
 nnoremap <silent> gr :<C-u>call vim_git_browse#GitOpenRepo()<CR>
 nnoremap <silent> gm :!if git branch -a \| grep remotes/ \| grep -q /$(git branch --show-current)$; test $? -eq 1; then
