@@ -87,7 +87,7 @@ call plug#begin()
     Plug 'dstein64/vim-startuptime'
     Plug 'mhinz/vim-startify'
     Plug 'itchyny/lightline.vim'
-    Plug 'mengelbrecht/lightline-bufferline', {'commit': 'c0199a7027da92d9770d1e2a9f4bf6257c7ec7ef'}
+    Plug 'mengelbrecht/lightline-bufferline'
 
     Plug 'mechatroner/rainbow_csv'
 
