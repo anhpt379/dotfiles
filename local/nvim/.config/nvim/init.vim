@@ -546,6 +546,7 @@ map m Vgl
 nmap g[ :Dispatch! noti 'git pull --rebase origin $(git branch \| grep -o -m1 "\b\(master\\|main\)\b")'<CR>
 nmap g] :Dispatch! noti 'git push --force-with-lease origin HEAD'<CR>:silent exec '!git rev-parse --short HEAD \| tr -d "\n" \| pbcopy'<CR>
 nmap M  :Dispatch! noti 'git checkout $(git branch \| grep -o -m1 "\b\(master\\|main\)\b") && git pull --rebase origin $(git branch \| grep -o -m1 "\b\(master\\|main\)\b")'<CR>
+nmap gB :G blame<CR>
 
 augroup fugitive-personal-key-mappings
   autocmd FileType fugitive nmap <buffer> p :bd!<CR>
@@ -586,6 +587,9 @@ augroup fugitive-personal-key-mappings
 
   " Left padding
   autocmd FileType fugitive set signcolumn=yes | set number
+
+  " Open G blame commit with `go`
+  autocmd FileType fugitiveblame nmap <buffer> go :.GBrowse<CR>
 augroup end
 
 augroup fugitive-auto-insert
