@@ -1,6 +1,6 @@
 function fish_user_key_bindings --description "User key bindings for fish"
     # Key bindings
-    bind \cg accept-autosuggestion execute
+    bind \cf accept-autosuggestion execute
     bind \cz undo
 
     # Delete big word with Ctrl+Backspace
@@ -35,6 +35,5 @@ function fish_user_key_bindings --description "User key bindings for fish"
     # Fzf
     bind --erase \co
     bind \t fzf_complete
-    bind \cf fzf_find
     bind \cr fzf_history
 end

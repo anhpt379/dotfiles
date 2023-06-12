@@ -100,12 +100,12 @@
       ]
     },
     {
-      "description": "Browser - Accept suggestion & go to the url with CONTROL+G",
+      "description": "Browser - Accept suggestion & go to the url with CONTROL+F",
       "manipulators": [
         {
           "type": "basic",
           "from": {
-            "key_code": "g",
+            "key_code": "f",
             "modifiers": {
               "mandatory": ["left_control"]
             }
