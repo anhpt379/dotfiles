@@ -44,6 +44,8 @@ function fzf_find -d "Find files and folders"
             # auto remove directories that no longer exist
             __z --clean >/dev/null 2>&1
 
+            set fzf_preview_command "preview {}"
+
             set result (
                 __z --recent --list 2> /dev/null \
                 | awk '{ print " " $2 }' \
