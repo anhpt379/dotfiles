@@ -42,7 +42,7 @@ function fzf_find -d "Find files and folders"
             )
         else if string match -q -- "j*" $command
             # auto remove directories that no longer exist
-            z --clean >/dev/null 2>&1
+            __z --clean >/dev/null 2>&1
 
             set result (
                 __z --recent --list 2> /dev/null \

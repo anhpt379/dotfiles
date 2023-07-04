@@ -36,8 +36,8 @@ function fish_prompt
         echo -n -s $normal_color $prompt_background_color "]"
 
         # z auto remove directories that no longer exist
-        if type -q z
-            z --clean >/dev/null 2>&1
+        if type -q __z
+            __z --clean >/dev/null 2>&1
         end
 
         # Fix nvim permission issues when switching to root
