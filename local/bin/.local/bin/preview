@@ -76,7 +76,7 @@ elif [[ -f $name ]]; then
       # Somehow on remote this variable is changed to another value (it looks
       # like this: `NVIM=/tmp/nvimQPBuJM/0`), I couldn't figure out why, so
       # this workaround will fix no preview for fzf in vim on remote servers.
-      export NVIM=~/.local/bin/nvim-appimage/squashfs-root/usr/bin/nvim
+      export NVIM=~/.local/bin/nvim
       CMD="nvimpager -c '$name' | command sed -n ${LINE_START},${LINE_END}p"
     else
       CMD="command sed -n ${LINE_START},${LINE_END}p '$name'"

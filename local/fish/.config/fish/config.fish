@@ -29,8 +29,6 @@ end
 
 fish_add_path $HOME/.go/bin
 fish_add_path $HOME/.cargo/bin
-fish_add_path $HOME/.local/bin/fish-appimage/squashfs-root/usr/bin/
-fish_add_path $HOME/.local/bin/nvim-appimage/squashfs-root/usr/bin/
 fish_add_path $HOME/.local/bin
 fish_add_path $(python3 -m site --user-base)/bin
 
@@ -139,7 +137,7 @@ if begin
     end
 
     # Tell nvimpager where the nvim is
-    set -gx NVIM ~/.local/bin/nvim-appimage/squashfs-root/usr/bin/nvim
+    set -gx NVIM ~/.local/bin/nvim
 
     # Shorten title
     title (hostname | awk -F. '{ print $1 }')

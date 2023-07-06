@@ -37,22 +37,26 @@ PS1+="$(printf '\033[6 q')"
 umask 0002
 
 # Extract nvim appimage
-if ! test -f ~/.local/bin/nvim-appimage/squashfs-root/usr/bin/nvim || test ~/.local/bin/nvim.appimage -nt ~/.local/bin/nvim-appimage/squashfs-root/usr/bin/nvim; then
+if ! test -f ~/.local/bin/nvim-appimage/squashfs-root/usr/bin/nvim || test ~/.local/bin/nvim.appimage -nt ~/.local/bin/nvim-appimage/squashfs-root/usr/bin/nvim || ! test -e ~/.local/bin/nvim; then
   if test -f ~/.local/bin/nvim.appimage; then
     rm -rf ~/.local/bin/nvim-appimage/
     mkdir -p ~/.local/bin/nvim-appimage/
     cd ~/.local/bin/nvim-appimage/ || exit 1
     ../nvim.appimage --appimage-extract >/dev/null
+
+    ln -sf ~/.local/bin/nvim-appimage/squashfs-root/usr/bin/nvim ~/.local/bin/nvim
   fi
 fi
 
 # Extract fish appimage
-if ! test -f ~/.local/bin/fish-appimage/squashfs-root/usr/bin/fish || test ~/.local/bin/fish.appimage -nt ~/.local/bin/fish-appimage/squashfs-root/usr/bin/fish; then
+if ! test -f ~/.local/bin/fish-appimage/squashfs-root/usr/bin/fish || test ~/.local/bin/fish.appimage -nt ~/.local/bin/fish-appimage/squashfs-root/usr/bin/fish || ! test -e ~/.local/bin/fish; then
   if test -f ~/.local/bin/fish.appimage; then
     rm -rf ~/.local/bin/fish-appimage/
     mkdir -p ~/.local/bin/fish-appimage/
     cd ~/.local/bin/fish-appimage/ || exit 1
     ../fish.appimage --appimage-extract >/dev/null
+
+    ln -sf ~/.local/bin/fish-appimage/squashfs-root/usr/bin/fish ~/.local/bin/fish
   fi
 fi
 
