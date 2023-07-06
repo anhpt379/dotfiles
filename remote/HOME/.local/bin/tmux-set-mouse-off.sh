@@ -1,0 +1,1 @@
+../../../../local/tmux/.local/bin/tmux-set-mouse-off.sh
