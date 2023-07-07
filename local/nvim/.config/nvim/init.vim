@@ -751,6 +751,7 @@ let g:startify_lists = [
 let g:startify_bookmarks = [
   \ {'b': '~/dotfiles/macOS/brew/.Brewfile'},
   \ {'f': '~/dotfiles/local/fish/.config/fish/config.fish'},
+  \ {'t': '~/dotfiles/local/tmux/.tmux.conf'},
   \ {'v': '~/dotfiles/local/nvim/.config/nvim/init.vim'},
   \ ]
 
