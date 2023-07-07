@@ -9,9 +9,8 @@
           "from": {
             "key_code": "semicolon",
             "modifiers": {
-              "mandatory": [
-                "shift"
-              ]
+              "mandatory": ["shift"],
+              "optional": ["any"]
             }
           },
           "to": [
@@ -23,14 +22,15 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "semicolon"
+            "key_code": "semicolon",
+            "modifiers": {
+              "optional": ["any"]
+            }
           },
           "to": [
             {
               "key_code": "semicolon",
-              "modifiers": [
-                "left_shift"
-              ]
+              "modifiers": ["left_shift"]
             }
           ]
         }
