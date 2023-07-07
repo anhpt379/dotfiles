@@ -150,7 +150,7 @@ if begin
 
     # Fix git-deploy umask complaining
     umask 0002
-else
+else if string match -e -q -- fedora (hostname)
     # Auto start tmux when ssh to the Lima VM
     if test -z "$TMUX"
         tmux -u attach -t panh || tmux -u new -s panh
