@@ -139,9 +139,6 @@ if begin
     # Tell nvimpager where the nvim is
     set -gx NVIM ~/.local/bin/nvim
 
-    # Shorten title
-    title (hostname | awk -F. '{ print $1 }')
-
     # Fix `exa -l` complaining about timezone:
     #
     #   Unable to determine time zone: No such file or directory (os error 2)

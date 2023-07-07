@@ -64,7 +64,7 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
         source ~/.bash_profile
     "
 
-    tmux rename-window "$argv[1]"
+    tmux rename-window $(echo $argv[1]  | cut -d. -f1-2)
     if begin
             string match -q -- "git*" $argv
             or string match -q -- "*ssh.$COMPANY_DOMAIN" $argv
