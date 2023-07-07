@@ -1,5 +1,5 @@
 function fish_title
-    if test -n "$TMUX"
+    if string match -e -q -- fedora $(hostname); and test -n "$TMUX"
         if test $_ = fish
             set cwd $(prompt_pwd | python3 -c "import sys; print('{:^10}'.format(sys.stdin.read().strip()))")
             tmux rename-window $cwd
