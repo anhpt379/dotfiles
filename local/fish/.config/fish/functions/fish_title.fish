@@ -1,7 +1,8 @@
 function fish_title
     if test -n "$TMUX"
         if test $_ = fish
-            tmux rename-window $(prompt_pwd)
+            set cwd $(prompt_pwd | python3 -c "import sys; print('{:^10}'.format(sys.stdin.read().strip()))")
+            tmux rename-window $cwd
         else if string match -r -- ".*ssh .*" $argv
             tmux rename-window $(echo $argv  | cut -d. -f1-2)
         else
