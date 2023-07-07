@@ -1,7 +1,7 @@
 #!/bin/bash
 
 sudo dnf install -y \
-  stow git fish \
+  stow git fish tmux \
   jq ripgrep exa rsync \
   curl wget nmap-ncat \
   telnet corkscrew \
