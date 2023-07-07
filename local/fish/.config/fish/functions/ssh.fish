@@ -64,7 +64,6 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
         source ~/.bash_profile
     "
 
-    tmux rename-window $(echo $argv[1]  | cut -d. -f1-2)
     if begin
             string match -q -- "git*" $argv
             or string match -q -- "*ssh.$COMPANY_DOMAIN" $argv
@@ -126,7 +125,6 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
         command ssh $argv -t $REMOTE_COMMAND
     end
 
-    tmux set-window automatic-rename
     set -f code $status
     if test $code -ne 0
         clear
