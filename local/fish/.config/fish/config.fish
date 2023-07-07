@@ -153,4 +153,9 @@ if begin
 
     # Fix git-deploy umask complaining
     umask 0002
+else
+    # Auto start tmux when ssh to the Lima VM
+    if test -z "$TMUX"
+        tmux -u attach -t panh || tmux -u new -s panh
+    end
 end
