@@ -12,7 +12,7 @@ let s:yellow      = { 'gui': '#deb246', 'cterm': '11' }
 let s:blue        = { 'gui': '#28c9ff', 'cterm': '12' }
 let s:purple      = { 'gui': '#b954e1', 'cterm': '13' }
 let s:cyan        = { 'gui': '#3cc8b4', 'cterm': '14' }
-let s:white       = { 'gui': '#e5e5e5', 'cterm': '15' }
+let s:white       = { 'gui': '#eeeeee', 'cterm': '15' }
 
 let s:fg          = s:white
 let s:bg          = s:black
