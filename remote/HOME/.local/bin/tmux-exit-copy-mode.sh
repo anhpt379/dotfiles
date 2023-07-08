@@ -1,0 +1,1 @@
+../../../../local/tmux/.local/bin/tmux-exit-copy-mode.sh
