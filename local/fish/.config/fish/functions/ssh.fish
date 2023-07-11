@@ -41,10 +41,10 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
     set REMOTE_COMMAND "
         if test -d .files; then
             cd .files/
-            GIT_SSH_COMMAND='ssh -i /usr/local/etc/gitlab_ssh_key_dotfiles/id_rsa' git fetch --depth 1 origin master
+            git fetch --depth 1 origin master
             git reset --hard origin/master
         else
-            GIT_SSH_COMMAND='ssh -i /usr/local/etc/gitlab_ssh_key_dotfiles/id_rsa' git clone --depth=1 --branch=master git@$GITLAB_DOMAIN:panh/dotfiles.git .files
+            git clone --depth=1 --branch=master git@$GITLAB_DOMAIN:panh/dotfiles.git .files
             cd .files/
         fi
 
