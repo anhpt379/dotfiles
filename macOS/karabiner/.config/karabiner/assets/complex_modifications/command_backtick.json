@@ -2,7 +2,7 @@
   "title": "COMMAND+BACKTICK to switch between tmux panes",
   "rules": [
     {
-      "description": "Map COMMAND+BACKTICK to OPTION+BACKTICK",
+      "description": "Map COMMAND+BACKTICK to OPTION+SHIFT+BACKTICK",
       "manipulators": [
         {
           "type": "basic",
@@ -17,7 +17,7 @@
           "to": [
             {
               "key_code": "grave_accent_and_tilde",
-              "modifiers": ["option"]
+              "modifiers": ["option", "shift"]
             }
           ],
           "conditions": [

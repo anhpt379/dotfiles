@@ -1010,7 +1010,7 @@
                         ]
                     },
                     {
-                        "description": "Map COMMAND+BACKTICK to OPTION+BACKTICK",
+                        "description": "Map COMMAND+BACKTICK to OPTION+SHIFT+BACKTICK",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -1035,7 +1035,8 @@
                                     {
                                         "key_code": "grave_accent_and_tilde",
                                         "modifiers": [
-                                            "option"
+                                            "option",
+                                            "shift"
                                         ]
                                     }
                                 ],
