@@ -14,18 +14,6 @@ function fish_prompt
     set -l repository_color (set_color yellow)
     set -l prompt_background_color (set_color -b 262626)
 
-    set -l screen_height (tput lines)
-    if test $screen_height -gt 40
-        # Scroll up 20 lines from bottom when the screen is high enough.
-        #
-        # This helps my neck, since it hurts badly when looking at the bottom of the
-        # screen most of the time.
-        #
-        # We print 20 newlines, then moves the cursor back up 20 lines with the \e[8A
-        # escape code, before printing the actual prompt.
-        printf '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\e[20A'
-    end
-
     if string match -q -- "*.*" (hostname -f)
         echo -n -s $prompt_background_color
         echo -n -s "["
