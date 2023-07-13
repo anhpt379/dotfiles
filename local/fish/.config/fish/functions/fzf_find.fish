@@ -132,7 +132,7 @@ function fzf_find -d "Find files and folders"
     set -l key (echo $result | cut -d' ' -f1)
     set -l result (echo $result | cut -d' ' -f2- | devicon remove)
 
-    if set -q dir
+    if set -q dir; and not string match -q -- "/*" $result
         set result "$dir/$result"
     end
 
