@@ -122,6 +122,9 @@ set -g fish_key_bindings fish_default_key_bindings
 bind \n magic_enter
 bind \r magic_enter
 
+# Esc to enter tmux copy mode
+bind \e 'tmux copy-mode -e'
+
 source ~/.config/fish/abbr.fish
 source ~/.config/fish/themes/aodark.fish
 
