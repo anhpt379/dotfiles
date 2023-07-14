@@ -29,8 +29,7 @@ let s:vertsplit   = { 'gui': '#262626', 'cterm': '235'  }
 let s:pmenuselect = { 'gui': '#0060c0', 'cterm': '26'   }
 
 let s:non_text    = { 'gui': '#555555', 'cterm': '59'   }
-let s:search      = { 'gui': '#FFCC66', 'cterm': '11'   }
-let s:incsearch   = { 'gui': '#FAB955', 'cterm': '214'  }
+let s:incsearch   = { 'gui': '#FFCC66', 'cterm': '11'  }
 let s:punctuation = { 'gui': '#C9C9C9', 'cterm': '251'  }
 
 function! s:h(group, fg, bg, attr)
@@ -68,7 +67,7 @@ call s:h('DiffDelete', s:red, '', '')
 call s:h('DiffText', s:blue, '', '')
 
 call s:h('IncSearch', s:bg, s:incsearch, '')
-call s:h('Search', s:bg, s:search, '')
+call s:h('Search', s:black, s:white, '')
 
 call s:h('ErrorMsg', s:red, '', '')
 call s:h('ModeMsg', s:fg, '', '')
