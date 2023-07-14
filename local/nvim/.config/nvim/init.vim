@@ -147,6 +147,8 @@ call plug#begin()
     Plug 'andymass/vim-matchup'
     Plug 'inkarkat/vim-EnhancedJumps' | Plug 'inkarkat/vim-ingo-library'
 
+    Plug 'tpope/vim-obsession'
+
     Plug 'wakatime/vim-wakatime'
   endif
 
