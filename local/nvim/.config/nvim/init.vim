@@ -564,6 +564,10 @@ augroup fugitive-personal-key-mappings
         \ :<C-u>call vim_git_browse#GitOpenPullRequest()<CR>
         \ :silent exec '!git rev-parse --short HEAD \| tr -d "\n" \| pbcopy'<CR>
 
+  " <C-n/p> to work in fugitive buffers
+  autocmd FileType fugitive nmap <buffer> <C-n> )
+  autocmd FileType fugitive nmap <buffer> <C-p> (
+
   " Verbose and quiet git commit by default
   autocmd FileType fugitive nmap <buffer> C  :vertical Git commit --quiet --no-status<CR>
   autocmd FileType fugitive nmap <buffer> cc :vertical Git commit --quiet --no-status<CR>
