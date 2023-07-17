@@ -24,13 +24,13 @@ let s:gutter_fg   = { 'gui': '#444444', 'cterm': '238'  }
 let s:cursor_line = { 'gui': '#262626', 'cterm': '235'  }
 let s:color_col   = { 'gui': '#1f1f22', 'cterm': '234'  }
 
-let s:selection   = { 'gui': '#ffffff', 'cterm': '15'   }
+let s:selection   = { 'gui': '#ffcc66', 'cterm': '15'   }
 let s:vertsplit   = { 'gui': '#262626', 'cterm': '235'  }
 let s:pmenuselect = { 'gui': '#0060c0', 'cterm': '26'   }
 
 let s:non_text    = { 'gui': '#555555', 'cterm': '59'   }
-let s:incsearch   = { 'gui': '#FFCC66', 'cterm': '11'  }
-let s:punctuation = { 'gui': '#C9C9C9', 'cterm': '251'  }
+let s:incsearch   = { 'gui': '#ffcc66', 'cterm': '11'  }
+let s:punctuation = { 'gui': '#c9c9c9', 'cterm': '251'  }
 
 function! s:h(group, fg, bg, attr)
   if type(a:fg) == type({})
