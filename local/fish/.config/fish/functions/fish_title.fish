@@ -6,6 +6,6 @@ function fish_title
             set cwd $(prompt_pwd | string replace -- "~/" "" | string replace -- "~" "")
             set title "$_ $cwd"
         end
-        tmux rename-window $(echo $title | python3 -c "import sys; print('{:^10}'.format(sys.stdin.read().strip()))")
+        tmux rename-window $title
     end
 end
