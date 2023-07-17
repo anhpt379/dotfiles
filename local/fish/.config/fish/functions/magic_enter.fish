@@ -1,9 +1,9 @@
 function magic_enter
     set -l command $(commandline)
 
-    if test -z $command
+    if test -z "$command"
         set -l screen_height $(tput lines)
-        if test $screen_height -gt 40
+        if test "$screen_height" -gt 40
             # Scroll up 20 lines from bottom when the screen is high enough.
             #
             # This helps my neck, since it hurts when looking at the bottom of the
