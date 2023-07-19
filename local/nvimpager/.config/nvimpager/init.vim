@@ -21,6 +21,8 @@ call plug#end()
 
 colorscheme aodark
 
+set termguicolors
+
 set clipboard+=unnamedplus
 
 set incsearch
