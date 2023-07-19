@@ -3,14 +3,14 @@ set shellopts '-eu'
 set ifs "\n"
 set scrolloff 5
 
-set drawbox on
-set dircounts on
-set incsearch on
-set hidden on
+set drawbox true
+set dircounts true
+set incsearch true
+set hidden true
 
-set icons on
+set icons true
 
-set ignorecase off
+set ignorecase false
 
 set promptfmt "\033[34;1m%w/\033[0m\033[1m%f\033[0m"
 

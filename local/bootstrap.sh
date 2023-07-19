@@ -113,8 +113,8 @@ pip3 install --upgrade requests
 
 # lf
 cd /tmp || exit
-curl -fLo ~/.local/share/man/man1/lf.1 https://raw.githubusercontent.com/gokcehan/lf/r28/lf.1
-wget https://github.com/gokcehan/lf/releases/download/r28/lf-linux-arm64.tar.gz
+curl -fLo ~/.local/share/man/man1/lf.1 https://raw.githubusercontent.com/gokcehan/lf/r30/lf.1
+wget https://github.com/gokcehan/lf/releases/download/r30/lf-linux-arm64.tar.gz
 tar zxvf lf-*.tar.gz
 mv lf ~/.local/bin/
 rm -f lf-*.tar.gz
