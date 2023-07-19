@@ -903,9 +903,9 @@ augroup end
 " Lf.vim
 let g:lf_map_keys = 0
 let g:lf_replace_netrw = 1
-autocmd TermOpen  * if g:hostname =~# 'fedora' | set showtabline=0 | endif | set nonumber | set signcolumn=no  | set mouse-=a | :DisableWhitespace
-autocmd TermEnter * if g:hostname =~# 'fedora' | set showtabline=0 | endif | set nonumber | set signcolumn=no  | set mouse-=a
-autocmd TermLeave * if g:hostname =~# 'fedora' | set showtabline=2 | endif | set number   | set signcolumn=yes | set mouse+=a | :EnableWhitespace
+autocmd TermOpen  * if g:hostname =~# 'fedora' | set showtabline=0 | endif | set nonumber | set signcolumn=no  | :DisableWhitespace
+autocmd TermEnter * if g:hostname =~# 'fedora' | set showtabline=0 | endif | set nonumber | set signcolumn=no
+autocmd TermLeave * if g:hostname =~# 'fedora' | set showtabline=2 | endif | set number   | set signcolumn=yes | :EnableWhitespace
 map <Leader>l :<C-u>Lf<CR>
 
 " Clever-f

@@ -8,6 +8,7 @@ set dircounts true
 set incsearch true
 set hidden true
 
+set mouse true
 set icons true
 
 set ignorecase false
