@@ -613,10 +613,15 @@ nnoremap U <C-R>
 imap <C-c> <C-O>:x<CR>
 nmap <C-c> :x<CR>
 
-" Automatically jump to end of text you pasted
-vnoremap <silent> y y`]
-vnoremap <silent> p p`]
-nnoremap <silent> p p`]
+" Paste without moving the cursor
+vnoremap <silent> p pg;
+nnoremap <silent> p pg;
+vnoremap <silent> P Pg;
+nnoremap <silent> P Pg;
+
+" Yank without moving the cursor
+vnoremap y myy`y
+vnoremap Y myY`y
 
 " Don't change the clipboard if paste over a visually selected text
 xnoremap p "_dP`]
