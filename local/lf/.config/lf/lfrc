@@ -17,6 +17,8 @@ set promptfmt "\033[34;1m%w/\033[0m\033[1m%f\033[0m"
 set previewer "preview"
 set cursorpreviewfmt ""
 
+set ruler df:acc:progress:selection:filter:ind
+
 # Fzf integration
 cmd fzf_jump ${{
   dir=""
