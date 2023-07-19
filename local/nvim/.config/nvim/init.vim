@@ -407,8 +407,6 @@ if g:hostname =~# 'fedora'
   map <Leader>q Q
   map <Leader>t :enew<CR>
   map <Leader><Leader> <C-^>
-  nmap <Tab>     :bnext<CR>
-  nmap <S-Tab>   :bprevious<CR>
 
   let g:lightline#bufferline#show_number     = 2
   let g:lightline#bufferline#shorten_path    = 1
