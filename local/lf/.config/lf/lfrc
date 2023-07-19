@@ -15,6 +15,7 @@ set ignorecase false
 set promptfmt "\033[34;1m%w/\033[0m\033[1m%f\033[0m"
 
 set previewer "preview"
+set cursorpreviewfmt ""
 
 # Fzf integration
 cmd fzf_jump ${{
