@@ -178,3 +178,5 @@ map v       :toggle
 map V       :toggle
 map +       chmod+x
 map _       chmod-x
+
+cmap <backspace> cmd-delete-unix-word
