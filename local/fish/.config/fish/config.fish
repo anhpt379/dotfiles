@@ -163,3 +163,8 @@ else if string match -e -q -- fedora (hostname)
         tmux -u attach -t panh || tmux -u new -s panh
     end
 end
+
+function preexec_scroll_up --on-event fish_preexec
+    scroll_up
+end
+
