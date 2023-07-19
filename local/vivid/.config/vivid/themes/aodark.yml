@@ -1,5 +1,5 @@
 colors:
-  background_color: '000000'
+  background_color: '1c1c1c'
   white: 'dcdfe4'
   red: 'e22f62'
   green: '5fae4d'
@@ -8,7 +8,7 @@ colors:
   pink: 'b954e1'
   cyan: '3cc8b4'
 
-  black: '000000'
+  black: '1c1c1c'
   gray: '999999'
   darkgray: '666666'
   darkergray: '333333'
