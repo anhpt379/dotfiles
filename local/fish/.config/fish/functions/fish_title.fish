@@ -1,5 +1,5 @@
 function fish_title
-    if string match -e -q -- fedora $(hostname); and test -n "$TMUX"
+    if test -n "$TMUX"
         if string match -r -- ".*ssh .*" $argv
             set title $(echo $argv  | cut -d. -f1-2)
         else
@@ -7,5 +7,10 @@ function fish_title
             set title "$_ $cwd"
         end
         tmux rename-window $title
+    else
+        if test $(uname -s) = Darwin
+            echo -n " "
+        end
+        echo $(status current-command) $(prompt_pwd)
     end
 end

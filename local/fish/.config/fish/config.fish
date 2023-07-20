@@ -125,7 +125,9 @@ bind \n magic_enter
 bind \r magic_enter
 
 # Esc to enter tmux copy mode
-bind \e 'tmux copy-mode -e'
+if test -n "$TMUX"
+    bind \e 'tmux copy-mode -e'
+end
 
 source ~/.config/fish/abbr.fish
 source ~/.config/fish/themes/aodark.fish
