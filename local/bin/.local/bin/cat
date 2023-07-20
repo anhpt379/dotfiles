@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ ! -t 1 ]; then
+if [ ! -t 1 ] || [ $# -eq 0 ]; then
   /usr/bin/cat $*
   exit $?
 fi
