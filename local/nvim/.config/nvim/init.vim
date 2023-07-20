@@ -71,6 +71,7 @@ call plug#begin()
   Plug 'anhpt379/ctrlsf.vim'
   Plug 'anhpt379/vim-move'
   Plug 'tyru/open-browser.vim'
+  Plug 'svban/YankAssassin.vim'
 
   " Improve performance
   Plug 'antoinemadec/FixCursorHold.nvim'
@@ -618,10 +619,6 @@ vnoremap <silent> p pg;
 nnoremap <silent> p pg;
 vnoremap <silent> P Pg;
 nnoremap <silent> P Pg;
-
-" Yank without moving the cursor
-vnoremap y myy`y
-vnoremap Y myY`y
 
 " Don't change the clipboard if paste over a visually selected text
 xnoremap p "_dP`]
