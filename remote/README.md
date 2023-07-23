@@ -7,6 +7,11 @@ wget 'https://github.com/mliszcz/fish-shell/releases/download/fish-3.6.1-x86_64/
 mv fish-*.AppImage HOME/.local/bin/fish.appimage
 chmod +x HOME/.local/bin/fish.appimage
 
+# tmux
+wget 'https://github.com/kiyoon/tmux-appimage/releases/download/3.3a/tmux.appimage'
+mv tmux.appimage HOME/.local/bin/tmux.appimage
+chmod +x HOME/.local/bin/tmux.appimage
+
 # atop
 docker-compose build atop
 docker-compose run atop cp /usr/bin/atop /out/
