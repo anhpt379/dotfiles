@@ -36,15 +36,15 @@ PS1+="$(printf '\033[6 q')"
 # Fix git-deploy umask complaining
 umask 0002
 
-# Extract nvim appimage
-if ! test -f ~/.local/bin/nvim-appimage/squashfs-root/usr/bin/nvim || test ~/.local/bin/nvim.appimage -nt ~/.local/bin/nvim-appimage/squashfs-root/usr/bin/nvim || ! test -e ~/.local/bin/nvim; then
-  if test -f ~/.local/bin/nvim.appimage; then
-    rm -rf ~/.local/bin/nvim-appimage/
-    mkdir -p ~/.local/bin/nvim-appimage/
-    cd ~/.local/bin/nvim-appimage/ || exit 1
-    ../nvim.appimage --appimage-extract >/dev/null
+# Extract tmux appimage
+if ! test -f ~/.local/bin/tmux-appimage/squashfs-root/usr/bin/tmux || test ~/.local/bin/tmux.appimage -nt ~/.local/bin/tmux-appimage/squashfs-root/usr/bin/tmux || ! test -e ~/.local/bin/tmux; then
+  if test -f ~/.local/bin/tmux.appimage; then
+    rm -rf ~/.local/bin/tmux-appimage/
+    mkdir -p ~/.local/bin/tmux-appimage/
+    cd ~/.local/bin/tmux-appimage/ || exit 1
+    ../tmux.appimage --appimage-extract >/dev/null
 
-    ln -sf ~/.local/bin/nvim-appimage/squashfs-root/usr/bin/nvim ~/.local/bin/nvim
+    ln -sf ~/.local/bin/tmux-appimage/squashfs-root/usr/bin/tmux ~/.local/bin/tmux
   fi
 fi
 
@@ -57,6 +57,18 @@ if ! test -f ~/.local/bin/fish-appimage/squashfs-root/usr/bin/fish || test ~/.lo
     ../fish.appimage --appimage-extract >/dev/null
 
     ln -sf ~/.local/bin/fish-appimage/squashfs-root/usr/bin/fish ~/.local/bin/fish
+  fi
+fi
+
+# Extract nvim appimage
+if ! test -f ~/.local/bin/nvim-appimage/squashfs-root/usr/bin/nvim || test ~/.local/bin/nvim.appimage -nt ~/.local/bin/nvim-appimage/squashfs-root/usr/bin/nvim || ! test -e ~/.local/bin/nvim; then
+  if test -f ~/.local/bin/nvim.appimage; then
+    rm -rf ~/.local/bin/nvim-appimage/
+    mkdir -p ~/.local/bin/nvim-appimage/
+    cd ~/.local/bin/nvim-appimage/ || exit 1
+    ../nvim.appimage --appimage-extract >/dev/null
+
+    ln -sf ~/.local/bin/nvim-appimage/squashfs-root/usr/bin/nvim ~/.local/bin/nvim
   fi
 fi
 
