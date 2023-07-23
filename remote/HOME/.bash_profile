@@ -5,7 +5,7 @@ source ~/.bashrc
 if test -x "$HOME/.local/bin/tmux"; then
   # Auto start tmux
   if test -z "$TMUX"; then
-    "$HOME"/.local/bin/tmux -vv -u attach -t panh || "$HOME"/.local/bin/tmux -vv -u new -s panh
+    "$HOME"/.local/bin/tmux -u attach -t panh || "$HOME"/.local/bin/tmux -u new -s panh
   fi
 fi
 
