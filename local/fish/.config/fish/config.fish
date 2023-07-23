@@ -137,15 +137,14 @@ if begin
         and not string match -e -q -- fedora (hostname)
     end
 
-    function psql
-        cp ~/.psqlrc /tmp/
-        sudo -u postgres bash -c "PSQLRC=/tmp/.psqlrc psql $argv[1]"
-    end
-
     # Update the default email for git
     if set -q WORK_EMAIL; and not grep -q $COMPANY_DOMAIN ~/.gitconfig
         git config --global user.email $WORK_EMAIL
     end
+
+    # Fix postgres user (`sudo -u postgres psql`) couldn't read the ~/.psqlrc
+    cp -f ~/.psqlrc /tmp/
+    set -gx PSQLRC /tmp/.psqlrc
 
     # Tell nvimpager where the nvim is
     set -gx NVIM ~/.local/bin/nvim
