@@ -6,7 +6,11 @@ function fish_title
             set cwd $(prompt_pwd | string replace -- "~/" "" | string replace -- "~" "")
             set title "$_ $cwd"
         end
-        tmux rename-window $title
+
+        # Only rename window if this is the main pane
+        if test $(tmux display -p '#{pane_index}') -eq 1
+            tmux rename-window $title
+        end
     else
         if test $(uname -s) = Darwin
             echo -n " "
