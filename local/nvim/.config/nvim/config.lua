@@ -356,9 +356,15 @@ require('gitsigns').setup({
 })
 
 require('colorizer').setup()
-require('nvim-gps').setup()
 require('guess-indent').setup()
 require('hlargs').setup({
   color = '#28c9ff',
 })
 require('nvim-surround').setup()
+
+require("nvim-navic").setup({
+  lsp = {
+    auto_attach = true,
+  },
+  lazy_update_context = false,
+})

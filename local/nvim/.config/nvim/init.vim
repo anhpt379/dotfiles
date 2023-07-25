@@ -139,7 +139,7 @@ call plug#begin()
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'nvim-treesitter/nvim-treesitter-textobjects'
     Plug 'yioneko/nvim-yati'
-    Plug 'SmiteshP/nvim-gps'
+    Plug 'SmiteshP/nvim-navic'
     Plug 'windwp/nvim-ts-autotag'
     Plug 'JoosepAlviste/nvim-ts-context-commentstring'
     Plug 'm-demare/hlargs.nvim'
@@ -334,8 +334,8 @@ function! Whereami() abort
     return b:lightline_whereami
   endif
 
-	let location = luaeval("require'nvim-gps'.is_available()") ?
-    \ luaeval("require'nvim-gps'.get_location()") : ''
+	let location = luaeval("require'nvim-navic'.is_available()") ?
+    \ luaeval("require'nvim-navic'.get_location()") : ''
 
   let b:lightline_whereami = location
   let b:lightline_whereami_time = reltime()
