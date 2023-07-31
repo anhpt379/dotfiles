@@ -1,3 +1,5 @@
+\setenv PAGER nvimpager
+
 -- Don't display the "helpful" message on startup.
 \set QUIET 1
 \pset null '[NULL]'
