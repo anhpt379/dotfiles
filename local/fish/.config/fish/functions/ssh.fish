@@ -1,4 +1,10 @@
 function ssh -d "Make sure we have all the keys before ssh to a host"
+    # Disable dotfiles cloning if there's a `-v` in ssh arguments
+    if string match -q -- "-v*" $argv
+        command ssh $argv
+        return
+    end
+
     # Run ssh-agent via fish shell
     # https://gist.github.com/josh-padnick/c90183be3d0e1feb89afd7573505cab3
     if ! ssh-add -l >/dev/null
