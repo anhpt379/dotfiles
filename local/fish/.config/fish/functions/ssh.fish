@@ -4,8 +4,8 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
     if ! ssh-add -l >/dev/null
         pkill ssh-agent
         eval (ssh-agent -c)
-        set -Ux SSH_AUTH_SOCK $SSH_AUTH_SOCK &>/dev/null
-        set -Ux SSH_AGENT_PID $SSH_AGENT_PID &>/dev/null
+        ln -sf "$SSH_AUTH_SOCK" ~/.ssh/ssh_auth_sock
+        ln -sf "$SSH_TTY" ~/.ssh/ssh_tty
     end
 
     if not string match -q -- Darwin (uname)
