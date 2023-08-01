@@ -57,6 +57,15 @@ function fzf_find -d "Find files and folders"
                     --preview="$fzf_preview_command" \
                     --query=(echo $command | sed 's/^j//' | xargs)
             )
+        else if string match -rq -- " \$" $command
+            set result (
+                tmux capture-pane -p | ~/.local/share/tmux/plugins/extrakto/extrakto.py --all \
+                | fzf --select-1 --exit-0 --ansi \
+                    --bind=tab:accept \
+                    --expect=enter \
+                    --tiebreak=chunk \
+                    --header="$(tput setaf 1)TAB$(tput sgr0) to select, $(tput setaf 1)ENTER$(tput sgr0) to run, $(tput setaf 1)CTRL-[$(tput sgr0) to stop" \
+            )
         else
             if begin
                     string match -q -- "rm -r*" $command
@@ -132,7 +141,7 @@ function fzf_find -d "Find files and folders"
     set -l key (echo $result | cut -d' ' -f1)
     set -l result (echo $result | cut -d' ' -f2- | devicon remove)
 
-    if set -q dir; and not string match -q -- "/*" $result
+    if set -q dir; and not string match -q -- "/*" $result; and not string match -rq -- " \$" $command
         set result "$dir/$result"
     end
 
