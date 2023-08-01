@@ -63,7 +63,7 @@ function fzf_find -d "Find files and folders"
                 | fzf --select-1 --exit-0 --ansi \
                     --bind=tab:accept \
                     --expect=enter \
-                    --tiebreak=chunk \
+                    --tiebreak=index \
                     --header="$(tput setaf 1)TAB$(tput sgr0) to select, $(tput setaf 1)ENTER$(tput sgr0) to run, $(tput setaf 1)CTRL-[$(tput sgr0) to stop" \
             )
         else
