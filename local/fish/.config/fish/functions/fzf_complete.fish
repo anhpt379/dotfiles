@@ -8,6 +8,9 @@ function fzf_complete
         if test $status -ne 1
             return
         end
+    else if string match -rq -- " \$" $command
+        ~/.local/share/tmux/plugins/extrakto/scripts/open.sh $(tmux display -p '#{pane_id}')
+        return
     end
 
     # Fallback to the default suggestion
