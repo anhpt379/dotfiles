@@ -59,7 +59,7 @@ function fzf_find -d "Find files and folders"
             )
         else if string match -rq -- " \$" $command
             set result (
-                tmux capture-pane -p | ~/.local/share/tmux/plugins/extrakto/extrakto.py --all \
+                tmux capture-pane -p | ~/.local/bin/extrakto.py --all \
                 | fzf --select-1 --exit-0 --ansi \
                     --bind=tab:accept \
                     --expect=enter \
