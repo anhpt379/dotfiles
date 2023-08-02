@@ -57,24 +57,41 @@ function fzf_find -d "Find files and folders"
                     --preview="$fzf_preview_command" \
                     --query=(echo $command | sed 's/^j//' | xargs)
             )
-        else if string match -rq -- " \$" $command
-            set result (
-                tmux capture-pane -p | ~/.local/bin/extrakto.py --all \
-                | fzf --select-1 --exit-0 --ansi \
-                    --bind=tab:accept \
-                    --expect=enter \
-                    --tiebreak=index \
-                    --header="$(tput setaf 1)TAB$(tput sgr0) to select, $(tput setaf 1)ENTER$(tput sgr0) to run, $(tput setaf 1)CTRL-[$(tput sgr0) to stop" \
-            )
-        else
+        else if begin
+                string match -q -- "rm -r*" $command
+                or string match -q -- "scp -r*" $command
+                or string match -q -- "mkdir *" $command
+                or string match -q -- "du *" $command
+                or string match -q -- "git -C*" $command
+                or string match -q -- "cat *" $command
+                or string match -q -- "less *" $command
+                or string match -q -- "head *" $command
+                or string match -q -- "tail *" $command
+                or string match -q -- "view *" $command
+                or string match -q -- "vim *" $command
+                or string match -q -- "nvim *" $command
+                or string match -q -- "nv *" $command
+                or string match -q -- "rm -f*" $command
+                or string match -q -- "chmod +x *" $command
+                or string match -q -- "wc *" $command
+                or string match -q -- "md5sum *" $command
+                or string match -q -- "sed *" $command
+                or string match -q -- "scp *" $command
+                or string match -q -- "bash *" $command
+                or string match -q -- "python *" $command
+                or string match -q -- "source *" $command
+                or string match -q -- "./*" $command
+            end
+
             if begin
-                    string match -q -- "rm -r*" $command
-                    or string match -q -- "scp -r*" $command
+                    string match -q -- "rm -r *" $command
+                    or string match -q -- "scp -r *" $command
                     or string match -q -- "mkdir *" $command
                     or string match -q -- "du *" $command
-                    or string match -q -- "git -C*" $command
+                    or string match -q -- "git -C *" $command
                 end
                 set -a fd_command "--type=directory"
+
             else if begin
                     string match -q -- "cat *" $command
                     or string match -q -- "less *" $command
@@ -84,7 +101,7 @@ function fzf_find -d "Find files and folders"
                     or string match -q -- "vim *" $command
                     or string match -q -- "nvim *" $command
                     or string match -q -- "nv *" $command
-                    or string match -q -- "rm -f*" $command
+                    or string match -q -- "rm -f *" $command
                     or string match -q -- "chmod +x *" $command
                     or string match -q -- "wc *" $command
                     or string match -q -- "md5sum *" $command
@@ -120,8 +137,19 @@ function fzf_find -d "Find files and folders"
                     --preview="$fzf_preview_command" \
                     --query="$fzf_query" \
             )
+
+        else if string match -rq -- " \$" $command
+            set result (
+                tmux capture-pane -p | ~/.local/bin/extrakto.py --all \
+                | fzf --select-1 --exit-0 --ansi \
+                    --bind=tab:accept \
+                    --expect=enter \
+                    --tiebreak=index \
+                    --header="$(tput setaf 1)TAB$(tput sgr0) to select, $(tput setaf 1)ENTER$(tput sgr0) to run, $(tput setaf 1)CTRL-[$(tput sgr0) to stop" \
+            )
         end
     end
+
     if test $status -ne 0
         commandline -f repaint
         return
