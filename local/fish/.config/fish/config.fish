@@ -178,4 +178,3 @@ end
 function postexec_bell --on-event fish_postexec
     tput bel
 end
-
