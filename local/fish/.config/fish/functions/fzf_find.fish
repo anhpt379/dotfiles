@@ -1,6 +1,6 @@
 function fzf_find -d "Find files and folders"
     set -l command (commandline)
-    if string match -q -- "ssh*" $command
+    if string match -q -- "ssh *" $command
         set result (
             cat ~/.cache/servers.txt \
             | awk '{ print " " $1 }' \
@@ -24,9 +24,17 @@ function fzf_find -d "Find files and folders"
             set -a fd_command ". $dir"
         end
 
-        if string match -q -- "cd*/" $command
+        if string match -q -- "cd *" $command
+            if string match -rq -- "/\$" $command
+                set fd_depth 10
+            else if string match -rq -- " \$" $command
+                set fd_depth 1
+            else
+                return 1
+            end
+
             set result (
-                eval "$fd_command --type=directory --follow" \
+                eval "$fd_command --max-depth=$fd_depth --type=directory --follow" \
                 | sed "s|^$dir/||" \
                 | devicon add \
                 | fzf --delimiter=\t --select-1 --exit-0 --ansi \
@@ -40,7 +48,7 @@ function fzf_find -d "Find files and folders"
                     --preview="$fzf_preview_command" \
                     --query="$fzf_query" \
             )
-        else if string match -q -- "j*" $command
+        else if string match -q -- "j *" $command
             # auto remove directories that no longer exist
             __z --clean >/dev/null 2>&1
 
@@ -147,6 +155,9 @@ function fzf_find -d "Find files and folders"
                     --tiebreak=index \
                     --header="$(tput setaf 1)TAB$(tput sgr0) to select, $(tput setaf 1)ENTER$(tput sgr0) to run, $(tput setaf 1)CTRL-[$(tput sgr0) to stop" \
             )
+
+        else
+            return 1
         end
     end
 
