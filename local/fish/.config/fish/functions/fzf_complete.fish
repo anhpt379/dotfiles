@@ -1,7 +1,7 @@
 function fzf_complete
     set -l command (commandline --cut-at-cursor)
 
-    fzf_find >/dev/null
+    fzf_find
     if test $status -ne 1
         return
     end

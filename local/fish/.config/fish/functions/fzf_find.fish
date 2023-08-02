@@ -24,7 +24,7 @@ function fzf_find -d "Find files and folders"
             set -a fd_command ". $dir"
         end
 
-        if string match -q -- "cd *" $command
+        if string match -rq -- "^cd .*" $command
             if string match -rq -- "/\$" $command
                 set fd_depth 10
             else if string match -rq -- " \$" $command
@@ -48,7 +48,7 @@ function fzf_find -d "Find files and folders"
                     --preview="$fzf_preview_command" \
                     --query="$fzf_query" \
             )
-        else if string match -q -- "j *" $command
+        else if string match -rq -- "^j .*" $command
             # auto remove directories that no longer exist
             __z --clean >/dev/null 2>&1
 
@@ -66,7 +66,10 @@ function fzf_find -d "Find files and folders"
                     --query=(echo $command | sed 's/^j//' | xargs)
             )
         else if begin
-                string match -q -- "rm -r*" $command
+                string match -q -- "ls *" $command
+                or string match -q -- "ll *" $command
+                or string match -q -- "lla *" $command
+                or string match -q -- "rm -r*" $command
                 or string match -q -- "scp -r*" $command
                 or string match -q -- "mkdir *" $command
                 or string match -q -- "du *" $command
@@ -89,6 +92,15 @@ function fzf_find -d "Find files and folders"
                 or string match -q -- "python *" $command
                 or string match -q -- "source *" $command
                 or string match -q -- "./*" $command
+            end
+
+            # Only trigger if user hasn't typed anything, or the path ends with a `/`
+            if string match -rq -- "/\$" $command
+                set -a fd_command "--max-depth=10"
+            else if string match -rq -- " \$" $command
+                set -a fd_command "--max-depth=1"
+            else
+                return 1
             end
 
             if begin
@@ -121,11 +133,14 @@ function fzf_find -d "Find files and folders"
                     or string match -q -- "./*" $command
                 end
                 set -a fd_command "--type=file"
+            else
+                # ls/ll/lla
+                # look for both files & directories
             end
 
+            # Cancel early if it takes too long
             set files (eval timeout 0.05 $fd_command)
             if test $status -eq 124 # timed out
-                echo -e "\nIt took too long to list files, canceling..."
                 commandline -f repaint
                 return 1
             end
