@@ -70,11 +70,12 @@ function fzf_find -d "Find files and folders"
                 or string match -q -- "ll *" $command
                 or string match -q -- "lla *" $command
                 or string match -q -- "rm -r*" $command
-                or string match -q -- "scp -r*" $command
+                or string match -q -- "scp -r *" $command
                 or string match -q -- "mkdir *" $command
                 or string match -q -- "du *" $command
                 or string match -q -- "git -C*" $command
                 or string match -q -- "cat *" $command
+                or string match -q -- "tac *" $command
                 or string match -q -- "less *" $command
                 or string match -q -- "head *" $command
                 or string match -q -- "tail *" $command
@@ -104,7 +105,7 @@ function fzf_find -d "Find files and folders"
             end
 
             if begin
-                    string match -q -- "rm -r *" $command
+                    string match -q -- "rm -r*" $command
                     or string match -q -- "scp -r *" $command
                     or string match -q -- "mkdir *" $command
                     or string match -q -- "du *" $command
@@ -114,6 +115,7 @@ function fzf_find -d "Find files and folders"
 
             else if begin
                     string match -q -- "cat *" $command
+                    or string match -q -- "tac *" $command
                     or string match -q -- "less *" $command
                     or string match -q -- "head *" $command
                     or string match -q -- "tail *" $command
@@ -121,7 +123,7 @@ function fzf_find -d "Find files and folders"
                     or string match -q -- "vim *" $command
                     or string match -q -- "nvim *" $command
                     or string match -q -- "nv *" $command
-                    or string match -q -- "rm -f *" $command
+                    or string match -q -- "rm -f*" $command
                     or string match -q -- "chmod +x *" $command
                     or string match -q -- "wc *" $command
                     or string match -q -- "md5sum *" $command
