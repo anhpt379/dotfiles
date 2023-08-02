@@ -28,7 +28,7 @@ else
 fi
 
 # Fix `sudo lla` doesn't work in bash
-alias sudo='sudo -E TERM=xterm-256color '
+alias sudo='sudo -E '
 
 # Reset cursor shape to beam
 PS1+="$(printf '\033[6 q')"
