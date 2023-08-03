@@ -170,6 +170,7 @@ end
 function preexec_scroll_up --on-event fish_preexec
     scroll_up
 
+    # Update tmux window index, to be used in the fish_title function
     if test -n "$TMUX"
         set -g tmux_window_index $(tmux display-message -p '#{window_index}')
     end

@@ -86,6 +86,13 @@ function fish_prompt
 
     echo -n -s $normal_color " "
 
+    # Update tmux window index, to be used in the fish_title function, in case
+    # `fish_preexec` doesn't get triggered (when people press <Enter> by doesn't type
+    # any command)
+    if test -n "$TMUX"
+        set -g tmux_window_index $(tmux display-message -p '#{window_index}')
+    end
+
     # Reset cursor shape to beam
     printf '\033[6 q'
 end
