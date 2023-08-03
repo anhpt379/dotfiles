@@ -7,11 +7,7 @@ function fish_title
             set title "$_ $cwd"
         end
 
-        # Only rename window if this is the main pane
-        if test $(tmux display -p '#{pane_index}') -eq 1
-            tmux rename-window -t "$tmux_window_index" "$title"
-            tmux move-window -r
-        end
+        echo -e "\e]2;$title\e\\"
     else
         if test $(uname -s) = Darwin
             echo -n " "
