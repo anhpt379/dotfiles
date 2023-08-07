@@ -3,8 +3,8 @@ function fish_title
         if string match -r -- ".*ssh .*" $argv
             set title $(echo $argv  | cut -d. -f1-2)
         else
-            set cwd $(prompt_pwd | string replace -- "~/" "" | string replace -- "~" "" | tr -d "\n")
-            if test -z $cwd
+            set cwd $(prompt_pwd | string replace -- "~/" "" | string replace -- "~" "" | xargs)
+            if test -n $cwd
                 set title "$_ $cwd"
             else
                 set title "$_"
