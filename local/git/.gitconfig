@@ -20,6 +20,7 @@
   stash-all = stash save --include-untracked
   stashed = stash list --pretty=format:'%gd: %Cred%h%Creset %Cgreen[%ar]%Creset %s'
   apply-gitignore = !git ls-files -ci --exclude-standard -z | xargs -0 git rm --cached
+  default-branch = !git symbolic-ref refs/remotes/origin/HEAD | cut -d'/' -f4
 
 [status]
   showUntrackedFiles = all

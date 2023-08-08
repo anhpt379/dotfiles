@@ -548,17 +548,17 @@ command! Gcherrypickabort    silent! G cherry-pick --abort
 let g:dispatch_no_maps = 1
 map m Vgl
 
-nmap g[ :Dispatch! noti 'git pull --rebase origin $(git branch \| grep -o -m1 "\b\(master\\|main\)\b")'<CR>
-nmap g] :Dispatch! noti 'git push --force-with-lease origin HEAD'<CR>:silent exec '!git rev-parse --short HEAD \| tr -d "\n" \| pbcopy'<CR>
-nmap M  :Dispatch! noti 'git checkout $(git branch \| grep -o -m1 "\b\(master\\|main\)\b") && git pull --rebase origin $(git branch \| grep -o -m1 "\b\(master\\|main\)\b")'<CR>
+nmap g[ :Start! noti 'git pull --rebase origin $(git default-branch)'<CR>
+nmap g] :Start! noti 'git push --force-with-lease origin HEAD'<CR>:silent exec '!git rev-parse --short HEAD \| tr -d "\n" \| pbcopy'<CR>
+nmap M  :Start! noti 'git checkout $(git default-branch) && git pull --rebase origin $(git default-branch)'<CR>
 nmap gB :G blame<CR>
 
 augroup fugitive-personal-key-mappings
   autocmd FileType fugitive nmap <buffer> p :bd!<CR>
-        \ :Dispatch! noti 'git push origin HEAD --force-with-lease'<CR>
+        \ :Start! noti 'git push origin HEAD --force-with-lease'<CR>
         \ :silent exec '!git rev-parse --short HEAD \| tr -d "\n" \| pbcopy'<CR>
   autocmd FileType fugitive nmap <buffer> P :bd!<CR>
-        \ :Dispatch! noti 'git push origin HEAD --force'<CR>
+        \ :Start! noti 'git push origin HEAD --force'<CR>
         \ :silent exec '!git rev-parse --short HEAD \| tr -d "\n" \| pbcopy'<CR>
   autocmd FileType fugitive nmap <buffer> m
         \ :!if git branch -a \| grep remotes/ \| grep -q /$(git branch --show-current)$; test $? -eq 1; then
