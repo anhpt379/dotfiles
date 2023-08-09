@@ -129,6 +129,7 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
 
         # command ssh $argv -t WORK_EMAIL=$WORK_EMAIL fish
 
+        set REMOTE_COMMAND "mkdir -p /home/panh; $REMOTE_COMMAND"
         command ssh $argv -t $REMOTE_COMMAND
     end
 
