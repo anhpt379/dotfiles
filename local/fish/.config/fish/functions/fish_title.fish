@@ -11,7 +11,7 @@ function fish_title
             end
         end
 
-        echo -e "\e]2;$title\e\\"
+        printf "\ek$title\e\\"
     else
         if test $(uname -s) = Darwin
             echo -n " "
