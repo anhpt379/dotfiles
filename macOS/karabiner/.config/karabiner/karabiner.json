@@ -983,33 +983,6 @@
                         ]
                     },
                     {
-                        "description": "Map the Dictation key (F5) to COMMAND+SHIFT+SPACE (Slack) and COMMAND+CONTROL+A (Zoom; remember to change `Mute/Unmute My Audio` keyboard shortcut to `⌃⌘A`)",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "f5"
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "spacebar",
-                                        "modifiers": [
-                                            "command",
-                                            "shift"
-                                        ]
-                                    },
-                                    {
-                                        "key_code": "a",
-                                        "modifiers": [
-                                            "command",
-                                            "control"
-                                        ]
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
                         "description": "Map COMMAND+BACKTICK to OPTION+SHIFT+BACKTICK",
                         "manipulators": [
                             {
@@ -1036,6 +1009,69 @@
                                         "key_code": "grave_accent_and_tilde",
                                         "modifiers": [
                                             "option",
+                                            "shift"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Map F5 to only COMMAND+SHIFT+SPACE when in Slack",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.tinyspeck\\.slackmacgap$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "f5"
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "spacebar",
+                                        "modifiers": [
+                                            "command",
+                                            "shift"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Map F5 to both COMMAND+SHIFT+SPACE (Slack) and COMMAND+SHIFT+A (Zoom) (remember to enable global shortcut for `Mute/Unmute My Audio` in Zoom's Settings)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.tinyspeck\\.slackmacgap$"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "f5"
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "a",
+                                        "modifiers": [
+                                            "command",
+                                            "shift"
+                                        ]
+                                    },
+                                    {
+                                        "key_code": "spacebar",
+                                        "modifiers": [
+                                            "command",
                                             "shift"
                                         ]
                                     }
