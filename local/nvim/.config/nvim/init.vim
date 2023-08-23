@@ -404,6 +404,8 @@ if g:hostname =~# 'fedora'
   map <Leader>0 <Plug>lightline#bufferline#go(10)
   map <Leader>n :<C-u>bnext<CR>
   map <Leader>p :<C-u>bprevious<CR>
+  map <C-n>     :<C-u>bnext<CR>
+  map <C-p>     :<C-u>bprevious<CR>
   map <Leader>w q
   map <Leader>q Q
   map <Leader>t :enew<CR>
@@ -453,13 +455,21 @@ set signcolumn=yes
 inoremap <expr> <CR> pumvisible() ? '<C-y>' : '<CR>'
 inoremap <expr> <Tab> pumvisible() ? '<C-y> ' : '<C-g>u<Tab>'
 
-" " Navigate diagnostics
-nmap <C-p> :lua vim.diagnostic.goto_prev()<CR>
-nmap <C-n> :lua vim.diagnostic.goto_next()<CR>
+" Navigate diagnostics
+" <C-jk> to jump between diagnostics
+" Below we're using <PageUp/Down> <Home/End> due to the maps in Karabiner
+map <PageDown> :lua vim.diagnostic.goto_next()<CR>
+map <PageUp> :lua vim.diagnostic.goto_prev()<CR>
+
+" Jump to top/bottom of the file with <Home>/<End>
+nmap <Home> gg
+nmap <End> G
+imap <Home> <ESC>I
+imap <End> <ESC>A
 
 " Jump to next/prev diagnostic from INSERT mode also
-imap <silent> <C-n> <Esc><C-n>
-imap <silent> <C-p> <Esc><C-p>
+imap <silent> <PageDown> <Esc><PageDown>
+imap <silent> <PageUp> <Esc><PageUp>
 
 " No transparent auto-completion popup
 set pumblend=0
@@ -566,10 +576,6 @@ augroup fugitive-personal-key-mappings
         \   fi<CR>
         \ :<C-u>call vim_git_browse#GitOpenPullRequest()<CR>
         \ :silent exec '!git rev-parse --short HEAD \| tr -d "\n" \| pbcopy'<CR>
-
-  " <C-n/p> to work in fugitive buffers
-  autocmd FileType fugitive nmap <buffer> <C-n> )
-  autocmd FileType fugitive nmap <buffer> <C-p> (
 
   " Verbose and quiet git commit by default
   autocmd FileType fugitive nmap <buffer> C  :vertical Git commit --quiet --no-status<CR>
@@ -877,10 +883,6 @@ onoremap il :normal vil<CR>
 xnoremap al $o^
 onoremap al :normal val<CR>
 
-" Jump to left/right split using <C-h/l> (Home/End)
-nnoremap <Home> <C-W><C-H>
-nnoremap <End>  <C-W><C-L>
-
 " Move the view a half screenwidth left/right with H/L
 map H zH
 map L zL
@@ -1169,13 +1171,6 @@ nmap <Space>r :lua vim.lsp.buf.rename()<CR>
 " Tree-sitter based folding
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
-
-" <C-hjkl> to jump 2 lines/chars at a time
-" Below we're using <PageUp/Down> <Home/End> due to the maps in Karabiner
-map <PageDown> 2j
-map <PageUp> 2k
-map <Home> 2h
-map <End> 2l
 
 " Lua config
 if g:hostname =~# 'fedora'
