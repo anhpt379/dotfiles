@@ -164,8 +164,8 @@ call s:h('GitSignsChange', s:yellow, s:gutter_bg, '')
 call s:h('GitSignsCurrentLineBlame', s:comment_fg, s:gutter_bg, '')
 
 " Fugitive
-call s:h('diffAdded', s:green, '', '')
-call s:h('diffRemoved', s:red, '', '')
+call s:h('diffAdded', {'gui': '#5fae4d', 'cterm': '10'}, '', '')
+call s:h('diffRemoved', {'gui': '#e22f62', 'cterm': '9'}, '', '')
 
 " Git
 call s:h('gitcommitComment', s:comment_fg, '', '')
