@@ -185,6 +185,9 @@ set mouse=a
 " (and also fix unexpected horizontally scrolling when using trackpad)
 set mousescroll=ver:1,hor:0
 
+" Scroll screen-lines (long/wrapped) instead of text lines
+set smoothscroll
+
 " Fix fzf exits unexpectedly on ScrollWheelLeft/Right
 tnoremap <ScrollWheelLeft> <nop>
 tnoremap <ScrollWheelRight> <nop>

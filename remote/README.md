@@ -17,7 +17,7 @@ docker-compose build atop
 docker-compose run atop cp /usr/bin/atop /out/
 
 # nvim
-wget https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
+wget https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
 chmod +x nvim.appimage
 mv nvim.appimage HOME/.local/bin/
 

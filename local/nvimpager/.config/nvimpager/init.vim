@@ -33,6 +33,7 @@ set nomodeline
 set noswapfile
 
 set mousescroll=ver:1,hor:0
+set smoothscroll
 
 set undofile
 set undodir=~/.local/state/nvim/undo
