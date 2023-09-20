@@ -17,7 +17,10 @@ docker-compose build atop
 docker-compose run atop cp /usr/bin/atop /out/
 
 # nvim
-wget https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
+# wget https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
+# The nightly version on neovim repo requires glibc version 3.31+. We don't have
+# it on CentOS 7, so I use the one from neovim-releases instead.
+wget https://github.com/neovim/neovim-releases/releases/download/nightly/nvim.appimage
 chmod +x nvim.appimage
 mv nvim.appimage HOME/.local/bin/
 
