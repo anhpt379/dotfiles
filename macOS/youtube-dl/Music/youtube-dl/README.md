@@ -4,6 +4,12 @@
 
 <https://chrome.google.com/webstore/detail/cookiestxt/njabckikapfpffapmjgojcnbfjonfjfg>
 
+## Installation
+
+```bash
+pip3 install --force-reinstall https://github.com/yt-dlp/yt-dlp/archive/refs/heads/master.zip
+```
+
 ## Add to crontab
 
 ```bash

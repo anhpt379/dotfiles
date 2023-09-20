@@ -39,8 +39,8 @@ nvim -c "PlugInstall" -c "qall"
 curl -fLo ~/.local/bin/prettyping https://github.com/denilsonsa/prettyping/raw/master/prettyping
 chmod +x ~/.local/bin/prettyping
 
-# youtube-dl
-pip3 install https://github.com/ytdl-org/youtube-dl/archive/refs/heads/master.zip
+# youtube-dl/yt-dlp
+pip3 install --force-reinstall https://github.com/yt-dlp/yt-dlp/archive/refs/heads/master.zip
 echo "0 * * * * bash ~/Music/youtube-dl/download.sh" > cron
 crontab cron
 rm -f cron

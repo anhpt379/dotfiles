@@ -4,7 +4,7 @@ cd ~/Music/youtube-dl/ || exit 1
 
 PLAYLIST="https://www.youtube.com/playlist?list=LLWHbPRck8HGdTIBFaYRjmsg"
 
-youtube-dl \
+yt-dlp \
   --dump-json \
   --flat-playlist \
   --playlist-end 100 \
@@ -14,7 +14,7 @@ youtube-dl \
   | sed 's_^_https://youtu.be/_' \
   > urls.txt
 
-youtube-dl \
+yt-dlp \
   --verbose \
   --ignore-errors \
   --continue \
