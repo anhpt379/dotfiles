@@ -4,6 +4,9 @@
 # https://unix.stackexchange.com/questions/241726/fix-ls-colors-for-directories-with-777-permission
 export LS_COLORS=":ow=:"
 
+# Fix unable to find `nginx` command
+export PATH=/usr/sbin:$PATH
+
 # Add ~/.local/bin to $PATH
 export PATH=$HOME/.local/bin:$PATH
 

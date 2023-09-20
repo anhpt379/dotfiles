@@ -27,6 +27,7 @@ if test -f /opt/homebrew/bin/brew
     fish_add_path /opt/homebrew/opt/coreutils/libexec/gnubin
 end
 
+fish_add_path /usr/sbin
 fish_add_path $HOME/.go/bin
 fish_add_path $HOME/.cargo/bin
 fish_add_path $HOME/.local/bin
