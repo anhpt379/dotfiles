@@ -91,6 +91,7 @@ call plug#begin()
     Plug 'mengelbrecht/lightline-bufferline'
 
     Plug 'mechatroner/rainbow_csv'
+    Plug 'fladson/vim-kitty'
 
     Plug 'lukas-reineke/indent-blankline.nvim'
     Plug 'norcalli/nvim-colorizer.lua'
