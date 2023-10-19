@@ -44,14 +44,28 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
         echo
     end
 
+    if string match -q -- "root@*" $argv
+        set REMOTE_HOME_DIR /tmp/panh
+    else
+        set REMOTE_HOME_DIR /home/panh
+    end
     set GITLAB_DOMAIN (echo $WORK_EMAIL | awk -F@ '{ print "gitlab."$2 }')
+
+    if test $argv[-1] = 'bash'
+        set GIT_BRANCH minimal
+    else
+        set GIT_BRANCH master
+    end
     set REMOTE_COMMAND "
+        export HOME=$REMOTE_HOME_DIR
+        mkdir -p $REMOTE_HOME_DIR
+
         if test -d .files; then
             cd .files/
-            GIT_SSH_COMMAND='ssh -i /usr/local/etc/gitlab_ssh_key_dotfiles/id_rsa' git fetch --depth 1 origin master
-            git reset --hard origin/master
+            GIT_SSH_COMMAND='ssh -i /usr/local/etc/gitlab_ssh_key_dotfiles/id_rsa' git fetch --depth 1 origin $GIT_BRANCH
+            git checkout FETCH_HEAD >/dev/null
         else
-            GIT_SSH_COMMAND='ssh -i /usr/local/etc/gitlab_ssh_key_dotfiles/id_rsa' git clone --depth=1 --branch=master git@$GITLAB_DOMAIN:panh/dotfiles.git .files
+            GIT_SSH_COMMAND='ssh -i /usr/local/etc/gitlab_ssh_key_dotfiles/id_rsa' git clone --depth=1 --branch=$GIT_BRANCH git@$GITLAB_DOMAIN:panh/dotfiles.git .files
             cd .files/
         fi
 
@@ -77,25 +91,6 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
         end
 
         command ssh $argv
-
-    else if string match -q -- "root@*" $argv
-        # Sync just the minimal dotfiles to /tmp/panh/ when using root@<host>
-        # `root` is a shared account on servers, I don't want to pollute it with my
-        # own personal settings, so let's change the $HOME to a different location.
-
-        # rsync -azvhP \
-        #     --info=name0 \
-        #     --info=progress2 \
-        #     --no-inc-recursive \
-        #     --compress-level=9 \
-        #     --copy-links \
-        #     --keep-dirlinks \
-        #     --relative \
-        #     ~/dotfiles/remote/HOME/./.{bashrc,bash_aliases,inputrc,vimrc,less,terminfo} "$argv[1]":/tmp/panh/ 2>/dev/null
-        # command ssh $argv -t WORK_EMAIL=$WORK_EMAIL HOME=/tmp/panh bash
-
-        set REMOTE_COMMAND "export HOME=/tmp/panh; $REMOTE_COMMAND"
-        command ssh $argv -t $REMOTE_COMMAND
 
     else
         # set -f start_time (date +%s)
@@ -129,8 +124,7 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
 
         # command ssh $argv -t WORK_EMAIL=$WORK_EMAIL fish
 
-        set REMOTE_COMMAND "mkdir -p /home/panh; $REMOTE_COMMAND"
-        command ssh $argv -t $REMOTE_COMMAND
+        command ssh $argv[1] -t $REMOTE_COMMAND
     end
 
     set -f code $status

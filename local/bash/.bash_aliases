@@ -24,10 +24,6 @@ alias egrep='egrep --color=auto'
 alias q='exit'
 alias c='clear'
 alias m='master'
-alias l='less'
-alias v='nvimpager'
-alias t='tail'
-alias tf='tail -f'
 
 alias py='python'
 alias ipy='ipython'
@@ -35,7 +31,7 @@ alias ipy='ipython'
 alias start='sudo systemctl start'
 alias stop='sudo systemctl stop'
 alias restart='sudo systemctl restart'
-alias info='sudo systemctl status'
+alias status='sudo systemctl status'
 
 alias pp='command sudo HOME=/root TERMINFO=/home/panh/.terminfo puppet agent -t'
 alias ppf='sudo killall puppet 2>/dev/null; pp --enable; pp'
@@ -56,16 +52,3 @@ alias whatprovides='rpm -q --whatprovides'
 
 alias ansible='TERM=xterm-256color command ansible'
 alias ansible-playbook='TERM=xterm-256color command ansible-playbook'
-
-alias k='kubectl'
-alias kd='kubectl describe'
-alias kdf='kubectl delete --force --grace-period=0'
-alias kn='kubectl config set-context --current --namespace'
-
-alias urldecode='python3 -c "import sys, urllib.parse; print(urllib.parse.unquote_plus(sys.argv[1]))"'
-alias urlencode='python3 -c "import sys, urllib.parse; print(urllib.parse.quote_plus(sys.argv[1]))"'
-
-alias finder_show_hidden_files="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
-alias finder_hide_hidden_files="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
-alias finder_hide_desktop_files="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
-alias finder_show_desktop_files="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
