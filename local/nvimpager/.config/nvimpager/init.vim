@@ -82,9 +82,6 @@ cnoremap <expr> <C-Del> &cedit. 'dW' .'<C-c><Space><BS>'
 map <ScrollWheelUp> <C-Y>
 map <ScrollWheelDown> <C-E>
 
-" Copy text automatically on mouse selection
-noremap <LeftRelease> "+y<LeftRelease>gv
-
 " F to toggle "follow mode"
 map F :lua nvimpager.toggle_follow()<CR>
 

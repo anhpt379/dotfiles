@@ -193,9 +193,6 @@ set smoothscroll
 tnoremap <ScrollWheelLeft> <nop>
 tnoremap <ScrollWheelRight> <nop>
 
-" Copy text automatically on mouse selection
-noremap <LeftRelease> "+y<LeftRelease>gv
-
 set pumblend=20
 set cursorline
 
