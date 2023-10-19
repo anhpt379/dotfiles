@@ -9,5 +9,8 @@ images:
 mounts:
 - location: "~/data"
   writable: true
+mounts:
+- location: "~/Downloads"
+  writable: false
 portForwards:
 - guestPort: 3000
