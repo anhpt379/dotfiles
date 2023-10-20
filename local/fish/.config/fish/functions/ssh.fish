@@ -56,16 +56,10 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
         mkdir -p $REMOTE_HOME_DIR
 
         if ! test -d .files; then
-            GIT_SSH_COMMAND='ssh -i /usr/local/etc/gitlab_ssh_key_dotfiles/id_rsa' git clone --quiet --depth=1 --branch=minimal git@$GITLAB_DOMAIN:panh/dotfiles.git .files >/dev/null
+            GIT_SSH_COMMAND='ssh -i /usr/local/etc/gitlab_ssh_key_dotfiles/id_rsa' \
+                git clone --quiet --depth=1 --branch=minimal git@$GITLAB_DOMAIN:panh/dotfiles.git .files >/dev/null
             rsync -a .files/HOME/ ~/
         fi
-
-        # Remove old scripts
-        rm -f ~/.local/bin/log
-        rm -f ~/.local/bin/fzf_preview.sh
-        rm -f ~/.local/bin/open
-        rm -f ~/.local/bin/xdg-open
-        rm -f ~/.local/bin/trash
 
         export TERM=xterm-kitty
         export WORK_EMAIL=$WORK_EMAIL
@@ -77,41 +71,8 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
             string match -q -- "git*" $argv
             or string match -q -- "*ssh.$COMPANY_DOMAIN" $argv
         end
-
         command ssh $argv
-
     else
-        # set -f start_time (date +%s)
-        # set -f jump_host (cat ~/.ssh/conf.d/work.conf | grep ProxyJump | tail -1 | awk '{ print $NF }')
-
-        # echo "Syncing dotfiles to $jump_host..."
-        # rsync -azhP \
-        #     --quiet \
-        #     --info=name0 \
-        #     --info=progress2 \
-        #     --no-inc-recursive \
-        #     --compress-level=9 \
-        #     --copy-links \
-        #     --keep-dirlinks \
-        #     --delete \
-        #     --delete-excluded \
-        #     --exclude-from="$HOME/dotfiles/remote/.rsyncignore" \
-        #     ~/dotfiles/remote/HOME/ $jump_host:~/HOME/
-
-        # echo "Syncing dotfiles from $jump_host to $argv[1]..."
-        # command ssh $jump_host -- "rsync -e 'ssh -o UserKnownHostsFile=/dev/null' --quiet -a ~/HOME/ $argv[1]:~/"
-        # if test $status -ne 0
-        #     return
-        # end
-
-        # set -f end_time (date +%s)
-        # set -f duration (expr $end_time - $start_time)
-        # if test $duration -gt 2
-        #     echo "$(echo $argv[1] | awk -F. '{ print $1 }') is connected now 😀" | nc 127.0.0.1 2227
-        # end
-
-        # command ssh $argv -t WORK_EMAIL=$WORK_EMAIL fish
-
         command ssh $argv[1] -t $REMOTE_COMMAND
     end
 
