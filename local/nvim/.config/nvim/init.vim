@@ -240,7 +240,6 @@ augroup end
 function! s:markdown_mode_setup()
   set wrap
   set textwidth=80
-  set formatoptions+=t
 endfunction
 
 colorscheme aodark
