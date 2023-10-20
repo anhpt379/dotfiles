@@ -58,7 +58,7 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
         if ! test -d .files; then
             GIT_SSH_COMMAND='ssh -i /usr/local/etc/gitlab_ssh_key_dotfiles/id_rsa' \
                 git clone --depth=1 --branch=minimal git@$GITLAB_DOMAIN:panh/dotfiles.git .files
-            rsync -a .files/HOME/ ~/
+            rsync -av .files/HOME/ ~/
         fi
 
         export LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
