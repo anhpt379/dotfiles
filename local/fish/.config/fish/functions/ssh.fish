@@ -51,22 +51,13 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
     end
     set GITLAB_DOMAIN (echo $WORK_EMAIL | awk -F@ '{ print "gitlab."$2 }')
 
-    if test $argv[-1] = 'bash'
-        set GIT_BRANCH minimal
-    else
-        set GIT_BRANCH master
-    end
     set REMOTE_COMMAND "
         export HOME=$REMOTE_HOME_DIR
         mkdir -p $REMOTE_HOME_DIR
 
-        if test -d .files; then
-            cd .files/
-            GIT_SSH_COMMAND='ssh -i /usr/local/etc/gitlab_ssh_key_dotfiles/id_rsa' git fetch --depth 1 origin $GIT_BRANCH
-            git checkout FETCH_HEAD >/dev/null
-        else
-            GIT_SSH_COMMAND='ssh -i /usr/local/etc/gitlab_ssh_key_dotfiles/id_rsa' git clone --depth=1 --branch=$GIT_BRANCH git@$GITLAB_DOMAIN:panh/dotfiles.git .files
-            cd .files/
+        if ! test -d .files; then
+            GIT_SSH_COMMAND='ssh -i /usr/local/etc/gitlab_ssh_key_dotfiles/id_rsa' git clone --quiet --depth=1 --branch=minimal git@$GITLAB_DOMAIN:panh/dotfiles.git .files >/dev/null
+            rsync -a .files/HOME/ ~/
         fi
 
         # Remove old scripts
@@ -75,9 +66,6 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
         rm -f ~/.local/bin/open
         rm -f ~/.local/bin/xdg-open
         rm -f ~/.local/bin/trash
-
-        rsync -a HOME/ ~/
-        cd ~/
 
         export TERM=xterm-kitty
         export WORK_EMAIL=$WORK_EMAIL

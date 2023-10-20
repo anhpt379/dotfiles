@@ -141,7 +141,9 @@ if begin
     end
 
     # Fix postgres user (`sudo -u postgres psql`) couldn't read the ~/.psqlrc
-    cp -f ~/.psqlrc /tmp/
+    if not test -f /tmp/.psqlrc
+        cp -f ~/.psqlrc /tmp/
+    end
     set -gx PSQLRC /tmp/.psqlrc
 
     # Tell nvimpager where the nvim is
