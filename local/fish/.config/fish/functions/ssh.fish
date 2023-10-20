@@ -61,6 +61,7 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
             rsync -a .files/HOME/ ~/
         fi
 
+        export LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
         export TERM=xterm-kitty
         export WORK_EMAIL=$WORK_EMAIL
 
