@@ -76,8 +76,8 @@ rm -rf fd-*
 
 # fzf
 cd /tmp || exit 1
-curl -fLo ~/.local/share/man/man1/fzf.1 https://raw.githubusercontent.com/junegunn/fzf/0.42.0/man/man1/fzf.1
-wget https://github.com/junegunn/fzf/releases/download/0.42.0/fzf-0.42.0-linux_arm64.tar.gz
+curl -fLo ~/.local/share/man/man1/fzf.1 https://raw.githubusercontent.com/junegunn/fzf/0.43.0/man/man1/fzf.1
+wget https://github.com/junegunn/fzf/releases/download/0.43.0/fzf-0.43.0-linux_arm64.tar.gz
 tar zxvf fzf-*.tar.gz
 mv fzf ~/.local/bin/
 rm -rf fzf-*.tar.gz
@@ -113,8 +113,8 @@ pip3 install --upgrade requests
 
 # lf
 cd /tmp || exit
-curl -fLo ~/.local/share/man/man1/lf.1 https://raw.githubusercontent.com/gokcehan/lf/r30/lf.1
-wget https://github.com/gokcehan/lf/releases/download/r30/lf-linux-arm64.tar.gz
+curl -fLo ~/.local/share/man/man1/lf.1 https://raw.githubusercontent.com/gokcehan/lf/r31/lf.1
+wget https://github.com/gokcehan/lf/releases/download/r31/lf-linux-arm64.tar.gz
 tar zxvf lf-*.tar.gz
 mv lf ~/.local/bin/
 rm -f lf-*.tar.gz
@@ -128,11 +128,11 @@ sudo dnf install -y hping3
 sudo setcap cap_net_raw+ep "$(which hping3)"
 
 # xh
-curl -fLo ~/.local/share/man/man1/xh.1 https://raw.githubusercontent.com/ducaale/xh/v0.16.1/doc/xh.1
-wget https://github.com/ducaale/xh/releases/download/v0.16.1/xh-v0.16.1-aarch64-unknown-linux-musl.tar.gz
+curl -fLo ~/.local/share/man/man1/xh.1 https://raw.githubusercontent.com/ducaale/xh/v0.18.0/doc/xh.1
+wget https://github.com/ducaale/xh/releases/download/v0.18.0/xh-v0.18.0-aarch64-unknown-linux-musl.tar.gz
 tar zxvf xh-*.tar.gz
 mv xh-*/xh ~/.local/bin/
-rm -rf xh-*.tar.gz
+rm -rf xh-*
 
 # mocword
 cargo install mocword

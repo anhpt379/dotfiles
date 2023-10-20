@@ -25,14 +25,14 @@ chmod +x nvim.appimage
 mv nvim.appimage HOME/.local/bin/
 
 # fzf
-set FZF_VERSION 0.42.0
+set FZF_VERSION 0.43.0
 wget https://github.com/junegunn/fzf/releases/download/$FZF_VERSION/fzf-$FZF_VERSION-linux_amd64.tar.gz
 tar zxvf fzf-$FZF_VERSION-linux_amd64.tar.gz
 mv fzf HOME/.local/bin/
 rm -f fzf-$FZF_VERSION-linux_amd64.tar.gz
 
 # lf
-wget https://github.com/gokcehan/lf/releases/download/r30/lf-linux-amd64.tar.gz
+wget https://github.com/gokcehan/lf/releases/download/r31/lf-linux-amd64.tar.gz
 tar zxvf lf-linux-amd64.tar.gz
 mv lf HOME/.local/bin/
 rm -f lf-linux-amd64.tar.gz

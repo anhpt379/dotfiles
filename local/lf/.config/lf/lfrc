@@ -18,7 +18,7 @@ set promptfmt "\033[34;1m%w/\033[0m\033[1m%f\033[0m"
 set previewer "preview"
 set cursorpreviewfmt ""
 
-set ruler df:acc:progress:selection:filter:ind
+set rulerfmt "%a  |%p  |\033[7;31m %m \033[0m  |\033[7;33m %c \033[0m  |\033[7;35m %s \033[0m  |\033[7;34m %f \033[0m  |%i/%t %d"
 
 # Fzf integration
 cmd fzf_jump ${{
