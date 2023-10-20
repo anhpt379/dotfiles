@@ -1,6 +1,6 @@
 function scroll_up
     set -l screen_height $(tput lines)
-    if test "$screen_height" -ge 50
+    if test "$screen_height" -ge 45
         # Scroll up 40 lines from bottom when the screen is high enough.
         #
         # This helps my neck, since it hurts when looking at the bottom of the
