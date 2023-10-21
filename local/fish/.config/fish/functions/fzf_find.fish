@@ -1,7 +1,6 @@
 function fzf_find -d "Find files and folders"
     set -l command (commandline)
     if test "$argv[-1]" = "extrakto"
-        echo asdf
         set captured ""
         for pane in $(tmux list-panes -F "#{pane_id}")
             set -a captured $(tmux capture-pane -p -t $pane)
@@ -207,9 +206,9 @@ function fzf_find -d "Find files and folders"
     end
 
     if string match -q -- "* *" $command
-        commandline -it -- (string escape $result)
+        commandline -it -- $result
     else
-        commandline -- (string escape $result)
+        commandline -- $result
     end
     commandline -f repaint
     if test "$key" = enter
