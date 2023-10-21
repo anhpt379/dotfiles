@@ -1,6 +1,21 @@
 function fzf_find -d "Find files and folders"
     set -l command (commandline)
-    if string match -q -- "ssh *" $command
+    if test "$argv[-1]" = "extrakto"
+        echo asdf
+        set captured ""
+        for pane in $(tmux list-panes -F "#{pane_id}")
+            set -a captured $(tmux capture-pane -p -t $pane)
+            set -a captured "\n"
+        end
+        set result (
+            echo $captured | ~/.local/bin/extrakto.py --all \
+            | fzf --select-1 --exit-0 --ansi \
+                --bind=tab:accept \
+                --expect=enter \
+                --tiebreak=index \
+                --header="$(tput setaf 1)TAB$(tput sgr0) to select, $(tput setaf 1)ENTER$(tput sgr0) to run, $(tput setaf 1)CTRL-[$(tput sgr0) to stop" \
+        )
+    else if string match -q -- "ssh *" $command
         set result (
             cat ~/.cache/servers.txt \
             | awk '{ print " " $1 }' \
@@ -161,21 +176,6 @@ function fzf_find -d "Find files and folders"
                     --header="$(tput setaf 1)TAB$(tput sgr0) to select, $(tput setaf 1)ENTER$(tput sgr0) to run, $(tput setaf 1)CTRL-[$(tput sgr0) to stop, $(tput setaf 1)CTRL-/$(tput sgr0) to toggle preview" \
                     --preview="$fzf_preview_command" \
                     --query="$fzf_query" \
-            )
-
-        else if string match -rq -- " \$" $command
-            set captured ""
-            for pane in $(tmux list-panes -F "#{pane_id}")
-                set -a captured $(tmux capture-pane -p -t $pane)
-                set -a captured "\n"
-            end
-            set result (
-                echo $captured | ~/.local/bin/extrakto.py --all \
-                | fzf --select-1 --exit-0 --ansi \
-                    --bind=tab:accept \
-                    --expect=enter \
-                    --tiebreak=index \
-                    --header="$(tput setaf 1)TAB$(tput sgr0) to select, $(tput setaf 1)ENTER$(tput sgr0) to run, $(tput setaf 1)CTRL-[$(tput sgr0) to stop" \
             )
 
         else
