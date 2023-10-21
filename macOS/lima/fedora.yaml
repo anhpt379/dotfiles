@@ -11,6 +11,6 @@ mounts:
   writable: true
 mounts:
 - location: "~/Downloads"
-  writable: false
+  writable: true
 portForwards:
 - guestPort: 3000
