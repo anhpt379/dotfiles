@@ -164,8 +164,13 @@ function fzf_find -d "Find files and folders"
             )
 
         else if string match -rq -- " \$" $command
+            set captured ""
+            for pane in $(tmux list-panes -F "#{pane_id}")
+                set -a captured $(tmux capture-pane -p -t $pane)
+                set -a captured "\n"
+            end
             set result (
-                tmux capture-pane -p | ~/.local/bin/extrakto.py --all \
+                echo $captured | ~/.local/bin/extrakto.py --all \
                 | fzf --select-1 --exit-0 --ansi \
                     --bind=tab:accept \
                     --expect=enter \
