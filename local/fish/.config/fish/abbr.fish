@@ -15,7 +15,7 @@ abbr -a b 'brew'
 abbr -a h 'tldr'
 
 abbr -a o   'openstack'
-abbr -a p   'python'
+abbr -a py  'python'
 abbr -a ipy 'ipython'
 
 abbr -a tf  'tail -f'
