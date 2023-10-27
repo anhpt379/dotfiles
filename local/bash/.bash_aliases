@@ -45,6 +45,7 @@ alias motd='cat /etc/motd; [ -f /etc/motd.local ] && cat /etc/motd.local'
 alias cmd='command'
 
 alias root='sudo -E -s'
+alias r='sudo -E -s'
 
 alias view='less'
 
