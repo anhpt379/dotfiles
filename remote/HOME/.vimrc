@@ -83,3 +83,6 @@ xnoremap p "_d:set paste<CR>:let @a = system("pbpaste")<CR>"aP`]:set nopaste<CR>
 " Fix vim x/X in VISUAL mode doesn't copy text to macOS' clipboard
 vnoremap x ygvx
 vnoremap X ygvX
+
+" Use a less distracting color for line number column
+highlight LineNr ctermfg=green
