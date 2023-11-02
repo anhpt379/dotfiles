@@ -38,6 +38,13 @@ abbr -a ncdu 'ncdu -rr -x --exclude .git'
 
 abbr -a docker         'sudo -E docker'
 abbr -a docker-compose 'sudo -E docker-compose'
+abbr -a d   'sudo -E docker'
+abbr -a de  'sudo -E docker exec -it'
+abbr -a dl  'sudo -E docker logs'
+abbr -a dc  'sudo -E docker-compose'
+abbr -a dcu 'sudo -E docker-compose up --build -d'
+abbr -a dcr 'sudo -E docker-compose restart'
+abbr -a dcs 'sudo -E docker-compose stop'
 
 abbr -a http  'xh'
 abbr -a https 'xhs'
