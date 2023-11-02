@@ -18,6 +18,7 @@ require('mason-tool-installer').setup {
     'html-lsp',
     'pyright',
     'ansible-language-server',
+    'nginx-language-server',
     'json-lsp',
     'rust-analyzer',
     'lua-language-server',
