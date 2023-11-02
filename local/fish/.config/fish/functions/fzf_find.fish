@@ -14,6 +14,16 @@ function fzf_find -d "Find files and folders"
                 --tiebreak=index \
                 --header="$(tput setaf 1)TAB$(tput sgr0) to select, $(tput setaf 1)ENTER$(tput sgr0) to run, $(tput setaf 1)CTRL-[$(tput sgr0) to stop" \
         )
+    else if string match -q -- "de *" $command
+        set result (
+            sudo docker ps --format '{{.Names}}\n{{.ID}}' \
+            | fzf --select-1 --exit-0 --ansi \
+                --bind=tab:accept \
+                --expect=enter \
+                --header="$(tput setaf 1)TAB$(tput sgr0) to select, $(tput setaf 1)ENTER$(tput sgr0) to run, $(tput setaf 1)CTRL-[$(tput sgr0) to stop" \
+                --prompt="DOCKER> " \
+                --query=(echo $command | sed 's/^de//' | xargs)
+        )
     else if string match -q -- "ssh *" $command
         set result (
             cat ~/.cache/servers.txt \
