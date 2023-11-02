@@ -1,0 +1,9 @@
+#!/usr/bin/env python3
+
+import sys
+
+text = sys.stdin.read()
+stripped_text = text.strip()
+if stripped_text.count("\n") < 1:
+    text = stripped_text
+print(text, end="")
