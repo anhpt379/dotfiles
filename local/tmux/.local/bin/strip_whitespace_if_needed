@@ -5,5 +5,5 @@ import sys
 text = sys.stdin.read()
 stripped_text = text.strip()
 if stripped_text.count("\n") < 1:
-    text = stripped_text
+    text = stripped_text.strip("\"'`")
 print(text, end="")
