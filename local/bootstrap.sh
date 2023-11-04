@@ -147,6 +147,9 @@ tar zxvf vivid-*.tar.gz
 mv vivid-*/vivid ~/.local/bin/
 rm -rf vivid-*
 
+# thefuck
+pip3 install --upgrade thefuck
+
 # docker
 sudo dnf install -y docker docker-compose
 sudo systemctl enable docker

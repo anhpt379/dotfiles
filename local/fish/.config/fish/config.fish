@@ -130,6 +130,11 @@ bind \cg "fzf_find extrakto"
 bind \n magic_enter
 bind \r magic_enter
 
+# Type `f` to correct the last command
+if command -v thefuck &>/dev/null
+    thefuck --alias f | source
+end
+
 source ~/.config/fish/abbr.fish
 source ~/.config/fish/themes/aodark.fish
 
