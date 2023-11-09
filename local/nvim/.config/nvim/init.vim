@@ -777,6 +777,7 @@ let g:startify_bookmarks = [
 augroup startified
   autocmd User Startified setlocal cursorline
   autocmd User Startified nmap <buffer> o <plug>(startify-open-buffers)
+  autocmd User Startified nmap <buffer> q :q!<CR>
 augroup end
 
 function! StartifyEntryFormat()
