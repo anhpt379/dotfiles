@@ -78,10 +78,6 @@ cnoremap <expr> <C-BS>  &cedit. 'dB' .'<C-c><Space><BS>'
 cnoremap <expr> <M-Del> &cedit. 'dw' .'<C-c><Space><BS>'
 cnoremap <expr> <C-Del> &cedit. 'dW' .'<C-c><Space><BS>'
 
-" Make mouse scrolling smoother, by scroll one line at a time
-map <ScrollWheelUp> <C-Y>
-map <ScrollWheelDown> <C-E>
-
 " F to toggle "follow mode"
 map F :lua nvimpager.toggle_follow()<CR>
 
