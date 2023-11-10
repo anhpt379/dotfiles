@@ -25,7 +25,7 @@ call plug#begin()
   Plug 'khaveesh/vim-fish-syntax'
   Plug 'CH-DanReif/haproxy.vim'
   Plug 'towolf/vim-helm'
-  Plug 'MTDL9/vim-log-highlighting'
+  Plug 'anhpt379/vim-log-highlighting'
   Plug 'wgwoods/vim-systemd-syntax'
   Plug 'raimon49/requirements.txt.vim'
   Plug 'hashivim/vim-terraform'
