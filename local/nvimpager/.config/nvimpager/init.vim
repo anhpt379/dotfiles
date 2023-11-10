@@ -43,6 +43,9 @@ set shadafile=~/.local/state/nvim/shada/main.shada
 noremap j gj
 noremap k gk
 
+set scrolloff=5
+set sidescrolloff=7
+
 let g:loaded_matchparen = 1
 
 lua nvimpager.maps = false
