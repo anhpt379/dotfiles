@@ -409,6 +409,7 @@ if g:hostname =~# 'fedora'
   map <Leader>p :<C-u>bprevious<CR>
   map <C-n>     :<C-u>bnext<CR>
   map <C-p>     :<C-u>bprevious<CR>
+  map <Up>      :<C-u>bprevious<CR>
   map <Leader>w q
   map <Leader>q Q
   map <Leader>t :enew<CR>
@@ -846,12 +847,6 @@ augroup end
 
 " https://www.reddit.com/r/vim/comments/g1lx7e/i_made_a_command_to_autoformat_shell_commands/
 command! -range FormatShellCmd <line1>!~/.config/nvim/bin/format_shell_cmd.py
-
-" Easier split navigations
-nnoremap <Down>  <C-W><C-J>
-nnoremap <Up>    <C-W><C-K>
-nnoremap <Right> <C-W><C-L>
-nnoremap <Left>  <C-W><C-H>
 
 " Resize split with Shift+Left/Right/Up/Down
 nnoremap <silent> <S-Left>  :CmdResizeLeft<CR>
