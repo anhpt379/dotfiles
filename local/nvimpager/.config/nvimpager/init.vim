@@ -71,6 +71,10 @@ nmap s <nop>
 
 map  q :<C-u>qa!<CR>
 
+" A faster way to toggle wrap
+map [w :<C-u>set wrap!<CR>
+map ]w :<C-u>set wrap!<CR>
+
 " Use Option+H/L to jump word by word in vim command line
 cnoremap <M-b> <S-Left>
 cnoremap <M-f> <S-Right>

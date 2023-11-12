@@ -815,9 +815,6 @@ let g:strip_whitelines_at_eof = 1
 let g:better_whitespace_operator = ''
 let g:current_line_whitespace_disabled_soft = 1
 
-nnoremap ]w :NextTrailingWhitespace<CR>
-nnoremap [w :PrevTrailingWhitespace<CR>
-
 function! DisableWhitespace()
   if &filetype =~# 'fugitive\|startify\|ctrlsf\|git\|man\|log'
     DisableWhitespace
@@ -932,6 +929,10 @@ set diffopt+=algorithm:patience
 " A faster way to toggle line number
 map [n :<C-u>set nonumber<CR>
 map ]n :<C-u>set number<CR>
+
+" A faster way to toggle wrap
+map [w :<C-u>set wrap!<CR>
+map ]w :<C-u>set wrap!<CR>
 
 " Vim searchhi
 map n   <Plug>(searchhi-n)zz<Plug>SearchIndex
