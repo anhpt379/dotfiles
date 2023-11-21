@@ -296,6 +296,10 @@ vim.g.matchup_matchparen_deferred = 1
 -- Autoclose and autorename HTML tags using treesitter
 require('nvim-ts-autotag').setup()
 
+-- nvim-ts-context-commentstring
+vim.g.skip_ts_context_commentstring_module = true
+require('ts_context_commentstring').setup()
+
 -- Treesitter
 require('nvim-treesitter.configs').setup({
   highlight = {
@@ -306,9 +310,6 @@ require('nvim-treesitter.configs').setup({
   },
   matchup = {
     enable = true,
-  },
-  context_commentstring = {
-    enable = true
   },
   endwise = {
     enable = true,
