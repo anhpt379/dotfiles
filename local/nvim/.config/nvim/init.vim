@@ -405,6 +405,8 @@ if g:hostname =~# 'fedora'
   map <Leader>8 <Plug>lightline#bufferline#go(8)
   map <Leader>9 <Plug>lightline#bufferline#go(9)
   map <Leader>0 <Plug>lightline#bufferline#go(10)
+  map <Leader>n :<C-u>bnext<CR>
+  map <Leader>p :<C-u>bprevious<CR>
   map <C-n>     :<C-u>bnext<CR>
   map <C-p>     :<C-u>bprevious<CR>
   map <Up>      :<C-u>bprevious<CR>
