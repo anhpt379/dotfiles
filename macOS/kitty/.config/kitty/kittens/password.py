@@ -30,7 +30,7 @@ def handle_result(args, data, target_window_id, boss):
             password = subprocess.run(
                 args[1:], capture_output=True, text=True, check=True
             ).stdout
-            w.paste(password)
+            w.paste_text(password)
 
         def is_set(flag):
             return bool(c_lflag & flag)
