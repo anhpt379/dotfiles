@@ -98,4 +98,4 @@ augroup strip-ansi-color-codes
 augroup end
 
 " Highlight yanked text
-autocmd TextYankPost * silent! lua vim.highlight.on_yank {higroup="IncSearch", timeout=700}
+autocmd TextYankPost * silent! lua vim.highlight.on_yank {higroup="Visual", timeout=700}
