@@ -21,6 +21,8 @@
   stashed = stash list --pretty=format:'%gd: %Cred%h%Creset %Cgreen[%ar]%Creset %s'
   apply-gitignore = !git ls-files -ci --exclude-standard -z | xargs -0 git rm --cached
   default-branch = !git symbolic-ref refs/remotes/origin/HEAD | cut -d'/' -f4
+  wip = !git add --all && git commit -m 'WIP'
+  drop = reset --hard HEAD
 
 [status]
   showUntrackedFiles = all
