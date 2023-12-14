@@ -57,7 +57,7 @@ abbr -a kdf 'kubectl delete --force --grace-period=0'
 abbr -a kn  'kubectl config set-context --current --namespace'
 
 abbr -a grcat     'grcat conf.cat'
-abbr -a ppcatalog 'sudo cat "/opt/puppetlabs/puppet/cache/client_data/catalog/$(sudo puppet config print certname).json" | jq | less'
+abbr -a ppcatalog 'sudo cat "/opt/puppetlabs/puppet/cache/client_data/catalog/$(sudo puppet config print certname).json" | jq . | less'
 abbr -a pwl       'nvim ~/.config/nvim/dictionaries/personal_word_list.txt'
 
 abbr cpr  'cp -R'

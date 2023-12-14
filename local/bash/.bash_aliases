@@ -38,7 +38,7 @@ if test "$(whoami)" = 'root'; then
   alias ppf='killall puppet 2>/dev/null; pp --enable; pp'
   alias ppa='puppet agent -t --environment=panh'
   alias ppaf='killall puppet 2>/dev/null; pp --enable; ppa'
-  alias ppcatalog='cat "/opt/puppetlabs/puppet/cache/client_data/catalog/$(puppet config print certname).json" | jq | less'
+  alias ppcatalog='cat "/opt/puppetlabs/puppet/cache/client_data/catalog/$(puppet config print certname).json" | jq . | less'
 else
   alias start='sudo systemctl start'
   alias stop='sudo systemctl stop'
@@ -49,7 +49,7 @@ else
   alias ppf='sudo killall puppet 2>/dev/null; pp --enable; pp'
   alias ppa='command sudo HOME=/root TERMINFO=/home/panh/.terminfo puppet agent -t --environment=panh'
   alias ppaf='sudo killall puppet 2>/dev/null; pp --enable; ppa'
-  alias ppcatalog='sudo cat "/opt/puppetlabs/puppet/cache/client_data/catalog/$(sudo puppet config print certname).json" | jq | less'
+  alias ppcatalog='sudo cat "/opt/puppetlabs/puppet/cache/client_data/catalog/$(sudo puppet config print certname).json" | jq . | less'
 fi
 alias ppl='less +G /var/log/puppet/puppetagent.log'
 alias ppc='cat /etc/puppetlabs/puppet/puppet.conf'
