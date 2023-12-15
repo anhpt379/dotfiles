@@ -97,5 +97,9 @@ augroup strip-ansi-color-codes
   autocmd TextYankPost * call system("sed -e 's/\x1B\[[0-9;]*[JKmsu]//g' \| pbcopy", @0)
 augroup end
 
+augroup copy_text_to_clipboard_on_focus_lost
+  autocmd FocusLost * silent! normal! "*ygv
+augroup end
+
 " Highlight yanked text
 autocmd TextYankPost * silent! lua vim.highlight.on_yank {higroup="Visual", timeout=700}

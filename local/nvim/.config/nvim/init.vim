@@ -1236,3 +1236,7 @@ endfunction
 augroup puppet_go_to_definition
   autocmd FileType puppet nmap <buffer> <C-]> :call PuppetGoToDefinition()<CR>
 augroup end
+
+augroup copy_text_to_clipboard_on_focus_lost
+  autocmd FocusLost * silent! normal! "*ygv
+augroup end
