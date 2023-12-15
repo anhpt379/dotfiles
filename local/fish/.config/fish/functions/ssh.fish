@@ -1,6 +1,6 @@
 function ssh -d "Make sure we have all the keys before ssh to a host"
-    # Disable dotfiles cloning if there's a `-v` in ssh arguments
-    if string match -q -- "-v*" $argv
+    # Disable dotfiles cloning if there's a `-` in ssh arguments
+    if string match -q -- "-*" $argv
         command ssh $argv
         return
     end
