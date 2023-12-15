@@ -7,8 +7,10 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 
 stow brew
 
-brew bundle --global
+brew bundle
 brew autoupdate start 86400 --upgrade --cleanup
+
+brew services start autoraise
 
 stow bash
 stow bin

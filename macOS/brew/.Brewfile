@@ -5,7 +5,9 @@ tap 'homebrew/cask'
 tap 'homebrew/cask-fonts'
 tap 'homebrew/cask-versions'
 tap 'homebrew/core'
+tap 'homebrew/services'
 tap 'superbrothers/opener'
+tap 'dimentium/autoraise'
 
 cask_args appdir: "~/Applications", require_sha: true, no_quarantine: true
 
@@ -32,6 +34,7 @@ mas 'Amphetamine', id: 937984704
 mas 'Be Focus', id: 961632517
 mas 'Fantastical', id: 975937182
 
+brew 'autoraise'
 brew 'bash'
 brew 'bind'  # to get `dig` command
 brew 'coreutils'
