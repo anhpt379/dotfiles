@@ -36,7 +36,7 @@ fi
 alias sudo='sudo -E '
 
 # Reset cursor shape to beam
-PS1+="$(printf '\033[6 q')"
+PROMPT_COMMAND="printf '\033[6 q'"
 
 # Fix git-deploy umask complaining
 umask 0002
