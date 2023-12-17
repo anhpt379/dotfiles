@@ -58,6 +58,7 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
         source ~/.bash_profile
     "
 
+    set -f start $(date +%s)
     if begin
             string match -q -- "git*" $argv
             or string match -q -- "*ssh.$COMPANY_DOMAIN" $argv
@@ -68,8 +69,12 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
         command ssh $argv[1] -t $REMOTE_COMMAND
     end
 
+    set -f end $(date +%s)
     set -f code $status
     if test $code -ne 0
-        echo "SSH: Connection to $argv[1] has been closed."
+        # if test $(expr $end - $start) -gt 60
+        #     clear
+        # end
+        echo "SSH: Connection to $argv[1] has been closed with code $code."
     end
 end
