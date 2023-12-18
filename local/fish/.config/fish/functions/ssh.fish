@@ -1,33 +1,33 @@
 function ssh -d "Make sure we have all the keys before ssh to a host"
     # Disable dotfiles cloning if there's a `-` in ssh arguments
-    if string match -q -- "-*" $argv
+    if string match --regex -q -- "(^| )-" $argv
         command ssh $argv
-        return
+        return $status
     end
 
     # Run ssh-agent via fish shell
     # https://gist.github.com/josh-padnick/c90183be3d0e1feb89afd7573505cab3
     if ! ssh-add -l >/dev/null
         pkill ssh-agent
-        eval (ssh-agent -c)
+        eval $(ssh-agent -c)
         ln -sf "$SSH_AUTH_SOCK" ~/.ssh/ssh_auth_sock
         ln -sf "$SSH_TTY" ~/.ssh/ssh_tty
     end
 
-    if not string match -q -- Darwin (uname)
-        set -f now (date +%s)
-        set -f deadline (expr $now - 86400 + 7200)
+    if not string match -q -- Darwin $(uname)
+        set -f now $(date +%s)
+        set -f deadline $(expr $now - 86400 + 7200)
         set -f have_good_key no
         set -f have_temp_key no
 
-        for ts in (ssh-add -l 2>/dev/null | sed -ne 's/.*temporary key \([0-9]\+\) .*/\1/p')
+        for ts in $(ssh-add -l 2>/dev/null | sed -ne 's/.*temporary key \([0-9]\+\) .*/\1/p')
             set -f have_temp_key yes
-            if [ $ts -gt $deadline ]
+            if test $ts -gt $deadline
                 set -f have_good_key yes
             end
         end
 
-        if [ $have_temp_key = no ] || [ $have_good_key = no ]
+        if test $have_temp_key = no  || test $have_good_key = no
             ssh-add -D
             echo "$COMPANY_NAME_CAPITALIZE's SSH key has expired. Getting a new one..."
             command ssh -A ssh.$COMPANY_DOMAIN
@@ -39,7 +39,7 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
     else
         set REMOTE_HOME_DIR /home/panh
     end
-    set GITLAB_DOMAIN (echo $WORK_EMAIL | awk -F@ '{ print "gitlab."$2 }')
+    set GITLAB_DOMAIN $(echo $WORK_EMAIL | awk -F@ '{ print "gitlab."$2 }')
 
     set REMOTE_COMMAND "
         export HOME=$REMOTE_HOME_DIR
@@ -58,7 +58,7 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
         source ~/.bash_profile
     "
 
-    set -f start $(date +%s)
+    set start $(date +%s)
     if begin
             string match -q -- "git*" $argv
             or string match -q -- "*ssh.$COMPANY_DOMAIN" $argv
@@ -68,13 +68,15 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
     else
         command ssh $argv[1] -t $REMOTE_COMMAND
     end
+    set code $status
 
-    set -f end $(date +%s)
-    set -f code $status
     if test $code -ne 0
-        # if test $(expr $end - $start) -gt 60
-        #     clear
-        # end
+        set end $(date +%s)
+        set duration $(expr $end - $start)
+        if test $duration -gt 10
+            clear
+        end
         echo "SSH: Connection to $argv[1] has been closed with code $code."
     end
+    return $code
 end
