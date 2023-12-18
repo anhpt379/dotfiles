@@ -153,6 +153,12 @@ wget https://github.com/high-moctane/mocword-data/releases/download/eng20200217/
 gunzip mocword.sqlite.gz
 mv mocword.sqlite ~/.config/nvim/dictionaries/mocword.sqlite
 
+# git-absorb
+cargo install git-absorb
+
+wget https://raw.githubusercontent.com/tummychow/git-absorb/master/Documentation/git-absorb.1
+mv git-absorb.1 ~/.local/share/man/man1
+
 # vivid
 wget https://github.com/sharkdp/vivid/releases/download/v0.8.0/vivid-v0.8.0-aarch64-unknown-linux-gnu.tar.gz
 tar zxvf vivid-*.tar.gz
