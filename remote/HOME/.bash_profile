@@ -3,14 +3,16 @@
 source ~/.bashrc
 
 # Pull the full dotfiles in background
-nohup bash -c "
-  cd .files/ &&
-  export GIT_SSH_COMMAND='ssh -i /usr/local/etc/gitlab_ssh_key_dotfiles/id_rsa' &&
-  git fetch --depth 1 origin master &&
-  git checkout FETCH_HEAD &&
-  rsync -av HOME/ ~/
-  source ~/.bashrc
-" > ~/.dotfiles.log 2>&1 &
+if test -f /usr/local/etc/gitlab_ssh_key_dotfiles/id_rsa; then
+  nohup bash -c "
+    cd .files/ &&
+    export GIT_SSH_COMMAND='ssh -i /usr/local/etc/gitlab_ssh_key_dotfiles/id_rsa' &&
+    git fetch --depth 1 origin master &&
+    git checkout FETCH_HEAD &&
+    rsync -av HOME/ ~/
+    source ~/.bashrc
+  " > ~/.dotfiles.log 2>&1 &
+fi
 
 if test -x "$HOME/.local/bin/tmux"; then
   # Auto start tmux

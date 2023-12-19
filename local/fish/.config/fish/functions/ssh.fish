@@ -1,6 +1,6 @@
 function ssh -d "Make sure we have all the keys before ssh to a host"
     # Disable dotfiles cloning if there's a `-` in ssh arguments
-    if string match --regex -q -- "(^| )-" $argv
+    if string match --regex -q -- "(^| )-" $argv || string match --regex -q -- "(^| )trace.*" $argv
         command ssh $argv
         return $status
     end
@@ -36,19 +36,33 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
 
     if string match -q -- "root@*" $argv
         set REMOTE_HOME_DIR /tmp/panh
+    else if string match -q -- "*.compute.amazonaws.com" $argv
+        rsync -azvhP \
+            --info=name0 \
+            --info=progress2 \
+            --no-inc-recursive \
+            --compress-level=9 \
+            --copy-links \
+            --keep-dirlinks \
+            --relative \
+            ~/dotfiles/remote/HOME/./.{bashrc,bash_profile,bash_aliases,inputrc,vimrc,less,terminfo,local/bin/pbcopy,local/bin/pbpaste} "$argv[1]": 2>/dev/null
     else
         set REMOTE_HOME_DIR /home/panh
     end
     set GITLAB_DOMAIN $(echo $WORK_EMAIL | awk -F@ '{ print "gitlab."$2 }')
 
     set REMOTE_COMMAND "
-        export HOME=$REMOTE_HOME_DIR
-        mkdir -p $REMOTE_HOME_DIR
+        if test -n "$REMOTE_HOME_DIR"; then
+            export HOME=$REMOTE_HOME_DIR
+            mkdir -p $REMOTE_HOME_DIR
+        fi
 
         if ! test -d .files; then
-            GIT_SSH_COMMAND='ssh -i /usr/local/etc/gitlab_ssh_key_dotfiles/id_rsa' \
-                git clone --depth=1 --branch=minimal git@$GITLAB_DOMAIN:panh/dotfiles.git .files
-            rsync -av .files/HOME/ ~/
+            if test -f /usr/local/etc/gitlab_ssh_key_dotfiles/id_rsa; then
+                GIT_SSH_COMMAND='ssh -i /usr/local/etc/gitlab_ssh_key_dotfiles/id_rsa' \
+                    git clone --depth=1 --branch=minimal git@$GITLAB_DOMAIN:panh/dotfiles.git .files
+                rsync -av .files/HOME/ ~/
+            fi
         fi
 
         export LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
