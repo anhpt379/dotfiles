@@ -28,6 +28,8 @@ alias m='master'
 alias py='python'
 alias ipy='ipython'
 
+alias sudo="sudo TERMINFO=~/.terminfo"
+
 if test "$(whoami)" = 'root'; then
   alias start='systemctl start'
   alias stop='systemctl stop'
