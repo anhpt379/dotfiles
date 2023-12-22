@@ -102,4 +102,4 @@ augroup copy_text_to_clipboard_on_focus_lost
 augroup end
 
 " Highlight yanked text
-autocmd TextYankPost * silent! lua vim.highlight.on_yank {higroup="Visual", timeout=700}
+autocmd TextYankPost * silent! lua vim.highlight.on_yank {higroup="TextYankPost", timeout=700}
