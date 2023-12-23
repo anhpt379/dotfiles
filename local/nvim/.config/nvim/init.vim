@@ -491,7 +491,7 @@ let g:fzf_buffers_jump = 1
 let g:fzf_layout = {'window': 'enew'}
 let g:fzf_preview_window = ['right:60%', 'ctrl-/']
 let g:fzf_commits_log_options = '
-  \ -5000 --color=always
+  \ -5000 --color=always --no-merges
   \ --format="%C(green)%h %C(reset)%s %C(#555555)%b(%aN - %cr)"
   \ '
 
@@ -1030,6 +1030,7 @@ augroup floaterm
 augroup end
 
 nnoremap gb :FloatermNew! gb<CR>
+nnoremap gr :FloatermNew! gr<CR>
 
 " Vim-after-object: change/delete/select text *after* a character
 augroup vim-after-object

@@ -4,6 +4,7 @@ git rev-parse HEAD >/dev/null || exit 1
 
 get_commit_hash="echo {} | grep -o '^[a-f0-9]\{7,40\} ' | head -1 | xargs"
 view_commit="${get_commit_hash} | xargs -I % git show --color=always %"
+rebase_commit="${get_commit_hash} | xargs -I % git rebase -i --rebase-merges %"
 preview_commit="${get_commit_hash} | \
   xargs -I % git show --color=always % | diff-so-fancy | less --tabs=4 -RX"
 open_in_browser="${get_commit_hash} | \
@@ -42,7 +43,6 @@ else
   fi
 fi
 git_cmd="git log -${num_commits} \
-                 --no-merges \
                  --color=always \
                  --format='%C(green)%h%C(red)%d%Creset %C(reset)%s %C(#696969)%b(%aN - %cr)' \
                  ${args} 2>/dev/null"
@@ -54,6 +54,7 @@ eval "${git_cmd}" |
   sed "s/\`//g" |
   sed -E "s/\\x1b\\[32m[a-f0-9]{7,}+/\\n&/2g" |
   fzf \
+    --prompt="> git rebase -i " \
     --reverse \
     --tiebreak=index \
     --no-multi \
@@ -61,8 +62,8 @@ eval "${git_cmd}" |
     --height=100% \
     --exact \
     --preview="${preview_commit}" \
-    --header="${red}CTRL-/${reset} to toggle preview, ${red}CTRL-S${reset} to toggle sort, ${red}CTRL-Y${reset} to yank commit hash, ${red}CTRL-O${reset} to open commit in browser" \
-    --bind="enter:execute/${view_commit}/" \
+    --header="${red}ENTER${reset} to rebase -i, ${red}CTRL-/${reset} to toggle preview, ${red}CTRL-S${reset} to toggle sort, ${red}CTRL-Y${reset} to yank commit hash, ${red}CTRL-O${reset} to open commit in browser" \
+    --bind="enter:execute/${rebase_commit}/+abort" \
     --bind="ctrl-y:execute-silent/${copy_commit_hash}/+abort" \
     --bind="ctrl-o:execute/${open_in_browser}/" \
     --bind="ctrl-alt-o:execute/${open_in_browser}/" \
