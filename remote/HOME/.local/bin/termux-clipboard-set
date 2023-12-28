@@ -1,1 +1,8 @@
-pbcopy
+#!/bin/bash
+
+python3_path=$(whereis -b python3 | awk '{ print $2 }')
+if test -z "${python3_path}"; then
+  python3_path="/usr/libexec/platform-python"
+fi
+
+exec "${python3_path}" ~/.local/bin/pbcopy
