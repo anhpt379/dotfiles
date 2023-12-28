@@ -86,3 +86,4 @@ vnoremap X ygvX
 
 " Use a less distracting color for line number column
 highlight LineNr ctermfg=green
+highlight Visual ctermfg=0 ctermbg=15
