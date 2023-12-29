@@ -1239,5 +1239,5 @@ augroup puppet_go_to_definition
 augroup end
 
 augroup copy_text_to_clipboard_on_focus_lost
-  autocmd FocusLost * silent! normal! "*ygv
+  autocmd BufLeave,FocusLost * silent! normal! ygv
 augroup end
