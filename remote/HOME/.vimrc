@@ -58,28 +58,30 @@ nnoremap <CR>       :nohlsearch<CR><Left><Right>
 nnoremap <Esc><Esc> :nohlsearch<CR><Left><Right>
 
 " Clipboard
-if filereadable(expand('~/.local/bin/pbcopy'))
-  nnoremap y0  y0:call system("pbcopy", @0)<CR>
-  nnoremap y$  y$:call system("pbcopy", @0)<CR>
-  nnoremap ye  ye:call system("pbcopy", @0)<CR>
-  nnoremap yE  yE:call system("pbcopy", @0)<CR>
-  nnoremap yw  yw:call system("pbcopy", @0)<CR>
-  nnoremap yW  yW:call system("pbcopy", @0)<CR>
-  nnoremap yy  yy:call system("pbcopy", @0)<CR>
-  nnoremap yiw yiw:call system("pbcopy", @0)<CR>
-  nnoremap yib yib:call system("pbcopy", @0)<CR>
-  nnoremap yiq yiq:call system("pbcopy", @0)<CR>
-  nnoremap Y   Y:call system("pbcopy", @0)<CR>
-  vnoremap y   y:call system("pbcopy", @0)<CR>
+if filereadable(expand('~/.local/bin/termux-clipboard-set'))
+  nnoremap y0  y0:call system("~/.local/bin/termux-clipboard-set", @0)<CR>
+  nnoremap y$  y$:call system("~/.local/bin/termux-clipboard-set", @0)<CR>
+  nnoremap ye  ye:call system("~/.local/bin/termux-clipboard-set", @0)<CR>
+  nnoremap yE  yE:call system("~/.local/bin/termux-clipboard-set", @0)<CR>
+  nnoremap yw  yw:call system("~/.local/bin/termux-clipboard-set", @0)<CR>
+  nnoremap yW  yW:call system("~/.local/bin/termux-clipboard-set", @0)<CR>
+  nnoremap yy  yy:call system("~/.local/bin/termux-clipboard-set", @0)<CR>
+  nnoremap yiw yiw:call system("~/.local/bin/termux-clipboard-set", @0)<CR>
+  nnoremap yib yib:call system("~/.local/bin/termux-clipboard-set", @0)<CR>
+  nnoremap yiq yiq:call system("~/.local/bin/termux-clipboard-set", @0)<CR>
+  nnoremap Y   Y:call system("~/.local/bin/termux-clipboard-set", @0)<CR>
+  vnoremap y   y:call system("~/.local/bin/termux-clipboard-set", @0)<CR>
+endif
 
+if filereadable(expand('~/.local/bin/termux-clipboard-get'))
   " Automatically jump to end of text you pasted
-  vnoremap p :<C-u>set paste<CR>:let @a = system("pbpaste")<CR>"ap`]:set nopaste<CR>
-  nnoremap p :set paste<CR>:let @a = system("pbpaste")<CR>"ap`]:set nopaste<CR>
-  vnoremap P :<C-u>set paste<CR>:let @a = system("pbpaste")<CR>"aP`]:set nopaste<CR>
-  nnoremap P :set paste<CR>:let @a = system("pbpaste")<CR>"aP`]:set nopaste<CR>
+  vnoremap p :<C-u>set paste<CR>:let @a = system("~/.local/bin/termux-clipboard-get")<CR>"ap`]:set nopaste<CR>
+  nnoremap p :set paste<CR>:let @a = system("~/.local/bin/termux-clipboard-get")<CR>"ap`]:set nopaste<CR>
+  vnoremap P :<C-u>set paste<CR>:let @a = system("~/.local/bin/termux-clipboard-get")<CR>"aP`]:set nopaste<CR>
+  nnoremap P :set paste<CR>:let @a = system("~/.local/bin/termux-clipboard-get")<CR>"aP`]:set nopaste<CR>
 
   " Don't change the clipboard if paste over a visually selected text
-  xnoremap p "_d:set paste<CR>:let @a = system("pbpaste")<CR>"aP`]:set nopaste<CR>
+  xnoremap p "_d:set paste<CR>:let @a = system("~/.local/bin/termux-clipboard-get")<CR>"aP`]:set nopaste<CR>
 endif
 
 " Fix vim x/X in VISUAL mode doesn't copy text to macOS' clipboard
