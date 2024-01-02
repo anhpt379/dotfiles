@@ -173,6 +173,9 @@ if begin
 else if string match -e -q -- fedora (hostname)
     # Auto start tmux when ssh to the Lima VM
     if test -z "$TMUX"
+        mkdir -p ~/.ssh
+        ln -sf "$SSH_TTY" ~/.ssh/ssh_tty
+
         tmux -u attach || tmux -u new
     end
 end
