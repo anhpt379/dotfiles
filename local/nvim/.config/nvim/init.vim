@@ -1023,6 +1023,7 @@ command! SudoWrite w suda://%
 let g:floaterm_wintype = 'split'
 let g:floaterm_autoclose = 1
 let g:floaterm_open_in_root = v:true
+let g:floaterm_autoclose = 2
 let g:floaterm_giteditor = v:false
 let g:floaterm_shell = '/usr/bin/fish'
 
