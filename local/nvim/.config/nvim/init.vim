@@ -591,9 +591,6 @@ augroup fugitive-personal-key-mappings
   autocmd FileType gitcommit nmap <buffer> gw :x<CR>
   autocmd FileType gitrebase nmap <buffer> gw :x<CR>
 
-  " gr to open repo in browser
-  autocmd FileType fugitive nmap <buffer> gr :<C-u>call vim_git_browse#GitOpenRepo()<CR>
-
   " Open diff in a new buffer by default
   autocmd FileType fugitive map <buffer> <nowait> <CR> O
 
@@ -1007,7 +1004,6 @@ map <silent> gO :GBrowse!<CR>
 " Vim-git-browse
 let g:vim_git_browse_use_default_keymap = 0
 nnoremap <silent> gp :<C-u>call vim_git_browse#GitOpenPipelines()<CR>
-nnoremap <silent> gr :<C-u>call vim_git_browse#GitOpenRepo()<CR>
 nnoremap <silent> gm :!if git branch -a \| grep remotes/ \| grep -q /$(git branch --show-current)$; test $? -eq 1; then
                    \     git push --force-with-lease origin HEAD;
                    \   fi<CR>
