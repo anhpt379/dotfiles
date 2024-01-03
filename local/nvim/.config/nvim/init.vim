@@ -611,6 +611,7 @@ augroup end
 augroup fugitive-auto-insert
   autocmd!
   autocmd BufEnter COMMIT_EDITMSG if empty(getline(1)) | startinsert | endif
+  autocmd FileType gitrebase normal! 4G
 augroup end
 " }}}
 
