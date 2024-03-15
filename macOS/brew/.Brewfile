@@ -1,10 +1,8 @@
 # vim: ft=conf
 tap 'Homebrew/homebrew-autoupdate'
 tap 'homebrew/bundle'
-tap 'homebrew/cask'
 tap 'homebrew/cask-fonts'
 tap 'homebrew/cask-versions'
-tap 'homebrew/core'
 tap 'homebrew/services'
 tap 'superbrothers/opener'
 tap 'dimentium/autoraise'
