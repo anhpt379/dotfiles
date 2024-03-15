@@ -8,6 +8,7 @@ tap 'homebrew/core'
 tap 'homebrew/services'
 tap 'superbrothers/opener'
 tap 'dimentium/autoraise'
+tap 'hashicorp/tap'
 
 cask_args appdir: "~/Applications", require_sha: true, no_quarantine: true
 
@@ -48,6 +49,7 @@ brew 'git'
 brew 'gnu-sed'
 brew 'grc'
 brew 'grep'
+brew 'hashicorp/tap/vault'
 brew 'jq'    # for youtube-dl/download.sh to work
 brew 'less'
 brew 'lf'
@@ -61,6 +63,7 @@ brew 'telnet'
 brew 'trash'
 brew 'wget'
 brew 'xh'
+brew 'yt-dlp'
 
 brew 'corkscrew'
 brew 'noti'
