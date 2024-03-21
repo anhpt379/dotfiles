@@ -222,6 +222,9 @@ set colorcolumn=+1
 " Make the keyboard faaaaaaast
 set ttimeoutlen=5
 
+" Fix unable to call `gl` from `gs` buffer
+set nowinfixbuf
+
 " Fix slow Gstatus
 " https://github.com/tpope/vim-fugitive/issues/1176
 " This also speeds up everything, vim becomes much faster after this change
