@@ -72,7 +72,6 @@ call plug#begin()
   Plug 'anhpt379/vim-move'
   Plug 'tyru/open-browser.vim'
   Plug 'svban/YankAssassin.vim'
-  Plug 'roxma/vim-tmux-clipboard'
 
   " Improve performance
   Plug 'antoinemadec/FixCursorHold.nvim'
