@@ -44,6 +44,7 @@ brew 'fish'
 brew 'fzf'
 brew 'gawk'
 brew 'git'
+brew 'go'    # to build Kitty from source
 brew 'gnu-sed'
 brew 'grc'
 brew 'grep'
