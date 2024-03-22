@@ -1,4 +1,11 @@
 function fish_prompt
+    set -l duration_seconds $(math round $CMD_DURATION / 1000)
+    if test $duration_seconds -ge 1
+        set_color yellow
+        echo "Executed in $(humantime $CMD_DURATION)"
+        set -g CMD_DURATION 0
+        set_color normal
+    end
     set -l last_command_status $status
 
     set -l cwd (prompt_pwd)
