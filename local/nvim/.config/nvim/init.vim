@@ -224,6 +224,8 @@ set ttimeoutlen=5
 " Fix unable to call `gl` from `gs` buffer
 set nowinfixbuf
 
+set fillchars+=vert:\ "White space at the end
+
 " Fix slow Gstatus
 " https://github.com/tpope/vim-fugitive/issues/1176
 " This also speeds up everything, vim becomes much faster after this change
