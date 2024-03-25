@@ -606,6 +606,9 @@ augroup fugitive-personal-key-mappings
   " x is easier to type than X
   autocmd FileType fugitive map <buffer> <nowait> x X
 
+  " gr to rebase
+  autocmd FileType fugitive map <buffer> <nowait> gr :FloatermNew! gr<CR>
+
   " Left padding
   autocmd FileType fugitive set signcolumn=yes | set number
 
