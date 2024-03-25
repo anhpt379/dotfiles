@@ -2,7 +2,7 @@
 
 cd ~/Music/youtube-dl/ || exit 1
 
-PLAYLIST="https://www.youtube.com/playlist?list=LLWHbPRck8HGdTIBFaYRjmsg"
+PLAYLIST="https://www.youtube.com/playlist?list=PLeLnWJJvTR97ou1kSvpGxXAz8kpieOCpK"
 
 yt-dlp \
   --dump-json \
