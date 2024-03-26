@@ -63,16 +63,16 @@ function fish_prompt
             echo -n -s " "
         end
 
-        # The space we see below is not a normal space, it's a thin space (U+2009).
-        # I use it as a marker, when combining with tmux `search-backward` we can
-        # jump to the previous/next prompt in the scrollback (by searching for the
-        # character).
+        # The character below I use it as a marker, when combining with tmux
+        # `search-backward` we can jump to the previous/next prompt in the scrollback
+        # (by searching for the character).
         if test $last_command_status -eq 0
-            echo -n -s (set_color -b cyan) " "
+            echo -n -s (set_color cyan) "█"
         else
-            echo -n -s (set_color -b red) " "
+            echo -n -s (set_color red) "█"
         end
 
+        set_color normal
         echo -n -s $prompt_background_color
 
         if test $kernel = Linux; and git_is_repo
