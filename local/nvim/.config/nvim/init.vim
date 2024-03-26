@@ -41,7 +41,6 @@ call plug#begin()
   Plug 'breuckelen/vim-resize'
   Plug 'ptzz/lf.vim', {'tag': 'v1.2'} | Plug 'rbgrouleff/bclose.vim'
   Plug 'roman/golden-ratio'
-  Plug 'voldikss/vim-floaterm'
 
   " Improving editing experience
   Plug 'anhpt379/targets.vim'
@@ -607,7 +606,7 @@ augroup fugitive-personal-key-mappings
   autocmd FileType fugitive map <buffer> <nowait> x X
 
   " gr to rebase
-  autocmd FileType fugitive map <buffer> <nowait> gr :FloatermNew! gr<CR>
+  autocmd FileType fugitive map <buffer> <nowait> gr :call TermOpen('gr')<CR>
 
   " Left padding
   autocmd FileType fugitive set signcolumn=yes | set number
@@ -1024,21 +1023,6 @@ let g:suda_smart_edit = 1
 let g:suda#try_without_password = !has('nvim')
 command! SudoWrite w suda://%
 
-" Floaterm
-let g:floaterm_wintype = 'split'
-let g:floaterm_autoclose = 1
-let g:floaterm_open_in_root = v:true
-let g:floaterm_autoclose = 2
-let g:floaterm_giteditor = v:false
-let g:floaterm_shell = '/usr/bin/fish'
-
-augroup floaterm
-  autocmd User Startified setlocal buflisted
-augroup end
-
-nnoremap gb :FloatermNew! gb<CR>
-nnoremap gr :FloatermNew! gr<CR>
-
 " Vim-after-object: change/delete/select text *after* a character
 augroup vim-after-object
   autocmd VimEnter * silent! call after_object#enable([']', '['], '=', ':', '#', ' ', '|', '*')
@@ -1248,3 +1232,15 @@ augroup end
 augroup copy_text_to_clipboard_on_focus_lost
   autocmd BufLeave,FocusLost * silent! normal! ygv
 augroup end
+
+function TermOpen(cmd)
+  let callback = {}
+  function! callback.on_exit(job_id, code, event)
+    silent! Bclose!
+  endfunction
+  enew
+  call termopen(a:cmd, callback)
+  startinsert
+endfun
+nnoremap gb :call TermOpen('gb')<CR>
+nnoremap gr :call TermOpen('gr')<CR>
