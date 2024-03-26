@@ -606,7 +606,7 @@ augroup fugitive-personal-key-mappings
   autocmd FileType fugitive map <buffer> <nowait> x X
 
   " gr to rebase
-  autocmd FileType fugitive map <buffer> <nowait> gr :call TermOpen('gr')<CR>
+  autocmd FileType fugitive map <buffer> <nowait> gr :G rebase -i master<CR>
 
   " Left padding
   autocmd FileType fugitive set signcolumn=yes | set number
@@ -1243,4 +1243,4 @@ function TermOpen(cmd)
   startinsert
 endfun
 nnoremap gb :call TermOpen('gb')<CR>
-nnoremap gr :call TermOpen('gr')<CR>
+nnoremap gr :G rebase -i master<CR>
