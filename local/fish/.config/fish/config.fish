@@ -1,5 +1,9 @@
 #!/usr/bin/env fish
 
+if string match -q -- Darwin (uname); and status is-interactive
+  cd ~/dotfiles
+end
+
 if not set -q WORK_EMAIL
     if test -f ~/code/work/.gitconfig
         set -gx WORK_EMAIL (cat ~/code/work/.gitconfig | grep '@' | head -1 | awk '{ print $NF }')
