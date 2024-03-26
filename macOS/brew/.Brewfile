@@ -7,6 +7,7 @@ tap 'homebrew/services'
 tap 'superbrothers/opener'
 tap 'dimentium/autoraise'
 tap 'hashicorp/tap'
+tap 'anhpt379/homebrew-neovim-nightly'
 
 cask_args appdir: "~/Applications", require_sha: true, no_quarantine: true
 
@@ -21,6 +22,7 @@ cask 'key-codes'
 cask 'kitty'
 cask 'maccy'
 cask 'macdown'
+cask 'neovim-nightly'
 cask 'qbserve'
 cask 'rectangle'
 cask 'stats'
