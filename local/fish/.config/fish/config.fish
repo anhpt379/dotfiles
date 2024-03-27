@@ -163,12 +163,6 @@ if begin
     # Tell nvimpager where the nvim is
     set -gx NVIM ~/.local/bin/nvim
 
-    # Fix `exa -l` complaining about timezone:
-    #
-    #   Unable to determine time zone: No such file or directory (os error 2)
-    #
-    set --erase TZ
-
     # Fix <C-c> doesn't work in remote fish
     bind \cc 'commandline ""'
 
