@@ -30,7 +30,13 @@ done
 
 if [ "${cmd_name}" = "gl" ]; then
   if [ "${args_count}" -eq 1 ]; then
-    args="--follow -- '${args_array[0]}'"
+    IFS=: read -r file line <<< ${args_array[0]}
+
+    if test -z $line; then
+      args="--follow $file"
+    else
+      args="-L $line,$line:$file"
+    fi
   fi
 elif [ "${cmd_name}" = "gd" ]; then
   args="-p --unified=0"

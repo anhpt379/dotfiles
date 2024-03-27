@@ -33,8 +33,8 @@ call plug#begin()
   Plug 'rhysd/vim-syntax-codeowners'
 
   " Fancy UI stuff
-  Plug 'anhpt379/fzf'
-  Plug 'anhpt379/fzf.vim'
+  Plug 'junegunn/fzf'
+  Plug 'junegunn/fzf.vim'
   Plug 'anhpt379/fzf-filemru'
   Plug 'chrisbra/Colorizer'
   Plug 'ryanoasis/vim-devicons'
@@ -548,9 +548,21 @@ tnoremap <C-BS> <C-w>
 " }}}
 
 " Git {{{
+function TermOpen(cmd)
+  set nowinfixbuf
+  let callback = {}
+  function! callback.on_exit(job_id, code, event)
+    silent! Bclose!
+  endfunction
+  enew
+  call termopen(a:cmd, callback)
+  startinsert
+endfun
+noremap gb :call TermOpen('gb')<CR>
+noremap gr :G rebase -i master<CR>
 noremap gs :tab Git<CR>gg4j
-noremap gl :FzfCommits<CR>
-noremap gL :FzfBCommits<CR>
+noremap gl :call TermOpen('gl')<CR>
+noremap gL :call TermOpen('gl ' . expand('%:p'))<CR>
 noremap <expr> gw &modified ? ':silent! Gwrite<CR>:update<CR>' : ''
 
 command! Gundo               silent! G undo
@@ -564,7 +576,7 @@ command! Gcherrypickcontinue silent! G cherry-pick --continue
 command! Gcherrypickabort    silent! G cherry-pick --abort
 
 let g:dispatch_no_maps = 1
-map m Vgl
+map m :call TermOpen('gl ' . expand('%:p') . ':' . line('.'))<CR>
 
 nmap g[ :Start! git pull --rebase origin $(git default-branch)<CR>
 nmap g] :Start! git push --force-with-lease origin HEAD<CR>:silent exec '!git rev-parse --short HEAD \| tr -d "\n" \| pbcopy'<CR>
@@ -1232,15 +1244,3 @@ augroup end
 augroup copy_text_to_clipboard_on_focus_lost
   autocmd BufLeave,FocusLost * silent! normal! ygv
 augroup end
-
-function TermOpen(cmd)
-  let callback = {}
-  function! callback.on_exit(job_id, code, event)
-    silent! Bclose!
-  endfunction
-  enew
-  call termopen(a:cmd, callback)
-  startinsert
-endfun
-nnoremap gb :call TermOpen('gb')<CR>
-nnoremap gr :G rebase -i master<CR>
