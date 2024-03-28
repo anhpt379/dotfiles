@@ -1,6 +1,5 @@
 *.py[cod]
 .DS_Store
-.vagrant
 local/fish/.config/fish/completions/fisher.fish
 local/fish/.config/fish/conf.d/autopair.fish
 local/fish/.config/fish/conf.d/z.fish
