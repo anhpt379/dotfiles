@@ -115,3 +115,8 @@ ZSH_HIGHLIGHT_STYLES[path]='bold'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Lima BEGIN
+# Make sure iptables and mount.fuse3 are available
+PATH="$PATH:/usr/sbin:/sbin"
+export PATH
+# Lima END
