@@ -173,6 +173,12 @@ sudo dnf install -y docker docker-compose
 sudo systemctl enable docker
 sudo systemctl start docker
 
+# vault
+wget https://releases.hashicorp.com/vault/1.16.0/vault_1.16.0_linux_arm64.zip
+unzip vault_1.16.0_linux_arm64.zip
+mv vault ~/.local/bin/
+rm -f vault_1.16.0_linux_arm64.zip
+
 # wakapi
 sudo docker-compose -f ~/dotfiles/local/docker-compose.yml up -d
 
