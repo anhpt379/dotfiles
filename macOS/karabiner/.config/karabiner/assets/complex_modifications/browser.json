@@ -25,7 +25,8 @@
                 "^com\\.apple\\.Safari$",
                 "^com\\.google\\.Chrome$",
                 "^org\\.mozilla\\.firefox$",
-                "^com\\.kagi\\.kagimacOS$"
+                "^com\\.kagi\\.kagimacOS$",
+                "^company\\.thebrowser\\.Browser$"
               ]
             }
           ]
@@ -122,7 +123,8 @@
                 "^com\\.apple\\.Safari$",
                 "^com\\.google\\.Chrome$",
                 "^org\\.mozilla\\.firefox$",
-                "^com\\.kagi\\.kagimacOS$"
+                "^com\\.kagi\\.kagimacOS$",
+                "^company\\.thebrowser\\.Browser$"
               ]
             }
           ]

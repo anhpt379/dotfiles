@@ -2,7 +2,7 @@
   "title": "Open macOS apps with COMMAND+CONTROL+C/K/N/M/S",
   "rules": [
     {
-      "description": "Open Chrome with COMMAND+CONTROL+C",
+      "description": "Open Arc with COMMAND+CONTROL+C",
       "manipulators": [
         {
           "type": "basic",
@@ -14,7 +14,7 @@
           },
           "to": [
             {
-              "shell_command": "open -a 'Google Chrome.app'"
+              "shell_command": "open -a 'Arc.app'"
             }
           ]
         }
