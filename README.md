@@ -13,7 +13,11 @@ Clone this repo to `~/dotfiles` and follow the instructions in
 I'm using this lima [fedora](macOS/lima/fedora.yaml) image at the moment.
 
 ```bash
-limactl start --name=fedora macOS/lima/fedora.yaml
+limactl start --name=fedora39 macOS/lima/fedora39.yaml
+limactl shell fedora39
+cd ~
+git clone https://github.com/anhpt379/dotfiles.git
+bash dotfiles/local/bootstrap.sh
 ```
 
 ## The setup

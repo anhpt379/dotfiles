@@ -15,4 +15,6 @@ local/ssh/.ssh/ssh_auth_sock
 local/wakapi-data/wakapi.db
 macOS/Brewfile.lock.json
 macOS/ssh/.ssh/id_ed25519
+macOS/ssh/.ssh/ssh_tty
+macOS/ssh/.ssh/ssh_auth_sock
 tags

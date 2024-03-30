@@ -25,6 +25,8 @@ sudo usermod -s /bin/fish $USER
 curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
 
 # stow
+mkdir -p ~/.local/bin/
+mkdir -p ~/.config/nvim/undo/
 stow bash
 stow bin
 stow curl
