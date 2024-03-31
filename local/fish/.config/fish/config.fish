@@ -1,5 +1,10 @@
 #!/usr/bin/env fish
 
+# If not running interactively, don't do anything and return early
+if not status is-interactive
+    exit 0
+end
+
 if string match -q -- Darwin (uname); and status is-interactive
     if test -d ~/dotfiles/
         cd ~/dotfiles

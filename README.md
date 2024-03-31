@@ -10,7 +10,7 @@
 Clone this repo to `~/dotfiles` and follow the instructions in
 `macOS/bootstrap.sh` and `local/bootstrap.sh`.
 
-I'm using this lima [fedora](macOS/lima/fedora.yaml) image at the moment.
+I'm using this lima [fedora39](macOS/lima/fedora39.yaml) image at the moment.
 
 ```bash
 limactl start --name=fedora39 macOS/lima/fedora39.yaml
@@ -19,6 +19,26 @@ sudo dnf install -y git
 cd ~
 git clone https://github.com/anhpt379/dotfiles.git
 bash dotfiles/local/bootstrap.sh
+
+# If moving to a newer VM, use these commands to transfer the data:
+limactl copy -r fedora:~/.local/share/fish/fish_history fedora39:~/.local/share/fish/
+limactl copy -r fedora:~/.ssh/conf.d/work.conf fedora39:~/.ssh/conf.d/
+limactl copy -r fedora:~/.ssh/id_ed25519 fedora39:~/.ssh/
+limactl copy -r fedora:~/notes fedora39:~/notes
+limactl copy -r fedora:~/data fedora39:~/data
+
+# On the old VM:
+tar cf code.tar ~/code
+
+# Then, on macOS:
+limactl copy -r fedora:~/code.tar fedora39:~/code.tar
+
+# Then, on the new VM:
+cd
+tar xf code.tar
+
+# Finally, go back to macOS and create a snapshot for the new VM:
+limactl snapshot create fedora39 --tag v1
 ```
 
 ## The setup
