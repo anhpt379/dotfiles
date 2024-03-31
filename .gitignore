@@ -7,6 +7,9 @@ local/fish/.config/fish/fish_variables
 local/fish/.config/fish/functions/__z*.fish
 local/fish/.config/fish/functions/_autopair_*.fish
 local/fish/.config/fish/functions/fisher.fish
+local/fish/.config/fish/functions/humantime.fish
+local/fish/.config/fish/functions/replay.fish
+local/fish/.config/fish/completions/replay.fish
 local/nvim/.config/nvim/autoload/plug.vim*
 local/nvim/.config/nvim/dictionaries/mocword.sqlite
 local/ssh/.ssh/id_ed25519

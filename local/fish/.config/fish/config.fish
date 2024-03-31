@@ -1,7 +1,9 @@
 #!/usr/bin/env fish
 
 if string match -q -- Darwin (uname); and status is-interactive
-  cd ~/dotfiles
+    if test -d ~/dotfiles/
+        cd ~/dotfiles
+    end
 end
 
 if not set -q WORK_EMAIL

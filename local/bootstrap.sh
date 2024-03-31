@@ -1,6 +1,7 @@
 #!/bin/bash
 
 sudo dnf install -y \
+  kitty-terminfo which \
   stow git fish tmux \
   jq ripgrep exa rsync \
   curl wget nmap-ncat \
@@ -22,7 +23,9 @@ stow fish
 sudo usermod -s /bin/fish $USER
 
 # fisher
-curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
+fish -c 'curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher'
+git checkout origin/master local/fish/.config/fish/fish_plugins
+fish -c 'fisher update'
 
 # stow
 mkdir -p ~/.local/bin/
@@ -56,6 +59,8 @@ git checkout nightly
 make CMAKE_BUILD_TYPE=RelWithDebInfo
 sudo make install
 nvim --version
+cd ..
+rm -rf neovim
 
 # nvimpager
 sudo dnf install -y scdoc
@@ -98,17 +103,17 @@ cp build/fastgron ~/.local/bin/
 cd - || exit 1
 
 # nvim
-nvim -c "PlugInstall" -c "qall"
+nvim -c "PlugInstall" -c "TSInstall all" -c "qall"
 
 # code formatters
-sudo dnf install shfmt
+sudo dnf install -y shfmt
 pip3 install black
 sudo npm install -g @fsouza/prettierd
 pip3 install yamlfixer-opt-nc
 
 # python/ruby/node.js provider
 pip3 install neovim
-gem install --bindir ~/.local/bin/ neovim
+sudo gem install --bindir ~/.local/bin/ neovim
 sudo npm install -g neovim
 
 # tree-sitter
@@ -204,4 +209,4 @@ echo '[user]' > ~/code/work/.gitconfig
 echo '  email = work.email@company.com' >> ~/code/work/.gitconfig
 
 # reboot to finish changing the shell to fish
-reboot
+sudo reboot

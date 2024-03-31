@@ -15,6 +15,7 @@ I'm using this lima [fedora](macOS/lima/fedora.yaml) image at the moment.
 ```bash
 limactl start --name=fedora39 macOS/lima/fedora39.yaml
 limactl shell fedora39
+sudo dnf install -y git
 cd ~
 git clone https://github.com/anhpt379/dotfiles.git
 bash dotfiles/local/bootstrap.sh
