@@ -22,6 +22,7 @@ bash dotfiles/local/bootstrap.sh
 
 # If moving to a newer VM, use these commands to transfer the data:
 limactl copy -r fedora:~/.local/share/fish/fish_history fedora39:~/.local/share/fish/
+limactl copy -r fedora:~/.local/share/z/data fedora39:~/.local/share/z
 limactl copy -r fedora:~/.ssh/conf.d/work.conf fedora39:~/.ssh/conf.d/
 limactl copy -r fedora:~/.ssh/id_ed25519 fedora39:~/.ssh/
 limactl copy -r fedora:~/notes fedora39:~/notes
