@@ -29,8 +29,8 @@ def handle_result(args, data, target_window_id, boss):
         def send_password():
             password = subprocess.run(
                 args[1:], capture_output=True, text=True, check=True
-            ).stdout
-            w.paste_text(password)
+            ).stdout.strip()
+            w.paste_bytes(f'{password}\r')
 
         def is_set(flag):
             return bool(c_lflag & flag)
