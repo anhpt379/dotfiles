@@ -32,9 +32,6 @@ else
   PS1="[\h \w]$ "
 fi
 
-# Fix `sudo lla` doesn't work in bash
-alias sudo='sudo -E '
-
 # Reset cursor shape to beam
 PROMPT_COMMAND="printf '\033[6 q'"
 

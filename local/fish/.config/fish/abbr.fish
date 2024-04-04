@@ -88,3 +88,5 @@ abbr -a --position=anywhere W '| wc -l'
 
 abbr -a urldecode 'python3 -c "import sys; from urllib.parse import unquote; print(unquote(sys.stdin.read()));"'
 abbr -a urlencode 'python3 -c "import sys; from urllib.parse import quote; print(quote(sys.stdin.read()));"'
+
+abbr -a r. 'rm -rf ~/.*; GIT_SSH_COMMAND="ssh -i /usr/local/etc/gitlab_ssh_key_dotfiles/id_rsa" git clone --depth=1 git@$GITLAB_DOMAIN:panh/dotfiles.git .files && rsync -av .files/HOME/ ~/'

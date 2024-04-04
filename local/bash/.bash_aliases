@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Fix `sudo lla` doesn't work in bash
+alias sudo='sudo -E '
+
 # Some commonly used aliases
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -25,10 +28,11 @@ alias q='exit'
 alias c='clear'
 alias m='master'
 
+# Reset dotfiles with `r.`
+alias r.='rm -rf ~/.*; GIT_SSH_COMMAND="ssh -i /usr/local/etc/gitlab_ssh_key_dotfiles/id_rsa" git clone --depth=1 git@$GITLAB_DOMAIN:panh/dotfiles.git .files && rsync -av .files/HOME/ ~/'
+
 alias py='python'
 alias ipy='ipython'
-
-alias sudo="sudo TERMINFO=~/.terminfo"
 
 if test "$(whoami)" = 'root'; then
   alias start='systemctl start'
