@@ -557,7 +557,7 @@ function TermOpen(cmd)
 endfun
 noremap gb :call TermOpen('gb')<CR>
 noremap gr :G rebase -i --autosquash master<CR>
-noremap ga :G absorb --and-rebase
+noremap ga :G absorb --and-rebase<CR>
 noremap gs :tab Git<CR>gg4j
 noremap gl :call TermOpen('gl')<CR>
 noremap gL :call TermOpen('gl ' . expand('%:p'))<CR>
