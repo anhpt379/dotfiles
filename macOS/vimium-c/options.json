@@ -1,7 +1,7 @@
 {
 	"name": "Vimium C",
-	"@time": "4/8/2024, 2:02:09 PM",
-	"time": 1712577729868,
+	"@time": "4/8/2024, 7:37:52 PM",
+	"time": 1712597872112,
 	"environment": {
 		"extension": "1.99.994",
 		"platform": "mac",
@@ -11,6 +11,7 @@
 	"autoDarkMode": 0,
 	"autoReduceMotion": 0,
 	"exclusionRules": [],
+	"filterLinkHints": true,
 	"keyLayout": 2,
 	"keyMappings": [
 		"#!no-check",
@@ -54,13 +55,9 @@
 		"  bottom: unset;",
 		"  min-width: 250px;",
 		"  border-radius: 4px;",
-		"  padding: 4px 8px;",
+		"  padding: 8px;",
 		"  line-height: 20px;",
-		"  --ring-offset-shadow: 0 0 #0000;",
-		"  --ring-shadow: 0 0 #0000;",
-		"  --shadow: 0 7px 20px -7px rgba(0, 0, 0, 0.5);",
-		"  box-shadow: var(--ring-offset-shadow, 0 0 #0000),",
-		"    var(--ring-shadow, 0 0 #0000), var(--shadow);",
+		"  box-shadow: 0 7px 20px -7px rgba(0, 0, 0, 0.5);",
 		"}",
 		"",
 		".HUD:after {",
@@ -81,11 +78,7 @@
 		"  border: 0.1px solid #bbb;",
 		"",
 		"  margin: 50px;",
-		"  --ring-offset-shadow: 0 0 #0000;",
-		"  --ring-shadow: 0 0 #0000;",
-		"  --shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);",
-		"  box-shadow: var(--ring-offset-shadow, 0 0 #0000),",
-		"    var(--ring-shadow, 0 0 #0000), var(--shadow);",
+		"  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);",
 		"}",
 		"",
 		".inactive {",
@@ -204,5 +197,6 @@
 		"queryInterval": 60,
 		"sizes": "200,1000,44,.6",
 		"styles": "time"
-	}
+	},
+	"waitForEnter": false
 }
