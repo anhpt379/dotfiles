@@ -1,31 +1,39 @@
 /* #ui */
 .HUD {
-  top: 5px;
+  top: 10px;
   bottom: unset;
-  padding: 4px;
   min-width: 250px;
+  border-radius: 4px;
+  padding: 4px 8px;
+  line-height: 20px;
+  --ring-offset-shadow: 0 0 #0000;
+  --ring-shadow: 0 0 #0000;
+  --shadow: 0 7px 20px -7px rgba(0, 0, 0, 0.5);
+  box-shadow: var(--ring-offset-shadow, 0 0 #0000),
+    var(--ring-shadow, 0 0 #0000), var(--shadow);
 }
 
 .HUD:after {
-  background: white;
+  background-color: #f8f8f8;
+  border: 0.1px solid #bbb;
   border-radius: 4px;
-  border: 1px solid #bbb;
 }
 
 .HUD.UI {
   height: 26px;
+  padding: 8px 4px 0;
 }
 
 /* #omni */
 body {
   background-color: #f8f8f8;
   border-radius: 12px;
-  border: 1px solid #e1e1e1;
+  border: 0.1px solid #bbb;
 
   margin: 50px;
   --ring-offset-shadow: 0 0 #0000;
   --ring-shadow: 0 0 #0000;
-  --shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
   box-shadow: var(--ring-offset-shadow, 0 0 #0000),
     var(--ring-shadow, 0 0 #0000), var(--shadow);
 }
@@ -62,7 +70,8 @@ body {
   margin: 0 8px;
 }
 
-.item.s, .item.s:hover {
+.item.s,
+.item.s:hover {
   background-color: hsla(0, 0%, 83%, 0.7);
 }
 
@@ -111,7 +120,8 @@ a {
 /* #find */
 .r {
   box-shadow: unset;
-  padding: 4px;
+  background: unset;
+  padding: 0;
 }
 
 #s {
