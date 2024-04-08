@@ -62,12 +62,12 @@ body {
   margin: 0 8px;
 }
 
-.item.s {
+.item.s, .item.s:hover {
   background-color: hsla(0, 0%, 83%, 0.7);
 }
 
 .item:hover {
-  background-color: hsla(0, 0%, 83%, 0.2);
+  background-color: unset;
 }
 
 .icon {
