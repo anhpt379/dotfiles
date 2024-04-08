@@ -1,7 +1,7 @@
 {
 	"name": "Vimium C",
-	"@time": "4/8/2024, 7:37:52 PM",
-	"time": 1712597872112,
+	"@time": "4/8/2024, 9:27:50 PM",
+	"time": 1712604470851,
 	"environment": {
 		"extension": "1.99.994",
 		"platform": "mac",
@@ -102,7 +102,15 @@
 		"",
 		"#list {",
 		"  background: unset;",
-		"  padding: 8px 0;",
+		"  padding: 0;",
+		"}",
+		"",
+		"#list .item:first-child {",
+		"  margin-top: 8px;",
+		"}",
+		"",
+		"#list .item:last-child {",
+		"  margin-bottom: 8px;",
 		"}",
 		"",
 		".item {",
@@ -193,7 +201,7 @@
 	"vimSync": true,
 	"vomnibarOptions": {
 		"actions": "",
-		"maxMatches": 5,
+		"maxMatches": 10,
 		"queryInterval": 60,
 		"sizes": "200,1000,44,.6",
 		"styles": "time"

@@ -51,7 +51,15 @@ body {
 
 #list {
   background: unset;
-  padding: 8px 0;
+  padding: 0;
+}
+
+#list .item:first-child {
+  margin-top: 8px;
+}
+
+#list .item:last-child {
+  margin-bottom: 8px;
 }
 
 .item {
