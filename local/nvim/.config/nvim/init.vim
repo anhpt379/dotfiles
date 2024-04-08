@@ -54,6 +54,7 @@ call plug#begin()
   Plug 'paretje/suda.vim'
   Plug 'tpope/vim-eunuch'
   Plug 'anhpt379/vim-unimpaired'
+  Plug 'rhysd/clever-f.vim'
   Plug 'junegunn/vim-easy-align'
   Plug 'RRethy/nvim-treesitter-endwise'
   Plug 'cohama/lexima.vim'
@@ -70,7 +71,6 @@ call plug#begin()
   Plug 'anhpt379/vim-move'
   Plug 'tyru/open-browser.vim'
   Plug 'svban/YankAssassin.vim'
-  Plug 'justinmk/vim-sneak'
 
   " Improve performance
   Plug 'antoinemadec/FixCursorHold.nvim'
@@ -263,9 +263,9 @@ set shadafile=~/.local/state/nvim/shada/main.shada
 set ignorecase
 set smartcase
 
-" Clear search highlighting by pressing Enter/Esc
-nnoremap <CR>  :nohlsearch<CR>
-nnoremap <Esc> :nohlsearch<CR>
+" Clear search/clever-f highlighting by pressing Enter/Esc
+nnoremap <CR>  :nohlsearch<CR><Left><Right>
+nnoremap <Esc> :nohlsearch<CR><Left><Right>
 
 " Live substitution
 set inccommand=split
@@ -743,12 +743,6 @@ augroup end
 let g:lexima_map_escape = ''
 let g:lexima_enable_basic_rules = 0
 
-" sneak
-let g:sneak#s_next = 1
-let g:sneak#label = 1
-map f <Plug>Sneak_s
-map F <Plug>Sneak_S
-
 " Sandwich
 runtime macros/sandwich/keymap/surround.vim
 xmap a <Plug>(operator-sandwich-add)
@@ -930,6 +924,13 @@ autocmd TermOpen  * if g:hostname =~# 'fedora' | set showtabline=0 | endif | set
 autocmd TermEnter * if g:hostname =~# 'fedora' | set showtabline=0 | endif | set nonumber | set signcolumn=no
 autocmd TermLeave * if g:hostname =~# 'fedora' | set showtabline=2 | endif | set number   | set signcolumn=yes | :EnableWhitespace
 map <Leader>l :<C-u>Lf<CR>
+
+" Clever-f
+let g:clever_f_ignore_case = 0
+let g:clever_f_smart_case = 0
+let g:clever_f_fix_key_direction = 0
+let g:clever_f_mark_direct = 1
+let g:clever_f_across_no_line = 1
 
 " Make diffing better: https://vimways.org/2018/the-power-of-diff/
 set diffopt+=algorithm:patience
