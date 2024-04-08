@@ -4,13 +4,9 @@
   bottom: unset;
   min-width: 250px;
   border-radius: 4px;
-  padding: 4px 8px;
+  padding: 8px;
   line-height: 20px;
-  --ring-offset-shadow: 0 0 #0000;
-  --ring-shadow: 0 0 #0000;
-  --shadow: 0 7px 20px -7px rgba(0, 0, 0, 0.5);
-  box-shadow: var(--ring-offset-shadow, 0 0 #0000),
-    var(--ring-shadow, 0 0 #0000), var(--shadow);
+  box-shadow: 0 7px 20px -7px rgba(0, 0, 0, 0.5);
 }
 
 .HUD:after {
@@ -31,11 +27,7 @@ body {
   border: 0.1px solid #bbb;
 
   margin: 50px;
-  --ring-offset-shadow: 0 0 #0000;
-  --ring-shadow: 0 0 #0000;
-  --shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-  box-shadow: var(--ring-offset-shadow, 0 0 #0000),
-    var(--ring-shadow, 0 0 #0000), var(--shadow);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
 }
 
 .inactive {
