@@ -75,15 +75,14 @@
       ]
     },
     {
-      "description": "Arc - OPTION+TAB to open Tab Switcher",
+      "description": "Arc - COMMAND+` to switch to last used tab",
       "manipulators": [
         {
           "type": "basic",
           "from": {
-            "key_code": "tab",
+            "key_code": "grave_accent_and_tilde",
             "modifiers": {
-              "mandatory": ["option"],
-              "optional": ["shift"]
+              "mandatory": ["command"]
             }
           },
           "to": [
