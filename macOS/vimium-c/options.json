@@ -1,7 +1,7 @@
 {
 	"name": "Vimium C",
-	"@time": "4/9/2024, 10:21:12 AM",
-	"time": 1712650872538,
+	"@time": "4/9/2024, 8:51:28 PM",
+	"time": 1712688688983,
 	"environment": {
 		"extension": "1.99.994",
 		"platform": "mac",
@@ -11,6 +11,11 @@
 	"autoDarkMode": 0,
 	"autoReduceMotion": 0,
 	"exclusionRules": [],
+	"extAllowList": [
+		"# Shortcuts Forwarding Tool",
+		"clnalilglegcjmlgenoppklmfppddien",
+		""
+	],
 	"filterLinkHints": true,
 	"grabBackFocus": true,
 	"keyLayout": 2,
@@ -36,6 +41,7 @@
 		"map ` visitPreviousTab",
 		"map c captureTab",
 		"map gx autoOpen",
+		"shortcut userCustomized1 command=\"createTab\" url=\"chrome://history/\" $then=\"Vomnibar.activate\"",
 		""
 	],
 	"keyupTime": 60,
@@ -216,3 +222,4 @@
 	},
 	"waitForEnter": false
 }
+
