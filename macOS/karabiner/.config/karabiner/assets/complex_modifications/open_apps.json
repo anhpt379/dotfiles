@@ -1,15 +1,15 @@
 {
-  "title": "Open macOS apps with COMMAND+CONTROL+C/K/N/M/S",
+  "title": "Open macOS apps with COMMAND+1/2/3/4",
   "rules": [
     {
-      "description": "Open Arc with COMMAND+CONTROL+C",
+      "description": "Open Arc with COMMAND+1",
       "manipulators": [
         {
           "type": "basic",
           "from": {
-            "key_code": "c",
+            "key_code": "1",
             "modifiers": {
-              "mandatory": ["command", "control"]
+              "mandatory": ["command"]
             }
           },
           "to": [
@@ -21,52 +21,14 @@
       ]
     },
     {
-      "description": "Open Slack with COMMAND+CONTROL+S",
+      "description": "Open Kitty with COMMAND+2",
       "manipulators": [
         {
           "type": "basic",
           "from": {
-            "key_code": "s",
+            "key_code": "2",
             "modifiers": {
-              "mandatory": ["command", "control"]
-            }
-          },
-          "to": [
-            {
-              "shell_command": "open -a 'Slack.app'"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "Open Notes with COMMAND+CONTROL+N",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "n",
-            "modifiers": {
-              "mandatory": ["command", "control"]
-            }
-          },
-          "to": [
-            {
-              "shell_command": "open -a 'Notes.app'"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "Open Kitty with COMMAND+CONTROL+K",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "k",
-            "modifiers": {
-              "mandatory": ["command", "control"]
+              "mandatory": ["command"]
             }
           },
           "to": [
@@ -78,14 +40,52 @@
       ]
     },
     {
-      "description": "Open Maccy with COMMAND+CONTROL+M",
+      "description": "Open Slack with COMMAND+3",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "3",
+            "modifiers": {
+              "mandatory": ["command"]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a 'Slack.app'"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Open Notes with COMMAND+4",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "4",
+            "modifiers": {
+              "mandatory": ["command"]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a 'Notes.app'"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Open Maccy with COMMAND+M",
       "manipulators": [
         {
           "type": "basic",
           "from": {
             "key_code": "m",
             "modifiers": {
-              "mandatory": ["command", "control"]
+              "mandatory": ["command"]
             }
           },
           "to": [
