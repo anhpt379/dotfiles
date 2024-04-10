@@ -1,7 +1,7 @@
 {
 	"name": "Vimium C",
-	"@time": "4/10/2024, 9:47:00 PM",
-	"time": 1712778420362,
+	"@time": "4/11/2024, 12:00:24 AM",
+	"time": 1712786424372,
 	"environment": {
 		"extension": "1.99.994",
 		"platform": "mac",
@@ -16,20 +16,19 @@
 		"clnalilglegcjmlgenoppklmfppddien",
 		""
 	],
-	"filterLinkHints": true,
 	"grabBackFocus": true,
 	"keyLayout": 2,
 	"keyMappings": [
 		"#!no-check",
 		"map i focusInput",
-		"map <tab> Vomnibar.activateTabs icase autoSelect",
-		"map t Vomnibar.activateTabs icase autoSelect",
-		"map o Vomnibar.activateInNewTab engines=\"tab,bookmark,history,search\" icase autoSelect",
-		"map O Vomnibar.activate icase autoSelect",
 		"map q removeTab",
 		"map w removeTab",
 		"unmap x",
 		"unmap X",
+		"unmap o",
+		"unmap O",
+		"unmap b",
+		"unmap B",
 		"map u restoreTab",
 		"map p openCopiedUrlInNewTab",
 		"map P openCopiedUrlInCurrentTab",
@@ -49,7 +48,6 @@
 		"unmap 0",
 		"map 0 zoomReset",
 		"map gx autoOpen",
-		"shortcut userCustomized1 command=\"createTab\" url=\"chrome://bookmarks/\" $then=\"Vomnibar.activate\"",
 		""
 	],
 	"keyupTime": 60,
@@ -63,13 +61,9 @@
 		"",
 		"gh|github: https://github.com/search?q=$s \\",
 		"  blank=https://github.com/ Search GitHub",
-		"",
-		"gitlab: https://gitlab.booking.com/search?search=$s Search GitLab",
-		"j|jira: https://jira.booking.com/jira/secure/QuickSearch.jspa?searchString=$s JIRA",
-		"staff: https://office.booking.com/staff/index.html?search=$s Search Staff",
-		"wiki: https://wiki.booking.com/dosearchsite.action?queryString=$s Search Wiki",
 		""
 	],
+	"showActionIcon": false,
 	"userDefinedCss": [
 		"/* #ui */",
 		".HUD {",
@@ -222,11 +216,11 @@
 	],
 	"vimSync": true,
 	"vomnibarOptions": {
-		"actions": "",
+		"actions": "opener",
 		"maxMatches": 10,
 		"queryInterval": 60,
 		"sizes": "200,1000,44,.6",
-		"styles": "time"
+		"styles": "mono-url"
 	},
 	"waitForEnter": false
 }
