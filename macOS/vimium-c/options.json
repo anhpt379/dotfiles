@@ -27,6 +27,8 @@
 		"map o Vomnibar.activateInNewTab engines=\"tab,bookmark,history,search\" icase autoSelect",
 		"map O Vomnibar.activate icase autoSelect",
 		"map q removeTab",
+		"unmap x",
+		"unmap X",
 		"map u restoreTab",
 		"map p openCopiedUrlInNewTab",
 		"map P openCopiedUrlInCurrentTab",
