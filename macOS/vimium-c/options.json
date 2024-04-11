@@ -1,7 +1,7 @@
 {
 	"name": "Vimium C",
-	"@time": "4/11/2024, 1:07:16 PM",
-	"time": 1712833636654,
+	"@time": "4/11/2024, 8:52:59 PM",
+	"time": 1712861579769,
 	"environment": {
 		"extension": "1.99.994",
 		"platform": "mac",
@@ -29,6 +29,9 @@
 		"unmap O",
 		"unmap b",
 		"unmap B",
+		"unmap /",
+		"unmap n",
+		"unmap N",
 		"map p openCopiedUrlInNewTab",
 		"map P openCopiedUrlInCurrentTab",
 		"map h goBack",
