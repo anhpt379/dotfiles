@@ -1,7 +1,7 @@
 {
 	"name": "Vimium C",
-	"@time": "4/11/2024, 12:00:24 AM",
-	"time": 1712786424372,
+	"@time": "4/11/2024, 10:30:08 AM",
+	"time": 1712824208150,
 	"environment": {
 		"extension": "1.99.994",
 		"platform": "mac",
@@ -16,7 +16,6 @@
 		"clnalilglegcjmlgenoppklmfppddien",
 		""
 	],
-	"grabBackFocus": true,
 	"keyLayout": 2,
 	"keyMappings": [
 		"#!no-check",
@@ -29,11 +28,8 @@
 		"unmap O",
 		"unmap b",
 		"unmap B",
-		"map u restoreTab",
 		"map p openCopiedUrlInNewTab",
 		"map P openCopiedUrlInCurrentTab",
-		"map b Vomnibar.activateBookmarksInNewTab",
-		"map B Vomnibar.activateBookmarks",
 		"map h goBack",
 		"map l goForward",
 		"map I enterInsertMode",
