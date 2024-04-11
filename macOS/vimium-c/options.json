@@ -1,7 +1,7 @@
 {
 	"name": "Vimium C",
-	"@time": "4/11/2024, 10:30:08 AM",
-	"time": 1712824208150,
+	"@time": "4/11/2024, 1:07:16 PM",
+	"time": 1712833636654,
 	"environment": {
 		"extension": "1.99.994",
 		"platform": "mac",
@@ -22,6 +22,7 @@
 		"map i focusInput",
 		"map q removeTab",
 		"map w removeTab",
+		"map <tab> Vomnibar.activateTabs",
 		"unmap x",
 		"unmap X",
 		"unmap o",
@@ -212,11 +213,11 @@
 	],
 	"vimSync": true,
 	"vomnibarOptions": {
-		"actions": "opener",
+		"actions": "icase",
 		"maxMatches": 10,
 		"queryInterval": 60,
 		"sizes": "200,1000,44,.6",
-		"styles": "mono-url"
+		"styles": "time"
 	},
 	"waitForEnter": false
 }
