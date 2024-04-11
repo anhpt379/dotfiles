@@ -18,6 +18,103 @@
                 },
                 "rules": [
                     {
+                        "description": "COMMAND+O to open a new tab",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^company\\.thebrowser\\.Browser$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "o",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "command"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "t",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "COMMAND+U to undo close tab",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^company\\.thebrowser\\.Browser$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "u",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "command"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "t",
+                                        "modifiers": [
+                                            "command",
+                                            "shift"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "COMMAND+` to switch to last used tab",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^company\\.thebrowser\\.Browser$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "grave_accent_and_tilde",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "command"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "tab",
+                                        "modifiers": [
+                                            "control"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "Open Arc with COMMAND+1",
                         "manipulators": [
                             {
@@ -116,28 +213,6 @@
                                 "to": [
                                     {
                                         "shell_command": "open -a 'Maccy.app'"
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Open Arc with COMMAND+CONTROL+C",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "c",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "command",
-                                            "control"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "shell_command": "open -a 'Arc.app'"
                                     }
                                 ],
                                 "type": "basic"
