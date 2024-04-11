@@ -78,14 +78,14 @@
       ]
     },
     {
-      "description": "Open Maccy with COMMAND+M",
+      "description": "Open Maccy with COMMAND+CONTROL+M",
       "manipulators": [
         {
           "type": "basic",
           "from": {
             "key_code": "m",
             "modifiers": {
-              "mandatory": ["command"]
+              "mandatory": ["command", "control"]
             }
           },
           "to": [

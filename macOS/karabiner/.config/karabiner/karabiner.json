@@ -18,6 +18,27 @@
                 },
                 "rules": [
                     {
+                        "description": "Map COMMAND+M to vk_none",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "m",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "command"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "vk_none"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "COMMAND+O to open a new tab",
                         "manipulators": [
                             {
@@ -199,14 +220,15 @@
                         ]
                     },
                     {
-                        "description": "Open Maccy with COMMAND+M",
+                        "description": "Open Maccy with COMMAND+CONTROL+M",
                         "manipulators": [
                             {
                                 "from": {
                                     "key_code": "m",
                                     "modifiers": {
                                         "mandatory": [
-                                            "command"
+                                            "command",
+                                            "control"
                                         ]
                                     }
                                 },
