@@ -1,0 +1,7 @@
+#!/usr/bin/env python3
+# vim:sw=4
+
+import sys
+
+text = sys.stdin.read().strip()
+print(text, end="")
