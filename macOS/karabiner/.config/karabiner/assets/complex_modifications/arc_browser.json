@@ -2,7 +2,7 @@
   "title": "Arc Browser key bindings",
   "rules": [
     {
-      "description": "COMMAND+U to undo close tab",
+      "description": "Arc: COMMAND+U to undo close tab",
       "manipulators": [
         {
           "type": "basic",
@@ -30,7 +30,7 @@
       ]
     },
     {
-      "description": "COMMAND+` to switch to last used tab",
+      "description": "Arc: COMMAND+` to switch to last used tab",
       "manipulators": [
         {
           "type": "basic",
@@ -56,7 +56,7 @@
       ]
     },
     {
-      "description": "COMMAND+O to open a new tab",
+      "description": "Arc: COMMAND+O to open a new tab",
       "manipulators": [
         {
           "type": "basic",
