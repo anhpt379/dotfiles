@@ -1025,8 +1025,9 @@ nnoremap <silent> gp :<C-u>call vim_git_browse#GitOpenPipelines()<CR>
 nnoremap <silent> gm :!if git branch -a \| grep remotes/ \| grep -q /$(git branch --show-current)$; test $? -eq 1; then
                    \     git push --force-with-lease origin HEAD;
                    \   fi<CR>
-                   \ :<C-u>call vim_git_browse#GitOpenPullRequest()<CR>
+                   \ :Dispatch! open $(~/.local/bin/gm)<CR>
                    \ :silent exec '!git rev-parse --short HEAD \| tr -d "\n" \| pbcopy'<CR>
+nnoremap <silent> gM :Dispatch! ~/.local/bin/gm \| pbcopy<CR>
 
 " Suda & vim-eunuch
 let g:suda_smart_edit = 1

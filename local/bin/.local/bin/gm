@@ -1,0 +1,34 @@
+#!/bin/bash
+remote_url=$(git remote get-url origin | sed -Ee 's#(git@|git://)#https://#' -e 's#com:#com/#' -e 's#\.git$##' | tr -d '\n')
+branch_name=$(git rev-parse --abbrev-ref HEAD)
+git_commit_hash_remote=$(git rev-parse origin/"${branch_name}")
+
+if echo "${remote_url}" | grep -q 'github'; then
+  git fetch origin '+refs/pull/*/head:refs/remotes/origin/pull/*'
+  remote_path="pull"
+elif echo "${remote_url}" | grep -q 'gitlab'; then
+  git fetch origin '+refs/merge-requests/*/head:refs/remotes/origin/merge-requests/*'
+  remote_path="merge_requests"
+else
+  exit 1
+fi
+
+merge_requests_dir="$(git rev-parse --show-toplevel)"/.git/refs/remotes/origin/merge-requests/
+merge_request_id=""
+if test -d "${merge_requests_dir}"; then
+  merge_request_id=$(grep -r "$git_commit_hash_remote" "$(git rev-parse --show-toplevel)"/.git/refs/remotes/origin/merge-requests/ | awk -F: '{ print $1 }' | awk -F/ '{ print $NF }')
+fi
+
+if test -n "${merge_request_id}"; then
+  echo "${remote_url}/${remote_path}/${merge_request_id}"
+else
+  target_branch=$(git branch -l master main | sed 's/^* //' | xargs)
+  if test "${target_branch}" = "${branch_name}"; then
+    exit 1
+  fi
+  if echo "${remote_url}" | grep -q 'github'; then
+    echo "${remote_url}/compare/${branch_name}...${target_branch}"
+  elif echo "${remote_url}" | grep -q 'gitlab'; then
+    echo "${remote_url}/merge_requests/new?merge_request[source_branch]=${branch_name}&merge_request[target_branch]=${target_branch}"
+  fi
+fi
