@@ -80,7 +80,6 @@ call plug#begin()
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-rhubarb'
   Plug 'shumphrey/fugitive-gitlab.vim'
-  Plug 'anhpt379/vim-git-browse'
 
   " Heavily loaded plugins
   if g:hostname =~# 'fedora'
@@ -1019,9 +1018,6 @@ let g:fugitive_gitlab_domains = ['https://gitlab.' . $COMPANY_DOMAIN]
 map <silent> go :GBrowse<CR>
 map <silent> gO :GBrowse!<CR>
 
-" Vim-git-browse
-let g:vim_git_browse_use_default_keymap = 0
-nnoremap <silent> gp :<C-u>call vim_git_browse#GitOpenPipelines()<CR>
 nnoremap <silent> gm :!if git branch -a \| grep remotes/ \| grep -q /$(git branch --show-current)$; test $? -eq 1; then
                    \     git push --force-with-lease origin HEAD;
                    \   fi<CR>
