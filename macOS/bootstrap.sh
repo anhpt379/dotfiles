@@ -10,8 +10,6 @@ stow brew
 brew bundle
 brew autoupdate start 86400 --upgrade --cleanup
 
-brew services start autoraise
-
 stow bash
 stow bin
 stow diff-so-fancy

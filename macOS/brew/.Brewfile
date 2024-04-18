@@ -3,9 +3,7 @@ tap 'Homebrew/homebrew-autoupdate'
 tap 'homebrew/bundle'
 tap 'homebrew/cask-fonts'
 tap 'homebrew/cask-versions'
-tap 'homebrew/services'
 tap 'superbrothers/opener'
-tap 'dimentium/autoraise'
 tap 'hashicorp/tap'
 tap 'anhpt379/homebrew-neovim-nightly'
 
@@ -35,7 +33,6 @@ mas 'Amphetamine', id: 937984704
 mas 'Be Focus', id: 961632517
 mas 'Fantastical', id: 975937182
 
-brew 'autoraise'
 brew 'bash'
 brew 'bind'  # to get `dig` command
 brew 'coreutils'
