@@ -12,7 +12,7 @@
                 "parameters": {
                     "basic.simultaneous_threshold_milliseconds": 50,
                     "basic.to_delayed_action_delay_milliseconds": 250,
-                    "basic.to_if_alone_timeout_milliseconds": 300,
+                    "basic.to_if_alone_timeout_milliseconds": 1000,
                     "basic.to_if_held_down_threshold_milliseconds": 250,
                     "mouse_motion_to_scroll.speed": 100
                 },
@@ -554,28 +554,6 @@
                         ]
                     },
                     {
-                        "description": "Open Maccy with COMMAND+CONTROL+M",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "m",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "command",
-                                            "control"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "shell_command": "open -a 'Maccy.app'"
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
                         "description": "Map CAPSLOCK to CONTROL on hold, and to ESCAPE on tap",
                         "manipulators": [
                             {
@@ -589,7 +567,8 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "left_control"
+                                        "key_code": "left_control",
+                                        "lazy": true
                                     }
                                 ],
                                 "to_if_alone": [
