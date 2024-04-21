@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ ! -t 1 ] || [ $# -eq 0 ] || command -v nvimpager &> /dev/null; then
+if [ ! -t 1 ] || [ $# -eq 0 ] || ! command -v nvimpager &> /dev/null; then
   /usr/bin/cat $*
   exit $?
 fi
