@@ -26,7 +26,8 @@
                 "^com\\.google\\.Chrome$",
                 "^org\\.mozilla\\.firefox$",
                 "^com\\.kagi\\.kagimacOS$",
-                "^company\\.thebrowser\\.Browser$"
+                "^company\\.thebrowser\\.Browser$",
+                "^com\\.vivaldi\\.Vivaldi$"
               ]
             }
           ]
@@ -67,7 +68,8 @@
                 "^com\\.apple\\.Safari$",
                 "^com\\.google\\.Chrome$",
                 "^org\\.mozilla\\.firefox$",
-                "^com\\.kagi\\.kagimacOS$"
+                "^com\\.kagi\\.kagimacOS$",
+                "^com\\.vivaldi\\.Vivaldi$"
               ]
             }
           ]
@@ -124,7 +126,8 @@
                 "^com\\.google\\.Chrome$",
                 "^org\\.mozilla\\.firefox$",
                 "^com\\.kagi\\.kagimacOS$",
-                "^company\\.thebrowser\\.Browser$"
+                "^company\\.thebrowser\\.Browser$",
+                "^com\\.vivaldi\\.Vivaldi$"
               ]
             }
           ]
@@ -203,6 +206,57 @@
       ]
     },
     {
+      "description": "Vivaldi: Move tab left/right with COMMAND+[/]",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "close_bracket",
+            "modifiers": {
+              "mandatory": ["left_command"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "down_arrow",
+              "modifiers": ["command", "shift"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.vivaldi\\.Vivaldi$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "open_bracket",
+            "modifiers": {
+              "mandatory": ["left_command"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "up_arrow",
+              "modifiers": ["command", "shift"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.vivaldi\\.Vivaldi$"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "description": "Chrome: Search tabs with CONTROL+SPACE",
       "manipulators": [
         {
@@ -240,7 +294,8 @@
                 "^com\\.apple\\.Safari$",
                 "^com\\.google\\.Chrome$",
                 "^org\\.mozilla\\.firefox$",
-                "^com\\.kagi\\.kagimacOS$"
+                "^com\\.kagi\\.kagimacOS$",
+                "^com\\.vivaldi\\.Vivaldi$"
               ],
               "type": "frontmost_application_if"
             }
@@ -266,7 +321,8 @@
                 "^com\\.apple\\.Safari$",
                 "^com\\.google\\.Chrome$",
                 "^org\\.mozilla\\.firefox$",
-                "^com\\.kagi\\.kagimacOS$"
+                "^com\\.kagi\\.kagimacOS$",
+                "^com\\.vivaldi\\.Vivaldi$"
               ],
               "type": "frontmost_application_if"
             }
