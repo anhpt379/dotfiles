@@ -73,3 +73,8 @@ See the above repository for updates as well as full license text. */
   > #browser {
   margin-top: var(--uc-navbar-transform);
 }
+
+/* Bigger font size for the URL bar */
+#urlbar {
+    font-size: 14px !important;
+}
