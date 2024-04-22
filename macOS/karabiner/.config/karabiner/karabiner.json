@@ -18,7 +18,7 @@
                 },
                 "rules": [
                     {
-                        "description": "Chrome: Focus on the address bar with COMMAND+O",
+                        "description": "Browser: Focus on the address bar with COMMAND+O",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -55,7 +55,7 @@
                         ]
                     },
                     {
-                        "description": "Chrome: Copy URL in the address bar with COMMAND+Y",
+                        "description": "Browser: Copy URL in the address bar with COMMAND+Y",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -136,7 +136,7 @@
                         ]
                     },
                     {
-                        "description": "Chrome: Accept suggestion & go to the url with CONTROL+F",
+                        "description": "Browser: Accept suggestion & go to the url with CONTROL+F",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -255,6 +255,73 @@
                         ]
                     },
                     {
+                        "description": "Browser: Move tab left/right with COMMAND+[/]",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.apple\\.Safari$",
+                                            "^com\\.google\\.Chrome$",
+                                            "^org\\.mozilla\\.firefox$",
+                                            "^com\\.kagi\\.kagimacOS$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "close_bracket",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_command"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "page_down",
+                                        "modifiers": [
+                                            "control",
+                                            "shift"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.apple\\.Safari$",
+                                            "^com\\.google\\.Chrome$",
+                                            "^org\\.mozilla\\.firefox$",
+                                            "^com\\.kagi\\.kagimacOS$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "open_bracket",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_command"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "page_up",
+                                        "modifiers": [
+                                            "control",
+                                            "shift"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "Vivaldi: Move tab left/right with COMMAND+[/]",
                         "manipulators": [
                             {
@@ -349,7 +416,7 @@
                         ]
                     },
                     {
-                        "description": "Chrome: Switch tabs with COMMAND+N/P",
+                        "description": "Browser: Switch tabs with COMMAND+N/P",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -869,7 +936,7 @@
                         ]
                     },
                     {
-                        "description": "Open Vivaldi with COMMAND+1",
+                        "description": "Open Firefox with COMMAND+1",
                         "manipulators": [
                             {
                                 "from": {
@@ -882,7 +949,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "open -a Vivaldi.app"
+                                        "shell_command": "open -a Firefox.app"
                                     }
                                 ],
                                 "type": "basic"

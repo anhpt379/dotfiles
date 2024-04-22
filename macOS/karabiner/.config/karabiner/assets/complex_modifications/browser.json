@@ -2,7 +2,7 @@
   "title": "Browser key bindings",
   "rules": [
     {
-      "description": "Chrome: Focus on the address bar with COMMAND+O",
+      "description": "Browser: Focus on the address bar with COMMAND+O",
       "manipulators": [
         {
           "type": "basic",
@@ -35,7 +35,7 @@
       ]
     },
     {
-      "description": "Chrome: Copy URL in the address bar with COMMAND+Y",
+      "description": "Browser: Copy URL in the address bar with COMMAND+Y",
       "manipulators": [
         {
           "type": "basic",
@@ -103,7 +103,7 @@
       ]
     },
     {
-      "description": "Chrome: Accept suggestion & go to the url with CONTROL+F",
+      "description": "Browser: Accept suggestion & go to the url with CONTROL+F",
       "manipulators": [
         {
           "type": "basic",
@@ -206,6 +206,63 @@
       ]
     },
     {
+      "description": "Browser: Move tab left/right with COMMAND+[/]",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "close_bracket",
+            "modifiers": {
+              "mandatory": ["left_command"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "page_down",
+              "modifiers": ["control", "shift"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Safari$",
+                "^com\\.google\\.Chrome$",
+                "^org\\.mozilla\\.firefox$",
+                "^com\\.kagi\\.kagimacOS$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "open_bracket",
+            "modifiers": {
+              "mandatory": ["left_command"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "page_up",
+              "modifiers": ["control", "shift"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Safari$",
+                "^com\\.google\\.Chrome$",
+                "^org\\.mozilla\\.firefox$",
+                "^com\\.kagi\\.kagimacOS$"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "description": "Vivaldi: Move tab left/right with COMMAND+[/]",
       "manipulators": [
         {
@@ -285,7 +342,7 @@
       ]
     },
     {
-      "description": "Chrome: Switch tabs with COMMAND+N/P",
+      "description": "Browser: Switch tabs with COMMAND+N/P",
       "manipulators": [
         {
           "conditions": [
