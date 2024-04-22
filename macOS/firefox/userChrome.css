@@ -51,15 +51,6 @@ See the above repository for updates as well as full license text. */
   /* transition-duration: 500ms, 200ms !important; */
   transition-delay: 0s !important;
 }
-/* Show when toolbox is hovered */
-#titlebar:hover ~ .browser-toolbar,
-#nav-bar:hover,
-#nav-bar:hover + #PersonalToolbar {
-  transform: translateY(0);
-  opacity: 1;
-  /* transition-duration: 500ms, 200ms !important; */
-  transition-delay: 0s !important;
-}
 /* This ruleset is separate, because not having :has support breaks other selectors as well */
 #mainPopupSet:has(> #appMenu-popup:hover)
   ~ #navigator-toolbox
