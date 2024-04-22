@@ -16,3 +16,6 @@ user_pref("browser.urlbar.suggest.searches", false);
 
 // Highlight all words when searching
 user_pref("findbar.highlightAll", true);
+
+// Allow adding custom search engines
+user_pref("browser.urlbar.update2.engineAliasRefresh", true);
