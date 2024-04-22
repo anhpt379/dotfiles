@@ -67,9 +67,43 @@
               "bundle_identifiers": [
                 "^com\\.apple\\.Safari$",
                 "^com\\.google\\.Chrome$",
-                "^org\\.mozilla\\.firefox$",
                 "^com\\.kagi\\.kagimacOS$",
                 "^com\\.vivaldi\\.Vivaldi$"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Firefox: Copy URL in the address bar with COMMAND+Y",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "y",
+            "modifiers": {
+              "mandatory": ["left_command"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "l",
+              "modifiers": ["left_command"]
+            },
+            {
+              "key_code": "c",
+              "modifiers": ["left_command"]
+            },
+            {
+              "key_code": "f6"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^org\\.mozilla\\.firefox$"
               ]
             }
           ]
@@ -162,10 +196,7 @@
             {
               "type": "frontmost_application_if",
               "bundle_identifiers": [
-                "^com\\.apple\\.Safari$",
-                "^com\\.google\\.Chrome$",
-                "^org\\.mozilla\\.firefox$",
-                "^com\\.kagi\\.kagimacOS$"
+                "^com\\.google\\.Chrome$"
               ]
             }
           ]
@@ -195,10 +226,7 @@
             {
               "type": "frontmost_application_if",
               "bundle_identifiers": [
-                "^com\\.apple\\.Safari$",
-                "^com\\.google\\.Chrome$",
-                "^org\\.mozilla\\.firefox$",
-                "^com\\.kagi\\.kagimacOS$"
+                "^com\\.google\\.Chrome$"
               ]
             }
           ]
@@ -206,7 +234,7 @@
       ]
     },
     {
-      "description": "Browser: Move tab left/right with COMMAND+[/]",
+      "description": "Firefox: Move tab left/right with COMMAND+[/]",
       "manipulators": [
         {
           "type": "basic",
@@ -226,10 +254,7 @@
             {
               "type": "frontmost_application_if",
               "bundle_identifiers": [
-                "^com\\.apple\\.Safari$",
-                "^com\\.google\\.Chrome$",
-                "^org\\.mozilla\\.firefox$",
-                "^com\\.kagi\\.kagimacOS$"
+                "^org\\.mozilla\\.firefox$"
               ]
             }
           ]
@@ -252,10 +277,7 @@
             {
               "type": "frontmost_application_if",
               "bundle_identifiers": [
-                "^com\\.apple\\.Safari$",
-                "^com\\.google\\.Chrome$",
-                "^org\\.mozilla\\.firefox$",
-                "^com\\.kagi\\.kagimacOS$"
+                "^org\\.mozilla\\.firefox$"
               ]
             }
           ]

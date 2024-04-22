@@ -63,7 +63,6 @@
                                         "bundle_identifiers": [
                                             "^com\\.apple\\.Safari$",
                                             "^com\\.google\\.Chrome$",
-                                            "^org\\.mozilla\\.firefox$",
                                             "^com\\.kagi\\.kagimacOS$",
                                             "^com\\.vivaldi\\.Vivaldi$"
                                         ],
@@ -96,6 +95,47 @@
                                     },
                                     {
                                         "key_code": "escape"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Firefox: Copy URL in the address bar with COMMAND+Y",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.mozilla\\.firefox$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "y",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_command"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "l",
+                                        "modifiers": [
+                                            "left_command"
+                                        ]
+                                    },
+                                    {
+                                        "key_code": "c",
+                                        "modifiers": [
+                                            "left_command"
+                                        ]
+                                    },
+                                    {
+                                        "key_code": "f6"
                                     }
                                 ],
                                 "type": "basic"
@@ -176,10 +216,7 @@
                                 "conditions": [
                                     {
                                         "bundle_identifiers": [
-                                            "^com\\.apple\\.Safari$",
-                                            "^com\\.google\\.Chrome$",
-                                            "^org\\.mozilla\\.firefox$",
-                                            "^com\\.kagi\\.kagimacOS$"
+                                            "^com\\.google\\.Chrome$"
                                         ],
                                         "type": "frontmost_application_if"
                                     }
@@ -216,10 +253,7 @@
                                 "conditions": [
                                     {
                                         "bundle_identifiers": [
-                                            "^com\\.apple\\.Safari$",
-                                            "^com\\.google\\.Chrome$",
-                                            "^org\\.mozilla\\.firefox$",
-                                            "^com\\.kagi\\.kagimacOS$"
+                                            "^com\\.google\\.Chrome$"
                                         ],
                                         "type": "frontmost_application_if"
                                     }
@@ -255,16 +289,13 @@
                         ]
                     },
                     {
-                        "description": "Browser: Move tab left/right with COMMAND+[/]",
+                        "description": "Firefox: Move tab left/right with COMMAND+[/]",
                         "manipulators": [
                             {
                                 "conditions": [
                                     {
                                         "bundle_identifiers": [
-                                            "^com\\.apple\\.Safari$",
-                                            "^com\\.google\\.Chrome$",
-                                            "^org\\.mozilla\\.firefox$",
-                                            "^com\\.kagi\\.kagimacOS$"
+                                            "^org\\.mozilla\\.firefox$"
                                         ],
                                         "type": "frontmost_application_if"
                                     }
@@ -292,10 +323,7 @@
                                 "conditions": [
                                     {
                                         "bundle_identifiers": [
-                                            "^com\\.apple\\.Safari$",
-                                            "^com\\.google\\.Chrome$",
-                                            "^org\\.mozilla\\.firefox$",
-                                            "^com\\.kagi\\.kagimacOS$"
+                                            "^org\\.mozilla\\.firefox$"
                                         ],
                                         "type": "frontmost_application_if"
                                     }
