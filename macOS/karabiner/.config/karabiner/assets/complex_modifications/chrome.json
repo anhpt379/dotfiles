@@ -1,0 +1,226 @@
+{
+  "title": "Chrome key bindings",
+  "rules": [
+    {
+      "description": "Chrome: Focus on the address bar with COMMAND+O",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "o",
+            "modifiers": {
+              "mandatory": ["command"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "l",
+              "modifiers": ["command"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.google\\.Chrome$"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Chrome: Copy URL in the address bar with COMMAND+Y",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "y",
+            "modifiers": {
+              "mandatory": ["command"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "l",
+              "modifiers": ["command"]
+            },
+            {
+              "key_code": "c",
+              "modifiers": ["command"]
+            },
+            {
+              "key_code": "escape"
+            },
+            {
+              "key_code": "escape"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.google\\.Chrome$"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Chrome: Accept suggestion & go to the url with CONTROL+F",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f",
+            "modifiers": {
+              "mandatory": ["control"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "return_or_enter"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.google\\.Chrome$"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Chrome: Move tab left/right with COMMAND+[/]",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "close_bracket",
+            "modifiers": {
+              "mandatory": ["command"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "up_arrow",
+              "modifiers": ["command", "option"]
+            },
+            {
+              "key_code": "right_arrow",
+              "modifiers": ["command"]
+            },
+            {
+              "key_code": "escape"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.google\\.Chrome$"]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "open_bracket",
+            "modifiers": {
+              "mandatory": ["command"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "up_arrow",
+              "modifiers": ["command", "option"]
+            },
+            {
+              "key_code": "arrow",
+              "modifiers": ["command"]
+            },
+            {
+              "key_code": "escape"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.google\\.Chrome$"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Chrome: Search tabs with CONTROL+SPACE",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "spacebar",
+            "modifiers": {
+              "mandatory": ["control"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "a",
+              "modifiers": ["command", "shift"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.google\\.Chrome$"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Chrome: Switch tabs with COMMAND+N/P",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "n",
+            "modifiers": {
+              "mandatory": ["command"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "tab",
+              "modifiers": ["control"]
+            }
+          ],
+          "conditions": [
+            {
+              "bundle_identifiers": ["^com\\.google\\.Chrome$"],
+              "type": "frontmost_application_if"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "p",
+            "modifiers": {
+              "mandatory": ["command"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "tab",
+              "modifiers": ["control", "shift"]
+            }
+          ],
+          "conditions": [
+            {
+              "bundle_identifiers": ["^com\\.google\\.Chrome$"],
+              "type": "frontmost_application_if"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
