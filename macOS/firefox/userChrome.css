@@ -68,9 +68,7 @@ See the above repository for updates as well as full license text. */
 }
 
 /* Move up the content view */
-:root[sessionrestored]
-  > body
-  > #browser {
+:root[sessionrestored] > body > #browser {
   margin-top: var(--uc-navbar-transform);
 }
 
@@ -97,4 +95,14 @@ See the above repository for updates as well as full license text. */
 .titlebar-spacer[type="pre-tabs"],
 .titlebar-spacer[type="post-tabs"] {
   width: 10px !important;
+}
+
+/* Move the findbar to the top, and increase the font size */
+.browserContainer > findbar {
+  order: -1 !important;
+  border-top: none !important;
+  border-bottom: 1px solid ThreeDShadow !important;
+}
+.findbar-textbox {
+  font-size: 14px !important;
 }
