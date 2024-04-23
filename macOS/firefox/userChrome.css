@@ -68,7 +68,7 @@ See the above repository for updates as well as full license text. */
 }
 
 /* Move up the content view */
-:root[sessionrestored]:not([inFullscreen], [chromehidden~="toolbar"])
+:root[sessionrestored]
   > body
   > #browser {
   margin-top: var(--uc-navbar-transform);
