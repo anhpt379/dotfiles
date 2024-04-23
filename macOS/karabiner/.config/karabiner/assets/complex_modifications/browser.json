@@ -35,6 +35,33 @@
       ]
     },
     {
+      "description": "Firefox: Unfocus on the address bar with COMMAND+SHIFT+O",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "o",
+            "modifiers": {
+              "mandatory": ["left_command", "shift"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f6"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^org\\.mozilla\\.firefox$"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "description": "Browser: Copy URL in the address bar with COMMAND+Y",
       "manipulators": [
         {
