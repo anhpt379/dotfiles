@@ -1,5 +1,5 @@
 {
-  "title": "Open macOS apps with COMMAND+1/2/3/4",
+  "title": "Open macOS apps with COMMAND+1/2/3/4/5",
   "rules": [
     {
       "description": "Open Firefox with COMMAND+1",
@@ -72,6 +72,25 @@
           "to": [
             {
               "shell_command": "open -a Notes.app"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Open Finder with COMMAND+5",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "5",
+            "modifiers": {
+              "mandatory": ["command"]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a Finder.app"
             }
           ]
         }
