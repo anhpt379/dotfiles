@@ -76,5 +76,25 @@ See the above repository for updates as well as full license text. */
 
 /* Bigger font size for the URL bar */
 #urlbar {
-    font-size: 14px !important;
+  font-size: 14px !important;
+}
+
+/* Compact tab bar, while keeping a non-compact address bar */
+:root {
+  --tab-min-height: 30px !important;
+  --tab-max-height: 30px !important;
+}
+#tab-background {
+  max-height: 30px !important;
+}
+.tab-background {
+  margin-top: 2px !important;
+  margin-bottom: 2px !important;
+}
+.tab-label {
+  margin-top: -1px !important;
+}
+.titlebar-spacer[type="pre-tabs"],
+.titlebar-spacer[type="post-tabs"] {
+  width: 10px !important;
 }

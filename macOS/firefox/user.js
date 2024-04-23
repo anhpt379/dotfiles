@@ -1,6 +1,3 @@
-// Reduce tab bar's height
-user_pref("browser.compactmode.show", true);
-
 // Remove "List all Tabs" button on the right side of the tab bar
 user_pref("browser.tabs.tabmanager.enabled", false);
 
