@@ -86,31 +86,6 @@
       ]
     },
     {
-      "description": "Firefox: Accept suggestion & go to the url with CONTROL+F",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "f",
-            "modifiers": {
-              "mandatory": ["control"]
-            }
-          },
-          "to": [
-            {
-              "key_code": "return_or_enter"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": ["^org\\.mozilla\\.firefox$"]
-            }
-          ]
-        }
-      ]
-    },
-    {
       "description": "Firefox: Move tab left/right with COMMAND+[/]",
       "manipulators": [
         {
