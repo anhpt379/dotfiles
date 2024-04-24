@@ -1,20 +1,6 @@
 function fzf_find -d "Find files and folders"
     set -l command (commandline)
-    if test "$argv[-1]" = "extrakto"
-        set captured ""
-        for pane in $(tmux list-panes -F "#{pane_id}")
-            set -a captured $(tmux capture-pane -p -t $pane)
-            set -a captured "\n"
-        end
-        set result (
-            echo $captured | ~/.local/bin/extrakto.py --all \
-            | fzf --select-1 --exit-0 --ansi \
-                --bind=tab:accept \
-                --expect=enter \
-                --tiebreak=index \
-                --header="$(tput setaf 1)TAB$(tput sgr0) to select, $(tput setaf 1)ENTER$(tput sgr0) to run, $(tput setaf 1)CTRL-[$(tput sgr0) to stop" \
-        )
-    else if string match -q -- "de *" $command
+    if string match -q -- "de *" $command
         set result (
             sudo docker ps --format '{{.Names}}\n{{.ID}}' \
             | fzf --select-1 --exit-0 --ansi \

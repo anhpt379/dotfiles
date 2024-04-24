@@ -136,9 +136,6 @@ set fish_greeting
 # Use default fish key bindings
 set -g fish_key_bindings fish_default_key_bindings
 
-# Trigger extrakto with \cg
-bind \cg "fzf_find extrakto"
-
 # Scroll screen up to put the prompt at middle of the screen on the second ENTER
 bind \n magic_enter
 bind \r magic_enter
