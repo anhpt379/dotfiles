@@ -24,7 +24,7 @@ function fzf_find -d "Find files and folders"
                 --prompt="DOCKER> " \
                 --query=(echo $command | sed 's/^de//' | xargs)
         )
-    else if string match -q -- "ssh *" $command
+    else if string match -q -- "ssh *" $command; and test -f ~/.cache/servers.txt
         set result (
             cat ~/.cache/servers.txt \
             | awk '{ print " " $1 }' \
