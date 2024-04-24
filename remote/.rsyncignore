@@ -8,7 +8,6 @@
 *.rst
 *.txt
 .config/fish/functions/ssh.fish
-.config/nvim/autoload/plug.vim.old
 .config/nvim/dictionaries
 .github
 .local/share/nvim/plugged/*/.git
@@ -51,6 +50,4 @@
 .local/share/nvim/plugged/vim-startify
 .local/share/nvim/plugged/vim-startuptime
 .local/share/nvim/plugged/vim-wakatime
-.tmux/plugins/*/.*
-.tmux/plugins/*/tests
 .travis-ci.yml
