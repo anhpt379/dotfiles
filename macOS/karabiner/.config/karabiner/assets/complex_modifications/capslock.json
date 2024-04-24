@@ -22,6 +22,12 @@
             {
               "key_code": "escape"
             }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": ["^org\\.mozilla\\.firefox$"]
+            }
           ]
         }
       ]

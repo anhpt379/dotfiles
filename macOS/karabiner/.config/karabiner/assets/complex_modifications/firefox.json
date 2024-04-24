@@ -16,6 +16,12 @@
             {
               "key_code": "l",
               "modifiers": ["command"]
+            },
+            {
+              "set_variable": {
+                "name": "address_bar_is_focused",
+                "value": true
+              }
             }
           ],
           "conditions": [
@@ -28,25 +34,135 @@
       ]
     },
     {
-      "description": "Firefox: Unfocus on the address bar with COMMAND+SHIFT+O",
+      "description": "Firefox: CAPSLOCK (CONTROL/ESCAPE) to hide the address bar",
       "manipulators": [
         {
           "type": "basic",
           "from": {
-            "key_code": "o",
-            "modifiers": {
-              "mandatory": ["command", "shift"]
-            }
+            "key_code": "caps_lock"
           },
           "to": [
             {
+              "key_code": "left_control",
+              "lazy": true
+            }
+          ],
+          "to_if_alone": [
+            {
               "key_code": "f6"
+            },
+            {
+              "set_variable": {
+                "name": "address_bar_is_focused",
+                "value": false
+              }
             }
           ],
           "conditions": [
             {
               "type": "frontmost_application_if",
               "bundle_identifiers": ["^org\\.mozilla\\.firefox$"]
+            },
+            {
+              "type": "variable_if",
+              "name": "address_bar_is_focused",
+              "value": true
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "caps_lock"
+          },
+          "to": [
+            {
+              "key_code": "left_control",
+              "lazy": true
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "escape"
+            },
+            {
+              "set_variable": {
+                "name": "address_bar_is_focused",
+                "value": false
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^org\\.mozilla\\.firefox$"]
+            },
+            {
+              "type": "variable_if",
+              "name": "address_bar_is_focused",
+              "value": false
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "return_or_enter"
+          },
+          "to": [
+            {
+              "key_code": "right_control",
+              "lazy": true
+            }
+          ],
+          "to_if_alone": [
+            {
+              "set_variable": {
+                "name": "address_bar_is_focused",
+                "value": false
+              }
+            },
+            {
+              "key_code": "return_or_enter"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^org\\.mozilla\\.firefox$"]
+            },
+            {
+              "type": "variable_if",
+              "name": "address_bar_is_focused",
+              "value": true
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "return_or_enter"
+          },
+          "to": [
+            {
+              "key_code": "right_control",
+              "lazy": true
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "return_or_enter"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^org\\.mozilla\\.firefox$"]
+            },
+            {
+              "type": "variable_if",
+              "name": "address_bar_is_focused",
+              "value": false
             }
           ]
         }
@@ -145,6 +261,15 @@
           },
           "to": [
             {
+              "key_code": "f6"
+            },
+            {
+              "set_variable": {
+                "name": "address_bar_is_focused",
+                "value": false
+              }
+            },
+            {
               "key_code": "tab",
               "modifiers": ["control"]
             }
@@ -153,6 +278,72 @@
             {
               "bundle_identifiers": ["^org\\.mozilla\\.firefox$"],
               "type": "frontmost_application_if"
+            },
+            {
+              "type": "variable_if",
+              "name": "address_bar_is_focused",
+              "value": true
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "n",
+            "modifiers": {
+              "mandatory": ["command"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "tab",
+              "modifiers": ["control"]
+            }
+          ],
+          "conditions": [
+            {
+              "bundle_identifiers": ["^org\\.mozilla\\.firefox$"],
+              "type": "frontmost_application_if"
+            },
+            {
+              "type": "variable_if",
+              "name": "address_bar_is_focused",
+              "value": false
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "p",
+            "modifiers": {
+              "mandatory": ["command"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f6"
+            },
+            {
+              "set_variable": {
+                "name": "address_bar_is_focused",
+                "value": false
+              }
+            },
+            {
+              "key_code": "tab",
+              "modifiers": ["control", "shift"]
+            }
+          ],
+          "conditions": [
+            {
+              "bundle_identifiers": ["^org\\.mozilla\\.firefox$"],
+              "type": "frontmost_application_if"
+            },
+            {
+              "type": "variable_if",
+              "name": "address_bar_is_focused",
+              "value": true
             }
           ]
         },
@@ -174,6 +365,11 @@
             {
               "bundle_identifiers": ["^org\\.mozilla\\.firefox$"],
               "type": "frontmost_application_if"
+            },
+            {
+              "type": "variable_if",
+              "name": "address_bar_is_focused",
+              "value": false
             }
           ]
         }
