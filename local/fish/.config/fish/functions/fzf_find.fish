@@ -10,7 +10,7 @@ function fzf_find -d "Find files and folders"
                 --prompt="DOCKER> " \
                 --query=(echo $command | sed 's/^de//' | xargs)
         )
-    else if string match -q -- "ssh *" $command; and test -f ~/.cache/servers.txt
+    else if string match --regex -q -- "^(ssh|sdb) *" $command; and test -f ~/.cache/servers.txt
         set result (
             cat ~/.cache/servers.txt \
             | awk '{ print " " $1 }' \
@@ -18,8 +18,8 @@ function fzf_find -d "Find files and folders"
                 --bind=tab:accept \
                 --expect=enter \
                 --header="$(tput setaf 1)TAB$(tput sgr0) to select, $(tput setaf 1)ENTER$(tput sgr0) to run, $(tput setaf 1)CTRL-[$(tput sgr0) to stop, $(tput setaf 1)CTRL-/$(tput sgr0) to toggle preview" \
-                --prompt="SSH> " \
-                --query=(echo $command | sed 's/^ssh//' | xargs)
+                --prompt="> " \
+                --query=(echo $command | cut -d' ' -f2-)
         )
     else
         set -l commandline (__fzf_parse_commandline)
