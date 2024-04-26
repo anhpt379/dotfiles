@@ -16,7 +16,8 @@
   amend = commit --amend
   merged = branch --merged
   pushf = push --force
-  undo = reset --soft HEAD@{1}
+  undo = reset --soft HEAD^
+  undo-amend = reset --soft HEAD@{1}
   prune = fetch --prune
   stash-all = stash save --include-untracked
   stashed = stash list --pretty=format:'%gd: %Cred%h%Creset %Cgreen[%ar]%Creset %s'
