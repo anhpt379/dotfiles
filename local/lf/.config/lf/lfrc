@@ -20,27 +20,6 @@ set cursorpreviewfmt ""
 
 set rulerfmt "%a  |%p  |\033[7;31m %m \033[0m  |\033[7;33m %c \033[0m  |\033[7;35m %s \033[0m  |\033[7;34m %f \033[0m  |%i/%t %d"
 
-# Fzf integration
-cmd fzf_jump ${{
-  dir=""
-  if [ -d "$f" ]; then
-    dir="$f"
-  fi
-
-  res="$(command fd --one-file-system --color=never --no-ignore --hidden --exclude '.git' . $dir | \
-         sed "s|$dir/||" | \
-         fzf --height=100% --ansi --preview="preview $dir/{}")"
-  res="$dir/$res"
-
-  if [ -f "$res" ]; then
-    cmd="select"
-  elif [ -d "$res" ]; then
-    cmd="cd"
-  fi
-
-  lf -remote "send $id $cmd \"$res\""
-}}
-
 # Reveal file/dir in Finder
 cmd reveal %{{
   open -R $f
@@ -171,7 +150,6 @@ map gd      cd ~/Downloads
 map gw      cd ~/code/work
 map gp      cd ~/code/personal
 map gt      cd ~/code/temp
-map <c-f>   :fzf_jump
 map t       :{{ set sortby atime; bottom; }}
 map T       :set sortby natural
 map <tab>   :toggle
