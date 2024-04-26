@@ -1,11 +1,11 @@
 {
 	"name": "Vimium C",
-	"@time": "4/13/2024, 8:44:32 PM",
-	"time": 1713033872524,
+	"@time": "4/26/2024, 9:58:14 AM",
+	"time": 1714118294408,
 	"environment": {
-		"extension": "1.99.994",
+		"extension": "1.99.997",
 		"platform": "mac",
-		"chromium": 123
+		"firefox": 125
 	},
 	"allBrowserUrls": true,
 	"autoDarkMode": 0,
@@ -41,7 +41,8 @@
 		"map I enterInsertMode",
 		"map e Vomnibar.activateEditUrl",
 		"map E Vomnibar.activateEditUrlInNewTab",
-		"map Y copyCurrentUrl",
+		"map yy copyCurrentUrl decode=false",
+		"map Y copyCurrentUrl decode=false",
 		"map c captureTab",
 		"map gx autoOpen",
 		""
@@ -220,3 +221,4 @@
 	},
 	"waitForEnter": false
 }
+
