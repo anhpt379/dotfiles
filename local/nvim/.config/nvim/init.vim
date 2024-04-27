@@ -55,6 +55,7 @@ call plug#begin()
   Plug 'tpope/vim-eunuch'
   Plug 'anhpt379/vim-unimpaired'
   Plug 'rhysd/clever-f.vim'
+  Plug 'justinmk/vim-sneak'
   Plug 'junegunn/vim-easy-align'
   Plug 'RRethy/nvim-treesitter-endwise'
   Plug 'cohama/lexima.vim'
@@ -930,6 +931,12 @@ let g:clever_f_smart_case = 0
 let g:clever_f_fix_key_direction = 0
 let g:clever_f_mark_direct = 1
 let g:clever_f_across_no_line = 1
+
+" Vim-sneak
+let g:sneak#s_next = 1
+let g:sneak#label = 1
+let g:sneak#prompt = 'Type 2 characters to jump> '
+map s <Plug>Sneak_s
 
 " Make diffing better: https://vimways.org/2018/the-power-of-diff/
 set diffopt+=algorithm:patience
