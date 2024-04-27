@@ -928,7 +928,7 @@ map <Leader>l :<C-u>Lf<CR>
 let g:sneak#s_next = 1
 let g:sneak#label = 1
 let g:sneak#prompt = 'Sneak> '
-map s <Plug>Sneak_s
+map ' <Plug>Sneak_s
 map f <Plug>Sneak_f
 map F <Plug>Sneak_F
 map t <Plug>Sneak_t
