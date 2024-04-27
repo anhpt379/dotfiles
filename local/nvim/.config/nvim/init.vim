@@ -54,7 +54,6 @@ call plug#begin()
   Plug 'paretje/suda.vim'
   Plug 'tpope/vim-eunuch'
   Plug 'anhpt379/vim-unimpaired'
-  Plug 'rhysd/clever-f.vim'
   Plug 'justinmk/vim-sneak'
   Plug 'junegunn/vim-easy-align'
   Plug 'RRethy/nvim-treesitter-endwise'
@@ -263,9 +262,9 @@ set shadafile=~/.local/state/nvim/shada/main.shada
 set ignorecase
 set smartcase
 
-" Clear search/clever-f highlighting by pressing Enter/Esc
-nnoremap <CR>  :nohlsearch<CR><Left><Right>
-nnoremap <Esc> :nohlsearch<CR><Left><Right>
+" Clear search highlighting by pressing Enter/Esc
+nnoremap <CR>  :nohlsearch<CR>
+nnoremap <Esc> :nohlsearch<CR>
 
 " Live substitution
 set inccommand=split
@@ -925,18 +924,15 @@ autocmd TermEnter * if g:hostname =~# 'fedora' | set showtabline=0 | endif | set
 autocmd TermLeave * if g:hostname =~# 'fedora' | set showtabline=2 | endif | set number   | set signcolumn=yes | :EnableWhitespace
 map <Leader>l :<C-u>Lf<CR>
 
-" Clever-f
-let g:clever_f_ignore_case = 0
-let g:clever_f_smart_case = 0
-let g:clever_f_fix_key_direction = 0
-let g:clever_f_mark_direct = 1
-let g:clever_f_across_no_line = 1
-
 " Vim-sneak
 let g:sneak#s_next = 1
 let g:sneak#label = 1
-let g:sneak#prompt = 'Type 2 characters to jump> '
+let g:sneak#prompt = 'Sneak> '
 map s <Plug>Sneak_s
+map f <Plug>Sneak_f
+map F <Plug>Sneak_F
+map t <Plug>Sneak_t
+map T <Plug>Sneak_T
 
 " Make diffing better: https://vimways.org/2018/the-power-of-diff/
 set diffopt+=algorithm:patience

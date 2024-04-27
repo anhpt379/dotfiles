@@ -228,6 +228,10 @@ highlight CleverFDirect       guifg=#ffb300 gui=bold           ctermfg=11 ctermb
 highlight link ctrlsfMatch Search
 highlight link ctrlsfLnumMatch LineNr
 
+" vim-sneak
+highlight Sneak guifg=black guibg=white ctermfg=black ctermbg=white
+highlight SneakScope guifg=white guibg=#28c9ff ctermfg=white ctermbg=blue
+
 " nvim-cmp
 highlight CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#808080
 highlight CmpItemAbbrMatch guibg=NONE guifg=#ffb300
