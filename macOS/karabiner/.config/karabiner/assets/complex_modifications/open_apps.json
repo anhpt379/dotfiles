@@ -1,6 +1,25 @@
 {
-  "title": "Open macOS apps with COMMAND+1/2/3/4/5",
+  "title": "Open macOS apps with COMMAND+0/1/2/3/4/5",
   "rules": [
+    {
+      "description": "Open Finder with COMMAND+0",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "0",
+            "modifiers": {
+              "mandatory": ["command"]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a Finder.app"
+            }
+          ]
+        }
+      ]
+    },
     {
       "description": "Open Firefox with COMMAND+1",
       "manipulators": [
@@ -78,7 +97,7 @@
       ]
     },
     {
-      "description": "Open Finder with COMMAND+5",
+      "description": "Open Zoom with COMMAND+5",
       "manipulators": [
         {
           "type": "basic",
@@ -90,7 +109,7 @@
           },
           "to": [
             {
-              "shell_command": "open -a Finder.app"
+              "shell_command": "open -a Zoom.us.app"
             }
           ]
         }
