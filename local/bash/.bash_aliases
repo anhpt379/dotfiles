@@ -57,7 +57,7 @@ else
   alias ppaf='sudo killall puppet 2>/dev/null; pp --enable; ppa'
   alias ppcatalog='sudo cat "/opt/puppetlabs/puppet/cache/client_data/catalog/$(sudo puppet config print certname).json" | jq . | less'
 fi
-alias ppl='less +G /var/log/puppet/puppetagent.log'
+alias ppl='less /var/log/puppet/puppetagent.log'
 alias ppc='cat /etc/puppetlabs/puppet/puppet.conf'
 alias motd='cat /etc/motd; [ -f /etc/motd.local ] && cat /etc/motd.local'
 
