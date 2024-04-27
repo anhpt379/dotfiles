@@ -82,6 +82,45 @@ limactl snapshot create fedora39 --tag v1
 
 ## Key mappings
 
+### firefox
+
+- `<Command>-t` new tab
+- `<Command>-w` close tab
+- `<Command>-n` next tab
+- `<Command>-p` previous tab
+- `<Command>-]` move current tab to the right
+- `<Command>-[` move current tab to the left
+- `<Command>-o` focus on the address bar
+
+### kitty
+
+- `<Command>-t` new tab
+- `<Command>-w` close tab
+- `<Command>-n` next tab
+- `<Command>-p` previous tab
+- `<Command>-]` move current tab to the right
+- `<Command>-[` move current tab to the left
+- `<Command>-r` reload config
+- `<Command>-s` open a split
+
+### tmux
+
+- `<Option>-t` new tab
+- `<Option>-w` close tab
+- `<Option>-n` next tab
+- `<Option>-p` previous tab
+- `<Option>-]` move current tab to the right
+- `<Option>-[` move current tab to the left
+- `<Option>-r` reload config
+- `<Option>-s` open a split
+
+### fish
+
+- `<C-f>` accept suggestion and execute
+- `<C-v>` edit the current command in vim
+- `<C-r>` fzf history
+- `<Tab>` fzf find
+
 ### vim
 
 - `q` close buffer
@@ -95,47 +134,35 @@ limactl snapshot create fedora39 --tag v1
   - `d` delete
   - `p` paste
   - `r` rename
-  - `<C-f>` fzf jump
 - `<Space>-g` ripgrep all files
-- `<Space>-n` next buffer
-- `<Space>-p` previous buffer
+- `<C-n>` next buffer
+- `<C-p>` previous buffer
 - `<Space>-<1-9>` jump to buffer #number
 - `gs` git status
   - `a/Va` stage/unstage
   - `x/Vx` discard changes
   - `d` show diff
-  - `p` git push
+  - `p` git push --force-with-lease
+  - `P` git push --force
   - `C` commit
   - `ca` commit amend edit
   - `ce` commit amend no edit
+  - `ga` git absorb
+  - `gr` rebase
+  - `rr` rebase continue
+  - `ra` rebase abort
 - `gb` git branches
 - `g[` git pull --rebase origin master
 - `g]` git push origin HEAD --force-with-lease
-- `gl` git log (repo)
-- `gL` git log (current buffer)
-- `Vgl` git log (line)
+- `gl` git log
+- `gL` git log current buffer
+- `m` git log current line
 - `gp` open github/gitlab pipelines in browser
-- `go` open github/gitlab link in browser
+- `go` open link to file on GitLab/GitHub
+- `gO` copy link to file on GitLab/GitHub
 - `gm` create/open MR
 - `gw` write buffer to disk
 - `M` switch to branch master
-
-### tmux
-
-- `<Option>-t` new tab
-- `<Option>-w` close tab
-- `<Option>-n` next tab
-- `<Option>-p` previous tab
-- `<Option>-]` move the current tab right
-- `<Option>-[` move the current tab left
-- `<Option>-r` reload config
-
-### fish
-
-- `<C-g>` accept suggestion and execute
-- `<C-v>` edit the current command in vim
-- `<C-r>` fzf history
-- `<C-f>` fzf find
 
 ### Vim `HJKL` everywhere with [Karabiner](macOS/karabiner/.config/karabiner/karabiner.json)
 
@@ -153,6 +180,6 @@ become arrow keys (`Left`/`Down`/`Up`/`Right`):
 
 - `CapsLock` + `N/P` to go down and up.
 
-- `Command` + `N/P` to switch between tabs.
-
 - `Command` + `<Up>`/`<Down>` to maximize/almost-maximize a window.
+
+- `Command` + `<Left>`/`<Right>` to resize & tile window to the left/right.
