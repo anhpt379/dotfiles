@@ -16,3 +16,8 @@ user_pref("findbar.highlightAll", true);
 
 // Allow adding custom search engines
 user_pref("browser.urlbar.update2.engineAliasRefresh", true);
+
+// Disable Quick Find, since it's conflicting with Vimium
+user_pref("accessibility.typeaheadfind", false);
+user_pref("accessibility.typeaheadfind.manual", false);
+user_pref("accessibility.typeaheadfind.autostart", false);
