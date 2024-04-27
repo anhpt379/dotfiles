@@ -59,7 +59,7 @@ call plug#begin()
   Plug 'RRethy/nvim-treesitter-endwise'
   Plug 'cohama/lexima.vim'
   Plug 'tpope/vim-speeddating'
-  Plug 'tpope/vim-dispatch'
+  Plug 'anhpt379/vim-dispatch'
   Plug 'qxxxb/vim-searchhi'
   Plug 'NMAC427/guess-indent.nvim'
   Plug 'kana/vim-niceblock'
