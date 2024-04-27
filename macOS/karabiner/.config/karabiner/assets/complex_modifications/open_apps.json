@@ -1,16 +1,13 @@
 {
-  "title": "Open macOS apps with COMMAND+0/1/2/3/4/5",
+  "title": "Open macOS apps with COMMAND+1/2/3/4/5",
   "rules": [
     {
-      "description": "Open Finder with COMMAND+0",
+      "description": "Open Finder with the DELETE (F12) key",
       "manipulators": [
         {
           "type": "basic",
           "from": {
-            "key_code": "0",
-            "modifiers": {
-              "mandatory": ["command"]
-            }
+            "key_code": "f12"
           },
           "to": [
             {
