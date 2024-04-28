@@ -21,3 +21,6 @@ user_pref("browser.urlbar.update2.engineAliasRefresh", true);
 user_pref("accessibility.typeaheadfind", false);
 user_pref("accessibility.typeaheadfind.manual", false);
 user_pref("accessibility.typeaheadfind.autostart", false);
+
+// Press <Tab> to hide the address bar
+user_pref("browser.toolbars.keyboard_navigation", false);
