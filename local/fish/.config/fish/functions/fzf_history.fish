@@ -3,7 +3,8 @@ function fzf_history -d "Show command history"
         history -z \
         | fzf --expect=enter \
               --tiebreak=index \
-              --header="$(tput setaf 1)TAB$(tput sgr0) to select, $(tput setaf 1)ENTER$(tput sgr0) to run, $(tput setaf 1)CTRL-[$(tput sgr0) to stop, $(tput setaf 1)CTRL-/$(tput sgr0) to toggle preview" \
+              --scheme=history \
+              --header="$(tput setaf 1)TAB$(tput sgr0) to select, $(tput setaf 1)ENTER$(tput sgr0) to run, $(tput setaf 1)CTRL-[$(tput sgr0) to stop" \
               --prompt="HISTORY> " \
               --bind=tab:accept \
               --read0 \

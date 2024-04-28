@@ -102,6 +102,7 @@ set -gx FZF_DEFAULT_OPTS \
             --info=inline-right
             --no-separator
             --scrollbar='▌▐'
+            --scheme=path
             --bind=ctrl-/:toggle-preview
             --bind=ctrl-s:toggle-sort
             --bind=tab:accept,ctrl-j:ignore,ctrl-k:ignore
