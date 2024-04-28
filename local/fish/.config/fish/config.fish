@@ -100,6 +100,7 @@ set -gx FZF_DEFAULT_OPTS \
             --height=40%
             --preview-window=right:60%
             --info=inline-right
+            --no-separator
             --scrollbar='▌▐'
             --bind=ctrl-/:toggle-preview
             --bind=ctrl-s:toggle-sort
