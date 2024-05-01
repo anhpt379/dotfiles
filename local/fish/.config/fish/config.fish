@@ -184,10 +184,6 @@ else if string match -e -q -- fedora (hostname)
     end
 end
 
-function preexec_scroll_up --on-event fish_preexec
-    scroll_up
-end
-
 function postexec_bell --on-event fish_postexec
     tput bel
 end
