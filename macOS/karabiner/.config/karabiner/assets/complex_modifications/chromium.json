@@ -1,8 +1,8 @@
 {
-  "title": "Chrome key bindings",
+  "title": "Chromium-based browsers key bindings",
   "rules": [
     {
-      "description": "Chrome: Focus on the address bar with COMMAND+O",
+      "description": "Chromium: Focus on the address bar with COMMAND+O",
       "manipulators": [
         {
           "type": "basic",
@@ -21,14 +21,18 @@
           "conditions": [
             {
               "type": "frontmost_application_if",
-              "bundle_identifiers": ["^com\\.google\\.Chrome$"]
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.edgemac$",
+                "^com\\.google\\.Chrome$",
+                "^com\\.brave\\.Browser$"
+              ]
             }
           ]
         }
       ]
     },
     {
-      "description": "Chrome: Copy URL in the address bar with COMMAND+Y",
+      "description": "Chromium: Copy URL in the address bar with COMMAND+Y",
       "manipulators": [
         {
           "type": "basic",
@@ -49,22 +53,23 @@
             },
             {
               "key_code": "escape"
-            },
-            {
-              "key_code": "escape"
             }
           ],
           "conditions": [
             {
               "type": "frontmost_application_if",
-              "bundle_identifiers": ["^com\\.google\\.Chrome$"]
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.edgemac$",
+                "^com\\.google\\.Chrome$",
+                "^com\\.brave\\.Browser$"
+              ]
             }
           ]
         }
       ]
     },
     {
-      "description": "Chrome: Accept suggestion & go to the url with CONTROL+F",
+      "description": "Chromium: Accept suggestion & go with CONTROL+F",
       "manipulators": [
         {
           "type": "basic",
@@ -82,14 +87,18 @@
           "conditions": [
             {
               "type": "frontmost_application_if",
-              "bundle_identifiers": ["^com\\.google\\.Chrome$"]
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.edgemac$",
+                "^com\\.google\\.Chrome$",
+                "^com\\.brave\\.Browser$"
+              ]
             }
           ]
         }
       ]
     },
     {
-      "description": "Chrome: Move tab left/right with COMMAND+[/]",
+      "description": "Chromium: Move tab left/right (or up/down) with COMMAND+[/]",
       "manipulators": [
         {
           "type": "basic",
@@ -101,21 +110,18 @@
           },
           "to": [
             {
-              "key_code": "up_arrow",
-              "modifiers": ["command", "option"]
-            },
-            {
-              "key_code": "right_arrow",
-              "modifiers": ["command"]
-            },
-            {
-              "key_code": "escape"
+              "key_code": "page_down",
+              "modifiers": ["control", "shift"]
             }
           ],
           "conditions": [
             {
               "type": "frontmost_application_if",
-              "bundle_identifiers": ["^com\\.google\\.Chrome$"]
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.edgemac$",
+                "^com\\.google\\.Chrome$",
+                "^com\\.brave\\.Browser$"
+              ]
             }
           ]
         },
@@ -129,28 +135,25 @@
           },
           "to": [
             {
-              "key_code": "up_arrow",
-              "modifiers": ["command", "option"]
-            },
-            {
-              "key_code": "arrow",
-              "modifiers": ["command"]
-            },
-            {
-              "key_code": "escape"
+              "key_code": "page_up",
+              "modifiers": ["control", "shift"]
             }
           ],
           "conditions": [
             {
               "type": "frontmost_application_if",
-              "bundle_identifiers": ["^com\\.google\\.Chrome$"]
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.edgemac$",
+                "^com\\.google\\.Chrome$",
+                "^com\\.brave\\.Browser$"
+              ]
             }
           ]
         }
       ]
     },
     {
-      "description": "Chrome: Search tabs with CONTROL+SPACE",
+      "description": "Chromium: Search tabs with CONTROL+SPACE",
       "manipulators": [
         {
           "type": "basic",
@@ -169,14 +172,18 @@
           "conditions": [
             {
               "type": "frontmost_application_if",
-              "bundle_identifiers": ["^com\\.google\\.Chrome$"]
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.edgemac$",
+                "^com\\.google\\.Chrome$",
+                "^com\\.brave\\.Browser$"
+              ]
             }
           ]
         }
       ]
     },
     {
-      "description": "Chrome: Switch tabs with COMMAND+N/P",
+      "description": "Chromium: Switch tabs with COMMAND+N/P",
       "manipulators": [
         {
           "type": "basic",
@@ -194,8 +201,12 @@
           ],
           "conditions": [
             {
-              "bundle_identifiers": ["^com\\.google\\.Chrome$"],
-              "type": "frontmost_application_if"
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.edgemac$",
+                "^com\\.google\\.Chrome$",
+                "^com\\.brave\\.Browser$"
+              ]
             }
           ]
         },
@@ -215,8 +226,12 @@
           ],
           "conditions": [
             {
-              "bundle_identifiers": ["^com\\.google\\.Chrome$"],
-              "type": "frontmost_application_if"
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.edgemac$",
+                "^com\\.google\\.Chrome$",
+                "^com\\.brave\\.Browser$"
+              ]
             }
           ]
         }
