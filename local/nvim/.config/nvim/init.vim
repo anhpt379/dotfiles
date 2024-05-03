@@ -514,6 +514,7 @@ command! -complete=dir -bang -nargs=* FzfRg
   \       '--ansi',
   \       '--prompt', 'Rg> ',
   \       '--no-multi',
+  \       '--scheme=path',
   \       '--layout=reverse',
   \       '--preview', 'preview {}',
   \       '--preview-window=right:60%,~2,+2/2'
