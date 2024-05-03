@@ -930,6 +930,7 @@ let g:sneak#s_next = 1
 let g:sneak#label = 1
 let g:sneak#prompt = 'Sneak> '
 map ' <Plug>Sneak_s
+map " <Plug>Sneak_S
 map g' <Plug>Sneak_;
 map f <Plug>Sneak_f
 map F <Plug>Sneak_F
