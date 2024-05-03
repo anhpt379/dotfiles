@@ -11,6 +11,7 @@ cask_args appdir: "~/Applications", require_sha: true, no_quarantine: true
 
 # Apps
 cask 'alt-tab'
+cask 'brave-browser'
 cask 'font-fira-code'
 cask 'font-meslo-lg-nerd-font'
 cask 'google-chrome'
