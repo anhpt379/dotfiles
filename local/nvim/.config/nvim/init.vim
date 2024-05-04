@@ -1021,8 +1021,8 @@ augroup end
 
 " Vim-fugitive GBrowse
 let g:fugitive_gitlab_domains = ['https://gitlab.' . $COMPANY_DOMAIN]
-map <silent> go :GBrowse<CR>
-map <silent> gO :GBrowse!<CR>
+map <silent> go :GBrowse master:%<CR>
+map <silent> gO :GBrowse! master:%<CR>
 
 nnoremap <silent> gm :!if git branch -a \| grep remotes/ \| grep -q /$(git branch --show-current)$; test $? -eq 1; then
                    \     git push --force-with-lease origin HEAD;
