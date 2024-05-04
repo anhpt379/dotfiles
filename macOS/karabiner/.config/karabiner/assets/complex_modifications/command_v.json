@@ -1,8 +1,8 @@
 {
-  "title": "COMMAND+V to paste without formatting",
+  "title": "COMMAND+(SHIFT)+V to work consistently everywhere",
   "rules": [
     {
-      "description": "COMMAND+V to paste without formatting",
+      "description": "COMMAND+V to paste **without** formatting",
       "manipulators": [
         {
           "type": "basic",
@@ -37,6 +37,58 @@
             {
               "key_code": "v",
               "modifiers": ["command", "shift"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.edgemac$",
+                "^com\\.google\\.Chrome$",
+                "^com\\.brave\\.Browser$",
+                "^com\\.tinyspeck\\.slackmacgap$"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "COMMAND+SHIFT+V to paste **with** formatting",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "v",
+            "modifiers": {
+              "mandatory": ["command", "shift"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "v",
+              "modifiers": ["command"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.apple\\.Notes$"]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "v",
+            "modifiers": {
+              "mandatory": ["command", "shift"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "v",
+              "modifiers": ["command"]
             }
           ],
           "conditions": [
