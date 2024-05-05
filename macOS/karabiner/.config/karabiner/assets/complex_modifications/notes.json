@@ -97,6 +97,32 @@
           ]
         }
       ]
+    },
+    {
+      "description": "Notes: COMMAND+M to switch to monostyled",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "m",
+            "modifiers": {
+              "mandatory": ["command"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "m",
+              "modifiers": ["command", "shift"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.apple\\.Notes$"]
+            }
+          ]
+        }
+      ]
     }
   ]
 }
