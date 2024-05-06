@@ -1,11 +1,11 @@
 {
 	"name": "Vimium C",
-	"@time": "4/26/2024, 9:58:14 AM",
-	"time": 1714118294408,
+	"@time": "5/6/2024, 1:42:56 PM",
+	"time": 1714995776340,
 	"environment": {
-		"extension": "1.99.997",
+		"extension": "1.99.994",
 		"platform": "mac",
-		"firefox": 125
+		"chromium": 124
 	},
 	"allBrowserUrls": true,
 	"autoDarkMode": 0,
@@ -23,6 +23,7 @@
 		"map q removeTab ",
 		"map <c-f> scrollPageDown",
 		"map <c-b> scrollPageUp",
+		"unmap m",
 		"unmap x",
 		"unmap X",
 		"unmap o",
