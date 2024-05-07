@@ -82,7 +82,7 @@ limactl snapshot create fedora39 --tag v1
 
 ## Key mappings
 
-### firefox
+### Chromium-based browsers
 
 - `<Command>-t` new tab
 - `<Command>-w` close tab
@@ -91,8 +91,12 @@ limactl snapshot create fedora39 --tag v1
 - `<Command>-]` move current tab to the right
 - `<Command>-[` move current tab to the left
 - `<Command>-o` focus on the address bar
+- `<Command>-u` undo close tab
+- `<Command>-y` copy url
+- `<Command>-f` accept suggestion & go
+- `<Control>-<Space>` search tabs
 
-### kitty
+### Kitty
 
 - `<Command>-t` new tab
 - `<Command>-w` close tab
@@ -103,7 +107,7 @@ limactl snapshot create fedora39 --tag v1
 - `<Command>-r` reload config
 - `<Command>-s` open a split
 
-### tmux
+### Tmux
 
 - `<Option>-t` new tab
 - `<Option>-w` close tab
@@ -114,14 +118,14 @@ limactl snapshot create fedora39 --tag v1
 - `<Option>-r` reload config
 - `<Option>-s` open a split
 
-### fish
+### Fish
 
 - `<C-f>` accept suggestion and execute
 - `<C-v>` edit the current command in vim
 - `<C-r>` fzf history
 - `<Tab>` fzf find
 
-### vim
+### Vim
 
 - `q` close buffer
 - `Q` close all buffers
