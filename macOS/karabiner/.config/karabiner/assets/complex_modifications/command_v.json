@@ -21,7 +21,12 @@
           "conditions": [
             {
               "type": "frontmost_application_if",
-              "bundle_identifiers": ["^com\\.apple\\.Notes$"]
+              "bundle_identifiers": [
+                "^com\\.apple\\.Notes$",
+                "^com\\.microsoft\\.edgemac$",
+                "^com\\.google\\.Chrome$",
+                "^com\\.brave\\.Browser$"
+              ]
             }
           ]
         },
@@ -42,12 +47,7 @@
           "conditions": [
             {
               "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "^com\\.microsoft\\.edgemac$",
-                "^com\\.google\\.Chrome$",
-                "^com\\.brave\\.Browser$",
-                "^com\\.tinyspeck\\.slackmacgap$"
-              ]
+              "bundle_identifiers": ["^com\\.tinyspeck\\.slackmacgap$"]
             }
           ]
         }
@@ -73,7 +73,12 @@
           "conditions": [
             {
               "type": "frontmost_application_if",
-              "bundle_identifiers": ["^com\\.apple\\.Notes$"]
+              "bundle_identifiers": [
+                "^com\\.apple\\.Notes$",
+                "^com\\.microsoft\\.edgemac$",
+                "^com\\.google\\.Chrome$",
+                "^com\\.brave\\.Browser$"
+              ]
             }
           ]
         },
@@ -94,12 +99,7 @@
           "conditions": [
             {
               "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "^com\\.microsoft\\.edgemac$",
-                "^com\\.google\\.Chrome$",
-                "^com\\.brave\\.Browser$",
-                "^com\\.tinyspeck\\.slackmacgap$"
-              ]
+              "bundle_identifiers": ["^com\\.tinyspeck\\.slackmacgap$"]
             }
           ]
         }
