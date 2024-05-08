@@ -1,4 +1,9 @@
 function magic_enter
-    scroll_up
+    set -l command $(commandline)
+
+    if test -z "$command"
+        scroll_up
+    end
+
     commandline -f execute
 end
