@@ -1,31 +1,8 @@
 {
-  "title": "Zoom/Slack - Mute/unmute using the Dictation key (F5)",
+  "title": "Zoom - Mute & unmute using the Dictation key (F5)",
   "rules": [
     {
-      "description": "Map F5 to only COMMAND+SHIFT+SPACE when in Slack",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "f5"
-          },
-          "to": [
-            {
-              "key_code": "spacebar",
-              "modifiers": ["command", "shift"]
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": ["^com\\.tinyspeck\\.slackmacgap$"]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "Map F5 to both COMMAND+SHIFT+SPACE (Slack) and COMMAND+SHIFT+A (Zoom) (remember to enable global shortcut for `Mute/Unmute My Audio` in Zoom's Settings)",
+      "description": "Zoom: Mute & unmute using the Dictation key (F5) (remember to enable global shortcut for `Mute/Unmute My Audio` in Zoom's Settings)",
       "manipulators": [
         {
           "type": "basic",
@@ -36,16 +13,6 @@
             {
               "key_code": "a",
               "modifiers": ["command", "shift"]
-            },
-            {
-              "key_code": "spacebar",
-              "modifiers": ["command", "shift"]
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": ["^com\\.tinyspeck\\.slackmacgap$"]
             }
           ]
         }

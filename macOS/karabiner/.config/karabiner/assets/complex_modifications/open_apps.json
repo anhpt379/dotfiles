@@ -1,5 +1,5 @@
 {
-  "title": "Open macOS apps with COMMAND+1/2/3/4/5/6",
+  "title": "Open macOS apps with COMMAND+1/2/3/4/5",
   "rules": [
     {
       "description": "Open Brave with COMMAND+1",
@@ -40,31 +40,12 @@
       ]
     },
     {
-      "description": "Open Slack with COMMAND+3",
+      "description": "Open Notes with COMMAND+3",
       "manipulators": [
         {
           "type": "basic",
           "from": {
             "key_code": "3",
-            "modifiers": {
-              "mandatory": ["command"]
-            }
-          },
-          "to": [
-            {
-              "shell_command": "open -a Slack.app"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "Open Notes with COMMAND+4",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "4",
             "modifiers": {
               "mandatory": ["command"]
             }
@@ -78,12 +59,12 @@
       ]
     },
     {
-      "description": "Open Zoom with COMMAND+5",
+      "description": "Open Zoom with COMMAND+4",
       "manipulators": [
         {
           "type": "basic",
           "from": {
-            "key_code": "5",
+            "key_code": "4",
             "modifiers": {
               "mandatory": ["command"]
             }
@@ -97,12 +78,12 @@
       ]
     },
     {
-      "description": "Open Finder with COMMAND+6",
+      "description": "Open Finder with COMMAND+5",
       "manipulators": [
         {
           "type": "basic",
           "from": {
-            "key_code": "6",
+            "key_code": "5",
             "modifiers": {
               "mandatory": ["command"]
             }

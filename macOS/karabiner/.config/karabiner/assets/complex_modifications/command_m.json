@@ -20,7 +20,12 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": ["^com\\.apple\\.Notes$"]
+              "bundle_identifiers": [
+                "^com\\.apple\\.Notes$",
+                "^com\\.microsoft\\.edgemac$",
+                "^com\\.google\\.Chrome$",
+                "^com\\.brave\\.Browser$"
+              ]
             }
           ]
         }
