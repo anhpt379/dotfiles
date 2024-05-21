@@ -36,18 +36,6 @@ abbr -a status  'sudo systemctl status'
 abbr -a fd   'command fd --one-file-system --hidden --exclude=".git"'
 abbr -a ncdu 'ncdu -rr -x --exclude .git'
 
-abbr -a docker         'sudo -E docker'
-abbr -a docker-compose 'sudo -E docker-compose'
-abbr -a d    'sudo -E docker'
-abbr -a dl   'sudo -E docker logs'
-abbr -a dps  'sudo -E docker ps'
-abbr -a dc   'sudo -E docker-compose'
-abbr -a dcu  'sudo -E docker-compose up --build -d'
-abbr -a dcup 'sudo -E docker-compose up --build -d'
-abbr -a dcr  'sudo -E docker-compose restart'
-abbr -a dcs  'sudo -E docker-compose stop'
-abbr -a dcps 'sudo -E docker-compose ps'
-
 abbr -a http  'xh'
 abbr -a https 'xhs'
 
