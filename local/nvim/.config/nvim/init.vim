@@ -849,7 +849,7 @@ let g:indentLine_char = '┊'
 
 " Make indentline and JSON quote concealing work well together
 let g:indentLine_setConceal = 0
-set conceallevel=1
+set conceallevel=2
 
 " Hide fzf status line
 augroup fzf
