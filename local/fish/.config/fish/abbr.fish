@@ -56,6 +56,9 @@ abbr -a rmrf 'rm -rf'
 abbr -a cwd  'pwd | pbcopy'
 abbr -a irb  'irb --simple-prompt'
 
+abbr -a d  'docker'
+abbr -a dc 'docker compose'
+
 if command -v prettyping &>/dev/null
     abbr -a ping 'prettyping --nolegend'
 else if command -v hping3 &>/dev/null

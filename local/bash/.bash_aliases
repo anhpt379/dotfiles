@@ -34,6 +34,9 @@ alias r.='rm -rf ~/.*; GIT_SSH_COMMAND="ssh -i /usr/local/etc/gitlab_ssh_key_dot
 alias py='python'
 alias ipy='ipython'
 
+alias d='docker'
+alias dc='docker compose'
+
 if test "$(whoami)" = 'root'; then
   alias start='systemctl start'
   alias stop='systemctl stop'
