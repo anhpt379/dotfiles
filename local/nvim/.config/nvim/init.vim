@@ -395,25 +395,10 @@ endfunction
 if g:hostname =~# 'fedora'
   set showtabline=2
 
-  map <Leader>1 <Plug>lightline#bufferline#go(1)
-  map <Leader>2 <Plug>lightline#bufferline#go(2)
-  map <Leader>3 <Plug>lightline#bufferline#go(3)
-  map <Leader>4 <Plug>lightline#bufferline#go(4)
-  map <Leader>5 <Plug>lightline#bufferline#go(5)
-  map <Leader>6 <Plug>lightline#bufferline#go(6)
-  map <Leader>7 <Plug>lightline#bufferline#go(7)
-  map <Leader>8 <Plug>lightline#bufferline#go(8)
-  map <Leader>9 <Plug>lightline#bufferline#go(9)
-  map <Leader>0 <Plug>lightline#bufferline#go(10)
-  map <Leader>n :<C-u>execute 'normal gq' \| bnext<CR>
-  map <Leader>p :<C-u>execute 'normal gq' \| bprevious<CR>
-  map <C-n>     :<C-u>execute 'normal gq' \| bnext<CR>
-  map <C-p>     :<C-u>execute 'normal gq' \| bprevious<CR>
-  map <Up>      :<C-u>execute 'normal gq' \| bprevious<CR>
-  map <Leader>w q
-  map <Leader>q Q
-  map <Leader>t :enew<CR>
-  map <Leader><Leader> <C-^>
+  map <C-n> :<C-u>execute 'normal gq' \| bnext<CR>
+  map <C-p> :<C-u>execute 'normal gq' \| bprevious<CR>
+  map <Up>  :<C-u>execute 'normal gq' \| bprevious<CR>
+  nmap ` <C-^>
 
   let g:lightline#bufferline#show_number     = 2
   let g:lightline#bufferline#shorten_path    = 1
