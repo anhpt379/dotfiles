@@ -28,6 +28,7 @@ cask 'slack'
 cask 'stats'
 cask 'syntax-highlight'
 cask 'the-unarchiver'
+cask 'tomatobar'
 cask 'topnotch'
 
 # Mac App Store
