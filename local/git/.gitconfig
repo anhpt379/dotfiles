@@ -32,7 +32,7 @@
 
 [pager]
   diff = diff-so-fancy | view  # can't use nvimpager here, since it failed to render diff-so-fancy's output
-  log  = /usr/bin/less --tabs=4
+  log  = view
   show = diff-so-fancy | view
 
 [interactive]
