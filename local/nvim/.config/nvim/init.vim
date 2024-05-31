@@ -56,7 +56,6 @@ call plug#begin()
   Plug 'anhpt379/vim-unimpaired'
   Plug 'justinmk/vim-sneak'
   Plug 'junegunn/vim-easy-align'
-  Plug 'RRethy/nvim-treesitter-endwise'
   Plug 'cohama/lexima.vim'
   Plug 'tpope/vim-speeddating'
   Plug 'anhpt379/vim-dispatch'
@@ -111,6 +110,7 @@ call plug#begin()
     Plug 'ray-x/cmp-treesitter'
     Plug 'hrsh7th/nvim-cmp'
     Plug 'nvim-lua/lsp-status.nvim'
+    Plug 'RRethy/nvim-treesitter-endwise'
 
     Plug 'lewis6991/gitsigns.nvim' | Plug 'anhpt379/plenary.nvim'
 
