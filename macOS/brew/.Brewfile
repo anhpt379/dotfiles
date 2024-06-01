@@ -10,31 +10,23 @@ tap 'anhpt379/homebrew-neovim-nightly'
 cask_args appdir: "~/Applications", require_sha: true, no_quarantine: true
 
 # Apps
-cask 'alt-tab'
 cask 'brave-browser'
 cask 'font-fira-code'
-cask 'font-meslo-lg-nerd-font'
-cask 'google-chrome'
 cask 'hiddenbar'
 cask 'karabiner-elements'
 cask 'key-codes'
 cask 'kitty'
 cask 'lunar'
 cask 'maccy'
-cask 'macdown'
 cask 'neovim-nightly'
 cask 'qbserve'
 cask 'rectangle'
-cask 'slack'
 cask 'stats'
-cask 'syntax-highlight'
-cask 'the-unarchiver'
 cask 'tomatobar'
 cask 'topnotch'
 
 # Mac App Store
 mas 'Amphetamine', id: 937984704
-mas 'Be Focus', id: 961632517
 mas 'Fantastical', id: 975937182
 
 brew 'bash'
