@@ -12,3 +12,7 @@ touch Xcode.app
 ## Increase mouse pointer size
 
 Go to Accessibility -> Display -> Pointer.
+
+## Getting eyestrain when using MacBook Pro 14"?
+
+Install this app & enable both options: <https://github.com/aiaf/Stillcolor>
