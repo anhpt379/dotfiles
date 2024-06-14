@@ -303,7 +303,7 @@ require('ts_context_commentstring').setup()
 -- Treesitter
 require('nvim-treesitter.configs').setup({
   highlight = {
-    enable = true,
+    enable = false,
   },
   yati = {
     enable = true
