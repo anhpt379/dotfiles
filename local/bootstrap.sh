@@ -3,7 +3,7 @@
 sudo dnf install -y \
   kitty-terminfo which \
   stow git fish tmux \
-  jq ripgrep exa rsync \
+  jq ripgrep eza rsync \
   curl wget nmap-ncat \
   telnet corkscrew \
   tldr man-pages grc dnsutils \

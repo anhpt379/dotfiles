@@ -1,6 +1,6 @@
 function la
-    if command -v exa >/dev/null
-        command exa --group-directories-first -F -a $argv
+    if command -v eza >/dev/null
+        command eza --group-directories-first -F -a $argv
     else
         command ls --color=yes --group-directories-first -vFA $argv
     end

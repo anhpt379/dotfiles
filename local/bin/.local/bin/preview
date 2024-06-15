@@ -29,7 +29,7 @@ if [[ -d $name ]]; then
     exit 1
   fi
 
-  # preview directory contents with `exa`
+  # preview directory contents with `eza`
   command ls --color=always --group-directories-first -lhAvF "$name"
 
 elif [[ -f $name ]]; then
