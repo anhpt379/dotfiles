@@ -14,7 +14,7 @@
           },
           "to": [
             {
-              "shell_command": "open -a 'Brave Browser.app'"
+              "shell_command": "open -a 'Brave Browser.app' && open -g ~/Applications/MoveCursorToCenterOfActiveWindow.app"
             }
           ]
         }
@@ -33,7 +33,7 @@
           },
           "to": [
             {
-              "shell_command": "open -a Kitty.app"
+              "shell_command": "open -a Kitty.app && open -g ~/Applications/MoveCursorToCenterOfActiveWindow.app"
             }
           ]
         }
@@ -52,7 +52,7 @@
           },
           "to": [
             {
-              "shell_command": "open -a Notes.app"
+              "shell_command": "open -a Notes.app && open -g ~/Applications/MoveCursorToCenterOfActiveWindow.app"
             }
           ]
         }
@@ -71,7 +71,7 @@
           },
           "to": [
             {
-              "shell_command": "open -a Zoom.us.app"
+              "shell_command": "open -a Zoom.us.app && open -g ~/Applications/MoveCursorToCenterOfActiveWindow.app"
             }
           ]
         }
@@ -90,7 +90,7 @@
           },
           "to": [
             {
-              "shell_command": "open -a Finder.app"
+              "shell_command": "open -a Finder.app && open -g ~/Applications/MoveCursorToCenterOfActiveWindow.app"
             }
           ]
         }
