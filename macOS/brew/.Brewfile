@@ -24,7 +24,6 @@ cask 'qbserve'
 cask 'rectangle'
 cask 'stats'
 cask 'tomatobar'
-cask 'topnotch'
 
 # Mac App Store
 mas 'Amphetamine', id: 937984704
