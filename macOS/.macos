@@ -129,10 +129,6 @@ sudo chflags uchg /private/var/vm/sleepimage
 # Screen                                                                      #
 ###############################################################################
 
-# Disable subpixel font rendering
-# https://tonsky.me/blog/monitors/
-defaults write NSGlobalDomain AppleFontSmoothing -int 0
-
 # Enable HiDPI display modes (requires restart)
 sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutionEnabled -bool true
 
