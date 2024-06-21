@@ -67,4 +67,34 @@ colors.selection_fg = "#000000"
 
 config.colors = colors
 
+config.keys = {
+    {key="t", mods="CMD", action=wezterm.action.SendString("\x1bT")},
+    {key="w", mods="CMD", action=wezterm.action.Multiple {
+      wezterm.action.SendString("\x04"),
+      wezterm.action.SendString("\x1bW"),
+    }},
+    {key="n", mods="CMD", action=wezterm.action.SendString("\x1bN")},
+    {key="p", mods="CMD", action=wezterm.action.SendString("\x1bP")},
+    {key="[", mods="CMD", action=wezterm.action.SendString("\x1b{")},
+    {key="]", mods="CMD", action=wezterm.action.SendString("\x1b}")},
+    {key="s", mods="CMD", action=wezterm.action.SendString("\x1bS")},
+    {key="o", mods="CMD", action=wezterm.action.SendString("\x1bO")},
+    {key="r", mods="CMD", action=wezterm.action.SendString("\x1bR")},
+    {key="f", mods="CMD", action=wezterm.action.SendString("\x1bF")},
+    {key=":", mods="CMD", action=wezterm.action.SendString("\x1b;")},
+    {key="'", mods="CMD", action=wezterm.action.SendString("\x1b\"")},
+    {key="1", mods="CMD", action=wezterm.action.SendString("\x1b!")},
+    {key="2", mods="CMD", action=wezterm.action.SendString("\x1b@")},
+    {key="3", mods="CMD", action=wezterm.action.SendString("\x1b#")},
+    {key="4", mods="CMD", action=wezterm.action.SendString("\x1b$")},
+    {key="5", mods="CMD", action=wezterm.action.SendString("\x1b%")},
+    {key="6", mods="CMD", action=wezterm.action.SendString("\x1b^")},
+    {key="7", mods="CMD", action=wezterm.action.SendString("\x1b&")},
+    {key="8", mods="CMD", action=wezterm.action.SendString("\x1b*")},
+    {key="9", mods="CMD", action=wezterm.action.SendString("\x1b(")},
+    {key="0", mods="CMD", action=wezterm.action.SendString("\x1b)")},
+    {key="=", mods="CMD", action=wezterm.action.SendString("\x1b+")},
+    {key="-", mods="CMD", action=wezterm.action.SendString("\x1b_")},
+  }
+
 return config
