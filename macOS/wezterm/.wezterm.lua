@@ -20,6 +20,12 @@ config.line_height = 1.1
 config.window_close_confirmation = "NeverPrompt"
 config.window_decorations = "RESIZE"
 config.freetype_load_flags = 'NO_HINTING'
+config.window_padding = {
+  left = '1cell',
+  right = '1cell',
+  top = '0px',
+  bottom = '0px',
+}
 
 -- Colors ----------------------------------------------------------------------
 local colors = {}
