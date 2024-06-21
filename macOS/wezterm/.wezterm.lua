@@ -19,6 +19,7 @@ config.hide_tab_bar_if_only_one_tab = true
 config.line_height = 1.1
 config.window_close_confirmation = "NeverPrompt"
 config.window_decorations = "NONE"
+config.freetype_load_flags = 'NO_HINTING'
 
 -- Colors ----------------------------------------------------------------------
 local colors = {}
