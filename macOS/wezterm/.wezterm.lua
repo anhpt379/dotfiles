@@ -18,7 +18,7 @@ config.harfbuzz_features = { "ss06", "ss08", "cv30" }
 config.hide_tab_bar_if_only_one_tab = true
 config.line_height = 1.1
 config.window_close_confirmation = "NeverPrompt"
-config.window_decorations = "NONE"
+config.window_decorations = "RESIZE"
 config.freetype_load_flags = 'NO_HINTING'
 
 -- Colors ----------------------------------------------------------------------
