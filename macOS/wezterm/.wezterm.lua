@@ -24,7 +24,7 @@ config.freetype_load_flags = 'NO_HINTING'
 -- Colors ----------------------------------------------------------------------
 local colors = {}
 
-colors.background = "#141414"
+colors.background = "#1c1c1c"
 colors.foreground = "#dcdfe4"
 
 colors.cursor_bg = "#28c9ff"
