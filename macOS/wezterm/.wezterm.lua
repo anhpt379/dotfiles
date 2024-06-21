@@ -4,8 +4,17 @@ local config = {}
 -- General settings ------------------------------------------------------------
 config.adjust_window_size_when_changing_font_size = false
 config.audible_bell = "Disabled"
-config.font = wezterm.font("ComicMono NF", {weight="Light"})
+config.font = wezterm.font_with_fallback {
+  {
+    family = "ComicMono NF",
+    weight = "Light"
+  },
+  {
+    family = "FiraCode-Retina"
+  }
+}
 config.font_size = 17.0
+config.harfbuzz_features = { "ss06", "ss08", "cv30" }
 config.hide_tab_bar_if_only_one_tab = true
 config.line_height = 1.1
 config.window_close_confirmation = "NeverPrompt"
@@ -59,4 +68,3 @@ colors.selection_fg = "#000000"
 config.colors = colors
 
 return config
-
