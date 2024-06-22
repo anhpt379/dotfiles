@@ -18,19 +18,607 @@
                 },
                 "rules": [
                     {
-                        "description": "Zoom: Mute & unmute using the Dictation key (F5) (remember to enable global shortcut for `Mute/Unmute My Audio` in Zoom's Settings)",
+                        "description": "Terminal: Map OPTION+DELETE to OPTION+D (ALT+D)",
                         "manipulators": [
                             {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
                                 "from": {
-                                    "key_code": "f5"
+                                    "key_code": "delete_forward",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_option"
+                                        ]
+                                    }
                                 },
                                 "to": [
                                     {
-                                        "key_code": "a",
+                                        "key_code": "d",
                                         "modifiers": [
-                                            "command",
+                                            "left_option"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Terminal: Map CONTROL+N/P to DOWN/UP",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "p",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_control"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "up_arrow"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "n",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_control"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "down_arrow"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Terminal: Map CONTROL+[ to ESCAPE everywhere except terminal apps",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "open_bracket",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_control"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "escape"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Terminal: Map COMMAND+BACKTICK to OPTION+SHIFT+BACKTICK",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "grave_accent_and_tilde",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "command"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "grave_accent_and_tilde",
+                                        "modifiers": [
+                                            "option",
                                             "shift"
                                         ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Swap ; and :",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "semicolon",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "shift"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "semicolon"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "semicolon",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "semicolon",
+                                        "modifiers": [
+                                            "left_shift"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Map COMMAND+H/J/K/L to arrow LEFT/DOWN/UP/RIGHT",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "h",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "command"
+                                        ],
+                                        "optional": [
+                                            "shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_arrow"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "j",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "command"
+                                        ],
+                                        "optional": [
+                                            "shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "down_arrow"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "k",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "command"
+                                        ],
+                                        "optional": [
+                                            "shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "up_arrow"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "l",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "command"
+                                        ],
+                                        "optional": [
+                                            "shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "right_arrow"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Map OPTION+H/J/K/L to OPTION+LEFT/DOWN/UP/RIGHT",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "h",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "option"
+                                        ],
+                                        "optional": [
+                                            "shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_arrow",
+                                        "modifiers": [
+                                            "left_option"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "j",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "option"
+                                        ],
+                                        "optional": [
+                                            "shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "down_arrow",
+                                        "modifiers": [
+                                            "left_option"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "k",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "option"
+                                        ],
+                                        "optional": [
+                                            "shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "up_arrow",
+                                        "modifiers": [
+                                            "left_option"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "l",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "option"
+                                        ],
+                                        "optional": [
+                                            "shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "right_arrow",
+                                        "modifiers": [
+                                            "left_option"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Map CONTROL+H/J/K/L to HOME/PAGE_DOWN/PAGE_UP/END",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "h",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_control"
+                                        ],
+                                        "optional": [
+                                            "shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "home"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "j",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_control"
+                                        ],
+                                        "optional": [
+                                            "shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "page_down"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "k",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_control"
+                                        ],
+                                        "optional": [
+                                            "shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "page_up"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "l",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_control"
+                                        ],
+                                        "optional": [
+                                            "shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "end"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Map COMMAND+BACKSPACE to OPTION+BACKSPACE",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "delete_or_backspace",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_command"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "delete_or_backspace",
+                                        "modifiers": [
+                                            "left_option"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Map COMMAND+DELETE to OPTION+DELETE",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "delete_forward",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_command"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "delete_forward",
+                                        "modifiers": [
+                                            "left_option"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Open Brave with COMMAND+1",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "1",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "command"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "open -a 'Brave Browser.app' && open -g ~/Applications/MoveCursorToCenterOfActiveWindow.app"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Open Kitty with COMMAND+2",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "2",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "command"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "open -a Kitty.app && open -g ~/Applications/MoveCursorToCenterOfActiveWindow.app"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Open Notes with COMMAND+3",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "3",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "command"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "open -a Notes.app && open -g ~/Applications/MoveCursorToCenterOfActiveWindow.app"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Open Zoom with COMMAND+4",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "4",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "command"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "open -a Zoom.us.app && open -g ~/Applications/MoveCursorToCenterOfActiveWindow.app"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Open Finder with COMMAND+5",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "5",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "command"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "open -a Finder.app && open -g ~/Applications/MoveCursorToCenterOfActiveWindow.app"
                                     }
                                 ],
                                 "type": "basic"
@@ -111,104 +699,19 @@
                         ]
                     },
                     {
-                        "description": "Open Brave with COMMAND+1",
+                        "description": "Zoom: Mute & unmute using the Dictation key (F5) (remember to enable global shortcut for `Mute/Unmute My Audio` in Zoom's Settings)",
                         "manipulators": [
                             {
                                 "from": {
-                                    "key_code": "1",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "command"
-                                        ]
-                                    }
+                                    "key_code": "f5"
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "open -a 'Brave Browser.app'"
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Open Kitty with COMMAND+2",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "2",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "command"
+                                        "key_code": "a",
+                                        "modifiers": [
+                                            "command",
+                                            "shift"
                                         ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "shell_command": "open -a Kitty.app"
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Open Notes with COMMAND+3",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "3",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "command"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "shell_command": "open -a Notes.app"
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Open Zoom with COMMAND+4",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "4",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "command"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "shell_command": "open -a Zoom.us.app"
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Open Finder with COMMAND+5",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "5",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "command"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "shell_command": "open -a Finder.app"
                                     }
                                 ],
                                 "type": "basic"
@@ -873,261 +1376,6 @@
                         ]
                     },
                     {
-                        "description": "Map COMMAND+H/J/K/L to arrow LEFT/DOWN/UP/RIGHT",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "h",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "command"
-                                        ],
-                                        "optional": [
-                                            "shift"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "left_arrow"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "j",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "command"
-                                        ],
-                                        "optional": [
-                                            "shift"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "down_arrow"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "k",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "command"
-                                        ],
-                                        "optional": [
-                                            "shift"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "up_arrow"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "l",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "command"
-                                        ],
-                                        "optional": [
-                                            "shift"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "right_arrow"
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Map OPTION+H/J/K/L to OPTION+LEFT/DOWN/UP/RIGHT",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "h",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "option"
-                                        ],
-                                        "optional": [
-                                            "shift"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "left_arrow",
-                                        "modifiers": [
-                                            "left_option"
-                                        ]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "j",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "option"
-                                        ],
-                                        "optional": [
-                                            "shift"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "down_arrow",
-                                        "modifiers": [
-                                            "left_option"
-                                        ]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "k",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "option"
-                                        ],
-                                        "optional": [
-                                            "shift"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "up_arrow",
-                                        "modifiers": [
-                                            "left_option"
-                                        ]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "l",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "option"
-                                        ],
-                                        "optional": [
-                                            "shift"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "right_arrow",
-                                        "modifiers": [
-                                            "left_option"
-                                        ]
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Map CONTROL+H/J/K/L to HOME/PAGE_DOWN/PAGE_UP/END",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "h",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "left_control"
-                                        ],
-                                        "optional": [
-                                            "shift"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "home"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "j",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "left_control"
-                                        ],
-                                        "optional": [
-                                            "shift"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "page_down"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "k",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "left_control"
-                                        ],
-                                        "optional": [
-                                            "shift"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "page_up"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "l",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "left_control"
-                                        ],
-                                        "optional": [
-                                            "shift"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "end"
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
                         "description": "Map RETURN to CONTROL on hold",
                         "manipulators": [
                             {
@@ -1182,185 +1430,6 @@
                         ]
                     },
                     {
-                        "description": "Map CONTROL+N/P to DOWN/UP",
-                        "manipulators": [
-                            {
-                                "conditions": [
-                                    {
-                                        "bundle_identifiers": [
-                                            "^net\\.kovidgoyal\\.kitty$",
-                                            "^com\\.apple\\.Terminal$",
-                                            "^com\\.googlecode\\.iterm2$"
-                                        ],
-                                        "type": "frontmost_application_unless"
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "p",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "left_control"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "up_arrow"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "bundle_identifiers": [
-                                            "^net\\.kovidgoyal\\.kitty$",
-                                            "^com\\.apple\\.Terminal$",
-                                            "^com\\.googlecode\\.iterm2$"
-                                        ],
-                                        "type": "frontmost_application_unless"
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "n",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "left_control"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "down_arrow"
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Map CONTROL+[ to ESCAPE everywhere except terminal apps",
-                        "manipulators": [
-                            {
-                                "conditions": [
-                                    {
-                                        "bundle_identifiers": [
-                                            "^net\\.kovidgoyal\\.kitty$",
-                                            "^com\\.apple\\.Terminal$",
-                                            "^com\\.googlecode\\.iterm2$"
-                                        ],
-                                        "type": "frontmost_application_unless"
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "open_bracket",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "left_control"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "escape"
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Map COMMAND+BACKSPACE to OPTION+BACKSPACE",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "delete_or_backspace",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "left_command"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "delete_or_backspace",
-                                        "modifiers": [
-                                            "left_option"
-                                        ]
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Map COMMAND+DELETE to OPTION+DELETE",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "delete_forward",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "left_command"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "delete_forward",
-                                        "modifiers": [
-                                            "left_option"
-                                        ]
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Swap ; and :",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "semicolon",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "shift"
-                                        ],
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "semicolon"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "semicolon",
-                                    "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "semicolon",
-                                        "modifiers": [
-                                            "left_shift"
-                                        ]
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
                         "description": "Map OPTION+DELETE to OPTION+D (ALT+D)",
                         "manipulators": [
                             {
@@ -1404,41 +1473,6 @@
                                 "to": [
                                     {
                                         "shell_command": "open -b com.apple.ScreenSaver.Engine"
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Map COMMAND+BACKTICK to OPTION+SHIFT+BACKTICK",
-                        "manipulators": [
-                            {
-                                "conditions": [
-                                    {
-                                        "bundle_identifiers": [
-                                            "^net\\.kovidgoyal\\.kitty$",
-                                            "^com\\.apple\\.Terminal$",
-                                            "^com\\.googlecode\\.iterm2$"
-                                        ],
-                                        "type": "frontmost_application_if"
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "grave_accent_and_tilde",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "command"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "grave_accent_and_tilde",
-                                        "modifiers": [
-                                            "option",
-                                            "shift"
-                                        ]
                                     }
                                 ],
                                 "type": "basic"
