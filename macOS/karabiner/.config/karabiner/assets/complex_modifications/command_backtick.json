@@ -26,7 +26,7 @@
               "bundle_identifiers": [
                 "^net\\.kovidgoyal\\.kitty$",
                 "^com\\.apple\\.Terminal$",
-                "^com\\.googlecode\\.iterm2$"
+                "^com\\.github\\.wez\\.wezterm$"
               ]
             }
           ]
