@@ -2,6 +2,7 @@ local wezterm = require 'wezterm';
 local config = {}
 
 -- General settings ------------------------------------------------------------
+config.max_fps = 120
 config.adjust_window_size_when_changing_font_size = false
 config.audible_bell = "Disabled"
 config.font = wezterm.font_with_fallback {
