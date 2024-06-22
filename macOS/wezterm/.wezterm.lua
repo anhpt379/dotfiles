@@ -2,6 +2,7 @@ local wezterm = require "wezterm"
 local config = {}
 
 -- Generic
+config.term = "wezterm"
 config.audible_bell = "Disabled"
 config.enable_kitty_keyboard = true
 config.max_fps = 120
@@ -98,14 +99,6 @@ config.keys = {
     {key = "f", mods = "CMD", action = wezterm.action.SendString("\x1bF")},
     {key = ":", mods = "CMD", action = wezterm.action.SendString("\x1b;")},
     {key = "'", mods = "CMD", action = wezterm.action.SendString('\x1b"')},
-    {key = "1", mods = "CMD", action = wezterm.action.SendString("\x1b!")},
-    {key = "2", mods = "CMD", action = wezterm.action.SendString("\x1b@")},
-    {key = "3", mods = "CMD", action = wezterm.action.SendString("\x1b#")},
-    {key = "4", mods = "CMD", action = wezterm.action.SendString("\x1b$")},
-    {key = "5", mods = "CMD", action = wezterm.action.SendString("\x1b%")},
-    {key = "6", mods = "CMD", action = wezterm.action.SendString("\x1b^")},
-    {key = "7", mods = "CMD", action = wezterm.action.SendString("\x1b&")},
-    {key = "8", mods = "CMD", action = wezterm.action.SendString("\x1b*")},
     {key = "9", mods = "CMD", action = wezterm.action.SendString("\x1b(")},
     {key = "0", mods = "CMD", action = wezterm.action.SendString("\x1b)")},
     {key = "=", mods = "CMD", action = wezterm.action.SendString("\x1b+")},
