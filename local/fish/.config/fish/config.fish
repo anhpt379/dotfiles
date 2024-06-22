@@ -9,6 +9,8 @@ if string match -q -- Darwin (uname); and status is-interactive
     if test -d ~/dotfiles/
         cd ~/dotfiles
     end
+else
+    cd $HOME
 end
 
 if not set -q WORK_EMAIL
