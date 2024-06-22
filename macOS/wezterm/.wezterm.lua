@@ -28,7 +28,14 @@ config.window_padding = {
   top = '0px',
   bottom = '0px',
 }
+
 config.hyperlink_rules = wezterm.default_hyperlink_rules()
+
+-- make JIRA ticket id clickable
+table.insert(config.hyperlink_rules, {
+  regex = [[\b([A-Z]+-\d+)\b]],
+  format = 'http://go/jira?searchString=$1',
+})
 
 -- Colors ----------------------------------------------------------------------
 local colors = {}
