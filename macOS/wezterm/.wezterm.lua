@@ -28,6 +28,7 @@ config.window_padding = {
   top = '0px',
   bottom = '0px',
 }
+config.hyperlink_rules = wezterm.default_hyperlink_rules()
 
 -- Colors ----------------------------------------------------------------------
 local colors = {}
