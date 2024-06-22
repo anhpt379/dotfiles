@@ -8,20 +8,10 @@ config.enable_kitty_keyboard = true
 config.max_fps = 120
 
 -- Fonts
-config.font =
-    wezterm.font_with_fallback {
-    {
-        family = "ComicMono NF",
-        weight = "Light"
-    },
-    {
-        family = "FiraCode-Retina"
-    }
-}
+config.font = wezterm.font('ComicMonoNF-Fira', { weight = 'Light' })
 config.font_size = 17.0
 config.line_height = 1.1
 config.freetype_load_flags = "NO_HINTING"
-config.harfbuzz_features = {"ss06", "ss08", "cv30"}
 
 -- Windows
 config.hide_tab_bar_if_only_one_tab = true
