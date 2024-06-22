@@ -76,10 +76,7 @@ config.colors = colors
 
 config.keys = {
     {key="t", mods="CMD", action=wezterm.action.SendString("\x1bT")},
-    {key="w", mods="CMD", action=wezterm.action.Multiple {
-      wezterm.action.SendString("\x04"),
-      wezterm.action.SendString("\x1bW"),
-    }},
+    {key="w", mods="CMD", action=wezterm.action.SendString("\x1bW")},
     {key="n", mods="CMD", action=wezterm.action.SendString("\x1bN")},
     {key="p", mods="CMD", action=wezterm.action.SendString("\x1bP")},
     {key="[", mods="CMD", action=wezterm.action.SendString("\x1b{")},
