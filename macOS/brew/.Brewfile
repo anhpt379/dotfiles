@@ -37,11 +37,12 @@ brew 'curl'
 brew 'eza'
 brew 'fd'
 brew 'fish'
+brew 'fontforge'
 brew 'fzf'
 brew 'gawk'
 brew 'git'
-brew 'go'    # to build Kitty from source
 brew 'gnu-sed'
+brew 'go'    # to build Kitty from source
 brew 'grc'
 brew 'grep'
 brew 'hashicorp/tap/vault'
