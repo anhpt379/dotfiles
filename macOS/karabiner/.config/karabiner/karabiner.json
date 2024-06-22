@@ -18,6 +18,25 @@
                 },
                 "rules": [
                     {
+                        "description": "macOS: Map BACKSPACE (F20) to COMMAND+`",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "f20"
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "grave_accent_and_tilde",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "Terminal: Map OPTION+DELETE to OPTION+D (ALT+D)",
                         "manipulators": [
                             {
@@ -1760,6 +1779,16 @@
                     "to": [
                         {
                             "key_code": "delete_forward"
+                        }
+                    ]
+                },
+                {
+                    "from": {
+                        "key_code": "delete_or_backspace"
+                    },
+                    "to": [
+                        {
+                            "key_code": "f20"
                         }
                     ]
                 }

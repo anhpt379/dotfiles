@@ -1,0 +1,22 @@
+{
+  "title": "Cycle through opening windows with BACKSPACE (F20) key",
+  "rules": [
+    {
+      "description": "macOS: Map BACKSPACE (F20) to COMMAND+`",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f20"
+          },
+          "to": [
+            {
+              "key_code": "grave_accent_and_tilde",
+              "modifiers": ["command"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
