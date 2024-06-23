@@ -13,6 +13,7 @@ config.harfbuzz_features = { "ss06", "ss08", "cv30" }
 config.font_size = 17.0
 config.line_height = 1.1
 config.freetype_load_flags = "NO_HINTING"
+config.underline_position = "-0.1cell"
 
 -- Windows
 config.hide_tab_bar_if_only_one_tab = true
