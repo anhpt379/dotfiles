@@ -2,6 +2,7 @@ local wezterm = require("wezterm")
 local config = {}
 
 -- Generic
+config.term = 'wezterm'
 config.audible_bell = "Disabled"
 config.enable_kitty_keyboard = true
 config.max_fps = 120
