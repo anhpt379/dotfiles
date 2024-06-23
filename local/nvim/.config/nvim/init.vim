@@ -182,7 +182,7 @@ set mouse=a
 
 " Make mouse scrolling smoother, by scroll one line at a time.
 " (and also fix unexpected horizontally scrolling when using trackpad)
-set mousescroll=ver:1,hor:0
+set mousescroll=ver:2,hor:0
 
 " Scroll screen-lines (long/wrapped) instead of text lines
 set smoothscroll
