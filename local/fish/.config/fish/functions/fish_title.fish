@@ -16,9 +16,6 @@ function fish_title
             printf "\ek$title\e\\"
         end
     else
-        if test $(uname -s) = Darwin
-            echo -n " "
-        end
         echo $(status current-command) $(prompt_pwd)
     end
 end
