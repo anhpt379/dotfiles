@@ -111,6 +111,8 @@ pip3 install black
 sudo npm install -g @fsouza/prettierd
 pip3 install yamlfixer-opt-nc
 
+cargo install stylua
+
 # python/ruby/node.js provider
 pip3 install neovim
 sudo gem install --bindir ~/.local/bin/ neovim
