@@ -2,12 +2,12 @@ local wezterm = require("wezterm")
 local config = {}
 
 -- Generic
-config.term = 'wezterm'
+config.term = "wezterm"
 config.audible_bell = "Disabled"
 config.enable_kitty_keyboard = true
 config.max_fps = 120
 config.animation_fps = 60
-config.front_end = 'WebGpu'
+config.front_end = "WebGpu"
 
 -- Fonts
 config.font = wezterm.font("ComicFira", { weight = "Light" })
@@ -34,6 +34,16 @@ table.insert(config.hyperlink_rules, {
   regex = [[\b([A-Z]+-\d+)\b]],
   format = "http://go/jira?searchString=$1",
 })
+
+-- Quick Select
+config.quick_select_alphabet = "fjghdkslarutyioewcnvbqpxzm"
+config.disable_default_quick_select_patterns = true
+config.quick_select_patterns = {
+  "(^| )([a-f0-9]{7,40})\\b",   -- git commit hash / docker container id
+  "^[a-z0-9-]+-[a-z0-9]{5}\\b", -- kubernetes pod name
+  "\\b([A-Z]+-\\d+)\\b",        -- jira ticket id
+  "(^| )([A-Za-z0-9-_.]{2,})",  -- file / container name
+}
 
 -- Colors
 local colors = {}
@@ -152,7 +162,6 @@ config.keys = {
   { key = "s", mods = "CMD", action = wezterm.action.SendString("\x1bS") },
   { key = "o", mods = "CMD", action = wezterm.action.SendString("\x1bO") },
   { key = "r", mods = "CMD", action = wezterm.action.SendString("\x1bR") },
-  { key = "f", mods = "CMD", action = wezterm.action.SendString("\x1bF") },
   { key = ":", mods = "CMD|SHIFT", action = wezterm.action.SendString("\x1b;") },
   { key = "'", mods = "CMD", action = wezterm.action.SendString('\x1b"') },
   { key = "9", mods = "CMD", action = wezterm.action.SendString("\x1b(") },
@@ -160,6 +169,7 @@ config.keys = {
   { key = "=", mods = "CMD", action = wezterm.action.SendString("\x1b+") },
   { key = "-", mods = "CMD", action = wezterm.action.SendString("\x1b_") },
   { key = "\\", mods = "CMD", action = wezterm.action.EmitEvent("trigger-password-input") },
+  { key = "f", mods = "CMD", action = wezterm.action.QuickSelect },
 }
 
 return config
