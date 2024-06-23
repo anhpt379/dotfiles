@@ -49,7 +49,7 @@ limactl snapshot create fedora39 --tag v1
 **Key concepts:**
 
 - macOS is in charge of handling clipboard, notifications and GUI-based
-  applications (Chrome, Slack, Kitty, etc.).
+  applications (Chrome, Slack, WezTerm, etc.).
 - the linux VM is in charge of text-based applications (fish, nvim, git, etc.).
 - ssh port forwards (port 2224 → 2227) are being used to make `open`, `noti`,
   `pbcopy` and `pbpaste` commands work within the VM.
@@ -96,7 +96,7 @@ limactl snapshot create fedora39 --tag v1
 - `<Command>-f` accept suggestion & go
 - `<Control>-<Space>` search tabs
 
-### Kitty
+### WezTerm
 
 - `<Command>-t` new tab
 - `<Command>-w` close tab
