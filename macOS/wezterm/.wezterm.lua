@@ -72,6 +72,71 @@ colors.selection_fg = "#000000"
 
 config.colors = colors
 
+-- Keychain integration
+function find_last_match(text, pattern)
+  local last_match_line = nil
+  local lines = {}
+
+  for line in text:gmatch("[^\r\n]+") do
+    table.insert(lines, line)
+  end
+
+  for line_num, line in ipairs(lines) do
+    local start_pos, _ = string.find(line, pattern)
+    if start_pos then
+      last_match_line = line_num
+    end
+  end
+
+  if last_match_line then
+    return last_match_line
+  else
+    return nil
+  end
+end
+
+wezterm.on("trigger-password-input", function(window, pane)
+  local text = pane:get_lines_as_text(pane:get_dimensions().scrollback_rows)
+
+  -- macOS keychain integration
+  -- Use this command to add a new password:
+  --
+  --   $ security add-generic-password -a <name> -s <name> -w
+  --
+  local keychain_password_item = nil
+  local password_prompt = find_last_match(text, "^Password:")
+  local passphrase_prompt = find_last_match(text, "^Enter passphrase for .*/.ssh/id_ed25519:")
+
+  if type(password_prompt) == "number" or type(passphrase_prompt) == "number" then
+    if passphrase_prompt and not password_prompt then
+      keychain_password_item = "passphrase"
+    elseif password_prompt and not passphrase_prompt then
+      keychain_password_item = "ssh"
+    elseif passphrase_prompt > password_prompt then
+      keychain_password_item = "passphrase"
+    elseif password_prompt > passphrase_prompt then
+      keychain_password_item = "ssh"
+    end
+  end
+
+  if keychain_password_item then
+    local _, password, _ = wezterm.run_child_process({
+      "security",
+      "find-generic-password",
+      "-w",
+      "-a",
+      keychain_password_item,
+    })
+    window:perform_action(
+      wezterm.action.Multiple({
+        wezterm.action.SendString(password),
+        wezterm.action.SendKey({ key = "Enter" }),
+      }),
+      pane
+    )
+  end
+end)
+
 -- Key mappings
 config.bypass_mouse_reporting_modifiers = "CMD"
 config.keys = {
@@ -91,6 +156,7 @@ config.keys = {
   { key = "0", mods = "CMD", action = wezterm.action.SendString("\x1b)") },
   { key = "=", mods = "CMD", action = wezterm.action.SendString("\x1b+") },
   { key = "-", mods = "CMD", action = wezterm.action.SendString("\x1b_") },
+  { key = "\\", mods = "CMD", action = wezterm.action.EmitEvent("trigger-password-input") },
 }
 
 return config
