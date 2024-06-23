@@ -20,10 +20,10 @@ config.adjust_window_size_when_changing_font_size = false
 config.window_close_confirmation = "NeverPrompt"
 config.window_decorations = "RESIZE"
 config.window_padding = {
-  left = "1cell",
-  right = "1cell",
-  top = "0px",
-  bottom = "0px",
+  left = "10px",
+  right = "10px",
+  top = 0,
+  bottom = 0,
 }
 
 -- Hyperlinks
