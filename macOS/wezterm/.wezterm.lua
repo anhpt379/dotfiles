@@ -8,9 +8,10 @@ config.max_fps = 120
 config.animation_fps = 60
 
 -- Fonts
-config.font = wezterm.font("ComicMonoNF-Fira", { weight = "Light" })
+config.font = wezterm.font("FiraComic", { weight = "Light" })
+config.harfbuzz_features = { "ss06", "ss08", "cv30" }
 config.font_size = 17.0
-config.line_height = 1.1
+config.line_height = 1.05
 config.freetype_load_flags = "NO_HINTING"
 
 -- Windows
