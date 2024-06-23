@@ -77,6 +77,7 @@ colors.selection_fg = "#000000"
 config.colors = colors
 
 -- Key mappings
+config.bypass_mouse_reporting_modifiers = "CMD"
 config.keys = {
     {key = "t", mods = "CMD", action = wezterm.action.SendString("\x1bT")},
     {key = "w", mods = "CMD", action = wezterm.action.SendString("\x1bW")},
