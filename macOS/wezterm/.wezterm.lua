@@ -40,7 +40,7 @@ local colors = {}
 colors.background = "#1c1c1c"
 colors.foreground = "#dcdfe4"
 colors.cursor_bg = "#28c9ff"
-colors.cursor_fg = "#ffffff"
+colors.cursor_fg = "#000000"
 colors.cursor_border = "#28c9ff" -- same as cursor_bg
 colors.ansi = {
     "#1c1c1c", -- black
