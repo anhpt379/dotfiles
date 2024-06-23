@@ -7,6 +7,7 @@ config.audible_bell = "Disabled"
 config.enable_kitty_keyboard = true
 config.max_fps = 120
 config.animation_fps = 60
+config.front_end = 'WebGpu'
 
 -- Fonts
 config.font = wezterm.font("ComicFira", { weight = "Light" })
