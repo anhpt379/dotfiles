@@ -89,7 +89,7 @@ config.keys = {
     {key = "o", mods = "CMD", action = wezterm.action.SendString("\x1bO")},
     {key = "r", mods = "CMD", action = wezterm.action.SendString("\x1bR")},
     {key = "f", mods = "CMD", action = wezterm.action.SendString("\x1bF")},
-    {key = ":", mods = "CMD", action = wezterm.action.SendString("\x1b;")},
+    {key = ":", mods = "CMD|SHIFT", action = wezterm.action.SendString("\x1b;")},
     {key = "'", mods = "CMD", action = wezterm.action.SendString('\x1b"')},
     {key = "9", mods = "CMD", action = wezterm.action.SendString("\x1b(")},
     {key = "0", mods = "CMD", action = wezterm.action.SendString("\x1b)")},
