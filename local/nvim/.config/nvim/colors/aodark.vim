@@ -15,12 +15,12 @@ let colors_name='aodark'
 " let s:white       = { 'gui': '#eeeeee', 'cterm': '15' }
 let s:black       = { 'gui': '#1c1c1c', 'cterm': '0'  }
 let s:red         = { 'gui': '#aaaaaa', 'cterm': '9'  }
-let s:green       = { 'gui': '#dddddd', 'cterm': '10' }
+let s:green       = { 'gui': '#cccccc', 'cterm': '10' }
 let s:yellow      = { 'gui': '#aaaaaa', 'cterm': '11' }
-let s:blue        = { 'gui': '#ffffff', 'cterm': '12' }
-let s:purple      = { 'gui': '#dddddd', 'cterm': '13' }
+let s:blue        = { 'gui': '#cccccc', 'cterm': '12' }
+let s:purple      = { 'gui': '#cccccc', 'cterm': '13' }
 let s:cyan        = { 'gui': '#3cc8b4', 'cterm': '14' }
-let s:white       = { 'gui': '#eeeeee', 'cterm': '15' }
+let s:white       = { 'gui': '#999999', 'cterm': '15' }
 
 let s:fg          = s:white
 let s:bg          = s:black

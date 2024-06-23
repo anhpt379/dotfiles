@@ -82,7 +82,7 @@ set -gx FZF_DEFAULT_COMMAND \
 set -gx FZF_DEFAULT_OPTS \
     $(echo '--pointer=" "
             --prompt="FZF> "
-            --color=fg:#DCDFE4,bg:-1,hl:#DCDFE4
+            --color=fg:#999999,bg:-1,hl:#999999
             --color=fg+:#FFCC66,bg+:#262626,hl+:#FFCC66
             --color=prompt:#f1f1f1,pointer:#f1f1f1
             --color=info:#696969,spinner:#696969

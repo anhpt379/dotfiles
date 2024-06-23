@@ -4,7 +4,7 @@ function fish_prompt
         set_color yellow
         echo "Executed in $(humantime $CMD_DURATION)"
         set -g CMD_DURATION 0
-        set_color normal
+        set_color white
     end
     set -l last_command_status $status
 
@@ -72,7 +72,7 @@ function fish_prompt
             echo -n -s (set_color red) "█"
         end
 
-        set_color normal
+        set_color white
         echo -n -s $prompt_background_color
 
         if test $kernel = Linux; and git_is_repo

@@ -9,8 +9,7 @@ config.max_fps = 120
 config.animation_fps = 60
 
 -- Fonts
-config.font = wezterm.font("ComicMonoNF-Fira", { weight = "Light" })
-config.harfbuzz_features = { "ss06", "ss08", "cv30" }
+config.font = wezterm.font("ComicFira", { weight = "Light" })
 config.font_size = 17.0
 config.line_height = 1.1
 config.freetype_load_flags = "NO_HINTING"
@@ -50,7 +49,7 @@ colors.ansi = {
   "#28c9ff", -- blue
   "#b954e1", -- magenta
   "#3cc8b4", -- cyan
-  "#dcdfe4", -- white
+  "#999999", -- white
 }
 colors.brights = {
   "#696969", -- black
