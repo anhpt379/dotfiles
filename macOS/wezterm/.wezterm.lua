@@ -39,10 +39,10 @@ table.insert(config.hyperlink_rules, {
 config.quick_select_alphabet = "fjghdkslarutyioewcnvbqpxzm"
 config.disable_default_quick_select_patterns = true
 config.quick_select_patterns = {
-  "(^| )([a-f0-9]{7,40})\\b",   -- git commit hash / docker container id
-  "^[a-z0-9-]+-[a-z0-9]{5}\\b", -- kubernetes pod name
-  "\\b([A-Z]+-\\d+)\\b",        -- jira ticket id
-  "(^| )([A-Za-z0-9-_.]{2,})",  -- file / container name
+  "(^| )([a-f0-9]{7,40})\\b",     -- git commit hash / docker container id
+  "^([a-z0-9-]+-[a-z0-9]{5})\\s", -- kubernetes pod name
+  "\\b([A-Z]+-\\d+)\\b",          -- jira ticket id
+  "^([A-Za-z0-9-_.]{3,})",        -- docker-compose ps first column
 }
 
 -- Colors
