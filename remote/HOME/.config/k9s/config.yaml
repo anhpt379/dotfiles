@@ -10,11 +10,8 @@ k9s:
     crumbsless: true
     noIcons: false
     reactive: true
-    # By default all contexts wil use the dracula skin unless explicitly overridden in the context config file.
-    # skin: dracula # => assumes the file skins/dracula.yaml is present in the  $XDG_DATA_HOME/k9s/skins directory
-    # Allows to set certain views default fullscreen mode. (yaml, helm history, describe, value_extender, details, logs) Default false
+    skin: aodark
     defaultsToFullScreen: true
-  # Toggles icons display as not all terminal support these chars.
   noIcons: false
   skipLatestRevCheck: false
   keepMissingClusters: false
