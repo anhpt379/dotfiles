@@ -64,6 +64,9 @@ set -gx LESS '--LONG-PROMPT --RAW-CONTROL-CHARS'
 # https://github.com/junegunn/fzf/blob/0.25.0/src/util/util_unix.go#L13
 set -gx SHELL /bin/bash
 
+# Fix no colored output from `bk` when running in wezterm
+set -gx FORCE_COLOR 1
+
 set -U  Z_CMD 'j'
 set -gx Z_DATA "$HOME/.local/share/z/data"
 set -gx Z_EXCLUDE '.*/code/work/puppet$'
