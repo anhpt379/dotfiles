@@ -16,6 +16,26 @@
           ]
         }
       ]
+    },
+    {
+      "description": "Switch between opening windows with COMMAND+ESCAPE",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "escape",
+            "modifiers": {
+              "mandatory": ["command"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "grave_accent_and_tilde",
+              "modifiers": ["command"]
+            }
+          ]
+        }
+      ]
     }
   ]
 }

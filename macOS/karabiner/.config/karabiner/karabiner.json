@@ -18,6 +18,30 @@
                 },
                 "rules": [
                     {
+                        "description": "Switch between opening windows with COMMAND+ESCAPE",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "escape",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "command"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "grave_accent_and_tilde",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "macOS: Map BACKSPACE (F20) to COMMAND+`",
                         "manipulators": [
                             {
@@ -1764,6 +1788,16 @@
             "simple_modifications": [
                 {
                     "from": {
+                        "key_code": "delete_or_backspace"
+                    },
+                    "to": [
+                        {
+                            "key_code": "f20"
+                        }
+                    ]
+                },
+                {
+                    "from": {
                         "key_code": "right_command"
                     },
                     "to": [
@@ -1779,16 +1813,6 @@
                     "to": [
                         {
                             "key_code": "delete_forward"
-                        }
-                    ]
-                },
-                {
-                    "from": {
-                        "key_code": "delete_or_backspace"
-                    },
-                    "to": [
-                        {
-                            "key_code": "f20"
                         }
                     ]
                 }
