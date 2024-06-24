@@ -118,7 +118,7 @@ wezterm.on("trigger-password-input", function(window, pane)
   --
   local keychain_password_item = nil
   local password_prompt = find_last_match(text, "^Password:")
-  local passphrase_prompt = find_last_match(text, "^Enter passphrase for .*/.ssh/id_ed25519:")
+  local passphrase_prompt = find_last_match(text, "^Enter passphrase for .*/.ssh/id_ed25519")
 
   if type(password_prompt) == "number" or type(passphrase_prompt) == "number" then
     if passphrase_prompt and not password_prompt then
