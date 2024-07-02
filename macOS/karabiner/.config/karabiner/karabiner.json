@@ -762,31 +762,26 @@
                         ]
                     },
                     {
-                        "description": "Map COMMAND+M to vk_none",
+                        "description": "Map COMMAND+M to COMMAND+TAB",
                         "manipulators": [
                             {
-                                "conditions": [
-                                    {
-                                        "bundle_identifiers": [
-                                            "^com\\.apple\\.Notes$",
-                                            "^com\\.microsoft\\.edgemac$",
-                                            "^com\\.google\\.Chrome$",
-                                            "^com\\.brave\\.Browser$"
-                                        ],
-                                        "type": "frontmost_application_unless"
-                                    }
-                                ],
                                 "from": {
                                     "key_code": "m",
                                     "modifiers": {
                                         "mandatory": [
                                             "command"
+                                        ],
+                                        "optional": [
+                                            "shift"
                                         ]
                                     }
                                 },
                                 "to": [
                                     {
-                                        "key_code": "vk_none"
+                                        "key_code": "tab",
+                                        "modifiers": [
+                                            "command"
+                                        ]
                                     }
                                 ],
                                 "type": "basic"

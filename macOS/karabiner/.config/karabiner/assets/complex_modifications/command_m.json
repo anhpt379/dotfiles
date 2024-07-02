@@ -1,35 +1,21 @@
 {
-  "title": "Disable COMMAND+M (minimize window)",
-  "rules": [
+  "description": "Map COMMAND+M to COMMAND+TAB",
+  "manipulators": [
     {
-      "description": "Map COMMAND+M to vk_none",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "m",
-            "modifiers": {
-              "mandatory": ["command"]
-            }
-          },
-          "to": [
-            {
-              "key_code": "vk_none"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^com\\.apple\\.Notes$",
-                "^com\\.microsoft\\.edgemac$",
-                "^com\\.google\\.Chrome$",
-                "^com\\.brave\\.Browser$"
-              ]
-            }
-          ]
+      "from": {
+        "key_code": "m",
+        "modifiers": {
+          "mandatory": ["command"],
+          "optional": ["shift"]
         }
-      ]
+      },
+      "to": [
+        {
+          "key_code": "tab",
+          "modifiers": ["command"]
+        }
+      ],
+      "type": "basic"
     }
   ]
 }
