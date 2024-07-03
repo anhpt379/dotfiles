@@ -2,12 +2,12 @@
 #
 # [1]: https://www.nerdfonts.com/cheat-sheet
 
-tw 
-st 
-ow 
-dt 
-di 
-fi 
+tw 󰏓
+st 󰏓
+ow 󰏓
+dt 󰏓
+di 󰏓
+fi 
 ln 
 or 
 ex 
@@ -23,7 +23,7 @@ ex 
 *.c        
 *.c++      
 *.cc       
-*.cer      
+*.cer      󱆆
 *.cfg      
 *.clj      
 *.cljc     
@@ -32,7 +32,7 @@ ex 
 *.conf     
 *.cp       
 *.cpp      
-*.crt      
+*.crt      󱆆
 *.csh      
 *.css      
 *.cxx      
@@ -137,7 +137,7 @@ ex 
 *.twig     
 *.vi       
 *.vim      
-*.vue      ﵂
+*.vue      
 *.xml      
 *.xul      
 *.xz       
@@ -151,19 +151,19 @@ ex 
 .curlrc          
 .dockerignore    
 .editorconfig    
-.git             
-.git/            
-.gitattributes   
-.gitconfig       
-.github          
-.github/         
-.gitignore       
+.git             
+.git/            
+.gitattributes   
+.gitconfig       
+.github          
+.github/         
+.gitignore       
 .gitlab-ci.yml   
-.gitmessage      
+.gitmessage      
 .inputrc         
 .vimrc           
 .zsh             
-/                
+/                󰿟
 Brewfile         
 Desktop/         
 Dockerfile       
@@ -173,7 +173,7 @@ Makefile         
 Makefile.ac      
 Makefile.in      
 README           
-README.md        
+README.md        
 README.rst       
 README.txt       
 Rakefile         
