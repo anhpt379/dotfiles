@@ -25,6 +25,7 @@ cask 'neovim-nightly'
 cask 'qbserve'
 cask 'rectangle'
 cask 'stats'
+cask 'time-out'
 cask 'tomatobar'
 cask 'wezterm'
 
