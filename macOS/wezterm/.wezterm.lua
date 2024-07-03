@@ -46,6 +46,7 @@ config.quick_select_patterns = {
   "^([a-z0-9-]+-[a-z0-9]{5})\\s", -- kubernetes pod name
   "\\b([A-Z]+-\\d+)\\b", -- jira ticket id
   "^([A-Za-z0-9-_.]{3,})", -- docker-compose ps first column
+  "[a-z0-9-]+\\.[a-z0-9-.]+\\.[a-z0-9-.]+", -- server fqdn
 }
 
 -- Colors
