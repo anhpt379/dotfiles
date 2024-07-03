@@ -25,12 +25,6 @@ def copy_characters(source_font_path, dest_font_path, out_font_path, characters)
         else:
             print(f"Warning: '{character}' not found in source font.")
 
-    # Shift all charactoers down 10%
-    em_size = dest_font.em
-    shift_amount = -0.1 * em_size  # Negative to move down
-    for glyph in dest_font.glyphs():
-        glyph.transform(psMat.translate(0, shift_amount))
-
     # Save the modified font
     dest_font.generate(out_font_path)
 
@@ -42,5 +36,5 @@ def copy_characters(source_font_path, dest_font_path, out_font_path, characters)
 if __name__ == "__main__":
     characters = ["<", "=", ">"]
     copy_characters(
-        "FiraCode-Retina.ttf", "ComicMonoNF-Regular.ttf", "ComicFira.ttf", characters
+        "FiraCode-Retina.ttf", "ComicMono.ttf", "ComicFira.ttf", characters
     )
