@@ -42,21 +42,21 @@ table.insert(config.hyperlink_rules, {
 config.quick_select_alphabet = "fjghdkslarutyioewcnvbqpxzm"
 config.disable_default_quick_select_patterns = true
 config.quick_select_patterns = {
-  "(^| )([a-f0-9]{7,40})\\b",     -- git commit hash / docker container id
+  "(^| )([a-f0-9]{7,40})\\b", -- git commit hash / docker container id
   "^([a-z0-9-]+-[a-z0-9]{5})\\s", -- kubernetes pod name
-  "\\b([A-Z]+-\\d+)\\b",          -- jira ticket id
-  "^([A-Za-z0-9-_.]{3,})",        -- docker-compose ps first column
+  "\\b([A-Z]+-\\d+)\\b", -- jira ticket id
+  "^([A-Za-z0-9-_.]{3,})", -- docker-compose ps first column
 }
 
 -- Colors
 local colors = {}
-colors.background = "#1c1c1c"
+colors.background = "#161616"
 colors.foreground = "#dcdfe4"
 colors.cursor_bg = "#69ff94"
 colors.cursor_fg = "#000000"
 colors.cursor_border = "#69ff94" -- same as cursor_bg
 colors.ansi = {
-  "#1c1c1c", -- black
+  "#161616", -- black
   "#e22f62", -- red
   "#5fae4d", -- green
   "#d6b152", -- yellow
