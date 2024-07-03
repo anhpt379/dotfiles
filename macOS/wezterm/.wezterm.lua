@@ -49,9 +49,9 @@ config.quick_select_patterns = {
 local colors = {}
 colors.background = "#1c1c1c"
 colors.foreground = "#dcdfe4"
-colors.cursor_bg = "#28c9ff"
+colors.cursor_bg = "#69ff94"
 colors.cursor_fg = "#000000"
-colors.cursor_border = "#28c9ff" -- same as cursor_bg
+colors.cursor_border = "#69ff94" -- same as cursor_bg
 colors.ansi = {
   "#1c1c1c", -- black
   "#e22f62", -- red
