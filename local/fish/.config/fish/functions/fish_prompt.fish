@@ -93,6 +93,6 @@ function fish_prompt
 
     echo -n -s $normal_color " "
 
-    # Reset cursor shape to beam
-    printf '\033[6 q'
+    # Reset cursor shape to blinking bar
+    printf '\e[5 q'
 end
