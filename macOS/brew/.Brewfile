@@ -15,6 +15,7 @@ cask_args appdir: "~/Applications", require_sha: true, no_quarantine: true
 cask 'brave-browser'
 cask 'flux'
 cask 'font-fira-code'
+cask 'hazeover'
 cask 'hiddenbar'
 cask 'karabiner-elements'
 cask 'key-codes'
