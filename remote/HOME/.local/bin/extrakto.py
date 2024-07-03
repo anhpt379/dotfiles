@@ -1,1 +1,0 @@
-../../../../local/fish/.local/bin/extrakto.py
