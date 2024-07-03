@@ -10,7 +10,10 @@ config.animation_fps = 60
 config.front_end = "WebGpu"
 
 -- Fonts
-config.font = wezterm.font("ComicFira", { weight = "Light" })
+config.font = wezterm.font_with_fallback({
+  { family = "ComicFira", weight = "Light" },
+  { family = "Symbols Nerd Font Mono", scale = 0.80 },
+})
 config.font_size = 17.0
 config.line_height = 1.1
 config.freetype_load_flags = "NO_HINTING"
