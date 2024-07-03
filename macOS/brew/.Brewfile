@@ -32,7 +32,7 @@ cask 'wezterm'
 mas 'Amphetamine', id: 937984704
 mas 'Fantastical', id: 975937182
 
-brew 'autoraise'
+brew 'autoraise', args: ['with-dexperimental_focus_first'], restart_service: true
 brew 'bash'
 brew 'bind'  # to get `dig` command
 brew 'coreutils'
