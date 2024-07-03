@@ -400,7 +400,7 @@ if g:hostname =~# 'fedora'
   map <Up>  :<C-u>execute 'normal gq' \| bprevious<CR>
   nmap ` <C-^>
 
-  let g:lightline#bufferline#show_number     = 2
+  let g:lightline#bufferline#show_number     = 0
   let g:lightline#bufferline#shorten_path    = 1
   let g:lightline#bufferline#unnamed         = '[No Name]'
   let g:lightline#bufferline#enable_devicons = 1
@@ -410,11 +410,6 @@ if g:hostname =~# 'fedora'
   let g:lightline#bufferline#clickable       = 1
   let g:lightline.separator                  = { 'left': '', 'right': '' }
   let g:lightline.subseparator               = { 'left': '', 'right': '' }
-
-  let g:lightline#bufferline#number_map = {
-    \ 0: '⁰', 1: '¹', 2: '²', 3: '³', 4: '⁴',
-    \ 5: '⁵', 6: '⁶', 7: '⁷', 8: '⁸', 9: '⁹'
-    \ }
 
   let g:lightline.tabline          = {'left': [['buffers']], 'right': []}
   let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
