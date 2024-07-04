@@ -63,7 +63,7 @@ colors.ansi = {
   "#28c9ff", -- blue
   "#b954e1", -- magenta
   "#3cc8b4", -- cyan
-  "#999999", -- white
+  "#eeeeee", -- white
 }
 colors.brights = {
   "#696969", -- black
