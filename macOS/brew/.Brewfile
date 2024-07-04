@@ -1,7 +1,6 @@
 # vim: ft=conf
 tap 'Homebrew/homebrew-autoupdate'
 tap 'homebrew/bundle'
-tap 'homebrew/cask-fonts'
 tap 'homebrew/cask-versions'
 tap 'homebrew/services'
 tap 'superbrothers/opener'
@@ -14,7 +13,6 @@ cask_args appdir: "~/Applications", require_sha: true, no_quarantine: true
 # Apps
 cask 'brave-browser'
 cask 'flux'
-cask 'font-fira-code'
 cask 'hiddenbar'
 cask 'karabiner-elements'
 cask 'key-codes'
