@@ -7,6 +7,7 @@ tap 'superbrothers/opener'
 tap 'dimentium/autoraise'
 tap 'hashicorp/tap'
 tap 'anhpt379/homebrew-neovim-nightly'
+tap 'FelixKratz/formulae'
 
 cask_args appdir: "~/Applications", require_sha: true, no_quarantine: true
 
@@ -57,6 +58,7 @@ brew 'neovim'
 brew 'ripgrep'
 brew 'rsync'
 brew 'stow'
+brew 'svim'
 brew 'telnet'
 brew 'trash'
 brew 'wget'
