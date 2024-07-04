@@ -13,7 +13,7 @@ cask_args appdir: "~/Applications", require_sha: true, no_quarantine: true
 # Apps
 cask 'brave-browser'
 cask 'flux'
-cask 'hiddenbar'
+cask 'jordanbaird-ice'
 cask 'karabiner-elements'
 cask 'key-codes'
 cask 'kitty'
