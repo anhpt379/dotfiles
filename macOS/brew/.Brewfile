@@ -27,7 +27,6 @@ cask 'rectangle'
 cask 'screenfocus'
 cask 'stats'
 cask 'time-out'
-cask 'tomatobar'
 cask 'wezterm'
 
 # Mac App Store
