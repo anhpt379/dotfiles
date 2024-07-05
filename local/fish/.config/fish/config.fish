@@ -67,11 +67,6 @@ set -gx SHELL /bin/bash
 # Fix no colored output from `bk` when running in wezterm
 set -gx FORCE_COLOR 1
 
-set -U  Z_CMD 'j'
-set -gx Z_DATA "$HOME/.local/share/z/data"
-set -gx Z_EXCLUDE '.*/code/work/puppet$'
-set -gx Z_OWNER (logname)
-
 set -gx FZF_DEFAULT_COMMAND \
     $(echo 'command fd
                 --one-file-system
@@ -187,4 +182,8 @@ end
 
 function postexec_bell --on-event fish_postexec
     tput bel
+end
+
+if type -q zoxide
+    zoxide init --cmd=j --hook=pwd fish | source
 end

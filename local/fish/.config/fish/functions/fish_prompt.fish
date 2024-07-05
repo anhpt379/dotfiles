@@ -42,11 +42,6 @@ function fish_prompt
         echo -n -s " " $cwd
         echo -n -s $normal_color $prompt_background_color "]"
 
-        # z auto remove directories that no longer exist
-        if type -q __z
-            __z --clean >/dev/null 2>&1
-        end
-
         # Fix nvim permission issues when switching to root
         if test "$USER" = root
             if test -d ~/.local/state/nvim/

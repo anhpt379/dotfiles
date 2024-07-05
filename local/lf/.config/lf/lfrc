@@ -132,6 +132,21 @@ cmd escape %{{
   fi
 }}
 
+# Zoxide integration
+cmd z %{{
+  result="$(zoxide query --exclude $PWD "$@")"
+  lf -remote "send $id cd '$result'"
+}}
+
+cmd zi ${{
+  result="$(zoxide query -i)"
+  lf -remote "send $id cd '$result'"
+}}
+
+cmd on-cd &{{
+  zoxide add "$PWD"
+}}
+
 # Basic Functions
 map <esc>   escape
 map <c-c>   escape
