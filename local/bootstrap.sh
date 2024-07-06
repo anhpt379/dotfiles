@@ -13,6 +13,13 @@ sudo dnf install -y \
   cargo golang npm luarocks lua-devel ruby-devel \
   @development-tools
 
+# wezterm
+# https://wezfurlong.org/wezterm/config/lua/config/term.html
+tempfile=$(mktemp) \
+  && curl -o $tempfile https://raw.githubusercontent.com/wez/wezterm/main/termwiz/data/wezterm.terminfo \
+  && tic -x -o ~/.terminfo $tempfile \
+  && rm $tempfile
+
 # dotfiles
 cd ~/ || exit 1
 git clone https://github.com/anhpt379/dotfiles.git
@@ -49,6 +56,8 @@ stow ssh
 stow tmux
 stow vivid
 stow wakatime
+
+ln -s /usr/bin/fish ~/.local/bin/fish
 
 # neovim
 sudo dnf install -y ninja-build libtool autoconf automake cmake gcc gcc-c++ make pkgconfig unzip patch gettext curl

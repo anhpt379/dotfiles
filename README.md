@@ -10,36 +10,37 @@
 Clone this repo to `~/dotfiles` and follow the instructions in
 `macOS/bootstrap.sh` and `local/bootstrap.sh`.
 
-I'm using this lima [fedora39](macOS/lima/fedora39.yaml) image at the moment.
+I'm using this lima [fedora40](macOS/lima/fedora40.yaml) image at the moment.
 
 ```bash
-limactl start --name=fedora39 macOS/lima/fedora39.yaml
-limactl shell fedora39
+limactl start --name=fedora40 macOS/lima/fedora40.yaml
+limactl shell fedora40
 sudo dnf install -y git
 cd ~
 git clone https://github.com/anhpt379/dotfiles.git
 bash dotfiles/local/bootstrap.sh
 
 # If moving to a newer VM, use these commands to transfer the data:
-limactl copy -r fedora:~/.local/share/fish/fish_history fedora39:~/.local/share/fish/
-limactl copy -r fedora:~/.local/share/zoxide/db.zo fedora39:~/.local/share/zoxide/db.zo
-limactl copy -r fedora:~/.ssh/conf.d/work.conf fedora39:~/.ssh/conf.d/
-limactl copy -r fedora:~/.ssh/id_ed25519 fedora39:~/.ssh/
-limactl copy -r fedora:~/notes fedora39:~/notes
-limactl copy -r fedora:~/data fedora39:~/data
+limactl copy -r fedora39:~/.local/share/fish/fish_history fedora40:~/.local/share/fish/
+limactl copy -r fedora39:~/.local/share/zoxide/db.zo fedora40:~/.local/share/zoxide/db.zo
+limactl copy -r fedora39:~/.ssh/conf.d/work.conf fedora40:~/.ssh/conf.d/
+limactl copy -r fedora39:~/.ssh/id_ed25519 fedora40:~/.ssh/
+limactl copy -r fedora39:~/notes fedora40:~/notes
+limactl copy -r fedora39:~/data fedora40:~/data
 
 # On the old VM:
 tar cf code.tar ~/code
 
 # Then, on macOS:
-limactl copy -r fedora:~/code.tar fedora39:~/code.tar
+limactl copy -r fedora39:~/code.tar fedora40:~/code.tar
 
 # Then, on the new VM:
 cd
 tar xf code.tar
+rm -f code.tar
 
 # Finally, go back to macOS and create a snapshot for the new VM:
-limactl snapshot create fedora39 --tag v1
+limactl snapshot create fedora40 --tag v1
 ```
 
 ## The setup
