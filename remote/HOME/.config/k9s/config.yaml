@@ -4,7 +4,7 @@ k9s:
   readOnly: false
   noExitOnCtrlC: false
   ui:
-    enableMouse: true
+    enableMouse: false
     headless: true
     logoless: true
     crumbsless: true
