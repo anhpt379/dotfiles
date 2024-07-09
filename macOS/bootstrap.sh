@@ -11,7 +11,6 @@ brew bundle
 brew autoupdate start 86400 --upgrade --cleanup
 
 brew services start autoraise
-brew services start svim
 
 stow bash
 stow bin
