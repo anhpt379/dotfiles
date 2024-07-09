@@ -43,7 +43,7 @@ config.quick_select_alphabet = "fjghdkslarutyioewcnvbqpxzm"
 config.disable_default_quick_select_patterns = true
 config.quick_select_patterns = {
   "(^| )([a-f0-9]{7,40})\\b", -- git commit hash / docker container id
-  "^([a-z0-9-]+-[a-z0-9]{5})\\s", -- kubernetes pod name
+  "^([a-z0-9-]+-[bcdfghjklmnpqrstvwxz0123456789]+-[bcdfghjklmnpqrstvwxz0123456789]{5})\\s", -- kubernetes pod name (https://github.com/thockin/kubernetes/blob/df7f5fca27fce282fb4815aa0464ff4797fd6bbe/staging/src/k8s.io/apimachinery/pkg/util/rand/rand.go#L81-L83)
   "\\b([A-Z]+-\\d+)\\b", -- jira ticket id
   "[a-z0-9-]+\\.[a-z0-9-.]+\\.[a-z0-9-.]+", -- server fqdn
 }
