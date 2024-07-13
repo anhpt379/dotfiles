@@ -27,6 +27,7 @@ set -gx GOPATH $HOME/.go
 if test -f /opt/homebrew/bin/brew
     eval "$(/opt/homebrew/bin/brew shellenv)"
 
+    fish_add_path /opt/homebrew/bin/
     fish_add_path /opt/homebrew/opt/grep/libexec/gnubin
     fish_add_path /opt/homebrew/opt/gnu-sed/libexec/gnubin
     fish_add_path /opt/homebrew/opt/coreutils/libexec/gnubin
