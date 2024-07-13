@@ -150,10 +150,9 @@ mv lf ~/.local/bin/
 rm -f lf-*.tar.gz
 cd - || exit 1
 
-# tmux-thumbs
-cd ~/.tmux/plugins/tmux-thumbs || exit
-cargo build --release
-cd - || exit 1
+# Install crystal lang (to compile tmux-fingers)
+curl -s https://packagecloud.io/install/repositories/84codes/crystal/script.rpm.sh | sudo bash
+sudo dnf install -y crystal
 
 # hping3
 # the normal `ping` doesn't work in Lima VM
