@@ -150,6 +150,11 @@ mv lf ~/.local/bin/
 rm -f lf-*.tar.gz
 cd - || exit 1
 
+# tmux-thumbs
+cd ~/.tmux/plugins/tmux-thumbs || exit
+cargo build --release
+cd - || exit 1
+
 # hping3
 # the normal `ping` doesn't work in Lima VM
 # (https://github.com/lima-vm/lima/blob/master/README.md#ping-shows-duplicate-packets-and-massive-response-times),
