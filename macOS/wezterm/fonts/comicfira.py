@@ -35,6 +35,4 @@ def copy_characters(source_font_path, dest_font_path, out_font_path, characters)
 
 if __name__ == "__main__":
     characters = ["<", "=", ">", "+", "-", ",", "~"]
-    copy_characters(
-        "FiraCode-Retina.ttf", "ComicMono.ttf", "ComicFira.ttf", characters
-    )
+    copy_characters("FiraCode-Retina.ttf", "ComicMono.ttf", "ComicFira.ttf", characters)
