@@ -9,7 +9,7 @@ if test -f /usr/local/etc/gitlab_ssh_key_dotfiles/id_rsa; then
     export GIT_SSH_COMMAND='ssh -i /usr/local/etc/gitlab_ssh_key_dotfiles/id_rsa' &&
     git fetch --depth 1 origin master &&
     git checkout FETCH_HEAD &&
-    rsync -av --ignore-existing HOME/ ~/
+    rsync -av HOME/ ~/
     source ~/.bashrc
   " > ~/.dotfiles.log 2>&1 &
 fi
