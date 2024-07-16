@@ -29,7 +29,7 @@ alias c='clear'
 alias m='master'
 
 # Reset dotfiles with `r.`
-alias r.='rm -rf ~/.*; GIT_SSH_COMMAND="ssh -i /usr/local/etc/gitlab_ssh_key_dotfiles/id_rsa" git clone --depth=1 git@$GITLAB_DOMAIN:panh/dotfiles.git .files && rsync -av .files/HOME/ ~/'
+alias r.='GIT_SSH_COMMAND="ssh -i /usr/local/etc/gitlab_ssh_key_dotfiles/id_rsa" git clone --depth=1 git@$GITLAB_DOMAIN:panh/dotfiles.git .files && rsync -av .files/HOME/ ~/'
 
 alias py='python'
 alias ipy='ipython'
