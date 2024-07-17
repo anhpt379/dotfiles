@@ -1,110 +1,101 @@
+# -----------------------------------------------------------------------------
+# BlackAndWtf skin
+# -----------------------------------------------------------------------------
+
 # Styles...
-foreground: &foreground "#abb2bf"
-background: default
-black: &black "#161616"
-blue: &blue "#28c9ff"
-green: &green "#5fae4d"
-grey: &grey "#999999"
-orange: &orange "#ffb86c"
-purple: &purple "#b954e1"
-red: &red "#e22f62"
-yellow: &yellow "#d6b152"
-yellow_bright: &yellow_bright "#e5c07b"
+fg: &fg "white"
+bg: &bg "black"
+mark: &mark "darkgoldenrod"
+active: &active "dimgray"
+text: &text "navajowhite"
+white: &white "whitesmoke"
+ghost: &ghost "ghostwhite"
+dslate: &dslate "darkslategray"
+err: &err "pink"
+slate: &slate "slategray"
+gray: &gray "gray"
 
 # Skin...
 k9s:
   body:
-    fgColor: *foreground
-    bgColor: *background
-    logoColor: *green
+    fgColor: *fg
+    bgColor: *bg
+    logoColor: *fg
   prompt:
-    fgColor: *foreground
-    bgColor: *background
-    suggestColor: *orange
+    fgColor: *fg
+    bgColor: *bg
+    suggestColor: *gray
   info:
-    fgColor: *grey
-    sectionColor: *green
-  help:
-    fgColor: *foreground
-    bgColor: *background
-    keyColor: *yellow
-    numKeyColor: *blue
-    sectionColor: *purple
+    fgColor: *text
+    sectionColor: *fg
   dialog:
-    fgColor: *black
-    bgColor: *background
-    buttonFgColor: *foreground
-    buttonBgColor: *green
-    buttonFocusFgColor: *black
-    buttonFocusBgColor: *blue
-    labelFgColor: *orange
-    fieldFgColor: *blue
+    fgColor: *fg
+    bgColor: *bg
+    buttonFgColor: *fg
+    buttonBgColor: *bg
+    buttonFocusFgColor: *slate
+    buttonFocusBgColor: *white
+    labelFgColor: *ghost
+    fieldFgColor: *white
   frame:
     border:
-      fgColor: *green
-      focusColor: *green
+      fgColor: *fg
+      focusColor: *fg
     menu:
-      fgColor: *grey
-      keyColor: *yellow
-      numKeyColor: *yellow
+      fgColor: *fg
+      keyColor: *fg
+      numKeyColor: *text
     crumbs:
-      fgColor: *black
-      bgColor: *green
-      activeColor: *yellow
+      fgColor: *fg
+      bgColor: *bg
+      activeColor: *active
     status:
-      newColor: *blue
-      modifyColor: *green
-      addColor: *grey
-      pendingColor: *orange
-      errorColor: *red
-      highlightColor: *yellow
-      killColor: *purple
-      completedColor: *grey
+      newColor: *white
+      modifyColor: *text
+      addColor: *ghost
+      errorColor: *err
+      highlightColor: *dslate
+      killColor: *slate
+      completedColor: *gray
     title:
-      fgColor: *blue
-      bgColor: *background
-      highlightColor: *purple
-      counterColor: *foreground
-      filterColor: *blue
+      fgColor: *fg
+      highlightColor: *active
+      counterColor: *text
+      filterColor: *slate
   views:
-    charts:
-      bgColor: *background
-      defaultDialColors:
-        - *green
-        - *red
-      defaultChartColors:
-        - *green
-        - *red
     table:
-      fgColor: *yellow
-      bgColor: *background
-      cursorFgColor: *black
-      cursorBgColor: *blue
-      markColor: *yellow_bright
+      fgColor: *fg
+      bgColor: *bg
+      cursorBgColor: *fg
+      cursorFgColor: *bg
+      markColor: *mark
       header:
-        fgColor: *grey
-        bgColor: *background
-        sorterColor: *orange
+        fgColor: *dslate
+        bgColor: *bg
+        sorterColor: *fg
     xray:
-      fgColor: *blue
-      bgColor: *background
-      cursorColor: *foreground
-      graphicColor: *yellow_bright
+      fgColor: *fg
+      bgColor: *bg
+      cursorColor: *ghost
+      graphicColor: gray
       showIcons: false
     yaml:
-      keyColor: *red
-      colonColor: *grey
-      valueColor: *grey
+      keyColor: *ghost
+      colorColor: *slate
+      valueColor: *text
     logs:
-      fgColor: *grey
-      bgColor: *background
+      fgColor: *ghost
+      bgColor: *bg
       indicator:
-        fgColor: *blue
-        bgColor: *background
-        toggleOnColor: *red
-        toggleOffColor: *grey
-    help:
-      fgColor: *grey
-      bgColor: *background
-      indicator:
-        fgColor: *blue
+        fgColor: *ghost
+        bgColor: *bg
+        toggleOnColor: *mark
+        toggleOffColor: gray
+    charts:
+      bgColor: default
+      defaultDialColors:
+        - *white
+        - *err
+      defaultChartColors:
+        - *white
+        - *err
