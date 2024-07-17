@@ -1,0 +1,3 @@
+tail: 100
+exclude: /(metrics|lb_check)
+timestamps: short

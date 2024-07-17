@@ -67,6 +67,15 @@ tar zxvf kubecolor_*.tar.gz
 mv kubecolor ../HOME/.local/bin/
 cd ..
 rm -rf kubecolor*
+
+# stern
+mkdir stern/
+cd stern/
+wget https://github.com/stern/stern/releases/download/v1.30.0/stern_1.30.0_linux_amd64.tar.gz
+tar zxvf stern_*.tar.gz
+mv stern ../HOME/.local/bin/
+cd ..
+rm -rf stern*
 ```
 
 ## How to sync remote's dotfiles to another git repo
