@@ -58,6 +58,15 @@ done
 # jq
 curl -fLo HOME/.local/bin/jq https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64
 chmod +x HOME/.local/bin/jq
+
+# kubecolor
+mkdir kubecolor/
+cd kubecolor/
+wget https://github.com/kubecolor/kubecolor/releases/download/v0.3.3/kubecolor_0.3.3_linux_amd64.tar.gz
+tar zxvf kubecolor_*.tar.gz
+mv kubecolor ../HOME/.local/bin/
+cd ..
+rm -rf kubecolor*
 ```
 
 ## How to sync remote's dotfiles to another git repo
