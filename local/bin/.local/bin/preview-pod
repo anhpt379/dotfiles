@@ -1,0 +1,34 @@
+#!/usr/bin/env python3
+import sys
+import json
+import subprocess
+
+pod_name = sys.argv[1]
+pod_json = json.loads(subprocess.getoutput(f"kubectl get pod {pod_name} -o json"))
+
+containers = pod_json["status"]["containerStatuses"]
+containers.extend(pod_json["status"]["initContainerStatuses"])
+
+for container in containers:
+    image, tag = container["image"].split(":")
+    state = container["state"]
+    started_at = None
+    finished_at = None
+    if "running" in state:
+        status = "running"
+        started_at = state["running"]["startedAt"]
+    elif "terminated" in state:
+        status = state["terminated"]["reason"].lower()
+        finished_at = state["terminated"]["finishedAt"]
+    else:
+        status = "unknown"
+    print(f"{container['name']}")
+    print(f"  Image: {image}")
+    print(f"  Tag: {tag}")
+    print(f"  Ready: {container['ready']}")
+    print(f"  Status: {status}")
+    if started_at:
+        print(f"  Started at: {started_at}")
+    if finished_at:
+        print(f"  Finished at: {finished_at}")
+    print()
