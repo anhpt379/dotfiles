@@ -8,7 +8,7 @@
 \set PROMPT1 '%[%033[1;33;40m%]%/%R%[%033[0m%]%# '
 -- PROMPT2 is printed when the prompt expects more input, like when you type
 -- SELECT * FROM<enter>. %R shows what type of input it expects.
-\set PROMPT2 '[more] %R > '
+\set PROMPT2 ''
 
 -- Show how long each query takes to execute
 \timing
