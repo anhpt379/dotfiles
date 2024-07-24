@@ -1,8 +1,8 @@
 {
-  "title": "ESCAPE to lock screen",
+  "title": "ESCAPE (F19) to lock screen",
   "rules": [
     {
-      "description": "Start screen saver on pressing ESCAPE key",
+      "description": "Start screen saver on pressing ESCAPE (F19) key",
       "manipulators": [
         {
           "type": "basic",
@@ -12,26 +12,6 @@
           "to": [
             {
               "shell_command": "open -b com.apple.ScreenSaver.Engine"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "Switch between opening windows with COMMAND+ESCAPE",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "escape",
-            "modifiers": {
-              "mandatory": ["command"]
-            }
-          },
-          "to": [
-            {
-              "key_code": "grave_accent_and_tilde",
-              "modifiers": ["command"]
             }
           ]
         }
