@@ -34,7 +34,9 @@ function fzf_find -d "Find files and folders"
             set -a fd_command ". $dir"
         end
 
-        if string match -rq -- "^cd .*" $command
+        if begin string match -rq -- "^cd .*" $command
+            or string match -rq -- "^j .+" $command
+        end
             if string match -rq -- "/\$" $command
                 set fd_depth 10
             else if string match -rq -- " \$" $command
@@ -58,7 +60,7 @@ function fzf_find -d "Find files and folders"
                     --preview="$fzf_preview_command" \
                     --query="$fzf_query" \
             )
-        else if string match -rq -- "^j .*" $command
+        else if string match -rq -- "^j \$" $command
             set fzf_preview_command "preview {}"
 
             set result (
