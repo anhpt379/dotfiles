@@ -8,6 +8,7 @@ tap 'dimentium/autoraise'
 tap 'hashicorp/tap'
 tap 'anhpt379/homebrew-neovim-nightly'
 tap 'FelixKratz/formulae'
+tap 'theseal/blank-screensaver'
 
 cask_args appdir: "~/Applications", require_sha: true, no_quarantine: true
 
@@ -35,6 +36,7 @@ mas 'Fantastical', id: 975937182
 brew 'autoraise', args: ['with-dexperimental_focus_first'], restart_service: true
 brew 'bash'
 brew 'bind'  # to get `dig` command
+brew 'blank-screensaver'
 brew 'coreutils'
 brew 'curl'
 brew 'eza'
