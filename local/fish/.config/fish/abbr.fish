@@ -43,6 +43,7 @@ abbr -a k   'kubectl'
 abbr -a kd  'kubectl describe'
 abbr -a kdf 'kubectl delete --force --grace-period=0'
 abbr -a kn  'kubectl config set-context --current --namespace'
+abbr -a kk  'k9s'
 
 abbr -a grcat     'grcat conf.cat'
 abbr -a ppcatalog 'sudo cat "/opt/puppetlabs/puppet/cache/client_data/catalog/$(sudo puppet config print certname).json" | jq . | less'
@@ -80,5 +81,8 @@ abbr -a --position=anywhere W '| wc -l'
 
 abbr -a urldecode 'python3 -c "import sys; from urllib.parse import unquote; print(unquote(sys.stdin.read()));"'
 abbr -a urlencode 'python3 -c "import sys; from urllib.parse import quote; print(quote(sys.stdin.read()));"'
+
+abbr -a whatprovides 'repoquery -q --installed --whatprovides'
+abbr -a whatrequires 'repoquery -q --installed --whatrequires'
 
 abbr -a r. 'GIT_SSH_COMMAND="ssh -i /usr/local/etc/gitlab_ssh_key_dotfiles/id_rsa" git clone --depth=1 git@$GITLAB_DOMAIN:panh/dotfiles.git .files && rsync -av .files/HOME/ ~/'
