@@ -1,6 +1,7 @@
 k9s:
   liveViewAutoRefresh: true
-  refreshRate: 2
+  refreshRate: 5
+  maxConnRetry: 100
   readOnly: false
   noExitOnCtrlC: false
   ui:
@@ -13,7 +14,7 @@ k9s:
     skin: aodark
     defaultsToFullScreen: true
   noIcons: false
-  skipLatestRevCheck: false
+  skipLatestRevCheck: true
   keepMissingClusters: false
   logger:
     tail: 200
@@ -21,3 +22,10 @@ k9s:
     sinceSeconds: -1
     textWrap: false
     showTime: false
+  thresholds:
+    cpu:
+      critical: 90
+      warn: 70
+    memory:
+      critical: 90
+      warn: 70
