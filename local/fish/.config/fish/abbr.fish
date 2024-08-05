@@ -41,8 +41,6 @@ abbr -a https 'xhs'
 
 abbr -a k   'kubectl'
 abbr -a kd  'kubectl describe'
-abbr -a kdf 'kubectl delete --force --grace-period=0'
-abbr -a kn  'kubectl config set-context --current --namespace'
 abbr -a kk  'k9s'
 
 abbr -a grcat     'grcat conf.cat'
