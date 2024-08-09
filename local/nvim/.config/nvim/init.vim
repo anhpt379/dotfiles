@@ -626,7 +626,7 @@ vnoremap <silent> P Pg;
 nnoremap <silent> P Pg;
 
 " Don't change the clipboard if paste over a visually selected text
-xnoremap p "_dP`]
+xnoremap <expr> p 'pgv"' . v:register . 'y'
 
 " Keep visual selection when indenting/outdenting
 vmap < <gv
