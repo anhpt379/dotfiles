@@ -42,13 +42,13 @@ branch_name=$(echo "${result}" | xargs | sed -E 's/ \*$//' | cut -d' ' -f2- | se
 
 if [ "${key}" = "ctrl-d" ]; then
   if [ "$(git branch --show-current)" = "${branch_name}" ]; then
-    git checkout master && git branch -D "${branch_name}"
+    git checkout $(git branch | grep -Eo " \b(master|main)\b" | xargs) && git branch -D "${branch_name}"
   else
     git branch -D "${branch_name}"
   fi
 elif [ -n "${branch_name}" ]; then
   if git show-ref --verify --quiet refs/heads/"${branch_name}"; then
-    git checkout "${branch_name}" && git pull --rebase origin master || git rebase --abort
+    git checkout "${branch_name}" && git pull --rebase origin $(git branch | grep -Eo " \b(master|main)\b" | xargs) || git rebase --abort
   else
     git checkout -b "${branch_name}"
   fi
