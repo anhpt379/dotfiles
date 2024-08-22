@@ -22,7 +22,7 @@
                         "manipulators": [
                             {
                                 "from": {
-                                    "key_code": "f19"
+                                    "key_code": "escape"
                                 },
                                 "to": [
                                     {
@@ -34,42 +34,26 @@
                         ]
                     },
                     {
-                        "description": "Switch between opening windows with COMMAND+ESCAPE",
+                        "description": "Map CAPSLOCK to CONTROL on hold, and to ESCAPE on tap",
                         "manipulators": [
                             {
                                 "from": {
-                                    "key_code": "escape",
+                                    "key_code": "caps_lock",
                                     "modifiers": {
-                                        "mandatory": [
-                                            "command"
+                                        "optional": [
+                                            "any"
                                         ]
                                     }
                                 },
                                 "to": [
                                     {
-                                        "key_code": "grave_accent_and_tilde",
-                                        "modifiers": [
-                                            "command"
-                                        ]
+                                        "key_code": "left_control",
+                                        "lazy": true
                                     }
                                 ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "macOS: Map BACKSPACE (F20) to COMMAND+`",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "f20"
-                                },
-                                "to": [
+                                "to_if_alone": [
                                     {
-                                        "key_code": "grave_accent_and_tilde",
-                                        "modifiers": [
-                                            "command"
-                                        ]
+                                        "key_code": "escape"
                                     }
                                 ],
                                 "type": "basic"
@@ -1700,7 +1684,7 @@
                     },
                     "to": [
                         {
-                            "key_code": "f20"
+                            "key_code": "f12"
                         }
                     ]
                 },
@@ -1721,36 +1705,6 @@
                     "to": [
                         {
                             "key_code": "delete_forward"
-                        }
-                    ]
-                },
-                {
-                    "from": {
-                        "key_code": "caps_lock"
-                    },
-                    "to": [
-                        {
-                            "key_code": "left_control"
-                        }
-                    ]
-                },
-                {
-                    "from": {
-                        "key_code": "escape"
-                    },
-                    "to": [
-                        {
-                            "key_code": "f19"
-                        }
-                    ]
-                },
-                {
-                    "from": {
-                        "key_code": "tab"
-                    },
-                    "to": [
-                        {
-                            "key_code": "escape"
                         }
                     ]
                 }
