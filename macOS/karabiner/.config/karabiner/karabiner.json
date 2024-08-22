@@ -18,22 +18,6 @@
                 },
                 "rules": [
                     {
-                        "description": "Start screen saver on pressing ESCAPE key",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "escape"
-                                },
-                                "to": [
-                                    {
-                                        "shell_command": "open -b com.apple.ScreenSaver.Engine"
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
                         "description": "Map CAPSLOCK to CONTROL on hold, and to ESCAPE on tap",
                         "manipulators": [
                             {
@@ -1684,7 +1668,7 @@
                     },
                     "to": [
                         {
-                            "key_code": "f12"
+                            "key_code": "f20"
                         }
                     ]
                 },
@@ -1705,6 +1689,16 @@
                     "to": [
                         {
                             "key_code": "delete_forward"
+                        }
+                    ]
+                },
+                {
+                    "from": {
+                        "key_code": "escape"
+                    },
+                    "to": [
+                        {
+                            "key_code": "f12"
                         }
                     ]
                 }
