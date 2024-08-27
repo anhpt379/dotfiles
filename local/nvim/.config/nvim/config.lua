@@ -352,9 +352,6 @@ require('gitsigns').setup({
     delay = 200,
     ignore_whitespace = true,
   },
-  current_line_blame_formatter_opts = {
-    relative_time = true
-  },
 })
 
 require('colorizer').setup()
