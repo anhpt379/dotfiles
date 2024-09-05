@@ -536,7 +536,7 @@ function TermOpen(cmd)
   startinsert
 endfun
 noremap gb :call TermOpen('gb')<CR>
-noremap gr :G rebase -i --autosquash master<CR>
+noremap gr :execute 'G rebase -i --autosquash ' . system('git symbolic-ref --short HEAD') . '<CR>'
 noremap ga :G absorb --and-rebase<CR>
 noremap gs :tab Git<CR>gg4j
 noremap gl :call TermOpen('gl')<CR>
@@ -596,7 +596,7 @@ augroup fugitive-personal-key-mappings
   autocmd FileType fugitive map <buffer> <nowait> x X
 
   " gr to rebase
-  autocmd FileType fugitive map <buffer> <nowait> gr :G rebase -i master<CR>
+  autocmd FileType fugitive map <buffer> <nowait> gr :execute 'G rebase -i ' . system('git symbolic-ref --short HEAD') . '<CR>'
 
   " Left padding
   autocmd FileType fugitive set signcolumn=yes | set number
@@ -1001,8 +1001,8 @@ augroup end
 
 " Vim-fugitive GBrowse
 let g:fugitive_gitlab_domains = ['https://gitlab.' . $COMPANY_DOMAIN]
-map <silent> go :GBrowse master:%<CR>
-map <silent> gO :GBrowse! master:%<CR>
+map <silent> go :execute 'GBrowse ' . substitute(system('git symbolic-ref --short HEAD'), '\n', '', 'g') . ':%' <CR>
+map <silent> gO :execute 'GBrowse! ' . substitute(system('git symbolic-ref --short HEAD'), '\n', '', 'g') . ':%' <CR>
 
 nnoremap <silent> gm :!if git branch -a \| grep remotes/ \| grep -q /$(git branch --show-current)$; test $? -eq 1; then
                    \     git push --force-with-lease origin HEAD;
