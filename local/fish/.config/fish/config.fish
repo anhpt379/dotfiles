@@ -142,6 +142,7 @@ end
 
 source ~/.config/fish/abbr.fish
 source ~/.config/fish/themes/aodark.fish
+source ~/code/work/git-subrepo/.fish.rc
 
 if begin
         not string match -q -- Darwin (uname)
