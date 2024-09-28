@@ -142,7 +142,6 @@ end
 
 source ~/.config/fish/abbr.fish
 source ~/.config/fish/themes/aodark.fish
-source ~/code/work/git-subrepo/.fish.rc
 
 if begin
         not string match -q -- Darwin (uname)
@@ -169,6 +168,8 @@ if begin
     # Fix git-deploy umask complaining
     umask 0002
 else if string match -e -q -- fedora (hostname)
+    source ~/code/work/git-subrepo/.fish.rc
+
     # Auto start tmux when ssh to the Lima VM
     if test -z "$TMUX"
         mkdir -p ~/.ssh
