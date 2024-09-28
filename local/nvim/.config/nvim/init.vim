@@ -1001,8 +1001,21 @@ augroup end
 
 " Vim-fugitive GBrowse
 let g:fugitive_gitlab_domains = ['https://gitlab.' . $COMPANY_DOMAIN]
-map <silent> go :execute 'GBrowse ' . substitute(system('git symbolic-ref --short HEAD'), '\n', '', 'g') . ':%' <CR>
-map <silent> gO :execute 'GBrowse! ' . substitute(system('git symbolic-ref --short HEAD'), '\n', '', 'g') . ':%' <CR>
+
+function! BrowseWithDefaultBranch(bang) range
+    let l:mode = visualmode()
+    let l:branch = substitute(system('git default-branch'), '\n', '', 'g')
+    if l:mode ==# 'v' || l:mode ==# 'V' || l:mode ==# "\<C-V>"
+        execute "'<,'>GBrowse" . a:bang . ' ' . l:branch . ':%'
+    else
+        execute 'GBrowse' . a:bang . ' ' . l:branch . ':%'
+    endif
+endfunction
+
+nnoremap <silent> go :call BrowseWithDefaultBranch('')<CR>
+nnoremap <silent> gO :call BrowseWithDefaultBranch('!')<CR>
+vnoremap <silent> go :<C-U>call BrowseWithDefaultBranch('')<CR>
+vnoremap <silent> gO :<C-U>call BrowseWithDefaultBranch('!')<CR>
 
 nnoremap <silent> gm :!if git branch -a \| grep remotes/ \| grep -q /$(git branch --show-current)$; test $? -eq 1; then
                    \     git push --force-with-lease origin HEAD;
