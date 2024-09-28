@@ -89,4 +89,4 @@ abbr -a urlencode 'python3 -c "import sys; from urllib.parse import quote; print
 abbr -a whatprovides 'repoquery -q --installed --whatprovides'
 abbr -a whatrequires 'repoquery -q --installed --whatrequires'
 
-abbr -a r. 'GIT_SSH_COMMAND="ssh -i /usr/local/etc/gitlab_ssh_key_dotfiles/id_rsa" git clone --depth=1 git@$GITLAB_DOMAIN:panh/dotfiles.git .files && rsync -av .files/HOME/ ~/'
+abbr -a r. 'rm -rf .files && GIT_SSH_COMMAND="ssh -i /usr/local/etc/gitlab_ssh_key_dotfiles/id_rsa" git clone --depth=1 git@$GITLAB_DOMAIN:panh/dotfiles.git .files && rsync -av .files/HOME/ ~/'
