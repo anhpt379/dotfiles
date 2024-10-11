@@ -119,6 +119,12 @@ call plug#begin()
     Plug 'sbdchd/neoformat'
     Plug 'pechorin/any-jump.vim'
 
+    " Fix nvim not responding when opening typescript files
+    " https://www.reddit.com/r/vim/comments/jm218c/comment/ghddi8p/
+    Plug 'leafgarland/typescript-vim'
+    Plug 'peitalin/vim-jsx-typescript'
+    Plug 'othree/yajs.vim'
+
     " For vsnip users.
     " Plug 'hrsh7th/cmp-vsnip'
     " Plug 'hrsh7th/vim-vsnip'
@@ -226,6 +232,12 @@ set fillchars+=vert:\ "White space at the end
 " This also speeds up everything, vim becomes much faster after this change
 set shell=/bin/bash
 set shellcmdflag=-c
+
+" Fix nvim not responding when opening typescript files
+" https://www.reddit.com/r/vim/comments/jm218c/comment/ghddi8p/
+augroup typescript
+  autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.typescriptreact
+augroup end
 
 " Tweak for Markdown mode
 augroup markdown
