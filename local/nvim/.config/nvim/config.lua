@@ -26,6 +26,7 @@ require('mason-tool-installer').setup {
     'solargraph',
     'tflint',
     'vim-language-server',
+    'typescript-language-server',
   },
   auto_update = true,
   run_on_start = true,
