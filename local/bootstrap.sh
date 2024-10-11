@@ -64,7 +64,7 @@ sudo dnf install -y ninja-build libtool autoconf automake cmake gcc gcc-c++ make
 git clone --depth=1 https://github.com/neovim/neovim
 cd neovim || exit 1
 git fetch --tags --force
-git checkout nightly
+git checkout stable
 make CMAKE_BUILD_TYPE=RelWithDebInfo
 sudo make install
 nvim --version
