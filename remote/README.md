@@ -44,7 +44,7 @@ mv fd-*/fd HOME/.local/bin/
 rm -rf fd-*
 
 # rg
-wget https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/ripgrep-13.0.0-x86_64-unknown-linux-musl.tar.gz
+wget https://github.com/BurntSushi/ripgrep/releases/download/14.1.1/ripgrep-14.1.1-x86_64-unknown-linux-musl.tar.gz
 tar zxvf ripgrep-*-x86_64-unknown-linux-musl.tar.gz
 mv ripgrep-*/rg HOME/.local/bin/
 rm -rf ripgrep-*
