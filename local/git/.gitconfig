@@ -58,6 +58,9 @@
 [rebase]
   autoStash = true
 
+[rerere]
+  enabled = true
+
 [pull]
   rebase = false
 
