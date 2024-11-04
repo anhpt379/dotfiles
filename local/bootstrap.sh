@@ -13,13 +13,6 @@ sudo dnf install -y \
   cargo golang npm luarocks lua-devel ruby-devel \
   @development-tools
 
-# wezterm
-# https://wezfurlong.org/wezterm/config/lua/config/term.html
-tempfile=$(mktemp) \
-  && curl -o $tempfile https://raw.githubusercontent.com/wez/wezterm/main/termwiz/data/wezterm.terminfo \
-  && tic -x -o ~/.terminfo $tempfile \
-  && rm $tempfile
-
 # dotfiles
 cd ~/ || exit 1
 git clone https://github.com/anhpt379/dotfiles.git

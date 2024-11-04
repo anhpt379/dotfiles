@@ -31,13 +31,6 @@ cp -r alt-tab/Library/Preferences/* ~/Library/Preferences/
 cp -r maccy/Library/* ~/Library/
 cp -r rectangle/Library/* ~/Library/
 
-# wezterm
-# https://wezfurlong.org/wezterm/config/lua/config/term.html
-tempfile=$(mktemp) \
-  && curl -o $tempfile https://raw.githubusercontent.com/wez/wezterm/main/termwiz/data/wezterm.terminfo \
-  && tic -x -o ~/.terminfo $tempfile \
-  && rm $tempfile
-
 # fisher
 curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
 
