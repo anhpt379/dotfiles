@@ -77,7 +77,7 @@ cd ..
 rm -rf nvimpager
 
 # fd
-wget https://github.com/sharkdp/fd/releases/download/v9.0.0/fd-v9.0.0-aarch64-unknown-linux-gnu.tar.gz
+wget https://github.com/sharkdp/fd/releases/download/v10.2.0/fd-v10.2.0-aarch64-unknown-linux-gnu.tar.gz
 tar zxvf fd-*.tar.gz
 mv fd-*/fd ~/.local/bin/
 mv fd-*/fd.1 ~/.local/share/man/man1/

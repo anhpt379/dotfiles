@@ -38,7 +38,7 @@ mv lf HOME/.local/bin/
 rm -f lf-linux-amd64.tar.gz
 
 # fd
-wget https://github.com/sharkdp/fd/releases/download/v9.0.0/fd-v9.0.0-x86_64-unknown-linux-musl.tar.gz
+wget https://github.com/sharkdp/fd/releases/download/v10.2.0/fd-v10.2.0-x86_64-unknown-linux-musl.tar.gz
 tar zxvf fd-*-x86_64-unknown-linux-musl.tar.gz
 mv fd-*/fd HOME/.local/bin/
 rm -rf fd-*
