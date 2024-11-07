@@ -1,6 +1,6 @@
 #!/bin/bash
 
-bash .macos
+bash defaults.sh
 
 xcode-select --install
 
