@@ -1,0 +1,16 @@
+# Upstream version: https://github.com/lima-vm/lima/blob/master/templates/fedora.yaml
+images:
+  - location: "https://download.fedoraproject.org/pub/fedora/linux/releases/41/Cloud/aarch64/images/Fedora-Cloud-Base-Generic-41-1.4.aarch64.qcow2"
+    arch: "aarch64"
+    digest: "sha256:085883b42c7e3b980e366a1fe006cd0ff15877f7e6e984426f3c6c67c7cc2faa"
+mounts:
+  - location: "~/data"
+    writable: true
+  - location: "~/Downloads"
+    writable: true
+portForwards:
+  - guestPort: 3000
+
+# 9p is broken in Linux v6.9, v6.10, and v6.11 (used by Fedora 41).
+# The issue was fixed in Linux v6.12-rc5 (https://github.com/torvalds/linux/commit/be2ca38).
+mountTypesUnsupported: ["9p"]
