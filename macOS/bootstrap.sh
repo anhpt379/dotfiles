@@ -3,11 +3,16 @@
 bash .macos
 
 xcode-select --install
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+echo >> ~/.zprofile
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+brew install stow
 stow brew
 
-brew bundle
+brew bundle --global
 brew autoupdate start 86400 --upgrade --cleanup
 
 brew services start autoraise
