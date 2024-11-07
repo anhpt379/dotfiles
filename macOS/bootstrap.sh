@@ -17,6 +17,9 @@ brew autoupdate start 86400 --upgrade --cleanup
 
 brew services start autoraise
 
+echo /opt/homebrew/bin/fish | sudo tee -a /etc/shells
+chsh -s /opt/homebrew/bin/fish
+
 stow bash
 stow bin
 stow diff-so-fancy
