@@ -12,13 +12,11 @@ require("mason").setup {
 require('mason-tool-installer').setup {
   ensure_installed = {
     'bash-language-server',
-    'cmake-language-server',
     'css-lsp',
     'dockerfile-language-server',
     'html-lsp',
     'pyright',
     'ansible-language-server',
-    'nginx-language-server',
     'json-lsp',
     'rust-analyzer',
     'lua-language-server',
