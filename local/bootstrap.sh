@@ -147,6 +147,9 @@ cd - || exit 1
 curl -s https://packagecloud.io/install/repositories/84codes/crystal/script.rpm.sh | sudo bash
 sudo dnf install -y crystal
 
+# Clone tmux-fingers
+git clone https://github.com/Morantron/tmux-fingers ~/.tmux/plugins/tmux-fingers
+
 # hping3
 # the normal `ping` doesn't work in Lima VM
 # (https://github.com/lima-vm/lima/blob/master/README.md#ping-shows-duplicate-packets-and-massive-response-times),
