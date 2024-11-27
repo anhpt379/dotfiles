@@ -8,7 +8,7 @@ mv fish-*.AppImage HOME/.local/bin/fish.appimage
 chmod +x HOME/.local/bin/fish.appimage
 
 # tmux
-wget 'https://github.com/kiyoon/tmux-appimage/releases/download/3.3a/tmux.appimage'
+wget 'https://github.com/andryandrew/tmux-appimage/releases/download/next-3.5/tmux.appimage'
 mv tmux.appimage HOME/.local/bin/tmux.appimage
 chmod +x HOME/.local/bin/tmux.appimage
 
