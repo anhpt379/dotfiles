@@ -61,112 +61,112 @@ require('lsp-status').register_progress()
 require('lspconfig')
 
 -- nvim-cmp
-vim.o.pumheight = 15  -- nvim-cmp popup height
+-- vim.o.pumheight = 15  -- nvim-cmp popup height
 
-local cmp = require('cmp')
+-- local cmp = require('cmp')
 
-local kind_icons = {
-  Text = '󰙩 ',
-  Method = '',
-  Function = '󰊕',
-  Constructor = '',
-  Field = '󰜢',
-  Variable = '󰀫',
-  Class = ' ',
-  Interface = '',
-  Module = '',
-  Property = '󰜢',
-  Unit = '',
-  Value = '',
-  Enum = '',
-  Keyword = '',
-  Snippet = '',
-  Color = '',
-  File = '󰈙',
-  Reference = ' ',
-  Folder = '',
-  EnumMember = '',
-  Constant = '',
-  Struct = '',
-  Event = '',
-  Operator = '󱓉',
-  TypeParameter = '󰅲'
-}
+-- local kind_icons = {
+--   Text = '󰙩 ',
+--   Method = '',
+--   Function = '󰊕',
+--   Constructor = '',
+--   Field = '󰜢',
+--   Variable = '󰀫',
+--   Class = ' ',
+--   Interface = '',
+--   Module = '',
+--   Property = '󰜢',
+--   Unit = '',
+--   Value = '',
+--   Enum = '',
+--   Keyword = '',
+--   Snippet = '',
+--   Color = '',
+--   File = '󰈙',
+--   Reference = ' ',
+--   Folder = '',
+--   EnumMember = '',
+--   Constant = '',
+--   Struct = '',
+--   Event = '',
+--   Operator = '󱓉',
+--   TypeParameter = '󰅲'
+-- }
 
-cmp.setup({
-  preselect = cmp.PreselectMode.None,
-  completion = { },
-  matching = {
-    disallow_fuzzy_matching = false,
-    disallow_partial_matching = false,
-    disallow_prefix_unmatching = true,
-  },
-  formatting = {
-    fields = { 'kind', 'abbr' },
-    format = function(_, vim_item)
-      vim_item.kind = kind_icons[vim_item.kind] or ''
-      vim_item.dup = 0
-      return vim_item
-    end,
-  },
-  sorting = {
-    comparators = {
-      function(...) return require('cmp_buffer'):compare_locality(...) end,
-      cmp.config.compare.offset,
-      cmp.config.compare.exact,
-      cmp.config.compare.score,
-      cmp.config.compare.kind,
-      cmp.config.compare.sort_text,
-      -- cmp.config.compare.length,
-      cmp.config.compare.order,
-    }
-  },
-  snippet = {
-    -- REQUIRED - you must specify a snippet engine
-    expand = function(args)
-      -- vim.fn['vsnip#anonymous'](args.body) -- For `vsnip` users.
-      -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-      -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
-      -- vim.fn['UltiSnips#Anon'](args.body) -- For `ultisnips` users.
-    end,
-  },
-  mapping = {
-    ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
-    ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
-    ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
-    ['<C-p>'] = cmp.mapping.select_prev_item(),
-    ['<C-n>'] = cmp.mapping.select_next_item(),
-    ['<Tab>'] = cmp.mapping.confirm({ select = true }),
-    ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
-    ['<C-e>'] = cmp.mapping({
-      i = cmp.mapping.abort(),
-      c = cmp.mapping.close(),
-    }),
-    ['<CR>'] = cmp.mapping.confirm({ select = false }),
-  },
-  sources = cmp.config.sources({
-    { name = 'nvim_lsp' },
-    { name = 'nvim_lsp_signature_help' },
-    { name = 'treesitter' },
-    { name = 'conventionalcommits' },
-    { name = 'buffer', max_item_count = 3 },
-    { name = 'mocword', max_item_count = 3 },
-    {
-      name = 'rg',
-      max_item_count = 3,
-      option = {
-        cwd = vim.fn.expand('~/.config/nvim/dictionaries/hacker_news/'),
-        debounce = 200,
-        context_before = 0,
-        context_after = 0,
-      }
-    },
-    -- { name = 'vsnip' }, -- For vsnip users.
-    -- { name = 'luasnip' }, -- For luasnip users.
-    -- { name = 'ultisnips' }, -- For ultisnips users.
-    -- { name = 'snippy' }, -- For snippy users.
-  })
-})
+-- cmp.setup({
+--   preselect = cmp.PreselectMode.None,
+--   completion = { },
+--   matching = {
+--     disallow_fuzzy_matching = false,
+--     disallow_partial_matching = false,
+--     disallow_prefix_unmatching = true,
+--   },
+--   formatting = {
+--     fields = { 'kind', 'abbr' },
+--     format = function(_, vim_item)
+--       vim_item.kind = kind_icons[vim_item.kind] or ''
+--       vim_item.dup = 0
+--       return vim_item
+--     end,
+--   },
+--   sorting = {
+--     comparators = {
+--       function(...) return require('cmp_buffer'):compare_locality(...) end,
+--       cmp.config.compare.offset,
+--       cmp.config.compare.exact,
+--       cmp.config.compare.score,
+--       cmp.config.compare.kind,
+--       cmp.config.compare.sort_text,
+--       -- cmp.config.compare.length,
+--       cmp.config.compare.order,
+--     }
+--   },
+--   snippet = {
+--     -- REQUIRED - you must specify a snippet engine
+--     expand = function(args)
+--       -- vim.fn['vsnip#anonymous'](args.body) -- For `vsnip` users.
+--       -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+--       -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
+--       -- vim.fn['UltiSnips#Anon'](args.body) -- For `ultisnips` users.
+--     end,
+--   },
+--   mapping = {
+--     ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
+--     ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
+--     ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
+--     ['<C-p>'] = cmp.mapping.select_prev_item(),
+--     ['<C-n>'] = cmp.mapping.select_next_item(),
+--     ['<Tab>'] = cmp.mapping.confirm({ select = true }),
+--     ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
+--     ['<C-e>'] = cmp.mapping({
+--       i = cmp.mapping.abort(),
+--       c = cmp.mapping.close(),
+--     }),
+--     ['<CR>'] = cmp.mapping.confirm({ select = false }),
+--   },
+--   sources = cmp.config.sources({
+--     { name = 'nvim_lsp' },
+--     { name = 'nvim_lsp_signature_help' },
+--     { name = 'treesitter' },
+--     { name = 'conventionalcommits' },
+--     { name = 'buffer', max_item_count = 3 },
+--     { name = 'mocword', max_item_count = 3 },
+--     {
+--       name = 'rg',
+--       max_item_count = 3,
+--       option = {
+--         cwd = vim.fn.expand('~/.config/nvim/dictionaries/hacker_news/'),
+--         debounce = 200,
+--         context_before = 0,
+--         context_after = 0,
+--       }
+--     },
+--     -- { name = 'vsnip' }, -- For vsnip users.
+--     -- { name = 'luasnip' }, -- For luasnip users.
+--     -- { name = 'ultisnips' }, -- For ultisnips users.
+--     -- { name = 'snippy' }, -- For snippy users.
+--   })
+-- })
 
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 -- cmp.setup.cmdline(':', {
