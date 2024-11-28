@@ -10,7 +10,7 @@ sudo dnf install -y \
   atop pwgen gron ncdu hyperfine \
   ipython python3-virtualenv irb \
   python3-setuptools python3-pip python3-devel \
-  cargo golang npm luarocks lua-devel ruby-devel \
+  golang npm luarocks lua-devel ruby-devel \
   @development-tools
 
 # dotfiles
@@ -63,6 +63,10 @@ sudo make install
 nvim --version
 cd ..
 rm -rf neovim
+
+# Install nightly rust to compile blink.cmp
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+rustup install nightly
 
 # nvimpager
 sudo dnf install -y scdoc
