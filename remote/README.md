@@ -12,10 +12,6 @@ wget 'https://github.com/andryandrew/tmux-appimage/releases/download/next-3.5/tm
 mv tmux.appimage HOME/.local/bin/tmux.appimage
 chmod +x HOME/.local/bin/tmux.appimage
 
-# atop
-docker-compose build atop
-docker-compose run atop cp /usr/bin/atop /out/
-
 # nvim
 # wget https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
 # The nightly version on neovim repo requires glibc version 3.31+. We don't have

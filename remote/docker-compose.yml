@@ -9,13 +9,6 @@ services:
     volumes:
       - ./HOME/.local/bin:/out
 
-  atop:
-    build:
-      context: .
-      dockerfile: Dockerfile.atop
-    volumes:
-      - ./HOME/.local/bin:/out
-
   cargo:
     build:
       context: .
