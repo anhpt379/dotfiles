@@ -93,6 +93,8 @@ call plug#begin()
     Plug 'lukas-reineke/indent-blankline.nvim'
     Plug 'norcalli/nvim-colorizer.lua'
 
+    " Plug 'Saghen/blink.cmp', {'do': 'cargo build --release'}
+
     Plug 'neovim/nvim-lspconfig'
     Plug 'williamboman/mason.nvim' | Plug 'williamboman/mason-lspconfig.nvim'
     Plug 'WhoIsSethDaniel/mason-tool-installer.nvim'
@@ -130,7 +132,7 @@ call plug#begin()
     " Plug 'hrsh7th/vim-vsnip'
 
     " For luasnip users.
-    " Plug 'L3MON4D3/LuaSnip'
+    Plug 'L3MON4D3/LuaSnip'
     " Plug 'saadparwaiz1/cmp_luasnip'
 
     " For ultisnips users.
