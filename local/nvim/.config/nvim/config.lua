@@ -366,3 +366,7 @@ require("nvim-navic").setup({
   },
   lazy_update_context = false,
 })
+
+require("ibl").setup({
+  indent = { char = "▏" },
+})
