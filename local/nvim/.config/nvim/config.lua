@@ -499,7 +499,7 @@ cmp.setup {
   windows = {
     autocomplete = {
       auto_show = true,
-      selection = 'manual',
+      selection = 'auto_insert',
     },
     documentation = {
       auto_show = true,
