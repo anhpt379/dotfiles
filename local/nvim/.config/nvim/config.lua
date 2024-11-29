@@ -383,30 +383,7 @@ cmp.setup {
   -- see the "default configuration" section below for full documentation on how to define
   -- your own keymap.
   keymap = {
-    preset = 'default',
-    -- ['<C-e>'] = { 'hide', 'fallback' },
-    -- ['<C-y>'] = { 'select_and_accept', 'fallback' },
-    -- ['<C-b>'] = { 'scroll_documentation_up', 'fallback' },
-    -- ['<C-f>'] = { 'scroll_documentation_down', 'fallback' },
-    -- ['<Up>'] = { 'select_prev', 'fallback' },
-    -- ['<Down>'] = { 'select_next', 'fallback' },
-    -- ['<C-p>'] = { 'select_prev', 'fallback' },
-    -- ['<C-n>'] = { 'select_next', 'fallback' },
-    --
-    ['<Tab>'] = {
-      function(_cmp)
-        if _cmp.is_in_snippet() then
-          return _cmp.accept()
-        elseif require('blink.cmp.windows.autocomplete').get_selected_item() then
-          -- Only accept on tab if an item is selected.
-          return _cmp.accept()
-        end
-      end,
-      'snippet_forward',
-      'fallback',
-    },
-    ['<S-Tab>'] = { 'snippet_backward', 'fallback' },
-
+    preset = 'super-tab',
     -- -- Accept selection or next item is nothing is selected.
     ['<C-space>'] = { 'select_and_accept', 'fallback' },
     -- Accept if an item is selected.
@@ -425,7 +402,7 @@ cmp.setup {
 
   -- experimental signature help support
   trigger = {
-    completion = { show_in_snippet = false },
+    -- completion = { show_in_snippet = false },
     signature_help = { enabled = true },
   },
 
