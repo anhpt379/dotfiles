@@ -412,7 +412,7 @@ cmp.setup {
   sources = {
     completion = {
       -- Static list of providers to enable, or a function to dynamically enable/disable providers based on the context
-      enabled_providers = { 'lsp', 'path', 'snippets', 'buffer', 'ripgrep' },
+      enabled_providers = { 'lsp', 'path', 'snippets', 'buffer', 'ripgrep', 'mocword' },
       -- Example dynamically picking providers based on the filetype and treesitter node:
       -- enabled_providers = function(ctx)
       --   local node = vim.treesitter.get_node()
@@ -485,6 +485,13 @@ cmp.setup {
         name = "ripgrep",
         opts = {
           prefix_min_len = 2,
+        }
+      },
+      mocword = {
+        name = 'mocword',
+        module = 'blink.compat.source',
+        opts = {
+          debug = true,
         }
       }
     },
