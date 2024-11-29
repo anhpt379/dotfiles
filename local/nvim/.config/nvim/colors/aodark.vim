@@ -232,22 +232,6 @@ highlight link ctrlsfLnumMatch LineNr
 highlight Sneak guifg=black guibg=white ctermfg=black ctermbg=white
 highlight SneakScope guifg=white guibg=#28c9ff ctermfg=white ctermbg=blue
 
-" nvim-cmp
-highlight CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#808080
-highlight CmpItemAbbrMatch guibg=NONE guifg=#ffb300
-highlight CmpItemAbbrMatchFuzzy guibg=NONE guifg=#ffb300
-highlight CmpItemKindVariable guibg=NONE guifg=#9CDCFE
-highlight CmpItemKindInterface guibg=NONE guifg=#9CDCFE
-highlight CmpItemKindText guibg=NONE guifg=#9CDCFE
-highlight CmpItemKindFunction guibg=NONE guifg=#C586C0
-highlight CmpItemKindMethod guibg=NONE guifg=#C586C0
-highlight CmpItemKindKeyword guibg=NONE guifg=#D4D4D4
-highlight CmpItemKindProperty guibg=NONE guifg=#D4D4D4
-highlight CmpItemKindUnit guibg=NONE guifg=#D4D4D4
-
-call s:h('NormalFloat', '', s:gutter_bg, '')
-call s:h('FloatBorder', '', s:gutter_bg, '')
-
 " vim-log-highlighting
 highlight link logNumber Directory
 highlight link logHexNumber Directory

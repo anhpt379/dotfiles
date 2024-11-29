@@ -94,6 +94,8 @@ call plug#begin()
     Plug 'norcalli/nvim-colorizer.lua'
 
     Plug 'Saghen/blink.cmp', {'tag': 'v0.6.2', 'do': 'cargo +nightly build --release'}
+    Plug 'Saghen/blink.compat' | Plug 'anhpt379/cmp-mocword' | Plug 'anhpt379/plenary.nvim'
+    Plug 'mikavilpas/blink-ripgrep.nvim'
 
     Plug 'neovim/nvim-lspconfig'
     Plug 'williamboman/mason.nvim' | Plug 'williamboman/mason-lspconfig.nvim'
