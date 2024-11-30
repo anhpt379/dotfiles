@@ -64,6 +64,9 @@ nvim --version
 cd ..
 rm -rf neovim
 
+# nvim needs this tree-sitter-cli to install some tree-sitter languages (e.g. swift)
+sudo npm install -g tree-sitter-cli
+
 # Install nightly rust to compile blink.cmp
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 rustup install nightly
