@@ -376,9 +376,6 @@ require('nvim-treesitter.configs').setup({
   highlight = {
     enable = false,
   },
-  yati = {
-    enable = true
-  },
   matchup = {
     enable = true,
   },

@@ -147,7 +147,6 @@ call plug#begin()
 
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'nvim-treesitter/nvim-treesitter-textobjects'
-    Plug 'yioneko/nvim-yati'
     Plug 'SmiteshP/nvim-navic'
     Plug 'windwp/nvim-ts-autotag'
     Plug 'JoosepAlviste/nvim-ts-context-commentstring'
