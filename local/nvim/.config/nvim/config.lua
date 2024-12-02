@@ -61,112 +61,112 @@ require('lsp-status').register_progress()
 require('lspconfig')
 
 -- nvim-cmp
--- vim.o.pumheight = 15  -- nvim-cmp popup height
+vim.o.pumheight = 15  -- nvim-cmp popup height
 
--- local cmp = require('cmp')
+local cmp = require('cmp')
 
--- local kind_icons = {
---   Text = '󰙩 ',
---   Method = '',
---   Function = '󰊕',
---   Constructor = '',
---   Field = '󰜢',
---   Variable = '󰀫',
---   Class = ' ',
---   Interface = '',
---   Module = '',
---   Property = '󰜢',
---   Unit = '',
---   Value = '',
---   Enum = '',
---   Keyword = '',
---   Snippet = '',
---   Color = '',
---   File = '󰈙',
---   Reference = ' ',
---   Folder = '',
---   EnumMember = '',
---   Constant = '',
---   Struct = '',
---   Event = '',
---   Operator = '󱓉',
---   TypeParameter = '󰅲'
--- }
+local kind_icons = {
+  Text = '󰙩 ',
+  Method = '',
+  Function = '󰊕',
+  Constructor = '',
+  Field = '󰜢',
+  Variable = '󰀫',
+  Class = ' ',
+  Interface = '',
+  Module = '',
+  Property = '󰜢',
+  Unit = '',
+  Value = '',
+  Enum = '',
+  Keyword = '',
+  Snippet = '',
+  Color = '',
+  File = '󰈙',
+  Reference = ' ',
+  Folder = '',
+  EnumMember = '',
+  Constant = '',
+  Struct = '',
+  Event = '',
+  Operator = '󱓉',
+  TypeParameter = '󰅲'
+}
 
--- cmp.setup({
---   preselect = cmp.PreselectMode.None,
---   completion = { },
---   matching = {
---     disallow_fuzzy_matching = false,
---     disallow_partial_matching = false,
---     disallow_prefix_unmatching = true,
---   },
---   formatting = {
---     fields = { 'kind', 'abbr' },
---     format = function(_, vim_item)
---       vim_item.kind = kind_icons[vim_item.kind] or ''
---       vim_item.dup = 0
---       return vim_item
---     end,
---   },
---   sorting = {
---     comparators = {
---       function(...) return require('cmp_buffer'):compare_locality(...) end,
---       cmp.config.compare.offset,
---       cmp.config.compare.exact,
---       cmp.config.compare.score,
---       cmp.config.compare.kind,
---       cmp.config.compare.sort_text,
---       -- cmp.config.compare.length,
---       cmp.config.compare.order,
---     }
---   },
---   snippet = {
---     -- REQUIRED - you must specify a snippet engine
---     expand = function(args)
---       -- vim.fn['vsnip#anonymous'](args.body) -- For `vsnip` users.
---       -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
---       -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
---       -- vim.fn['UltiSnips#Anon'](args.body) -- For `ultisnips` users.
---     end,
---   },
---   mapping = {
---     ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
---     ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
---     ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
---     ['<C-p>'] = cmp.mapping.select_prev_item(),
---     ['<C-n>'] = cmp.mapping.select_next_item(),
---     ['<Tab>'] = cmp.mapping.confirm({ select = true }),
---     ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
---     ['<C-e>'] = cmp.mapping({
---       i = cmp.mapping.abort(),
---       c = cmp.mapping.close(),
---     }),
---     ['<CR>'] = cmp.mapping.confirm({ select = false }),
---   },
---   sources = cmp.config.sources({
---     { name = 'nvim_lsp' },
---     { name = 'nvim_lsp_signature_help' },
---     { name = 'treesitter' },
---     { name = 'conventionalcommits' },
---     { name = 'buffer', max_item_count = 3 },
---     { name = 'mocword', max_item_count = 3 },
---     {
---       name = 'rg',
---       max_item_count = 3,
---       option = {
---         cwd = vim.fn.expand('~/.config/nvim/dictionaries/hacker_news/'),
---         debounce = 200,
---         context_before = 0,
---         context_after = 0,
---       }
---     },
---     -- { name = 'vsnip' }, -- For vsnip users.
---     -- { name = 'luasnip' }, -- For luasnip users.
---     -- { name = 'ultisnips' }, -- For ultisnips users.
---     -- { name = 'snippy' }, -- For snippy users.
---   })
--- })
+cmp.setup({
+  preselect = cmp.PreselectMode.None,
+  completion = { },
+  matching = {
+    disallow_fuzzy_matching = false,
+    disallow_partial_matching = false,
+    disallow_prefix_unmatching = true,
+  },
+  formatting = {
+    fields = { 'kind', 'abbr' },
+    format = function(_, vim_item)
+      vim_item.kind = kind_icons[vim_item.kind] or ''
+      vim_item.dup = 0
+      return vim_item
+    end,
+  },
+  sorting = {
+    comparators = {
+      function(...) return require('cmp_buffer'):compare_locality(...) end,
+      cmp.config.compare.offset,
+      cmp.config.compare.exact,
+      cmp.config.compare.score,
+      cmp.config.compare.kind,
+      cmp.config.compare.sort_text,
+      -- cmp.config.compare.length,
+      cmp.config.compare.order,
+    }
+  },
+  snippet = {
+    -- REQUIRED - you must specify a snippet engine
+    expand = function(args)
+      -- vim.fn['vsnip#anonymous'](args.body) -- For `vsnip` users.
+      -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+      -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
+      -- vim.fn['UltiSnips#Anon'](args.body) -- For `ultisnips` users.
+    end,
+  },
+  mapping = {
+    ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
+    ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
+    ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
+    ['<C-p>'] = cmp.mapping.select_prev_item(),
+    ['<C-n>'] = cmp.mapping.select_next_item(),
+    ['<Tab>'] = cmp.mapping.confirm({ select = true }),
+    ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
+    ['<C-e>'] = cmp.mapping({
+      i = cmp.mapping.abort(),
+      c = cmp.mapping.close(),
+    }),
+    ['<CR>'] = cmp.mapping.confirm({ select = false }),
+  },
+  sources = cmp.config.sources({
+    { name = 'nvim_lsp' },
+    { name = 'nvim_lsp_signature_help' },
+    { name = 'treesitter' },
+    { name = 'conventionalcommits' },
+    { name = 'buffer', max_item_count = 3 },
+    { name = 'mocword', max_item_count = 3 },
+    {
+      name = 'rg',
+      max_item_count = 3,
+      option = {
+        cwd = vim.fn.expand('~/.config/nvim/dictionaries/hacker_news/'),
+        debounce = 200,
+        context_before = 0,
+        context_after = 0,
+      }
+    },
+    -- { name = 'vsnip' }, -- For vsnip users.
+    -- { name = 'luasnip' }, -- For luasnip users.
+    -- { name = 'ultisnips' }, -- For ultisnips users.
+    -- { name = 'snippy' }, -- For snippy users.
+  })
+})
 
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 -- cmp.setup.cmdline(':', {
@@ -441,142 +441,142 @@ require("ibl").setup({
 })
 
 
-local cmp = require 'blink.cmp'
--- local luasnip = require 'luasnip'
+-- local cmp = require 'blink.cmp'
+-- -- local luasnip = require 'luasnip'
 
-cmp.setup {
-  -- TODO:
-  -- 'default' for mappings similar to built-in completion
-  -- 'super-tab' for mappings similar to vscode (tab to accept, arrow keys to navigate)
-  -- 'enter' for mappings similar to 'super-tab' but with 'enter' to accept
-  -- see the "default configuration" section below for full documentation on how to define
-  -- your own keymap.
-  keymap = {
-    preset = 'super-tab',
-    -- -- Accept selection or next item is nothing is selected.
-    ['<C-space>'] = { 'select_and_accept', 'fallback' },
-    -- Accept if an item is selected.
-    ['<CR>'] = { 'accept', 'fallback' },
-    -- Accept if an item is selected, else snippet_forward, or fallback.
-    ['<C-k>'] = { 'select_prev', 'fallback' },
-    ['<C-j>'] = { 'select_next', 'fallback' },
+-- cmp.setup {
+--   -- TODO:
+--   -- 'default' for mappings similar to built-in completion
+--   -- 'super-tab' for mappings similar to vscode (tab to accept, arrow keys to navigate)
+--   -- 'enter' for mappings similar to 'super-tab' but with 'enter' to accept
+--   -- see the "default configuration" section below for full documentation on how to define
+--   -- your own keymap.
+--   keymap = {
+--     preset = 'super-tab',
+--     -- -- Accept selection or next item is nothing is selected.
+--     ['<C-space>'] = { 'select_and_accept', 'fallback' },
+--     -- Accept if an item is selected.
+--     ['<CR>'] = { 'accept', 'fallback' },
+--     -- Accept if an item is selected, else snippet_forward, or fallback.
+--     ['<C-k>'] = { 'select_prev', 'fallback' },
+--     ['<C-j>'] = { 'select_next', 'fallback' },
 
-    ['<Up>'] = { 'select_prev', 'fallback' },
-    ['<Down>'] = { 'select_next', 'fallback' },
-  },        -- experimental auto-brackets support
-  accept = {
-    auto_brackets = { enabled = true },
-    -- expand_snippet = luasnip.lsp_expand,
-  },
+--     ['<Up>'] = { 'select_prev', 'fallback' },
+--     ['<Down>'] = { 'select_next', 'fallback' },
+--   },        -- experimental auto-brackets support
+--   accept = {
+--     auto_brackets = { enabled = true },
+--     -- expand_snippet = luasnip.lsp_expand,
+--   },
 
-  -- experimental signature help support
-  trigger = {
-    -- completion = { show_in_snippet = false },
-    signature_help = { enabled = true },
-  },
+--   -- experimental signature help support
+--   trigger = {
+--     -- completion = { show_in_snippet = false },
+--     signature_help = { enabled = true },
+--   },
 
-  fuzzy = {
-    use_typo_resistance = false,
-  },
-  sources = {
-    completion = {
-      -- Static list of providers to enable, or a function to dynamically enable/disable providers based on the context
-      enabled_providers = { 'lsp', 'path', 'snippets', 'buffer', 'ripgrep', 'mocword' },
-      -- Example dynamically picking providers based on the filetype and treesitter node:
-      -- enabled_providers = function(ctx)
-      --   local node = vim.treesitter.get_node()
-      --   if vim.bo.filetype == 'lua' then
-      --     return { 'lsp', 'path' }
-      --   elseif node and vim.tbl_contains({ 'comment', 'line_comment', 'block_comment' }), node:type())
-      --     return { 'buffer' }
-      --   else
-      --     return { 'lsp', 'path', 'snippets', 'buffer' }
-      --   end
-      -- end
-    },
+--   fuzzy = {
+--     use_typo_resistance = false,
+--   },
+--   sources = {
+--     completion = {
+--       -- Static list of providers to enable, or a function to dynamically enable/disable providers based on the context
+--       enabled_providers = { 'lsp', 'path', 'snippets', 'buffer', 'ripgrep', 'mocword' },
+--       -- Example dynamically picking providers based on the filetype and treesitter node:
+--       -- enabled_providers = function(ctx)
+--       --   local node = vim.treesitter.get_node()
+--       --   if vim.bo.filetype == 'lua' then
+--       --     return { 'lsp', 'path' }
+--       --   elseif node and vim.tbl_contains({ 'comment', 'line_comment', 'block_comment' }), node:type())
+--       --     return { 'buffer' }
+--       --   else
+--       --     return { 'lsp', 'path', 'snippets', 'buffer' }
+--       --   end
+--       -- end
+--     },
 
-    -- Please see https://github.com/Saghen/blink.compat for using `nvim-cmp` sources
-    providers = {
-      lsp = {
-        name = 'LSP',
-        module = 'blink.cmp.sources.lsp',
-        --- *All* of the providers have the following options available
-        --- NOTE: All of these options may be functions to get dynamic behavior
-        --- See the type definitions for more information.
-        --- Check the enabled_providers config for an example
-        enabled = true, -- Whether or not to enable the provider
-        transform_items = nil, -- Function to transform the items before they're returned
-        should_show_items = true, -- Whether or not to show the items
-        max_items = nil, -- Maximum number of items to display in the menu
-        min_keyword_length = 0, -- Minimum number of characters in the keyword to trigger the provider
-        fallback_for = {}, -- If any of these providers return 0 items, it will fallback to this provider
-        score_offset = 0, -- Boost/penalize the score of the items
-        override = nil, -- Override the source's functions
-      },
-      path = {
-        name = 'Path',
-        module = 'blink.cmp.sources.path',
-        score_offset = 3,
-        opts = {
-          trailing_slash = false,
-          label_trailing_slash = true,
-          get_cwd = function(context) return vim.fn.expand(('#%d:p:h'):format(context.bufnr)) end,
-          show_hidden_files_by_default = false,
-        }
-      },
-      snippets = {
-        name = 'Snippets',
-        module = 'blink.cmp.sources.snippets',
-        score_offset = -3,
-        opts = {
-          friendly_snippets = true,
-          search_paths = { vim.fn.stdpath('config') .. '/snippets' },
-          global_snippets = { 'all' },
-          extended_filetypes = {},
-          ignored_filetypes = {},
-          get_filetype = function(context)
-            return vim.bo.filetype
-          end
-        }
+--     -- Please see https://github.com/Saghen/blink.compat for using `nvim-cmp` sources
+--     providers = {
+--       lsp = {
+--         name = 'LSP',
+--         module = 'blink.cmp.sources.lsp',
+--         --- *All* of the providers have the following options available
+--         --- NOTE: All of these options may be functions to get dynamic behavior
+--         --- See the type definitions for more information.
+--         --- Check the enabled_providers config for an example
+--         enabled = true, -- Whether or not to enable the provider
+--         transform_items = nil, -- Function to transform the items before they're returned
+--         should_show_items = true, -- Whether or not to show the items
+--         max_items = nil, -- Maximum number of items to display in the menu
+--         min_keyword_length = 0, -- Minimum number of characters in the keyword to trigger the provider
+--         fallback_for = {}, -- If any of these providers return 0 items, it will fallback to this provider
+--         score_offset = 0, -- Boost/penalize the score of the items
+--         override = nil, -- Override the source's functions
+--       },
+--       path = {
+--         name = 'Path',
+--         module = 'blink.cmp.sources.path',
+--         score_offset = 3,
+--         opts = {
+--           trailing_slash = false,
+--           label_trailing_slash = true,
+--           get_cwd = function(context) return vim.fn.expand(('#%d:p:h'):format(context.bufnr)) end,
+--           show_hidden_files_by_default = false,
+--         }
+--       },
+--       snippets = {
+--         name = 'Snippets',
+--         module = 'blink.cmp.sources.snippets',
+--         score_offset = -3,
+--         opts = {
+--           friendly_snippets = true,
+--           search_paths = { vim.fn.stdpath('config') .. '/snippets' },
+--           global_snippets = { 'all' },
+--           extended_filetypes = {},
+--           ignored_filetypes = {},
+--           get_filetype = function(context)
+--             return vim.bo.filetype
+--           end
+--         }
 
-        --- Example usage for disabling the snippet provider after pressing trigger characters (i.e. ".")
-        -- enabled = function(ctx)
-        --   return ctx ~= nil and ctx.trigger.kind == vim.lsp.protocol.CompletionTriggerKind.TriggerCharacter
-        -- end,
-      },
-      buffer = {
-        name = 'Buffer',
-        module = 'blink.cmp.sources.buffer',
-        fallback_for = { 'lsp' },
-      },
-      ripgrep = {
-        module = "blink-ripgrep",
-        name = "ripgrep",
-        opts = {
-          prefix_min_len = 2,
-        }
-      },
-      mocword = {
-        name = 'mocword',
-        module = 'blink.compat.source',
-        opts = {
-          debug = true,
-        }
-      }
-    },
-  },
-  windows = {
-    autocomplete = {
-      auto_show = true,
-      selection = 'auto_insert',
-    },
-    documentation = {
-      auto_show = true,
-      auto_show_delay_ms = 300,
-      update_delay_ms = 50,
-    },
-    ghost_text = {
-      enabled = false,
-    },
-  },
-}
+--         --- Example usage for disabling the snippet provider after pressing trigger characters (i.e. ".")
+--         -- enabled = function(ctx)
+--         --   return ctx ~= nil and ctx.trigger.kind == vim.lsp.protocol.CompletionTriggerKind.TriggerCharacter
+--         -- end,
+--       },
+--       buffer = {
+--         name = 'Buffer',
+--         module = 'blink.cmp.sources.buffer',
+--         fallback_for = { 'lsp' },
+--       },
+--       ripgrep = {
+--         module = "blink-ripgrep",
+--         name = "ripgrep",
+--         opts = {
+--           prefix_min_len = 2,
+--         }
+--       },
+--       mocword = {
+--         name = 'mocword',
+--         module = 'blink.compat.source',
+--         opts = {
+--           debug = true,
+--         }
+--       }
+--     },
+--   },
+--   windows = {
+--     autocomplete = {
+--       auto_show = true,
+--       selection = 'auto_insert',
+--     },
+--     documentation = {
+--       auto_show = true,
+--       auto_show_delay_ms = 300,
+--       update_delay_ms = 50,
+--     },
+--     ghost_text = {
+--       enabled = false,
+--     },
+--   },
+-- }
