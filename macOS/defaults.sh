@@ -11,6 +11,9 @@ defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false    
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false  # Disable auto-correct
 defaults write NSGlobalDomain NSAutomaticTextCompletionEnabled -bool false      # Disable text-completion
 
+# CMD+CONTROL & mouse click anywhere to drag a window
+defaults write -g NSWindowShouldDragOnGesture -bool true
+
 # Keyboard
 defaults write NSGlobalDomain InitialKeyRepeat -int 15
 defaults write NSGlobalDomain KeyRepeat -int 1
