@@ -27,9 +27,6 @@ fish -c 'curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/fun
 git checkout origin/master local/fish/.config/fish/fish_plugins
 fish -c 'fisher update'
 
-# starship
-curl -sS https://starship.rs/install.sh | sh
-
 # stow
 mkdir -p ~/.local/bin/
 mkdir -p ~/.config/nvim/undo/
@@ -49,7 +46,6 @@ stow man
 stow nvim
 stow nvimpager
 stow ssh
-stow starship
 stow tmux
 stow vivid
 stow wakatime

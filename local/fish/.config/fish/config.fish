@@ -185,8 +185,3 @@ end
 if type -q zoxide
     zoxide init --cmd=j --hook=pwd fish | source
 end
-
-# Reset cursor shape to blinking bar
-printf '\e[5 q'
-
-starship init fish | source
