@@ -643,6 +643,9 @@ nnoremap <silent> P Pg;
 " Don't change the clipboard if paste over a visually selected text
 xnoremap <expr> p 'pgv"' . v:register . 'y'
 
+" Duplicate a line a comment out the first line
+nmap yc yy<Leader>cp
+
 " Keep visual selection when indenting/outdenting
 vmap < <gv
 vmap > >gv
