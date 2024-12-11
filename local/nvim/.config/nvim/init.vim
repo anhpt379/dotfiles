@@ -634,12 +634,6 @@ nnoremap U <C-R>
 imap <C-c> <C-O>:x<CR>
 nmap <C-c> :x<CR>
 
-" Paste without moving the cursor
-vnoremap <silent> p pg;
-nnoremap <silent> p pg;
-vnoremap <silent> P Pg;
-nnoremap <silent> P Pg;
-
 " Don't change the clipboard if paste over a visually selected text
 xnoremap <expr> p 'pgv"' . v:register . 'y'
 
