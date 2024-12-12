@@ -155,7 +155,7 @@ curl -s https://packagecloud.io/install/repositories/84codes/crystal/script.rpm.
 sudo dnf install -y crystal
 
 # Clone tmux-fingers
-git clone https://github.com/Morantron/tmux-fingers ~/.tmux/plugins/tmux-fingers
+git clone https://github.com/anhpt379/tmux-fingers ~/.tmux/plugins/tmux-fingers
 
 # hping3
 # the normal `ping` doesn't work in Lima VM
