@@ -993,15 +993,15 @@ cnoremap <M-b> <S-Left>
 cnoremap <M-f> <S-Right>
 
 " Fix Control/Option+Backspace/Delete didn't work in vim command line
-cnoremap <M-BS> <C-w>
-cnoremap <expr> <C-BS>  &cedit. 'dB' .'<C-c><Space><BS>'
-cnoremap <expr> <M-Del> &cedit. 'dw' .'<C-c><Space><BS>'
+cnoremap <expr> <C-h>  &cedit. 'dvB' .'<C-c><Space><BS>'
+cnoremap        <M-BS> <C-w>
 cnoremap <expr> <C-Del> &cedit. 'dW' .'<C-c><Space><BS>'
+cnoremap <expr> <M-Del> &cedit. 'dw' .'<C-c><Space><BS>'
 
 " Allow Control/Option+Backspace/Delete to delete words in insert mode
 set backspace=indent,eol,start
-inoremap <C-BS>  <C-o>dB
-inoremap <M-BS>  <C-o>db
+inoremap <C-h>  <C-o>dvB
+inoremap <M-BS>  <C-o>dvb
 inoremap <C-Del> <C-o>dW
 inoremap <M-d>   <C-o>dw
 
