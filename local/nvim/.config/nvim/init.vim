@@ -578,10 +578,10 @@ nmap gB :G blame<CR>
 
 augroup fugitive-personal-key-mappings
   autocmd FileType fugitive nmap <buffer> p :bd!<CR>
-        \ :Start! git push origin HEAD --force-with-lease<CR>
+        \ :Start git push origin HEAD --force-with-lease<CR>
         \ :silent exec '!git rev-parse --short HEAD \| tr -d "\n" \| pbcopy'<CR>
   autocmd FileType fugitive nmap <buffer> P :bd!<CR>
-        \ :Start! git push origin HEAD --force<CR>
+        \ :Start git push origin HEAD --force<CR>
         \ :silent exec '!git rev-parse --short HEAD \| tr -d "\n" \| pbcopy'<CR>
   autocmd FileType fugitive nmap <buffer> m
         \ :!if git branch -a \| grep remotes/ \| grep -q /$(git branch --show-current)$; test $? -eq 1; then
