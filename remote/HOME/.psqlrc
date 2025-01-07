@@ -1,4 +1,4 @@
-\setenv PAGER nvimpager
+\setenv TERM xterm-256color
 
 -- Don't display the "helpful" message on startup.
 \set QUIET 1
