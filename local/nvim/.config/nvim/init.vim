@@ -572,23 +572,23 @@ let g:dispatch_no_maps = 1
 map m :call TermOpen('gl ' . expand('%:p') . ':' . line('.'))<CR>
 
 nmap g[ :Start! git pull --rebase origin $(git default-branch)<CR>
-nmap g] :Start! git push --force-with-lease origin HEAD<CR>:silent exec '!git rev-parse --short HEAD \| tr -d "\n" \| pbcopy'<CR>
+nmap g] :Start! git push --force-with-lease origin HEAD<CR>:silent exec '!git rev-parse HEAD \| tr -d "\n" \| pbcopy'<CR>
 nmap M  :Start! git checkout $(git default-branch) && git pull --rebase origin $(git default-branch)<CR>
 nmap gB :G blame<CR>
 
 augroup fugitive-personal-key-mappings
   autocmd FileType fugitive nmap <buffer> p :bd!<CR>
         \ :Start git push origin HEAD --force-with-lease<CR>
-        \ :silent exec '!git rev-parse --short HEAD \| tr -d "\n" \| pbcopy'<CR>
+        \ :silent exec '!git rev-parse HEAD \| tr -d "\n" \| pbcopy'<CR>
   autocmd FileType fugitive nmap <buffer> P :bd!<CR>
         \ :Start git push origin HEAD --force<CR>
-        \ :silent exec '!git rev-parse --short HEAD \| tr -d "\n" \| pbcopy'<CR>
+        \ :silent exec '!git rev-parse HEAD \| tr -d "\n" \| pbcopy'<CR>
   autocmd FileType fugitive nmap <buffer> m
         \ :!if git branch -a \| grep remotes/ \| grep -q /$(git branch --show-current)$; test $? -eq 1; then
         \     git push --force-with-lease origin HEAD;
         \   fi<CR>
         \ :<C-u>call vim_git_browse#GitOpenPullRequest()<CR>
-        \ :silent exec '!git rev-parse --short HEAD \| tr -d "\n" \| pbcopy'<CR>
+        \ :silent exec '!git rev-parse HEAD \| tr -d "\n" \| pbcopy'<CR>
 
   " Verbose and quiet git commit by default
   autocmd FileType fugitive nmap <buffer> C  :vertical Git commit --quiet --no-status<CR>
@@ -1033,7 +1033,7 @@ nnoremap <silent> gm :!if git branch -a \| grep remotes/ \| grep -q /$(git branc
                    \     git push --force-with-lease origin HEAD;
                    \   fi<CR>
                    \ :Start! open $(~/.local/bin/gm)<CR>
-                   \ :silent exec '!git rev-parse --short HEAD \| tr -d "\n" \| pbcopy'<CR>
+                   \ :silent exec '!git rev-parse HEAD \| tr -d "\n" \| pbcopy'<CR>
 nnoremap <silent> gM :Start! ~/.local/bin/gm \| pbcopy<CR>
 
 " Suda & vim-eunuch
