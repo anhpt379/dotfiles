@@ -296,66 +296,6 @@
           ]
         }
       ]
-    },
-    {
-      "description": "Chromium: Open Gmail (Tab #1) with COMMAND+M",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "m",
-            "modifiers": {
-              "mandatory": ["command"]
-            }
-          },
-          "to": [
-            {
-              "key_code": "1",
-              "modifiers": ["command"]
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "^com\\.microsoft\\.edgemac$",
-                "^com\\.google\\.Chrome$",
-                "^com\\.brave\\.Browser$"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "Chromium: Open Slack (Tab #2) with COMMAND+S",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "s",
-            "modifiers": {
-              "mandatory": ["command"]
-            }
-          },
-          "to": [
-            {
-              "key_code": "2",
-              "modifiers": ["command"]
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "^com\\.microsoft\\.edgemac$",
-                "^com\\.google\\.Chrome$",
-                "^com\\.brave\\.Browser$"
-              ]
-            }
-          ]
-        }
-      ]
     }
   ]
 }
