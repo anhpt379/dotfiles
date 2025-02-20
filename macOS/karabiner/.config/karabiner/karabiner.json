@@ -809,7 +809,7 @@
                         ]
                     },
                     {
-                        "description": "Chromium: Open Gmail (Tab #1) with COMMAND+M",
+                        "description": "Chromium: Switch tabs with COMMAND+N/P",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -823,13 +823,36 @@
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "m",
+                                    "key_code": "n",
                                     "modifiers": { "mandatory": ["command"] }
                                 },
                                 "to": [
                                     {
-                                        "key_code": "1",
-                                        "modifiers": ["command"]
+                                        "key_code": "tab",
+                                        "modifiers": ["control"]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.microsoft\\.edgemac$",
+                                            "^com\\.google\\.Chrome$",
+                                            "^com\\.brave\\.Browser$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "p",
+                                    "modifiers": { "mandatory": ["command"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "tab",
+                                        "modifiers": ["control", "shift"]
                                     }
                                 ],
                                 "type": "basic"
@@ -837,7 +860,7 @@
                         ]
                     },
                     {
-                        "description": "Chromium: Open Slack (Tab #2) with COMMAND+S",
+                        "description": "Chromium: Disable COMMAND+ENTER (I press them accidentally sometimes)",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -851,15 +874,10 @@
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "s",
+                                    "key_code": "return_or_enter",
                                     "modifiers": { "mandatory": ["command"] }
                                 },
-                                "to": [
-                                    {
-                                        "key_code": "2",
-                                        "modifiers": ["command"]
-                                    }
-                                ],
+                                "to": [{ "key_code": "return_or_enter" }],
                                 "type": "basic"
                             }
                         ]
@@ -949,57 +967,6 @@
                                     "modifiers": { "mandatory": ["command"] }
                                 },
                                 "to": [{ "key_code": "up_arrow" }],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Chromium: Switch tabs with COMMAND+N/P",
-                        "manipulators": [
-                            {
-                                "conditions": [
-                                    {
-                                        "bundle_identifiers": [
-                                            "^com\\.microsoft\\.edgemac$",
-                                            "^com\\.google\\.Chrome$",
-                                            "^com\\.brave\\.Browser$"
-                                        ],
-                                        "type": "frontmost_application_if"
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "n",
-                                    "modifiers": { "mandatory": ["command"] }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "tab",
-                                        "modifiers": ["control"]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "bundle_identifiers": [
-                                            "^com\\.microsoft\\.edgemac$",
-                                            "^com\\.google\\.Chrome$",
-                                            "^com\\.brave\\.Browser$"
-                                        ],
-                                        "type": "frontmost_application_if"
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "p",
-                                    "modifiers": { "mandatory": ["command"] }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "tab",
-                                        "modifiers": ["control", "shift"]
-                                    }
-                                ],
                                 "type": "basic"
                             }
                         ]
