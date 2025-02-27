@@ -4,7 +4,14 @@ abbr -a ....  'cd ../../..'
 abbr -a ..... 'cd ../../../..'
 
 abbr -a g   'git'
-abbr -a gs  'git status'
+if begin
+        string match -e -q -- Darwin (uname)
+        or string match -e -q -- fedora (hostname)
+    end
+    abbr -a gs 'git status'
+else
+    abbr -a gs 'git status --untracked-files=no'
+end
 abbr -a gco 'git checkout'
 abbr -a m   'master'
 
