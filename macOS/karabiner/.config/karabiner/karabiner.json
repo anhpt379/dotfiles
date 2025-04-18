@@ -9,6 +9,34 @@
                 },
                 "rules": [
                     {
+                        "description": "Escape: Start mission control by pressing ESCAPE alone",
+                        "manipulators": [
+                            {
+                                "from": { "key_code": "escape" },
+                                "to": [{ "key_code": "mission_control" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Escape: Switch windows of the same app with CMD+ESCAPE",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "escape",
+                                    "modifiers": { "mandatory": ["command"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "grave_accent_and_tilde",
+                                        "modifiers": ["command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "Map CAPSLOCK to CONTROL on hold, and to ESCAPE on tap",
                         "manipulators": [
                             {
@@ -1021,10 +1049,6 @@
                 {
                     "from": { "key_code": "delete_or_backspace" },
                     "to": [{ "key_code": "f20" }]
-                },
-                {
-                    "from": { "key_code": "escape" },
-                    "to": [{ "apple_vendor_keyboard_key_code": "mission_control" }]
                 },
                 {
                     "from": { "key_code": "right_command" },

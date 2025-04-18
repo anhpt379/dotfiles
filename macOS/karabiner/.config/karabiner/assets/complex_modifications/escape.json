@@ -1,8 +1,8 @@
 {
-  "title": "ESCAPE (F19) to lock screen",
+  "title": "ESCAPE key",
   "rules": [
     {
-      "description": "Start screen saver on pressing ESCAPE (F19) key",
+      "description": "Escape: Start mission control by pressing ESCAPE alone",
       "manipulators": [
         {
           "type": "basic",
@@ -11,7 +11,27 @@
           },
           "to": [
             {
-              "shell_command": "open -b com.apple.ScreenSaver.Engine"
+              "key_code": "mission_control"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Escape: Switch windows of the same app with CMD+ESCAPE",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "escape",
+            "modifiers": {
+              "mandatory": ["command"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "grave_accent_and_tilde",
+              "modifiers": ["command"]
             }
           ]
         }
