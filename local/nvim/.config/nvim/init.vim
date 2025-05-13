@@ -98,7 +98,7 @@ call plug#begin()
     " Plug 'mikavilpas/blink-ripgrep.nvim'
 
     Plug 'neovim/nvim-lspconfig'
-    Plug 'williamboman/mason.nvim' | Plug 'williamboman/mason-lspconfig.nvim'
+    Plug 'williamboman/mason.nvim' | Plug 'williamboman/mason-lspconfig.nvim', {'tag': 'v1.32.0'}
     Plug 'WhoIsSethDaniel/mason-tool-installer.nvim'
     Plug 'hrsh7th/cmp-nvim-lsp'
     Plug 'hrsh7th/cmp-buffer'
