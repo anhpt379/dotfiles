@@ -48,6 +48,7 @@ function fzf_find -d "Find files and folders"
             set result (
                 eval "$fd_command --max-depth=$fd_depth --type=directory --follow" \
                 | sed "s|^$dir/||" \
+                | dimdirname \
                 | devicon add \
                 | fzf --delimiter=\t --select-1 --exit-0 --ansi \
                     --bind=tab:accept \
@@ -161,6 +162,7 @@ function fzf_find -d "Find files and folders"
             set result (
                 printf %s\n $files \
                 | sed "s|^$dir/||" \
+                | dimdirname \
                 | devicon add \
                 | fzf --delimiter=\t --select-1 --exit-0 --ansi \
                     --expect=enter \

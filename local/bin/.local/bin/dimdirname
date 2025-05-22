@@ -1,0 +1,21 @@
+#!/usr/bin/env python3
+import sys
+import os
+
+# ANSI escape codes
+DIR_COLOR = "\033[38;5;245m"   # color245 for dim
+FILE_COLOR = "\033[38;5;255m"  # color255 for regular text
+RESET = "\033[0m"
+
+def dim_dirname(path):
+    dirname, filename = os.path.split(path.strip())
+    if dirname:
+        print(f"{DIR_COLOR}{dirname}/{RESET}{FILE_COLOR}{filename}{RESET}")
+    else:
+        print(f"{FILE_COLOR}{filename}{RESET}")
+
+
+if __name__ == "__main__":
+    for line in sys.stdin:
+        if line.strip():
+            dim_dirname(line)

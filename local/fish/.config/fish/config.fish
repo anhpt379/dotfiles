@@ -87,6 +87,7 @@ set -gx FZF_DEFAULT_OPTS \
             --color=info:#696969,spinner:#696969
             --color=marker:#55CABE
             --color=spinner:108
+            --ansi
             --cycle
             --no-multi
             --reverse
