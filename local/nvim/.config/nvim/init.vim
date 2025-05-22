@@ -798,10 +798,6 @@ augroup custom-file-extensions
   autocmd BufReadPost *.eyaml set filetype=yaml
 augroup end
 
-" No magic search by default
-map / /\V
-map ? ?\V
-
 " Highlight yanked text
 autocmd TextYankPost * silent! lua vim.highlight.on_yank {higroup="TextYankPost", timeout=700}
 
