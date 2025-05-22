@@ -1,3 +1,12 @@
+-- indentscope
+require('mini.indentscope').setup({
+  draw = {
+    delay = 10,
+    animation = require('mini.indentscope').gen_animation.none(),
+  },
+  symbol = "▏"
+})
+
 -- language servers
 require("mason").setup {
   ui = {
@@ -434,10 +443,6 @@ require("nvim-navic").setup({
     auto_attach = true,
   },
   lazy_update_context = false,
-})
-
-require("ibl").setup({
-  indent = { char = "▏" },
 })
 
 

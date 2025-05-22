@@ -90,7 +90,7 @@ call plug#begin()
     Plug 'mechatroner/rainbow_csv'
     Plug 'fladson/vim-kitty'
 
-    Plug 'lukas-reineke/indent-blankline.nvim'
+    Plug 'echasnovski/mini.indentscope', { 'branch': 'stable' } | Plug 'echasnovski/mini.nvim', { 'branch': 'stable' }
     Plug 'norcalli/nvim-colorizer.lua'
 
     " Plug 'Saghen/blink.cmp', {'tag': 'v0.6.2', 'do': 'cargo +nightly build --release'}
@@ -1116,12 +1116,6 @@ augroup end
 let g:netrw_nogx = 1
 let g:openbrowser_browser_commands = [{'name': 'open', 'args': ['{browser}', '{uri}']}]
 nmap gx <Plug>(openbrowser-smart-search)
-
-" Indent Blankline
-let g:indent_blankline_use_treesitter = v:true
-let g:indent_blankline_show_first_indent_level = v:true
-let g:indent_blankline_buftype_exclude = ['terminal']
-let g:indent_blankline_filetype_exclude = ['fzf', 'startify', 'man', 'log']
 
 " Persist and provide a clearer message to explain what has happened when Vim
 " notices that the file you are editing was changed by another program (like
