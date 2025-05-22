@@ -54,7 +54,7 @@ call plug#begin()
   Plug 'paretje/suda.vim'
   Plug 'tpope/vim-eunuch'
   Plug 'anhpt379/vim-unimpaired'
-  Plug 'justinmk/vim-sneak'
+  Plug 'folke/flash.nvim', {'tag': 'stable'}
   Plug 'junegunn/vim-easy-align'
   Plug 'cohama/lexima.vim'
   Plug 'tpope/vim-speeddating'
@@ -916,18 +916,6 @@ autocmd TermOpen  * if g:hostname =~# 'fedora' | set showtabline=0 | endif | set
 autocmd TermEnter * if g:hostname =~# 'fedora' | set showtabline=0 | endif | set nonumber | set signcolumn=no
 autocmd TermLeave * if g:hostname =~# 'fedora' | set showtabline=2 | endif | set number   | set signcolumn=yes | :EnableWhitespace
 map <Leader>l :<C-u>Lf<CR>
-
-" Vim-sneak
-let g:sneak#s_next = 1
-let g:sneak#label = 1
-let g:sneak#prompt = 'Sneak> '
-map ' <Plug>Sneak_s
-map " <Plug>Sneak_S
-map g' <Plug>Sneak_;
-map f <Plug>Sneak_f
-map F <Plug>Sneak_F
-map t <Plug>Sneak_t
-map T <Plug>Sneak_T
 
 " Make diffing better: https://vimways.org/2018/the-power-of-diff/
 set diffopt+=algorithm:patience

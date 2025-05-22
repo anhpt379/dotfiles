@@ -7,6 +7,20 @@ require('mini.indentscope').setup({
   symbol = "▏"
 })
 
+-- flash.nvim
+require("flash").setup({
+  search = {
+    forward = true,
+    wrap = false,
+    multi_window = false
+  },
+  modes = {
+    char = {
+      jump_labels = true
+    }
+  }
+})
+
 -- language servers
 require("mason").setup {
   ui = {
