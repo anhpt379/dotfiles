@@ -110,7 +110,7 @@ call plug#begin()
     Plug 'lukas-reineke/cmp-rg'
     Plug 'davidsierradz/cmp-conventionalcommits'
     Plug 'anhpt379/cmp-mocword' | Plug 'anhpt379/plenary.nvim'
-    Plug 'jose-elias-alvarez/null-ls.nvim' | Plug 'anhpt379/plenary.nvim'
+    Plug 'nvimtools/none-ls.nvim' | Plug 'anhpt379/plenary.nvim'
     Plug 'ray-x/cmp-treesitter'
     Plug 'hrsh7th/nvim-cmp'
     Plug 'nvim-lua/lsp-status.nvim'
