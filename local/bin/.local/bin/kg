@@ -24,7 +24,7 @@ eval "${list_pods}" | \
     --header="${header}" \
     --header-lines=1 \
     --preview="${preview_pod}" \
-    --preview-window=right:60%:follow \
+    --preview-window=right,60%,follow,border-sharp \
     --bind="enter:execute(echo ${logs_pod})+execute(${logs_pod})+reload-sync(${list_pods})" \
     --bind="ctrl-e:execute(echo ${exec_pod})+execute(${exec_pod})+reload-sync(${list_pods})" \
     --bind="ctrl-d:execute(echo ${describe_pod})+execute(${describe_pod} | less)+reload-sync(${list_pods})" \

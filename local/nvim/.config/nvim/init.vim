@@ -512,7 +512,7 @@ command! -complete=dir -bang -nargs=* FzfRg
   \       '--scheme=path',
   \       '--layout=reverse',
   \       '--preview', 'preview {}',
-  \       '--preview-window=right:60%,~2,+2/2'
+  \       '--preview-window=right,60%,~2,+2/2,border-sharp'
   \   ]
   \ },
   \ )
