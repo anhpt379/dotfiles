@@ -19,6 +19,13 @@ preview_cmd="${get_branch_name} | \
       --pretty='format:%C(auto,blue)%>(12,trunc)%ad %C(auto,yellow)%h %C(auto,green)%aN %C(auto,reset)%s%C(auto,red)% gD% D' \
       $ --"
 
+current_branch=$(git rev-parse --abbrev-ref HEAD)
+if [ "${current_branch}" = 'master' ]; then
+  query=''
+else
+  query="${current_branch}"
+fi
+
 red="$(tput setaf 1)"
 reset="$(tput sgr0)"
 result=$(
@@ -29,6 +36,7 @@ result=$(
     fzf --height=100% \
       --preview-window=right:75% \
       --exact \
+      --query="${query}" \
       --print-query \
       --expect=ctrl-d \
       --preview="${preview_cmd}" \
