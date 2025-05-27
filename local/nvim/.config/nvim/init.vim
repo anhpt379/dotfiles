@@ -547,7 +547,7 @@ function TermOpen(cmd)
     silent! Bclose!
   endfunction
   enew
-  call termopen(a:cmd, callback)
+  call termopen("printf '\e[5 q' && " . a:cmd, callback)
   startinsert
 endfun
 noremap gb :call TermOpen('gb')<CR>
