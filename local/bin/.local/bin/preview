@@ -71,15 +71,13 @@ elif [[ -f $name ]]; then
       CMD="command sed -n ${LINE_START},${LINE_END}p '$name'"
     elif test "$(wc -l "$name" | awk '{ print $1 }')" -gt 2000; then
       CMD="command sed -n ${LINE_START},${LINE_END}p '$name'"
-    elif basename "$name" | grep -qF '.'; then
+    else
       # Tell nvimpager (again) where nvim is
       # Somehow on remote this variable is changed to another value (it looks
       # like this: `NVIM=/tmp/nvimQPBuJM/0`), I couldn't figure out why, so
       # this workaround will fix no preview for fzf in vim on remote servers.
       export NVIM=~/.local/bin/nvim
       CMD="nvimpager -c '$name' | command sed -n ${LINE_START},${LINE_END}p"
-    else
-      CMD="command sed -n ${LINE_START},${LINE_END}p '$name'"
     fi
 
     if test -z "$LINE_HIGHLIGHT"; then
