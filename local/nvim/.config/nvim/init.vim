@@ -538,9 +538,8 @@ tnoremap <C-BS> <C-w>
 " }}}
 
 "##### Terminal apps #####
-autocmd TermOpen  * if g:hostname =~# 'fedora' | set showtabline=0 | endif | set nonumber | set signcolumn=no  | set laststatus=0 | set cmdheight=0 | :DisableWhitespace
-autocmd TermEnter * if g:hostname =~# 'fedora' | set showtabline=0 | endif | set nonumber | set signcolumn=no  | set laststatus=0 | set cmdheight=0
-autocmd TermLeave * if g:hostname =~# 'fedora' | set showtabline=2 | endif | set number   | set signcolumn=yes | set laststatus=2 | set cmdheight=1 | :EnableWhitespace
+autocmd TermOpen  * if g:hostname =~# 'fedora' | set showtabline=0 | endif | set nonumber | set signcolumn=no  | set laststatus=0 | :DisableWhitespace
+autocmd TermLeave * if g:hostname =~# 'fedora' | set showtabline=2 | endif | set number   | set signcolumn=yes | set laststatus=2 | :EnableWhitespace
 
 function TermOpen(cmd, ...)
   let filepath = (a:0 >= 1 ? a:1 : '')
