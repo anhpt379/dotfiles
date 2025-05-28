@@ -39,7 +39,7 @@ call plug#begin()
   Plug 'chrisbra/Colorizer'
   Plug 'ryanoasis/vim-devicons'
   Plug 'breuckelen/vim-resize'
-  Plug 'ptzz/lf.vim', {'tag': 'v1.2'} | Plug 'rbgrouleff/bclose.vim'
+  Plug 'rbgrouleff/bclose.vim'
   Plug 'roman/golden-ratio'
 
   " Improving editing experience
@@ -539,17 +539,44 @@ tnoremap <C-BS> <C-w>
 
 " }}}
 
-" Git {{{
-function TermOpen(cmd)
+" Git + Lf + Fzf {{{
+autocmd TermOpen  * if g:hostname =~# 'fedora' | set showtabline=0 | endif | set nonumber | set signcolumn=no  | set laststatus=0 | set cmdheight=0 | :DisableWhitespace
+autocmd TermEnter * if g:hostname =~# 'fedora' | set showtabline=0 | endif | set nonumber | set signcolumn=no  | set laststatus=0 | set cmdheight=0
+autocmd TermLeave * if g:hostname =~# 'fedora' | set showtabline=2 | endif | set number   | set signcolumn=yes | set laststatus=2 | set cmdheight=1 | :EnableWhitespace
+
+function TermOpen(cmd, ...)
+  let filepath = (a:0 >= 1 ? a:1 : '')
+
+  " Clear file if path is given and writable
+  if !empty(filepath) && filewritable(filepath)
+    call writefile([], filepath)
+  endif
+
   set nowinfixbuf
   let callback = {}
+  if !empty(filepath)
+    let callback.filepath = filepath
+  endif
+
   function! callback.on_exit(job_id, code, event)
     silent! Bclose!
+
+    if has_key(self, 'filepath') && filereadable(self.filepath)
+      let files = readfile(self.filepath)
+      for file in files
+        if filereadable(file)
+          execute 'edit ' . fnameescape(file)
+        endif
+      endfor
+    endif
   endfunction
+
   enew
   call termopen("printf '\e[5 q' && " . a:cmd, callback)
   startinsert
 endfun
+
+map <Leader>l :call TermOpen('lf --selection-path /tmp/lf_selected_files', '/tmp/lf_selected_files')<CR>
 
 noremap gb :call TermOpen('gb')<CR>
 noremap gr :execute 'G rebase -i --autosquash ' . system('git symbolic-ref --short HEAD') . '<CR>'
@@ -905,14 +932,6 @@ augroup auto-create-dir
   autocmd!
   autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
 augroup end
-
-" Lf.vim
-let g:lf_map_keys = 0
-let g:lf_replace_netrw = 1
-autocmd TermOpen  * if g:hostname =~# 'fedora' | set showtabline=0 | endif | set nonumber | set signcolumn=no  | set laststatus=0 | set cmdheight=0 | :DisableWhitespace
-autocmd TermEnter * if g:hostname =~# 'fedora' | set showtabline=0 | endif | set nonumber | set signcolumn=no  | set laststatus=0 | set cmdheight=0
-autocmd TermLeave * if g:hostname =~# 'fedora' | set showtabline=2 | endif | set number   | set signcolumn=yes | set laststatus=2 | set cmdheight=1 | :EnableWhitespace
-map <Leader>l :<C-u>Lf<CR>
 
 " Make diffing better: https://vimways.org/2018/the-power-of-diff/
 set diffopt+=algorithm:patience
