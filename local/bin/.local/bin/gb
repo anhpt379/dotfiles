@@ -1,5 +1,7 @@
 #!/bin/bash
 
+query=$1
+
 git rev-parse HEAD >/dev/null || exit 1
 
 get_branch_name="echo -n {} | sed -E 's/ \*$//'"
@@ -20,10 +22,12 @@ preview_cmd="${get_branch_name} | \
       $ --"
 
 current_branch=$(git rev-parse --abbrev-ref HEAD)
-if [ "${current_branch}" = 'master' ]; then
-  query=''
-else
-  query="${current_branch}"
+if [ -z "$query" ]; then
+  if [ "${current_branch}" = 'master' ]; then
+    query=''
+  else
+    query="${current_branch}"
+  fi
 fi
 
 red="$(tput setaf 1)"
@@ -38,10 +42,10 @@ result=$(
       --exact \
       --query="${query}" \
       --print-query \
-      --expect=ctrl-d \
+      --expect=ctrl-d,tab \
       --preview="${preview_cmd}" \
-      --header="${red}CTRL-/${reset} to toggle preview, ${red}CTRL-Y${reset} to yank, ${red}CTRL-D${reset} to delete branch" \
-      --prompt="> " \
+      --header="${red}TAB${reset} to update query, ${red}CTRL-/${reset} to toggle preview, ${red}CTRL-Y${reset} to yank, ${red}CTRL-D${reset} to delete branch" \
+      --prompt="FZF> " \
       --bind="ctrl-y:execute-silent/${copy_cmd}/+abort"
 )
 
@@ -54,6 +58,8 @@ if [ "${key}" = "ctrl-d" ]; then
   else
     git branch -D "${branch_name}"
   fi
+elif [ "${key}" = "tab" ]; then
+  gb "${branch_name}"
 elif [ -n "${branch_name}" ]; then
   if git show-ref --verify --quiet refs/heads/"${branch_name}"; then
     git checkout "${branch_name}" && git pull --rebase origin $(git branch | grep -Eo " \b(master|main)\b" | xargs) || git rebase --abort
