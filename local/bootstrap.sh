@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sudo dnf config-manager addrepo --from-repofile=https://download.opensuse.org/repositories/shells:fish/Fedora_41/shells:fish.repo
+
 sudo dnf install -y \
   kitty-terminfo which \
   stow git fish tmux \
