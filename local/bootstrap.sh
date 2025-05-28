@@ -6,7 +6,7 @@ sudo dnf install -y \
   jq ripgrep eza rsync zoxide \
   curl wget nmap-ncat \
   telnet corkscrew \
-  tldr man-pages grc dnsutils \
+  tldr man-pages grc dnsutils moreutils\
   atop pwgen gron ncdu hyperfine \
   ipython python3-virtualenv irb \
   python3-setuptools python3-pip python3-devel \
