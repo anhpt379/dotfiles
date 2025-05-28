@@ -35,7 +35,6 @@ call plug#begin()
   " Fancy UI stuff
   Plug 'junegunn/fzf'
   Plug 'junegunn/fzf.vim'
-  Plug 'anhpt379/fzf-filemru'
   Plug 'chrisbra/Colorizer'
   Plug 'ryanoasis/vim-devicons'
   Plug 'breuckelen/vim-resize'
@@ -527,7 +526,6 @@ endfunction
 command! GstatusClose call s:close_gstatus()
 
 noremap <Leader>g :GstatusClose<CR>:FzfRg<Space>
-noremap <Leader>f :GstatusClose<CR>:silent FilesMru<CR>
 noremap <Leader>b :FzfBLines<CR>
 
 " Workaround for <C-/> to toggle fzf preview doesn't work since v0.7.2
@@ -539,18 +537,13 @@ tnoremap <C-BS> <C-w>
 
 " }}}
 
-" Git + Lf + Fzf {{{
+"##### Terminal apps #####
 autocmd TermOpen  * if g:hostname =~# 'fedora' | set showtabline=0 | endif | set nonumber | set signcolumn=no  | set laststatus=0 | set cmdheight=0 | :DisableWhitespace
 autocmd TermEnter * if g:hostname =~# 'fedora' | set showtabline=0 | endif | set nonumber | set signcolumn=no  | set laststatus=0 | set cmdheight=0
 autocmd TermLeave * if g:hostname =~# 'fedora' | set showtabline=2 | endif | set number   | set signcolumn=yes | set laststatus=2 | set cmdheight=1 | :EnableWhitespace
 
 function TermOpen(cmd, ...)
   let filepath = (a:0 >= 1 ? a:1 : '')
-
-  " Clear file if path is given and writable
-  if !empty(filepath) && filewritable(filepath)
-    call writefile([], filepath)
-  endif
 
   set nowinfixbuf
   let callback = {}
@@ -576,14 +569,22 @@ function TermOpen(cmd, ...)
   startinsert
 endfun
 
-map <Leader>l :call TermOpen('lf --selection-path /tmp/lf_selected_files', '/tmp/lf_selected_files')<CR>
+noremap <Leader>l :call TermOpen('lf --selection-path /tmp/lf_selected_files', '/tmp/lf_selected_files')<CR>
+
+noremap <Leader>f :GstatusClose<CR>:call TermOpen('fzf-mru', '/tmp/fzf_selected_files')<CR>
 
 noremap gb :call TermOpen('gb')<CR>
+noremap gl :call TermOpen('gl')<CR>
+noremap gL :call TermOpen('gl ' . expand('%:p'))<CR>
+
+noremap m :call TermOpen('gl ' . expand('%:p') . ':' . line('.'))<CR>
+
+"#########################
+
+" Git {{{
 noremap gr :execute 'G rebase -i --autosquash ' . system('git symbolic-ref --short HEAD') . '<CR>'
 noremap ga :G absorb --and-rebase<CR>
 noremap gs :tab Git<CR>gg4j
-noremap gl :call TermOpen('gl')<CR>
-noremap gL :call TermOpen('gl ' . expand('%:p'))<CR>
 noremap <expr> gw &modified ? ':silent! Gwrite<CR>:update<CR>' : ''
 
 command! Gundo               silent! G undo
@@ -597,7 +598,6 @@ command! Gcherrypickcontinue silent! G cherry-pick --continue
 command! Gcherrypickabort    silent! G cherry-pick --abort
 
 let g:dispatch_no_maps = 1
-map m :call TermOpen('gl ' . expand('%:p') . ':' . line('.'))<CR>
 
 nmap g[ :Start! git pull --rebase origin $(git default-branch)<CR>
 nmap g] :Start! git push --force-with-lease origin HEAD<CR>:silent exec '!git rev-parse HEAD \| tr -d "\n" \| pbcopy'<CR>
@@ -1008,12 +1008,6 @@ inoremap <C-h>   <Left><C-o>dvB
 inoremap <M-BS>  <Left><C-o>dvb
 inoremap <C-Del> <C-o>dW
 inoremap <M-d>   <C-o>dw
-
-" Fzf-mru
-augroup update-mru-on-file-open
-  autocmd!
-  autocmd BufWinEnter * UpdateMru
-augroup end
 
 " Vim-fugitive GBrowse
 let g:fugitive_gitlab_domains = ['https://gitlab.' . $COMPANY_DOMAIN]
