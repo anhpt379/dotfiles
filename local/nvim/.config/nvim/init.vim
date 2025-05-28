@@ -550,6 +550,7 @@ function TermOpen(cmd)
   call termopen("printf '\e[5 q' && " . a:cmd, callback)
   startinsert
 endfun
+
 noremap gb :call TermOpen('gb')<CR>
 noremap gr :execute 'G rebase -i --autosquash ' . system('git symbolic-ref --short HEAD') . '<CR>'
 noremap ga :G absorb --and-rebase<CR>
@@ -908,9 +909,9 @@ augroup end
 " Lf.vim
 let g:lf_map_keys = 0
 let g:lf_replace_netrw = 1
-autocmd TermOpen  * if g:hostname =~# 'fedora' | set showtabline=0 | endif | set nonumber | set signcolumn=no  | :DisableWhitespace
-autocmd TermEnter * if g:hostname =~# 'fedora' | set showtabline=0 | endif | set nonumber | set signcolumn=no
-autocmd TermLeave * if g:hostname =~# 'fedora' | set showtabline=2 | endif | set number   | set signcolumn=yes | :EnableWhitespace
+autocmd TermOpen  * if g:hostname =~# 'fedora' | set showtabline=0 | endif | set nonumber | set signcolumn=no  | set laststatus=0 | set cmdheight=0 | :DisableWhitespace
+autocmd TermEnter * if g:hostname =~# 'fedora' | set showtabline=0 | endif | set nonumber | set signcolumn=no  | set laststatus=0 | set cmdheight=0
+autocmd TermLeave * if g:hostname =~# 'fedora' | set showtabline=2 | endif | set number   | set signcolumn=yes | set laststatus=2 | set cmdheight=1 | :EnableWhitespace
 map <Leader>l :<C-u>Lf<CR>
 
 " Make diffing better: https://vimways.org/2018/the-power-of-diff/
