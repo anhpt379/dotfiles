@@ -92,8 +92,9 @@ rm -rf fd-*
 
 # fzf
 cd /tmp || exit 1
-curl -fLo ~/.local/share/man/man1/fzf.1 https://raw.githubusercontent.com/junegunn/fzf/v0.56.0/man/man1/fzf.1
-wget https://github.com/junegunn/fzf/releases/download/v0.56.0/fzf-0.56.0-linux_arm64.tar.gz
+export FZF_VERSION=0.62.0
+curl -fLo ~/.local/share/man/man1/fzf.1 https://raw.githubusercontent.com/junegunn/fzf/v$FZF_VERSION/man/man1/fzf.1
+wget https://github.com/junegunn/fzf/releases/download/v$FZF_VERSION/fzf-$FZF_VERSION-linux_arm64.tar.gz
 tar zxvf fzf-*.tar.gz
 mv fzf ~/.local/bin/
 rm -rf fzf-*.tar.gz
@@ -143,8 +144,9 @@ pip3 install --upgrade requests
 
 # lf
 cd /tmp || exit
-curl -fLo ~/.local/share/man/man1/lf.1 https://raw.githubusercontent.com/gokcehan/lf/r33/lf.1
-wget https://github.com/gokcehan/lf/releases/download/r33/lf-linux-arm64.tar.gz
+export LF_VERSION=r35
+curl -fLo ~/.local/share/man/man1/lf.1 https://raw.githubusercontent.com/gokcehan/lf/$LF_VERSION/lf.1
+wget https://github.com/gokcehan/lf/releases/download/$LF_VERSION/lf-linux-arm64.tar.gz
 tar zxvf lf-*.tar.gz
 mv lf ~/.local/bin/
 rm -f lf-*.tar.gz

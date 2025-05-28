@@ -16,19 +16,19 @@ chmod +x HOME/.local/bin/tmux.appimage
 # wget https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
 # The nightly version on neovim repo requires glibc version 3.31+. We don't have
 # it on CentOS 7, so I use the one from neovim-releases instead.
-wget https://github.com/neovim/neovim-releases/releases/download/nightly/nvim.appimage
-chmod +x nvim.appimage
-mv nvim.appimage HOME/.local/bin/
+wget https://github.com/neovim/neovim-releases/releases/download/stable/nvim-linux-x86_64.appimage
+chmod +x nvim-linux-x86_64.appimage
+mv nvim-linux-x86_64.appimage HOME/.local/bin/nvim.appimage
 
 # fzf
-set FZF_VERSION 0.56.0
+set FZF_VERSION 0.62.0
 wget https://github.com/junegunn/fzf/releases/download/v$FZF_VERSION/fzf-$FZF_VERSION-linux_amd64.tar.gz
 tar zxvf fzf-$FZF_VERSION-linux_amd64.tar.gz
 mv fzf HOME/.local/bin/
 rm -f fzf-$FZF_VERSION-linux_amd64.tar.gz
 
 # lf
-wget https://github.com/gokcehan/lf/releases/download/r33/lf-linux-amd64.tar.gz
+wget https://github.com/gokcehan/lf/releases/download/r35/lf-linux-amd64.tar.gz
 tar zxvf lf-linux-amd64.tar.gz
 mv lf HOME/.local/bin/
 rm -f lf-linux-amd64.tar.gz
