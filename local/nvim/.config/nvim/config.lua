@@ -13,11 +13,6 @@ require("flash").setup({
     forward = true,
     wrap = false,
     multi_window = false
-  },
-  modes = {
-    char = {
-      jump_labels = true
-    }
   }
 })
 
