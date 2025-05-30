@@ -53,7 +53,7 @@ function fzf_find -d "Find files and folders"
                 | fzf --delimiter=\t --select-1 --exit-0 --ansi \
                     --bind=tab:accept \
                     --expect=enter \
-                    --tiebreak=chunk \
+                    --scheme=path \
                     --height=40% \
                     --header="$(tput setaf 1)TAB$(tput sgr0) to select, $(tput setaf 1)ENTER$(tput sgr0) to run, $(tput setaf 1)CTRL-[$(tput sgr0) to stop, $(tput setaf 1)CTRL-/$(tput sgr0) to toggle preview" \
                     --prompt="DIRECTORY> " \
@@ -70,7 +70,7 @@ function fzf_find -d "Find files and folders"
                 | fzf --delimiter=\t --select-1 --exit-0 --ansi \
                     --bind=tab:accept \
                     --expect=enter \
-                    --tiebreak=chunk \
+                    --scheme=path \
                     --header="$(tput setaf 1)TAB$(tput sgr0) to select, $(tput setaf 1)ENTER$(tput sgr0) to run, $(tput setaf 1)CTRL-[$(tput sgr0) to stop, $(tput setaf 1)CTRL-/$(tput sgr0) to toggle preview" \
                     --preview="$fzf_preview_command" \
                     --query=(echo $command | sed 's/^j//' | xargs)
@@ -166,7 +166,7 @@ function fzf_find -d "Find files and folders"
                 | devicon add \
                 | fzf --delimiter=\t --select-1 --exit-0 --ansi \
                     --expect=enter \
-                    --tiebreak=chunk \
+                    --scheme=path \
                     --height=40% \
                     --keep-right \
                     --header="$(tput setaf 1)TAB$(tput sgr0) to select, $(tput setaf 1)ENTER$(tput sgr0) to run, $(tput setaf 1)CTRL-[$(tput sgr0) to stop, $(tput setaf 1)CTRL-/$(tput sgr0) to toggle preview" \

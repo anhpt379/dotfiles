@@ -14,7 +14,7 @@ cat ${FZF_MRU_FILES}.tmp <(eval "$FZF_DEFAULT_COMMAND" | grep -Fvxf ${FZF_MRU_FI
   | devicon add \
   | fzf --ansi \
       --height=100% \
-      --tiebreak=chunk \
+      --scheme=path \
       --header="$(tput setaf 1)ENTER$(tput sgr0) to open, $(tput setaf 1)CTRL-Y$(tput sgr0) to copy, $(tput setaf 1)CTRL-/$(tput sgr0) to toggle preview" \
       --preview="preview {}" \
       --preview-window=right,60%,border-sharp \
