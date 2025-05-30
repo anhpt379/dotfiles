@@ -238,7 +238,6 @@ local sources = {
   null_ls.builtins.formatting.black,
   null_ls.builtins.formatting.fish_indent,
   null_ls.builtins.formatting.sqlformat,
-  null_ls.builtins.formatting.json_tool,
   null_ls.builtins.formatting.shfmt,
   null_ls.builtins.formatting.cmake_format,
   null_ls.builtins.formatting.nginx_beautifier,
