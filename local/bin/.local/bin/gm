@@ -24,9 +24,8 @@ if test -n "${merge_request_id}"; then
 else
   target_branch=$(git branch -l master main | sed 's/^* //' | xargs)
   if test "${target_branch}" = "${branch_name}"; then
-    exit 1
-  fi
-  if echo "${remote_url}" | grep -q 'github'; then
+    echo "${remote_url}/tree/master"
+  elif echo "${remote_url}" | grep -q 'github'; then
     echo "${remote_url}/compare/${branch_name}...${target_branch}"
   elif echo "${remote_url}" | grep -q 'gitlab'; then
     echo "${remote_url}/merge_requests/new?merge_request[source_branch]=${branch_name}&merge_request[target_branch]=${target_branch}"
