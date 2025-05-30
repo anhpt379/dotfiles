@@ -222,6 +222,7 @@ local sources = {
   -- null_ls.builtins.diagnostics.editorconfig_checker,
   -- null_ls.builtins.diagnostics.eslint_d,
   null_ls.builtins.diagnostics.gitlint,
+  null_ls.builtins.diagnostics.fish,
   null_ls.builtins.diagnostics.jsonlint,
   null_ls.builtins.diagnostics.yamllint,
   null_ls.builtins.diagnostics.luacheck,
