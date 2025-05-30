@@ -117,6 +117,9 @@ cd - || exit 1
 # nvim
 nvim -c "PlugInstall" -c "TSInstall all" -c "qall"
 
+# gitlint
+pip3 install gitlint
+
 # code formatters
 sudo dnf install -y shfmt
 pip3 install black
