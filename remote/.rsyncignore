@@ -10,6 +10,9 @@
 .config/fish/functions/ssh.fish
 .config/nvim/dictionaries
 .github
+.local/share/fish/install/man
+.local/share/fish/install/tools
+.local/share/fish/install/completions
 .local/share/nvim/plugged/*/.git
 .local/share/nvim/plugged/*/.gitattributes
 .local/share/nvim/plugged/*/doc
