@@ -193,10 +193,6 @@ set mousescroll=ver:1,hor:0
 " Scroll screen-lines (long/wrapped) instead of text lines
 set smoothscroll
 
-" Fix fzf exits unexpectedly on ScrollWheelLeft/Right
-tnoremap <ScrollWheelLeft> <nop>
-tnoremap <ScrollWheelRight> <nop>
-
 set pumblend=20
 set cursorline
 
@@ -487,15 +483,6 @@ endfunction
 command! GstatusClose call s:close_gstatus()
 
 noremap <Leader>g :GstatusClose<CR>:call TermOpen('fzf-rg ' . input("FZFRg: "), '/tmp/fzf_selected_files')<CR>
-
-" Workaround for <C-/> to toggle fzf preview doesn't work since v0.7.2
-" https://github.com/neovim/neovim/issues/18735
-tnoremap <C-/> <C-_>
-
-" Workaround for <C-Backspace> doesn't work for fzf when running in nvim
-tnoremap <C-BS> <C-w>
-
-" }}}
 
 "##### Terminal apps #####
 autocmd TermOpen  * if g:hostname =~# 'fedora' | set showtabline=0 | endif | set nonumber | set signcolumn=no  | set laststatus=0 | :DisableWhitespace
@@ -825,13 +812,6 @@ let g:indentLine_char = '┊'
 " Make indentline and JSON quote concealing work well together
 let g:indentLine_setConceal = 0
 set conceallevel=2
-
-" Hide fzf status line
-augroup fzf
-  autocmd! FileType fzf
-  autocmd  FileType fzf set laststatus=0 noshowmode noruler |
-    \ autocmd BufLeave <buffer> set laststatus=2 showmode ruler
-augroup end
 
 " }}}
 
