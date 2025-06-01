@@ -501,10 +501,16 @@ function TermOpen(cmd, ...)
     silent! Bclose!
 
     if has_key(self, 'filepath') && filereadable(self.filepath)
-      let files = readfile(self.filepath)
-      for file in files
-        if filereadable(file)
-          execute 'edit ' . fnameescape(file)
+      let lines = readfile(self.filepath)
+      for entry in lines
+        let parts = split(entry, ':')
+        if len(parts) >= 1 && filereadable(parts[0])
+          execute 'edit ' . fnameescape(parts[0])
+          if len(parts) >= 3 && str2nr(parts[1]) > 0 && str2nr(parts[2]) > 0
+            call cursor(str2nr(parts[1]), str2nr(parts[2]))
+          elseif len(parts) >= 2 && str2nr(parts[1]) > 0
+            call cursor(str2nr(parts[1]), 1)
+          endif
         endif
       endfor
     endif

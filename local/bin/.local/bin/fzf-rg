@@ -23,6 +23,6 @@ rg \
       --header="$(tput setaf 1)ENTER$(tput sgr0) to open, $(tput setaf 1)CTRL-Y$(tput sgr0) to copy, $(tput setaf 1)CTRL-/$(tput sgr0) to toggle preview" \
       --preview="preview {}" \
       --preview-window=right,60%,border-sharp \
-      --bind="enter:execute/echo $PWD/{} | devicon remove | cut -d: -f1 | xargs | tee ${FZF_SELECTED_FILES}/+abort" \
-      --bind="tab:execute/echo $PWD/{} | devicon remove | cut -d: -f1 | xargs | tee ${FZF_SELECTED_FILES}/+abort" \
-      --bind="ctrl-y:execute/echo {} | devicon remove | cut -d: -f1 | pbcopy/+abort"
+      --bind="enter:execute/echo $PWD/{} | devicon remove | cut -d: -f1-3 | xargs | tee ${FZF_SELECTED_FILES}/+abort" \
+      --bind="tab:execute/echo $PWD/{} | devicon remove | cut -d: -f1-3 | xargs | tee ${FZF_SELECTED_FILES}/+abort" \
+      --bind="ctrl-y:execute/echo {} | devicon remove | cut -d: -f1-3 | pbcopy/+abort"
