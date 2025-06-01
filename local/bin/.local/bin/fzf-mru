@@ -9,9 +9,11 @@ tac ${FZF_MRU_FILES} | awk '!seen[$0]++' | tac | sponge ${FZF_MRU_FILES}
 # Get recent files from the current directory
 tac ${FZF_MRU_FILES} | grep "^${PWD}/" | sed "s|^${PWD}/||" | head -5 > ${FZF_MRU_FILES}.tmp
 
+# TODO: remove deleted files from the MRU list
+
 cat ${FZF_MRU_FILES}.tmp <(eval "$FZF_DEFAULT_COMMAND" | grep -Fvxf ${FZF_MRU_FILES}.tmp) \
-  | dimdirname \
   | devicon add \
+  | dimdirname \
   | fzf --ansi \
       --height=100% \
       --scheme=path \
