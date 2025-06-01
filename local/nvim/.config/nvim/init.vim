@@ -568,7 +568,7 @@ function TermOpen(cmd, ...)
   startinsert
 endfun
 
-noremap <Leader>l :call TermOpen('lf --selection-path /tmp/lf_selected_files', '/tmp/lf_selected_files')<CR>
+noremap <Leader>l :call TermOpen('echo "" > /tmp/lf_selected_files && lf --selection-path /tmp/lf_selected_files ' . expand('%:p'), '/tmp/lf_selected_files')<CR>
 
 noremap <Leader>f :GstatusClose<CR>:call TermOpen('fzf-mru', '/tmp/fzf_selected_files')<CR>
 
