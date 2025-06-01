@@ -517,17 +517,26 @@ function TermOpen(cmd, ...)
   enew
   call termopen("printf '\e[5 q' && " . a:cmd, callback)
   startinsert
-endfun
+endfunction
 
-function! FZFRgIfInput()
+function! FZF()
+  call TermOpen('f', '/tmp/fzf_selected_files')
+endfunction
+
+function! FZFRg()
   let l:query = input('FZFRg> ')
   if !empty(l:query)
     call TermOpen('f ' . l:query, '/tmp/fzf_selected_files')
   endif
 endfunction
-noremap <Leader>g :call FZFRgIfInput()<CR>
-noremap <Leader>l :call TermOpen('echo "" > /tmp/lf_selected_files && lf --selection-path /tmp/lf_selected_files ' . expand('%:p'), '/tmp/lf_selected_files')<CR>
-noremap <Leader>f :call TermOpen('f', '/tmp/fzf_selected_files')<CR>
+
+function! Lf()
+  call TermOpen('echo "" > /tmp/lf_selected_files && lf --selection-path /tmp/lf_selected_files ' . expand('%:p'), '/tmp/lf_selected_files')
+endfunction
+
+noremap <Leader>g :call FZFRg()<CR>
+noremap <Leader>l :call Lf()<CR>
+noremap <Leader>f :call FZF()<CR>
 
 noremap gb :call TermOpen('gb')<CR>
 noremap gl :call TermOpen('gl')<CR>
