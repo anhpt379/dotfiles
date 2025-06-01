@@ -273,7 +273,7 @@ set smartcase
 
 " Clear search highlighting by pressing Enter/Esc
 nnoremap <CR>  :nohlsearch<CR>
-nnoremap <Esc> :nohlsearch<CR>
+nnoremap <Esc> :nohlsearch<CR><Esc>
 
 " Live substitution
 set inccommand=split
