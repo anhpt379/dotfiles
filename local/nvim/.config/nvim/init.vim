@@ -68,10 +68,6 @@ call plug#begin()
   Plug 'tyru/open-browser.vim'
   Plug 'svban/YankAssassin.vim'
 
-  " Improve performance
-  Plug 'antoinemadec/FixCursorHold.nvim'
-  Plug 'lewis6991/impatient.nvim'
-
   " Git
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-rhubarb'
@@ -161,7 +157,9 @@ call plug#begin()
 call plug#end()
 
 if g:hostname =~# 'fedora'
-  lua require('impatient')
+  " Enables the experimental Lua module loader to speed up startup time
+  " (by about 20%)
+  lua vim.loader.enable()
 endif
 
 " Use filetype.lua instead of filetype.vim
@@ -469,9 +467,6 @@ imap <silent> <PageUp> <Esc><PageUp>
 " No transparent auto-completion popup
 set pumblend=0
 set winblend=0
-
-" FixCursorHold.nvim
-let g:cursorhold_updatetime = 100
 
 " Bclose
 let g:bclose_no_plugin_maps = v:true
