@@ -196,6 +196,9 @@ set smoothscroll
 set pumblend=20
 set cursorline
 
+" Change vim command line cursor shape to vertical bar
+set guicursor=i-c-ci-v:ver25
+
 let g:is_posix = 1
 
 set noswapfile
