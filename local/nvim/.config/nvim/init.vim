@@ -480,9 +480,6 @@ function! s:close_gstatus()
     endif
   endfor
 endfunction
-command! GstatusClose call s:close_gstatus()
-
-noremap <Leader>g :GstatusClose<CR>:call TermOpen('f ' . input("FZFRg: "), '/tmp/fzf_selected_files')<CR>
 
 "##### Terminal apps #####
 autocmd TermOpen  * if g:hostname =~# 'fedora' | set showtabline=0 | endif | set nonumber | set signcolumn=no  | set laststatus=0 | :DisableWhitespace
@@ -499,6 +496,7 @@ function TermOpen(cmd, ...)
 
   function! callback.on_exit(job_id, code, event)
     silent! Bclose!
+    call s:close_gstatus()
 
     if has_key(self, 'filepath') && filereadable(self.filepath)
       let lines = readfile(self.filepath)
@@ -521,9 +519,15 @@ function TermOpen(cmd, ...)
   startinsert
 endfun
 
+function! FZFRgIfInput()
+  let l:query = input('FZFRg> ')
+  if !empty(l:query)
+    call TermOpen('f ' . l:query, '/tmp/fzf_selected_files')
+  endif
+endfunction
+noremap <Leader>g :call FZFRgIfInput()<CR>
 noremap <Leader>l :call TermOpen('echo "" > /tmp/lf_selected_files && lf --selection-path /tmp/lf_selected_files ' . expand('%:p'), '/tmp/lf_selected_files')<CR>
-
-noremap <Leader>f :GstatusClose<CR>:call TermOpen('f', '/tmp/fzf_selected_files')<CR>
+noremap <Leader>f :call TermOpen('f', '/tmp/fzf_selected_files')<CR>
 
 noremap gb :call TermOpen('gb')<CR>
 noremap gl :call TermOpen('gl')<CR>

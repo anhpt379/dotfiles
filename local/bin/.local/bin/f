@@ -51,4 +51,5 @@ eval "${command}" | fzf --ansi \
     --preview-window=right,60%,border-sharp \
     --bind="enter:execute/${select_file}/+abort" \
     --bind="tab:execute/${select_file}/+abort" \
-    --bind="ctrl-y:execute/${copy_file}/+abort"
+    --bind="ctrl-y:execute/${copy_file}/+abort" \
+    || true  # FZF will exit with code 130 on `+abort`, so let's exit with code 0 instead.
