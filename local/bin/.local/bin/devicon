@@ -2,10 +2,14 @@
 #! coding: utf-8
 # vim:sw=4:
 
-import os
+import re
 import sys
 from pathlib import Path
 from signal import signal, SIGPIPE, SIG_DFL
+
+def strip_ansi_codes(text):
+    ansi_escape = re.compile(r'\x1B[@-_][0-?]*[ -/]*[@-~]')
+    return ansi_escape.sub('', text)
 
 # http://newbebweb.blogspot.com/2012/02/python-head-ioerror-errno-32-broken.html
 signal(SIGPIPE, SIG_DFL)
@@ -18,7 +22,7 @@ for line in open(icons_file):
         continue
     else:
         extension, icon = line.strip().split()
-        icons[extension.lstrip("*")] = icon
+        icons[extension.lstrip("*").lower()] = icon
 
 should_add_devicon = True
 for line in sys.stdin:
@@ -39,15 +43,19 @@ for line in sys.stdin:
             else:
                 print(line)
     else:
-        if line[-1] == "/":
-            icon = icons.get(line) or icons.get("/")
-        elif "/" in line:
-            icon = icons.get(line.rsplit("/")[-1])
+        path = line.split(":", 1)[0]    # Ignore text after `:` (line/column in ripgrep output)
+        path = strip_ansi_codes(path)
+        file = path.rsplit("/", 1)[-1]
+        if path.endswith("/"):
+            icon = icons.get(path) or icons.get("/")
         else:
-            icon = icons.get(line)
-        if icon is None and "." in line:
-            extension = "." + line.rsplit(".", 1)[1]
+            icon = icons.get(file)
+
+        if not icon and "." in file:
+            extension = Path(file).suffix.lower()
             icon = icons.get(extension)
-        if icon is None:
+
+        if not icon:
             icon = icons.get("fi")
+
         print(f"{icon} {line}")
