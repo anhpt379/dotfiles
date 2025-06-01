@@ -482,7 +482,7 @@ function! s:close_gstatus()
 endfunction
 command! GstatusClose call s:close_gstatus()
 
-noremap <Leader>g :GstatusClose<CR>:call TermOpen('fzf-rg ' . input("FZFRg: "), '/tmp/fzf_selected_files')<CR>
+noremap <Leader>g :GstatusClose<CR>:call TermOpen('f ' . input("FZFRg: "), '/tmp/fzf_selected_files')<CR>
 
 "##### Terminal apps #####
 autocmd TermOpen  * if g:hostname =~# 'fedora' | set showtabline=0 | endif | set nonumber | set signcolumn=no  | set laststatus=0 | :DisableWhitespace
@@ -523,7 +523,7 @@ endfun
 
 noremap <Leader>l :call TermOpen('echo "" > /tmp/lf_selected_files && lf --selection-path /tmp/lf_selected_files ' . expand('%:p'), '/tmp/lf_selected_files')<CR>
 
-noremap <Leader>f :GstatusClose<CR>:call TermOpen('fzf-mru', '/tmp/fzf_selected_files')<CR>
+noremap <Leader>f :GstatusClose<CR>:call TermOpen('f', '/tmp/fzf_selected_files')<CR>
 
 noremap gb :call TermOpen('gb')<CR>
 noremap gl :call TermOpen('gl')<CR>
