@@ -33,8 +33,6 @@ call plug#begin()
   Plug 'rhysd/vim-syntax-codeowners'
 
   " Fancy UI stuff
-  Plug 'junegunn/fzf'
-  Plug 'junegunn/fzf.vim'
   Plug 'chrisbra/Colorizer'
   Plug 'ryanoasis/vim-devicons'
   Plug 'breuckelen/vim-resize'
@@ -479,43 +477,6 @@ let g:cursorhold_updatetime = 100
 " Bclose
 let g:bclose_no_plugin_maps = v:true
 
-" Fzf {{{
-let g:fzf_command_prefix = 'Fzf'
-let g:fzf_buffers_jump = 1
-let g:fzf_layout = {'window': 'enew'}
-let g:fzf_preview_window = ['right:60%', 'ctrl-/']
-let g:fzf_commits_log_options = '
-  \ -5000 --color=always --no-merges
-  \ --format="%C(green)%h %C(reset)%s %C(#555555)%b(%aN - %cr)"
-  \ '
-
-function! s:open_rg_match(line)
-  let parts = split(a:line, ':')
-  execute 'silent edit +' . parts[1] . ' ' . parts[0]
-  " TODO: jump to column (parts[3])?
-endfunction
-
-command! -complete=dir -bang -nargs=* FzfRg
-  \ call fzf#run({
-  \   'source': 'rg
-  \       --colors "match:none"
-  \       --colors "path:fg:blue"
-  \       --colors "line:fg:magenta"
-  \       --column --line-number --no-heading --color=always
-  \       --smart-case --fixed-strings --hidden --glob "!.git" -- "'.escape(<q-args>, '$"').'" || true',
-  \   'sink': function('s:open_rg_match'),
-  \   'options': [
-  \       '--ansi',
-  \       '--prompt', 'Rg> ',
-  \       '--no-multi',
-  \       '--scheme=path',
-  \       '--layout=reverse',
-  \       '--preview', 'preview {}',
-  \       '--preview-window=right,60%,~2,+2/2,border-sharp'
-  \   ]
-  \ },
-  \ )
-
 function! s:close_gstatus()
   for l:winnr in range(1, winnr('$'))
     if !empty(getwinvar(l:winnr, 'fugitive_status'))
@@ -525,8 +486,7 @@ function! s:close_gstatus()
 endfunction
 command! GstatusClose call s:close_gstatus()
 
-noremap <Leader>g :GstatusClose<CR>:FzfRg<Space>
-noremap <Leader>b :FzfBLines<CR>
+noremap <Leader>g :GstatusClose<CR>:call TermOpen('fzf-rg ' . input("FZFRg: "), '/tmp/fzf_selected_files')<CR>
 
 " Workaround for <C-/> to toggle fzf preview doesn't work since v0.7.2
 " https://github.com/neovim/neovim/issues/18735
