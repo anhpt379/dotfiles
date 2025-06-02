@@ -544,7 +544,7 @@ function! FZFRg(is_visual) abort
   endif
 
   if !empty(l:query)
-    call TermOpen('f ' . l:query, '/tmp/fzf_selected_files')
+    call TermOpen('f "' . l:query . '"', '/tmp/fzf_selected_files')
   endif
 endfunction
 
