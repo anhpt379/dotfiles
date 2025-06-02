@@ -8,6 +8,7 @@ copy_file="echo {} | devicon remove | cut -d: -f1-3 | pbcopy"
 
 # FZF Ripgrep
 if test -n "${QUERY}"; then
+  echo '' > ${FZF_SELECTED_FILES}
   command="rg \
     --colors=match:none \
     --colors=path:fg:138,138,138 \
@@ -30,6 +31,8 @@ else
   FZF_MRU_FILES=/tmp/fzf_mru_files
 
   cat ${FZF_SELECTED_FILES} >> ${FZF_MRU_FILES}
+  echo '' > ${FZF_SELECTED_FILES}
+
   tac ${FZF_MRU_FILES} | cut -d: -f1 | awk '!seen[$0]++' | tac | sponge ${FZF_MRU_FILES}
 
   # Get recent files from the current directory
