@@ -13,6 +13,19 @@ require("flash").setup({
     forward = true,
     wrap = false,
     multi_window = false
+  },
+  modes = {
+    char = {
+      highlight = { backdrop = true },
+      config = function(opts)
+        opts.autohide = vim.fn.mode(true):find("no")
+        -- Show jump labels not in operator-pending mode
+        opts.jump_labels = not vim.fn.mode(true):find("o")
+          and vim.v.count == 0
+          and vim.fn.reg_executing() == ""
+          and vim.fn.reg_recording() == ""
+      end,
+    }
   }
 })
 
