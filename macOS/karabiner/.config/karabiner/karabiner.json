@@ -9,22 +9,12 @@
                 },
                 "rules": [
                     {
-                        "description": "Escape: Start mission control by pressing ESCAPE alone",
-                        "manipulators": [
-                            {
-                                "from": { "key_code": "escape" },
-                                "to": [{ "key_code": "mission_control" }],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Escape: Switch windows of the same app with CMD+ESCAPE",
+                        "description": "TAB: Switch windows of the same app with OPTION+TAB",
                         "manipulators": [
                             {
                                 "from": {
-                                    "key_code": "escape",
-                                    "modifiers": { "mandatory": ["command"] }
+                                    "key_code": "tab",
+                                    "modifiers": { "mandatory": ["option"] }
                                 },
                                 "to": [
                                     {
@@ -32,6 +22,16 @@
                                         "modifiers": ["command"]
                                     }
                                 ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Escape: Start mission control by pressing ESCAPE alone",
+                        "manipulators": [
+                            {
+                                "from": { "key_code": "escape" },
+                                "to": [{ "key_code": "mission_control" }],
                                 "type": "basic"
                             }
                         ]
