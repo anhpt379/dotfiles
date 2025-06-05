@@ -10,5 +10,10 @@ cp ~/.config/karabiner/karabiner.json ~/dotfiles/macOS/karabiner/.config/karabin
 
 ## Move cursor to center of active window when opening an app with Karabiner
 
-This is useful when using multiple monitors. We need to install this app to
-~/Applications: <https://github.com/eucrasia/MoveCursorToCenterOfActiveWindow>
+This is useful when using multiple monitors. We need to copy [this
+app](https://github.com/eucrasia/MoveCursorToCenterOfActiveWindow) to
+~/Applications, and run this command:
+
+```bash
+xattr -d com.apple.quarantine ~/Applications/MoveCursorToCenterOfActiveWindow.app
+```
