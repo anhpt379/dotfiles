@@ -567,6 +567,34 @@
                         ]
                     },
                     {
+                        "description": "Chromium: Toggle vertical tabs expanded with COMMAND+/",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.microsoft\\.edgemac$",
+                                            "^com\\.google\\.Chrome$",
+                                            "^com\\.brave\\.Browser$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "slash",
+                                    "modifiers": { "mandatory": ["command"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "slash",
+                                        "modifiers": ["command", "shift"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "Chromium: Focus on the address bar with COMMAND+O",
                         "manipulators": [
                             {

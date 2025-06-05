@@ -298,6 +298,36 @@
       ]
     },
     {
+      "description": "Chromium: Toggle vertical tabs expanded with COMMAND+/",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "slash",
+            "modifiers": {
+              "mandatory": ["command"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "slash",
+              "modifiers": ["command", "shift"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.edgemac$",
+                "^com\\.google\\.Chrome$",
+                "^com\\.brave\\.Browser$"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "description": "Chromium: Disable COMMAND+ENTER (I press them accidentally sometimes)",
       "manipulators": [
         {
