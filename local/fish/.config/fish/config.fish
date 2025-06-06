@@ -185,4 +185,5 @@ end
 
 if type -q zoxide
     zoxide init --cmd=j --hook=pwd fish | source
+    zoxide init --cmd=cd --hook=pwd fish | source
 end
