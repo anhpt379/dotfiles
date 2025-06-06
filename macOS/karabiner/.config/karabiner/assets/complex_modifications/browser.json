@@ -153,12 +153,12 @@
       ]
     },
     {
-      "description": "Browser: Search tabs with CONTROL+SPACE",
+      "description": "Browser: Search tabs with CONTROL+/",
       "manipulators": [
         {
           "type": "basic",
           "from": {
-            "key_code": "spacebar",
+            "key_code": "slash",
             "modifiers": {
               "mandatory": ["control"]
             }
@@ -282,36 +282,6 @@
             {
               "key_code": "w",
               "modifiers": ["option"]
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "^com\\.microsoft\\.edgemac$",
-                "^com\\.google\\.Chrome$",
-                "^com\\.brave\\.Browser$"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "Browser: Toggle vertical tabs expanded with COMMAND+/",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "slash",
-            "modifiers": {
-              "mandatory": ["command"]
-            }
-          },
-          "to": [
-            {
-              "key_code": "slash",
-              "modifiers": ["command", "shift"]
             }
           ],
           "conditions": [
