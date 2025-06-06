@@ -1,8 +1,8 @@
 {
-  "title": "Zoom - Mute & unmute using the Dictation key (F5)",
+  "title": "Zoom app",
   "rules": [
     {
-      "description": "Zoom: Mute & unmute using the Dictation key (F5) (remember to enable global shortcut for `Mute/Unmute My Audio` in Zoom's Settings)",
+      "description": "Zoom: Mute & unmute using the Dictation key (F5)\n(remember to enable global shortcut for `Mute/Unmute My Audio` in Zoom's Settings)",
       "manipulators": [
         {
           "type": "basic",

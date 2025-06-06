@@ -1,8 +1,8 @@
 {
-  "title": "Cursor movements with HJKL",
+  "title": "HJKL keys",
   "rules": [
     {
-      "description": "Map COMMAND+H/J/K/L to arrow LEFT/DOWN/UP/RIGHT",
+      "description": "HJKL: Map COMMAND+H/J/K/L to LEFT/DOWN/UP/RIGHT",
       "manipulators": [
         {
           "type": "basic",
@@ -83,7 +83,7 @@
       ]
     },
     {
-      "description": "Map OPTION+H/J/K/L to OPTION+LEFT/DOWN/UP/RIGHT",
+      "description": "HJKL: Map OPTION+H/J/K/L to OPTION+LEFT/DOWN/UP/RIGHT",
       "manipulators": [
         {
           "type": "basic",
@@ -176,7 +176,7 @@
       ]
     },
     {
-      "description": "Map CONTROL+H/J/K/L to HOME/PAGE_DOWN/PAGE_UP/END",
+      "description": "HJKL: Map CONTROL+H/J/K/L to HOME/PAGE_DOWN/PAGE_UP/END",
       "manipulators": [
         {
           "type": "basic",

@@ -1,8 +1,8 @@
 {
-  "title": "Open macOS apps with COMMAND+1/2/3/4/5",
+  "title": "macOS apps",
   "rules": [
     {
-      "description": "Open Brave with COMMAND+1",
+      "description": "macOS: Open Brave with COMMAND+1",
       "manipulators": [
         {
           "type": "basic",
@@ -21,7 +21,7 @@
       ]
     },
     {
-      "description": "Open Kitty with COMMAND+2",
+      "description": "macOS: Open Kitty with COMMAND+2",
       "manipulators": [
         {
           "type": "basic",
@@ -40,7 +40,7 @@
       ]
     },
     {
-      "description": "Open Notes with COMMAND+3",
+      "description": "macOS: Open Notes with COMMAND+3",
       "manipulators": [
         {
           "type": "basic",
@@ -59,7 +59,7 @@
       ]
     },
     {
-      "description": "Open Zoom with COMMAND+4",
+      "description": "macOS: Open Zoom with COMMAND+4",
       "manipulators": [
         {
           "type": "basic",
@@ -78,7 +78,7 @@
       ]
     },
     {
-      "description": "Open Finder with COMMAND+5",
+      "description": "macOS: Open Finder with COMMAND+5",
       "manipulators": [
         {
           "type": "basic",

@@ -1,8 +1,8 @@
 {
-  "title": "COMMAND+(SHIFT)+V to work consistently everywhere",
+  "title": "Paste",
   "rules": [
     {
-      "description": "COMMAND+V to paste **without** formatting",
+      "description": "Paste: COMMAND+V to paste **without** formatting",
       "manipulators": [
         {
           "type": "basic",
@@ -33,7 +33,7 @@
       ]
     },
     {
-      "description": "COMMAND+SHIFT+V to paste **with** formatting",
+      "description": "Paste: COMMAND+SHIFT+V to paste **with** formatting",
       "manipulators": [
         {
           "type": "basic",

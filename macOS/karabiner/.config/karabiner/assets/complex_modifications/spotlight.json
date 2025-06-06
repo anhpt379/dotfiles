@@ -25,6 +25,8 @@
                 "^com\\.apple\\.Terminal$",
                 "^com\\.github\\.wez\\.wezterm$",
 
+                "^com\\.apple\\.Notes$",
+
                 "^com\\.microsoft\\.edgemac$",
                 "^com\\.google\\.Chrome$",
                 "^com\\.brave\\.Browser$"
@@ -52,6 +54,8 @@
                 "^net\\.kovidgoyal\\.kitty$",
                 "^com\\.apple\\.Terminal$",
                 "^com\\.github\\.wez\\.wezterm$",
+
+                "^com\\.apple\\.Notes$",
 
                 "^com\\.microsoft\\.edgemac$",
                 "^com\\.google\\.Chrome$",

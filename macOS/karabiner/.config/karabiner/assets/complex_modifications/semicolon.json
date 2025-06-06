@@ -1,8 +1,8 @@
 {
-  "title": "Swap ; and :",
+  "title": "Semicolon key",
   "rules": [
     {
-      "description": "Swap ; and :",
+      "description": "Semicolon: Swap ; and :",
       "manipulators": [
         {
           "type": "basic",

@@ -1,8 +1,8 @@
 {
-  "title": "RETURN to act as both RETURN & CONTROL",
+  "title": "RETURN key",
   "rules": [
     {
-      "description": "Map RETURN to CONTROL on hold",
+      "description": "Return: Map RETURN to CONTROL on hold",
       "manipulators": [
         {
           "type": "basic",

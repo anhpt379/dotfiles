@@ -1,5 +1,5 @@
 {
-  "title": "Terminal key mappings",
+  "title": "Terminal apps",
   "rules": [
     {
       "description": "Terminal: Map OPTION+DELETE to OPTION+D (ALT+D)",

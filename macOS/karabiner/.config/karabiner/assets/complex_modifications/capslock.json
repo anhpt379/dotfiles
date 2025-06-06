@@ -1,8 +1,8 @@
 {
-  "title": "CAPSLOCK to act as both CONTROL & ESCAPE",
+  "title": "CAPSLOCK key",
   "rules": [
     {
-      "description": "Map CAPSLOCK to CONTROL on hold, and to ESCAPE on tap",
+      "description": "CapsLock: Map CAPSLOCK to CONTROL on hold, and to ESCAPE on tap",
       "manipulators": [
         {
           "type": "basic",

@@ -1,8 +1,8 @@
 {
-  "title": "Chromium-based browsers key bindings",
+  "title": "Browser apps",
   "rules": [
     {
-      "description": "Chromium: Focus on the address bar with COMMAND+O",
+      "description": "Browser: Focus on the address bar with COMMAND+O",
       "manipulators": [
         {
           "type": "basic",
@@ -32,7 +32,7 @@
       ]
     },
     {
-      "description": "Chromium: Copy URL in the address bar with COMMAND+Y",
+      "description": "Browser: Copy URL in the address bar with COMMAND+Y",
       "manipulators": [
         {
           "type": "basic",
@@ -69,7 +69,7 @@
       ]
     },
     {
-      "description": "Chromium: Accept suggestion & go with CONTROL+F",
+      "description": "Browser: Accept suggestion & go with CONTROL+F",
       "manipulators": [
         {
           "type": "basic",
@@ -98,7 +98,7 @@
       ]
     },
     {
-      "description": "Chromium: Move tab left/right (or up/down) with COMMAND+[/]",
+      "description": "Browser: Move tab left/right (or up/down) with COMMAND+[/]",
       "manipulators": [
         {
           "type": "basic",
@@ -153,7 +153,7 @@
       ]
     },
     {
-      "description": "Chromium: Search tabs with CONTROL+SPACE",
+      "description": "Browser: Search tabs with CONTROL+SPACE",
       "manipulators": [
         {
           "type": "basic",
@@ -183,7 +183,7 @@
       ]
     },
     {
-      "description": "Chromium: Undo close tab with COMMAND+U",
+      "description": "Browser: Undo close tab with COMMAND+U",
       "manipulators": [
         {
           "type": "basic",
@@ -213,7 +213,7 @@
       ]
     },
     {
-      "description": "Chromium: Switch tabs with COMMAND+N/P",
+      "description": "Browser: Switch tabs with COMMAND+N/P",
       "manipulators": [
         {
           "type": "basic",
@@ -268,7 +268,7 @@
       ]
     },
     {
-      "description": "Chromium: Switch to last used tab with COMMAND+` (requires CLUT extension)",
+      "description": "Browser: Switch to last used tab with COMMAND+` (requires CLUT extension)",
       "manipulators": [
         {
           "type": "basic",
@@ -298,7 +298,7 @@
       ]
     },
     {
-      "description": "Chromium: Toggle vertical tabs expanded with COMMAND+/",
+      "description": "Browser: Toggle vertical tabs expanded with COMMAND+/",
       "manipulators": [
         {
           "type": "basic",
@@ -328,7 +328,7 @@
       ]
     },
     {
-      "description": "Chromium: Disable COMMAND+ENTER (I press them accidentally sometimes)",
+      "description": "Browser: Disable COMMAND+ENTER (I press them accidentally sometimes)",
       "manipulators": [
         {
           "type": "basic",
