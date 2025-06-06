@@ -9,17 +9,13 @@
           "from": {
             "key_code": "delete_forward",
             "modifiers": {
-              "mandatory": [
-                "left_option"
-              ]
+              "mandatory": ["left_option"]
             }
           },
           "to": [
             {
               "key_code": "d",
-              "modifiers": [
-                "left_option"
-              ]
+              "modifiers": ["left_option"]
             }
           ],
           "conditions": [
@@ -125,9 +121,7 @@
           "from": {
             "key_code": "grave_accent_and_tilde",
             "modifiers": {
-              "mandatory": [
-                "command"
-              ]
+              "mandatory": ["command"]
             }
           },
           "to": [
@@ -151,4 +145,3 @@
     }
   ]
 }
-
