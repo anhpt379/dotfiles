@@ -11,8 +11,8 @@ tap 'theseal/blank-screensaver'
 cask_args appdir: "~/Applications", require_sha: true, no_quarantine: true
 
 # Apps
+cask 'alt-tab'
 cask 'brave-browser'
-cask 'dockdoor'
 cask 'flux'
 cask 'jordanbaird-ice'
 cask 'karabiner-elements'

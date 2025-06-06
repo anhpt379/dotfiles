@@ -9,6 +9,42 @@
                 },
                 "rules": [
                     {
+                        "description": "AltTab: COMMAND+CONTROL+N to switch to next window same app",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "n",
+                                    "modifiers": { "mandatory": ["command", "control"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "tab",
+                                        "modifiers": ["option"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "AltTab: COMMAND+CONTROL+P to switch to previous window same app",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "p",
+                                    "modifiers": { "mandatory": ["command", "control"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "p",
+                                        "modifiers": ["option"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "Browser: Search tabs with CONTROL+/",
                         "manipulators": [
                             {
