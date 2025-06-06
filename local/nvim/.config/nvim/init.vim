@@ -589,6 +589,7 @@ nmap M  :Start! git checkout $(git default-branch) && git pull --rebase origin $
 nmap gB :G blame<CR>
 
 augroup fugitive-personal-key-mappings
+  autocmd FileType fugitive nmap <buffer> r :<C-u>tab Git rebase -i <C-R>=expand('<cword>')<CR><CR>
   autocmd FileType fugitive nmap <buffer> p :bd!<CR>
         \ :Start git push origin HEAD --force-with-lease<CR>
         \ :silent exec '!git rev-parse HEAD \| tr -d "\n" \| pbcopy'<CR>
