@@ -95,6 +95,46 @@
           ]
         }
       ]
+    },
+    {
+      "description": "macOS: Switch to next window with COMMAND+CONTROL+N",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "n",
+            "modifiers": {
+              "mandatory": ["command", "control"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "grave_accent_and_tilde",
+              "modifiers": ["command"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "macOS: Switch to previous window with COMMAND+CONTROL+P",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "p",
+            "modifiers": {
+              "mandatory": ["command", "control"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "grave_accent_and_tilde",
+              "modifiers": ["command", "shift"]
+            }
+          ]
+        }
+      ]
     }
   ]
 }
