@@ -1,0 +1,25 @@
+{
+  "title": "Raycast app",
+  "rules": [
+    {
+      "description": "Raycast: Open the search box with COMMAND+SPACE",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "spacebar",
+            "modifiers": {
+              "mandatory": ["command"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "spacebar",
+              "modifiers": ["option"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

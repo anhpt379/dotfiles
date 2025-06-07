@@ -36,8 +36,6 @@ stow ssh
 stow youtube-dl
 
 cp -r karabiner/.config/karabiner ~/.config/
-cp -r alt-tab/Library/Preferences/* ~/Library/Preferences/
-cp -r maccy/Library/* ~/Library/
 cp -r rectangle/Library/* ~/Library/
 
 # fisher
