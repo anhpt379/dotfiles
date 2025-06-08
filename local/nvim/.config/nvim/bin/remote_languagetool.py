@@ -26,7 +26,7 @@ disabled_rules = [
 ]
 
 r = requests.post(
-    "https://languagetool.org/api/v2/check",
+    "https://api.languagetoolplus.com/v2/check",
     data={
         "text": text,
         "language": language,
