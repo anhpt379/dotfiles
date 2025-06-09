@@ -2,7 +2,7 @@
   "title": "ESCAPE key",
   "rules": [
     {
-      "description": "Escape: Start mission control by pressing ESCAPE alone",
+      "description": "Escape: Show desktop when pressing the ESCAPE key",
       "manipulators": [
         {
           "type": "basic",
@@ -11,7 +11,8 @@
           },
           "to": [
             {
-              "key_code": "mission_control"
+              "key_code": "f11",
+              "modifiers": ["fn"]
             }
           ]
         }

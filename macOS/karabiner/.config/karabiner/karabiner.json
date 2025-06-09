@@ -9,6 +9,21 @@
                 },
                 "rules": [
                     {
+                        "description": "Escape: Show desktop when pressing the ESCAPE key",
+                        "manipulators": [
+                            {
+                                "from": { "key_code": "escape" },
+                                "to": [
+                                    {
+                                        "key_code": "f11",
+                                        "modifiers": ["fn"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "Raycast: Open the search box with COMMAND+SPACE",
                         "manipulators": [
                             {
