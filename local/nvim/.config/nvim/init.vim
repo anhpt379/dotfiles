@@ -50,7 +50,7 @@ call plug#begin()
   Plug 'farmergreg/vim-lastplace'
   Plug 'paretje/suda.vim'
   Plug 'tpope/vim-eunuch'
-  Plug 'anhpt379/vim-unimpaired'
+  Plug 'tpope/vim-unimpaired'
   Plug 'folke/flash.nvim', {'tag': 'stable'}
   Plug 'junegunn/vim-easy-align'
   Plug 'cohama/lexima.vim'
@@ -722,6 +722,12 @@ vnoremap - za
 setglobal commentstring=#\ %s
 nmap <Leader>c gcc
 vmap <Leader>c gc
+
+" Vim-unimpaired custom mappings
+nnoremap ]<Space> a <Esc>
+nnoremap [<Space> i <Esc>
+nnoremap ]<CR> o<Esc>
+nnoremap [<CR> O<Esc>
 
 " Join lines and restore cursor location (J)
 nnoremap J mjJ`j
