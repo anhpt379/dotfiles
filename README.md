@@ -83,21 +83,33 @@ http://www.keyboard-layout-editor.com/##@_backcolor=%23dbdbdb&name=Apple%20Wirel
 
 ## Key mappings
 
-### Chromium-based browsers
+### macOS
+
+- `<Command>-<Space>` Open Raycast (Karabiner)
+- `<Control>-<Space>` Clipboard History (Raycast)
+- `<Command>-<CapsLock>-n` Next Window (Karabiner)
+- `<Command>-<CapsLock>-p` Previous Window (Karabiner)
+- `<Command>-<CapsLock>-<Up>` Maximize (Rectangle)
+- `<Command>-<CapsLock>-<Down>` Almost Maximize (Rectangle)
+- `<Command>-<CapsLock>-<Left>` First Three Fourths (Rectangle)
+- `<Command>-<CapsLock>-<Right>` Last Fourth (Rectangle)
+
+### Browser
 
 - `<Command>-t` new tab
 - `<Command>-w` close tab
 - `<Command>-n` next tab
 - `<Command>-p` previous tab
-- `<Command>-]` move current tab to the right
-- `<Command>-[` move current tab to the left
+- `<Command>-]` move current tab down
+- `<Command>-[` move current tab up
 - `<Command>-o` focus on the address bar
 - `<Command>-u` undo close tab
 - `<Command>-y` copy url
 - `<Command>-f` accept suggestion & go
-- `<Control>-<Space>` search tabs
+- ``<Command>-` `` switch to previous tab
+- `<Shift>-<Space>` search tabs
 
-### Terminal
+### Tmux (local)
 
 - `<Command>-t` new tab
 - `<Command>-w` close tab
@@ -107,8 +119,12 @@ http://www.keyboard-layout-editor.com/##@_backcolor=%23dbdbdb&name=Apple%20Wirel
 - `<Command>-[` move current tab to the left
 - `<Command>-r` reload config
 - `<Command>-s` open a split
+- `<Command>-)` next split
+- `<Command>-(` previous split
+- `<Command>-'` resize split
+- `<Command>-<Shift>-t` new window
 
-### Tmux
+### Tmux (remote)
 
 - `<Option>-t` new tab
 - `<Option>-w` close tab
@@ -118,6 +134,9 @@ http://www.keyboard-layout-editor.com/##@_backcolor=%23dbdbdb&name=Apple%20Wirel
 - `<Option>-[` move current tab to the left
 - `<Option>-r` reload config
 - `<Option>-s` open a split
+- `<Option>-)` next split
+- `<Option>-)` previous split
+- `<Option>-'` resize split
 
 ### Fish
 
@@ -133,7 +152,7 @@ http://www.keyboard-layout-editor.com/##@_backcolor=%23dbdbdb&name=Apple%20Wirel
 - `<Space>-s` startify
 - `<Space>-f` fzf files (MRU)
 - `<Space>-l` lf
-  - `<Space>` select
+  - `<Tab>` select
   - `x` cut
   - `y` copy
   - `d` delete
@@ -142,18 +161,17 @@ http://www.keyboard-layout-editor.com/##@_backcolor=%23dbdbdb&name=Apple%20Wirel
 - `<Space>-g` ripgrep all files
 - `<C-n>` next buffer
 - `<C-p>` previous buffer
-- `<Space>-<1-9>` jump to buffer #number
 - `gs` git status
   - `a/Va` stage/unstage
   - `x/Vx` discard changes
   - `d` show diff
+  - `r` rebase
   - `p` git push --force-with-lease
   - `P` git push --force
   - `C` commit
   - `ca` commit amend edit
   - `ce` commit amend no edit
   - `ga` git absorb
-  - `gr` rebase
   - `rr` rebase continue
   - `ra` rebase abort
 - `gb` git branches
@@ -184,7 +202,3 @@ become arrow keys (`Left`/`Down`/`Up`/`Right`):
   - Hold down an additional `Shift` key to select text.
 
 - `CapsLock` + `N/P` to go down and up.
-
-- `Command` + `<Up>`/`<Down>` to maximize/almost-maximize a window.
-
-- `Command` + `<Left>`/`<Right>` to resize & tile window to the left/right.

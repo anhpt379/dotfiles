@@ -153,36 +153,6 @@
       ]
     },
     {
-      "description": "Browser: Search tabs with CONTROL+/",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "slash",
-            "modifiers": {
-              "mandatory": ["control"]
-            }
-          },
-          "to": [
-            {
-              "key_code": "a",
-              "modifiers": ["command", "shift"]
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "^com\\.microsoft\\.edgemac$",
-                "^com\\.google\\.Chrome$",
-                "^com\\.brave\\.Browser$"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
       "description": "Browser: Undo close tab with COMMAND+U",
       "manipulators": [
         {
