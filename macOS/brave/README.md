@@ -4,6 +4,6 @@
 
 Settings -> System -> Shortcuts -> Name Window... -> Add -> `CMD+E`
 
-## Search tabs with `SHIFT+SPACE`
+## Search tabs with `CMD+/`
 
-Settings -> System -> Shortcuts -> Tab search -> Add -> `SHIFT+SPACE`
+Settings -> System -> Shortcuts -> Tab search -> Add -> `CMD+/`
