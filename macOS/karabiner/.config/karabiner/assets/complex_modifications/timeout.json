@@ -1,0 +1,42 @@
+{
+  "title": "TimeOut app",
+  "rules": [
+    {
+      "description": "TimeOut: Start next break by pressing the COMMAND+ESCAPE",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "escape",
+            "modifiers": {
+              "mandatory": ["command"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f8",
+              "modifiers": ["fn"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "TimeOut: Postpone next break by pressing ESCAPE",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "escape"
+          },
+          "to": [
+            {
+              "key_code": "f9",
+              "modifiers": ["fn"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

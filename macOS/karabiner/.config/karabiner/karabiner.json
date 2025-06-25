@@ -9,13 +9,31 @@
                 },
                 "rules": [
                     {
-                        "description": "Escape: Show desktop when pressing the ESCAPE key",
+                        "description": "TimeOut: Start next break by pressing the COMMAND+ESCAPE",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "escape",
+                                    "modifiers": { "mandatory": ["command"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "f8",
+                                        "modifiers": ["fn"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "TimeOut: Postpone next break by pressing ESCAPE",
                         "manipulators": [
                             {
                                 "from": { "key_code": "escape" },
                                 "to": [
                                     {
-                                        "key_code": "f11",
+                                        "key_code": "f9",
                                         "modifiers": ["fn"]
                                     }
                                 ],
