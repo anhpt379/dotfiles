@@ -9,7 +9,22 @@
                 },
                 "rules": [
                     {
-                        "description": "TimeOut: Start next break by pressing the COMMAND+ESCAPE",
+                        "description": "Escape: Show application windows when pressing the ESCAPE key",
+                        "manipulators": [
+                            {
+                                "from": { "key_code": "escape" },
+                                "to": [
+                                    {
+                                        "key_code": "down_arrow",
+                                        "modifiers": ["control"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "TimeOut: Postpone next break by pressing COMMAND+ESCAPE",
                         "manipulators": [
                             {
                                 "from": {
@@ -18,7 +33,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "f8",
+                                        "key_code": "f9",
                                         "modifiers": ["fn"]
                                     }
                                 ],
@@ -27,13 +42,16 @@
                         ]
                     },
                     {
-                        "description": "TimeOut: Postpone next break by pressing ESCAPE",
+                        "description": "TimeOut: Start next break by pressing the OPTION+ESCAPE",
                         "manipulators": [
                             {
-                                "from": { "key_code": "escape" },
+                                "from": {
+                                    "key_code": "escape",
+                                    "modifiers": { "mandatory": ["option"] }
+                                },
                                 "to": [
                                     {
-                                        "key_code": "f9",
+                                        "key_code": "f8",
                                         "modifiers": ["fn"]
                                     }
                                 ],
