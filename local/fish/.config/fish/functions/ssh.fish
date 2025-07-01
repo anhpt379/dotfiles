@@ -78,6 +78,7 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
             string match -q -- "git*" $argv
             or string match -q -- "*ssh.$COMPANY_DOMAIN" $argv
             or string match -q -- "*hsm*" $argv
+            or string match -q -- "*@*" $argv
         end
         command ssh $argv
     else
