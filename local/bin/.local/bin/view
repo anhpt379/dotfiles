@@ -4,7 +4,7 @@ nvim='
   exec nvim \
     -u NONE \
     -c "set runtimepath+=~/.config/nvim shell=bash termguicolors scrollback=100000 laststatus=0 clipboard+=unnamedplus nowrap incsearch ignorecase smartcase mousescroll=ver:1,hor:0" \
-    -c "colorscheme aodark | highlight TextYankPost ctermfg=0 ctermbg=11 guifg=#161616 guibg=#ffcc66 | highlight Visual cterm=NONE ctermfg=0 ctermbg=15 gui=NONE guifg=#161616 guibg=#eeeeee | highlight NonText ctermfg=59 gui=NONE guifg=#555555 | highlight Search cterm=NONE ctermfg=0 ctermbg=214 gui=NONE guifg=#161616 guibg=#eeeeee | highlight IncSearch cterm=NONE ctermfg=0 ctermbg=214 gui=NONE guifg=#161616 guibg=#28c9ff | autocmd TextYankPost * silent! lua vim.highlight.on_yank {higroup=TextYankPost, timeout=700}" \
+    -c "colorscheme aodark | highlight TextYankPost ctermfg=0 ctermbg=11 guifg=#161616 guibg=#ffcc66 | highlight Visual cterm=NONE ctermfg=0 ctermbg=15 gui=NONE guifg=#161616 guibg=#eeeeee | highlight NonText ctermfg=59 gui=NONE guifg=#555555 | highlight Search cterm=NONE ctermfg=0 ctermbg=214 gui=NONE guifg=#161616 guibg=cyan | highlight IncSearch cterm=NONE ctermfg=0 ctermbg=214 gui=NONE guifg=white guibg=#ffcc66 | autocmd TextYankPost * silent! lua vim.highlight.on_yank {higroup=TextYankPost, timeout=700}" \
     -c "autocmd TermEnter * stopinsert" \
     -c "nmap C /^commit\\\|^added:\\\|^deleted:\\\|^modified:<CR>" \
     -c "nmap A ?Applied catalog in .* seconds<CR>" \
