@@ -1,12 +1,5 @@
 function fish_prompt
     set -l last_command_status $status
-    set -l duration_seconds $(math round $CMD_DURATION / 1000)
-    if test $duration_seconds -ge 2
-        set_color yellow
-        echo "Executed in $(humantime $CMD_DURATION)"
-        set -g CMD_DURATION 0
-        set_color white
-    end
 
     set -l cwd (prompt_pwd)
     set -l kernel (uname -s)

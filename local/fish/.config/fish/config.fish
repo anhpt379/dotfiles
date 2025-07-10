@@ -187,8 +187,16 @@ function preexec_scroll_up --on-event fish_preexec
     scroll_up
 end
 
-function postexec_bell --on-event fish_postexec
+function postexec_bell_duration --on-event fish_postexec
     tput bel
+
+    set -l duration_seconds $(math round $CMD_DURATION / 1000)
+    if test $duration_seconds -ge 2
+        set_color yellow
+        echo "Executed in $(humantime $CMD_DURATION)"
+        set -g CMD_DURATION 0
+        set_color white
+    end
 end
 
 if type -q zoxide
