@@ -58,7 +58,7 @@ function fish_prompt
         if test $kernel = Darwin
             set -f prompt ""
         else
-            set -f prompt ">"
+            set -f prompt "➤"
         end
 
         # The character below I use it as a marker, when combining with tmux
