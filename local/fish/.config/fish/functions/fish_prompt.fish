@@ -54,21 +54,23 @@ function fish_prompt
         end
 
     else
+        echo -n -s $prompt_background_color
         if test $kernel = Darwin
-            echo -n -s " "
+            set -f prompt ""
+        else
+            set -f prompt ">"
         end
 
         # The character below I use it as a marker, when combining with tmux
         # `search-backward` we can jump to the previous/next prompt in the scrollback
         # (by searching for the character).
         if test $last_command_status -eq 0
-            echo -n -s (set_color cyan) "█"
+            echo -n -s (set_color cyan) $prompt
         else
-            echo -n -s (set_color red) "█"
+            echo -n -s (set_color red) $prompt
         end
 
         set_color white
-        echo -n -s $prompt_background_color
 
         if test $kernel = Linux; and git_is_repo
             echo -n -s " " $cwd " "
@@ -77,16 +79,18 @@ function fish_prompt
             set -l git_ahead_status (git_ahead $ahead $behind $diverged $none)
 
             if git_is_touched
-                echo -n -s $dirty " "
+                echo -n -s $dirty
             else if test "$git_ahead_status" != ""
-                echo -n -s $git_ahead_status " "
+                echo -n -s $git_ahead_status
             end
         else
-            echo -n -s " " $cwd " "
+            echo -n -s " " $cwd
         end
+
+        echo -n -s " " # This is a thin-space character to mark end of the prompt
     end
 
-    echo -n -s $normal_color " "
+    echo -n -s $normal_color " " # This is a regular whitespace character
 
     # Reset cursor shape to blinking bar
     printf '\e[5 q'
