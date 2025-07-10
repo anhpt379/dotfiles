@@ -94,4 +94,7 @@ function fish_prompt
 
     # Reset cursor shape to blinking bar
     printf '\e[5 q'
+
+    # Clear any stale lines below the cursor
+    printf '\e[J'
 end
