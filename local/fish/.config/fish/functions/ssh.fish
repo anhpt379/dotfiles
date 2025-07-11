@@ -90,7 +90,7 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
         set end $(date +%s)
         set duration $(expr $end - $start)
         if test $duration -gt 10
-            clear
+            scroll_up
         end
         echo "SSH: Connection to $argv[1] has been closed with code $code."
     end
