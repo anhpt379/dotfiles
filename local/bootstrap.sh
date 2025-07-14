@@ -53,6 +53,7 @@ stow vivid
 stow wakatime
 
 ln -s /usr/bin/fish ~/.local/bin/fish
+ln -s "/Users/$USER/Downloads" ~/Downloads
 
 # neovim
 sudo dnf install -y ninja-build libtool autoconf automake cmake gcc gcc-c++ make pkgconfig unzip patch gettext curl
