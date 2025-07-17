@@ -1,0 +1,11 @@
+hotKeys:
+  q:
+    shortCut: q
+    description: Quit
+    command: quit
+    override: true
+  c:
+    shortCut: c
+    description: View context
+    command: context
+    override: true
