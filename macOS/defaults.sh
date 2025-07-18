@@ -48,5 +48,5 @@ defaults write com.apple.dock show-recents -bool false
 killall Dock
 
 # Rectangle
-defaults write com.knollsoft.Rectangle almostMaximizeHeight -float 0.8
-defaults write com.knollsoft.Rectangle almostMaximizeWidth  -float 0.7
+defaults write com.knollsoft.Rectangle almostMaximizeHeight -float 1
+defaults write com.knollsoft.Rectangle almostMaximizeWidth  -float 0.66
