@@ -15,6 +15,7 @@ let colors_name='aodark'
 " let s:white       = { 'gui': '#eeeeee', 'cterm': '15' }
 let s:black       = { 'gui': '#161616', 'cterm': '0'  }
 let s:red         = { 'gui': '#bbbbbb', 'cterm': '9'  }
+let s:orange      = { 'gui': '#e07653', 'cterm': '9'  }
 let s:green       = { 'gui': '#dddddd', 'cterm': '10' }
 let s:yellow      = { 'gui': '#bbbbbb', 'cterm': '11' }
 let s:blue        = { 'gui': '#dddddd', 'cterm': '12' }
@@ -130,7 +131,7 @@ call s:h('Boolean', s:green, '', '')
 call s:h('Float', s:green, '', '')
 
 call s:h('Identifier', s:blue, '', '')
-call s:h('Function', s:red, '', '')
+call s:h('Function', s:orange, '', '')
 call s:h('Statement', s:cyan, '', '')
 
 call s:h('Conditional', s:cyan, '', '')
