@@ -97,3 +97,9 @@ abbr -a whatprovides 'repoquery -q --installed --whatprovides'
 abbr -a whatrequires 'repoquery -q --installed --whatrequires'
 
 abbr -a r. 'rm -rf .files && GIT_SSH_COMMAND="ssh -i /usr/local/etc/gitlab_ssh_key_dotfiles/id_rsa" git clone --depth=1 git@$GITLAB_DOMAIN:panh/dotfiles.git .files && rsync -av .files/HOME/ ~/'
+
+# !! to show last command similar to bash
+function last_history_item
+    echo $history[1]
+end
+abbr -a !! --position anywhere --function last_history_item
