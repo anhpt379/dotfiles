@@ -166,6 +166,16 @@
             {
               "key_code": "page_down"
             }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.apple\\.Terminal$",
+                "^com\\.github\\.wez\\.wezterm$"
+              ]
+            }
           ]
         },
         {
@@ -180,6 +190,16 @@
           "to": [
             {
               "key_code": "page_up"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.apple\\.Terminal$",
+                "^com\\.github\\.wez\\.wezterm$"
+              ]
             }
           ]
         },
