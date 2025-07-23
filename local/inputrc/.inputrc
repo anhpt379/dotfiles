@@ -10,12 +10,15 @@
 "\e[3;3~": kill-word
 
 # Control+backspace/delete
-"\C-h": unix-word-rubout
+"\C-w": unix-word-rubout
 "\e[3;5~": kill-word
 
 # Fix not working home/end keys in CentOS 7.9
 "\e[1~": beginning-of-line
 "\e[4~": end-of-line
+
+"\C-h": beginning-of-line
+"\C-l": end-of-line
 
 # Press ESC twice to delete the current line
 "\e\e": kill-whole-line

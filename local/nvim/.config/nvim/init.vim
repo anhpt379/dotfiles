@@ -980,8 +980,11 @@ augroup end
 cnoremap <M-b> <S-Left>
 cnoremap <M-f> <S-Right>
 
+" Command-line mode: Ctrl-H → Home, Ctrl-L → End
+cmap <C-h> <Home>
+cmap <C-l> <End>
+
 " Fix Control/Option+Backspace/Delete didn't work in vim command line
-cnoremap <expr> <C-h>  &cedit. '<Left>dvB' .'<C-c><Space><BS>'
 cnoremap        <M-BS> <C-w>
 cnoremap <expr> <C-Del> &cedit. 'dW' .'<C-c><Space><BS>'
 cnoremap <expr> <M-Del> &cedit. 'dw' .'<C-c><Space><BS>'

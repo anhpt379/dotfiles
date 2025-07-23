@@ -102,7 +102,6 @@ set -gx FZF_DEFAULT_OPTS \
             --bind=tab:accept,ctrl-j:ignore,ctrl-k:ignore
             --bind=change:first
             --bind=ctrl-f:preview-page-down,ctrl-b:preview-page-up
-            --bind=ctrl-h:backward-kill-word
             ' | tr -d '\n')
 set -gx FZF_PREVIEW_COMMAND 'preview {}'
 
@@ -135,6 +134,10 @@ set -g fish_key_bindings fish_default_key_bindings
 # Scroll screen up to put the prompt at middle of the screen on the second ENTER
 bind \n magic_enter
 bind \r magic_enter
+
+# CTRL-H/L to act as HOME/END key, similar to non-terminal apps
+bind ctrl-h beginning-of-line
+bind ctrl-l end-of-line
 
 source ~/.config/fish/abbr.fish
 source ~/.config/fish/themes/aodark.fish
