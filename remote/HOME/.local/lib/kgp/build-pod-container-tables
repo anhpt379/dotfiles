@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """Formats pod and container data into readable tables"""
 import json
+import re
 import os
 import sys
 import argparse
 from datetime import datetime, timezone
-from tabulate import tabulate
 
 # ANSI color codes
 COLORS = {
@@ -79,6 +79,7 @@ def get_pod_status(pod):
     # Check regular containers
     container_statuses = status.get("containerStatuses", [])
     ready_count = sum(1 for c in container_statuses if c.get("ready", False))
+
     for container in container_statuses:
         state = container.get("state", {})
         if "waiting" in state:
@@ -97,6 +98,7 @@ def get_pod_status(pod):
         return "Completed"
     elif phase == "Failed":
         return "Error"
+
     return phase
 
 
@@ -116,6 +118,7 @@ def get_status_color(status):
     """Determine color based on status"""
     error_statuses = ["Error", "Failed", "CrashLoopBackOff", "OOMKilled"]
     completed_statuses = ["Completed", "Terminated", "Succeeded"]
+
     if any(s in status for s in error_statuses):
         return "RED"
     elif any(s in status for s in completed_statuses):
@@ -168,6 +171,7 @@ def build_pods_table(data):
         # Count containers and ready containers
         total_count = len(pod.get("spec", {}).get("containers", []))
         ready_count = 0
+
         phase = status_info.get("phase", "Unknown")
         if phase == "Running":
             ready_count = sum(
@@ -227,7 +231,6 @@ def build_containers_table(data):
                     == "Completed"
                 ):
                     is_ready = True
-
                 row = [pod_name, name, str(is_ready).lower(), state_desc, image]
                 colored_row = colorize_container_row(row, state_desc, is_ready)
                 table_data.append(colored_row)
@@ -244,7 +247,6 @@ def build_containers_table(data):
                 _, state_desc = get_container_state(
                     container_statuses[name].get("state", {})
                 )
-
                 row = [pod_name, name, str(is_ready).lower(), state_desc, image]
                 colored_row = colorize_container_row(row, state_desc, is_ready)
                 table_data.append(colored_row)
@@ -265,15 +267,52 @@ def load_data(input_file):
         sys.exit(1)
 
 
+def format_table(data, headers):
+    """Format data as a plain text table without using tabulate"""
+    if not data:
+        return "\n".join([" ".join(headers)])
+
+    # Calculate column widths
+    col_widths = []
+    for i in range(len(headers)):
+        # Get max width for each column (including headers)
+        max_width = len(headers[i])
+        for row in data:
+            # Strip ANSI color codes for width calculation
+            cell_text = str(row[i])
+
+            # Remove ANSI escape sequences
+            clean_text = re.sub(r"\033\[[0-9;]*m", "", cell_text)
+
+            max_width = max(max_width, len(clean_text))
+        col_widths.append(max_width)
+
+    # Format header
+    formatted_lines = []
+    header_parts = []
+    for i, header in enumerate(headers):
+        header_parts.append(header.ljust(col_widths[i]))
+    formatted_lines.append("  ".join(header_parts))
+
+    # Format data rows
+    for row in data:
+        row_parts = []
+        for i, cell in enumerate(row):
+            # For cells with ANSI codes, we need to pad based on visible length
+            cell_str = str(cell)
+            clean_text = re.sub(r"\033\[[0-9;]*m", "", cell_str)
+            padding = col_widths[i] - len(clean_text)
+
+            padded_cell = cell_str + " " * padding
+            row_parts.append(padded_cell)
+        formatted_lines.append("  ".join(row_parts))
+
+    return "\n".join(formatted_lines)
+
+
 def write_table(data, headers, output_path):
     """Write formatted table to file"""
-    table_output = tabulate(
-        data,
-        headers=headers,
-        tablefmt="plain",
-        stralign="left",
-        numalign="left",
-    )
+    table_output = format_table(data, headers)
     with open(output_path, "w") as f:
         f.write(table_output + "\n")
 
