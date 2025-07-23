@@ -2,10 +2,11 @@
 
 ```fish
 # fish
-# https://github.com/fish-shell/fish-shell/issues/6475#issuecomment-1498722501
-wget 'https://github.com/mliszcz/fish-shell/releases/download/fish-3.7.1-x86_64/fish-3.7.1-x86_64.AppImage'
-mv fish-*.AppImage HOME/.local/bin/fish.appimage
-chmod +x HOME/.local/bin/fish.appimage
+set fish_version 4.0.2  # We can't use the uppercase FISH_VERSION because it's a built-in variable from fish shell.
+wget https://github.com/fish-shell/fish-shell/releases/download/$fish_version/fish-static-amd64-$fish_version.tar.xz
+tar xf fish-static-amd64-$fish_version.tar.xz
+rm -f fish-static-amd64-$fish_version.tar.xz
+mv fish* HOME/.local/bin/
 
 # tmux
 wget 'https://github.com/andryandrew/tmux-appimage/releases/download/next-3.5/tmux.appimage'

@@ -50,18 +50,6 @@ if ! test -f ~/.local/bin/tmux-appimage/squashfs-root/usr/bin/tmux || test ~/.lo
   fi
 fi
 
-# Extract fish appimage
-if ! test -f ~/.local/bin/fish-appimage/squashfs-root/usr/bin/fish || test ~/.local/bin/fish.appimage -nt ~/.local/bin/fish-appimage/squashfs-root/usr/bin/fish || ! test -e ~/.local/bin/fish; then
-  if test -f ~/.local/bin/fish.appimage; then
-    rm -rf ~/.local/bin/fish-appimage/
-    mkdir -p ~/.local/bin/fish-appimage/
-    cd ~/.local/bin/fish-appimage/ || exit 1
-    ../fish.appimage --appimage-extract >/dev/null
-
-    ln -sf ~/.local/bin/fish-appimage/squashfs-root/usr/bin/fish ~/.local/bin/fish
-  fi
-fi
-
 # Extract nvim appimage
 if ! test -f ~/.local/bin/nvim-appimage/squashfs-root/usr/bin/nvim || test ~/.local/bin/nvim.appimage -nt ~/.local/bin/nvim-appimage/squashfs-root/usr/bin/nvim || ! test -e ~/.local/bin/nvim; then
   if test -f ~/.local/bin/nvim.appimage; then
