@@ -6,7 +6,7 @@ function fish_user_key_bindings --description "User key bindings for fish"
     # Make Control+W (or Option+Delete) in fish works similar to vim. By default,
     # fish binds it to `backward-kill-path-component`, which doesn't respect the
     # `-` character in the middle of a word.
-    bind \cw backward-kill-word
+    bind \cw backward-kill-bigword
 
     # Make reverse word delete work (using ctrl/option+delete)
     bind \e\[3\;5~ kill-bigword
