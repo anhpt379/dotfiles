@@ -134,6 +134,11 @@ pip3 install neovim
 sudo gem install --bindir ~/.local/bin/ neovim
 sudo npm install -g neovim
 
+# terraform
+sudo dnf install -y dnf-plugins-core
+sudo dnf config-manager addrepo --from-repofile=https://rpm.releases.hashicorp.com/fedora/hashicorp.repo
+sudo dnf -y install terraform
+
 # tree-sitter
 sudo dnf install -y gcc-c++ libstdc++-static
 
