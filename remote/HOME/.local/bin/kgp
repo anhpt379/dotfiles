@@ -267,22 +267,23 @@ show_container_header() {
 
 show_context_header() {
     echo "⎈ $(colorize YELLOW "$CONTEXT")"
-    echo "$(colorize MAGENTA "ENTER") select  $(colorize MAGENTA "ESC") back  $(colorize MAGENTA "CTRL-Q") quit  $(colorize MAGENTA "?") help"
+    echo "$(colorize MAGENTA "ENTER") select  $(colorize MAGENTA "ESC") back  $(colorize MAGENTA "CTRL-C") quit  $(colorize MAGENTA "?") help"
 }
 
 show_resources_header() {
     echo "⎈ $(colorize YELLOW "$CONTEXT") > $(colorize YELLOW "$NAMESPACE")"
-    echo "$(colorize MAGENTA "ENTER") view  $(colorize MAGENTA "ESC") back  $(colorize MAGENTA "CTRL-Q") quit  $(colorize MAGENTA "?") help"
+    echo "$(colorize MAGENTA "ENTER") view  $(colorize MAGENTA "ESC") back  $(colorize MAGENTA "CTRL-C") quit  $(colorize MAGENTA "?") help"
 }
 
 show_objects_header() {
     echo "⎈ $(colorize YELLOW "$CONTEXT") > $(colorize YELLOW "$NAMESPACE")"
-    local actions="$(colorize MAGENTA "ENTER")/$(colorize MAGENTA "CTRL-D") describe  $(colorize MAGENTA "ESC") back  $(colorize MAGENTA "?") help"
+    local actions="$(colorize MAGENTA "ENTER")/$(colorize MAGENTA "CTRL-D") describe  $(colorize MAGENTA "ESC") back"
 
     case "$RESOURCE" in
     Deployments | StatefulSets | DaemonSets) actions+="  $(colorize MAGENTA "CTRL-S") scale" ;;
     esac
 
+    actions+="  $(colorize MAGENTA "?") help"
     echo "$actions"
 }
 
@@ -294,20 +295,26 @@ $(colorize CYAN "Context:")
 $(colorize CYAN "Namespace:")
   $(colorize YELLOW "$NAMESPACE")
 
-$(colorize CYAN "Navigation / Views:")
+$(colorize CYAN "Navigation:")
   $(colorize YELLOW "ENTER")         Open (containers, describe, select)
-  $(colorize YELLOW "ESC") / $(colorize YELLOW "CTRL-Q")  Back / Quit
-  $(colorize YELLOW "CTRL-C")        Switch context
-  $(colorize YELLOW "CTRL-R")        Browse resource types
+  $(colorize YELLOW "ESC")           Back
+  $(colorize YELLOW "CTRL-C")        Quit
+  $(colorize YELLOW "CTRL-P")        Up
+  $(colorize YELLOW "CTRL-N")        Down
+
+$(colorize CYAN "Views:")
+  $(colorize YELLOW "CTRL-S")        Switch context
+  $(colorize YELLOW "CTRL-A")        Browse all resources
   $(colorize YELLOW "CTRL-H") / $(colorize YELLOW "?")    Toggle this help
 
 $(colorize CYAN "Actions:")
+  $(colorize YELLOW "CTRL-R")        Refresh cache
   $(colorize YELLOW "CTRL-L")        View logs
   $(colorize YELLOW "CTRL-E")        Exec into pod/container
   $(colorize YELLOW "CTRL-D")        Describe resource
   $(colorize YELLOW "CTRL-Y")        Edit YAML
   $(colorize YELLOW "CTRL-K")        Delete resource
-  $(colorize YELLOW "CTRL-S")        Scale (only Deployments, StatefulSets, etc.)
+  $(colorize YELLOW "CTRL-S")        Scale (Deployments, StatefulSets, etc.)
 
 EOF
 }
@@ -418,13 +425,27 @@ delete_object() {
 
     echo "====================================================================="
     echo "You are about to delete $resource: $object"
-    read -p "Are you sure? [y/N] " confirm
-    if [[ ! "$confirm" =~ ^[Yy]$ ]]; then
+    read -p "Confirm delete? (yes(y)/no(n)/force(f)) [no]: " confirm
+
+    # Normalize input to lowercase
+    confirm="${confirm,,}"
+
+    case "$confirm" in
+    y | yes)
+        kubectl delete "$resource" "$object"
+        ;;
+    f | force)
+        kubectl delete "$resource" "$object" --force --grace-period=0
+        ;;
+    n | no | "")
         echo "Aborted."
         return 1
-    fi
-
-    kubectl delete "$resource" "$object"
+        ;;
+    *)
+        echo "Invalid input. Aborted."
+        return 1
+        ;;
+    esac
 }
 
 describe_object() {
@@ -649,7 +670,7 @@ export LIB_PATH CACHE_BASE_DIR CACHE_DIR
 export STATE_FILE CONTEXT NAMESPACE MODE POD RESOURCE OBJECT
 
 # Setup
-check_dependencies "kubectl" "fzf" "awk" "curl"
+check_dependencies "kubectl" "fzf" "python3" "awk" "curl" "grep" "sed" "less" "mktemp" "sort"
 LIB_PATH=$(find_library)
 
 # Initialize environment
@@ -686,8 +707,12 @@ if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
         --preview="show_help" \
         --preview-window=right,40%,hidden \
         --bind="?:toggle-preview,ctrl-h:toggle-preview" \
+        --bind="change:first" \
         --bind='start:execute-silent:echo "FZF_PORT=$FZF_PORT" >> $STATE_FILE' \
-        --bind="ctrl-q:abort" \
+        --bind="ctrl-c:abort" \
+        --bind="ctrl-n:down" \
+        --bind="ctrl-p:up" \
+        --bind="ctrl-r:execute-silent(refresh_cache)+reload(display_data)" \
         --bind="enter:transform:
             if grep -q MODE=containers \$STATE_FILE; then
                 echo 'execute(dispatch logs {1})+reload(display_data)'
@@ -718,14 +743,13 @@ if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
                 echo 'execute:echo Delete not available in this view'
             fi" \
         --bind="ctrl-y:execute(dispatch yaml {1})+reload(display_data)" \
-        --bind="ctrl-c:change-prompt(Contexts> )+execute-silent(dispatch contexts)+reload(display_data)+clear-query" \
         --bind="ctrl-s:transform:
             if grep -q MODE=objects \$STATE_FILE && grep -q -E 'RESOURCE=(deployments|statefulsets|daemonsets|replicasets)' \$STATE_FILE; then
                 echo 'execute(dispatch scale {1})+reload(display_data)'
             else
-                echo 'execute:echo Scale not available for this resource type'
+                echo 'change-prompt(Contexts> )+execute-silent(dispatch contexts)+reload(display_data)+clear-query'
             fi" \
-        --bind="ctrl-r:change-prompt(Resources> )+execute-silent(dispatch resources)+reload(display_data)+clear-query" \
+        --bind="ctrl-a:change-prompt(Resources> )+execute-silent(dispatch resources)+reload(display_data)+clear-query" \
         --bind="ctrl-l:transform:
             if grep -q MODE=pods \$STATE_FILE; then
                 echo 'execute(dispatch logs {1})+reload(display_data)'
