@@ -31,6 +31,8 @@ abbr -a v   'nvim'
 abbr -a vim 'nvim'
 abbr -a nv  'nvim'
 
+abbr -a gpt 'gptree ./ && cat gptree_output.txt | pbcopy && rm -f gptree_output.txt .gptree_config'
+
 abbr -a cmd  'command'
 abbr -a r    'sudo -E -s fish'
 abbr -a root 'sudo -E -s fish'
