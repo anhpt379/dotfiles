@@ -450,9 +450,8 @@ inoremap <expr> <Tab> pumvisible() ? '<C-y> ' : '<C-g>u<Tab>'
 
 " Navigate diagnostics
 " <C-jk> to jump between diagnostics
-" Below we're using <PageUp/Down> <Home/End> due to the maps in Karabiner
-map <PageDown> :lua vim.diagnostic.goto_next()<CR>
-map <PageUp> :lua vim.diagnostic.goto_prev()<CR>
+map <C-j> :lua vim.diagnostic.goto_next()<CR>
+map <C-k> :lua vim.diagnostic.goto_prev()<CR>
 
 " Jump to top/bottom of the file with <Home>/<End>
 nmap <Home> gg
