@@ -63,6 +63,7 @@ brew 'trash'
 brew 'wget'
 brew 'xh'
 brew 'yt-dlp'
+brew 'zoxide'
 
 brew 'corkscrew'
 brew 'noti'
