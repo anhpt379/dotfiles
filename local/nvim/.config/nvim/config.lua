@@ -1,3 +1,5 @@
+require("large_file").setup()
+
 -- indentscope
 require('mini.indentscope').setup({
   draw = {

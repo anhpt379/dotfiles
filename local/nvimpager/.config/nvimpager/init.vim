@@ -1,6 +1,8 @@
 set runtimepath+=~/.config/nvim
 
 call plug#begin('~/.local/share/nvim/plugged')
+  Plug 'mireq/large_file'
+
   " Syntax highlighting
   Plug 'gisphm/vim-gitignore'
   Plug 'chr4/nginx.vim'
@@ -46,9 +48,9 @@ noremap k gk
 set scrolloff=5
 set sidescrolloff=7
 
-let g:loaded_matchparen = 1
-
 lua nvimpager.maps = false
+
+lua require("large_file").setup()
 
 nmap C /commit [a-z0-9]\{40}\\|added: .\+$\\|deleted: .\+$\\|modified: .\+$<CR>
 nmap A ?Applied catalog in .* seconds<CR>

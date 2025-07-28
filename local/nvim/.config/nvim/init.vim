@@ -67,6 +67,7 @@ call plug#begin()
   Plug 'anhpt379/vim-move'
   Plug 'tyru/open-browser.vim'
   Plug 'svban/YankAssassin.vim'
+  Plug 'mireq/large_file'
 
   " Git
   Plug 'tpope/vim-fugitive'
