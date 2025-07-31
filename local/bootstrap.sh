@@ -217,6 +217,15 @@ unzip vault_1.16.0_linux_arm64.zip
 mv vault ~/.local/bin/
 rm -f vault_1.16.0_linux_arm64.zip
 
+# okta-aws-cli
+mkdir /tmp/okta-aws-cli
+cd /tmp/okta-aws-cli
+wget https://github.com/okta/okta-aws-cli/releases/download/v2.5.0/okta-aws-cli_2.5.0_linux_arm64.tar.gz
+tar zxvf okta-aws-cli_*.tar.gz
+mv okta-aws-cli ~/.local/bin/
+rm -rf /tmp/okta-aws-cli/*
+cd -
+
 # wakapi
 sudo docker-compose -f ~/dotfiles/local/docker-compose.yml up -d
 
