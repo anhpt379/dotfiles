@@ -1,64 +1,78 @@
-from termios import error, tcgetattr, ECHO, ICANON, ISIG, ECHOCTL, ECHOKE
-from kittens.tui.loop import debug
 import re
-import subprocess
 import sys
+import subprocess
+from termios import tcgetattr, ECHO, ICANON, ISIG
 
 
 def main(args):
+    """
+    If run directly, reads the last line of stdin if stdin is not a TTY.
+    """
     if not sys.stdin.isatty():
-        data = sys.stdin.read().strip().split("\n")[-1]
-        return data
+        return sys.stdin.read().strip().split("\n")[-1]
     else:
         print("\a")
         print("Tried to read a tty")
 
 
 def handle_result(args, data, target_window_id, boss):
-    w = boss.window_id_map.get(target_window_id)
-    if w is not None:
-        fd = w.child.child_fd
-        try:
-            c_lflag = tcgetattr(fd)[3]
-        except error as err:
-            errmsg = "getecho() may not be called on this platform"
-            if err.args[0] == errno.EINVAL:
-                raise IOError(err.args[0], "%s: %s." % (err.args[1], errmsg))
-            raise
+    """
+    Detects password prompts based on terminal modes and prompt text,
+    then securely pastes the password obtained via subprocess.
 
-        def send_password():
-            password = subprocess.run(
-                args[1:], capture_output=True, text=True, check=True
-            ).stdout.strip()
-            w.paste_bytes(f"{password}\r")
+    Args:
+        args: List[str] - First arg is script name, args[1:] is the command to get password.
+        data: str - Output from the terminal.
+        target_window_id: str - ID of the window to interact with.
+        boss: Kitty "boss" object, provides access to window map.
+    """
+    window = boss.window_id_map.get(target_window_id)
+    if window is None:
+        return
 
-        def is_set(flag):
-            return bool(c_lflag & flag)
+    c_lflag = tcgetattr(window.child.child_fd)[3]
 
-        # print(f'c_lflag={c_lflag} icanon={c_lflag & ICANON} echo={c_lflag & ECHO} echoctl={c_lflag & ECHOCTL} echoke={c_lflag & ECHOKE} isig={c_lflag & ISIG} data={repr(data)}')
-        if is_set(ISIG) and is_set(ICANON) and not is_set(ECHO):
-            # ruby -rio/console -e 'STDIN.noecho { |io| puts io.gets.inspect }'
-            # sudo <cmd>
-            send_password()
-        elif (
-            not is_set(ISIG)
-            and not is_set(ICANON)
-            and not is_set(ECHO)
-            and (
-                re.match(r"^Password.*:", data)
-                or re.match(r".* passphrase.* for .*/id_ed25519.*", data)
-            )
-        ):
-            # ssh -t <host> <cmd> # same socket mode for kinit and cat :(
-            send_password()
+    def is_flag_set(flag):
+        return bool(c_lflag & flag)
+
+    def get_password_prompt_type(text):
+        if re.match(r"^Password.*:", text):
+            return "kitty"
+        elif re.match(r".* passphrase.* for .*/id_ed25519.*", text):
+            return "passphrase"
         else:
-            print("\a")
-            print("Ooops. Are you at a password prompt?")
+            return
+
+    def send_password(keychain_item_name="kitty"):
+        password = subprocess.run(
+            ["security", "find-generic-password", "-a", keychain_item_name, "-w"],
+            capture_output=True,
+            text=True,
+            check=True,
+        ).stdout.strip()
+        window.paste_bytes(f"{password}\r")
+
+    keychain_item_name = get_password_prompt_type(data)
+
+    # Detect classic sudo-style hidden prompt
+    if is_flag_set(ISIG) and is_flag_set(ICANON) and not is_flag_set(ECHO):
+        send_password("kitty")
+
+    # Detect raw terminal prompt with known patterns (e.g., ssh, gpg, kinit)
+    elif (
+        not is_flag_set(ISIG)
+        and not is_flag_set(ICANON)
+        and not is_flag_set(ECHO)
+        and keychain_item_name
+    ):
+        send_password(keychain_item_name)
+
+    else:
+        print("\a")
+        print("Ooops. Are you at a password prompt?")
 
 
 handle_result.type_of_input = "text"
 
 if __name__ == "__main__":
-    import sys
-
     main(sys.argv)
