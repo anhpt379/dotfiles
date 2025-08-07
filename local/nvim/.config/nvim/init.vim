@@ -303,7 +303,7 @@ set diffopt+=vertical
 set clipboard=unnamedplus
 
 " Disable auto wrap lines
-set formatoptions-=t
+set formatoptions-=tc
 
 " Lightline {{{
 let g:lightline = {
