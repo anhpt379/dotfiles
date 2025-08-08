@@ -79,6 +79,7 @@ else if command -v hping3 &>/dev/null
     abbr -a ping 'hping3'
 end
 
+abbr -a --position=anywhere A '| awk \'{ print $1 }\''
 abbr -a --position=anywhere C '| grcat conf.cat'
 abbr -a --position=anywhere J '| jq'
 abbr -a --position=anywhere G '| grep'
