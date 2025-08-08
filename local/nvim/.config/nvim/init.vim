@@ -557,11 +557,12 @@ vnoremap <silent> <leader>g :<C-u>call FZFRg(v:true)<CR>
 noremap <Leader>l :call Lf()<CR>
 noremap <Leader>f :call FZF()<CR>
 
-noremap gb :call TermOpen('gb')<CR>
-noremap gl :call TermOpen('gl')<CR>
-noremap gL :call TermOpen('gl ' . expand('%:p'))<CR>
+nnoremap gb :call TermOpen('gb')<CR>
+nnoremap gl :call TermOpen('gl')<CR>
+nnoremap gL :call TermOpen('gl ' . expand('%:p'))<CR>
 
-noremap m :call TermOpen('gl ' . expand('%:p') . ':' . line('.'))<CR>
+nnoremap m :call TermOpen('gl ' . expand('%:p') . ':' . line('.'))<CR>
+vnoremap gl :call TermOpen('gl ' . expand('%:p') . ':' . line('.'))<CR>
 
 "#########################
 
