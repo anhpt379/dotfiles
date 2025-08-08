@@ -560,8 +560,6 @@ noremap <Leader>f :call FZF()<CR>
 nnoremap gb :call TermOpen('gb')<CR>
 nnoremap gl :call TermOpen('gl')<CR>
 nnoremap gL :call TermOpen('gl ' . expand('%:p'))<CR>
-
-nnoremap m :call TermOpen('gl ' . expand('%:p') . ':' . line('.'))<CR>
 vnoremap gl :call TermOpen('gl ' . expand('%:p') . ':' . line('.'))<CR>
 
 "#########################
@@ -586,7 +584,7 @@ let g:dispatch_no_maps = 1
 
 nmap g[ :Start! git pull --rebase origin $(git default-branch)<CR>
 nmap g] :Start! git push --force-with-lease origin HEAD<CR>:silent exec '!git rev-parse HEAD \| tr -d "\n" \| pbcopy'<CR>
-nmap M  :Start! git checkout $(git default-branch) && git pull --rebase origin $(git default-branch)<CR>
+nmap m  :Start! git checkout $(git default-branch) && git pull --rebase origin $(git default-branch)<CR>
 nmap gB :G blame<CR>
 
 augroup fugitive-personal-key-mappings
