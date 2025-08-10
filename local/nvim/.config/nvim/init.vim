@@ -735,6 +735,9 @@ nnoremap J mjJ`j
 map <Leader>= <C-a>
 map <Leader>- <C-x>
 
+" Copy LLM context to clipboard
+nnoremap <C-y> :silent !gptree --no-config %:p:h && cat ~/.config/llm/base_prompt.md gptree_output.txt \| pbcopy && rm -f gptree_output.txt<CR>
+
 " Faster search & replace with <C-r>
 map <C-u> <Plug>(RepeatRedo)
 nnoremap <C-r> :%s/<C-r><C-w>//<Left>

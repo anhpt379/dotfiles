@@ -80,6 +80,13 @@ cmd copy_name %{{
   echo "Name copied: $name"
 }}
 
+cmd copy_context %{{
+  gptree --no-config ./
+  cat ~/.config/llm/base_prompt.md gptree_output.txt | pbcopy
+  rm -f gptree_output.txt
+  lf -remote "send quit"
+}}
+
 # NERDTree-like add file/dir
 cmd new %{{
   path=$1
@@ -156,6 +163,7 @@ map d       delete
 map x       cut
 map y       copy
 map Y       copy_path
+map <c-y>   copy_context
 map a       push :new<space>
 map n       push :new<space>
 map o       reveal
