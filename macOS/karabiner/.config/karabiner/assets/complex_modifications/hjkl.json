@@ -151,16 +151,6 @@
             {
               "key_code": "home"
             }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^net\\.kovidgoyal\\.kitty$",
-                "^com\\.apple\\.Terminal$",
-                "^com\\.github\\.wez\\.wezterm$"
-              ]
-            }
           ]
         },
         {
@@ -225,16 +215,6 @@
           "to": [
             {
               "key_code": "end"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^net\\.kovidgoyal\\.kitty$",
-                "^com\\.apple\\.Terminal$",
-                "^com\\.github\\.wez\\.wezterm$"
-              ]
             }
           ]
         }
