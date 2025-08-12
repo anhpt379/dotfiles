@@ -1196,6 +1196,7 @@ function! FormatCode()
 endfunction
 
 augroup format_code_on_save
+  autocmd BufWritePre *.tf,*.tfvars Neoformat
   autocmd BufWriteCmd *.pp call FormatCode()
   autocmd BufWriteCmd *.yaml,*.eyaml,*.yml call FormatCode()
 augroup end
