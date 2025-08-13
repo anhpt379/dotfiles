@@ -12,8 +12,10 @@ open_in_browser="${get_commit_hash} | \
 
 if [ "$(uname -s)" = 'Darwin' ]; then
   copy_commit_hash="${get_commit_hash} | xargs git rev-parse | tr -d '\n' | pbcopy"
+  copy_commit_message="${get_commit_hash} | xargs -I % git log -n 1 --format=%B $ | pbcopy"
 else
   copy_commit_hash="${get_commit_hash} | xargs git rev-parse | tr -d '\n' | nc 127.0.0.1 2224 --send-only"
+  copy_commit_message="${get_commit_hash} | xargs -I $ git log -n 1 --format=%B $ | nc 127.0.0.1 2224 --send-only"
 fi
 
 cmd_name=$(basename "$0")
@@ -67,9 +69,10 @@ eval "${git_cmd}" |
     --height=100% \
     --exact \
     --preview="${preview_commit}" \
-    --header="${red}CTRL-/${reset} to toggle preview, ${red}CTRL-S${reset} to toggle sort, ${red}CTRL-Y${reset} to yank commit hash, ${red}CTRL-R${reset} to rebase -i, ${red}CTRL-O${reset} to open commit in browser" \
+    --header="${red}CTRL-/${reset} to toggle preview, ${red}CTRL-S${reset} to toggle sort, ${red}CTRL-Y${reset} to yank commit hash, ${red}CTRL-M${reset} to yank commit message, ${red}CTRL-R${reset} to rebase -i, ${red}CTRL-O${reset} to open commit in browser" \
     --bind="enter:execute/${view_commit}/" \
     --bind="ctrl-y:execute-silent/${copy_commit_hash}/+abort" \
+    --bind="ctrl-m:execute/${copy_commit_message}/+abort" \
     --bind="ctrl-o:execute/${open_in_browser}/" \
     --bind="ctrl-alt-o:execute/${open_in_browser}/" \
     --bind="ctrl-r:execute/${rebase_commit}/+abort" \
