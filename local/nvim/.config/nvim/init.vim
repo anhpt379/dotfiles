@@ -472,9 +472,13 @@ set winblend=0
 let g:bclose_no_plugin_maps = v:true
 
 function! s:close_gstatus()
-  for l:winnr in range(1, winnr('$'))
-    if !empty(getwinvar(l:winnr, 'fugitive_status'))
-      execute l:winnr.'close'
+  " Get the total number of windows
+  let l:total = winnr('$')
+  " Loop backwards to avoid messing up winnr() ordering after closing
+  for l:winnr in range(l:total, 1, -1)
+    if l:total > 1 && !empty(getwinvar(l:winnr, 'fugitive_status'))
+      execute l:winnr . 'close'
+      let l:total -= 1
     endif
   endfor
 endfunction
