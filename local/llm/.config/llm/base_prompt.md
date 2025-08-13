@@ -21,14 +21,11 @@ unified diff like `diff -U0` would produce.
 Provide a full git commit message after each change in this format:
 
 ```
-scope: short summary
+Summary (72 chars or less)
 
-body   what and why vs. how
-
-# Try to answer the following questions:
-  * Why is this change necessary?
-  * How does it address the issue?
-  * What side effects does this change have?
+Describe why the change is being made.
+How does it address the issue?
+What effects does it have?
 ```
 
 
