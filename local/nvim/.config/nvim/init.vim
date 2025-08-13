@@ -587,6 +587,28 @@ nmap g] :Start! git push --force-with-lease origin HEAD<CR>:silent exec '!git re
 nmap m  :Start! git checkout $(git default-branch) && git pull --rebase origin $(git default-branch)<CR>
 nmap gB :G blame<CR>
 
+function! FugitiveRetryCommit()
+  let l:msgfile = '.git/COMMIT_EDITMSG'
+  if filereadable(l:msgfile)
+    " Get actual last commit message (no comments)
+    let l:last_msg = join(systemlist('git log -1 --pretty=%B'), "\n")
+    let l:last_msg = trim(l:last_msg)
+
+    " Get previous edit message without comment lines
+    let l:edit_msg = filter(readfile(l:msgfile), 'v:val !~ "^#"')
+    let l:edit_msg = trim(join(l:edit_msg, "\n"))
+
+    " Compare the actual messages
+    if l:edit_msg !=# l:last_msg
+      execute 'vertical Git commit --quiet --no-status --edit -F .git/COMMIT_EDITMSG'
+      return
+    endif
+  endif
+
+  " No failed commit detected → start fresh
+  execute 'vertical Git commit --quiet --no-status'
+endfunction
+
 augroup fugitive-personal-key-mappings
   autocmd FileType fugitive nmap <buffer> r :<C-u>tab Git rebase -i <C-R>=expand('<cword>')<CR><CR>
   autocmd FileType fugitive nmap <buffer> p :bd!<CR>
@@ -603,8 +625,8 @@ augroup fugitive-personal-key-mappings
         \ :silent exec '!git rev-parse HEAD \| tr -d "\n" \| pbcopy'<CR>
 
   " Verbose and quiet git commit by default
-  autocmd FileType fugitive nmap <buffer> C  :vertical Git commit --quiet --no-status<CR>
-  autocmd FileType fugitive nmap <buffer> cc :vertical Git commit --quiet --no-status<CR>
+  autocmd FileType fugitive nmap <buffer> C  :call FugitiveRetryCommit()<CR>
+  autocmd FileType fugitive nmap <buffer> cc :call FugitiveRetryCommit()<CR>
   autocmd FileType fugitive nmap <buffer> ca :vertical Git commit --quiet --no-status --amend<CR>
   autocmd FileType fugitive nmap <buffer> ce :Git commit --amend --quiet --no-status --no-edit<CR>
 
