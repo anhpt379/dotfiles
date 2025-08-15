@@ -142,11 +142,19 @@ bind ctrl-l end-of-line
 source ~/.config/fish/abbr.fish
 source ~/.config/fish/themes/aodark.fish
 
-if begin
-        not string match -q -- Darwin (uname)
-        and not string match -e -q -- fedora (hostname)
-    end
+if string match -q -- Darwin (uname)
+    set -g TERM xterm-256color
+else if string match -e -q -- fedora (hostname)
+    source ~/code/work/git-subrepo/.fish.rc
 
+    # Auto start tmux when ssh to the Lima VM
+    if test -z "$TMUX"
+        mkdir -p ~/.ssh
+        ln -sf "$SSH_TTY" ~/.ssh/ssh_tty
+
+        tmux -u attach || tmux -u new
+    end
+else
     # Update the default email for git
     if set -q WORK_EMAIL; and not grep -q $COMPANY_DOMAIN ~/.gitconfig
         git config --global user.email $WORK_EMAIL
@@ -166,16 +174,6 @@ if begin
 
     # Fix git-deploy umask complaining
     umask 0002
-else if string match -e -q -- fedora (hostname)
-    source ~/code/work/git-subrepo/.fish.rc
-
-    # Auto start tmux when ssh to the Lima VM
-    if test -z "$TMUX"
-        mkdir -p ~/.ssh
-        ln -sf "$SSH_TTY" ~/.ssh/ssh_tty
-
-        tmux -u attach || tmux -u new
-    end
 end
 
 function preexec_scroll_up --on-event fish_preexec
