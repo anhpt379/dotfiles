@@ -1,9 +1,8 @@
 #!/bin/bash
 
-# Script: bk-active-contexts.sh
 # Purpose: Check for active Kubernetes contexts for a given project across all
 # clusters
-# Usage: ./bk-active-contexts.sh <project-name>
+# Usage: kc <project-name>
 
 # Exit on any error
 set -e
