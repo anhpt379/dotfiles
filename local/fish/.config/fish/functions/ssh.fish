@@ -49,7 +49,6 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
     else
         set REMOTE_HOME_DIR /home/panh
     end
-    set GITLAB_DOMAIN $(echo $WORK_EMAIL | awk -F@ '{ print "gitlab."$2 }')
 
     set REMOTE_COMMAND "
         if test -n "$REMOTE_HOME_DIR"; then
@@ -58,17 +57,17 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
         fi
 
         if ! test -d .files; then
-            if test -f /usr/local/etc/gitlab_ssh_key_dotfiles/id_rsa; then
-                GIT_SSH_COMMAND='ssh -i /usr/local/etc/gitlab_ssh_key_dotfiles/id_rsa' \
-                    git clone --depth=1 git@$GITLAB_DOMAIN:panh/dotfiles.git .files
-                rsync -av .files/HOME/ ~/
-            fi
+            git clone --depth=1 https://github.com/anhpt379/.files.git
+        else
+            echo "Pulling dotfiles updates..."
+            git -C .files pull --depth=1 origin master
         fi
+
+        rsync -av .files/HOME/ ~/
 
         export LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
         export TERM=xterm-kitty
         export WORK_EMAIL=$WORK_EMAIL
-        export GITLAB_DOMAIN=$GITLAB_DOMAIN
 
         source ~/.bash_profile
     "
