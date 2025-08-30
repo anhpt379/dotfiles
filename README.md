@@ -104,10 +104,11 @@ http://www.keyboard-layout-editor.com/##@_backcolor=%23dbdbdb&name=Apple%20Wirel
 - `<Command>-[` move current tab up
 - `<Command>-o` focus on the address bar
 - `<Command>-u` undo close tab
+- `<Command>-<Shift>-u` history
 - `<Command>-y` copy url
 - `<Command>-f` accept suggestion & go
 - ``<Command>-` `` switch to previous tab
-- `<Shift>-<Space>` search tabs
+- `<Command>-<Shift>-t` search tabs
 
 ### Tmux (local)
 
