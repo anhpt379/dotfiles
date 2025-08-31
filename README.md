@@ -107,8 +107,10 @@ http://www.keyboard-layout-editor.com/##@_backcolor=%23dbdbdb&name=Apple%20Wirel
 - `<Command>-<Shift>-u` history
 - `<Command>-y` copy url
 - `<Command>-f` accept suggestion & go
-- ``<Command>-` `` switch to previous tab
+- ``<Command>-` `` switch to previous tab (MRU Tab Switcher - Quick switch)
 - `<Command>-<Shift>-t` search tabs
+- `<Command>-<Shift>-n` next tab (MRU Tab Switcher - Normal switch forward)
+- `<Command>-<Shift>-p` previous tab (MRU Tab Switcher - Normal switch backward)
 
 ### Tmux (local)
 

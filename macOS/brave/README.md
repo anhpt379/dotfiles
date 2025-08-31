@@ -8,15 +8,13 @@ Settings -> System -> Shortcuts -> Name Window... -> Add -> `CMD+E`
 
 AI Grammar Checker & Paraphraser – LanguageTool
 Cal Merge for Google Calendar™
-CLUT: Cycle Last Used Tabs
 Consent-O-Matic
-Copy That ID (for Jira)
-Extension Exporter
+Default zoom for Google Workspace
 Get cookies.txt Clean
 Jira Copy Issue Title
 Jira View
 Launcher Tab Closer
-Meetings Page Auto Closer for Zoom
+MRU Tab Switcher
 Open Slack in Browser, not App
 Open Tabs Next to Current
 Tab Activate
