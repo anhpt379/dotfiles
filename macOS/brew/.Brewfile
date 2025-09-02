@@ -33,6 +33,7 @@ mas 'Amphetamine', id: 937984704
 mas 'Fantastical', id: 975937182
 
 brew 'autoraise', args: ['with-dexperimental_focus_first'], restart_service: true
+brew 'awscli'
 brew 'bash'
 brew 'bind'  # to get `dig` command
 brew 'coreutils'
