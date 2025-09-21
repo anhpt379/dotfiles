@@ -7,7 +7,7 @@ let colors_name='aodark'
 
 " let s:black       = { 'gui': '#161616', 'cterm': '0'  }
 " let s:red         = { 'gui': '#e22f62', 'cterm': '9'  }
-" let s:green       = { 'gui': '#5fae4d', 'cterm': '10' }
+" let s:green       = { 'gui': '#62c855', 'cterm': '10' }
 " let s:yellow      = { 'gui': '#deb246', 'cterm': '11' }
 " let s:blue        = { 'gui': '#28c9ff', 'cterm': '12' }
 " let s:purple      = { 'gui': '#b954e1', 'cterm': '13' }

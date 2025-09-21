@@ -8,7 +8,7 @@ let s:red     = ['#e22f62', 168]
 let s:magenta = ['#b954e1', 176]
 let s:blue    = ['#28c9ff', 75 ]
 let s:cyan    = ['#3cc8b4', 73 ]
-let s:green   = ['#5FAE4D', 114]
+let s:green   = ['#5fae4d', 114]
 
 let s:p = {'normal': {}, 'inactive': {}, 'insert': {}, 'replace': {}, 'visual': {}, 'tabline': {}}
 
