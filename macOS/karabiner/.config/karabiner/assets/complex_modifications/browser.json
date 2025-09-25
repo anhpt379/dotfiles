@@ -243,14 +243,14 @@
       ]
     },
     {
-      "description": "Browser: Switch tabs with COMMAND+N/P",
+      "description": "Browser: Switch tabs with COMMAND+SHIFT+N/P",
       "manipulators": [
         {
           "type": "basic",
           "from": {
             "key_code": "n",
             "modifiers": {
-              "mandatory": ["command"]
+              "mandatory": ["command", "shift"]
             }
           },
           "to": [
@@ -275,7 +275,7 @@
           "from": {
             "key_code": "p",
             "modifiers": {
-              "mandatory": ["command"]
+              "mandatory": ["command", "shift"]
             }
           },
           "to": [

@@ -98,8 +98,8 @@ http://www.keyboard-layout-editor.com/##@_backcolor=%23dbdbdb&name=Apple%20Wirel
 
 - `<Command>-t` new tab
 - `<Command>-w` close tab
-- `<Command>-n` next tab
-- `<Command>-p` previous tab
+- `<Command>-n` next tab (MRU Tab Switcher - Normal switch forward)
+- `<Command>-p` previous tab (MRU Tab Switcher - Normal switch backward)
 - `<Command>-]` move current tab down
 - `<Command>-[` move current tab up
 - `<Command>-o` focus on the address bar
@@ -109,8 +109,8 @@ http://www.keyboard-layout-editor.com/##@_backcolor=%23dbdbdb&name=Apple%20Wirel
 - `<Command>-f` accept suggestion & go
 - ``<Command>-` `` switch to previous tab (MRU Tab Switcher - Quick switch)
 - `<Command>-<Shift>-t` search tabs
-- `<Command>-<Shift>-n` next tab (MRU Tab Switcher - Normal switch forward)
-- `<Command>-<Shift>-p` previous tab (MRU Tab Switcher - Normal switch backward)
+- `<Command>-<Shift>-n` next tab
+- `<Command>-<Shift>-p` previous tab
 
 ### Tmux (local)
 
