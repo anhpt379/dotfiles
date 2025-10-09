@@ -69,9 +69,10 @@ eval "${git_cmd}" |
     --height=100% \
     --exact \
     --preview="${preview_commit}" \
-    --header="${red}CTRL-/${reset} to toggle preview, ${red}CTRL-S${reset} to toggle sort, ${red}CTRL-Y${reset} to yank commit hash, ${red}CTRL-M${reset} to yank commit message, ${red}CTRL-R${reset} to rebase -i, ${red}CTRL-O${reset} to open commit in browser" \
+    --header="${red}CTRL-Y${reset} to yank commit hash, ${red}CTRL-C${reset} to copy commit message, ${red}CTRL-R${reset} to rebase -i, ${red}CTRL-O${reset} to open commit in browser, ${red}CTRL-/${reset} to toggle preview, ${red}CTRL-S${reset} to toggle sort" \
     --bind="enter:execute/${view_commit}/" \
-    --bind="ctrl-y:execute-silent/${copy_commit_message}/+abort" \
+    --bind="ctrl-y:execute-silent/${copy_commit_hash}/+abort" \
+    --bind="ctrl-c:execute-silent/${copy_commit_message}/+abort" \
     --bind="ctrl-o:execute/${open_in_browser}/" \
     --bind="ctrl-alt-o:execute/${open_in_browser}/" \
     --bind="ctrl-r:execute/${rebase_commit}/+abort" \
