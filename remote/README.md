@@ -2,10 +2,10 @@
 
 ```fish
 # fish
-set fish_version 4.0.2  # We can't use the uppercase FISH_VERSION because it's a built-in variable from fish shell.
-wget https://github.com/fish-shell/fish-shell/releases/download/$fish_version/fish-static-amd64-$fish_version.tar.xz
-tar xf fish-static-amd64-$fish_version.tar.xz
-rm -f fish-static-amd64-$fish_version.tar.xz
+set fish_version 4.1.2  # We can't use the uppercase FISH_VERSION because it's a built-in variable from fish shell.
+wget https://github.com/fish-shell/fish-shell/releases/download/$fish_version/fish-$fish_version-linux-x86_64.tar.xz
+tar xf fish-$fish_version-linux-x86_64.tar.xz
+rm -f fish-$fish_version-linux-x86_64.tar.xz
 mv fish* HOME/.local/bin/
 
 # tmux
