@@ -87,7 +87,7 @@ cd ..
 rm -rf nvimpager
 
 # fd
-wget https://github.com/sharkdp/fd/releases/download/v10.2.0/fd-v10.2.0-aarch64-unknown-linux-gnu.tar.gz
+wget https://github.com/sharkdp/fd/releases/download/v10.3.0/fd-v10.3.0-aarch64-unknown-linux-gnu.tar.gz
 tar zxvf fd-*.tar.gz
 mv fd-*/fd ~/.local/bin/
 mv fd-*/fd.1 ~/.local/share/man/man1/
@@ -95,7 +95,7 @@ rm -rf fd-*
 
 # fzf
 cd /tmp || exit 1
-export FZF_VERSION=0.62.0
+export FZF_VERSION=0.66.0
 curl -fLo ~/.local/share/man/man1/fzf.1 https://raw.githubusercontent.com/junegunn/fzf/v$FZF_VERSION/man/man1/fzf.1
 wget https://github.com/junegunn/fzf/releases/download/v$FZF_VERSION/fzf-$FZF_VERSION-linux_arm64.tar.gz
 tar zxvf fzf-*.tar.gz
@@ -158,7 +158,7 @@ pip3 install --upgrade requests
 
 # lf
 cd /tmp || exit
-export LF_VERSION=r35
+export LF_VERSION=r38
 curl -fLo ~/.local/share/man/man1/lf.1 https://raw.githubusercontent.com/gokcehan/lf/$LF_VERSION/lf.1
 wget https://github.com/gokcehan/lf/releases/download/$LF_VERSION/lf-linux-arm64.tar.gz
 tar zxvf lf-*.tar.gz
