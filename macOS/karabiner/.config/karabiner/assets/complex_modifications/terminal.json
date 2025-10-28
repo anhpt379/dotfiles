@@ -2,36 +2,6 @@
   "title": "Terminal apps",
   "rules": [
     {
-      "description": "Terminal: Map OPTION+DELETE to OPTION+D (ALT+D)",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "delete_forward",
-            "modifiers": {
-              "mandatory": ["left_option"]
-            }
-          },
-          "to": [
-            {
-              "key_code": "d",
-              "modifiers": ["left_option"]
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "^net\\.kovidgoyal\\.kitty$",
-                "^com\\.apple\\.Terminal$",
-                "^com\\.github\\.wez\\.wezterm$"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
       "description": "Terminal: Map CONTROL+N/P to DOWN/UP",
       "manipulators": [
         {
