@@ -192,7 +192,7 @@ function postexec_bell_duration --on-event fish_postexec
     end
 end
 
-if type -q zoxide
+if string match -e -q -- fedora (hostname)
     zoxide init --cmd=j --hook=pwd fish | source
     zoxide init --cmd=cd --hook=pwd fish | source
 end
