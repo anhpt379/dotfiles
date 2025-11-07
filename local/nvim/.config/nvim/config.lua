@@ -67,15 +67,15 @@ require('mason-tool-installer').setup {
 require("mason-lspconfig").setup_handlers({
   function (server_name)
     if server_name == 'sumneko_lua' then
-      require("lspconfig")[server_name].setup {
+      vim.lsp.config(server_name, {
         settings = {
           Lua = {
             diagnostics = { globals = { "vim" } },
           }
         }
-      }
+      })
     elseif server_name == 'pyright' then
-      require("lspconfig")[server_name].setup {
+      vim.lsp.config(server_name, {
         settings = {
           python = {
             analysis = {
@@ -83,10 +83,12 @@ require("mason-lspconfig").setup_handlers({
             }
           }
         }
-      }
+      })
     else
-      require("lspconfig")[server_name].setup {}
+      vim.lsp.config(server_name, {})
     end
+
+    vim.lsp.enable({server_name})
   end,
 })
 
