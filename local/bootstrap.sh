@@ -104,16 +104,16 @@ rm -rf fzf-*.tar.gz
 cd - || exit 1
 
 # fastgron
-cd /tmp || exit 1
-git clone https://github.com/adamritter/fastgron.git
-cd fastgron || exit 1
-git fetch --tags
-git checkout v0.6.5
-cmake -B build
-cmake --build build
-cmake install build/
-cp build/fastgron ~/.local/bin/
-cd - || exit 1
+# cd /tmp || exit 1
+# git clone https://github.com/adamritter/fastgron.git
+# cd fastgron || exit 1
+# git fetch --tags
+# git checkout v0.6.5
+# cmake -B build
+# cmake --build build
+# cmake install build/
+# cp build/fastgron ~/.local/bin/
+# cd - || exit 1
 
 # nvim
 nvim -c "PlugInstall" -c "TSInstall all" -c "qall"
