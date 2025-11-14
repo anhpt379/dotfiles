@@ -1,0 +1,15 @@
+# Upstream version: https://github.com/lima-vm/lima/blob/master/templates/fedora-42.yaml
+minimumLimaVersion: 2.0.0
+
+base:
+  - template:_images/fedora-42
+  - template:_default/mounts
+
+mounts:
+  - location: "~/data"
+    writable: true
+  - location: "~/Downloads"
+    writable: true
+
+portForwards:
+  - guestPort: 3000

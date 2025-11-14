@@ -1,19 +1,20 @@
 #!/bin/bash
 
-sudo dnf config-manager addrepo --from-repofile=https://download.opensuse.org/repositories/shells:fish/Fedora_41/shells:fish.repo
+set -e
+
+sudo dnf copr enable -y alternateved/eza
 
 sudo dnf install -y \
   kitty-terminfo which \
-  stow git fish tmux \
+  stow git fish tmux neovim \
   jq ripgrep eza rsync zoxide \
   curl wget nmap-ncat \
   telnet corkscrew \
   tldr man-pages grc dnsutils moreutils\
-  atop pwgen gron ncdu hyperfine \
+  atop pwgen ncdu hyperfine \
   ipython python3-virtualenv irb \
   python3-setuptools python3-pip python3-devel \
   golang npm luarocks lua-devel ruby-devel \
-  @development-tools
 
 # dotfiles
 cd ~/ || exit 1
@@ -56,22 +57,22 @@ ln -s /usr/bin/fish ~/.local/bin/fish
 ln -s "/Users/$USER/Downloads" ~/Downloads
 
 # neovim
-sudo dnf install -y ninja-build libtool autoconf automake cmake gcc gcc-c++ make pkgconfig unzip patch gettext curl
-git clone --depth=1 https://github.com/neovim/neovim
-cd neovim || exit 1
-git fetch --tags --force
-git checkout stable
-make CMAKE_BUILD_TYPE=RelWithDebInfo
-sudo make install
-nvim --version
-cd ..
-rm -rf neovim
+# sudo dnf install -y ninja-build libtool autoconf automake cmake gcc gcc-c++ make pkgconfig unzip patch gettext curl
+# git clone --depth=1 https://github.com/neovim/neovim
+# cd neovim || exit 1
+# git fetch --tags --force
+# git checkout stable
+# make CMAKE_BUILD_TYPE=RelWithDebInfo
+# sudo make install
+# nvim --version
+# cd ..
+# rm -rf neovim
 
 # nvim needs this tree-sitter-cli to install some tree-sitter languages (e.g. swift)
 sudo npm install -g tree-sitter-cli
 
 # Install nightly rust to compile blink.cmp
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 rustup install nightly
 
 # nvimpager
