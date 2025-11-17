@@ -766,8 +766,8 @@ nnoremap <C-y> :silent !gptree --no-config %:p:h && cat ~/.config/llm/base_promp
 
 " Faster search & replace with <C-r>
 map <C-u> <Plug>(RepeatRedo)
-nnoremap <C-r> :%s#<C-r><C-w>##<Left>
-vnoremap <C-r> "hy:%s#<C-r>h##<Left>
+nnoremap <C-r> :%s;<C-r><C-w>;;<Left>
+vnoremap <C-r> "hy:%s;<C-r>h;;<Left>
 
 " Select the last pasted text with vp (similar to the standard gv which you can
 " type to select the last visually-selected text)
