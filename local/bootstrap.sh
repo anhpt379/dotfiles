@@ -2,6 +2,8 @@
 
 set -e
 
+read -p "Enter company domain (e.g., example.com): " company_domain
+
 sudo dnf copr enable -y alternateved/eza
 
 sudo dnf install -y \
@@ -68,7 +70,7 @@ rm -f ~/Downloads && ln -s "/Users/$USER/Downloads" ~/Downloads
 # rm -rf neovim
 
 # nvim needs this tree-sitter-cli to install some tree-sitter languages (e.g. swift)
-sudo npm config set registry https://artifactory.booking.com/artifactory/api/npm/npm/
+sudo npm config set registry https://artifactory.${company_domain}/artifactory/api/npm/npm/
 sudo npm install -g tree-sitter-cli
 
 # Install nightly rust to compile blink.cmp
@@ -223,7 +225,6 @@ sudo systemctl start docker
 VAULT_VERSION=1.21.0
 wget https://releases.hashicorp.com/vault/${VAULT_VERSION}/vault_${VAULT_VERSION}_linux_arm64.zip
 unzip vault_${VAULT_VERSION}_linux_arm64.zip
-rm -f ~/.local/bin/vault
 mv vault ~/.local/bin/
 rm -f vault_${VAULT_VERSION}_linux_arm64.zip
 
@@ -254,9 +255,13 @@ sudo timedatectl set-timezone Europe/Amsterdam
 # work email
 mkdir -p ~/code/work/
 echo '[user]' > ~/code/work/.gitconfig
-echo '  email = work.email@company.com' >> ~/code/work/.gitconfig
+echo "  email = anh.pham@${company_domain}" >> ~/code/work/.gitconfig
+
+cd ~/dotfiles
+git remote set-url origin git@github.com:anhpt379/dotfiles.git
 
 git remote set-url origin git@github.com:anhpt379/dotfiles.git
 
 # reboot to finish changing the shell to fish
 sudo reboot
+
