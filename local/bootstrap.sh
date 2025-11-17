@@ -17,22 +17,21 @@ sudo dnf install -y \
   golang npm luarocks lua-devel ruby-devel \
 
 # dotfiles
-cd ~/ || exit 1
-git clone https://github.com/anhpt379/dotfiles.git
-cd dotfiles/local/ || exit 1
+cd ~/dotfiles/local
 
 stow fish
 
-sudo usermod -s /bin/fish $USER
+sudo chsh -s /usr/bin/fish $USER
 
 # fisher
 fish -c 'curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher'
-git checkout origin/master local/fish/.config/fish/fish_plugins
+git -C ~/dotfiles checkout origin/master local/fish/.config/fish/fish_plugins
 fish -c 'fisher update'
 
 # stow
 mkdir -p ~/.local/bin/
 mkdir -p ~/.config/nvim/undo/
+rm -f ~/.bashrc
 stow bash
 stow bin
 stow curl
@@ -53,8 +52,8 @@ stow tmux
 stow vivid
 stow wakatime
 
-ln -s /usr/bin/fish ~/.local/bin/fish
-ln -s "/Users/$USER/Downloads" ~/Downloads
+ln -sf /usr/bin/fish ~/.local/bin/fish
+rm -f ~/Downloads && ln -s "/Users/$USER/Downloads" ~/Downloads
 
 # neovim
 # sudo dnf install -y ninja-build libtool autoconf automake cmake gcc gcc-c++ make pkgconfig unzip patch gettext curl
@@ -69,10 +68,12 @@ ln -s "/Users/$USER/Downloads" ~/Downloads
 # rm -rf neovim
 
 # nvim needs this tree-sitter-cli to install some tree-sitter languages (e.g. swift)
+sudo npm config set registry https://artifactory.booking.com/artifactory/api/npm/npm/
 sudo npm install -g tree-sitter-cli
 
 # Install nightly rust to compile blink.cmp
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+source $HOME/.cargo/env
 rustup install nightly
 
 # nvimpager
@@ -137,7 +138,7 @@ sudo npm install -g neovim
 
 # terraform
 sudo dnf install -y dnf-plugins-core
-sudo dnf config-manager addrepo --from-repofile=https://rpm.releases.hashicorp.com/fedora/hashicorp.repo
+sudo dnf config-manager addrepo --overwrite --from-repofile=https://rpm.releases.hashicorp.com/fedora/hashicorp.repo
 sudo dnf -y install terraform
 
 # gptree
@@ -168,11 +169,20 @@ rm -f lf-*.tar.gz
 cd - || exit 1
 
 # Install crystal lang (to compile tmux-fingers)
-curl -s https://packagecloud.io/install/repositories/84codes/crystal/script.rpm.sh | sudo bash
+sudo tee /etc/yum.repos.d/84codes_crystal.repo << 'EOF'
+[84codes_crystal]
+name=84codes_crystal
+baseurl=https://packagecloud.io/84codes/crystal/fedora/$releasever/$basearch
+gpgkey=https://packagecloud.io/84codes/crystal/gpgkey
+repo_gpgcheck=1
+gpgcheck=0
+EOF
 sudo dnf install -y crystal
 
 # Clone tmux-fingers
-git clone https://github.com/anhpt379/tmux-fingers ~/.tmux/plugins/tmux-fingers
+if ! test -d ~/.tmux/plugins/tmux-fingers; then
+  git clone https://github.com/anhpt379/tmux-fingers ~/.tmux/plugins/tmux-fingers
+fi
 
 # hping3
 # the normal `ping` doesn't work in Lima VM
@@ -198,9 +208,6 @@ mv mocword.sqlite ~/.config/nvim/dictionaries/mocword.sqlite
 # git-absorb
 cargo install git-absorb
 
-wget https://raw.githubusercontent.com/tummychow/git-absorb/master/Documentation/git-absorb.1
-mv git-absorb.1 ~/.local/share/man/man1
-
 # vivid
 wget https://github.com/sharkdp/vivid/releases/download/v0.8.0/vivid-v0.8.0-aarch64-unknown-linux-gnu.tar.gz
 tar zxvf vivid-*.tar.gz
@@ -213,10 +220,12 @@ sudo systemctl enable docker
 sudo systemctl start docker
 
 # vault
-wget https://releases.hashicorp.com/vault/1.16.0/vault_1.16.0_linux_arm64.zip
-unzip vault_1.16.0_linux_arm64.zip
+VAULT_VERSION=1.21.0
+wget https://releases.hashicorp.com/vault/${VAULT_VERSION}/vault_${VAULT_VERSION}_linux_arm64.zip
+unzip vault_${VAULT_VERSION}_linux_arm64.zip
+rm -f ~/.local/bin/vault
 mv vault ~/.local/bin/
-rm -f vault_1.16.0_linux_arm64.zip
+rm -f vault_${VAULT_VERSION}_linux_arm64.zip
 
 # okta-aws-cli
 mkdir /tmp/okta-aws-cli
@@ -246,6 +255,8 @@ sudo timedatectl set-timezone Europe/Amsterdam
 mkdir -p ~/code/work/
 echo '[user]' > ~/code/work/.gitconfig
 echo '  email = work.email@company.com' >> ~/code/work/.gitconfig
+
+git remote set-url origin git@github.com:anhpt379/dotfiles.git
 
 # reboot to finish changing the shell to fish
 sudo reboot

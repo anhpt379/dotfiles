@@ -10,38 +10,38 @@
 Clone this repo to `~/dotfiles` and follow the instructions in
 `macOS/bootstrap.sh` and `local/bootstrap.sh`.
 
-I'm using this lima [fedora43](macOS/lima/fedora43.yaml) image at the moment.
+I'm using this lima [fedora42](macOS/lima/fedora42.yaml) image at the moment.
 
 ```bash
-limactl start --name=fedora43 macOS/lima/fedora43.yaml
-limactl shell fedora43
-sudo dnf install -y wget unzip
+limactl start --name=fedora42 --yes macOS/lima/fedora42.yaml
+limactl shell fedora42
+sudo dnf install -y git
 cd ~
-wget https://github.com/anhpt379/dotfiles/archive/refs/heads/master.zip
-unzip master.zip
-bash -x dotfiles-master/local/bootstrap.sh
-
-# If moving to a newer VM, use these commands to transfer the data:
-limactl copy -r fedora41:~/.local/share/fish/fish_history fedora43:~/.local/share/fish/
-limactl copy -r fedora41:~/.local/share/zoxide/db.zo fedora43:~/.local/share/zoxide/db.zo
-limactl copy -r fedora41:~/.ssh/conf.d/work.conf fedora43:~/.ssh/conf.d/
-limactl copy -r fedora41:~/.ssh/id_ed25519 fedora43:~/.ssh/
-limactl copy -r fedora41:~/notes fedora43:~/notes
-limactl copy -r fedora41:~/data fedora43:~/data
+git clone https://github.com/anhpt379/dotfiles.git
+bash -x dotfiles/local/bootstrap.sh
 
 # On the old VM:
+mkdir /Users/$USER/data/fedora41
+cd /Users/$USER/data/fedora41
+mkdir -p .local/share/fish/ && cp ~/.local/share/fish/fish_history .local/share/fish/
+mkdir -p .local/share/zoxide/ && cp ~/.local/share/zoxide/db.zo .local/share/zoxide/
+mkdir -p .ssh/ && cp ~/.ssh/id_ed25519 .ssh/
+mkdir -p .ssh/conf.d/ && cp ~/.ssh/conf.d/work.conf .ssh/conf.d/
+mkdir -p .gnupg/ && cp -r ~/.gnupg/ .gnupg/
+mkdir -p notes && cp -r ~/notes notes
+mkdir -p data && cp -r ~/data data
 tar cf code.tar ~/code
 
 # Then, on macOS:
-limactl copy -r fedora39:~/code.tar fedora43:~/code.tar
+limactl copy -r ~/data/fedora41/ fedora42:~/
 
 # Then, on the new VM:
 cd
-tar xf code.tar
+tar xf code.tar --strip-components=2
 rm -f code.tar
 
 # Finally, go back to macOS and create a snapshot for the new VM:
-limactl snapshot create fedora43 --tag v1
+limactl snapshot create fedora42 --tag v1
 ```
 
 ## The setup
