@@ -44,6 +44,10 @@ rm -f code.tar
 limactl snapshot create fedora42 --tag v1
 ```
 
+Note: if switching to a new machine, it's better to backup the `~/data`
+directory without `code.tar`. The `code.tar` file should be transferred
+separately to the new machine using `python3 -m http.server 8000`.
+
 ## The setup
 
 ![overview](images/overview.svg)
