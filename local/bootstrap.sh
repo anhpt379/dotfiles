@@ -211,7 +211,8 @@ mv mocword.sqlite ~/.config/nvim/dictionaries/mocword.sqlite
 cargo install git-absorb
 
 # vivid
-wget https://github.com/sharkdp/vivid/releases/download/v0.8.0/vivid-v0.8.0-aarch64-unknown-linux-gnu.tar.gz
+VIVID_VERSION=0.10.1
+wget https://github.com/sharkdp/vivid/releases/download/v${VIVID_VERSION}/vivid-v${VIVID_VERSION}-aarch64-unknown-linux-gnu.tar.gz
 tar zxvf vivid-*.tar.gz
 mv vivid-*/vivid ~/.local/bin/
 rm -rf vivid-*
@@ -229,9 +230,10 @@ mv vault ~/.local/bin/
 rm -f vault_${VAULT_VERSION}_linux_arm64.zip
 
 # okta-aws-cli
+OKTA_AWS_CLI_VERSION=2.5.1
 mkdir /tmp/okta-aws-cli
 cd /tmp/okta-aws-cli
-wget https://github.com/okta/okta-aws-cli/releases/download/v2.5.0/okta-aws-cli_2.5.0_linux_arm64.tar.gz
+wget https://github.com/okta/okta-aws-cli/releases/download/v${OKTA_AWS_CLI_VERSION}/okta-aws-cli_${OKTA_AWS_CLI_VERSION}_linux_arm64.tar.gz
 tar zxvf okta-aws-cli_*.tar.gz
 mv okta-aws-cli ~/.local/bin/
 rm -rf /tmp/okta-aws-cli/*
