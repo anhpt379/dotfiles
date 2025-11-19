@@ -247,7 +247,7 @@ sudo systemctl start crond
 
 # # Use this cronjob to refresh the list of servers that fzf_find uses to search
 # # for hosts when typing `ssh<C-f>`:
-# echo "0 3 * * * bash -c \"curl -fsH 'Accept-encoding: gzip' https://<DOMAIN>/servers | gunzip - | jq -r '.servers | .[] | .fqdn' | sort | grep -v 'spare-' > ~/.cache/servers.tmp; if test -s ~/.cache/servers.tmp; then mv ~/.cache/servers.tmp ~/.cache/servers.txt; fi\" >>/tmp/cron.log 2>&1" >> cron && crontab cron && rm -f cron
+echo "0 3 * * * bash -c \"curl -fsH 'Accept-encoding: gzip' https://simpleapi.prod.${company_domain}/servers | gunzip - | jq -r '.servers | .[] | .fqdn' | sort | grep -v 'spare-' > ~/.cache/servers.tmp; if test -s ~/.cache/servers.tmp; then mv ~/.cache/servers.tmp ~/.cache/servers.txt; fi\" >>/tmp/cron.log 2>&1" >> cron && crontab cron && rm -f cron
 
 # timezone
 sudo timedatectl set-timezone Europe/Amsterdam
