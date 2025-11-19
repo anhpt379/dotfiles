@@ -260,8 +260,5 @@ echo "  email = anh.pham@${company_domain}" >> ~/code/work/.gitconfig
 cd ~/dotfiles
 git remote set-url origin git@github.com:anhpt379/dotfiles.git
 
-git remote set-url origin git@github.com:anhpt379/dotfiles.git
-
 # reboot to finish changing the shell to fish
 sudo reboot
-
