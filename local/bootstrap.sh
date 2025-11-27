@@ -151,7 +151,7 @@ sudo dnf install -y gcc-c++ libstdc++-static
 
 # null-ls
 pip3 install vim-vint
-sudo npm install -g jsonlint textlint write-good markdownlint-cli
+sudo npm install -g jsonlint write-good markdownlint-cli
 sudo gem install --bindir ~/.local/bin/ rubocop rubocop-rspec mdl
 
 sudo luarocks install luacheck
