@@ -42,6 +42,7 @@ defaults write com.apple.dock magnification -bool true
 defaults write com.apple.dock largesize -int 128
 defaults write com.apple.dock autohide -bool true
 defaults write com.apple.dock autohide-time-modifier -float 0.25
+defaults write com.apple.dock autohide-delay -float 0
 defaults write com.apple.dock minimize-to-application -bool true
 defaults write com.apple.dock mru-spaces -bool false
 defaults write com.apple.dock show-recents -bool false
