@@ -39,14 +39,10 @@ limactl copy -r ~/data/fedora41/ fedora42:~/
 cd
 tar xf code.tar --strip-components=2
 rm -f code.tar
-
-# Finally, go back to macOS and create a snapshot for the new VM:
-limactl snapshot create fedora42 --tag v1
 ```
 
-Note: if switching to a new machine, it's better to backup the `~/data`
-directory without `code.tar`. The `code.tar` file should be transferred
-separately to the new machine using `python3 -m http.server 8000`.
+Note: if switching to a new machine, it's better to compress `~/data` & transfer
+it manually to the new machine using `python3 -m http.server`.
 
 ## The setup
 
