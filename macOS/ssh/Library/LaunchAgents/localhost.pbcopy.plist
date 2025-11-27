@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>localhost.pbcopy</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/opt/homebrew/bin/socat</string>
+        <string>TCP-LISTEN:2224,bind=127.0.0.1,reuseaddr,fork</string>
+        <string>EXEC:/usr/bin/pbcopy</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>LC_CTYPE</key>
+        <string>en_US.UTF-8</string>
+    </dict>
+    <key>StandardOutPath</key>
+    <string>/tmp/pbcopy.out.log</string>
+    <key>StandardErrorPath</key>
+    <string>/tmp/pbcopy.err.log</string>
+</dict>
+</plist>
+

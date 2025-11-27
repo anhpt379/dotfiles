@@ -1,7 +1,5 @@
 # vim: ft=conf
 tap 'Homebrew/homebrew-autoupdate'
-tap 'homebrew/bundle'
-tap 'homebrew/services'
 tap 'superbrothers/opener'
 tap 'dimentium/autoraise'
 tap 'hashicorp/tap'
@@ -12,14 +10,14 @@ cask_args appdir: "~/Applications", require_sha: true, no_quarantine: true
 
 # Apps
 cask 'brave-browser'
-cask 'flux'
+cask 'flux-app'
 cask 'jordanbaird-ice'
 cask 'karabiner-elements'
 cask 'key-codes'
 cask 'kitty'
+cask 'maccy'
 cask 'macs-fan-control'
 cask 'monitorcontrol'
-cask 'neovim'
 cask 'qbserve'
 cask 'raycast'
 cask 'rectangle'
@@ -59,6 +57,7 @@ brew 'neovim'
 brew 'okta-aws-cli'
 brew 'ripgrep'
 brew 'rsync'
+brew 'socat'  # needed for pbcopy/pbpaste/noti
 brew 'stow'
 brew 'telnet'
 brew 'trash'

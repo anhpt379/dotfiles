@@ -12,7 +12,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 brew install stow
 stow brew
 
-brew bundle --global
+brew bundle
 brew autoupdate start 86400 --upgrade --cleanup
 
 brew services start autoraise
@@ -49,7 +49,7 @@ curl -fLo ~/.local/bin/prettyping https://github.com/denilsonsa/prettyping/raw/m
 chmod +x ~/.local/bin/prettyping
 
 # youtube-dl/yt-dlp
-pip3 install --force-reinstall https://github.com/yt-dlp/yt-dlp/archive/refs/heads/master.zip
+pip3 install --break-system-packages --force-reinstall https://github.com/yt-dlp/yt-dlp/archive/refs/heads/master.zip
 echo "0 * * * * bash ~/Music/youtube-dl/download.sh" > cron
 crontab cron
 rm -f cron
