@@ -48,6 +48,9 @@ defaults write com.apple.dock mru-spaces -bool false
 defaults write com.apple.dock show-recents -bool false
 killall Dock
 
+# Desktop
+defaults write com.apple.WindowManager EnableStandardClickToShowDesktop -bool false
+
 # Rectangle
 defaults write com.knollsoft.Rectangle almostMaximizeHeight -float 1
 defaults write com.knollsoft.Rectangle almostMaximizeWidth  -float 0.66
