@@ -86,7 +86,6 @@ http://www.keyboard-layout-editor.com/##@_backcolor=%23dbdbdb&name=Apple%20Wirel
 
 ### macOS
 
-- `<Command>-<Space>` Open Raycast (Karabiner)
 - `<Control>-<CapsLock>-m` Clipboard History (Maccy)
 - `<Command>-<CapsLock>-n` Next Window (Karabiner)
 - `<Command>-<CapsLock>-p` Previous Window (Karabiner)
