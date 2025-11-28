@@ -20,10 +20,6 @@
 
 1. Open `System Settings`:
 
-* -> Appearance -> pick the Light mode
-* -> Wallpaper -> Colors -> Black, Show on all Spaces.
-* -> Accessibility -> Display -> Pointer -> Pointer size -> `2`
-
 ## Change display resolution
 
 Go to `Settings` -> `Displays` -> `Built-in Display` -> `1800 x 1169`.

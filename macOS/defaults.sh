@@ -18,6 +18,9 @@ defaults write -g NSWindowShouldDragOnGesture -bool true
 defaults write NSGlobalDomain InitialKeyRepeat -int 15
 defaults write NSGlobalDomain KeyRepeat -int 1
 
+# Trackpad
+defaults write com.apple.universalaccess mouseDriverCursorSize -float 2.0
+
 # Enable full keyboard access for all controls
 # (e.g. enable Tab in modal dialogs)
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
@@ -50,6 +53,8 @@ killall Dock
 
 # Desktop
 defaults write com.apple.WindowManager EnableStandardClickToShowDesktop -bool false
+osascript -e 'tell application "System Events" to tell every desktop to set picture to "/System/Library/Desktop Pictures/Solid Colors/Black.png"'
+osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to false'
 
 # Rectangle
 defaults write com.knollsoft.Rectangle almostMaximizeHeight -float 1
