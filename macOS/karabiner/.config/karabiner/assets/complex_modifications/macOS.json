@@ -97,7 +97,7 @@
       ]
     },
     {
-      "description": "macOS: Switch to next window with COMMAND+CONTROL+N",
+      "description": "macOS: Switch to next app with COMMAND+CONTROL+N",
       "manipulators": [
         {
           "type": "basic",
@@ -109,7 +109,7 @@
           },
           "to": [
             {
-              "key_code": "grave_accent_and_tilde",
+              "key_code": "tab",
               "modifiers": ["command"]
             }
           ]
@@ -117,7 +117,7 @@
       ]
     },
     {
-      "description": "macOS: Switch to previous window with COMMAND+CONTROL+P",
+      "description": "macOS: Switch to previous app with COMMAND+CONTROL+P",
       "manipulators": [
         {
           "type": "basic",
@@ -129,7 +129,7 @@
           },
           "to": [
             {
-              "key_code": "grave_accent_and_tilde",
+              "key_code": "tab",
               "modifiers": ["command", "shift"]
             }
           ]

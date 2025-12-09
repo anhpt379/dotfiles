@@ -56,6 +56,7 @@ defaults write com.apple.WindowManager EnableStandardClickToShowDesktop -bool fa
 osascript -e 'tell application "System Events" to tell every desktop to set picture to "/System/Library/Desktop Pictures/Solid Colors/Black.png"'
 osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to false'
 defaults write com.apple.screencapture location ~/Documents/Screenshots
+defaults write com.apple.WindowManager GloballyEnabled -bool true           # Turn on Stage Manager
 
 # Rectangle
 defaults write com.knollsoft.Rectangle almostMaximizeHeight -float 1

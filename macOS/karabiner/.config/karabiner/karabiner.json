@@ -9,6 +9,42 @@
                 },
                 "rules": [
                     {
+                        "description": "macOS: Switch to next app with COMMAND+CONTROL+N",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "n",
+                                    "modifiers": { "mandatory": ["command", "control"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "tab",
+                                        "modifiers": ["command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "macOS: Switch to previous app with COMMAND+CONTROL+P",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "p",
+                                    "modifiers": { "mandatory": ["command", "control"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "tab",
+                                        "modifiers": ["command", "shift"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "Escape: Show application windows when pressing the ESCAPE key",
                         "manipulators": [
                             {
