@@ -4,7 +4,7 @@ cd ~/Music/youtube-dl/ || exit 1
 
 PLAYLIST="https://www.youtube.com/playlist?list=PLeLnWJJvTR97ou1kSvpGxXAz8kpieOCpK"
 
-yt-dlp \
+/opt/homebrew/bin/yt-dlp \
   --dump-json \
   --flat-playlist \
   --playlist-end 100 \
@@ -14,7 +14,7 @@ yt-dlp \
   | sed 's_^_https://youtu.be/_' \
   > urls.txt
 
-yt-dlp \
+/opt/homebrew/bin/yt-dlp \
   --verbose \
   --ignore-errors \
   --continue \
