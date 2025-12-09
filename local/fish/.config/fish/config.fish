@@ -195,4 +195,7 @@ end
 if string match -e -q -- fedora (hostname)
     zoxide init --cmd=j --hook=pwd fish | source
     zoxide init --cmd=cd --hook=pwd fish | source
+
+    # Added by `rbenv init` on Tue Dec  9 10:09:41 PM CET 2025
+    status --is-interactive; and rbenv init - --no-rehash fish | source
 end

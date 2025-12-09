@@ -239,6 +239,15 @@ mv okta-aws-cli ~/.local/bin/
 rm -rf /tmp/okta-aws-cli/*
 cd -
 
+# ruby (for puppet code formatter)
+sudo dnf install -y rbenv ruby-build git
+rbenv init
+# puppetserver v8 is using 3.1.4
+#   $ /opt/puppetlabs/bin/puppetserver ruby --version
+#   jruby 9.4.8.0 (3.1.4) 2024-07-02 4d41e55a67 OpenJDK 64-Bit Server VM 21.0.8+9-LTS on 21.0.8+9-LTS +jit [x86_64-linux]
+rbenv install 3.1.4
+rbenv global 3.1.4
+
 # wakapi
 sudo docker-compose -f ~/dotfiles/local/docker-compose.yml up -d
 
