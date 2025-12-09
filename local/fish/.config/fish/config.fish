@@ -5,22 +5,6 @@ if not status is-interactive
     exit 0
 end
 
-if not set -q WORK_EMAIL
-    if test -f ~/code/work/.gitconfig
-        set -gx WORK_EMAIL (cat ~/code/work/.gitconfig | grep '@' | head -1 | awk '{ print $NF }')
-    else
-        echo "Error: No WORK_EMAIL detected!"
-    end
-end
-
-set -gx COMPANY_NAME (echo $WORK_EMAIL | awk -F@ '{ print $NF }' | awk -F. '{ print $1 }')
-set -gx COMPANY_NAME_LOWER (echo $COMPANY_NAME | tr A-Z a-z)
-set -gx COMPANY_NAME_UPPER (echo $COMPANY_NAME | tr a-z A-Z)
-set -gx COMPANY_NAME_CAPITALIZE (echo $COMPANY_NAME | sed 's/[^ ]*/\u&/g')
-set -gx COMPANY_DOMAIN "$COMPANY_NAME_LOWER.com"
-
-set -gx no_proxy localhost,.$COMPANY_DOMAIN
-
 set -gx HOMEBREW_BUNDLE_FILE "~/.Brewfile"
 set -gx GOPATH $HOME/.go
 
@@ -155,6 +139,22 @@ else if string match -e -q -- fedora (hostname)
         tmux -u attach || tmux -u new
     end
 else
+    if not set -q WORK_EMAIL
+        if test -f ~/code/work/.gitconfig
+            set -gx WORK_EMAIL (cat ~/code/work/.gitconfig | grep '@' | head -1 | awk '{ print $NF }')
+        else
+            echo "Error: No WORK_EMAIL detected!"
+        end
+    end
+
+    set -gx COMPANY_NAME (echo $WORK_EMAIL | awk -F@ '{ print $NF }' | awk -F. '{ print $1 }')
+    set -gx COMPANY_NAME_LOWER (echo $COMPANY_NAME | tr A-Z a-z)
+    set -gx COMPANY_NAME_UPPER (echo $COMPANY_NAME | tr a-z A-Z)
+    set -gx COMPANY_NAME_CAPITALIZE (echo $COMPANY_NAME | sed 's/[^ ]*/\u&/g')
+    set -gx COMPANY_DOMAIN "$COMPANY_NAME_LOWER.com"
+
+    set -gx no_proxy localhost,.$COMPANY_DOMAIN
+
     # Update the default email for git
     if set -q WORK_EMAIL; and not grep -q $COMPANY_DOMAIN ~/.gitconfig
         git config --global user.email $WORK_EMAIL
