@@ -460,6 +460,11 @@ nmap <End> G
 imap <Home> <ESC>I
 imap <End> <ESC>A
 
+" Prevent cursor from moving back when exiting INSERT mode
+inoremap <Esc> <Esc>`^
+inoremap <C-c> <Esc>`^
+inoremap <C-[> <Esc>`^
+
 " Jump to next/prev diagnostic from INSERT mode also
 imap <silent> <PageDown> <Esc><PageDown>
 imap <silent> <PageUp> <Esc><PageUp>
