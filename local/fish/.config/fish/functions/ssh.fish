@@ -57,13 +57,14 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
         fi
 
         if ! test -d .files; then
-            git clone --depth=1 https://github.com/anhpt379/.files.git
+            echo "Fetching dotfiles..."
+            git clone --depth=1 --progress https://github.com/anhpt379/.files.git
         else
-            echo "Pulling dotfiles updates..."
-            git -C .files pull --depth=1 origin master
+            echo "Updating dotfiles..."
+            git -C .files pull --depth=1 --progress --quiet origin master
         fi
 
-        rsync -av .files/HOME/ ~/
+        rsync -a .files/HOME/ ~/
 
         export LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
         export TERM=xterm-kitty
