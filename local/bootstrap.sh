@@ -170,6 +170,9 @@ mv lf ~/.local/bin/
 rm -f lf-*.tar.gz
 cd - || exit 1
 
+# tmux-fingers
+git clone https://github.com/Morantron/tmux-fingers ~/.tmux/plugins/tmux-fingers
+
 # Install crystal lang (to compile tmux-fingers)
 sudo tee /etc/yum.repos.d/84codes_crystal.repo << 'EOF'
 [84codes_crystal]
