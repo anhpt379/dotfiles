@@ -14,7 +14,10 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
         ln -sf "$SSH_TTY" ~/.ssh/ssh_tty
     end
 
-    if not string match -q -- Darwin $(uname)
+    if string match -q -- Darwin $(uname)
+        command ssh $argv
+        return $status
+    else
         set -f now $(date +%s)
         set -f deadline $(expr $now - 86400 + 7200)
         set -f have_good_key no
