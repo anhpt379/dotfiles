@@ -99,7 +99,7 @@ rm -rf fd-*
 
 # fzf
 cd /tmp || exit 1
-export FZF_VERSION=0.66.0
+export FZF_VERSION=0.67.0
 curl -fLo ~/.local/share/man/man1/fzf.1 https://raw.githubusercontent.com/junegunn/fzf/v$FZF_VERSION/man/man1/fzf.1
 wget https://github.com/junegunn/fzf/releases/download/v$FZF_VERSION/fzf-$FZF_VERSION-linux_arm64.tar.gz
 tar zxvf fzf-*.tar.gz

@@ -22,7 +22,7 @@ chmod +x nvim-linux-x86_64.appimage
 mv nvim-linux-x86_64.appimage HOME/.local/bin/nvim.appimage
 
 # fzf
-set FZF_VERSION 0.66.0
+set FZF_VERSION 0.67.0
 wget https://github.com/junegunn/fzf/releases/download/v$FZF_VERSION/fzf-$FZF_VERSION-linux_amd64.tar.gz
 tar zxvf fzf-$FZF_VERSION-linux_amd64.tar.gz
 mv fzf HOME/.local/bin/
