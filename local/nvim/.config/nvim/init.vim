@@ -889,7 +889,7 @@ let g:indentLine_char = '┊'
 
 " Make indentline and JSON quote concealing work well together
 let g:indentLine_setConceal = 0
-set conceallevel=2
+set conceallevel=0
 
 " }}}
 
