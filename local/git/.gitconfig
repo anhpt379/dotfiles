@@ -17,8 +17,7 @@
   amend = commit --amend
   merged = branch --merged
   pushf = push --force
-  undo = reset --soft HEAD^
-  undo-amend = reset --soft HEAD@{1}
+  undo = !git reflog -1 | grep -q 'commit (amend)' && git reset --soft HEAD@{1} || git reset --soft HEAD^
   prune = fetch --prune
   stash-all = stash save --include-untracked
   stashed = stash list --pretty=format:'%gd: %Cred%h%Creset %Cgreen[%ar]%Creset %s'
