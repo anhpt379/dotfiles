@@ -126,19 +126,7 @@ bind ctrl-l end-of-line
 source ~/.config/fish/abbr.fish
 source ~/.config/fish/themes/aodark.fish
 
-if string match -q -- Darwin (uname)
-    set -g TERM xterm-256color
-else if string match -e -q -- fedora (hostname)
-    source ~/code/work/git-subrepo/.fish.rc
-
-    # Auto start tmux when ssh to the Lima VM
-    if test -z "$TMUX"
-        mkdir -p ~/.ssh
-        ln -sf "$SSH_TTY" ~/.ssh/ssh_tty
-
-        tmux -u attach || tmux -u new
-    end
-else
+if not string match -q -- Darwin (uname)
     if not set -q WORK_EMAIL
         if test -f ~/code/work/.gitconfig
             set -gx WORK_EMAIL (cat ~/code/work/.gitconfig | grep '@' | head -1 | awk '{ print $NF }')
@@ -154,7 +142,21 @@ else
     set -gx COMPANY_DOMAIN "$COMPANY_NAME_LOWER.com"
 
     set -gx no_proxy localhost,.$COMPANY_DOMAIN
+end
 
+if string match -q -- Darwin (uname)
+    set -g TERM xterm-256color
+else if string match -e -q -- fedora (hostname)
+    source ~/code/work/git-subrepo/.fish.rc
+
+    # Auto start tmux when ssh to the Lima VM
+    if test -z "$TMUX"
+        mkdir -p ~/.ssh
+        ln -sf "$SSH_TTY" ~/.ssh/ssh_tty
+
+        tmux -u attach || tmux -u new
+    end
+else
     # Update the default email for git
     if set -q WORK_EMAIL; and not grep -q $COMPANY_DOMAIN ~/.gitconfig
         git config --global user.email $WORK_EMAIL
