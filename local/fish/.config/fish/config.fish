@@ -145,7 +145,7 @@ if not string match -q -- Darwin (uname)
 end
 
 if string match -q -- Darwin (uname)
-    set -g TERM xterm-256color
+    # Do nothing
 else if string match -e -q -- fedora (hostname)
     source ~/code/work/git-subrepo/.fish.rc
 
