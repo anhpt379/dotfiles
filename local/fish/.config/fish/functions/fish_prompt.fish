@@ -15,25 +15,37 @@ function fish_prompt
     set -l prompt_background_color (set_color -b 262626)
 
     if string match -q -- "*.*" (hostname -f)
-        echo -n -s $prompt_background_color
-        echo -n -s "["
+        echo -n '['
 
-        if test "$USER" = root
+        # Hostname colored by user type
+        if test (id -u) -eq 0
             set_color red
         else
             set_color white
         end
+        echo -n (hostname -f | cut -d. -f1-2)
+        set_color normal
+        echo -n ' '
 
-        echo -n -s (prompt_hostname)
+        # Current directory
+        set_color yellow
+        echo -n $cwd
+        set_color normal
+        echo -n ']'
 
+        # Prompt symbol colored by exit code
         if test $last_command_status -eq 0
-            set_color yellow
+            set_color green
         else
             set_color red
         end
 
-        echo -n -s " " $cwd
-        echo -n -s $normal_color $prompt_background_color "]"
+        if test (id -u) -eq 0
+            echo -n '#'
+        else
+            echo -n '$'
+        end
+        set_color normal
 
         # Fix nvim permission issues when switching to root
         if test "$USER" = root
@@ -45,7 +57,6 @@ function fish_prompt
                 chown panh ~/.cache/fzf_filemru
             end
         end
-
     else
         echo -n -s $prompt_background_color
         if test $kernel = Darwin

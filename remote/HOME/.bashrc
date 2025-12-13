@@ -26,10 +26,11 @@ if [[ -n $SSH_CONNECTION ]]; then
 fi
 
 # A nicer bash prompt
+export SHORT_HOST=$(hostname -f | cut -d. -f1-2)
 if [ "$(id -u)" -eq 0 ]; then
-  PS1="\[\e[00;31m\][\h \w]# \[\e[00m\]"
+  PS1="\[\e[00;31m\][${SHORT_HOST} \w]# \[\e[00m\]"
 else
-  PS1="[\h \w]$ "
+  PS1="[${SHORT_HOST} \w]$ "
 fi
 
 # Reset cursor shape to beam
