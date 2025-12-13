@@ -169,6 +169,7 @@ http://www.keyboard-layout-editor.com/##@_backcolor=%23dbdbdb&name=Apple%20Wirel
   - `x/Vx` discard changes
   - `d` show diff
   - `r` rebase
+  - `m` open merge request link
   - `p` git push --force-with-lease
   - `P` git push --force
   - `C` commit

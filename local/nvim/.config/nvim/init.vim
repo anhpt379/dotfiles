@@ -643,6 +643,9 @@ augroup fugitive-personal-key-mappings
   autocmd FileType gitcommit nmap <buffer> gw :x<CR>
   autocmd FileType gitrebase nmap <buffer> gw :x<CR>
 
+  " m to open the merge request link
+  autocmd FileType fugitive nmap <buffer> m gm
+
   " Open diff in a new buffer by default
   autocmd FileType fugitive map <buffer> <nowait> <CR> O
 
