@@ -152,7 +152,7 @@ ex 
 .dockerignore    
 .editorconfig    
 .git             
-.git/            
+.git/            
 .gitattributes   
 .gitconfig       
 .github          
@@ -163,11 +163,17 @@ ex 
 .inputrc         
 .vimrc           
 .zsh             
+.npm/            
 /                
+home/            󱂵
+panh/            󱂵
+panh.linux/      󱂵
+code/            󰴉
+.config/         󱁿
 Brewfile         
-Desktop/         
+Desktop/         
 Dockerfile       
-Downloads/       
+Downloads/       󰉍
 LICENSE          
 Makefile         
 Makefile.ac      
@@ -178,6 +184,6 @@ README.rst       
 README.txt       
 Rakefile         
 config           
-dotfiles/        .
+dotfiles/        󱁿
 lfrc             
 requirements.txt 
