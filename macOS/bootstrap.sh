@@ -53,3 +53,6 @@ pip3 install --break-system-packages --force-reinstall https://github.com/yt-dlp
 echo "0 * * * * bash ~/Music/youtube-dl/download.sh" > cron
 crontab cron
 rm -f cron
+
+# Connect to github.com directly (ignoring VPN)
+echo "*/5 * * * * $HOME/.local/bin/github-direct-route.sh >> /tmp/github-direct-route.log 2>&1" | sudo crontab -
