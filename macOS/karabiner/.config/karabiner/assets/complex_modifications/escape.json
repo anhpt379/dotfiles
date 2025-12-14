@@ -1,0 +1,22 @@
+{
+  "title": "ESCAPE key",
+  "rules": [
+    {
+      "description": "Escape: Show desktop when pressing the ESCAPE key",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "escape"
+          },
+          "to": [
+            {
+              "key_code": "f3",
+              "modifiers": ["command"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

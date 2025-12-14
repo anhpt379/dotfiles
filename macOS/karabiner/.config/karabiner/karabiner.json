@@ -9,6 +9,21 @@
                 },
                 "rules": [
                     {
+                        "description": "Escape: Show desktop when pressing the ESCAPE key",
+                        "manipulators": [
+                            {
+                                "from": { "key_code": "escape" },
+                                "to": [
+                                    {
+                                        "key_code": "f3",
+                                        "modifiers": ["command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "macOS: Switch to next app with COMMAND+CONTROL+N",
                         "manipulators": [
                             {
@@ -1046,10 +1061,6 @@
                 {
                     "from": { "key_code": "right_option" },
                     "to": [{ "key_code": "delete_forward" }]
-                },
-                {
-                    "from": { "key_code": "escape" },
-                    "to": [{ "apple_vendor_keyboard_key_code": "mission_control" }]
                 }
             ],
             "virtual_hid_keyboard": {
