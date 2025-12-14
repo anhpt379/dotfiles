@@ -49,6 +49,36 @@ defaults write com.apple.dock autohide-delay -float 0
 defaults write com.apple.dock minimize-to-application -bool true
 defaults write com.apple.dock mru-spaces -bool false
 defaults write com.apple.dock show-recents -bool false
+
+# Set top right hot corner to show Notification Center
+# Hot corner action values:
+#   0  = No action
+#   2  = Mission Control
+#   3  = Application Windows
+#   4  = Desktop
+#   5  = Start Screen Saver
+#   6  = Disable Screen Saver
+#   7  = Dashboard
+#   10 = Put Display to Sleep
+#   11 = Launchpad
+#   12 = Notification Center
+#   13 = Lock Screen
+#
+# Corner positions:
+#   wvous-tl-corner = Top Left
+#   wvous-tr-corner = Top Right
+#   wvous-bl-corner = Bottom Left
+#   wvous-br-corner = Bottom Right
+#
+# Modifier values:
+#   0 = No modifier
+#   131072 = Shift
+#   262144 = Control
+#   524288 = Option
+#   1048576 = Command
+defaults write com.apple.dock wvous-tr-corner -int 12
+defaults write com.apple.dock wvous-tr-modifier -int 0
+
 killall Dock
 
 # Desktop
