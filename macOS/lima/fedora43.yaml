@@ -1,6 +1,9 @@
 # Upstream version: https://github.com/lima-vm/lima/blob/master/templates/fedora-43.yaml
 minimumLimaVersion: 2.0.0
 
+memory: 8GiB
+cpus: 8
+
 base:
   - template:_images/fedora-43
   - template:_default/mounts
