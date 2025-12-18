@@ -11,7 +11,7 @@ sudo dnf install -y \
   stow git fish tmux neovim \
   jq ripgrep eza rsync zoxide \
   curl wget nmap-ncat \
-  telnet corkscrew zsh \
+  telnet corkscrew \
   tldr man-pages grc dnsutils moreutils\
   atop pwgen ncdu hyperfine \
   ipython python3-uv irb \
