@@ -81,7 +81,7 @@ cmd copy_name %{{
 }}
 
 cmd copy_context %{{
-  gptree --no-config ./
+  gptree --no-config --disable-safe-mode ./
   cat ~/.config/llm/base_prompt.md gptree_output.txt | pbcopy
   rm -f gptree_output.txt
   lf -remote "send quit"
