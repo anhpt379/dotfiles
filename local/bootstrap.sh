@@ -46,6 +46,7 @@ stow grc
 stow inputrc
 stow less
 stow lf
+stow llm
 stow man
 stow nvim
 stow nvimpager
