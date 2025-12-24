@@ -64,31 +64,31 @@ require('mason-tool-installer').setup({
   start_delay = 3000, -- 3 second delay
 })
 
-require("mason-lspconfig").setup_handlers({
-  function(server_name)
-    if server_name == 'lua_ls' then
-      vim.lsp.config(server_name, {
-        settings = {
+require("mason-lspconfig").setup({
+  handlers = {
+    function(server_name)
+      local config = {}
+
+      if server_name == 'lua_ls' then
+        config.settings = {
           Lua = {
             diagnostics = { globals = { "vim" } },
           }
         }
-      })
-    elseif server_name == 'pyright' then
-      vim.lsp.config(server_name, {
-        settings = {
+      elseif server_name == 'pyright' then
+        config.settings = {
           python = {
             analysis = {
               diagnosticMode = 'openFilesOnly'
             }
           }
         }
-      })
-    else
-      vim.lsp.config(server_name, {})
-    end
-    vim.lsp.enable(server_name)
-  end,
+      end
+
+      vim.lsp.config(server_name, config)
+      vim.lsp.enable(server_name)
+    end,
+  },
 })
 
 require('lsp-status').register_progress()
