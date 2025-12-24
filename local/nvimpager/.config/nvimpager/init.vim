@@ -1,4 +1,5 @@
 set runtimepath+=~/.config/nvim
+set runtimepath+=~/.local/share/nvim/site
 
 call plug#begin('~/.local/share/nvim/plugged')
   Plug 'mireq/large_file'
