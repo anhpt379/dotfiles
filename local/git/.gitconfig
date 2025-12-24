@@ -8,6 +8,7 @@
   excludesFile = ~/.gitignore_global
   pager = cat
   untrackedCache = true
+  commentChar = ";"
 
 [color]
   ui = true

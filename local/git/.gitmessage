@@ -1,28 +1,13 @@
 
 
-# <type>(<scope>)[!]: <short summary>
-#
-# <body>           what and why vs. how
-#
-# Resolves: #123
-# See also: #456, #789
-#
-## Answer the following questions:
-#  * Why is this change necessary?
-#  * How does it address the issue?
-#  * What side effects does this change have?
-#
-## TYPES:
-# feat!:    An API breaking feature [major release bump]
-# feat:     A new feature           [minor release bump]
-# fix:      A bug fix               [patch release bump]
-# docs:     Documentation only changes
-# style:    Changes that do not affect the meaning of the code
-#           (white-space, formatting, missing semi-colons, etc)
-# refactor: A code change that neither fixes a bug nor adds a feature
-# perf:     A code change that improves performance
-# test:     Adding missing tests
-# chore:    Changes to the build process or auxiliary tools and libraries
-#           such as documentation generation
-#
-# See https://www.conventionalcommits.org/en/v1.0.0/#summary
+; <scope>: <short summary>
+;
+; <body>   what and why vs. how
+;
+; Resolves: #123
+; See also: #456, #789
+;
+; Answer the following questions:
+;  * Why is this change necessary?
+;  * How does it address the issue?
+;  * What side effects does this change have?
