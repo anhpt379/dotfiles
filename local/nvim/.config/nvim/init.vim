@@ -1,6 +1,6 @@
 scriptencoding utf-8
 
-source ~/.config/nvim/plugins.vim
+runtime plugins.vim
 
 " Load core settings
 runtime settings/general.vim
