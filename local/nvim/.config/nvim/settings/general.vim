@@ -11,6 +11,7 @@ set nowritebackup
 set updatetime=300
 set shortmess+=c
 set signcolumn=yes
+set number
 
 " Indentation
 set tabstop=2
