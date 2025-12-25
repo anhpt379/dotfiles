@@ -52,7 +52,7 @@ eval "${command}" | fzf --ansi \
     --tiebreak=begin \
     --header="$(tput setaf 1)CTRL-S$(tput sgr0) to toggle sort, $(tput setaf 1)CTRL-/$(tput sgr0) to toggle preview, $(tput setaf 1)CTRL-Y$(tput sgr0) to copy path" \
     --preview="preview {}" \
-    --preview-window=right,60%,border-sharp \
+    --preview-window=right,60%,border-rounded \
     --bind="enter:execute/${select_file}/+abort" \
     --bind="tab:execute/${select_file}/+abort" \
     --bind="ctrl-y:execute/${copy_file}/+abort" \

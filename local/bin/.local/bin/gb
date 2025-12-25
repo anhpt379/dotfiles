@@ -38,7 +38,7 @@ result=$(
     awk '{ print $2 " " $1 }' |
     sed 's/^ //' |
     fzf --height=100% \
-      --preview-window=right,75%,border-sharp \
+      --preview-window=right,75%,border-rounded \
       --exact \
       --query="${query}" \
       --print-query \

@@ -76,7 +76,7 @@ set -gx FZF_DEFAULT_OPTS \
             --no-multi
             --reverse
             --height=40%
-            --preview-window=right,60%,border-sharp
+            --preview-window=right,60%,border-rounded
             --info=inline-right
             --no-separator
             --scrollbar='▌▐'
