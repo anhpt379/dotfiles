@@ -66,7 +66,6 @@ call plug#begin()
   Plug 'tyru/open-browser.vim'
   Plug 'svban/YankAssassin.vim'
   Plug 'mireq/large_file'
-  Plug 'highlight-whitespace'
 
   " Git
   Plug 'tpope/vim-fugitive'
