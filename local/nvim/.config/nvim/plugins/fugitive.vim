@@ -107,27 +107,36 @@ augroup fugitive-personal-key-mappings
         \   fi<CR>
         \ :<C-u>call vim_git_browse#GitOpenPullRequest()<CR>
         \ :silent exec '!git rev-parse HEAD \| tr -d "\n" \| pbcopy'<CR>
+
   " Verbose and quiet git commit by default
   autocmd FileType fugitive nmap <buffer> C  :call FugitiveRetryCommit()<CR>
   autocmd FileType fugitive nmap <buffer> cc :call FugitiveRetryCommit()<CR>
   autocmd FileType fugitive nmap <buffer> ca :vertical Git commit --quiet --no-status --amend<CR>
   autocmd FileType fugitive nmap <buffer> ce :Git commit --amend --quiet --no-status --no-edit<CR>
+
   " gw in gitcommit/gitrebase to save and close
   autocmd FileType gitcommit nmap <buffer> gw :x<CR>
   autocmd FileType gitrebase nmap <buffer> gw :x<CR>
+
   " m to open the merge request link
   autocmd FileType fugitive nmap <buffer> m gm
+
   " Open diff in a new buffer by default
   autocmd FileType fugitive map <buffer> <nowait> <CR> O
+
   " Easier to reach -= keys
   autocmd FileType fugitive map <buffer> <nowait> d =
   autocmd FileType fugitive map <buffer> <nowait> a -
+
   " x is easier to type than X
   autocmd FileType fugitive map <buffer> <nowait> x X
+
   " gr to rebase
   autocmd FileType fugitive map <buffer> <nowait> gr :execute 'G rebase -i ' . system('git symbolic-ref --short HEAD') . '<CR>'
+
   " Left padding
   autocmd FileType fugitive set signcolumn=yes | set number
+
   " Open G blame commit with `go`
   autocmd FileType fugitiveblame nmap <buffer> go :.GBrowse<CR>
 augroup end
