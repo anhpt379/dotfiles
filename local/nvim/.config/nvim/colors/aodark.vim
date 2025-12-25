@@ -206,29 +206,12 @@ call s:link('gitcommitSelectedArrow',  'gitcommitSelectedFile')
 call s:link('gitcommitUnmergedArrow',  'gitcommitUnmergedFile')
 " }}}
 
-" Git Messenger {{{
-call s:hl('gitmessengerPopupNormal', '', '#000000')
-call s:link('gitmessengerHeader',   'Identifier')
-call s:link('gitmessengerHash',     'Number')
-call s:link('gitmessengerHistory',  'Constant')
-" }}}
-
 " Conflict Marker {{{
 call s:hl('ConflictMarkerBegin',     '', '#2f7366')
 call s:hl('ConflictMarkerOurs',      '', '#2e5049')
 call s:hl('ConflictMarkerSeparator', '#e5c07b', '')
 call s:hl('ConflictMarkerTheirs',    '', '#344f69')
 call s:hl('ConflictMarkerEnd',       '', '#2f628e')
-" }}}
-
-" Coc.nvim {{{
-call s:hl('CocFloating',         '', '#282829')
-call s:hl('CocErrorHighlight',   '#dd3c69', '')
-call s:hl('CocWarningHighlight', '#d6b152', '')
-call s:hl('CocHintHighlight',    '#ffffff', '', 'underline')
-call s:hl('CocHintSign',         '#55CABE', '')
-call s:link('CocErrorSign',   'CocErrorHighlight')
-call s:link('CocWarningSign', 'CocWarningHighlight')
 " }}}
 
 " Clever-f {{{
