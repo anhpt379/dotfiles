@@ -145,7 +145,7 @@ sudo dnf config-manager addrepo --overwrite --from-repofile=https://rpm.releases
 sudo dnf -y install terraform
 
 # gptree
-pip3 install gptree-cli
+pip3 install https://github.com/travisvn/gptree/archive/refs/heads/main.zip
 
 # tree-sitter
 sudo dnf install -y gcc-c++ libstdc++-static
