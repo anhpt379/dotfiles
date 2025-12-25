@@ -1,0 +1,29 @@
+# GPTree Global Config
+version: 3
+
+# Whether to use .gitignore
+useGitIgnore: true
+# File types to include (e.g., .py,.js) - use * for all types
+includeFileTypes: *
+# File types to exclude (e.g., .log,.tmp)
+excludeFileTypes: .log,.tmp # Exclude unwanted file types
+# Advanced: Glob patterns to include (e.g., src/**/*.py,**/*.js) - overrides includeFileTypes if specified
+includePatterns: 
+# Advanced: Glob patterns to exclude (e.g., **/tests/**,**/*.log) - combined with excludeFileTypes
+excludePatterns: dictionaries/**
+# Output file name
+outputFile: gptree_output.txt
+# Whether to output the file locally or relative to the project directory
+outputFileLocally: true
+# Whether to copy the output to the clipboard
+copyToClipboard: false
+# Whether to use safe mode (prevent overly large files from being combined)
+safeMode: false
+# Whether to store the files chosen in the config file (--save, -s)
+storeFilesChosen: true
+# Whether to include line numbers in the output (--line-numbers, -n)
+lineNumbers: false
+# Whether to show ignored files in the directory tree
+showIgnoredInTree: false
+# Whether to show only default ignored files in the directory tree while still respecting gitignore
+showDefaultIgnoredInTree: false
