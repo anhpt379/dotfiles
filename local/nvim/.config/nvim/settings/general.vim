@@ -8,10 +8,22 @@ noremap <Space> <Nop>
 set hidden
 set nobackup
 set nowritebackup
+set noswapfile
 set updatetime=300
 set shortmess+=c
 set signcolumn=yes
 set number
+set cursorline
+set gdefault
+set splitbelow
+set textwidth=80
+set colorcolumn=80
+set guicursor=i-c-ci-v:ver25
+set mousescroll=ver:1,hor:0
+set noshowmode
+set smoothscroll
+set nowrap
+set ttimeoutlen=5
 
 " Indentation
 set tabstop=2
@@ -52,6 +64,8 @@ set diffopt+=vertical
 set diffopt+=algorithm:patience
 
 " Folding
+set nofoldenable
+set foldlevel=90
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
 
@@ -71,4 +85,3 @@ set conceallevel=0
 
 " Disable netrw history
 let g:netrw_dirhistmax = 0
-
