@@ -20,5 +20,5 @@ runtime plugins/terminal.vim
 
 " Load Lua config
 if g:hostname =~# 'fedora'
-  luafile <sfile>:h/config.lua
+  lua require('config')
 endif

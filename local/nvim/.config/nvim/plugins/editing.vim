@@ -74,6 +74,7 @@ nnoremap <BS>  <nop>
 nnoremap <Del> <nop>
 
 " Quick folding with `-`
+set nofoldenable
 nnoremap - za
 vnoremap - za
 
