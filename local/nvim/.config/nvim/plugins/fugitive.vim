@@ -1,3 +1,5 @@
+scriptencoding utf-8
+
 " Git commands
 command! Gundo               silent! G undo
 command! Gstash              silent! G stash

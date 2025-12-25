@@ -1,3 +1,5 @@
+scriptencoding utf-8
+
 " Set leader key (must be set before any <Leader> mappings)
 let mapleader=' '
 noremap <Space> <Nop>

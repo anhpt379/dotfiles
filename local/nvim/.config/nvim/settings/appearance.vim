@@ -1,3 +1,5 @@
+scriptencoding utf-8
+
 " Enable true color support (must be set before loading colorscheme)
 if has('termguicolors')
   set termguicolors
