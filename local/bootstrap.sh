@@ -14,7 +14,7 @@ sudo dnf install -y \
   telnet corkscrew \
   tldr man-pages grc dnsutils moreutils\
   atop pwgen ncdu hyperfine \
-  ipython python3-uv irb \
+  ipython python3-uv irb awscli2 \
   python3-setuptools python3-pip python3-devel \
   golang npm luarocks lua-devel ruby-devel \
 
