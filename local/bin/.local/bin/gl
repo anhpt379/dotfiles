@@ -19,7 +19,7 @@ else
 fi
 
 cmd_name=$(basename "$0")
-num_commits=5000
+num_commits=15000
 args_count=0
 args_array=()
 for i in "$@"; do
