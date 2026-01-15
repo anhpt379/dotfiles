@@ -137,8 +137,8 @@ call plug#begin()
     " Plug 'dcampos/nvim-snippy'
     " Plug 'dcampos/cmp-snippy'
 
-    Plug 'nvim-treesitter/nvim-treesitter', {'tag': 'v0.10.0', 'do': ':TSUpdate'}
-    Plug 'nvim-treesitter/nvim-treesitter-textobjects', {'commit': 'dfbf9596f8aa8b4bed5301647485594ff7252955'}
+    Plug 'nvim-treesitter/nvim-treesitter'
+    Plug 'nvim-treesitter/nvim-treesitter-textobjects', {'branch': 'main'}
     Plug 'SmiteshP/nvim-navic'
     Plug 'windwp/nvim-ts-autotag'
     Plug 'JoosepAlviste/nvim-ts-context-commentstring'

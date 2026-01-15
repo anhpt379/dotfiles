@@ -13,7 +13,7 @@ require('ts_context_commentstring').setup({
 })
 
 -- Main treesitter configuration
-require('nvim-treesitter.configs').setup({
+require('nvim-treesitter').setup({
   ensure_installed = {
     "bash", "css", "csv", "diff", "editorconfig", "fish",
     "git_config", "git_rebase", "gitattributes", "gitcommit", "gitignore",
