@@ -13,8 +13,8 @@ sudo dnf install -y \
   curl wget nmap-ncat \
   telnet corkscrew \
   tldr man-pages grc dnsutils moreutils\
-  atop pwgen ncdu hyperfine \
-  ipython python3-uv irb awscli2 \
+  atop pwgen ncdu hyperfine awscli2 \
+  irb ipython python3-uv bats python3-pytest \
   python3-setuptools python3-pip python3-devel \
   golang npm luarocks lua-devel ruby-devel \
 
