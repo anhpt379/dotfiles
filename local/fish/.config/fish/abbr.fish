@@ -15,6 +15,8 @@ end
 abbr -a gco 'git checkout'
 abbr -a m   'master'
 
+abbr -a cc 'claude'
+
 abbr -a c 'clear'
 abbr -a q 'exit'
 
