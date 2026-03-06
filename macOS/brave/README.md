@@ -6,7 +6,7 @@ Settings -> System -> Shortcuts -> Name Window... -> Add -> `CMD+E`
 
 ## MRU Tab Switcher
 
-Map Normal switch backward to CMD+P, and Normal switch forward to CMD+N in brave://extensions/shortcuts
+Map Normal switch backward to CMD+SHIFT+P, and Normal switch forward to CMD+SHIFT+N in brave://extensions/shortcuts
 
 ## Extensions
 
