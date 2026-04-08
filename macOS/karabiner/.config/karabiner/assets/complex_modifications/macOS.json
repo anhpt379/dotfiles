@@ -110,7 +110,7 @@
           "to": [
             {
               "key_code": "tab",
-              "modifiers": ["command"]
+              "modifiers": ["option"]
             }
           ]
         }
@@ -129,8 +129,8 @@
           },
           "to": [
             {
-              "key_code": "tab",
-              "modifiers": ["command", "shift"]
+              "key_code": "p",
+              "modifiers": ["option"]
             }
           ]
         }

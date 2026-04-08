@@ -9,57 +9,6 @@
                 },
                 "rules": [
                     {
-                        "description": "Escape: Show desktop when pressing the ESCAPE key",
-                        "manipulators": [
-                            {
-                                "from": { "key_code": "escape" },
-                                "to": [
-                                    {
-                                        "key_code": "f3",
-                                        "modifiers": ["command"]
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "macOS: Switch to next app with COMMAND+CONTROL+N",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "n",
-                                    "modifiers": { "mandatory": ["command", "control"] }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "tab",
-                                        "modifiers": ["command"]
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "macOS: Switch to previous app with COMMAND+CONTROL+P",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "p",
-                                    "modifiers": { "mandatory": ["command", "control"] }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "tab",
-                                        "modifiers": ["command", "shift"]
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
                         "description": "TimeOut: Postpone next break by pressing COMMAND+ESCAPE",
                         "manipulators": [
                             {
@@ -96,17 +45,14 @@
                         ]
                     },
                     {
-                        "description": "macOS: Switch to previous window with COMMAND+CONTROL+P",
+                        "description": "Escape: Show desktop when pressing the ESCAPE key",
                         "manipulators": [
                             {
-                                "from": {
-                                    "key_code": "p",
-                                    "modifiers": { "mandatory": ["command", "control"] }
-                                },
+                                "from": { "key_code": "escape" },
                                 "to": [
                                     {
-                                        "key_code": "grave_accent_and_tilde",
-                                        "modifiers": ["command", "shift"]
+                                        "key_code": "f3",
+                                        "modifiers": ["command"]
                                     }
                                 ],
                                 "type": "basic"
@@ -114,7 +60,7 @@
                         ]
                     },
                     {
-                        "description": "macOS: Switch to next window with COMMAND+CONTROL+N",
+                        "description": "macOS: Switch to next app with COMMAND+CONTROL+N",
                         "manipulators": [
                             {
                                 "from": {
@@ -123,8 +69,26 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "grave_accent_and_tilde",
-                                        "modifiers": ["command"]
+                                        "key_code": "tab",
+                                        "modifiers": ["option"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "macOS: Switch to previous app with COMMAND+CONTROL+P",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "p",
+                                    "modifiers": { "mandatory": ["command", "control"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "p",
+                                        "modifiers": ["option"]
                                     }
                                 ],
                                 "type": "basic"
