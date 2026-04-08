@@ -6,16 +6,16 @@ read -p "Enter company domain (e.g., example.com): " company_domain
 
 sudo dnf copr enable -y alternateved/eza
 
-# Upgrade tmux to the latest version
+# Upgrade tmux & fish to the latest version
 sudo dnf install fedora-repos-rawhide
 sudo dnf config-manager setopt rawhide.enabled=0
-sudo dnf config-manager setopt excludepkgs=tmux
-sudo dnf --enablerepo=rawhide --setopt=excludepkgs= upgrade tmux
+sudo dnf config-manager setopt excludepkgs=tmux,fish
+sudo dnf --enablerepo=rawhide --setopt=excludepkgs= upgrade tmux fish
 
 # Install other packages
 sudo dnf install -y \
   kitty-terminfo which \
-  stow git fish neovim \
+  stow git neovim \
   jq ripgrep eza rsync zoxide \
   curl wget nmap-ncat \
   telnet corkscrew \
