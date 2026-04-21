@@ -48,7 +48,7 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
                 --copy-links \
                 --keep-dirlinks \
                 --relative \
-                ~/dotfiles/remote/HOME/./.{bashrc,bash_profile,bash_aliases,inputrc,vimrc,less,terminfo,local/bin/pbcopy,local/bin/pbpaste} "$argv[1]":
+                ~/dotfiles/remote/HOME/./.{bashrc,bash_profile,bash_aliases,inputrc,vimrc,tmux.conf,less,terminfo,local/bin/pbcopy,local/bin/pbpaste} "$argv[1]":
         else
             rsync -azvhP \
                 --info=name0 \
