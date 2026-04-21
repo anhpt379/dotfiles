@@ -37,38 +37,31 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
         end
     end
 
-    if string match -q -- "root@*" $argv
-        set REMOTE_HOME_DIR /tmp/panh
-    else if string match -q -- "*.compute.amazonaws.com" $argv
-        rsync -azvhP \
-            --info=name0 \
-            --info=progress2 \
-            --no-inc-recursive \
-            --compress-level=9 \
-            --copy-links \
-            --keep-dirlinks \
-            --relative \
-            ~/dotfiles/remote/HOME/./.{bashrc,bash_profile,bash_aliases,inputrc,vimrc,less,terminfo,local/bin/pbcopy,local/bin/pbpaste} "$argv[1]": 2>/dev/null
-    else
-        set REMOTE_HOME_DIR /home/panh
+    if not string match -q -- "root@*" $argv
+        ssh $argv "which rsync &>/dev/null || sudo dnf install -y rsync >/dev/null"
+        if command ssh $argv "uname -m" | grep -q aarch64
+            # We don't have binaries for aarch64 yet
+            rsync -azvhP \
+                --info=name0 \
+                --info=progress2 \
+                --no-inc-recursive \
+                --copy-links \
+                --keep-dirlinks \
+                --relative \
+                ~/dotfiles/remote/HOME/./.{bashrc,bash_profile,bash_aliases,inputrc,vimrc,less,terminfo,local/bin/pbcopy,local/bin/pbpaste} "$argv[1]":
+        else
+            rsync -azvhP \
+                --info=name0 \
+                --info=progress2 \
+                --no-inc-recursive \
+                --copy-links \
+                --keep-dirlinks \
+                --relative \
+                ~/dotfiles/remote/HOME/./ "$argv[1]":
+        end
     end
 
     set REMOTE_COMMAND "
-        if test -n "$REMOTE_HOME_DIR"; then
-            export HOME=$REMOTE_HOME_DIR
-            mkdir -p $REMOTE_HOME_DIR
-        fi
-
-        if ! test -d .files; then
-            echo "Fetching dotfiles..."
-            git clone --depth=1 --progress https://github.com/anhpt379/.files.git
-        else
-            echo "Updating dotfiles..."
-            git -C .files pull --depth=1 --progress --quiet origin master
-        fi
-
-        rsync -a .files/HOME/ ~/
-
         export LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
         export TERM=xterm-kitty
         export WORK_EMAIL=$WORK_EMAIL
