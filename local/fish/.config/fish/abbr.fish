@@ -36,8 +36,8 @@ abbr -a nv  'nvim'
 abbr -a gpt 'gptree ./ && cat gptree_output.txt | pbcopy && rm -f gptree_output.txt .gptree_config'
 
 abbr -a cmd  'command'
-abbr -a r    'sudo -E -s fish'
-abbr -a root 'sudo -E -s fish'
+abbr -a r    'sudo --preserve-env=HOME -s fish'
+abbr -a root 'sudo --preserve-env=HOME -s fish'
 
 abbr -a start   'sudo systemctl start'
 abbr -a stop    'sudo systemctl stop'
