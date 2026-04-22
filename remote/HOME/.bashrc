@@ -39,18 +39,6 @@ PROMPT_COMMAND="printf '\033[6 q'"
 # Fix git-deploy umask complaining
 umask 0002
 
-# Extract tmux appimage
-if ! test -f ~/.local/bin/tmux-appimage/squashfs-root/usr/bin/tmux || test ~/.local/bin/tmux.appimage -nt ~/.local/bin/tmux-appimage/squashfs-root/usr/bin/tmux || ! test -e ~/.local/bin/tmux; then
-  if test -f ~/.local/bin/tmux.appimage; then
-    rm -rf ~/.local/bin/tmux-appimage/
-    mkdir -p ~/.local/bin/tmux-appimage/
-    cd ~/.local/bin/tmux-appimage/ || exit 1
-    ../tmux.appimage --appimage-extract >/dev/null
-
-    ln -sf ~/.local/bin/tmux-appimage/squashfs-root/usr/bin/tmux ~/.local/bin/tmux
-  fi
-fi
-
 # Extract nvim appimage
 if ! test -f ~/.local/bin/nvim-appimage/squashfs-root/usr/bin/nvim || test ~/.local/bin/nvim.appimage -nt ~/.local/bin/nvim-appimage/squashfs-root/usr/bin/nvim || ! test -e ~/.local/bin/nvim; then
   if test -f ~/.local/bin/nvim.appimage; then
