@@ -241,7 +241,7 @@ mv vault ~/.local/bin/
 rm -f vault_${VAULT_VERSION}_linux_arm64.zip
 
 # okta-aws-cli
-OKTA_AWS_CLI_VERSION=2.6.0
+OKTA_AWS_CLI_VERSION=2.5.3
 mkdir /tmp/okta-aws-cli
 cd /tmp/okta-aws-cli
 wget https://github.com/okta/okta-aws-cli/releases/download/v${OKTA_AWS_CLI_VERSION}/okta-aws-cli_${OKTA_AWS_CLI_VERSION}_linux_arm64.tar.gz
