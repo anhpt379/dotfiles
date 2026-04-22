@@ -38,7 +38,9 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
     end
 
     if not string match -q -- "root@*" $argv
-        ssh $argv "which rsync &>/dev/null || sudo dnf install -y rsync >/dev/null"
+        ssh $argv "which rsync &>/dev/null || (echo 'Installing rsync...' && sudo dnf install -y rsync >/dev/null)" || return 1
+        ssh $argv "which tmux &>/dev/null || (echo 'Installing tmux...' && sudo dnf install -y tmux >/dev/null)" || return 1
+        echo "Uploading dotfiles..."
         if command ssh $argv "uname -m" | grep -q aarch64
             # We don't have binaries for aarch64 yet
             rsync -azvhP \
@@ -48,7 +50,15 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
                 --copy-links \
                 --keep-dirlinks \
                 --relative \
-                ~/dotfiles/remote/HOME/./.{bashrc,bash_profile,bash_aliases,inputrc,vimrc,tmux.conf,less,terminfo,local/bin/pbcopy,local/bin/pbpaste} "$argv[1]":
+                ~/dotfiles/remote/HOME/./.{bashrc,bash_profile,bash_aliases,inputrc,vimrc,tmux.conf,less,terminfo,local/bin/pbcopy,local/bin/pbpaste} "$argv[1]": || true
+
+            set REMOTE_COMMAND "
+                export LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
+                export TERM=xterm-256color
+                export WORK_EMAIL=$WORK_EMAIL
+
+                source ~/.bash_profile
+            "
         else
             rsync -azvhP \
                 --info=name0 \
@@ -57,17 +67,18 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
                 --copy-links \
                 --keep-dirlinks \
                 --relative \
-                ~/dotfiles/remote/HOME/./ "$argv[1]":
+                ~/dotfiles/remote/HOME/./ "$argv[1]": || true
+
+            set REMOTE_COMMAND "
+                export LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
+                export TERM=xterm-kitty
+                export WORK_EMAIL=$WORK_EMAIL
+
+                source ~/.bash_profile
+            "
         end
+
     end
-
-    set REMOTE_COMMAND "
-        export LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
-        export TERM=xterm-kitty
-        export WORK_EMAIL=$WORK_EMAIL
-
-        source ~/.bash_profile
-    "
 
     set start $(date +%s)
     if begin
