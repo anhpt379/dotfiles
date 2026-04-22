@@ -2,16 +2,17 @@
 
 ```fish
 # fish
-set fish_version 4.1.2  # We can't use the uppercase FISH_VERSION because it's a built-in variable from fish shell.
+set fish_version 4.6.0  # We can't use the uppercase FISH_VERSION because it's a built-in variable from fish shell.
 wget https://github.com/fish-shell/fish-shell/releases/download/$fish_version/fish-$fish_version-linux-x86_64.tar.xz
 tar xf fish-$fish_version-linux-x86_64.tar.xz
 rm -f fish-$fish_version-linux-x86_64.tar.xz
 mv fish* HOME/.local/bin/
 
 # tmux
-wget 'https://github.com/andryandrew/tmux-appimage/releases/download/next-3.5/tmux.appimage'
-mv tmux.appimage HOME/.local/bin/tmux.appimage
-chmod +x HOME/.local/bin/tmux.appimage
+wget https://github.com/tmux/tmux-builds/releases/download/v3.6a/tmux-3.6a-linux-x86_64.tar.gz
+tar xf tmux-*.tar.gz
+rm -f tmux-*.tar.gz
+mv tmux HOME/.local/bin/
 
 # nvim
 # wget https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
@@ -22,26 +23,26 @@ chmod +x nvim-linux-x86_64.appimage
 mv nvim-linux-x86_64.appimage HOME/.local/bin/nvim.appimage
 
 # fzf
-set FZF_VERSION 0.67.0
+set FZF_VERSION 0.71.0
 wget https://github.com/junegunn/fzf/releases/download/v$FZF_VERSION/fzf-$FZF_VERSION-linux_amd64.tar.gz
 tar zxvf fzf-$FZF_VERSION-linux_amd64.tar.gz
 mv fzf HOME/.local/bin/
 rm -f fzf-$FZF_VERSION-linux_amd64.tar.gz
 
 # lf
-wget https://github.com/gokcehan/lf/releases/download/r38/lf-linux-amd64.tar.gz
+wget https://github.com/gokcehan/lf/releases/download/r41/lf-linux-amd64.tar.gz
 tar zxvf lf-linux-amd64.tar.gz
 mv lf HOME/.local/bin/
 rm -f lf-linux-amd64.tar.gz
 
 # fd
-wget https://github.com/sharkdp/fd/releases/download/v10.3.0/fd-v10.3.0-x86_64-unknown-linux-musl.tar.gz
+wget https://github.com/sharkdp/fd/releases/download/v10.4.2/fd-v10.4.2-x86_64-unknown-linux-musl.tar.gz
 tar zxvf fd-*-x86_64-unknown-linux-musl.tar.gz
 mv fd-*/fd HOME/.local/bin/
 rm -rf fd-*
 
 # rg
-wget https://github.com/BurntSushi/ripgrep/releases/download/14.1.1/ripgrep-14.1.1-x86_64-unknown-linux-musl.tar.gz
+wget https://github.com/BurntSushi/ripgrep/releases/download/15.1.0/ripgrep-15.1.0-x86_64-unknown-linux-musl.tar.gz
 tar zxvf ripgrep-*-x86_64-unknown-linux-musl.tar.gz
 mv ripgrep-*/rg HOME/.local/bin/
 rm -rf ripgrep-*
@@ -53,7 +54,7 @@ for f in grc grcat; do
 done
 
 # jq
-curl -fLo HOME/.local/bin/jq https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64
+curl -fLo HOME/.local/bin/jq https://github.com/stedolan/jq/releases/download/jq-1.8.1/jq-linux64
 chmod +x HOME/.local/bin/jq
 
 # kubecolor
