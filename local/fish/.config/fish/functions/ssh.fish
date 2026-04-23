@@ -45,27 +45,28 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
             uname -m
         ") || return 1
 
-        echo "Uploading dotfiles..."
-        if string match -q "aarch64" $remote_arch
-            # We don't have binaries for aarch64 yet
-            rsync -azvhP \
-                --info=name0 \
-                --info=progress2 \
-                --no-inc-recursive \
-                --copy-links \
-                --keep-dirlinks \
-                --relative \
-                ~/dotfiles/remote/HOME/./.{bashrc,bash_profile,bash_aliases,inputrc,vimrc,tmux.conf,less,terminfo,local/bin/pbcopy,local/bin/pbpaste} "$argv[1]": || true
+        # Phase 0: Must-have/small dotfiles for ALL architectures
+        echo "Uploading dotfiles (CTRL+C to skip)..."
+        rsync -azvhP \
+            --info=name0 \
+            --info=progress2 \
+            --no-inc-recursive \
+            --copy-links \
+            --keep-dirlinks \
+            --relative \
+            ~/dotfiles/remote/HOME/./.{bashrc,bash_profile,bash_aliases,inputrc,vimrc,tmux.conf,less,terminfo,local/bin/pbcopy,local/bin/pbpaste} "$argv[1]": >/dev/null
+        or true
 
+        if string match -q "aarch64" $remote_arch
+            # aarch64: Only Phase 0, done
             set REMOTE_COMMAND "
                 export LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
                 export TERM=xterm-256color
                 export WORK_EMAIL=$WORK_EMAIL
-
                 source ~/.bash_profile
             "
         else
-            # Phase 1: Upload small/critical files + tmux synchronously (fast)
+            # Phase 1: Upload remaining small/critical files (x86 only)
             rsync -azvhP \
                 --info=name0 \
                 --info=progress2 \
@@ -81,17 +82,18 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
                 --exclude='.local/bin/fzf' \
                 --exclude='.local/bin/fd' \
                 --exclude='.local/bin/jq' \
-                ~/dotfiles/remote/HOME/./ "$argv[1]": || true
+                ~/dotfiles/remote/HOME/./ "$argv[1]": 2>/dev/null
+            or true
 
-            # Phase 2: Upload large binaries in background, then extract nvim appimage
+            # Phase 2: Upload large binaries in background (100KB/s limit), then extract nvim
             nohup sh -c "
                 rsync -azP \
+                    --bwlimit=100 \
                     --partial \
                     --copy-links \
                     --keep-dirlinks \
                     --relative \
                     ~/dotfiles/remote/HOME/./.local/bin/{fish,nvim.appimage,lf,rg,kubecolor,fzf,fd,jq} '$argv[1]':
-                # Extract nvim appimage after upload
                 ssh '$argv[1]' '
                     rm -rf ~/.local/bin/nvim-appimage/
                     mkdir -p ~/.local/bin/nvim-appimage/
@@ -105,7 +107,6 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
                 export LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
                 export TERM=xterm-kitty
                 export WORK_EMAIL=$WORK_EMAIL
-
                 source ~/.bash_profile
             "
         end
