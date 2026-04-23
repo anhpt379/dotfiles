@@ -38,10 +38,15 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
     end
 
     if not string match -q -- "root@*" $argv
-        ssh $argv "which rsync &>/dev/null || (echo 'Installing rsync...' && sudo dnf install -y rsync >/dev/null)" || return 1
-        ssh $argv "which tmux &>/dev/null || (echo 'Installing tmux...' && sudo dnf install -y tmux >/dev/null)" || return 1
+        # Single SSH call to check dependencies and detect architecture
+        set -l remote_arch (ssh $argv "
+            which rsync &>/dev/null || (echo 'Installing rsync...' >&2 && sudo dnf install -y rsync >/dev/null)
+            which tmux &>/dev/null || (echo 'Installing tmux...' >&2 && sudo dnf install -y tmux >/dev/null)
+            uname -m
+        ") || return 1
+
         echo "Uploading dotfiles..."
-        if command ssh $argv "uname -m" | grep -q aarch64
+        if string match -q "aarch64" $remote_arch
             # We don't have binaries for aarch64 yet
             rsync -azvhP \
                 --info=name0 \
@@ -60,6 +65,7 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
                 source ~/.bash_profile
             "
         else
+            # Phase 1: Upload small/critical files + tmux synchronously (fast)
             rsync -azvhP \
                 --info=name0 \
                 --info=progress2 \
@@ -67,7 +73,33 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
                 --copy-links \
                 --keep-dirlinks \
                 --relative \
+                --exclude='.local/bin/fish' \
+                --exclude='.local/bin/nvim.appimage' \
+                --exclude='.local/bin/lf' \
+                --exclude='.local/bin/rg' \
+                --exclude='.local/bin/kubecolor' \
+                --exclude='.local/bin/fzf' \
+                --exclude='.local/bin/fd' \
+                --exclude='.local/bin/jq' \
                 ~/dotfiles/remote/HOME/./ "$argv[1]": || true
+
+            # Phase 2: Upload large binaries in background, then extract nvim appimage
+            nohup sh -c "
+                rsync -azP \
+                    --partial \
+                    --copy-links \
+                    --keep-dirlinks \
+                    --relative \
+                    ~/dotfiles/remote/HOME/./.local/bin/{fish,nvim.appimage,lf,rg,kubecolor,fzf,fd,jq} '$argv[1]':
+                # Extract nvim appimage after upload
+                ssh '$argv[1]' '
+                    rm -rf ~/.local/bin/nvim-appimage/
+                    mkdir -p ~/.local/bin/nvim-appimage/
+                    cd ~/.local/bin/nvim-appimage/ && ../nvim.appimage --appimage-extract >/dev/null
+                    ln -sf ~/.local/bin/nvim-appimage/squashfs-root/usr/bin/nvim ~/.local/bin/nvim
+                '
+            " >/dev/null 2>&1 &
+            disown
 
             set REMOTE_COMMAND "
                 export LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
