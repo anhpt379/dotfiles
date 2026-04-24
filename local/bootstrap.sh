@@ -250,6 +250,10 @@ mv okta-aws-cli ~/.local/bin/
 rm -rf /tmp/okta-aws-cli/*
 cd -
 
+# claude code sandbox mode
+sudo dnf install -y bubblewrap socat
+sudo npm install -g @anthropic-ai/sandbox-runtime
+
 # ruby (for puppet code formatter)
 sudo dnf install -y rbenv ruby-build git
 rbenv init
