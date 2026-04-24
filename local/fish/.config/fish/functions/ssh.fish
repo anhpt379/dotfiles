@@ -45,7 +45,14 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
             uname -m
         ") || return 1
 
-        # Phase 0: Must-have/small dotfiles for ALL architectures
+        set REMOTE_COMMAND "
+            export LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
+            export TERM=xterm-kitty
+            export WORK_EMAIL=$WORK_EMAIL
+            source ~/.bash_profile
+        "
+
+        # Phase 1: Small dotfiles for ALL architectures
         echo "Uploading dotfiles (CTRL+C to skip)..."
         rsync -azvhP \
             --info=name0 \
@@ -58,42 +65,19 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
         or true
 
         if string match -q "aarch64" $remote_arch
-            # aarch64: Only Phase 0, done
-            set REMOTE_COMMAND "
-                export LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
-                export TERM=xterm-256color
-                export WORK_EMAIL=$WORK_EMAIL
-                source ~/.bash_profile
-            "
+            # aarch64: Only Phase 1, done
         else
-            # Phase 1: Upload remaining small/critical files (x86 only)
-            rsync -azvhP \
-                --info=name0 \
-                --info=progress2 \
-                --no-inc-recursive \
-                --copy-links \
-                --keep-dirlinks \
-                --relative \
-                --exclude='.local/bin/fish' \
-                --exclude='.local/bin/nvim.appimage' \
-                --exclude='.local/bin/lf' \
-                --exclude='.local/bin/rg' \
-                --exclude='.local/bin/kubecolor' \
-                --exclude='.local/bin/fzf' \
-                --exclude='.local/bin/fd' \
-                --exclude='.local/bin/jq' \
-                ~/dotfiles/remote/HOME/./ "$argv[1]": 2>/dev/null
-            or true
-
-            # Phase 2: Upload large binaries in background (100KB/s limit), then extract nvim
-            nohup sh -c "
+            # Phase 2: Upload all remaining files in background (100KB/s limit), then extract nvim
+            # Skip if background rsync to this host is already running
+            if not pgrep -f "rsync.*$argv[1]:" >/dev/null
+                nohup sh -c "
                 rsync -azP \
                     --bwlimit=100 \
                     --partial \
                     --copy-links \
                     --keep-dirlinks \
                     --relative \
-                    ~/dotfiles/remote/HOME/./.local/bin/{fish,nvim.appimage,lf,rg,kubecolor,fzf,fd,jq} '$argv[1]':
+                    ~/dotfiles/remote/HOME/./ '$argv[1]':
                 ssh '$argv[1]' '
                     rm -rf ~/.local/bin/nvim-appimage/
                     mkdir -p ~/.local/bin/nvim-appimage/
@@ -101,14 +85,8 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
                     ln -sf ~/.local/bin/nvim-appimage/squashfs-root/usr/bin/nvim ~/.local/bin/nvim
                 '
             " >/dev/null 2>&1 &
-            disown
-
-            set REMOTE_COMMAND "
-                export LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
-                export TERM=xterm-kitty
-                export WORK_EMAIL=$WORK_EMAIL
-                source ~/.bash_profile
-            "
+                disown
+            end
         end
 
     end
