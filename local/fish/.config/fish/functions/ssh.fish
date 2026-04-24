@@ -104,6 +104,10 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
     end
     set code $status
 
+    # Reset alternate screen mode after SSH exits
+    # Fixes broken double-click selection in tmux after abrupt disconnects
+    printf '\e[?1049l'
+
     if test $code -ne 0
         set end $(date +%s)
         set duration $(expr $end - $start)
