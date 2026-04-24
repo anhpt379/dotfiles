@@ -179,8 +179,6 @@ rm -f lf-*.tar.gz
 cd - || exit 1
 
 # tmux-fingers
-git clone https://github.com/Morantron/tmux-fingers ~/.tmux/plugins/tmux-fingers
-
 # Install crystal lang (to compile tmux-fingers)
 sudo tee /etc/yum.repos.d/84codes_crystal.repo << 'EOF'
 [84codes_crystal]
@@ -192,10 +190,14 @@ gpgcheck=0
 EOF
 sudo dnf install -y crystal
 
-# Clone tmux-fingers
+# Clone and build tmux-fingers
 if ! test -d ~/.tmux/plugins/tmux-fingers; then
   git clone https://github.com/anhpt379/tmux-fingers ~/.tmux/plugins/tmux-fingers
 fi
+cd ~/.tmux/plugins/tmux-fingers
+shards build --production
+cp bin/tmux-fingers ~/.local/bin/
+cd -
 
 # hping3
 # the normal `ping` doesn't work in Lima VM
