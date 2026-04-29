@@ -20,7 +20,7 @@ nnoremap <expr> gw &modified ? ':silent! Gwrite<CR>:update<CR>' : ''
 let g:dispatch_no_maps = 1
 nmap g[ :Start! git pull --rebase origin $(git default-branch)<CR>
 nmap g] :Start! git push --force-with-lease origin HEAD<CR>:silent exec '!git rev-parse HEAD \| tr -d "\n" \| pbcopy'<CR>
-nmap m  :Start! git checkout $(git default-branch) && git pull --rebase origin $(git default-branch)<CR>
+nmap M  :Start! git checkout $(git default-branch) && git pull --rebase origin $(git default-branch)<CR>
 nmap gB :G blame<CR>
 
 " Disable :Gblame commit colors
