@@ -15,7 +15,7 @@ sudo dnf --enablerepo=rawhide --setopt=excludepkgs= upgrade tmux fish
 # Install other packages
 sudo dnf install -y \
   kitty-terminfo which \
-  stow git neovim \
+  stow git neovim glab \
   jq ripgrep eza rsync zoxide \
   curl wget nmap-ncat \
   telnet corkscrew \
