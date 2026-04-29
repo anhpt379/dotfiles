@@ -17,8 +17,11 @@ Example: `mcp-cli call toolbox/web_search '{"query": "your search query here"}'`
   3. Solution: what the new setup does and why it's better
   4. Safety: explain why the change is safe (backward compat, deployment
      readiness, rollback implications) and note any trade-offs. Avoid
-     overconfident claims like "no risk" or "can proceed without coordination"
-     - instead, explain *how* rollback works and what happens if issues arise
+     overconfident claims like "no risk", "no downtime", or "can proceed
+     without coordination" - instead, explain *how* rollback works and what
+     it restores (e.g., "if issues arise, reverting restores the original
+     behavior"). Focus on service impact (downtime, broken connections,
+     failed requests) rather than data loss unless data loss is relevant.
   5. Summary: list of specific changes - only for large changes where it's
      hard to track what happened; skip if the diff is self-explanatory
 - Do not make false claims about system state - verify before asserting
