@@ -27,6 +27,10 @@ Example: `mcp-cli call toolbox/web_search '{"query": "your search query here"}'`
 - Do not make false claims about system state - verify before asserting
 - Use lowercase module/service names without spaces (e.g., `devderpapp`, `bigid_db`)
 - Do not use marketing or stylized names (e.g., "Dev DERP app" → `devderpapp`)
+- Use markdown backticks to highlight technical terms for proper rendering:
+  - File names and paths (e.g., `services-cert-chain.crt`, `/etc/ssl/certs/internal-ca-bundle.crt`)
+  - Service names (e.g., `bkredis`, `powerdns`, `pgsql`)
+  - Technical terms and identifiers (e.g., `-bundle.crt`, `internal-ca-bundle`)
 
 ## Code Style
 
