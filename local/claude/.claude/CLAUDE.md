@@ -25,6 +25,18 @@ Example: `mcp-cli call toolbox/web_search '{"query": "your search query here"}'`
   5. Summary: list of specific changes - only for large changes where it's
      hard to track what happened; skip if the diff is self-explanatory
 - Do not make false claims about system state - verify before asserting
+- In body prose, use narrative third-person phrasing (e.g., "This commit
+  updates X to Y", "The new setup presents the full chain") rather than
+  bare imperatives ("Update X to Y"). The subject line still uses
+  imperative.
+- Avoid unusual or archaic words in technical prose (e.g., "inert",
+  "nascent", "salient"). Prefer everyday alternatives such as "has no
+  runtime effect" or "commented out today".
+- For no-op changes (edits to commented-out lines, docs, or examples),
+  keep the safety paragraph to one sentence acknowledging there is no
+  runtime effect. Do not invent conditional rollback scenarios when
+  there is no real rollback mechanism to describe - empty "if X later
+  happens, reverting Y restores Z" clauses read as padding.
 - Use lowercase module/service names without spaces (e.g., `devderpapp`, `bigid_db`)
 - Do not use marketing or stylized names (e.g., "Dev DERP app" → `devderpapp`)
 - Use markdown backticks to highlight technical terms for proper rendering:
