@@ -37,12 +37,13 @@ Example: `mcp-cli call toolbox/web_search '{"query": "your search query here"}'`
   runtime effect. Do not invent conditional rollback scenarios when
   there is no real rollback mechanism to describe - empty "if X later
   happens, reverting Y restores Z" clauses read as padding.
-- Use lowercase module/service names without spaces (e.g., `devderpapp`, `bigid_db`)
-- Do not use marketing or stylized names (e.g., "Dev DERP app" → `devderpapp`)
-- Use markdown backticks to highlight technical terms for proper rendering:
-  - File names and paths (e.g., `services-cert-chain.crt`, `/etc/ssl/certs/internal-ca-bundle.crt`)
-  - Service names (e.g., `bkredis`, `powerdns`, `pgsql`)
-  - Technical terms and identifiers (e.g., `-bundle.crt`, `internal-ca-bundle`)
+- Use lowercase module/service names without spaces (e.g., devderpapp, bigid_db)
+- Do not use marketing or stylized names (e.g., "Dev DERP app" → devderpapp)
+- Do not use markdown backticks in commit messages unless absolutely
+  necessary (e.g., a symbol whose meaning would be ambiguous without
+  them). Plain paths, filenames, service names, and identifiers read
+  fine as bare text in `git log` and are harder to read with stray
+  backtick noise. Backticks belong in MR descriptions, not commits.
 
 ## Code Style
 
@@ -53,5 +54,9 @@ Example: `mcp-cli call toolbox/web_search '{"query": "your search query here"}'`
 - Title format: `TICKET-NUMBER: scope: description` (e.g., `PCM-5746: bigid_db: use proper CA bundle`)
 - Extract ticket number from branch name if available (e.g., `panh/PCM-5746-bigid` → `PCM-5746`)
 - Description/body:
-  - Single commit: use the commit message body directly
-  - Multiple commits: aggregate the commit message bodies into a cohesive description
+  - Single commit: use the commit message body directly, but add
+    markdown backticks around technical terms (file names and paths,
+    service names, identifiers) for proper rendering in GitLab/GitHub.
+  - Multiple commits: aggregate the commit message bodies into a
+    cohesive description, adding backticks around technical terms as
+    above.
