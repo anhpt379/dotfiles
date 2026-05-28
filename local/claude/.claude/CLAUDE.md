@@ -10,7 +10,8 @@ Example: `mcp-cli call toolbox/web_search '{"query": "your search query here"}'`
 - Format for non-monorepo: `title` only
 - Do not use conventional commit types (feat, fix, chore, etc.) unless it's
   being used recently for the repo
-- Title: ~50 characters max
+- Title: ~50 characters max, with the first letter capitalized
+    (e.g., `Pin jinja2>=3.1`, not `pin jinja2>=3.1`)
 - Body: 72 characters per line, written in narrative flow:
   1. Context: what the current setup does
   2. Problem: why it works but is fragile, or what's wrong
