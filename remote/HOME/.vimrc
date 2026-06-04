@@ -69,7 +69,7 @@ if filereadable(expand('~/.local/bin/termux-clipboard-set'))
   nnoremap yiw yiw:call system("~/.local/bin/termux-clipboard-set", @0)<CR>
   nnoremap yib yib:call system("~/.local/bin/termux-clipboard-set", @0)<CR>
   nnoremap yiq yiq:call system("~/.local/bin/termux-clipboard-set", @0)<CR>
-  nnoremap Y   Y:call system("~/.local/bin/termux-clipboard-set", @0)<CR>
+  nnoremap Y   y$:call system("~/.local/bin/termux-clipboard-set", @0)<CR>
   vnoremap y   y:call system("~/.local/bin/termux-clipboard-set", @0)<CR>
 endif
 
