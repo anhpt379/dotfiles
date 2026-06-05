@@ -52,3 +52,29 @@ if ! test -f ~/.local/bin/nvim-appimage/squashfs-root/usr/bin/nvim || test ~/.lo
 fi
 
 cd ~/ || exit 1
+
+# Fish-style abbr: expand aliases inline when pressing space.
+# Uses bind -x so we mutate the readline buffer directly instead of
+# replaying keys (which would recurse on the space binding).
+_NO_EXPAND_ALIASES=(ls la ll lla grep fgrep egrep sudo)
+_expand_alias_on_space() {
+  local leading="${READLINE_LINE:0:$READLINE_POINT}"
+  local trailing="${READLINE_LINE:$READLINE_POINT}"
+  local first_word="${leading%% *}"
+  if [[ -n $first_word && $leading == "$first_word" ]] && alias "$first_word" &>/dev/null; then
+    local skip name
+    for name in "${_NO_EXPAND_ALIASES[@]}"; do
+      [[ $name == "$first_word" ]] && skip=1 && break
+    done
+    if [[ -z $skip ]]; then
+      local def
+      def=$(alias "$first_word")
+      def="${def#*=\'}"
+      def="${def%\'}"
+      leading="$def"
+    fi
+  fi
+  READLINE_LINE="${leading} ${trailing}"
+  READLINE_POINT=$((${#leading} + 1))
+}
+bind -x '" ": _expand_alias_on_space'
