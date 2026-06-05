@@ -77,4 +77,6 @@ _expand_alias_on_space() {
   READLINE_LINE="${leading} ${trailing}"
   READLINE_POINT=$((${#leading} + 1))
 }
-bind -x '" ": _expand_alias_on_space'
+if [[ $- == *i* ]]; then
+  bind -x '" ": _expand_alias_on_space'
+fi
