@@ -90,6 +90,9 @@ compinit -C -d "$HOME/.zcompdump"
 
 setopt AUTO_MENU COMPLETE_IN_WORD ALWAYS_TO_END LIST_PACKED
 
+# Never prompt "do you wish to see all N possibilities?"; just show them.
+LISTMAX=9999
+
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list \
   'm:{a-zA-Z}={A-Za-z}' \
