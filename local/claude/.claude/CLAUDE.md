@@ -23,6 +23,12 @@ Example: `mcp-cli call toolbox/web_search '{"query": "your search query here"}'`
      it restores (e.g., "if issues arise, reverting restores the original
      behavior"). Focus on service impact (downtime, broken connections,
      failed requests) rather than data loss unless data loss is relevant.
+     Skip the safety note entirely when the only thing left to say is
+     tautological - "reverting restores the prior behavior" is true of
+     every commit and adds no information. Only include rollback prose
+     when there is something non-obvious to convey (a migration step, a
+     feature flag, a coordinated deploy, a state that does not roll back
+     cleanly).
   5. Summary: list of specific changes - only for large changes where it's
      hard to track what happened; skip if the diff is self-explanatory
 - Do not make false claims about system state - verify before asserting
