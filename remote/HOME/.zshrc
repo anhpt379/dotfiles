@@ -122,8 +122,3 @@ _expand-alias-on-space() {
 zle -N _expand-alias-on-space
 bindkey ' ' _expand-alias-on-space
 bindkey '^ ' magic-space  # Ctrl-Space inserts a literal space (no expansion)
-
-# Fedora's /etc/zshrc rebinds Tab to expand-or-complete-with-dots, which
-# flashes red ...... while completion is computed. The menu we set up
-# above is already a clear "in progress" cue, so drop the wrapper.
-bindkey '^I' expand-or-complete
