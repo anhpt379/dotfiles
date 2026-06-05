@@ -2,33 +2,33 @@
   "title": "macOS apps",
   "rules": [
     {
-      "description": "macOS: Open Brave with COMMAND+1",
+      "description": "macOS: Open Chrome with COMMAND+CONTROL+C",
       "manipulators": [
         {
           "type": "basic",
           "from": {
-            "key_code": "1",
+            "key_code": "c",
             "modifiers": {
-              "mandatory": ["command"]
+              "mandatory": ["command", "control"]
             }
           },
           "to": [
             {
-              "shell_command": "open -a 'Brave Browser.app' && open -g ~/Applications/MoveCursorToCenterOfActiveWindow.app"
+              "shell_command": "open -a 'Google Chrome.app' && open -g ~/Applications/MoveCursorToCenterOfActiveWindow.app"
             }
           ]
         }
       ]
     },
     {
-      "description": "macOS: Open Kitty with COMMAND+2",
+      "description": "macOS: Open Kitty with COMMAND+CONTROL+K",
       "manipulators": [
         {
           "type": "basic",
           "from": {
-            "key_code": "2",
+            "key_code": "k",
             "modifiers": {
-              "mandatory": ["command"]
+              "mandatory": ["command", "control"]
             }
           },
           "to": [
@@ -40,33 +40,14 @@
       ]
     },
     {
-      "description": "macOS: Open Notes with COMMAND+3",
+      "description": "macOS: Open Zoom with COMMAND+CONTROL+Z",
       "manipulators": [
         {
           "type": "basic",
           "from": {
-            "key_code": "3",
+            "key_code": "z",
             "modifiers": {
-              "mandatory": ["command"]
-            }
-          },
-          "to": [
-            {
-              "shell_command": "open -a Notes.app && open -g ~/Applications/MoveCursorToCenterOfActiveWindow.app"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "macOS: Open Zoom with COMMAND+4",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "4",
-            "modifiers": {
-              "mandatory": ["command"]
+              "mandatory": ["command", "control"]
             }
           },
           "to": [
@@ -78,14 +59,33 @@
       ]
     },
     {
-      "description": "macOS: Open Finder with COMMAND+5",
+      "description": "macOS: Open Slack with COMMAND+CONTROL+S",
       "manipulators": [
         {
           "type": "basic",
           "from": {
-            "key_code": "5",
+            "key_code": "s",
             "modifiers": {
-              "mandatory": ["command"]
+              "mandatory": ["command", "control"]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a Slack.app && open -g ~/Applications/MoveCursorToCenterOfActiveWindow.app"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "macOS: Open Finder with COMMAND+CONTROL+F",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f",
+            "modifiers": {
+              "mandatory": ["command", "control"]
             }
           },
           "to": [
