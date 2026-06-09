@@ -34,6 +34,10 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
             ssh-add -D
             echo "$COMPANY_NAME_CAPITALIZE's SSH key has expired. Getting a new one..."
             command ssh -A ssh.$COMPANY_DOMAIN
+            set -f key_status $status
+            if test $key_status -eq 130
+                return 130
+            end
         end
     end
 
@@ -62,7 +66,10 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
             --keep-dirlinks \
             --relative \
             ~/dotfiles/remote/HOME/./.{zshrc,zprofile,bashrc,bash_profile,bash_aliases,inputrc,vimrc,tmux.conf,less,terminfo,local/bin/pbcopy,local/bin/pbpaste,local/bin/termux-clipboard-get,local/bin/termux-clipboard-set} "$argv[1]": &>/dev/null
-        or true
+        set -f rsync_status $status
+        if test $rsync_status -eq 130
+            return 130
+        end
 
         # if string match -q "aarch64" $remote_arch
         #     # aarch64: Only Phase 1, done
