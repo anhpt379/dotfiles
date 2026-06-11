@@ -1,0 +1,7 @@
+{
+  "name": "aodark",
+  "base": "dark-ansi",
+  "overrides": {
+    "selectionBg": "#ffcc66"
+  }
+}
