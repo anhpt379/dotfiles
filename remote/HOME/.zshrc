@@ -59,6 +59,9 @@ cd ~/ || exit 1
 # Emacs-style key bindings (matches readline default in bash)
 bindkey -e
 
+bindkey '^[OH'  beginning-of-line
+bindkey '^[OF'  end-of-line
+
 # History — big, shared across sessions, dedup'd
 HISTFILE=~/.zsh_history
 HISTSIZE=100000
