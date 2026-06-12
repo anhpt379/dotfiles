@@ -8,7 +8,7 @@ function fish_prompt
     set -l behind "↓"
     set -l diverged "⥄ "
     set -l dirty "✗"
-    set -l none "✓"
+    set -l none ""
 
     set -l normal_color (set_color normal)
     set -l repository_color (set_color yellow)
@@ -78,14 +78,14 @@ function fish_prompt
 
         if test $kernel = Linux; and git_is_repo
             echo -n -s " " $cwd " "
-            echo -n -s $repository_color (git_branch_name) " "
+            echo -n -s $repository_color (git_branch_name)
 
             set -l git_ahead_status (git_ahead $ahead $behind $diverged $none)
 
             if git_is_touched
-                echo -n -s $dirty
+                echo -n -s " " $dirty
             else if test "$git_ahead_status" != ""
-                echo -n -s $git_ahead_status
+                echo -n -s " " $git_ahead_status
             end
         else
             echo -n -s " " $cwd
