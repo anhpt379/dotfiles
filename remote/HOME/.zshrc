@@ -26,18 +26,27 @@ if [[ -n $SSH_CONNECTION ]]; then
   fi
 fi
 
-# Prompt — same shape as the bash one in .bashrc
+# Prompt — same shape as the bash one in .bashrc, with a grey background
+# extended across the whole line (including the input area as you type),
+# similar to Claude Code's input box. The `\e[K` fills from the cursor to
+# the right edge using the active background; leaving %K open keeps the
+# bg attribute on for typed input. preexec resets SGR so command output
+# isn't tinted grey.
 export SHORT_HOST=$(hostname -f | cut -d. -f1-2)
+_PROMPT_FILL=$'\e[K'
 if [[ $UID -eq 0 ]]; then
-  PROMPT="%F{red}[${SHORT_HOST} %~]# %f"
+  PROMPT="%K{#262626}%F{red}[${SHORT_HOST} %~]# %f%{${_PROMPT_FILL}%}"
 else
-  PROMPT="[${SHORT_HOST} %~]\$ "
+  PROMPT="%K{#262626}[${SHORT_HOST} %~]\$ %{${_PROMPT_FILL}%}"
 fi
 
-# Reset cursor shape to beam before each prompt (matches PROMPT_COMMAND in bash)
 autoload -Uz add-zsh-hook
+# Reset cursor shape to beam before each prompt (matches PROMPT_COMMAND in bash)
 _reset_cursor() { printf '\033[6 q' }
 add-zsh-hook precmd _reset_cursor
+# Reset SGR (clears the grey bg) before the command runs
+_reset_sgr() { printf '\033[0m' }
+add-zsh-hook preexec _reset_sgr
 
 # Fix git-deploy umask complaining
 umask 0002
