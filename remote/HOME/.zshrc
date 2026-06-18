@@ -71,6 +71,18 @@ bindkey -e
 bindkey '^[OH'  beginning-of-line
 bindkey '^[OF'  end-of-line
 
+# Terminal key fixes — mirror .inputrc bindings so zsh feels like bash.
+# Without these, sequences like Ctrl+Delete (\e[3;5~) leak as literal ";5~".
+bindkey '^[[3~'   delete-char           # Forward delete
+bindkey '^[[3;5~' kill-word             # Ctrl+Delete
+bindkey '^[[3;3~' kill-word             # Option/Alt+Delete
+bindkey '^[[1~'   beginning-of-line     # Home (some terminals)
+bindkey '^[[4~'   end-of-line           # End (some terminals)
+bindkey '^[[1;3C' forward-word          # Option/Alt+Right
+bindkey '^[[1;3D' backward-word         # Option/Alt+Left
+bindkey '^[[5~'   forward-word          # PageUp -> shell-forward-word equivalent
+bindkey '^[[6~'   backward-word         # PageDown -> shell-backward-word equivalent
+
 # History — big, shared across sessions, dedup'd
 HISTFILE=~/.zsh_history
 HISTSIZE=100000
