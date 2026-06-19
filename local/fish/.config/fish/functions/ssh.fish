@@ -41,6 +41,13 @@ function ssh -d "Make sure we have all the keys before ssh to a host"
         end
     end
 
+    # If a remote command was passed (e.g. `ssh host uptime`), skip the
+    # dotfiles sync and the interactive-shell wrapping — just exec ssh.
+    if test (count $argv) -gt 1
+        command ssh $argv
+        return $status
+    end
+
     if not string match -q -- "root@*" $argv
         # Single SSH call to check dependencies and detect architecture
         # set -l remote_arch (ssh $argv "
