@@ -1,4 +1,47 @@
 #!/bin/bash
+#
+# gl - interactive git log browser built on fzf
+#
+# Renders `git log` into an fzf picker with a side-by-side diff preview
+# (via diff-so-fancy) and keybindings for the common things you want to
+# do with a commit once you have found it. The script changes behavior
+# based on the name it is invoked under (gl / gd / gg), so
+# symlink it as needed.
+#
+# Usage:
+#   gl                      Browse all commits on the current branch
+#                           (capped at 15000).
+#   gl -N                   Same, but limit to the last N commits, e.g.
+#                           `gl -200`. Works with every invocation mode.
+#   gl <file>               Follow the history of <file> across renames
+#                           (git log --follow <file>).
+#   gl <file>:<line>        Show the history of a single line in a file
+#                           (git log -L <line>,<line>:<file>).
+#
+#   gd                      Browse commits showing their patch with zero
+#                           context lines (git log -p --unified=0). Use
+#                           when symlinked as `gd`.
+#
+#   gg <pat>                Pickaxe search: list commits whose diff adds
+#                           or removes <pat> (case-insensitive,
+#                           git log -i -G).
+#   gg <pat> <file>         Same pickaxe, restricted to <file> (and
+#                           following renames).
+#
+# Interactive keys (inside the fzf picker):
+#   Enter        Open the selected commit with `git show` (full diff).
+#   Ctrl-/       Toggle the diff preview pane.
+#   Ctrl-S       Toggle fzf sort.
+#   Ctrl-Y       Copy the full commit hash to the clipboard (pbcopy).
+#   Ctrl-C       Copy the commit message body to the clipboard.
+#   Ctrl-O       Open the commit on the origin remote's web UI. Refuses
+#   Ctrl-Alt-O   if the commit has not been pushed yet.
+#   Ctrl-R       Start an interactive rebase from the selected commit
+#                (git rebase -i --rebase-merges <hash>) and exit fzf.
+#   Ctrl-]       Run `git push --force-with-lease` and exit fzf. Useful
+#                immediately after a Ctrl-R rebase.
+#
+# Exits with status 1 if the current directory is not a git repository.
 
 git rev-parse HEAD >/dev/null || exit 1
 
