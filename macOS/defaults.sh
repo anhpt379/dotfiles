@@ -91,3 +91,7 @@ defaults write com.apple.WindowManager GloballyEnabled -bool true           # Tu
 # Rectangle
 defaults write com.knollsoft.Rectangle almostMaximizeHeight -float 1
 defaults write com.knollsoft.Rectangle almostMaximizeWidth  -float 0.66
+
+# Use macOS 27 Golden Gate unified corner radius and non-floating sidebar on macOS 26 Tahoe
+defaults write -g NSConvolutionOverride1 -float 15
+defaults write -g NSSplitViewItemSidebarDefaultsToFloatingAppearance -bool false
