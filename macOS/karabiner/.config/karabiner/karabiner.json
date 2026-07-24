@@ -381,6 +381,24 @@
                         ]
                     },
                     {
+                        "description": "Raycast: Open the search box with COMMAND+SPACE",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "spacebar",
+                                    "modifiers": { "mandatory": ["command"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "spacebar",
+                                        "modifiers": ["option"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "Escape: Show desktop when pressing the ESCAPE key",
                         "manipulators": [
                             {
