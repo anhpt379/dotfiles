@@ -15,7 +15,7 @@ end
 abbr -a gco 'git checkout'
 abbr -a m   'master'
 
-abbr -a cc 'claude'
+abbr -a cc 'touch $HOME/.claude/.bk-auth-marker && claude'
 
 abbr -a c 'clear'
 abbr -a q 'exit'
