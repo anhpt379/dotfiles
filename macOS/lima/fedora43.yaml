@@ -16,3 +16,4 @@ mounts:
 
 portForwards:
   - guestPort: 3000
+  - guestPort: 8123
