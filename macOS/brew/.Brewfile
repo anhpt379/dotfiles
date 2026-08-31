@@ -39,6 +39,7 @@ brew 'bash'
 brew 'bind'  # to get `dig` command
 brew 'coreutils'
 brew 'curl'
+brew 'deno'  # js runtime for yt-dlp
 brew 'eza'
 brew 'fd'
 brew 'fish'
