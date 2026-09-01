@@ -30,7 +30,7 @@ if [[ -d $name ]]; then
   fi
 
   # preview directory contents with `eza`
-  command ls --color=always --group-directories-first -lhAvF "$name"
+  command ls --color=always --classify=always --group-directories-first -lhAv "$name"
 
 elif [[ -f $name ]]; then
   echo -e "File: \033[1m$display_name\033[0m"
