@@ -17,24 +17,69 @@ fi
 # Configuration
 readonly PROJECT_NAME="$1"
 readonly DEFAULT_USER="bplatform-default"
+readonly REQUEST_TIMEOUT="15s"
 
 # Get all available Kubernetes clusters (skip header line)
 readonly ALL_CLUSTERS=$(kubectl config get-clusters | awk 'NR>1 {print $1}')
 
-# Function: Check if a namespace in a given context has any running pods
+# Function: Verify the credentials for $DEFAULT_USER work before anything else
+# runs. Every pod query below authenticates through the exec credential plugin
+# from the kubeconfig, so a stale token makes them all fail. Calling the plugin
+# once, serially, both surfaces that up front and refreshes the token before the
+# parallel fan-out spawns 32 copies of it at once.
+check_auth() {
+  local -a credential_plugin
+  mapfile -t credential_plugin < <(
+    kubectl config view -o go-template="{{range .users}}{{if eq .name \"$DEFAULT_USER\"}}{{.user.exec.command}}{{range .user.exec.args}}{{\"\\n\"}}{{.}}{{end}}{{end}}{{end}}"
+  )
+
+  if [ ${#credential_plugin[@]} -eq 0 ]; then
+    echo "Error: user '$DEFAULT_USER' has no exec credential plugin in the kubeconfig" >&2
+    exit 1
+  fi
+
+  local output
+  if ! output=$("${credential_plugin[@]}" 2>&1); then
+    echo "Error: cannot get credentials for user '$DEFAULT_USER':" >&2
+    echo "$output" >&2
+    exit 1
+  fi
+}
+
+# Function: Check whether the project namespace in a given cluster is unusable
 # Parameters:
 #   $1 - cluster name
-# Returns: Context name if empty (no pods), nothing otherwise
+# Returns: Context name if the namespace is empty or inaccessible, nothing if it
+#          has pods or if the cluster could not be reached at all
 check_if_namespace_empty() {
   local cluster_name=$1
   local cluster_short_name="${cluster_name#bplatform-}"  # Remove bplatform- prefix
   local context_name="${PROJECT_NAME}-${cluster_short_name}"
 
-  local pod_count=$(kubectl --context="$context_name" get pods --no-headers 2>/dev/null | wc -l)
+  local pods stderr_file
+  stderr_file=$(mktemp)
 
-  if [ "$pod_count" -eq 0 ]; then
-    echo "$context_name"
+  if pods=$(kubectl --context="$context_name" --request-timeout="$REQUEST_TIMEOUT" \
+    get pods --no-headers 2>"$stderr_file"); then
+    rm -f "$stderr_file"
+    if [ -z "${pods//[[:space:]]/}" ]; then
+      echo "$context_name"
+    fi
+    return
   fi
+
+  # The query failed. "Error from server" means the API server answered (the
+  # namespace is missing, or this user has no access to it), which is a real
+  # answer worth acting on. Anything else (expired token, unreachable cluster,
+  # timeout) leaves the namespace status unknown, so the context is kept and the
+  # failure recorded for reporting.
+  if grep -q "^Error from server" "$stderr_file"; then
+    echo "$context_name"
+  else
+    touch "${FAILED_DIR}/${context_name}"
+  fi
+
+  rm -f "$stderr_file"
 }
 
 # Function: Create a Kubernetes context for the given cluster
@@ -70,6 +115,10 @@ echo "Project: $PROJECT_NAME"
 echo "User: $DEFAULT_USER"
 echo ""
 
+# Step 0: Make sure the credentials work before creating or deleting anything
+echo "Checking credentials..."
+check_auth
+
 # Step 1: Create contexts for all clusters
 echo "Creating contexts for all clusters..."
 for cluster in $ALL_CLUSTERS; do
@@ -78,7 +127,9 @@ done
 echo ""
 
 # Step 2: Export required variables and functions for parallel execution
-export PROJECT_NAME
+FAILED_DIR=$(mktemp -d)
+trap 'rm -rf "$FAILED_DIR"' EXIT
+export PROJECT_NAME FAILED_DIR REQUEST_TIMEOUT
 export -f check_if_namespace_empty
 
 # Step 3: Check for empty namespaces in parallel
@@ -88,10 +139,20 @@ EMPTY_CONTEXTS=$(
     xargs -P 32 -I {} bash -c 'check_if_namespace_empty "{}"'
 )
 
-# Step 4: Delete contexts with empty namespaces
+# Step 4: Report clusters whose namespace status could not be determined
+FAILED_COUNT=$(find "$FAILED_DIR" -type f | wc -l)
+if [ "$FAILED_COUNT" -gt 0 ]; then
+  echo ""
+  echo "Warning: $FAILED_COUNT of $(echo "$ALL_CLUSTERS" | wc -l) clusters did not answer"
+  echo "within $REQUEST_TIMEOUT or refused the connection, so their namespace status is"
+  echo "unknown and their contexts were kept:"
+  find "$FAILED_DIR" -type f -printf '  %f\n' | sort
+fi
+
+# Step 5: Delete contexts for empty or inaccessible namespaces
 if [ -n "$EMPTY_CONTEXTS" ]; then
   echo ""
-  echo "Found empty namespaces. Removing associated contexts..."
+  echo "Found empty or inaccessible namespaces. Removing associated contexts..."
 
   while IFS= read -r context; do
     if [ -n "$context" ]; then
@@ -100,6 +161,6 @@ if [ -n "$EMPTY_CONTEXTS" ]; then
   done <<<"$EMPTY_CONTEXTS"
 fi
 
-# Step 5: Ensure we have an active context
+# Step 6: Ensure we have an active context
 echo ""
 ensure_active_context
