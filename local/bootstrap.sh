@@ -252,6 +252,35 @@ mv okta-aws-cli ~/.local/bin/
 rm -rf /tmp/okta-aws-cli/*
 cd -
 
+# kubectl (kgp dependency)
+KUBECTL_VERSION=v1.37.0
+cd /tmp || exit 1
+curl -fLo kubectl https://dl.k8s.io/release/${KUBECTL_VERSION}/bin/linux/arm64/kubectl
+curl -fLo kubectl.sha256 https://dl.k8s.io/release/${KUBECTL_VERSION}/bin/linux/arm64/kubectl.sha256
+echo "$(cat kubectl.sha256)  kubectl" | sha256sum --check
+install -Dm755 kubectl ~/.local/bin/kubectl
+rm -f kubectl kubectl.sha256
+cd - || exit 1
+
+# kubecolor (the kubectl fish function wraps kubectl with it)
+KUBECOLOR_VERSION=0.7.1
+cd /tmp || exit 1
+wget https://github.com/kubecolor/kubecolor/releases/download/v${KUBECOLOR_VERSION}/kubecolor_${KUBECOLOR_VERSION}_linux_arm64.tar.gz
+tar zxvf kubecolor_${KUBECOLOR_VERSION}_linux_arm64.tar.gz kubecolor
+install -Dm755 kubecolor ~/.local/bin/kubecolor
+rm -f kubecolor kubecolor_${KUBECOLOR_VERSION}_linux_arm64.tar.gz
+cd - || exit 1
+
+# kgp (interactive kubectl browser; needs kubectl, fzf, python3, jq, less)
+mkdir -p ~/code/personal/
+if ! test -d ~/code/personal/kgp; then
+  git clone https://github.com/anhpt379/kgp.git ~/code/personal/kgp
+fi
+cd ~/code/personal/kgp || exit 1
+git remote set-url origin git@github.com:anhpt379/kgp.git
+make install
+cd - || exit 1
+
 # claude code sandbox mode
 sudo dnf install -y bubblewrap socat
 sudo npm install -g @anthropic-ai/sandbox-runtime
